@@ -1,0 +1,296 @@
+#{extends 'copyskin.html' /}
+<link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+<style>
+
+    div#skinPopularize {
+        width: 780px;
+        /*height:1800px;*/
+        margin-left:200px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+        overflow:hidden;
+    }
+    div.main {
+        width: 780px;
+        /*float: right;*/
+        /*display: inline;*/
+        /*margin-left:200px;*/
+        /*border: 1px solid #aaa;*/
+        background: white;
+    }
+
+    .sidemenu li a {
+       height:28px;
+       line-height:28px;
+    }
+    div.aside{margin-top:10px;}
+    .aside .sidebox{margin-bottom:10px;}
+
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {
+        /*margin: 5px auto;*/
+        height: auto;
+    }
+    .kwcontainer {
+        background: transparent;
+        margin: 10px auto;
+        width: 100%;
+        overflow: hidden;
+        zoom: 1;
+    }
+    .head ul li{margin: 13px 0 0 0;}
+    .sidemenu li .fold-icon{
+        margin: 9px  0 0 0;
+    }
+    .userData{color: red;font-weight: bold;font-size: 15px;}
+    .head ul{width: 780px;}
+    .sidemenu li .fold-icon{top:1px;}
+    .btn-ordernow {width: 120px;height: 42px;text-indent: -9999px;overflow: hidden;vertical-align: middle;background:url(http://img04.taobaocdn.com/tps/i4/T1iuYjXixoXXahTfPO-721-166.png) no-repeat -120px 0;}
+    .btn-ordernow:hover {background-position: -120px -42px;}
+    .borderimg{border:1px solid #ccc;}
+
+</style>
+<div></div>
+<div style="width:1024px;;margin:0 auto;">
+
+</div>
+
+
+<div class="aside userInfo">
+    <ul class="sidemenu sidebox side-tracked-tag navContent" style="">
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/popularize/popularize">
+                    <span class="aside-icon"></span>
+                    <span>站外推广</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/popularize/award">
+                    <span class="aside-icon"></span>
+                    <span>好评送推广位</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/popularize/popularsns">
+                    <span class="aside-icon"></span>
+                    <span>SNS分享</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/popularize/coolsites">
+                    <span class="aside-icon"></span>
+                    <span>合作站点</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/popularize/help">
+                    <span class="aside-icon"></span>
+                    <span>教程</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+    </ul>
+        <ul class="sidemenu sidebox side-tracked-tag navContent" style="">
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=lyleftnav">
+                    <span class="aside-icon"></span>
+                    <span class="red" style="font-weight:bold;font-size:14px;">淘掌柜店铺管理工具</span>
+                </a>
+            </div>
+        </li>
+                <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1848326&tracelog=liuliangtuiguang">
+                    <span class="aside-icon"></span>
+                    <span>优质流量推荐</span>
+                </a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="blank0" style="height:1px;"></div>
+
+    <ul class="sidemenu sidebox side-tracked-tag navContent" style="">
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="javascript:void(0)">
+                    <span class="aside-icon"></span>
+                    <span>用户版本信息</span>
+                </a>
+                <span class="fold-icon unfold"></span>
+                <div class="secondUl">
+                    <div class="secondLi">
+                        <a href="javascript:void(0)" style="background: url('');border-bottom: 0px;">用户版本：<span class="userData" tag="version"></span></a>
+                    </div>
+                    <div class="secondLi"><a href="javascript:void(0)" style="background: url('');border-bottom: 0px;">可推广宝贝数：<span class="userData" tag="totalNum"></span></a></div>
+                    <div class="secondLi"><a href="javascript:void(0)" style="background: url('');border-bottom: 0px;">已推广宝贝数：<span class="userData" tag="popularizedNum"></span></a></div>
+                    <div class="secondLi"><a href="javascript:void(0)" style="background: url('');border-bottom: 0px;">还可推广宝贝：<span class="userData" tag="remainNum"></span></a></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+        <div class="blank0" style="height:1px;"></div>
+
+</div>
+
+
+<div id="skinPopularize">
+<div style="width:780px;margin:0 auto;text-align:center;">
+<!--<div></div>-->
+    <div  class="slideBox borderimg" id="lunbo-area" >
+        <ul class="items">
+            <li><a target="_blank" href="/popularize/award" title="好评送推广"><img style="width: 760px;height: 160px;" src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2ghGqXiJcXXXXXXXX_!!22902351.jpg"></a></li>
+        </ul>
+    </div>
+    <div class=" borderimg" >
+    <table style="margin: 0 auto;margin-bottom:5px;margin-top:5px;">
+        <tr>
+            <td class="recommend"><a target="_blank"
+                href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=aituiguangheader1">
+                    <img class="borderimg"
+                    src="http://img01.taobaocdn.com/top/i1/T1OTJGXupcXXaCwpjX.png"
+                    style="margin-bottom: 3px;" />
+            </a> 
+                    <a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=aituiguangheader1">
+                        <div class="btn-ordernow"></div>
+                    </a>
+            </td>
+            <td style="width:50px;">
+            </td>
+            <td class="recommend">
+            <a target="_blank"
+                href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=relationsale2">
+                    <img class="borderimg"
+                    src="http://img01.taobaocdn.com/top/i1/T1OTJGXupcXXaCwpjX.png"
+                    style="margin-bottom: 3px;" />
+            </a>
+            <a target="_blank"
+                href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=relationsale2">
+                    <div class="btn-ordernow"></div>
+                    </a>
+            </td>
+            <td style="width:50px;">
+            </td>
+            <td class="recommend">
+                <a target="_blank"
+                   href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.12.gbGCFZ&service_code=FW_GOODS-1848326&tracelog=search&scm=&ppath=">
+                    <img class="borderimg"
+                         src="http://img01.taobaocdn.com/top/i1/T1bki0XBRdXXaCwpjX.png"
+                         style="margin-bottom: 3px;width: 102px;height: 102px;" />
+                </a>
+                <a target="_blank"
+                   href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.12.gbGCFZ&service_code=FW_GOODS-1848326&tracelog=search&scm=&ppath=">
+                    <div class="btn-ordernow"></div>
+                </a>
+            </td>
+            <td style="width:50px;">
+            </td>
+            <td class="recommend">
+                <a target="_blank"
+                   href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.12.gbGCFZ&service_code=FW_GOODS-1848326&tracelog=search&scm=&ppath=">
+                    <img class="borderimg"
+                         src="http://img01.taobaocdn.com/top/i1/T1bki0XBRdXXaCwpjX.png"
+                         style="margin-bottom: 3px;width: 102px;height: 102px;" />
+                </a>
+                <a target="_blank"
+                   href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.12.gbGCFZ&service_code=FW_GOODS-1848326&tracelog=search&scm=&ppath=">
+                    <div class="btn-ordernow"></div>
+                </a>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
+<div class="blank0" style="height:1px"></div>
+    <div class="main">
+    #{doLayout /}
+    </div>
+</div>
+
+<script>
+    TM.gcs("/js/lunbo/jquery.slideBox.min.js",function(){
+        $.post('/op/mixplans',{tag:""},function(data){
+            if(data.length > 0){
+                $(data).each(function(i,img){
+                    $('#lunbo-area .items').append($('<li><a target="_blank" href="'+img.src+'" title="'+img.tag+'"><img style="width: 760px;height: 160px;" src="'+img.href+'"></a></li>'));
+                })
+            }
+            $('#lunbo-area').slideBox();
+        })
+
+    })
+    //TM.wangwang = 'http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8';
+    TM.wangwang = '';
+    $('.fold-icon').click(function(){
+        var t = 500;
+        if($(this).hasClass("fold")) {
+            $(this).removeClass("fold");
+            $(this).addClass("unfold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideDown(t);
+            }
+        } else if($(this).hasClass("unfold")) {
+            $(this).removeClass("unfold");
+            $(this).addClass("fold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideUp(t);
+            }
+        }
+    });
+    $('.fold-icon').each(function(){
+        if($(this).parent().find('.secondUl').length == 0){
+        }
+    });
+    $('.navContent').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.navContent').find('div.navSelected').removeClass("navSelected");
+            anchor.parent().addClass("navSelected");
+            if(path.indexOf("/kits/") >= 0){
+                anchor.parent().parent().slideDown(500);
+            }
+        }
+    });
+    $('.navContent').find('li').each(function(){
+        var href = $(this).find('a').attr('href');
+        var anchorName = $(this).find('a').text();
+        $(".headUl").append($('<li class=""><a href="'+href+'">'+anchorName+'</a></li>'));
+    });
+
+    $('.head').append(            '<ul style="">' +
+            '   <li><a href="/popularize/popularize">站外推广</a></li>' +
+            '   <li><a href="/popularize/award">好评送推广</a></li>' +
+            '   <li><a href="/popularize/popularsns">SNS分享</a></li>' +
+            '   <li><a href="/popularize/coolsites">合作站点</a></li>' +
+            '   <li><a href="/popularize/help">教程</a></li>' +
+
+            '</ul>');
+
+</script>
+
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F60b5f65d7f99d1613880bb2e0f7d7942' type='text/javascript'%3E%3C/script%3E"));
+</script>

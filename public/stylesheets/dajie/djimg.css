@@ -1,0 +1,931 @@
+#wrap {
+    width: 960px;
+}
+
+.search-chose {
+    height: 30px;
+    line-height: 30px;
+    color: #333;
+    padding: 15px 10px 5px 10px;
+}
+
+.search-chose span {
+    font-weight: bold;
+}
+
+.search-chose i {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+.search-box {
+    padding: 24px 0 24px 0;
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+}
+.search-box .tmloading{
+    position: absolute;
+    top:26px;
+    left:660px;
+    width:25px;
+    height:25px;
+}
+
+input.search-txt {
+    width: 490px;
+    padding: 0 9px;
+    color: #999;
+    border: 2px solid #86b5d7;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.search-box .big-fresh span {
+    font-weight: normal;
+}
+
+.word-box {
+    clear: both;
+    overflow: hidden;
+    zoom: 1;
+    padding: 40px 20px 30px 20px;
+}
+
+.word-list {
+    width: 435px;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.word-title {
+    height: 34px;
+    line-height: 34px;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+}
+
+.words {
+    clear: both;
+    overflow: hidden;
+    zoom: 1;
+    height: 178px;
+    line-height: 30px;
+    font-family: "Microsoft YaHei";
+    padding: 10px 0;
+}
+
+.words a {
+    display: inline-block;
+    margin: 7px 20px 7px 0;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+
+.dj-networks a.blue {
+    color: #39c;
+}
+
+.dj-networks a.blue:hover {
+    color: #39c;
+}
+
+.dj-networks a.green {
+    color: #6cc;
+}
+
+.dj-networks a.green:hover {
+    color: #6cc;
+}
+
+.dj-networks a.orange {
+    color: #f96;
+}
+
+.dj-networks a.orange:hover {
+    color: #f96;
+}
+
+.dj-networks a.gray {
+    color: #999;
+}
+
+.dj-networks a.gray:hover {
+    color: #999;
+}
+
+.icardm-plus-tips {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.icardm-tips {
+    margin-bottom: 20px;
+}
+
+.icardm-tips li {
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    padding-bottom: 10px;
+}
+
+.icardm-plus-tips .icardm-tips a span, .icardm-start-tips .icardm-plus-tips a span {
+    padding-left: 15px;
+    white-space: nowrap;
+    background: url("/up/icard/images/icardm-tips.gif") 0 -99px no-repeat;
+    *background: url("/up/icard/images/icardm-tips.gif") 0 -95px no-repeat;
+    zoom: 1;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 22px;
+}
+
+.icardm-plus-tips .icardm-tips a:hover {
+    color: #1357A2;
+}
+
+.icardm-plus-tips .icardm-con {
+    float: left;
+    zoom: 1;
+    width: 756px;
+    padding: 0 20px 0 0;
+    margin-top: 30px;
+    border-right: 1px solid #E5E5E5;
+    min-height: 670px;
+    _height: 670px;
+}
+
+.icardm-con-tit {
+    padding: 0 5px 5px 8px;
+    clear: both;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.icardm-con-tit .change {
+    width: 95px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    float: right;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.icardm-con-tit .change:hover {
+    cursor: default;
+    text-decoration: none;
+}
+
+.icardm-con-tit .hasnum:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.icardm-con-tit .hasnum {
+    color: #86B5D7;
+}
+
+.icardm-con-tit div.new_cont {
+    padding-right: 10px;
+}
+
+.icardm-con-tit .num {
+    font-size: 14px;
+    line-height: 26px;
+}
+
+.icardm-con-tit .num span, .icardm-con-tit .num em {
+    color: #F60;
+    font-weight: bold;
+}
+
+.icardm-list {
+    border-top: 1px solid #D7D7D7;
+    padding-bottom: 10px;
+}
+
+.icardm-list li {
+    border-bottom: 1px solid #e6e6e6;
+    min-height: 80px;
+    _height: 80px;
+    padding: 12px 20px 6px 35px;
+    position1: relative;
+}
+
+.icardm-list .list-check {
+    float: left;
+    margin-left: -26px;
+    margin-top: 20px;
+}
+
+.icardm-list .head-pic {
+    float: left;
+    width: 58px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.icardm-list .head-pic img {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #CCC;
+    height: 52px;
+    padding: 2px;
+    width: 52px;
+    float: left;
+}
+
+.icardm-plus-tips .icardm-mail {
+    padding-top: 22px;
+}
+
+.icardm-plus-tips .icardm-mail span, .icardm-plus-tips .icardm-mail a {
+    width: 84px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0;
+    background: url("http://assets.dajieimg.com/up/Contacts-2012/images/dj-btn-cardmail-bg.png") 0 -104px no-repeat;
+    overflow: hidden;
+    text-indent: 100px;
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.icardm-plus-tips .icardm-mail a {
+    background-position: 0 -104px;
+}
+
+.icardm-plus-tips .icardm-mail a.dj-btn-send-mail {
+    background-position: -84px 0;
+}
+
+.icardm-mail {
+    float: right;
+    padding-top: 0;
+}
+
+.icardm-mail a {
+    padding: 0 5px;
+    display: block;
+    border-bottom: 1px solid #E5E5E5;
+    line-height: 25px;
+}
+
+.icardm-list-c {
+    padding: 0 125px 0 70px;
+}
+
+.icardm-list-c .sms a {
+    font-size: 14px;
+}
+
+.icardm-list-c .sms img {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.icardm-list-c .company a {
+    color: #333;
+}
+
+.icardm-list-c p {
+    line-height: 24px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.highlight {
+    color: #f60;
+}
+
+.icardm-list-tips {
+    margin-top: 10px;
+    overflow: hidden;
+    zoom: 1;
+    max-height: 52px;
+    _height: expression(this.scrollHeight>52 ? "52px":this.scrollHeight+'px');
+}
+
+.icardm-tt a {
+    padding: 0 10px 0 5px;
+    display: line;
+    margin: 0 0 6px 0;
+    float: left;
+    line-height: 22px;
+    height: 22px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.icardm-plus-tips .icardm-tips a span {
+    display: inline;
+}
+
+.icardm-list-tips a {
+    cursor: pointer;
+    padding: 0 0 0 15px;
+    background: url("/up/Contacts-2012/images/tag-icon.png") left 0 no-repeat;
+    color: #333;
+}
+
+.icardm-list-tips a:hover {
+    text-decoration: none;
+}
+
+.icardm-tips a {
+    float: none;
+}
+
+.icardm-list-tips a span {
+    float: left;
+    padding-right: 15px;
+    background: url("/up/Contacts-2012/images/tag-icon.png") right 0 no-repeat;
+    cursor: pointer;
+}
+
+.icardm-tt a:hover {
+    color: #333;
+}
+
+.icardm-tt a.selected {
+    background: url("/up/icard/images/icardm-tips.gif") right -22px no-repeat;
+    text-decoration: none;
+    color: #333;
+    cursor: default;
+}
+
+.icardm-list-tips a.selected {
+    border: none;
+    padding: 0 15px 0 10px;
+}
+
+.icardm-plus-tips .icardm-list li {
+    padding-left1: 10px;
+    position: relative;
+}
+
+#relevant-tags {
+    overflow: hidden;
+    position: relative;
+    zoom: 1;
+    margin-top: 30px;
+    padding-left: 15px;
+    border-left: 1px solid #e5e5e5;
+    left: -1px;
+    _left: -4px;
+}
+
+.icardm-tips li.b {
+    color: #666;
+}
+
+.search-null {
+    padding: 140px 0;
+    border-top: 1px solid #ccc;
+}
+
+.search-null p {
+    line-height: 22px;
+    padding-left: 30px;
+    color: #666;
+    width: 280px;
+    margin: 0 auto;
+    background: url("http://assets.dajieimg.com/up/Contacts-2012/images/alert.png") 0 0 no-repeat;
+}
+
+.accurate-box {
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    border-radius: 2px;
+    padding: 30px 60px 35px 60px;
+}
+
+.search-table {
+    padding: 0 20px 5px 20px;
+    border-bottom: 1px dotted #b3b3b3;
+}
+
+.search-table th, .search-table td {
+    padding-bottom: 15px;
+}
+
+.search-table th {
+    width: 100px;
+    text-align: right;
+}
+
+.search-table td input.text {
+    width: 255px;
+    background: #fff;
+}
+
+.search-table td input.dropdown {
+    width: 104px;
+    padding-right: 20px;
+    background: url("/up/Contacts-2012/images/arrow.png") 110px 9px no-repeat #fff;
+}
+
+.search-table td input.dropdown-long {
+    width: 237px;
+    overflow: hidden;
+    padding-right: 20px;
+    background: url("/up/Contacts-2012/images/arrow.png") 244px 9px no-repeat #fff;
+}
+
+.search-table td .select {
+    width: 123px;
+    float: left;
+    display: inline;
+}
+
+.search-table td .select_1 {
+    margin-right: 15px;
+}
+
+.search-table td .select-long {
+    width: 261px;
+}
+
+.accurate-btn {
+    padding: 30px 0 0 0;
+    text-align: center;
+}
+
+.accurate-btn .big-fresh span {
+    font-weight: normal;
+}
+
+.lay-change-card {
+    position: absolute;
+    zoom: 1;
+    z-index: 99;
+}
+
+.lay-change-card.onecol {
+    width: 230px !important;
+}
+
+.lay-change-card.twocol {
+    width: 403px !important;
+}
+
+.lay-change-card.thrcol {
+    width: 603px !important;
+}
+
+.lay-change-card.twocol .con ul, .lay-change-card.thrcol .con ul {
+    width: 176px;
+    float: left;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #CCC;
+}
+
+.lay-change-card.twocol ul.last, .lay-change-card.thrcol ul.last {
+    margin-right: 0;
+    padding-right: 0;
+    border: none;
+}
+
+.lay-change-card .pointer {
+    left: 32px;
+}
+
+.lay-change-card.top .pointer {
+    background-position: 0 -163px;
+    top: -12px;
+    height: 14px;
+    width: 21px;
+}
+
+.lay-change-card.bottom .pointer {
+    background: url("/up/my-job-v2/images/pointer-down-gray.gif");
+    bottom: -13px;
+    height: 13px;
+    width: 19px;
+}
+
+.lay-change-card .prompt-main {
+    background: none repeat scroll 0 0 #FFF;
+    border: 1px solid #CCC;
+    margin-left: -2px;
+    padding: 0;
+    position: relative;
+    z-index: 99;
+}
+
+.lay-change-card .con {
+    padding: 10px 10px 15px 0;
+}
+
+.lay-change-card .con p {
+    padding: 0 0 5px 20px;
+    color: #999;
+}
+
+.lay-change-card .con div {
+    padding: 0 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.lay-change-card .con li {
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+.lay-change-card .con li.over {
+    background: #f3f3f3;
+    cursor: pointer;
+}
+
+.lay-change-card .con label.checkbox {
+    display: inline-block;
+    padding: 0 0 0 8px;
+    _padding: 0 0 0 4px;
+    margin-top: 1px;
+    *margin-top: 3px;
+    margin-top: 3 px\0;
+    font: 12px/1.5 "tahoma,arial,宋体";
+    width: 120px;
+    height: 19px;
+    overflow: hidden;
+    word-wrap: break-word;
+    zoom: 1;
+}
+
+.lay-change-card .con label.checkbox.new-group-box {
+    width: auto;
+    *width: 120px;
+    height: auto;
+    overflow: visible;
+    vertical-align: middle;
+}
+
+.lay-change-card .con input.checkbox {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.lay-change-card .con input.text {
+    width: 145px;
+    *width: 145px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 3px;
+    border: 1px solid;
+    border-color: #ccc #eaeaea #eaeaea #cccccc;
+}
+
+.lay-change-card.twocol .con input.text, .lay-change-card.thrcol .con input.text {
+    width: 126px;
+    *width: 116px;
+}
+
+.lay-change-card a {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.lay-change-card textarea {
+    margin-top: 5px;
+    margin-left: 10px;
+    padding: 5px;
+    height: 40px;
+    line-height: 20px;
+    border: 1px solid;
+    width: 176px;
+    border-color: #ccc #eaeaea #eaeaea #cccccc;
+}
+
+.lay-change-card.twocol textarea {
+    width: 349px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.lay-change-card.thrcol textarea {
+    width: 549px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.lay-change-card .btn {
+    height: 20px;
+    padding: 6px 10px 6px 0;
+    background: #f6f6f6;
+    border-top: 1px solid #dedede;
+    text-align: right;
+}
+
+.lay-change-card button.fresh {
+    background: url("/up/my-job-v2/images/mini-btn.gif");
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-change-card button.fresh.long {
+    background: url("/up/my-job-v2/images/mini-btn.gif") 0 -40px;
+    width: 80px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-change-card button.normal {
+    background: url("/up/my-job-v2/images/mini-btn.gif") 0 -20px;
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-change-card button.normal.long {
+    background: url("/up/my-job-v2/images/mini-btn.gif") 0 -60px;
+    width: 80px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-litter-tips {
+    width: 190px;
+    position: absolute;
+}
+
+.lay-litter-tips.top .pointer {
+    background-position: 0 -163px;
+    top: -12px;
+    right: 20px;
+    height: 14px;
+    width: 21px;
+}
+
+.lay-litter-tips.bottom .pointer {
+    background: url("/up/my-job-v2/images/pointer-down-gray.gif");
+    bottom: -13px;
+    right: 20px;
+    height: 13px;
+    width: 19px;
+}
+
+.lay-litter-tips .prompt-main {
+    background: none repeat scroll 0 0 #FFF;
+    border: 1px solid #CCC;
+    margin-left: -2px;
+    padding: 0;
+    position: relative;
+    z-index: 99;
+}
+
+.lay-litter-tips .con {
+    padding: 10px 0 15px 0;
+}
+
+.lay-litter-tips .con p {
+    padding: 25px 10px 18px 10px;
+    text-align: left;
+}
+
+.lay-litter-tips .btn {
+    height: 20px;
+    padding: 6px 10px;
+    background: #f6f6f6;
+    border-top: 1px solid #dedede;
+    text-align: right;
+}
+
+.lay-litter-tips button.fresh {
+    background: url("/up/my-job-v2/images/mini-btn.gif");
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-litter-tips button.long {
+    background: url("/up/my-job-v2/images/mini-btn.gif") 0 -40px;
+    width: 80px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-litter-tips button.long.normal {
+    background: url("/up/my-job-v2/images/mini-btn.gif") 0 -60px;
+    width: 80px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.lay-litter-tips button.normal {
+    background: url("/up/my-job-v2/images/mini-btn.gif") 0 -20px;
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    color: #333;
+    line-height: 20px;
+}
+
+.comment li .note-recomend-list {
+    padding: 10px 0 5px 20px;
+    border: 1px solid #e6e6e6;
+    margin-top: 10px;
+    zoom: 1;
+    height: 90px;
+    margin-bottom: 10 px\9;
+}
+
+.comment li .note-recomend-list dl {
+    float: left;
+    display: block;
+    font-family: "宋体", fixedsys;
+    height: 70px;
+    position: relative;
+    width: 220px;
+}
+
+.comment li .note-recomend-list dt, .note-recomend-list dd {
+    display: inline;
+    float: left;
+    height: 60px;
+}
+
+.comment li .note-recomend-list dt {
+    height: 56px;
+    margin: 0 10px 0 0;
+    padding: 4px 0 0;
+    width: 52px;
+}
+
+.comment li .note-recomend-list dd {
+    line-height: 18px;
+    margin: 5px 0 0 5px;
+}
+
+.comment li .note-recomend-list dd p {
+    padding: 0;
+}
+
+.comment li .note-rc-pf {
+    width: 52px;
+    height: 52px;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.comment li a.note-remove-rc {
+    background-image: url("/images/icons/close.gif");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 13px;
+    overflow: hidden;
+    position: absolute;
+    right: 40px;
+    text-indent: -9999em;
+    top: 0;
+    width: 13px;
+    z-index: 100;
+}
+
+.comment li a.note-remove-rc:hover {
+    background-position: right 0;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.position-fix {
+    position: static;
+}
+
+li.comment-note .replay-topic {
+    position: static;
+}
+
+li.comment-note {
+    padding-bottom: 30 px\9;
+}
+
+.icardm-plus-tips .icardm-mail span.sented, .icardm-plus-tips .icardm-mail a.sented {
+    background-position: -84px -52px;
+    cursor: default;
+}
+
+.icardm-plus-tips .icardm-mail span.changed, .icardm-plus-tips .icardm-mail a.changed {
+    background-position: 0 -26px;
+    cursor: default;
+}
+
+.icardm-plus-tips .icardm-mail span.close-change, .icardm-plus-tips .icardm-mail a.close-change {
+    background-position: 0 -52px;
+    cursor: default;
+}
+
+.sms a {
+    color: #333;
+}
+
+.sms .b {
+    color: #1357A2;
+}
+
+.null-result .icardm-tips a span {
+    background: none;
+    padding-left: 0;
+}
+
+input.search-txt, #searchBtn {
+    vertical-align: middle;
+}
+
+.loading {
+    text-align: center;
+    margin: 100px 0;
+    display: none;
+}
+
+#searchBtn_composite {
+    vertical-align: middle;
+}
+
+.icardm-plus-tips .icardm-mail .send-msg {
+    background: url(/up/Contacts-2012/images/card-icon.png) 0 0 no-repeat;
+}
+
+.input_wrap {
+    display: block;
+    position: relative;
+    zoom: 1;
+}
+
+.icardm-list-c .sms img {
+    vertical-align: middle;
+}
+
+.mark100-16 {
+    display: inline-block;
+    margin-left: 3px;
+    text-indent: -9999em;
+    width: 16px;
+    height: 16px;
+    background: url(/up/profile2013/images/icons.png) -71px -49px no-repeat;
+}
+
+
+

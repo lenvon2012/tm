@@ -1,0 +1,79 @@
+#{extends 'skincomment/bskincommentbase.html' /}
+
+<div class="aside">
+    <ul class="sidemenu sidebox side-tracked-tag ">
+        <li class="aside-hot-tag first">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinDefender/config">
+                <span class="aside-icon"></span>
+                <span>差评防御设置</span>
+            </a>
+        </li>
+        <li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinBlackList/index">
+                <span class="aside-icon"></span>
+                <span>买家黑名单*{（自动关闭订单）}*</span>
+            </a>
+        </li>
+        <li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinWhiteList/index">
+                <span class="aside-icon"></span>
+                <span>买家白名单*{（永不关闭订单）}*</span>
+            </a>
+        </li>
+        <li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinDefender/itemProtection">
+                <span class="aside-icon"></span>
+                <span>宝贝限购</span>
+            </a>
+        </li>
+        <li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinDefender/itemPass">
+                <span class="aside-icon"></span>
+                <span>不拦截宝贝设置</span>
+            </a>
+        </li>
+        <li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinDefender/blackOrder">
+                <span class="aside-icon"></span>
+                <span>黑名单用户订单</span>
+            </a>
+        </li>
+		<li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinDefender/log">
+                <span class="aside-icon"></span>
+                <span>拦截日志</span>
+            </a>
+        </li>
+        
+        *{<li class="aside-hot-tag">}*
+            *{<a class="followed-tag clearfix sidemenuAnchor" href="/Skin/warn">}*
+                *{<span class="aside-icon"></span>}*
+                *{<span>短信通知</span>}*
+            *{</a>}*
+        *{</li>}*
+        *{
+        <li class="aside-hot-tag">
+            <a class="followed-tag clearfix sidemenuAnchor" href="/SkinComment/warn">
+                <span class="aside-icon"></span>
+                <span>短信通知设置</span>
+            </a>
+        </li>
+        }*
+    </ul>
+</div>
+
+<div id="skincomment" style="height:auto;min-height: 300px;_height:300px;">
+#{doLayout /}
+</div>
+
+<script type="text/javascript">
+    $(".nav-head").find(".head").html(
+            '<ul style="">' +
+            	//'<li ><a href="/skindefender/index">首页</a></li>' +
+               '<li ><a href="/skincomment/index">自动评价</a></li>' +
+               '<li class="selected"><a href="/SkinDefender/config">差评防御</a></li>' +
+               '<li ><a  href="/SkinDefender/invite">一起赚钱</a></li>' +
+            '</ul>');
+</script>
+
+

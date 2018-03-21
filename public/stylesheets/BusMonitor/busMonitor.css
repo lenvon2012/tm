@@ -1,0 +1,45 @@
+
+
+.BusMonitorBlock {
+    background: white; padding: 10px;
+}
+
+.BusMonitorBlock a {
+    cursor: pointer; text-decoration: none;
+}
+
+.BusMonitorBlock a:hover {
+    text-decoration: underline;
+}
+
+.BusMonitorBlock .OperationDiv {
+    margin-bottom: 15px; margin-top: 10px;
+}
+
+.BusMonitorBlock .chartTitle {
+    font-weight: bold; color: #444; font-size: 24px;
+    font-family: '微软雅黑'; float: left; margin-left: 35px;
+}
+
+.BusMonitorBlock .blueImgBtn {
+    font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;
+    background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+    width: 90px; height: 30px; line-height: 30px; font-size: 13px;
+    display: block; float: left; margin-right: 10px;
+}
+
+.BusMonitorBlock .whiteImgBtn {
+    font-family: "微软雅黑"; text-align: center; cursor: pointer; color: #333;
+    background: url(/public/images/btns/whiteBtn.png) no-repeat 0px 0px;
+    width: 90px; height: 30px; line-height: 30px; font-size: 13px;
+    display: block; float: left; margin-right: 10px;
+}
+
+.BusMonitorBlock .itemTitle {
+    color: #a10000; font-size: 14px;
+    font-family: '微软雅黑'; float: left; margin-left: 35px;
+}
+
+.BusMonitorBlock .monitorSelect {
+    float: right; width: 190px; border: 1px solid #b4b7ff; margin-right: 10px;
+}

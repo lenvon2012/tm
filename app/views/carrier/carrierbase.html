@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+    <link rel="shortcut icon" type="image/png" href='/img/favicon.png'>
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=8'>
+    <link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+    <style type="text/css">
+        .ui-button-text-only .ui-button-text{padding: 5px;margin:5px;font-size:20px}
+        .paging-div{text-align: center;}
+        .thumbnail{display: inline-block;}
+        .info-area{display:none;}
+
+        .page-table tr th {
+            background: #CC0000;
+            font-size: 24px;
+            padding: 10px;
+            font-weight: bolder;
+            color: #fff;
+        }
+        .page-table tr td{  font-size:14px;padding:6px;font-weight: bold;}
+        .ui-dialog .ui-dialog-titlebar{display:none;}
+        .uploadCsvOptTable{width:90%; margin: 0 auto;}
+        .uploadCsvOptTable td{height:40px;font-size: 18px;}
+        .clickprev{cursor:pointer;}
+        .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container{width:1000px;}
+        #openUpCsvDiagBtn{background:#28698D;font-size:32px;height:32px;padding:32px;color:white;font-weight: normal;}
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{background:#28698D}
+        .ui-state-default:hover, .ui-widget-content .ui-state-default:hover, .ui-widget-header .ui-state-default:hover{background:#1A3646}
+        #task-going-count{font-weight: bold; color: #FF5757;font-size: 16px;}
+        input[type="radio"]{width:18px;height:18px;}
+        .navbar-inverse .nav >li >a.toggle-color {
+            color: #ffff00;
+        }
+    </style>
+
+#{get 'moreStyles' /}
+
+</head>
+<body>
+
+
+<script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+    var path = document.location.pathname;
+    var TM = TM || {};
+    TM.path = path;
+
+</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1a4dd97dd83f0cbcb17f19db09267bc6' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+<script src="/js/tmadmin/adminbase.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.loadmask.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<div class="LoadingMask" style="display: none;border: 0;z-index: 500000;filter:alpha(opacity=50);opacity:0.5;"></div>
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: black;padding: 20px 10px 10px 10px;z-index: 200001;position:relative;">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;background:black;width:550px;height:120px;">
+    </iframe>
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<script type="text/javascript" charset="utf-8">
+    ${controllers.Status.statusJsCaller.ensureForUser(request.args.get("_user_"))}
+</script>
+<!--
+<div class="WaitingForLoadingDiv" style="display: none;z-index: 500001">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;"></iframe>
+    <div style="text-align: center;font-size: 16px;font-weight: bolder;color: #262626;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: white;padding: 30px;z-index: 500001;">
+        亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+        <img src='/img/catunion/loading.gif' alt='正在加载' style="" />
+    </div>
+</div>
+  -->
+
+
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    TM.gcs('/js/tm.js');
+
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+
+        });
+
+        TM.setAnchorSids = function(){
+
+        }
+
+        var hasPath = false;
+
+        TM.util = TM.util || {};
+        TM.util.hasListRes = function(data){
+            return data && data.res && data.res.length > 0;
+        }
+
+        TM.util.diplaySearch = function(searchCount){
+            if(searchCount == 0 ){
+                return '0';
+            }else if(0 <searchCount && searchCount < 100){
+                return '0-100';
+            }else if(searchCount< 500){
+                return '100-500';
+            }else if(searchCount< 1500){
+                return '500-1500';
+            }else if(searchCount< 5000){
+                return '1500-5000';
+            }else if(searchCount< 10000){
+                return '5000-1万';
+            }else if(searchCount< 50000){
+                return '1万-5万';
+            }else if(searchCount<100000){
+                return '5万-10万';
+            }else if(searchCount<500000){
+                return '10万-50万';
+            }else if(searchCount<1000000){
+                return '50万-100万';
+            }else {
+                return '大于100万';
+            }
+
+        }
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function(){
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+    })(jQuery, window));
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=2">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=2">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+<![endif]-->
+<link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=3'>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+
+
+<div class="navbar navbar-inverse nav-head navbar-fixed-top" style="position: relative;">
+    <div class="navbar-inner">
+        <div class="container" style="width: 1000px;">
+            <div class="nav-collapse collapse">
+                <ul class="nav head" style="width: 100%;">
+                    <li class="userheadop" style="line-height: 30px;height: 30px;margin-right:20px;width:200px;overflow: hidden;"></li>
+
+                    <li>
+                        在线客服:
+                        <a style="display: inline-block;*display: inline;*zoom:1;" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&siteid=cntaobao&status=1&charset=utf-8" ><img border="0" src="http://amos.alicdn.com/realonline.aw?v=2&uid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&site=cntaobao&s=1&charset=utf-8" alt="点击这里给我发消息" /></a>
+                    </li>
+                    <li>
+
+                        <a style="display: inline-block;*display: inline;*zoom:1;font-size: 20px;" target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.106.KGf385&service_code=service-0-22735&tracelog=search&scm=&ppath=&labels=" id="xufei-now">
+                            我要续费
+                        </a>
+                    </li>
+                    <li style="float: right;">
+                        <span class="tmbtn sky-blue-btn" id='syncBtn' style="padding:0px;margin-left:50px;" href="javascript:void(0)">更新数据</span>
+                        <span class="tmbtn red-short-btn" id="logout" style="padding:0px;margin-left:10px;"  href="javascript:void(0);">退出</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearboth blank0" style="height:1px;"></div>
+            <div class="nav-collapse collapse">
+                <ul class="nav head">
+
+                    <!--*{<li><a href="/wireless/onekey">全店一键手机详情页</a></li>}*-->
+                    <!--<li><a href="/wireless/onekey">自动生成一键手机详情页</a></li>-->
+                    <!--<li><a href="/wireless/index">上传CSV生成一键手机详情页</a></li>-->
+
+                    <!--<li><a href="/wireless/tasks">-->
+                        <!--任务中心-->
+                        <!--(<span id="task-going-count" >-->
+                        <!--${controllers.TitleTaskOp.jsCaller.countUnfinished(request.args.get("_user_"))}-->
+                        <!--</span>)-->
+                    <!--</a></li>-->
+                    <li><a href="/wireless/onekey">生成手机详情页</a></li>
+                    <li><a href="/itemcarrier/index">复制宝贝</a></li>
+                    <!-- <li><a href="/wireless/help">帮助中心</a></li>}* -->
+                    *{<li><a href="/wireless/video">视频教程</a></li>}*
+                    <li>
+                        <!--<a href="http://bangpai.taobao.com/group/thread/16102014-289725559.htm?spm=0.0.0.0.N2b3T3" target="_blank">-->
+                            <!--图文教程-->
+                        <!--</a>-->
+                        <a href="/wireless/lecture">图文教程</a>
+                    </li>
+                    <li>
+                        <a href="http://bangpai.taobao.com/group/thread/16102014-289687415.htm?spm=0.0.0.0.3eqouT" target="_blank">
+                            常见问题
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $.get('/home/firstSync',function(){
+        $(document).ready(function(){
+            if(TM.name) {
+                $(".userheadop").text("当前用户："+TM.name);
+            }
+        });
+    })
+
+    setInterval(function(){
+        $('#xufei-now').toggleClass("toggle-color");
+    }, 500)
+
+    TM.sync = function () {
+        $.get('/items/sync', function () {
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面~</p>', 300, 230, function () {
+                window.location.reload();
+            });
+        });
+    }
+
+    $('#syncBtn').click(function () {
+        TM.gcs("/js/tm.js", function () {
+            TM.sync();
+        });
+    });
+    $('#logout').click(function () {
+        $.ajax({
+            url:'/in/logout',
+            dataType:'text',
+            success:function (text) {
+                $.cookie('tm_SESSION', null);
+                $.cookie('_s', null);
+                $.cookie('_n', null);
+                $.cookie('_eu', null);
+                $.cookie('_v', null);
+                $.cookie('no', null);
+
+                window.location.href = text;
+            }
+        })
+    })
+
+
+
+
+</script>
+
+<div id="yangyangContent">
+    <div style="">
+    #{doLayout /}
+    </div>
+</div>
+
+
+
+#{get 'moreScripts' /}
+</body>
+</html>

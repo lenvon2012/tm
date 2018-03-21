@@ -1,0 +1,102 @@
+/*#topkey{background-image: url("/public/images/frame/btn3.png");}*/
+#striging{
+		height:8px;
+	margin-top: -5px;
+}
+#topKeyContent{display: block;position: relative;width:95%;height:760px;margin:0 auto;margin-top: 10px;}
+
+#leftNavigation{width:100px;float: left;height: 740px;margin-left: 3px;}
+#leftNavigation div{margin-top:40px;text-align: center;}
+#rightContent{width:99%;float: left;margin-left: 4px; background: white;}
+#leftNavigation img{width:80px;height:80px;cursor: pointer;}
+.selected{margin-left: 7px;}
+#leftNavigation  ul{margin-left: 9px;margin-top: 10px;-webkit-padding-start: 0px;}
+#leftNavigation li{margin-top:30px;margin-bottom:50px;}
+
+.topkeyselectCat2,.topkeyselectCat3{margin-left: 50px;margin-top:20px;width:200px;float: left;}
+.beginSearch{width: 90px;cursor: pointer;float: right;margin-right: 50px;margin-top: 20px;}
+
+.tableContent{width:98%;margin-left: 5px;margin-top: 10px;text-align:center;}
+.hoverRow:hover{background-color:#ffe;}
+.catSearch{width:100%;border: 1px solid #AAAAAA;}
+.catSearch thead {}
+.catSearch thead tr{background: left -102px url('/public/images/frame/bg.png');height:24px;width:100%;}
+.firstRow{
+    height:24px;
+    width:100%;
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.tableRow{height:30px;weigth:100%;border: 1px solid #ccc;}
+
+
+#addNewCat{color: blue;font-weight: bolder;padding-left: 10px;cursor: pointer;text-align: center;}
+
+
+#rightBottom{height: 70px;width: 680px;border: solid 1px #AAE;}
+.topkeyPagination {font-size: 12px;margin:0;float: right;padding-right: 50px;margin-top: 10px;}
+
+.topkeyPagination a {text-decoration: none;border: solid 1px #AAE;color: #15B;}
+
+.topkeyPagination a, .topkeyPagination span {display: block;float: left;padding: 0.3em 0.5em;margin-right: 5px;margin-bottom: 5px;min-width:1em;text-align:center;}
+
+.topkeyPagination .current ,.topkeyPagination a:hover{text-decoration: none;border: #980101 solid 1px;background: #039CFD;color: white;display: inline-block!important;}
+
+.topkeyPagination .current.prev, .topkeyPagination .current.next{color:#999;border-color:#999;background:#fff;}
+.clear{float: none;clear: both;}
+
+
+.trend{background: url('/public/images/tips/icon-trend.gif') no-repeat;height:13px;width:11px;display:inline-block}
+.up{background-position: 0 -2px;}
+.down{background-position: 0 -27px;}
+.fair{background-position: 0 -58px;}
+
+.grey-bg{background-color:rgb(249,249,249)}
+.k{height:740px;}
+.add-to-mywords{width: 120px;}
+.add-to-mywords .addTextWrapper {
+    margin: 8px 3px 8px 5px;
+}
+.topkeyNav{
+    border-bottom: 1px solid #C7C7C7;
+    padding: 8px 10px;
+}
+.topkeyNav .current {
+    color: #f57c05;
+    border-color: #f57c05;
+    background-color: #fff;
+
+}
+.topkeyNav span {
+    display: block;
+    float: left;
+    width: 70px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 20px;
+    height: 16px\9;
+    padding-top: 2px\9;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    _display: inline;
+    background: #f3f3f3 url(//img04.taobaocdn.com/tps/i4/T1JlecXdhrXXXXXXXX-40-262.gif) no-repeat 999em 999em;
+    cursor: pointer;
+}
+.topkeyNav a{
+    color: #000000;
+}
+.sellup .current {
+    background-position: -25px -247px;
+}
+.sellhot .current {
+    background-position: -25px -216px;
+}
+.sellup span {
+    background-position: -25px -231px;
+}
+.sellhot span {
+    background-position: -25px -199px;
+}

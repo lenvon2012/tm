@@ -1,0 +1,492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=8'>
+    <link rel="stylesheet" media="screen" href='/css/newAutoTitle/newAutoTitleBase.css?_v=1'>
+    <link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=3">
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=3">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+    <![endif]-->
+
+
+    <link media="screen" rel="stylesheet" href="/css/topKey/topKey.css?_v=2">
+    <link rel="stylesheet" media="screen" href="/css/taozhanggui.css">
+    <link rel="stylesheet" media="screen" href="/css/newAutoTitle/newAutoTitle.css">
+    <link rel="stylesheet" media="screen" href="/css/newAutoTitle/newmain.css">
+
+    <style>
+        .navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+        .navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+        .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+            background-color: #0095B1;
+            color: #ffffff;
+        }
+        .navbar-inverse .nav li.dropdown > .dropdown-toggle .caret {
+            border-top-color: white;
+            border-bottom-color: white;
+        }
+    </style>
+</head>
+<body>
+<script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+
+<script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+    var path = document.location.pathname;
+    var TM = TM || {};
+    TM.path = path;
+    TM.tms = $.cookie('_s');
+    TM.userNick = $.cookie('_n');
+    TM.encodeUid = $.cookie('_eu');
+    TM.sessionUid = '${session.get("_eu")}';
+    TM.ver = $.cookie('_v');
+    TM.hasCookie = $.cookie('tm_SESSION') && $.cookie('tm_SESSION').length > 0;
+
+</script>
+
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;_color:black;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: black;padding: 20px 10px 10px 10px;z-index: 200001;position:relative;">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;background:black;width:550px;height:120px;">
+    </iframe>
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+<div class="top_bar">
+    <div id="nav">
+        <div id="top">
+            <table class="navTab">
+                <tbody>
+                    <tr style="height: 45px;">
+                        <td>
+                            <a  href="/OneKey/indexnew">
+                            <img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/TB2cSl7aXXXXXbZXXXXXXXXXXXX-1039626382.jpg" alt="自动标题" class="logo-pic">
+                            </a>
+                        </td>
+                        <td style="vertical-align: bottom;text-align: left;">
+
+                        </td>
+                        <td style="width: 280px;">
+
+                        </td>
+                        <td class="userBackGroundTd userNameTd" style="width: 240px;text-align: right;">
+                            <div class="user">
+                                <span id="shopName" class="user_name">
+
+                                </span>
+                            </div>
+                        </td>
+
+                        <td class="userBackGroundTd userVersionTd">
+                            <div id="orderInfo" class="text_version">基础版<span>剩余<b>6</b>天</span></div>
+                        </td>
+                        <td class="userBackGroundTd">
+                            <span class="tmbtn sky-blue-btn" id="syncBtn">立即更新</span>
+                        </td>
+                        <td class="userBackGroundTd">
+                            <span class="tmbtn red-short-btn" id="logout">退出</span>
+                        </td>
+                       *{ <td class="userBackGroundTd xufeiNow">
+                            <a href="#">马上续订</a>
+                        </td>}*
+                        <td class="userBackGroundTd kefuTd">
+                            <div style="margin-left: 10px;">
+                                <a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E7%BA%A2%E5%BF%83%E5%9B%A2%E9%98%9F&siteid=cntaobao&status=1&charset=utf-8" title="旺旺在线客服">
+                                    <img src="http://amos.alicdn.com/online.aw?v=2&uid=%E7%BA%A2%E5%BF%83%E5%9B%A2%E9%98%9F&site=cntaobao&s=1&charset=utf-8" alt="" />
+                                </a>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+*{
+<div class="nav_div">
+    <div class="nav_bar">
+
+        <ul class="nav">
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">标题中心 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/home/autoTitle">自动标题</a></li>
+                    <li><a href="/autotitle/recover">标题还原中心</a></li>
+
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav">
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">词库中心<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/home/mylexicon">我的词库</a></li>
+                    <li><a href="/home/newkeywords">直通车词库</a></li>
+
+                </ul>
+            </li>
+        </ul>
+        <a id="nav1" href="/OneKey/indexnew" class="header-nav">首页</a>
+        <a href="/newAutoTitle/indexnew" class="header-nav">自动标题</a>
+        <a href="/newAutoTitle/windowadmin" class="header-nav">自动橱窗</a>
+<<<<<<< HEAD
+        <a href="/newAutoTitle/autoAdded" class="header-nav">自动上下架</a>
+        <a href="/newAutoTitle/commentadmin" class="header-nav">自动评价</                                              a>
+=======
+        <a href="/newAutoTitle/delistPlans" class="header-nav auto-delist">自动上下架</a>
+        <a href="/newAutoTitle/commentadmin" class="header-nav">自动评价</a>
+>>>>>>> 843429351bcd1deb4854488fec32ebb7037ffeab
+        <a href="/fenxiaobatch/index" class="header-nav">分销改价</a>
+        <a href="/removelinks/index" class="header-nav">去外链</a>
+        <a href="/sellercatitems/index" class="header-nav">宝贝分类</a>
+      }*
+*{  <a id="nav4" href="/newautotitle/batchtitle" class="header-nav">批量标题</a>
+        <a id="nav3" href="/newAutoTitle/goTitleRestore" class="header-nav">标题还原</a>
+        <a id="nav4" href="/newAutoTitle/titletask" class="header-nav">任务中心</a>}**{
+
+
+        }*
+*{<a id="newAutoTitleLogOut" class="right">退出</a>}**{
+
+        }*
+*{<a id="newAutoTitleSyncBtn" class="right">更新数据</a>}**{
+
+        <div class="blank0"></div>
+    </div>
+</div>
+}*
+<div class="navbar navbar-inverse nav-head">
+    <div class="navbar-inner" style="background-color: #0095B1;border: none;">
+        <div class="container" style="width: 1000px;">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse"
+                    data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav head">
+                    <li><a href="/OneKey/indexnew">首页</a></li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">分销标题 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/newAutoTitle/indexnew">自动标题</a></li>
+                            <li><a href="/newAutoTitle/goTitleRestore">标题还原</a></li>
+                            <li><a href="/newautotitle/batchtitle">批量标题</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">工具中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/newAutoTitle/delistPlans">自动上下架</a></li>
+
+
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav head" >
+                    <li><a href="/fenxiaobatch/index">分销改价</a></li>
+                </ul>
+
+                <ul class="nav head" >
+                    <li><a href="/removelinks/index">去外链</a></li>
+                </ul>
+
+                <ul class="nav head" >
+                    <li><a href="/sellercatitems/index">宝贝分类</a></li>
+                </ul>
+
+                <ul class="nav head" >
+                    <li><a href="/newAutotitle/mobileDesc">手机详情页</a></li>
+                </ul>
+
+                <ul class="nav head" >
+                    <li><a href="/newAutotitle/itemCarrier">宝贝复制</a></li>
+                </ul>
+
+                <ul class="nav head" >
+                    <li><a href="/newAutoTitle/titletask">任务中心</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sub-sessionkey-tip" style="width: 1000px;text-align: center;margin: 0 auto;height: 50px;line-height: 50px;font-size: 16px;color: red;">
+        温馨提示: 为避免多个员工共用主账号导致数据泄露和损失,请尽量使用子账号操作登陆
+    </div>
+</div>
+
+<script type="text/javascript">
+    var getCacheScript = function (url, callback) {
+        if (TM.hasCookie) {
+        } else if (url.indexOf('?') >= 0) {
+            url += "&_eu=" + TM.sessionUid;
+        } else {
+            url += "?_eu=" + TM.sessionUid;
+        }
+        callback = callback || function () {
+        }
+        $.ajax({url:url, dataType:"script", cache:true, success:callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript = TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    TM.gcs('/js/tm.js');
+
+    TM.gcs("/Status/js",function(data){
+        $('#shopName').text(TM.name);
+        $('#orderInfo b').text(TM.timeLeft);
+    })
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function () {
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function () {
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function (evt, request, settings) {
+            if (TM.hasCookie) {
+                return;
+            }
+            if (TM.tms && TM.tms.length > 0 && !settings.cache) {
+                if (settings.url.indexOf('?') >= 0) {
+                    settings.url += "&_eu=" + TM.sessionUid;
+                } else {
+                    settings.url += "?_eu=" + TM.sessionUid;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function () {
+            if (TM.hasCookie) {
+                return;
+            }
+
+            $('body a').each(function () {
+                var a = $(this);
+                var href = a.attr('href');
+                if (TM.hasCookie) {
+                    return;
+                }
+                if ((!href) || (href.indexOf('/') > 0) || (href.indexOf("void") >= 0)) {
+                    return;
+                }
+                if (href.indexOf('?') >= 0) {
+                    href += "&_eu=" + TM.sessionUid;
+                } else {
+                    href += "?_eu=" + TM.sessionUid;
+                }
+                a.attr('href', href);
+            });
+        }
+
+        var hasPath = false;
+
+        TM.util = TM.util || {};
+        TM.util.hasListRes = function (data) {
+            return data && data.res && data.res.length > 0;
+        }
+
+        TM.util.diplaySearch = function (searchCount) {
+            if (searchCount == 0) {
+                return '0';
+            } else if (0 < searchCount && searchCount < 100) {
+                return '0-100';
+            } else if (searchCount < 500) {
+                return '100-500';
+            } else if (searchCount < 1500) {
+                return '500-1500';
+            } else if (searchCount < 5000) {
+                return '1500-5000';
+            } else if (searchCount < 10000) {
+                return '5000-1万';
+            } else if (searchCount < 50000) {
+                return '1万-5万';
+            } else if (searchCount < 100000) {
+                return '5万-10万';
+            } else if (searchCount < 500000) {
+                return '10万-50万';
+            } else if (searchCount < 1000000) {
+                return '50万-100万';
+            } else {
+                return '大于100万';
+            }
+
+        }
+
+        TM.util.isNotTaobaoCeshi = function () {
+            var nick = TM.userNick;
+            if (nick === undefined || nick == null) {
+                nick = "";
+            }
+            if (nick.indexOf("测试") >= 0 || nick.indexOf("淘宝") >= 0 || nick.indexOf("开放平台") >= 0 || nick.indexOf("support") >= 0 ||
+                    nick.indexOf("包u吧 ") >= 0 || nick.indexOf("包邮吧") >= 0 || nick.indexOf("ssnh_1982") >= 0 || nick.indexOf("楚之小南") >= 0) {
+                return false;
+            }
+            return true;
+        }
+
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Number.prototype.toTenThousand = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n)) / Math.pow(10, n + 4) ).toFixed(n) + '万';
+        }
+        Date.prototype.format = function (format) //author: meizz
+        {
+            var o = {
+                "M+":this.getMonth() + 1, //month
+                "d+":this.getDate(), //day
+                "h+":this.getHours(), //hour
+                "m+":this.getMinutes(), //minute
+                "s+":this.getSeconds(), //second
+                "q+":Math.floor((this.getMonth() + 3) / 3), //quarter
+                "S":this.getMilliseconds() //millisecond
+            }
+            if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+                    (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)if (new RegExp("(" + k + ")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length == 1 ? o[k] :
+                                ("00" + o[k]).substr(("" + o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function () {
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function () {
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function () {
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+        TM.gcs('/js/utils/jquery.cookie.js',function(){
+            $('#newAutoTitleLogOut').click(function(){
+                $.ajax({
+                    url : '/in/logout',
+                    dataType : 'text',
+                    success : function(text){
+                        $.cookie('tm_SESSION',null);
+                        $.cookie('_s',null);
+                        $.cookie('_n',null);
+                        $.cookie('_eu',null);
+                        $.cookie('_v',null);
+                        $.cookie('no',null);
+
+                        window.location.href = text;
+                    }
+                })
+            })
+        });
+
+        TM.sync = function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面~</p>',300,230,function(){
+                    window.location.reload();
+                });
+            });
+        }
+
+        TM.gcs('/js/tm.js',function(){
+            $('#syncBtn').click(function(){
+                TM.sync();
+            });
+        });
+
+
+        $('#logout').click(function () {
+            $.ajax({
+                url:'/in/logout',
+                dataType:'text',
+                success:function (text) {
+                    $.cookie('tm_SESSION', null);
+                    $.cookie('_s', null);
+                    $.cookie('_n', null);
+                    $.cookie('_eu', null);
+                    $.cookie('_v', null);
+                    $.cookie('no', null);
+
+                    window.location.href = text;
+                }
+            })
+        })
+
+        var headNavObjs = $('.header-nav');
+        var path = document.location.pathname.toLowerCase();
+        headNavObjs.each(function() {
+            var anchor = $(this);
+            var anchorHref = anchor.attr('href');
+            if (anchorHref === undefined || anchorHref == null || anchorHref == "") {
+                return;
+            }
+            if (anchorHref.toLowerCase().indexOf(path) >= 0 && path.length > 2) {
+                headNavObjs.removeClass("current");
+                anchor.addClass('current');
+            }
+        });
+
+        $('.dropdown').live('mouseenter',function () {
+            $(this).addClass('open');
+        }).live('mouseleave', function () {
+                    $(this).removeClass('open');
+                });
+    })(jQuery, window));
+</script>
+
+
+<div style="text-align: center;">
+    <div style="width: 1000px;margin: 0 auto; margin-top: 20px;" class="content-wrapper">
+    #{doLayout /}
+    </div>
+</div>
+
+
+#{get 'moreScripts' /}
+</body>
+</html>

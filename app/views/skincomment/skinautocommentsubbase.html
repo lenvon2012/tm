@@ -1,0 +1,82 @@
+#{extends 'skincomment/skincommentbase.html' /}
+
+<table>
+<tr>
+<td style="vertical-align: top;width:200px;">
+<div class="aside left-nav">
+  <ul class="nav nav-list nav-list-fix">
+    	<li class="nav-header" style="border-bottom:1px solid #ccc;">评价管理</li>
+   		<li class="aside-hot-tag first">
+            <a class="clearfix" href="/skincomment/index">
+                <span class="aside-icon"></span>
+                <span>自动评价</span>
+            </a>
+        </li>
+
+        *{<li class="aside-hot-tag">}*
+            *{<a class="clearfix" href="/skindefensewarn/index">}*
+                *{<span class="aside-icon"></span>}*
+                *{<span>自动评价记录</span>}*
+            *{</a>}*
+        *{</li>}*
+
+        *{<li class="aside-hot-tag">}*
+            *{<a class="clearfix" href="/SkinComment/manual">}*
+                *{<span class="aside-icon"></span>}*
+                *{<span>手动评价</span>}*
+            *{</a>}*
+        *{</li>}*
+
+		*{
+		<li class="aside-hot-tag">
+            <a class="clearfix" href="/SkinComment/commentNormal">
+                <span class="aside-icon"></span>
+                <span>中差评记录</span>
+            </a>
+        </li>
+        
+        <li class="aside-hot-tag">
+            <a class="clearfix" href="/SkinComment/commentStatus">
+                <span class="aside-icon"></span>
+                <span>评价统计</span>
+            </a>
+        </li>
+        <li class="aside-hot-tag">
+            <a class="clearfix" href="/SkinComment/noticeLog">
+                <span class="aside-icon"></span>
+                <span>短信提醒日志</span>
+            </a>
+        </li>
+        }*
+        
+        *{<li class="aside-hot-tag">
+            <a class="clearfix" href="/SkinComment/warn">
+                <span class="aside-icon"></span>
+                <span>短信通知设置</span>
+            </a>
+        </li>
+        }*
+  </ul>
+</div>
+</td>
+<td>
+<div id="skincomment">
+#{doLayout /}
+</div>
+</td>
+</tr>
+</table>
+<!-- 
+<script type="text/javascript">
+	$(".nav-head").find(".head").html(
+	        '<ul>' +
+            		'<li><a href="/skindefender/index">首页</a></li>' +
+                    '<li ><a  href="/SkinDefender/config">差评防御</a></li>' +
+                    '<li class="selected"><a href="/skincomment/index">评价管理</a></li>' +
+                    /* '<li><a href="/SkinDefender/lottery">中差评监控</a></li>' +
+                    '<li><a href="/SkinDefender/lottery">评价统计</a></li>' + */
+                    '<li ><a href="/SkinDefender/invite">活动中心</a></li>'+
+            '</ul>'
+    );
+</script> -->
+

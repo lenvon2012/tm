@@ -1,0 +1,154 @@
+
+#{extends 'op/buscrmmain.html'/}
+#{set title:'即将到期用户' /}
+
+<div id="main" style="background:white;width:100%;">
+    <div>
+        <p>
+            <span>开始时间:</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" style="width:200px;" id="startTimeInput">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>结束时间:</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" style="width:200px;" id="endTimeInput">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>用户昵称:</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="nickinput" type="text" style="width:100px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="tmbtn big-blue-btn reqListUser">点击查询</span>
+        </p>
+    </div>
+    <div>
+        <div class="pagenav"></div>
+        <table id="articleTable" class="busSearch">
+            <thead>
+            <tr>
+                <th>
+                    旺旺名
+                </th>
+                <th>
+                    剩余天数
+                </th>
+                <th>
+                    到期时间
+                </th>
+                <th>
+                操作
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="10">暂无记录</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagenav"></div>
+    </div>
+</div>
+
+
+
+#{set 'moreScripts'}
+
+<script type="text/x-jquery-tmpl" id="articleRowTmpl">
+    <tr>
+        <td>
+            <a target="_blank" href="{{= wwHref}}"><img src="{{= wwImg}}"></a><span name="{{= nick}}">{{= nick}} </span>
+            <a href="#" class="rank seller-rank-{{= level}}"></a>
+        </td>
+        <td>
+            {{= left}}
+        </td>
+        <td>
+            {{= time}}
+        </td>
+        <td>
+                   <a href="/tmadmin/makeDevName?name={{= wangwang}}" class="btn btn-danger">进入后台</a>
+        </td>
+    </tr>
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        var crud = $('#main');
+        var dayMillis = 86400000;
+        var curr = new Date().getTime();
+        $('#rptOrderStart').val(new Date(curr-(2 * dayMillis)).formatYMSH());
+        $('#rptOrderEnd').val(new Date(curr-(1 * dayMillis)).formatYMSH());
+        $('#rptOrderQuery').click(function(){
+            var start = $('#rptOrderStart').val();
+            var end = $('#rptOrderEnd').val();
+            window.open('/tmadmin/userReport?start='+start+'&end='+end);
+        });
+
+        var params = {};
+        params.pn = 1;
+        params.ps = 10;
+
+        var artileTmpl = $('#articleRowTmpl');
+        var articleTable = $('#articleTable');
+
+        var startTimeInput = $("#startTimeInput");
+        var endTimeInput = $("#endTimeInput");
+        startTimeInput.datepicker();
+        startTimeInput.datepicker('option', 'dateFormat','yy-mm-dd');
+        startTimeInput.val(new Date(curr ).formatYMS());
+
+        endTimeInput.datepicker();
+        endTimeInput.datepicker('option', 'dateFormat','yy-mm-dd');
+        endTimeInput.val(new Date(curr +4 * dayMillis).formatYMS());
+
+        var renderUserReport = function(){
+            params.start = startTimeInput.val();
+            params.end = endTimeInput.val();
+            params.interval = $('.interval:checked').val();
+            //params.nick = $('#nickinput').val();
+
+            crud.find('.pagenav').tmpage({
+                currPage: 1,
+                pageSize: 10,
+                pageCount:1,
+                ajax: {
+                    param : params,
+                    on: true,
+                    dataType: 'json',
+                    url: "/TMAdmin/listWillExpired",
+                    callback:function(data){
+                        var tbody = articleTable.find('tbody');
+                        tbody.empty();
+
+                        if(!data || !data.res){
+                            tbody.append("<tr><td colspan='30'>亲,暂无记录</td></tr>")
+                            return;
+                        }
+
+                        $.each(data.res, function(i, elem){
+                            elem.left =  Math.floor((elem.ts - new Date().getTime() + dayMillis)/dayMillis);
+                            elem.time = new Date(elem.ts).formatYMSHMS();
+                            if(!elem.nick){
+                                elem.nick = elem.userNick;
+                            }
+                        });
+                        TM.Article.renderList(data.res);
+                        var rows = artileTmpl.tmpl(data.res);
+                        tbody.append(rows);
+                    }
+                }
+            });
+        }
+
+        crud.find('.reqListUser').click(function(){
+            renderUserReport();
+        });
+        crud.find('.interval').click(function(){
+            renderUserReport();
+        });
+        renderUserReport();
+    });
+
+</script>
+#{/set}

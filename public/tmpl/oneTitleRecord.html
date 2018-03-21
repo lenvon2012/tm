@@ -1,0 +1,34 @@
+<script type="text/x-jquery-tmpl" id="record">
+    <div class="holder"></div>
+
+    <table cellpadding="0" cellspadding="0" class="noteTable" id="noteTable">
+            <thead id="noteThead">
+            <tr style="background: #0095b1; line-height:60px; vertical-align: middle; font-size: 18px ">
+            <td style="width: 20%; font-size: 18px; color:white;">图片</td>
+    <td style="width: 25%; font-size: 18px; color:white;">得分</td>
+    <td style="width: 25%; font-size: 18px; color:white;">当前标题</td>
+    <td style="width: 15%; font-size: 18px; color:white;">本月销量</td>
+        <td style="width: 15%; font-size: 18px; color:white;">查看详情</td>
+
+    </tr>
+
+    </thead>
+    <tbody id="noteTbody">
+    {{each(i,myitem) res}}
+    <tr>
+    <td><span style="width:65px; height:65px; padding:5px; margin:10px auto; border:1px solid #eeeeee; display:block"><img style="width:60px; height:60px; " src="{{= myitem.picURL}}" alt="图片加载失败" /></span></td>
+    <td style="padding-left:20px; padding-right:20px;">{{= myitem.score}}</td>
+    <td style="padding-left:20px; padding-right:20px;">{{= myitem.title}}</td>
+    <td>{{= myitem.tradeItemNum}}</td>
+        <td><span class="recoverInfo titleBtn yellow-btn" targetId='{{= myitem.id}}'> 历史标题</span></td>
+
+
+    </tr>
+    {{/each}}
+
+
+    </tbody>
+    </table>
+
+    <div class="holder"></div>
+</script>

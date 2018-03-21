@@ -1,0 +1,173 @@
+#{extends 'jd/jdsubsms.html' /}
+#{set title:'手工发送' /}
+
+<style>
+    .jd-container{width: 100%;font-family: '微软雅黑'}
+    .container-tip{background: none repeat scroll 0 0 #F2F9FD;
+        border: 1px solid #CDE6FF;
+        color: #404040;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: normal;
+        margin: 5px;
+        padding: 8px;
+    }
+    .PageTitle {
+        color: #2E6CD2;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    DIV.searchzone {
+        BORDER-RIGHT: #cde6ff 1px solid;
+        PADDING-RIGHT: 10px;
+        BORDER-TOP: #cde6ff 1px solid;
+        PADDING-LEFT: 10px;
+        PADDING-BOTTOM: 5px;
+        MARGIN: 5px;
+        BORDER-LEFT: #cde6ff 1px solid;
+        PADDING-TOP: 5px;
+        BORDER-BOTTOM: #cde6ff 1px solid;
+        BACKGROUND-COLOR: #f2f9fd;
+    }
+    DIV.tablezone {
+        CLEAR: left;
+        BORDER-RIGHT: #cde6ff 1px solid;
+        PADDING-RIGHT: 15px;
+        BORDER-TOP: #cde6ff 1px solid;
+        PADDING-LEFT: 15px;
+        BACKGROUND: #ffffff;
+        PADDING-BOTTOM: 10px;
+        MARGIN: 10px;
+        BORDER-LEFT: #cde6ff 1px solid;
+        PADDING-TOP: 10px;
+        BORDER-BOTTOM: #cde6ff 1px solid;
+    }
+    .newRemainLength{color: red;
+        font-size: 16px;
+    }
+</style>
+<div class="jd-container">
+    <div class="container-tip">
+        <div class="PageTitle">
+            手工发送短信
+        </div>
+        <div style="width: 80%;">
+            批量录入手机号码，发送短信。为了不影响买家休息，21点至早晨9点的短信都延迟到9点后发出。<a href="javascript:void(0)" target="_blank">[<font color="red">查看使用帮助</font>]</a>
+        </div>
+    </div>
+
+    <div class="searchzone">当前可用短信数量：
+        <span id="lblSMSCount" style="color:Red;">100</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="立即充值" class="button chongzhi-now">
+    </div>
+
+    <div class="tabbar">
+        <ul class="tab">
+            <li class="on"><a href="/jdserver/smsmanual">手工发送短信</a></li>
+            <li><a href="/jdserver/smsmanualLog">查看发送记录</a></li>
+        </ul>
+    </div>
+
+    <div class="tablezone" style="margin: 5px;">
+        <table cellspacing="0" cellpadding="2" border="0" width="100%" align="center">
+            <tbody>
+            <tr>
+                <td width="100" height="30" align="right">发送方式:</td>
+                <td>
+                    <table id="radList" border="0">
+                        <tbody>
+                            <tr>
+                                <td><input id="radList_0" type="radio" name="radList" value="0" checked="checked"><label for="radList_0">手工输入号码</label></td><td><input id="radList_1" type="radio" name="radList" value="1" ><label for="radList_1">批量上传号码</label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>
+
+                </td>
+            </tr>
+            <tr id="MobileTr">
+                <td width="120" height="30" align="right">手机号:</td>
+                <td><textarea name="txtNumbers" id="txtNumbers" style="line-height:17px;height:140px;" cols="35" rows="8" maxlength="100000" wrap="virtual"></textarea>
+                    <font color="#ff0000">*</font> </td>
+                <td><font color="gray">可以批量录入手机号码，每行输入一个号码，软件会自动过滤重复号码</font></td>
+            </tr>
+
+            <tr id="MobileNum">
+                <td></td>
+                <td><div style=" background-color:#FDFBDB; border:1px dashed gray;padding: 5px 5px 5px 5px; width:295px;"><span style="color:gray;">您已输入<span style="color:#3300FF;" id="mobileCount">0</span>个号码。最多每次发送5000个！</span></div></td>
+                <td><font color="gray"></font></td>
+            </tr>
+
+            <tr id="fileTr" style="display:none;">
+                <td width="120" height="30" align="right">上传文件:</td>
+                <td>
+                    <input type="file" name="fileLoad" id="fileLoad" style="width:307px;">
+                </td>
+                <td><font color="gray">此处只要导入csv文件，表格中必须包含：手机号码。 </font><a href="javascript:void(0)" style="color:Red;">下载模板</a></td>
+            </tr>
+
+
+
+            <tr>
+                <td width="120" height="30" align="right">发送短信内容:</td>
+                <td>
+
+                    <textarea name="txtSmsContent" id="txtSmsContent" cols="35" rows="8" >亲，圣诞节快乐，本店所有商品9折起，老客户还包邮哦，走过路过不要错过。</textarea>
+                    <font color="#ff0000">*</font> </td>
+                <td><font color="gray">单条短信内容不要超过<span style="color: red;font-size: 16px;">68</span>个字(包括短信签名),如果超过会按两条短信的费用计算</font></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div style=" background-color:#FDFBDB; border:1px dashed gray;padding: 5px 5px 5px 5px; width:295px;"><span id="sizecount" style="color:gray;"><div style="color:#3300FF;" id="remainCount"></div> </span><span style="color:gray;"> 当前计费：<span style="color:red;font-size: 16px;" id="smscount">1</span>条。</span></div>
+
+                </td>
+                <td><font color="gray"></font></td>
+            </tr>
+            <tr>
+                <td width="100" height="30" align="right">短信签名:</td>
+                <td><input name="txtsmsname" type="text" id="txtsmsname" maxlength="15" style="WIDTH: 200px" class="input" value="楚之小南" ><font color="#ff0000">*</font></td>
+                <td><br><br>
+                    <font color="gray">短信签名就是在短信内容中加上签名，例如标签写的是“小也香水”，短信内容为加上【小也香水】这样的字符</font></td>
+            </tr>
+            <tr>
+                <td width="100" height="30" align="right">重复发送过滤:</td>
+                <td><input name="checkon" type="checkbox" id="checkon">开启&nbsp;&nbsp;&nbsp;&nbsp;<select name="selecttime" id="selecttime" disabled="disabled">
+                    <option value="1">1</option>
+                    <option selected="selected" value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>天内发送过的号码，不再发送
+                </td>
+                <td><font color="gray">开启后，可以防止重复发送</font></td>
+            </tr>
+
+            </tbody></table>
+    </div>
+
+    <table style="width:100%"><tbody><tr><td class="style1"><input type="submit" name="btnView" value="预览短信效果" onclick="return View();" id="btnView" class="inp_L1"></td><td class="style2"><input type="submit" name="btnOK" value="确定发送" onclick=" return GetNum();uploadComplete1();" id="btnOK" class="inp_L1"></td>
+        <td><input type="submit" name="btnBack" value="返回查看发送记录" onclick="return Back();" id="btnBack" class="inp_L1"></td></tr></tbody></table>
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+                TM.gcs('/js/jd/smsmanual.js', function () {
+                    $(document).ready(function() {
+                        TM.JDSmsManual.Init.init();
+                    });
+                });
+        });
+    });
+</script>

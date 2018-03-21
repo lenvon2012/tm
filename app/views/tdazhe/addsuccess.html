@@ -1,0 +1,91 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'添加完成' /}
+
+<style type="text/css">
+    .success{
+        margin: 0 auto;
+        text-align: center;
+        padding: 80px;
+    }
+    .tiaozhuan{
+        font-size: 15px;
+        text-align: center;
+    }
+</style>
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/activityadd.css" />
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/activityadd.css" />
+<div class="item-container">
+    <div id="content">
+        <div class="breadcrumbs">
+            <span>创建限时打折活动</span>
+        </div>
+        <div id="stepBar">
+            <div class="text">
+                <div class="block">
+                    <h3>设置活动信息</h3>
+                    <span class="arrow"></span>
+                </div>
+                <div class="block">
+                    <h3>设置商品信息</h3>
+                    <span class="arrow"></span>
+                </div>
+                <div class="block active">
+                    <h3>完成</h3>
+                    <span class="arrow"></span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="success">
+        <img src="/public/images/keywords/success.jpg" alt="">
+    </div>
+    <div class="errorList">
+        <div class="error-item-div" style="margin-top: 10px;">
+           <span class="error-tip-span">宝贝操作失败列表：</span>
+           <table class="error-item-table busSearch">
+                   <thead>
+                   <tr>
+                           <td style="width: 15%;">宝贝图片</td>
+                           <td style="width: 35%;">标题</td>
+                           <td style="width: 30%;">失败说明</td>
+                           <td style="width: 15%;">操作时间</td>
+                       </tr>
+                   </thead>
+                   <tbody></tbody>
+               </table>
+        </div>
+
+    </div>
+    *{<div class="tiaozhuan">}*
+        *{<span id="totalSecond">3</span>秒后自动跳转到活动列表}*
+    *{</div>   }*
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/tdazhe/addsuccess.js', function () {
+                TM.DisAct.init.doInit($(".item-container"));
+            });
+        });
+    });
+
+////        setTimeout("location='/taodiscount/index'",3000)
+//        var second = document.getElementById('totalSecond').innerText;
+//
+//        setInterval(" abc()", 1000); //每1秒钟调用redirect()方法一次
+//        function abc()
+//        {
+//            if (second < 0)
+//            {
+//                location.href = '/taodiscount/index';
+//            } else
+//            {
+//                document.getElementById('totalSecond').innerText = second--;
+//
+//            }
+//        }
+
+</script>

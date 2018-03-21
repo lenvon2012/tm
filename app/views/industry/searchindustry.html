@@ -1,0 +1,224 @@
+#{extends 'main.html' /}
+#{set title:'行业情报' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css">
+#{/set}
+
+<style>
+    #yangyangContent .nav-table-left-td {display: block;}
+    #yangyangContent .nav-table-left-td .aside {display: none;}
+
+    .search-industry-container {
+        font-size: 14px; font-family: "微软雅黑";
+    }
+
+    .search-table {
+        border-collapse: collapse;
+    }
+    .search-table td {
+        vertical-align: middle; padding: 8px 0px;
+    }
+
+
+
+    .list-table {
+        border-collapse: collapse; width: 100%;
+        border: 1px solid #ccc; border-collapse: collapse; text-align: center;
+    }
+    .list-table thead tr {
+        vertical-align: middle; background: left -102px url('/img/frame/bg.png');
+    }
+
+    .list-table thead td {
+        height: 29px; vertical-align: middle; border-bottom: 1px solid #ccc; font-weight: bold;
+    }
+
+
+    .wordbase-table tbody td {
+        border-bottom: 1px solid #ccc; padding: 8px 3px;
+    }
+
+
+    .sort-td {
+        padding-right: 20px;color: #2EB1AA;cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .sort-down{background: url("/img/sort-bg.png") right -25px no-repeat}
+    .sort-up{background: url("/img/sort-bg.png") right -47px no-repeat;}
+
+
+    .recommendDiv .tabDiv li span {
+        width: auto; font-size: 14px;
+    }
+
+
+    .summary-table tbody td {
+        padding: 15px 0px;
+    }
+
+</style>
+
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>行业宝贝价格分析
+</div>
+
+
+<div class="search-industry-container" style="padding: 10px;">
+
+    <div style="text-align: center;">
+        <table class="search-table" style="margin: 0 auto;text-align: left;">
+            <tbody>
+            <tr>
+                <td style="width:90px;font-weight: bold;">
+                    搜索条件：
+                </td>
+                <td>关键词<span style="color: red">&nbsp;*</span>：</td>
+                <td style="padding-left: 10px;">
+                    <input type="text" class="search-input keyword-input" style="width: 180px;" />
+                </td>
+                <td style="padding-left: 20px;">
+                    <select class="order-style-select" style="width: 90px;">
+                        <option value="default">综合排序</option>
+                        <option value="renqi-desc" selected="selected">人气排序</option>
+                    </select>
+                </td>
+                <td style="padding-left: 10px;">
+                    <select class="search-page-select" style="width: 110px;">
+                        <option value="1">第1页宝贝</option>
+                        <option value="5">前5页宝贝</option>
+                        <option value="10" selected="selected">前10页宝贝</option>
+                        <option value="20">前20页宝贝</option>
+                        <option value="30">前30页宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 30px;" rowspan="2">
+                    <span class="tmbtn big-blue-btn search-industry-btn" style="font-size: 14px;">查询行业情报</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">
+                    过滤条件：
+                </td>
+                <td>宝贝价格：</td>
+                <td style="padding-left: 10px;">
+                    <input type="text" class="search-input start-price-input" style="width: 70px;" />
+                    -
+                    <input type="text" class="search-input end-price-input" style="width: 70px;" />&nbsp;元
+                </td>
+                <td style="padding-left: 20px;" colspan="2">
+                    成交量：
+                    <input type="text" class="search-input start-sales-input" style="width: 70px;" />
+                    -
+                    <input type="text" class="search-input end-sales-input" style="width: 70px;" />&nbsp;件
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="recommendDiv search-tab-div" style="padding: 20px 0px 10px 0px;">
+        <div class="tabDiv">
+            <ul class="clearfix">
+                <li>
+                    <span targetDiv="search-summary-div" class="search-tab-btn select">行业汇总</span>
+                </li>
+                <li>
+                    <span targetDiv="search-item-price-div" class="search-tab-btn">宝贝价格分布</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="search-tip-div search-result-div" style="text-align: left; padding-left: 100px; padding-top: 30px;padding-bottom: 140px;">
+        <div style="font-size: 28px; color: red;">淘掌柜行业情报查询功能：</div>
+        <div style="padding-top: 20px;">
+            1. 输入查询关键词，如雪纺连衣裙；选择宝贝排序方式，如综合、人气等；即可查询到淘宝排名靠前的宝贝。
+        </div>
+        <div style="padding-top: 15px;">
+            2. 如果有设置过滤条件，系统则会在搜索结果的基础上，排除不符合的宝贝。
+        </div>
+        <div style="padding-top: 15px;">
+            3. 针对搜索出来的宝贝，系统可以对宝贝做汇总分析，价格分布分析等，可以更好地掌握行业的情报。
+        </div>
+    </div>
+
+    <div class="search-summary-div search-result-div" style="text-align: center;display: none;">
+
+        <div style="padding: 20px 0px;font-size: 20px;">
+            根据搜索条件，系统汇总了<span class="item-num-span" style="color: #a10000;font-size: 20px;"></span>个宝贝的数据，结果如下：
+        </div>
+        <div style="background: #eee; border: 1px solid #999;padding: 20px 0px;margin: 0 auto; width: 800px;">
+            <table class="summary-table" style="margin: 0 auto;text-align: left;font-size: 20px;">
+                <tbody>
+                <tr>
+                    <td>平均价格：</td>
+                    <td style="padding-left: 10px;color: #a10000;"><span class="avg-price-span"></span> </td>
+                    <td style="padding-left: 50px;">最高价格：</td>
+                    <td style="padding-left: 10px;color: #a10000;"><span class="max-price-span"></span> </td>
+                    <td style="padding-left: 50px;">最低价格：</td>
+                    <td style="padding-left: 10px;color: #a10000;"><span class="min-price-span"></span> </td>
+                </tr>
+                <tr>
+                    <td>平均成交量：</td>
+                    <td style="padding-left: 10px;color: #a10000;"><span class="avg-payamount-span"></span> </td>
+                    <td style="padding-left: 50px;">宝贝数量：</td>
+                    <td style="padding-left: 10px;color: #a10000;"><span class="item-num-span"></span> </td>
+                    <td style="padding-left: 50px;">店铺数量：</td>
+                    <td style="padding-left: 10px;color: #a10000;"><span class="seller-num-span"></span> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="search-item-price-div search-result-div" style="display: none;">
+        <div style="padding: 20px 0px 20px 50px;text-align: left;font-size: 16px;">
+            宝贝价格均匀分段：
+            <select class="price-interval-select" style="width: 100px;">
+                <option value="5" selected="selected">5段</option>
+                <option value="8">8段</option>
+                <option value="10">10段</option>
+                <option value="15">15段</option>
+            </select>
+        </div>
+        <div class="item-price-result-div"></div>
+    </div>
+
+    <div style="height: 60px;"></div>
+
+</div>
+
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/highcharts.js',function() {
+            TM.gcs('/js/tm.js', function () {
+                TM.gcs('/js/commstab/commstab.js', function () {
+                    TM.gcs("/status/js", function () {
+                        TM.gcs("/js/industry/industrybase.js?_v=7", function () {
+                            TM.gcs("/js/industry/searchindustry.js?_v=2", function () {
+                                $(document).ready(function () {
+                                    TM.SearchIndustry.init.doInit($(".search-industry-container"));
+
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

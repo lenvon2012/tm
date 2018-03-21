@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=6'>
+    <link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+    <!--<link rel="shortcut icon" type="image/png" href='/img/favicon.png'>-->
+#{get 'moreStyles' /}
+    <style>
+
+        .WaitingForLoadingDiv {
+            display: none; z-index: 10002;
+            color: blue;
+            font-weight: bold;
+            font-size: 18px;
+            text-align:center;
+            background-color:#fff;
+            width:520px; height: 90px;
+            padding:40px 30px;
+            font-family:'微软雅黑','宋体';
+            border: 2px solid #bebebe;
+            /*border: 3px solid transparent;*/
+            /*-webkit-border-radius: 5px;*/
+            /*-moz-border-radius: 5px;*/
+            /*border-radius: 5px;*/
+            /*-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+            /*-moz-box-shadow: 0 0 10px rgba(0,0,0,0.4);*/
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+
+        }
+        .WaitingForLoadingDiv img{
+            /*margin-bottom:15px;*/
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+        .inlineblock {
+            display: inline-block; *display: inline; zoom: 1;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .blank0 {
+            display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+        }
+        .clearfix {
+            clear: both; zoom: 1;
+        }
+
+        .clearfix:after {
+            clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+        }
+        img {
+            border: none;
+        }
+        .shadowbase{behavior:none;}
+
+        body {
+            font-family: "微软雅黑"; font-size: 14px; background: #F1EFF0;
+            padding: 0px; margin: 0px; text-align: center;
+        }
+        .title-wrapper {
+            border-bottom: 3px solid #f27b03; padding: 10px 0px; text-align: center;
+            background: white;
+        }
+        .title-wrapper .title-container {
+            width: 1000px; margin: 0 auto; text-align: left;
+        }
+        .title-wrapper .logo-div {
+            font-size: 26px; color: #FF4400; font-weight: bold;
+        }
+        .title-wrapper .top-user-nick {
+            color: #FF4400; font-weight: bold;
+        }
+        .user-op-btn {
+            /*background: url('/img/button/bluebutton.png');*/ background: #F37406;
+            border: #D84600 1px solid; margin-left: 7px; border-radius: 4px;
+            width:68px;height: 32px;line-height: 32px;
+            display: inline-block;*display: inline; zoom:1;
+            color: white;text-align: center;font-weight: bold;font-size: 14px;cursor: pointer;font-size:13px;
+        }
+        .user-op-btn:hover {
+            background: #E26101;
+        }
+        .basebtn {
+            width: 90px; height: 28px; line-height: 28px; border: #D84600 1px solid;
+            color: white; text-align: center; background: #F37406;
+            font-size: 14px; cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+        }
+        .basebtn:hover {
+            background: #E26101;
+        }
+        .long-basebtn {
+            width: 110px;
+        }
+        .content-wrapper {
+            width: 1000px; margin: 0 auto; text-align: left; background: white;
+            border-bottom: 1px solid #f27b03; border-left: 1px solid #f27b03;
+            border-right: 1px solid #f27b03;
+        }
+        .nav-box-container {
+            padding: 0px 0px; font-size: 14px;
+        }
+        .nav-box-container .nav-item-block {
+            border-bottom: 1px solid #fccea5; padding: 10px 0px; display: block;
+            color: #000; cursor: pointer;
+        }
+        .nav-box-container .nav-item-block:hover {
+            color: #FF4400; background: #ffd6c3; font-weight: bold; background: #fff8ed; background: white;
+        }
+        .nav-box-container .selected-nav {
+            color: #FF4400; background: #ffd6c3; font-weight: bold; background: #fff8ed; background: white;
+        }
+        .kefu-container {
+            border: 1px solid #fccea5; background: white; padding: 10px;
+        }
+
+        .tip-bar-table {
+            width: 100%; border-collapse: collapse;
+        }
+        .tip-bar-table .bar-left {
+            background: url('/img/dianputuiguang/tip-bar-left.gif') no-repeat; height: 34px;
+            width: 10px;
+        }
+        .tip-bar-table .bar-middle {
+            background: url('/img/dianputuiguang/tip-bar-middle.gif') repeat-x; height: 34px;
+            font-size: 15px; font-weight: bold; padding-left: 20px; color: #1D5987;
+        }
+        .tip-bar-table .bar-right {
+            background: url('/img/dianputuiguang/tip-bar-right.gif') no-repeat; height: 34px;
+            width: 10px;
+        }
+
+        .new-tip-bar {
+            color: white; height: 36px;
+            line-height: 36px;
+            font-size: 16px; font-weight: bold; padding-left: 30px;
+            background: url('/img/dianputuiguang/new-tip-bar.png') no-repeat;
+        }
+
+        .base-info-table {
+            border-collapse: collapse;
+        }
+        .base-info-table td {
+            text-align: left; padding: 3px 0px; font-size: 14px;
+        }
+        .base-info-table .tip-dot {
+            background: url(/img/dianputuiguang/tip-dot.png) no-repeat left 51%; padding-left: 12px;
+        }
+        .base-info-table .result-info {
+            color: #FF4400;
+        }
+        .item-container {
+        }
+        .item-container .tip-div {
+            background: url(/img/dianputuiguang/tip-bar.png) no-repeat; height: 34px;
+            font-size: 15px; font-weight: bold; padding-left: 20px; color: #1D5987; line-height: 34px;
+        }
+        .item-container .border-div {
+            border: #F1CA94 1px solid; padding: 10px;
+        }
+        .item-container .result-table {
+            width: 100%; background: url(/img/dianputuiguang/new-tip-bar.png) no-repeat;
+            border-collapse: collapse;
+        }
+        .item-container .result-table thead tr {
+
+        }
+        .item-container .result-table thead td {
+            color: white; font-weight: bold; height: 36px;
+        }
+        .item-container .result-table td {
+            text-align: center; vertical-align: middle;
+        }
+        .item-container .result-table tbody .result-td {
+            padding: 5px 5px; border-bottom: #F1CA94 1px solid;
+        }
+
+        .item-container .item-link {
+            color: blue;
+        }
+        .item-container .item-link:hover {
+            color: #FF4400;
+        }
+
+        .item-container .link-btn {
+            color: #FF4400;
+        }
+        .item-container .link-btn:hover {
+            color: #FF4400; font-weight: bold; text-decoration: underline;
+        }
+        .xufei{margin: 0 auto;
+            position: fixed;
+            bottom: 0;
+            right:0;
+            height:83px;
+            line-height: 83px;
+            z-index: 1000;
+            width: 100%;
+            text-align: center;
+            display: none;
+            background: url(/img/autoTitle/adv.png) repeat-x;}
+        .xufei{font-size: 24px;z-index: 10000;}
+        .xudingBtn{margin:0 20px 0 10px;background: url("/img/taoweigou/search-btn.png");width: 123px;height: 36px;line-height: 36px;font-size: 20px;color: #ffffff;}
+        .xudingBtn a{color: #ffffff;}
+    </style>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a72bff6fde1efdd6762eb622879c35f5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+</script>
+<script src="/js/jquery-1.6.4.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+</script>
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+<!--<div class="LoadingMask" style="display: none; border: 0;"></div>-->
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    TM.gcs('/js/tm.js');
+
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function(){
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_tms="+TM.tms;
+                }else{
+                    href += "?_tms="+TM.tms;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        $(document).ready(function(){
+            TM.setAnchorSids();
+        })
+
+
+
+        var hasPath = false;
+
+
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function(){
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+    })(jQuery, window));
+</script>
+
+<script src="/js/paipaiweigou/dptgbase.js"></script>
+
+
+<div class="title-wrapper" style="">
+    <div class="title-container">
+        <table style="margin-left: 100px;">
+            <tbody>
+            <tr>
+                <td style="width: 200px;">
+                    <!--  <div class="logo-div"><img style="width:64px;height:64px;" src="http://img01.taobaocdn.com/top/i1/T1sziJXw4gXXaCwpjX.png" /></div>-->
+                    <!--  <div class="logo-div">店 铺 推 广</div>-->
+                </td>
+                <td style="width: 400px; text-align: right; vertical-align: middle;">
+                    <div style="">欢迎您!&nbsp; <span class="top-user-nick"></span></div>
+                </td>
+                <td style="width: 200px; text-align: right;">
+                    <span id='syncBtn' class="user-op-btn ">更新数据</span>
+                    <span id="logout" class="user-op-btn " >退出</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <div class="content-wrapper">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tbody class="content-wrapper-tbody">
+            <!--<tr>
+               *{ <div class="lunbo-area">
+                    <a href="/paipaiweigou/award" target="_blank"><img src="http://img03.taobaocdn.com/imgextra/i3/1039626382/T2bt25Xo8XXXXXXXXX_!!1039626382.jpg" style="width: 1000px;height: 200px;"></a>
+                </div>}*
+                   <div  class="slideBox" id="lunbo-area">
+                       <ul class="items">
+                           <li><a target="_blank" href="/paipaiweigou/award" title="好评送推广"><img style="width: 1000px;height: 200px;" src="http://img03.taobaocdn.com/imgextra/i3/1039626382/T2bt25Xo8XXXXXXXXX_!!1039626382.jpg"></a></li>
+                       </ul>
+                   </div>
+            </tr>-->
+            <tr>
+                <td style="width: 17%;vertical-align: top; border-right: 1px solid #f27b03; background: #fff8ed;text-align: center;">
+                    <div class="nav-box-container" style="">
+                        <a href="/paipaiweigou/index" class="nav-item-block">首&nbsp;&nbsp;页</a>
+                        <a href="/paipaiweigou/promoteItem" class="nav-item-block">我要推广</a>
+                        <a href="/paipaiweigou/hotrecommend" class="nav-item-block">热销推荐</a>
+                        <!--<a href="#" class="nav-item-block">查看推广</a>-->
+                        <a href="/paipaiweigou/shoucang" class="nav-item-block">百度收藏</a>
+                        <a href="http://seller.paipai.com/source/report.html" target="_blank" class="nav-item-block">推广效果分析</a>
+                        <!-- <a id="teach" href="/paipaiweigou/help" class="nav-item-block">使用教程</a>
+                        <a href="/paipaiweigou/award" class="nav-item-block">好评送推广</a>
+                        <a target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-283059378.htm?tracelog=atg" class="nav-item-block">隐形降权</a>
+                        <a href="/paipaiweigou/upgrade" class="nav-item-block" style="display: none;">体验版升级</a>-->
+                    </div>
+                    <div class="kefu-container" style="margin: 30px auto; width: 70%; text-align: left;">
+                        <div style="font-size: 14px;margin-bottom:10px;">
+                            <span style="font-weight: bold;color:red;">限时推广活动:</span><br><a href="http://fuwu.paipai.com/appstore/ui/my/app/appdetail.xhtml?appId=262513&chargeItemId=2941" target="_blank">精选13个广告位，80元促销中！</a>
+                        </div>
+                        <div style="font-size: 14px;margin-top:20px;">
+                            感谢您的使用！
+                        </div>
+                        <div style="font-size: 14px;margin-top:20px;display:none;">
+                            QQ群：299560308
+                        </div>
+                        <div style="font-size: 14px;margin-bottom:10px;color:red;display: none;">
+                            加群送1个推广位
+                        </div>
+
+
+                        <!-- <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=68ae6bb9dd086cd6c1e80cd631d8dfd0eda5824220fd348caf879ef27c48e089"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="拍拍卖家交流群" title="拍拍卖家交流群"></a> -->
+                    </div>
+                </td>
+                <td style="width: 83%; vertical-align: top; ">
+                    <div class="layout-wrapper" style="padding: 20px; color: #333;">
+                    #{doLayout /}
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="bottom-wrapper " style="margin-top:20px;text-align: center;">
+    <div class="bottom-kefu">
+        <div style="font-size: 14px; margin-bottom: 10px;">
+            在线客服：
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2311738573&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2311738573:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $.get("/paipaiweigou/queryUserNick", function(data) {
+        $(".title-wrapper .top-user-nick").html(data);
+    });
+
+</script>
+
+<script type="text/javascript">
+    var navObj = $('.nav-box-container');
+    var lowPath = path.toLowerCase();
+
+    navObj.find('a').each(function(){
+        var anchor = $(this);
+        var anchorHref = anchor.attr('href').toLowerCase();
+        if(lowPath.indexOf(anchorHref) >= 0 && lowPath.length > 2){
+            navObj.find('a').removeClass('selected-nav');
+            anchor.addClass('selected-nav');
+        }
+    });
+
+    TM.sync = function(){
+        $.get('/paipaiitems/syncSale',function(){
+//            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+//                window.location.reload();
+//            });
+//            alert("亲，同步成功,点击确定刷新页面");
+            window.location.reload();
+        });
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+
+    TM.gcs("/js/lunbo/jquery.slideBox.min.js",function(){
+        /*$.post('/op/mixplans',{tag:""},function(data){
+            if(data.length > 0){
+                $(data).each(function(i,img){
+                    $('#lunbo-area .items').append($('<li><a target="_blank" href="'+img.src+'" title="'+img.tag+'"><img style="width: 1000px;height: 200px;" src="'+img.href+'"></a></li>'));
+                })
+            }
+            $('#lunbo-area').slideBox();
+        })*/
+        $('#lunbo-area').slideBox();
+
+    })
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/PaiPaiIn/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+
+//    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+//         $.get('/paipaipromote/getUserInfo',function(user){
+//             var hotpromote  = $('#hotpromoterecommend');
+//             var teach = $('#teach');
+//             if(user && user.level > 0){
+//                 hotpromote.attr('href',"/paipaiweigou/hotrecommend");
+//                 teach.attr('href','/paipaiweigou/help');
+//                 $.cookie("level",user.level);
+//                 TM.DptgBase.xufei.showXufei($.cookie("level"));
+//                 return;
+//             }else{
+//                 teach.attr('href','/paipaiweigou/tryhelp');
+//                 hotpromote.click(function(){
+//                     var tip = '<p>亲，您需要升级到高级的版本才能享受热卖推荐哦</p>'
+//                     +'<p><a  style="border:none;;font:24px bold;;color:red" class="red" href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1848325&tracelog=weitaoupgrade">立即升级</a></p>'
+//                     +'<p>版本升级系统自动补差价的哟O(∩_∩)O</p>'
+//                     +'</div>'
+//                     TM.Alert.load(tip, 400, 320);
+//                 })
+//             }
+//         })
+//    });
+</script>
+
+#{get 'moreScripts' /}
+
+*{<script type="text/javascript">}*
+    *{var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");}*
+    *{document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7e13550e5ac5afb49c564d0b3831e362' type='text/javascript'%3E%3C/script%3E"));}*
+*{</script>}*
+
+</body>
+</html>

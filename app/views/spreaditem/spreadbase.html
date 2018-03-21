@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+    <!--
+    <link rel="shortcut icon" type="image/png" href='/img/favicon.png'>
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=6'>
+    -->
+
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=6'>
+
+
+#{get 'moreStyles' /}
+    <style>
+        .shadowbase{behavior:none;}
+
+        ul{ list-style:none;}
+        li{ list-style:none;}
+    </style>
+
+</head>
+<body>
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+    TM.tms = TM.tms || '-';
+</script>
+<script src="/js/jquery-1.6.4.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+
+</script>
+
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+<!-- loading等待 -->
+<div class="WaitingForLoadingDiv" style="display: none; position: absolute;">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />
+    <img src='http://img02.taobaocdn.com/imgextra/i2/1039626382/T2S1C2XfXaXXXXXXXX_!!1039626382.gif' alt='正在加载' />
+</div>
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    TM.gcs('/js/tm.js');
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+//            console.info(TM.tms);
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+        TM.SpreadBase = TM.SpreadBase || {};
+        var SpreadBase = TM.SpreadBase;
+        SpreadBase.util = SpreadBase.util || {};
+        SpreadBase.util = $.extend({
+            //判断ajax是否返回成功的状态
+            checkAjaxSuccess: function(dataJson) {
+                if (dataJson.message === undefined || dataJson.message == null || dataJson.message == "") {
+
+                } else {
+                    alert(dataJson.message);
+                }
+                return dataJson.success;
+            }
+        }, SpreadBase.util);
+
+    })(jQuery, window));
+
+
+</script>
+
+<style>
+    .inlineblock {
+        display: inline-block; *display: inline; zoom: 1;
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+    .blank0 {
+        display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+    }
+
+    body {
+        background: #eeeeee; text-align: center; margin: 0px;
+        font-family: "微软雅黑";
+    }
+    .title-wrapper {
+        width: 890px; margin: 0 auto;
+    }
+    .title-wrapper .logo-img {
+        width: 500px; height: 80px;border: none;
+    }
+
+    .title-nav-div ul {
+        padding: 0px; margin: 0px;
+    }
+    .title-nav-div ul li a {
+        color: #333333;
+    }
+    .title-nav-div ul li {
+        float: left; font-weight: bold; height: 35px;
+        background: #cccccc; color: #333333; margin-right: 10px; cursor:pointer;
+    }
+    .title-nav-div ul li:hover {
+        background: white;
+    }
+    .title-nav-div ul .selected-li {
+        background: white;;
+    }
+    .title-nav-div ul li a {
+        width: 120px; font-size: 16px; padding-top: 5px; display: block;
+    }
+
+    .user-op-btn {
+        background: url('/img/button/bluebutton.png');width:68px;height: 32px;line-height: 32px;
+        display: inline-block;*display: inline; zoom:1;
+        color: white;text-align: center;font-weight: bold;font-size: 14px;cursor: pointer;font-size:13px;
+    }
+
+    .content-wrapper {
+        border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;
+        background: white; width: 900px; margin: 0 auto;
+        padding: 20px 10px;
+        font-family: "微软雅黑"; font-size: 14px;
+        text-align: left;
+    }
+
+    .basebtn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;width: 95px;}
+    .basebtn:hover{background-position: 0 -34px;}
+
+
+    .content-wrapper .tip-dot {
+        background: url(/img/spreaditem/tip-dot.png) no-repeat left 51%; padding-left: 12px;
+        display: inline-block; *display: inline; zoom: 1;
+    }
+    .content-wrapper .separator {
+        height: 0px; border-bottom: 1px solid #cccccc;
+    }
+    .content-wrapper .base-info-table td {
+        text-align: left; padding: 3px 0px; font-size: 14px;
+    }
+    .content-wrapper .result-table {
+        border-collapse: collapse; text-align: center;
+    }
+    .content-wrapper .result-table thead tr {
+        background: left -102px url('/img/frame/bg.png');height:32px; font-weight: bold;
+        border: 1px solid #DDDDDD;color:#1D5987;
+    }
+    .content-wrapper .result-table tbody .result-td {
+        padding: 10px 5px; vertical-align: middle; border-bottom: 1px solid #cccccc;
+    }
+
+
+
+</style>
+
+<div style="background:f27b04;background: #FF3301;">
+    <div class="title-header title-wrapper"  style="height: 80px; text-align: left;" >
+        <div class="title-logo left">
+            <img src="/img/spreaditem/logo.jpg" class="logo-img left" />
+            <div class="blank0"></div>
+        </div>
+        <div class="user-info right" style="margin: 30px 100px 0px 0px; color: white; font-size: 16px; font-weight: bold;">
+            欢迎您，楚之小南！
+        </div>
+        <div class="blank0"></div>
+    </div>
+    <div class="blank0"></div>
+    <div class="title-nav-div title-wrapper">
+        <ul class="nav-ul left" style="margin-left: 30px;">
+            <li>
+                <a href="/spreaditem/index">首&nbsp;&nbsp;页</a>
+            </li>
+            <li>
+                <a href="/spreaditem/admin">推广宝贝管理</a>
+            </li>
+        </ul>
+        <div class="right" style="margin: 0px 100px 0px 0px;">
+            <span id='syncBtn' class="user-op-btn ">更新数据</span>
+            <span id="logout" class="user-op-btn " >退出</span>
+        </div>
+        <div class="blank0"></div>
+    </div>
+    <div class="blank0"></div>
+</div>
+<div class="blank0"></div>
+<div class="content-wrapper">
+    #{doLayout /}
+</div>
+
+
+<div id="mainfoot" style="background: #eeeeee;">
+    <div id="footer-content" style="margin: 0 auto;width:200px;">
+        <p style="font-size:14px;padding-top:15px;">
+        *{在线客服：<a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E&site=cntaobao&s=1&charset=utf-8" ><img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后" /></a></p>}*
+            在线客服：
+            <a id="kefuhref" target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8" >
+                <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系客服" />
+            </a>
+        </p>
+        <!--  <a href="/home/buyVersion">版本控制</a> -->
+    </div>
+</div>
+
+
+
+
+#{get 'moreScripts' /}
+
+<script style="text/javascript">
+    var navULObj = $('.title-nav-div ul');
+    var lowPath = path.toLowerCase();
+
+    navULObj.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').toLowerCase().indexOf(lowPath) >= 0 && lowPath.length > 2){
+            navULObj.find('li').removeClass('selected-li');
+            anchor.parent().addClass('selected-li');
+        }
+    });
+
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+</script>
+
+</body>
+</html>

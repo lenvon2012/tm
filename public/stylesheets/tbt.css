@@ -1,0 +1,108 @@
+    .navmain {
+        width: 1000px;
+        margin: 0 auto;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    .aside {
+        width: 173px;
+        /*float: left;*/
+        margin: 20px 0 0 0;
+        /* position: fixed; */
+        z-index: 9999;
+    }
+    .aside .sidebox {
+        clear: both;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    .sidemenu {
+        border: 1px solid #C7CACC;font-size:13px;
+    }
+    .sidemenu li a {
+        display: block;
+        height: 36px;
+        line-height: 36px;
+        border-bottom: 1px solid #C6C8CB;
+        overflow: hidden;
+        text-align: left;
+        width:100%;
+        color:#444;
+    }
+    .sidemenuAnchor{background: url("http://s.libdd.com/img/bg/sidemenu-item.$5106.png") repeat;}
+    .sidemenu li a:hover{
+        text-align: left;
+        background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;
+        color:black;
+    }
+    .sidemenu li a:hover span{color:black;}
+    .asideselected{background-color: #3668A5;}
+    .asideselected span{color:white;}
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {height: auto;width:1000px;}
+
+    .kwcontainer {background: transparent;margin: 10px auto;width: 100%;overflow: hidden;zoom: 1;min-height:400px;}
+    .sidemenu li.aside-hot-tag .aside-icon {cursor: move;}
+    .sidemenu li.aside-hot-tag .aside-icon {
+        background-position: -92px 10px;
+    }
+    .sidemenu li a{}
+    .sidemenu li a .aside-icon {
+        float: left;
+        width: 36px;
+        height: 36px;
+        background-image: url("http://s.libdd.com/img/icon/sidemenu.$6372.png");
+        background-repeat: no-repeat;
+    }
+    #kits{width: 780px;}
+
+    .ddSqureButton{padding: 5px 10px 0px 10px;height:28px;background: #134E97;}
+    .ddSqureButton:hover{background: #598BC7;}
+    .head ul{margin-top:0px;}
+    .head ul li.selected{background-image: none;background-color: #32547D;}
+
+    .recommendDiv .tabDiv li .select {color: white; background: #32547D;}
+    .recommendDiv .tabDiv li a:hover {color: white;background: #3668A5;}
+
+
+    .btntext4{background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px}
+    .btntext4:hover{background-position: 0 -34px;}
+    .btntext6{background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') -98px -4px  no-repeat}
+    .btntext6:hover{background-position: -98px -34px;}
+    .navSelected{background-color: #598BC7;}
+    
+    .head-nav{margin: 0 auto;height: 45px;position: relative;}
+    .head ul {width:500px}
+    .pull-right{margin: 0px;height:44px;}
+    td.detail{padding-top:10px;padding-bottom:10px;}
+    
+    .userheadop {
+		float: left;
+		width: 150px;;
+		line-height: 41px;
+		height: 41px;
+		text-align: center;
+		display: inline-block;
+		*display: inline;
+		font-size: 15px;
+		padding-top: 3px;
+		overflow: hidden;
+	}
+
+	.user_time_left {
+		float: left;
+		width: 150px;;
+		line-height: 41px;
+		height: 41px;
+		text-align: center;
+		display: inline-block;
+		*display: inline;
+		font-size: 15px;
+		padding-top: 3px;
+		overflow: hidden;
+		color: #fff;
+	}

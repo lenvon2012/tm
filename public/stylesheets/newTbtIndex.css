@@ -1,0 +1,191 @@
+#upTopTenWordsTable tbody tr {
+    height: 35px;
+}
+#upTopTenWordsTable tbody {
+    background: #ffffff
+}
+#recommendFuwuTable tbody tr td a {
+    display: inline-block;
+    *display: inline;
+    zoom : 1;
+    color: #000000;
+}
+
+.activityCenter {
+    background: white;
+    border: 1px solid #BBBBBB;
+    text-align: center;
+    width: 225px;
+    margin-left: 3px;
+    height: 131px;
+    display: inline-block;
+}
+.title-head {
+    margin: 26px 0 0px 0;
+}
+.ShopDiagnoseAreaHead {
+    margin: 5px 0 0 0;
+}
+.ShopDiagnoseAreaHead .taobaoSearch {
+    width: 20px;
+    height: 20px;
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2zzPSXBlXXXXXXXXX-1039626382.png") -20px -20px;
+    margin-left: 20px;
+}
+.ShopDiagnoseAreaHead .dataCenter {
+    width: 20px;
+    height: 20px;
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2lJiQXXJcXXXXXXXX-1039626382.png") -20px -20px;
+    margin-left: 20px;
+}
+.ShopDiagnoseAreaHead .batchCenter {
+    width: 20px;
+    height: 20px;
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T2cvnSXsRaXXXXXXXX-1039626382.png") -20px -20px;
+    margin-left: 20px;
+}
+.ShopDiagnoseAreaHead .AwardCenter {
+    width: 20px;
+    height: 20px;
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2AQbTXxVXXXXXXXXX-1039626382.png") -20px -20px;
+    margin-left: 20px;
+}
+.ShopDiagnoseAreaHead .wordCenter {
+    width: 20px;
+    height: 20px;
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T2UcLSXpFaXXXXXXXX-1039626382.png") -20px -20px;
+    margin-left: 20px;
+}
+.ShopDiagnoseArea .ShopDiagnoseAreaHeadTitle {
+    font-size: 20px;
+    color: grey;
+}
+.ShopDiagnoseArea .ShopDiagnoseAreaTable {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2wOvAXi4bXXXXXXXX-1039626382.png") -105px -45px;
+    height: 120px;
+    width: 820px;
+}
+.ShopDiagnoseArea .ShopDiagnoseAreaTable td {
+    text-align: center;
+}
+.ShopDiagnoseAreaTableText {
+    font-size: 16px;
+    color: grey;
+}
+.titleModify {
+    background: url("http://img01.taobaocdn.com/imgextra/i1/1039626382/T2OJbfXm8bXXXXXXXX-1039626382.png");
+}
+.searchRank {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2ub2TXz8XXXXXXXXX-1039626382.png")
+}
+.showWindow {
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T2M8DSXBlXXXXXXXXX-1039626382.png")
+}
+.autoDelist {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2E36SXBpXXXXXXXXX-1039626382.png")
+}
+.CatDelistAnalysis {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T28fz7XjhbXXXXXXXX-1039626382.png")
+}
+.catPayHour {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T25M_TXzpXXXXXXXXX-1039626382.png")
+}
+.ViewHourAnalysis {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T25M_TXzpXXXXXXXXX-1039626382.png")
+}
+.shopViewTrade {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2GOlXXCBaXXXXXXXX-1039626382.png")
+}
+.shopSrcDiag{
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Dz_yXmxbXXXXXXXX-1039626382.png")
+}
+.searchDiag {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T28fLTXzxXXXXXXXXX-1039626382.png")
+}
+.shopSearchWords {
+    background: url("http://img01.taobaocdn.com/imgextra/i1/1039626382/T2VcvrXhtbXXXXXXXX-1039626382.png")
+}
+.areaDiag {
+    background: url("http://img01.taobaocdn.com/imgextra/i1/1039626382/T2ucGZXndbXXXXXXXX-1039626382.png")
+}
+.commodityDiag {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2qdbSXABXXXXXXXXX-1039626382.png")
+}
+.comment {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2TN3rXhVbXXXXXXXX-1039626382.png")
+}
+.multiModify {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2qdbSXABXXXXXXXXX-1039626382.png")
+}
+.batchprice {
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T20gHbXfFbXXXXXXXX-1039626382.png")
+}
+.batchdelist {
+    background: url("http://img01.taobaocdn.com/imgextra/i1/1039626382/T2UiYSXB0XXXXXXXXX-1039626382.png")
+}
+.mywords {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2ei_9XkdbXXXXXXXX-1039626382.png")
+}
+.bussearchkey {
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T27._SXAJXXXXXXXXX-1039626382.png")
+}
+.bustopkey {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2Di2SXAVXXXXXXXXX-1039626382.png")
+}
+.topKey {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2h0vTXzVXXXXXXXXX-1039626382.png")
+}
+.lottery {
+    background: url("http://img04.taobaocdn.com/imgextra/i4/1039626382/T2CmHRXrXaXXXXXXXX-1039626382.png")
+}
+.award {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2HdPSXCxXXXXXXXXX-1039626382.png")
+}
+.invite {
+    background: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T2Z4DRXsRaXXXXXXXX-1039626382.png")
+}
+.classes {
+    background: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T200YCXbdbXXXXXXXX-1039626382.png")
+}
+.ShopDiagnoseAreaTablePic{
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+.taobaoSearchContent table tbody td {
+    width: 170px;
+    text-align: center;
+}
+div.main{
+    background-color: white;
+    border-right: 1px solid #ccc ;
+}
+ul {
+    margin: 0 0 0 0;
+    padding: 0px 0px;
+}
+.shop-pc-online-info-table{
+    width: 99%;
+}
+.aside-hot-tag{
+    background: #ffffff
+}
+.shop-pc-online-info-table .key-value-tr td {
+    background-color : #ffffff;
+    border: 2px solid white;
+}
+div#yangyangContent {
+    width: 1100px;
+}
+.nav-table-left-td{
+    width: 236px;
+}
+div.aside{
+    width: 236px;
+}
+div#yangyangContent{
+    background-color: #ffffff;
+}
+.preGoDetail{
+    _margin-top: 5px;
+}

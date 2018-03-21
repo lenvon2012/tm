@@ -1,0 +1,81 @@
+#{extends 'main.html' /}
+#{set title:'淘标题-店铺小时诊断' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/searchDiag/shopHourDiag.css">
+#{/set}
+<style>
+    div.main {
+        width: 1040px;
+        border: 1px solid #aaa;
+        background: white;
+    }
+
+    .nav-table-left-td {
+        display: none;
+    }
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>店铺小时诊断
+</div>
+
+<div class="diag-container">
+    <div class="shop-diag-div">
+        <div class="searchDiagTip intro hidden" style="text-align: center;margin: 0 auto;margin-bottom: 10px;">
+            亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+        </div>
+        <div class="interval-wrapper">
+            <div class="interval-tr">
+                选择日期查看:<input type="text" style="width:100px;text-align: center;margin:0 15px;" id="startTimeInput">
+                <span style="margin: 0 10px 0 30px;">快速查看:</span>
+                <span  class="quickSearch " tag="1">昨天</span>
+                <span class="quickSearch" tag="2">前天</span>
+                <span class="quickSearch" tag="3">大前天</span>
+                <span class="quickSearch" tag="7">7天前</span>
+                <span class="quickSearch" tag="14">14天前</span>
+            </div>
+        </div>
+        <div id="shopHourCharts">
+
+        </div>
+        <div class="diag-result-div">
+            <table class="word-diag-result-table busSearch">
+                <thead>
+                <tr>
+                    <th class="orderTd">小时分段<span class="inlineblock sort Desc" sort="thehour"></span></th>
+                    <th class="orderTd">流量来源<span class="inlineblock sort Desc" sort="visit_platform"></span></th>
+                    <th class="orderTd">浏览量<span class="inlineblock sort Desc" sort="pv"></span></th>
+                    <th class="orderTd">访客数<span class="inlineblock sort Desc" sort="uv"></span></th>
+                    <th class="orderTd">回头客数<span class="inlineblock sort Desc" sort="view_repeat_num"></span></th>
+                    <th class="orderTd">成交笔数<span class="inlineblock sort Desc" sort="alipay_trade_num"></span></th>
+                    <th class="orderTd">成交金额(元)<span class="inlineblock sort Desc" sort="alipay_trade_amt"></span></th>
+                    <th class="orderTd">成交用户数<span class="inlineblock sort Desc" sort="alipay_winner_num"></span></th>
+                    <th>成交转化率</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/tm.js', function () {
+                TM.gcs('/js/jquery.pagination.js', function () {
+                    TM.gcs('/js/searchDiag/shopHourDiag.js?_v=1', function () {
+                        TM.shopHourDiag.init.doInit($('.diag-container'));
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}

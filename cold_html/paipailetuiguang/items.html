@@ -1,0 +1,24 @@
+#{extends 'paipailetuiguang/base.html' /}
+#{set title:'店铺推广 - 我要推广' /}
+
+<style type="text/css">
+    .op-td{text-align: right;}
+</style>
+
+<div class="item-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/PaiPaiItems/firstSync',function() {
+                TM.gcs('/js/paipailetuiguang/dptgitem.js?_v=1', function () {
+                    TM.gcs('/js/paipailetuiguang/shoucang.js', function () {
+                        TM.DptgItem.init.doInit($(".item-container"));
+                    });
+                });
+            });
+        });
+    });
+</script>

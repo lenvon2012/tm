@@ -1,0 +1,285 @@
+#{extends 'dianputuiguang/newbase.html' /}
+#{set title:'优质U站推荐' /}
+
+<style type="text/css">
+
+    .first-page-container .shop-info-table td {padding-top: 10px; padding-bottom: 10px;}
+    .first-page-container .shop-info-table .tip-dot {font-weight: bold;}
+    .first-page-container .attend-award-link {color: blue;}
+    .first-page-container .attend-award-link:hover {color: #a10000;}
+    .first-page-container .big-op-btn {
+        /*width: 200px; height: 80px; line-height: 80px;*/
+        width: 160px; height: 65px; line-height: 65px; display: block; border-radius: 10px; border: #D84600 1px solid;
+        color: white; font-weight: bold; text-align: center; background: #F37406;
+        font-size: 22px; cursor: pointer;
+    }
+    .first-page-container .big-op-btn:hover {background: #E26101;}
+    td.recommend{text-align:center;padding: 10px 10px 10px 10px;}
+    td{vertical-align:top}
+    .btn-ordernow {width: 120px;height: 42px;text-indent: -9999px;overflow: hidden;vertical-align: middle;background:url(http://img04.taobaocdn.com/tps/i4/T1iuYjXixoXXahTfPO-721-166.png) no-repeat -120px 0;}
+    .btn-ordernow:hover {background-position: -120px -42px;}
+    .borderimg{border:1px solid #ccc;}
+    .usitelist .block{border:1px solid #ccc;margin-bottom: 20px;}
+    .usitelist .blockhead{background: #fcfcfc;border-bottom:1px solid #ccc;
+        height:20px;padding:15px;
+        margin-bottom:5px;
+        font-weight: bold;
+        padding-left:30px;
+        font-size: 16px;
+    }
+    .usitelist .usiteunit{
+        float:left;
+        height:240px;width:200px;
+        display:inline-block;
+        *display:inline;
+        text-align: center;
+    }
+    div.main{border:none;}
+    h4,h5{margin:5px;}
+    h5{font-weight: normal;}
+    #top img{border:1px solid #eee;}
+    #top .usiteunit{float:none;}
+</style>
+
+<div class="first-page-container item-container">
+*{<table style="width:100%;" class="result-table">}*
+    *{<thead>}*
+    *{<tr>}*
+        *{<td></td>}*
+        *{<td>简介</td>}*
+        *{<td>报名网址</td>}*
+        *{<td>备注</td>}*
+        *{</tr>}*
+    *{</thead>}*
+    *{<tbody>}*
+        *{<tr>}*
+            *{<td></td>}*
+            *{<td></td>}*
+            *{<td></td>}*
+            *{<td></td>}*
+        *{</tr>}*
+    *{</tbody>}*
+*{</table>}*
+
+    <div class="usitelist">
+        <div class="block clearfix">
+            <div class="blockhead" style="font-weight: bold;color:#a10000;">
+                天天秒爆,打造爆款
+            </div>
+            <div id="top" class="usiteslist" style="text-align: center;">
+            </div>
+        </div>
+        <div class="block clearfix">
+            <div class="blockhead">
+                热门自定义u站
+            </div>
+            <div id="diy" class="usiteslist">
+            </div>
+        </div>
+        <div class="block clearfix">
+            <div class="blockhead ">
+                人气u站
+            </div>
+            <div id="renqi" class="usiteslist">
+
+            </div>
+        </div>
+        <div class="block clearfix">
+            <div class="blockhead">
+                热门u站
+            </div>
+            <div id="hot" class="usiteslist">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript" src='/js/jquery.tmpl.js' charset="utf-8"></script>
+<script type="text/x-jquery-tmpl" id="usitesTmpl">
+    <span class="usiteunit">
+        <div class="">
+            <a target="_blank" href="{{= url}}">
+                <img src="{{= picPath}}" />
+            </a>
+        </div>
+        <div class="">
+            <h4>{{= name}}</h4>
+            <h5>{{= usercount}}人喜欢</h5>
+        </div>
+        <div>
+            <a target="_blank" href="{{= url}}" style="color:#a10000">查看U站</a>
+        </div>
+    </span>
+</script>
+
+<script type="text/javascript">
+    var diyUSites = [
+        {
+            name:'达人爱',
+            admin:'tianhao1215',
+            usercount:'129万+',
+            picPath:'http://img4.tbcdn.cn/tfscom/i1/18206025286993272/T2UAQxXXtbXXXXXXXX_!!35498206-0-dgshop.jpg',
+            url:'http://da.uz.taobao.com'
+        },{
+            name:'家乡味',
+            admin:'boogoobird',
+            usercount:'126万+',
+            picPath:'http://img1.tbcdn.cn/tfscom/i1/14536024833857839/T2t73yXjBXXXXXXXXX_!!380884536-0-dgshop.jpg',
+            url:'http://jiaxiangwei.uz.taobao.com'
+        },{
+            name:'特价猫',
+            admin:'boogoobird',
+            usercount:'126万+',
+            picPath:'http://img1.tbcdn.cn/tfscom/i1/11025019900515312/T219boXahbXXXXXXXX_!!822441025-2-dgshop.png',
+            url:'http://mao.uz.taobao.com'
+        },{
+            name:'销得好',
+            admin:'boogoobird',
+            usercount:'105万+',
+            picPath:'http://img1.tbcdn.cn/tfscom/i2/18174024293004590/T2JAf9XaBbXXXXXXXX_!!1607758174-0-dgshop.jpg',
+            url:'http://xiaodehao.uz.taobao.com/'
+        },{
+            name:'VIP购优汇',
+            admin:'boogoobird',
+            usercount:'103万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i1/13164024974170919/T2SH3qXk0aXXXXXXXX_!!718453164-2-dgshop.png',
+            url:'http://vipgouyouhui.uz.taobao.com'
+        },{
+            name:'十块钱',
+            admin:'boogoobird',
+            usercount:'102万+',
+            picPath:'http://img1.tbcdn.cn/tfscom/i4/17812024513455420/T2PnciXXBaXXXXXXXX_!!52137812-0-dgshop.jpg',
+            url:'http://10kuaiqian.uz.taobao.com'
+        },{
+            name:'券搜搜',
+            admin:'boogoobird',
+            usercount:'122万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i2/19245029506935103/T2UW8OXBdaXXXXXXXX_!!729839245-0-dgshop.jpg',
+            url:'http://quansoso.uz.taobao.com'
+        },{
+            name:'特实惠',
+            admin:'boogoobird',
+            usercount:'32万+',
+            picPath:'http://img4.tbcdn.cn/tfscom/i3/15721025479859402/T2LluQXhpbXXXXXXXX_!!109715721-2-dgshop.png',
+            url:'http://meilibang.uz.taobao.com'
+        }
+    ];
+
+    var renqiUSites = [
+        {
+            name:'优购鞋栈',
+            admin:'tianhao1215',
+            usercount:'26万+',
+            picPath:'http://img4.tbcdn.cn/tfscom/i3/10402026854459713/T2AywqXXBaXXXXXXXX_!!1094990402-0-dgshop.jpg',
+            url:'http://yougouzhan.uz.taobao.com'
+        },
+        {
+            name:'潮男装',
+            admin:'tianhao1215',
+            usercount:'8万+',
+            picPath:'http://img4.tbcdn.cn/tfscom/i3/17738028631160943/T2p5txXuJaXXXXXXXX_!!714587738-0-dgshop.jpg',
+            url:'http://share.uz.taobao.com'
+        },
+        {
+            name:'包包优选',
+            admin:'tianhao1215',
+            usercount:'12万+',
+            picPath:'http://img3.tbcdn.cn/tfscom/i2/16520031324983962/T280F7XrlXXXXXXXXX_!!783596520-0-dgshop.jpg',
+            url:'http://vv.uz.taobao.com'
+        },
+        {
+            name:'复古风',
+            admin:'tianhao1215',
+            usercount:'13万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i4/12240030447183683/T2UuNoXClaXXXXXXXX_!!1084382240-0-dgshop.jpg',
+            url:'http://nn.uz.taobao.com'
+        },
+        {
+            name:'小清新私房分享',
+            admin:'tianhao1215',
+            usercount:'11万+',
+            picPath:'http://img3.tbcdn.cn/tfscom/i1/15789040525724082/T2hKnOXdFbXXXXXXXX_!!1665105789-2-dgshop.png',
+            url:'http://hanyi.uz.taobao.com'
+        },
+        {
+            name:'微福星',
+            admin:'tianhao1215',
+            usercount:'12万+',
+            picPath:'http://img3.tbcdn.cn/tfscom/i1/11706029233774130/T2IJFYXEtXXXXXXXXX_!!1848361706-2-dgshop.png',
+            url:'http://weifuxing.uz.taobao.com'
+        },
+        {
+            name:'彩虹街',
+            admin:'tianhao1215',
+            usercount:'12万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i3/14419025255730952/T2.sUyXd4aXXXXXXXX_!!20514419-0-dgshop.jpg',
+            url:'http://rainbow.uz.taobao.com'
+        },
+        {
+            name:'美丽食事',
+            admin:'tianhao1215',
+            usercount:'11万+',
+            picPath:'http://img4.tbcdn.cn/tfscom/i1/12517029204495299/T2UnhFXwVaXXXXXXXX_!!1719102517-0-dgshop.jpg',
+            url:'http://xiaoxin.uz.taobao.com'
+        }
+    ];
+
+    var hotUSites = [
+        {
+            name:'九块邮',
+            admin:'tianhao1215',
+            usercount:'631万+',
+            picPath:'http://img4.tbcdn.cn/tfscom/i2/17177024981545257/T2.ewrXfxaXXXXXXXX_!!1601857177-2-dgshop.png',
+            url:'http://jiukuaiyoucom.uz.taobao.com'
+        },{
+            name:'i血拼',
+            admin:'tianhao1215',
+            usercount:'500万+',
+            picPath:'http://img3.tbcdn.cn/tfscom/i3/17860039354652184/T2pbk7XXXaXXXXXXXX_!!1759587860-0-dgshop.jpg',
+            url:'http://ishopping.uz.taobao.com'
+        },{
+            name:'时髦圈',
+            admin:'tianhao1215',
+            usercount:'264万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i1/15494025509086530/T2LtEDXi0XXXXXXXXX_!!37005494-0-dgshop.jpg',
+            url:'http://shimaoquan.uz.taobao.com'
+        },{
+            name:'淘牛品',
+            admin:'tianhao1215',
+            usercount:'157万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i3/13368026136483901/T2dmofXc0XXXXXXXXX_!!1126303368-0-dgshop.jpg',
+            url:'http://tealife.uz.taobao.com'
+        },{
+            name:'小稀奇',
+            admin:'tianhao1215',
+            usercount:'156万+',
+            picPath:'http://img1.tbcdn.cn/tfscom/i2/13639018347280947/T22ZV1XcVdXXXXXXXX_!!1072973639-2-dgshop.png',
+            url:'http://xiaoxiqi.uz.taobao.com'
+        },{
+            name:'秒杀通',
+            admin:'tianhao1215',
+            usercount:'137万+',
+            picPath:'http://img2.tbcdn.cn/tfscom/i3/11596020718034624/T2sHfyXiJaXXXXXXXX_!!1602101596-1-dgshop.gif',
+            url:'http://10mst.uz.taobao.com'
+        }
+    ];
+    var topSites = [{
+        name:'天天秒爆',
+        admin:'',
+        usercount:'1万+',
+//        picPath:'http://img04.taobaocdn.com/sns_album/i4/T1NUz5FlFXXXaH.X6X.JPEG',
+        picPath:'/img/aituiguang/tiantianmiaobao.jpeg',
+        url:'http://xiaochi.uz.taobao.com'
+    }];
+
+    var tmp = $('#usitesTmpl');
+    $("#renqi").append(tmp.tmpl(renqiUSites));
+    $('#hot').append(tmp.tmpl(hotUSites));
+    $('#diy').append(tmp.tmpl(diyUSites));
+    $('#top').append(tmp.tmpl(topSites));
+
+</script>
+
+#{/set}

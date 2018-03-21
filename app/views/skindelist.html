@@ -1,0 +1,71 @@
+#{extends 'copyskin.html' /}
+
+<style>
+    ul{margin : 0 0 0 0 ;}
+    li{float:none;}
+    .clear {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+
+    /*-------------kitIndex  autodelist  start----------*/
+    .bluebutton {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;}
+    .bluebutton:hover{background-position: 0 -34px;}
+    .autoDelistDistriDiv {margin: 0px 10px 10px 10px;border:1px solid #BEBEBE;padding: 10px 0 10px 0;}
+    .autoDelistDistriDiv .reDistriBtn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;width: 90px; height: 30px; line-height: 30px; font-size: 13px;display: block;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;}
+    .autoDelistDistriDiv .reDistriBtn:hover{background-position: 0 -34px;}
+    .autoDelistArea .listTable tbody td {padding: 5px 0px; font-size: 14px; color: #333;}
+    .autoDelistArea .itemsearchdiv .searchtable .searchbtn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;width: 90px; height: 30px; line-height: 30px; font-size: 13px;display: block; margin-left: 20px;}
+    .autoDelistArea .itemsearchdiv .searchtable .searchbtn:hover{background-position: 0 -34px;}
+    .autoDelistArea .modify-delist-btn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;background: url(/public/images/btns/savebtn.png) no-repeat 0px 0px;width: 44px; height: 22px;display: inline-block; margin-left: 10px;}
+    .kitNav{border-bottom:1px solid #4297d7;padding-left:10px;}
+    .kitListArea{margin: 10px 10px 10px 10px;border: 1px solid #BEBEBE;min-height:444px;}
+    .swOpArea{background-color: #f6f8ce;margin: 10px 10px 10px 10px;padding: 10px 0 10px 0;border:1px solid #BEBEBE;padding-left:10px;}
+    .swOpArea span{display: inline-block;}
+
+    .autoDelistArea .listTable .evenRow{background-color: #F8F8F8;}
+
+    .tmNav span{ line-height: 30px;height: 30px;padding: 5px 15px 0 10px;margin:5px 10px 0 15px;display:inline-block;
+        cursor: pointer;border-bottom:1px solid #4297D7;border-top: 1px solid #BBB;border-left: 1px solid #BBB;
+        border-right: 1px solid #BBB;background: white;color: #598BC7;}
+
+    .tmNav span.selected{background: #32547D;; color: #ffffff;border-left: 1px solid #79b7e7;border-right: 1px solid #79b7e7;}
+    .tmNav span:hover{ background: #598BC7;; color: white;font-weight: bold; }
+    #skindelist{width:800px;margin-left:200px;}
+        /*-------------kitIndex  autodelist  end----------*/
+</style>
+
+<div id="skindelist">
+        #{doLayout /}
+</div>
+
+<script type="text/javascript">
+    //添加导航
+    var html = '' +
+            '<ul style="padding-top:15px;">' +
+            '   <li><a href="/skindelist/index">自动上下架</a></li>' +
+            '   <li><a href="/skinbatch/index">批量中心</a></li>' +
+            '</ul>';
+    $(html).prependTo($(".head-nav").find(".head"));
+
+    var leftNavHtml = '' +
+            '<div class="aside">' +
+            '   <ul class="sidemenu sidebox side-tracked-tag ">' +
+            '       <li class="aside-hot-tag first">' +
+            '           <a class="followed-tag clearfix sidemenuAnchor" href="/skindelist/index">' +
+            '               <span class="aside-icon"></span>' +
+            '               <span>自动上下架></span>' +
+            '           </a>' +
+            '       </li>' +
+            '       <li class="aside-hot-tag ">' +
+            '           <a class="followed-tag clearfix sidemenuAnchor" href="/skinbatch/index">' +
+            '               <span class="aside-icon"></span>' +
+            '               <span>批量中心></span>' +
+            '           </a>' +
+            '       </li>' +
+            '   </ul>' +
+            '</div>' +
+            '';
+
+    $(leftNavHtml).prependTo($(".kwcontainer"));
+
+</script>

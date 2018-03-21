@@ -1,0 +1,157 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'批量修改' /}
+
+<link rel="stylesheet" media="screen" href="/css/multiModify.css">
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+
+<style>
+    .liRadio{padding: 10px 0 10px 0;}
+    .itemChoseList li{padding: 10px 0 10px 0;}
+    .dd-ul input{color: red;}
+    .batchChangeTable {
+        width: 100%;
+    }
+    .batchChangeTable .batchChangeTableTr{
+        height: 80px;
+        border-bottom: 2px dotted #ccc;
+    }
+    .leftTd {
+        text-align: center;
+        font-size: 20px;
+    }
+    .rightTd {
+        text-align: left;
+    }
+    .batchChangeTypeTarget{
+        margin-left: 100px;
+    }
+    .batchChangeType {
+        margin-left:20px;
+        width: 15px;
+        height: 15px;
+    }
+    .batchChangeTypeLabel {
+        cursor: pointer;
+    }
+    .red-bold {
+        font-size: 16px;
+        margin: 0 4px;
+    }
+    .batchChangeTypeTable tr{
+        height: 50px;
+    }
+    .errorTable .firstRow th{
+        text-align: center;
+    }
+    .ModifyAreaLabel {
+        cursor: pointer;
+    }
+</style>
+
+<div style="margin: 33px auto;" class="batchChangeContainer">
+    <table class="batchChangeTable">
+        <tbody>
+            <tr class="batchChangeTableTr">
+                <td style="width: 25%;" class="leftTd">
+                    一、批量方式
+                </td>
+                <td style="width: 75%;" class="rightTd">
+                    <table style="width: 100%;" class="batchChangeTypeTable">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input value="1" checked="checked" type="radio" name="batchChangeType" tag="replace" id="replaceWords" class="batchChangeType" style="margin-left: 100px;">&nbsp;<label class="batchChangeTypeLabel" for="replaceWords">替换</label>
+                                    <input value="2" type="radio" name="batchChangeType" tag="delete" id="deleteWords" class="batchChangeType">&nbsp;<label class="batchChangeTypeLabel" for="deleteWords">删除</label>
+                                    <input value="3" type="radio" name="batchChangeType" tag="prefix" id="addPrefix" class="batchChangeType">&nbsp;<label class="batchChangeTypeLabel" for="addPrefix">加前缀</label>
+                                    <input value="4" type="radio" name="batchChangeType" tag="suffix" id="addsuffix" class="batchChangeType">&nbsp;<label class="batchChangeTypeLabel" for="addsuffix">加后缀</label>
+                                    <input value="5" type="radio" name="batchChangeType" tag="space" id="removeSpace" class="batchChangeType">&nbsp;<label class="batchChangeTypeLabel" for="removeSpace">去空格</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div tag="replace" class="batchChangeTypeTarget">
+                                        将标题中的
+                                        <input class="text" type="text" name="oldKeyword" id="oldKeyword" style="width:80px;">
+                                        <span class="red-bold">替换为</span>
+                                        <input class="text" type="text" name="newKeyword" id="newKeyword" style="width:80px;color: blue;">
+                                    </div>
+                                    <div tag="delete" class="batchChangeTypeTarget hidden">
+                                        <span class="red-bold">删除</span>标题中的
+                                        <input class="text" type="text" name="deleteKeyword" id="deleteKeyword" style="width:214px;">
+                                        关键词
+                                    </div>
+                                    <div tag="prefix" class="batchChangeTypeTarget hidden">
+                                       标题<span class="red-bold">最前面</span>加上
+                                        <input class="text" type="text" name="prefixKeyword" id="prefixKeyword" style="width:214px;">
+                                    </div>
+                                    <div tag="suffix" class="batchChangeTypeTarget hidden">
+                                       标题<span class="red-bold">最后面</span>加上
+                                        <input class="text" type="text" name="suffixKeyword" id="suffixKeyword" style="width: 214px;">
+                                    </div>
+                                    <div tag="space" class="batchChangeTypeTarget hidden">
+                                        删除标题中所有<span class="red-bold">空格</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+            </tr>
+            <tr style="height: 20px;">
+
+            </tr>
+            <tr class="batchChangeTableTr">
+                <td style="width: 25%;" class="leftTd">
+                    二、选择宝贝
+                </td>
+                <td style="width: 75%;" class="rightTd">
+                    <input type="radio" value="1" name="modifyArea" id="modifyAll"  checked="checked" style="vertical-align: middle;margin-left: 100px;width: 15px;height: 15px;">&nbsp;<label class="ModifyAreaLabel" for="modifyAll">修改所有宝贝</label>
+                    <input type="radio" value="2" name="modifyArea" id="modifyPart"  style="vertical-align: middle;margin-left: 80px;width: 15px;height: 15px;">&nbsp;<label class="ModifyAreaLabel" for="modifyPart">修改部分宝贝</label>
+                    <span id="itemsChooseSpan" style="display: none;">[选择宝贝]</span>
+                </td>
+
+            </tr>
+            <tr style="height: 40px;">
+
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <span class="tmbtn sky-blue-btn" id="modifyButton" src="/public/images/button/multiModify2.png">批量修改</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="tmbtn sky-blue-btn" id="showResultButton" style="font-size:16px;margin-left: 30px;">错误列表</span>
+                </td>
+            </tr>
+            <tr style="height: 40px;">
+
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="errTableWrapper">
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+#{set 'moreScripts'}
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getScript('/js/jquery.pagination.js',function(){
+            $.getScript('/js/tm.js',function(){
+                $.getScript('/js/commChoose/commChoose.js',function(){
+                    $.getScript('/js/newAutoTitle/newAutoTitleChange.js',function(){
+                        TM.newAutoTitleChange.init.doInit($('.batchChangeContainer'));
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set }

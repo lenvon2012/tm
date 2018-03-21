@@ -1,0 +1,273 @@
+.group_ip_btn{
+    width:150px;height:35px;line-height:35px;float:left;
+}
+
+.gp_ip_btn_lo1{
+    /*margin-left:34%;*/
+    position:absolute;
+    left:32%
+}
+.gp_ip_btn_lo2{
+    /*margin-left:3%;*/
+    position:absolute;
+    left:52%;
+}
+
+.tmp_ip_btn_div{
+    width:100%;height:35px;margin: 30px 0 0;
+}
+
+.tmp_ip_op_div{
+    text-align:center;height:50px;line-height:50px;
+}
+
+.tmp_ip_op_sp{
+    margin: 0px 12px;cursor: pointer;color: #8D95A1;
+}
+
+.tmp_ip_div:hover{
+    background-color:#efefef;
+}
+
+.in-info-box{
+    height:50px;border-bottom:2px solid #ffffff;
+}
+
+.in-info-td-1{
+    width:30px;text-align:center;
+}
+
+.in-info-td-checkbox{
+    width:20px;height:20px;
+}
+
+.in-info-td-3{
+    width:50px;text-align:center;
+}
+
+.input-info .item_img{
+    width:40px;height:40px;
+}
+
+.in-info-td-4{
+    width:400px;font-size:12px;
+}
+
+.in-info-td-5{
+    color:#FF4400;
+}
+
+.in-info-td-6{
+    width:270px;font-size:14px;color:#D70C0C;text-align:center;
+}
+
+.in-info-checkBtn{
+    font-size: 12px; width: 100px;height: 30px; color: #fff; line-height: 30px;text-align: center;cursor: pointer;background-color:#56B7C4;
+}
+
+.in-info-checkBtn:hover{
+    background-color:#356E75;
+}
+
+
+.input-info:hover{
+    background-color: #efefef;
+}
+
+.in-info-fixed{
+    background-color: #efefef;
+}
+
+.tmp_ip_cl:hover{
+    color:#5CACEE;
+}
+.tmp_ip_md:hover{
+    color:#5CACEE;
+}
+
+.tm_ip_tp_dis{
+    background-color:#d5d5d5;
+}
+
+.tmp_tp_st_top{
+    height:72px;background-color:#f6f7fb;100%;border-bottom: 1px solid #ccc;
+}
+
+.tmp_tp_st_tb{
+    height:72px;width:100%;text-align:center;
+}
+
+.tmp_tp_st_td{
+    cursor:pointer;color: #434a54;font-weight: 600;
+}
+
+.tmp_tp_st_td:hover{
+    color:#0485F0;
+}
+
+.tmp_ip_tp{
+    margin:40px 0 40px;
+}
+
+.tmp_ip_tp_top{
+    margin:0 auto;
+}
+
+.tmp_ip_tp_area{
+    margin:0 auto;
+}
+
+.tmp_ip_tp_bottom{
+    margin: 20px auto;
+}
+
+.tmp_tp_st_chekbox{
+    margin: 30px 20px 30px;color: #434a54;
+}
+
+.tmp_tp_st_chekbox input{
+    width:18px;height:18px;
+}
+
+.tmp_tp_st_ta{
+    width:100%;text-align:center;
+}
+
+.tmp_tp_st_tr{
+    background-color: #F6F7FB;border-top: 1px #e5e8ed solid;border-bottom: 1px #e5e8ed solid;color:#8D95A1;height:26px;
+}
+
+.tp-st-tr{
+    height:87px;border-bottom: 1px #e5e8ed solid;
+}
+.tp-st-tr:hover{
+    /*background-color:#f6f7fb;*/
+    background-color:#efefef;
+}
+
+.tp-st-tr-a{
+    text-align:left;
+}
+
+.tp-st-tr-a input{
+    width:18px;height:18px;margin:0 20px 0;
+}
+
+.tp-st-tr-b{
+    text-align:center;cursor:pointer;
+}
+
+.tp-st-tr-p{
+     text-align:center;cursor:pointer;
+ }
+
+
+.item-pic{
+    height:48px;width:48px;
+}
+
+.item-title{
+    color:#5694e1;font-size:12px;
+}
+
+.tmp-price{
+    color: #656d7a;font-weight: bolder;font-size: 20px;
+}
+
+.tmp_tp_st_bottom{
+    text-align: center;
+    margin: 50px 0 100px;
+}
+
+.tmp_tp_st_btn{
+    height: 35px;
+    width: 150px;
+    line-height: 35px;
+    margin: 10px 20px 10px;
+}
+
+.tmp_tp_st_btn:hover{
+    background-color:#474B57;
+}
+
+.tp_st_oper{
+    cursor:pointer;
+}
+
+.inp-fail-msg{
+    color:#ff0000;
+}
+
+.out-fail-msg{
+    color:#ff0000;
+}
+
+.error-Msg{
+    color:#ff0000;font-size:12px;
+}
+
+.tmp_tp_attention{
+    color:#ff0000;
+}
+
+.triangle-up{
+    display:block; width:0;height:0;border-width:0 10px 10px;border-style:solid;border-color:transparent transparent #15A7DC; margin:0 auto;
+}
+.tmp_tp_st_tr{
+    height:10px;
+}
+
+.item-status-msg{
+    text-align:center;color:#434a54;font-size:24px;margin: 20px 0 20px;
+}
+
+/*groupUn*/
+.tmp_ip_bottom{
+    text-align:center;
+    margin:20px 0 20px;
+}
+
+/*groupCancel*/
+.gp_cal_div{
+
+}
+
+.cal_div_td{
+    width:96px;height:30px;text-align:center;
+}
+
+.gp_cal_tb{
+    width:98%;
+    margin: 10px 0 10px;
+    border-bottom:1px solid #DBDBDB;
+}
+
+.cal_td_a{
+    font-weight:700;
+}
+
+.cal_td_b{
+    cursor: pointer;
+    color: #8D95A1;
+}
+
+.cal_td_b:hover{
+    color:#fff;
+    background-color:#828aa1;
+}
+
+.cal_td_c{
+    width:380px;height:30px;text-align:center;
+}
+
+.cal_td_d{
+    width:190px;height:30px;text-align:center;background-color: #e1e2e5;font-weight: 700; cursor: pointer;
+}
+
+.cal_td_d:hover{
+    background-color:#828aa1;
+    color:#fff
+}
+
+
+

@@ -1,0 +1,33 @@
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+.clearfix {clear: both; zoom: 1;}
+.clearfix:after {clear: both; display: block; visibility: hidden; height: 0px; content: '.';}
+
+.list-table {
+    width: 100%; border-collapse: collapse; border: 1px solid #ccc;
+    font-family: "微软雅黑"; font-size: 14px; color: #333;
+    margin: 0 auto;
+}
+.list-table thead tr {
+    width: 100%;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #1D5987;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.list-table thead tr td {
+    border-bottom: #ccc 1px solid;
+}
+.list-table tbody td {
+    text-align: center; border-bottom: #ccc 1px solid;
+    font-family: "微软雅黑"; font-size: 14px;
+}
+

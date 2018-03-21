@@ -1,0 +1,1046 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'标题优化' /}
+
+<link media="screen" rel="stylesheet" href="/css/topKey/topKey.css?_v=2">
+<link rel="stylesheet" media="screen" href='/css/Titles/titleOp.css?_v=7'>
+<link rel="stylesheet" media="screen" href='/css/commodityDiag.css?_v=2'>
+<style>
+    .interval-tr-wireless {
+        padding: 15px 10px 15px 10px;
+        margin: 0px 0px 20px 0px;
+        border: 1px solid #bebebe;
+        background: #fcfcfc;
+    }
+    .clickWirelessWordsTitle {
+        text-align: left;
+        font-size: 14px;
+        font-family: '微软雅黑';
+        margin-top: 10px;
+    }
+    .comeInWirelessWordsWrapper .comeInWirelessWords {
+        text-align: left;
+        margin-top: 5px;
+    }
+    .comeInWirelessWordsWrapper .comeInWirelessWords .wirelessKey{
+        margin: 3px 6px 0 0;
+    }
+    .comeInWirelessWordsWrapper .comeInWirelessWords .value{
+        color: red;
+        font-weight: bold;
+    }
+    .noClickWirelessWordsWrapper .noClickWords .wirelessKey{
+        margin: 3px 6px 0 0;
+    }
+</style>
+<style type="text/css">
+    .oplogs td{height:24px;}
+    .greybottom{border-bottom: 1px solid #9c9c9c}
+    .addTextWrapper{width: 98px;}
+
+    .set-old-title-back{
+        line-height: 30px;
+        float: right;
+        height: 30px;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 10px;
+        /*background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;*/
+
+        color: white;
+    }
+    .recommendDiv .tabDiv li{
+        margin: 0px;
+    }
+    .set-old-title-back a {
+        font-family: "微软雅黑";
+        color: white;
+        font-size: 13px;
+    }
+    .rename-history-oldtitle{
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .rename-history-newtitle{
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .titleOpContainer .enableBtn{
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+    }
+    .modifyBlock .titleBtn {
+        width: 96px;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+    }
+    #closeImg{
+        color: #900;
+        font-size: 9px;
+        position: absolute;
+        right: 35px;
+        top: 85px;
+        opacity: 1;
+    }
+    .sort{
+        width: 20px;
+        height: 20px;
+    }
+    .Desc{
+        background: url("/img/sort-bg.png") 0px -17px;
+    }
+    .Asc{
+        background: url("/img/sort-bg.png") 0px -40px;
+    }
+    #CWords-tbody td{
+        border: none;
+        font-size: 12px;
+        font-family: '微软雅黑';
+    }
+    #CWords-tbody tr{
+        border: 1px solid #ccc;
+    }
+    .recommendTable tr{
+        border-bottom: #c0c0c0 1px solid;
+    }
+    .tableContent{overflow: hidden;width:100%;margin-left:0px;}
+    .selectCat2,.selectCat3{font-family: '微软雅黑'}
+    #topKeyContent{
+        width: 100%;
+    }
+    #rightContent{
+        width: 99%;;
+    }
+    #leftNavigation div{
+        margin-top: 70px;
+    }
+    .topkeyselectCat2{
+        margin-left: 300px;
+    }
+
+
+    .sort-td {
+        padding-right: 20px;color: #2EB1AA;cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .sort-down{background: url("/img/sort-bg.png") right -25px no-repeat}
+    .sort-up{background: url("/img/sort-bg.png") right -47px no-repeat;}
+
+
+    .catWordTable thead th {
+
+    }
+    .catWordTable tbody td {
+        padding: 5px 0px; font-size: 13px;
+    }
+
+    /*.leftnavtd{width:1px;display:none;}*/
+    .nav-table-right-td{width:99%;}
+</style>
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&gt;</a>标题优化
+</div>
+<div style="text-align: center;width:100%;margin: 0 auto;min-height: 1200px;_height:1200px;">
+    <div class="blank0"></div>
+<div class="titleOpContainer" style="width:100%;;margin: 0 auto;">
+    <div class="titleTipDiv rowDiv hidden">
+        <img src="/img/tab/rotate_up-s.png" title="Close this notification open" alt="close" id="closeImg" class="close">
+        <span class="titleTip">标题小贴士</span>
+        <div class="tipContent">
+            <span class="tipItem">1.亲，请在下面修改宝贝标题，使宝贝更有竞争力。o(∩_∩)o</span>
+            <span class="tipItem">2.亲，采用我们推荐的关键词，让搜索命中率飞一下。o(∩_∩)o</span>
+            <span class="tipItem">3.亲，可以先诊断新标题，比较新旧标题的得分，再提交新标题。o(∩_∩)o</span>
+        </div>
+    </div>
+
+    <div class="titleTipDiv rowDiv" style="margin: 0 0 0 0;text-align: center;padding-top:15px;">
+        <a target="_blank" class="" href="http://bangpai.taobao.com/group/thread/15247314-287826103.htm?spm=0.0.0.0.Eh4UQK&qq-pf-to=pcqq.c2c"><span class="titleTip" style="color: white;">淘掌柜官方教程</span></a>
+
+    </div>
+
+    <div class="blank0" style="height: 15px;"></div>
+    <div class="rowDiv itemInfoDiv">
+        <div class="modifyTitleDiv">
+            <div class="itemCatBlock" style="text-align: left;padding: 7px 0 7px 4px;">
+                宝贝所属类目:<span class="itemCatNameSpan" style="margin-left: 10px;color: #0000ff;"></span>
+            </div>
+            <div class="itemInfoBlock">
+                <a class="goto-item-page" href="#" target="_blank"><img class="itemImg bottomMargin" /></a><br>
+                *{<a class="lookItem goto-item-page" href="#" target="_blank"><span class="tmbtn sky-blue-btn">查看详情</span></a><br>}*
+                <span class="tmbtn short-green-btn  prop-edit" >
+                    <a target="_blank" href="" style="color: #ffffff;">修改属性</a>
+                </span>
+            </div>
+            <div class="modifyBlock">
+                <span class="titleSpan bottomMargin">宝贝原标题：</span><span class="originTitle bottomMargin"></span>
+                <span class="titleSpan bottomMargin">输入新标题：
+                    <div class="newTitleDiv bottomMargin" style="margin-top: 8px;">
+                    *{<input type="text" class="newTitle" value=""/>}*
+                        <textarea class="newTitle"></textarea>
+                        <!--<div class="remainWord">可用字数<span class="remainLength">11</span>/ 30</div>-->
+                    </div>
+                </span>
+
+                <span class="tmbtn sky-blue-btn diagNewTitle bottomMargin inlineblock" style="margin-top: 1px;">诊断新标题</span>
+                <span class="tmbtn yellow-btn submitNewTitle bottomMargin inlineblock" style="margin-top: 1px;">提交新标题</span>
+                <div id="remainWordId" class="newRemainWord inlineblock" style="width: 130px;">
+                </div>
+                <div class="blank0"></div>
+            </div>
+            <div class="blank0"></div>
+            <div class="shortTitleRecommendDiv hidden" >
+                <div style="text-align: left" class="titleSpan bottomMargin"><span style="margin-left: 114px;font-family: '微软雅黑';color: #808080;">推荐标题：</span></div>
+                <div style="text-align: left"><span class="bottomMargin shortTitleRecommend" style="margin-left: 114px;font-family: '微软雅黑';color: blue;"></span> </div>
+                <div style="text-align: left"><span class="tmbtn long-sky-blue-btn use-recommend bottomMargin inlineblock" style="margin-top: 5px;margin-left: 112px;">使用推荐标题</span></div>
+            </div>
+            <div class="wordsClickRateBlock">
+                <div class="clickWordsTitle hidden">PC关键词点击频率:</div>
+                <div class="comeInWordsWrapper hidden">   </div>
+                <div class="clickWirelessWordsTitle hidden">无线关键词点击频率:</div>
+                <div class="comeInWirelessWordsWrapper hidden">   </div>
+                <div class="hidden clickWordsTitle no-click-title">PC无点击词:</div>
+                <div class="noClickWordsWrapper hidden">   </div>
+                <div class="clickWirelessWordsTitle hidden">无线无点击词:</div>
+                <div class="noClickWirelessWordsWrapper hidden" style="text-align: left;">   </div>
+            </div>
+        </div>
+
+        <div class="diagResultDiv">
+            <div class="resultScore originScore">
+                <div style="font-weight: bold;">原标题</div>
+                <div style="font-weight: bold;">得分:<span class="diagScore"></span></div>
+               <div>质量等级：<span class="scoreLevel"></span></div>
+                <div>建议：<span class="advice"></span></div>
+            </div>
+            <div class="resultScore newScore">
+                <div style="font-weight: bold;">新标题</div>
+                <div style="font-weight: bold;">得分:<span class="diagScore"></span></div>
+                <div>质量等级：<span class="scoreLevel"></span></div>
+                <div>建议：<span class="advice"></span></div>
+            </div>
+            <div class="blank0"></div>
+            <div class="modifyEvaluate">
+                亲，修改标题后，先诊断新标题吧。o(∩_∩)o
+            </div>
+        </div>
+
+        <div class="blank0" style="height: 15px;"></div>
+        <div style="">
+            *{<span class="tmbtn short-green-btn  prop-edit"><a target="_blank" href="javascript:void(0);" style="color: #ffffff;">修改属性</a></span>}*
+            <span class="tmbtn sky-blue-btn  diagnosePrevItem" style="margin-left: 200px;"><a href="javascript:void(0);" style="color: #ffffff;">上一个宝贝</a></span>
+            <span class="tmbtn short-green-btn  backToItemList"><a href="#" style="color: #ffffff;">返回</a></span>
+            <span class="tmbtn yellow-btn  diagnoseNextItem"><a href="javascript:void(0);" style="color: #ffffff;">下一个宝贝</a></span>
+            <div class="blank0"></div>
+        </div>
+    </div>
+    *{<div class="blank0" style="height: 15px;"></div>}*
+    <!--
+    <div class="recommendTipDiv rowDiv">
+        <span class="recommendTip">亲，请在下面推荐的关键词中挑选与宝贝相关的关键词加到标题里面哦。o(∩_∩)o </span>
+    </div>
+    <div class="blank0" style="height: 15px;"></div>
+    -->
+    <div class="recommendDiv rowDiv">
+        <div class="tabDiv">
+            <ul class="clearfix">
+                <li><span targetDiv="diagResultBlock"   class="select">宝贝诊断</span></li>
+                *{<li class="hidden"><span targetDiv="pvuvDiagResultBlock" >流量诊断</span></li>}*
+                <li id="hotprops"><span style="width: 100px;" targetDiv="hotPropsBlock">类目热销属性</span></li>
+                <li><span style="width: 40px;" targetDiv="busSearchBlock" >淘词</span></li>
+                <li class=""><span style="width: 85px;" targetDiv="BusCatPlayBlock">类目Top词</span></li>
+                <li class=""><span targetDiv="BlackHorseBlock">黑马词</span></li>
+                <li><span targetDiv="recommendWordBlock" >开车热词</span></li>
+                <li><span style="" targetDiv="longTailBlock" >淘宝下拉框词</span></li>
+                <li class="RecentlySearchWords"><span style="width: 90px;" targetDiv="RecentlySearchWords" >PC入店关键词</span></li>
+                <li class="RecentlySearchWords"><span style="width: 105px;" targetDiv="RecentlySearchWordsWireless" >无线入店关键词</span></li>
+                <li><span targetDiv="propBlock" >属性列表</span></li>
+                <li><span targetDiv="promoteBlock" >促销词</span></li>
+                *{<li><span targetDiv="estimateSearchBlock" >预计搜索词</span></li>}*
+                <li><span targetDiv="mywordsBlock" >我的词库</span></li>
+                <li><span targetDiv="renameHistory" >历史标题</span></li>
+                *{<li class="inline" style="display:inline-block;*display:inline;width:100px;border-bottom:1px solid #ccc;">}*
+                    *{<span>&nbsp;</span>}*
+                *{</li>}*
+                *{<li ><span style="width:100%" targetDiv="" ></span></li>}*
+                *{<li><a targetDiv="hotTitleBlock" href="javascript:void(0);">同行火爆标题</a></li>}*
+                *{<li class="hidden"><span targetDiv="CWordsBlock" >中心词</span></li>}*
+
+            </ul>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+        <!-- 诊断结果-->
+        <div class="liTargetDiv diagResultBlock" style="display: block;">
+            <div class="title-head">
+                &nbsp;&nbsp;宝贝标题诊断结果
+            </div>
+            *{下面这个是宝贝标题诊断结果， js生成}*
+            <div class="lzlDetailResult">
+            </div>
+            *{这里是宝贝近期的流量诊断}*
+            <div class="title-head">
+                &nbsp;&nbsp;宝贝流量分析
+            </div>
+            <div class="pvuvDiagResultBlock" style="margin-top: 10px;">
+                <div class="blank0" style="height: 5px;"></div>
+
+                <div class="pvuvDiag-interval-wrapper" style="text-align: center;">
+                    <div class="pvuvDiag-interval-tr">
+                        <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="1">最近1天数据&nbsp;&nbsp;&nbsp;
+                        <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="3">最近3天数据&nbsp;&nbsp;&nbsp;
+                        <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" checked="checked" class="pvuvDiag-interval" value="7">最近7天数据&nbsp;&nbsp;&nbsp;
+                        <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="14">最近14天数据&nbsp;&nbsp;&nbsp;
+                        <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="0">&nbsp;&nbsp;&nbsp;
+                        <input type="text" style="width:100px;text-align: center;" id="pvuvDiag-startTimeInput">~
+                        <input type="text" style="width:100px;text-align: center;" id="pvuvDiag-endTimeInput">的数据
+                    </div>
+                </div>
+                <div class="shop-pc-online-info">
+                    <div class="opTabWrapper">
+                        <span class="inlineblock opTab selected" target="shop">宝贝流量成交数据</span>
+                        <span class="inlineblock opTab" target="pc">PC端流量成交数据</span>
+                        <span class="inlineblock opTab" target="wireless">无线端流量成交数据</span>
+                    </div>
+                    <div class="targetDiv">
+                        <table class="shop-pc-online-info-table">
+                        *{<thead>
+                        <tr>
+                           <td colspan="10">
+                               <span class="shop-pc-online-info-thead-title">全店流量成交数据</span>
+                           </td>
+                        </tr>
+                    </thead>}*
+                            <tbody>
+                            <tr style="height: 15px;">
+
+                            </tr>
+                            <tr class="key-value-tr">
+                                <td>
+                                    <div class="value pv">0</div>
+                                    <div class="key">浏览量</div>
+                                </td>
+                                <td>
+                                    <div class="value uv">0</div>
+                                    <div class="key">访客数</div>
+
+                                </td>
+                                <td colspan="2">
+                                    <div class="value tranrate">0</div>
+                                    <div class="key">转化率</div>
+
+                                </td>
+                            </tr>
+                            <tr class="key-value-tr">
+                                <td>
+                                    <div class="value alipayTradeNum">0</div><div class="key">支付宝付款订单数</div>
+
+                                </td>
+                                <td>
+                                    <div class="value alipayItemNum">0</div><div class="key">支付宝付款宝贝数</div>
+
+                                </td>
+                                <td>
+                                    <div class="value alipayTradeAmount">0</div><div class="key">支付宝付款金额</div>
+
+                                </td>
+                                <td>
+                                    <div class="value alipayUserNum">0</div><div class="key">支付宝付款人数</div>
+
+                                </td>
+                            </tr>
+                            *{<tr class="tr-head">
+                            <td>浏览量</td>
+                            <td>访客数</td>
+                            <td>浏览回头客</td>
+                            <td>成交回头客</td>
+                        </tr>
+                        <tr class="tr-value">
+                            <td class="pv">0</td>
+                            <td class="uv">0</td>
+                            <td class="viewRepeat">0</td>
+                            <td class="tradeRepeat">0</td>
+                        </tr>
+                        <tr class="tr-head">
+                            <td>支付宝付款订单数</td>
+                            <td>支付宝付款宝贝数</td>
+                            <td>支付宝付款金额</td>
+                            <td>支付宝付款人数</td>
+                        </tr>
+                        <tr class="tr-value">
+                            <td class="alipayTradeNum">0</td>
+                            <td class="alipayItemNum">0</td>
+                            <td class="alipayTradeAmount">0</td>
+                            <td class="alipayUserNum">0</td>
+                        </tr>}*
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="liTargetDiv hotPropsBlock" style="display: block;">
+        </div>
+
+        *{<div class="pvuvDiagResultBlock liTargetDiv">
+            <div class="blank0" style="height: 5px;"></div>
+
+            <div class="pvuvDiag-interval-wrapper" style="text-align: center;">
+                <div class="pvuvDiag-interval-tr">
+
+                    <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="1">最近1天数据&nbsp;&nbsp;&nbsp;
+                    <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="3">最近3天数据&nbsp;&nbsp;&nbsp;
+                    <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" checked="checked" class="pvuvDiag-interval"
+                           value="7">最近7天数据&nbsp;&nbsp;&nbsp;
+                    <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="14">最近14天数据&nbsp;&nbsp;&nbsp;
+                    <input style="width: 18px;height: 18px;" type="radio" name="pvuvDiag-interval" class="pvuvDiag-interval" value="0">&nbsp;&nbsp;&nbsp;
+                    <input type="text" style="width:100px;text-align: center;" id="pvuvDiag-startTimeInput">~
+                    <input type="text" style="width:100px;text-align: center;" id="pvuvDiag-endTimeInput">的数据
+
+                </div>
+            </div>
+            <div class="shop-pc-online-info">
+                <div class="opTabWrapper">
+                    <span class="inlineblock opTab selected" target="shop">宝贝流量成交数据</span>
+                    <span class="inlineblock opTab" target="pc">PC端流量成交数据</span>
+                    <span class="inlineblock opTab" target="wireless">无线端流量成交数据</span>
+                </div>
+                <div class="targetDiv">
+                    <table class="shop-pc-online-info-table">
+                    }**{<thead>
+                        <tr>
+                           <td colspan="10">
+                               <span class="shop-pc-online-info-thead-title">全店流量成交数据</span>
+                           </td>
+                        </tr>
+                    </thead>}**{
+                        <tbody>
+                        <tr style="height: 15px;">
+
+                        </tr>
+                        <tr class="key-value-tr">
+                            <td colspan="2">
+                                <div class="value pv">0</div>
+                                <div class="key">浏览量</div>
+                            </td>
+                            <td colspan="2">
+                                <div class="value uv">0</div>
+                                <div class="key">访客数</div>
+
+                            </td>
+                        </tr>
+                        <tr class="key-value-tr">
+                            <td>
+                                <div class="value alipayTradeNum">0</div><div class="key">支付宝付款订单数</div>
+
+                            </td>
+                            <td>
+                                <div class="value alipayItemNum">0</div><div class="key">支付宝付款宝贝数</div>
+
+                            </td>
+                            <td>
+                                <div class="value alipayTradeAmount">0</div><div class="key">支付宝付款金额</div>
+
+                            </td>
+                            <td>
+                                <div class="value alipayUserNum">0</div><div class="key">支付宝付款人数</div>
+
+                            </td>
+                        </tr>
+                        }**{<tr class="tr-head">
+                            <td>浏览量</td>
+                            <td>访客数</td>
+                            <td>浏览回头客</td>
+                            <td>成交回头客</td>
+                        </tr>
+                        <tr class="tr-value">
+                            <td class="pv">0</td>
+                            <td class="uv">0</td>
+                            <td class="viewRepeat">0</td>
+                            <td class="tradeRepeat">0</td>
+                        </tr>
+                        <tr class="tr-head">
+                            <td>支付宝付款订单数</td>
+                            <td>支付宝付款宝贝数</td>
+                            <td>支付宝付款金额</td>
+                            <td>支付宝付款人数</td>
+                        </tr>
+                        <tr class="tr-value">
+                            <td class="alipayTradeNum">0</td>
+                            <td class="alipayItemNum">0</td>
+                            <td class="alipayTradeAmount">0</td>
+                            <td class="alipayUserNum">0</td>
+                        </tr>}**{
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+        </div>}*
+
+        <!-- 长尾词推荐-->
+        <div class="liTargetDiv tableDiv longTailBlock">
+            <div class="wordSearch">
+                <span class="searchLabel">关键词：</span>
+                <input type="text" id="longTailSearchText" class="wordInput" />
+                <span id="longTailSearchBtn" class="tmbtn sky-blue-btn">搜索</span>
+            </div>
+            <div class="blank0" style="height: 10px;"></div>
+            <div class="parseWords titlesplits" style="">种子关键词:</div>
+            <div class="blank0" style="height: 20px;"></div>
+            <div class="longtail-paging" style="text-align: center"></div>
+            <table class="longTailTable" style="border: #c0c0c0 1px solid;">
+                <thead>
+                <tr class="longTailTr">
+                    <td style="">长尾词列表</td>
+                    <td style="">展现量</td>
+                    <td style="">点击量</td>
+                    <td style="">宝贝数</td>
+                    <td style="">获取相关长尾词</td>
+                    <td style="">添加到我的词库</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="longtail-paging" style="text-align: center"></div>
+            <div class="blank0" style="height: 0px;"></div>
+            <div id="longTailWarning" class="warning"></div>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+
+        <!-- 关键词推荐-->
+        <div class="liTargetDiv tableDiv recommendWordBlock">
+            <div class="wordSearch">
+                <span class="searchLabel">核心词：</span>
+                <input type="text" id="recommendSearchText" class="wordInput" />
+                <span id="recommendSearchBtn" class="tmbtn sky-blue-btn">搜索</span>
+                <div class="blank0" style="height: 10px;"></div>
+                <div class="parseWords titlesplits" style="">种子关键词:</div>
+                <div id="recommendWordPaging" class="pagingDiv">
+                </div>
+            </div>
+            <div class="blank0" style="height: 20px;"></div>
+            <table class="recommendTable busSearch" style="border: #c0c0c0 1px solid;">
+                <thead>
+                    <tr class="recommendTr">
+                        <td class="wordTd">关键词列表</td>
+                        <td class="searchTd">搜索指数</td>
+                        <td class="saleTd">热卖指数</td>
+                        <td class="competeTd">直通车竞争指数</td>
+                        <td class='opTd'>获取相关推荐词</td>
+                        <td class='mywordTd'>添加到我的词库</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="blank0" style="height: 0px;"></div>
+            <div id="recommendWarning" class="warning"></div>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+        <!-- 宝贝属性-->
+        <div class="liTargetDiv tableDiv propBlock">
+            <div class="blank0" style="height: 5px;"></div>
+            <table class="propTable">
+               *{ <thead>
+                    <tr class="propTr firstRow">
+                        <td class="propKeyTd">属性列表</td>
+                        <td class="propValueTd">属性内容</td>
+                    </tr>
+                </thead>}*
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- 促销词推荐-->
+        <div class="liTargetDiv promoteBlock">
+
+        </div>
+
+        <!-- 预计搜索词-->
+        <div class="liTargetDiv tableDiv estimateSearchBlock">
+            <div class="blank0" style="height: 5px;"></div>
+
+            <table class="estimateTable">
+                <thead>
+                <tr class="estimateTr">
+                    <td>预计搜索词</td>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+
+        <!-- bus搜索词-->
+        <div class="liTargetDiv tableDiv busSearchBlock">
+            <div class="wordSearch">
+                <span class="searchLabel">关键词：</span>
+                <input type="text" id="busSearchText" class="wordInput" />
+                <span id="busSearchBtn" class="tmbtn sky-blue-btn">搜索</span>
+            </div>
+            <div class="blank0" style="height: 10px;"></div>
+            <div class="parseWords titlesplits" style="">种子关键词:</div>
+            <div class="blank0" style="height: 20px;"></div>
+            <div class="bus-search-pagging" style="text-align: center;"></div>
+            <table class="bussearch">
+                <thead>
+                <!--<tr>
+                    <td colspan="7">
+                        <div>
+                             <span >全选</span>&nbsp;<span>反选</span>&nbsp;<span>删除</span>&nbsp;<span>标记</span>
+                        </div>
+                    </td>
+                </tr>-->
+                <tr align="center" class="tableRow firstRow">
+                    <th style="width: 20%;">关键词</th>
+                    <th class="bus-search-sort-th" style="width: 10%;">搜索指数<span class="inlineblock sort Desc" sort="pv"></span></th>
+                    <th class="bus-search-sort-th" style="width: 10%;">点击量<span class="inlineblock sort Desc" sort="click"></span></th>
+                    <th class="bus-search-sort-th" style="width: 10%;">宝贝数<span class="inlineblock sort Desc" sort="scount"></span></th>
+                    <th style="width: 10%;">点击率</th>
+                    <th style="width: 10%;">成交转化率</th>
+                    <th class="bus-search-sort-th" style="width: 10%;">性价比<span class="inlineblock sort Desc" sort="score"></span><span class="question" content="搜索量/宝贝数，反应该关键词的性价比"></span></th>
+                    <th style="width: 10%;">平均出价</th>
+                    <th style="width: 10%;">添加到我的词库</th>
+                </tr>
+                </thead>
+                <tbody id="bus-search-tbody">
+                <!-- here will show the result -->
+                </tbody>
+            </table>
+            <div class="bus-search-pagging" style="text-align: center;margin-top: 12px;"></div>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+
+        <!-- 入店搜索词-->
+        <div class="liTargetDiv tableDiv RecentlySearchWords">
+            <div class="RecentlySearchWordsTip intro hidden" style="text-align: center;margin-top: 0px;">
+                亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+            </div>
+            <div class="interval-tr" style="text-align: center;">
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="1">昨日数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="3">最近三天内数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" checked="checked" class="interval" value="7">最近七天内数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="14">最近十四天数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="0">&nbsp;&nbsp;&nbsp;
+                <input type="text" style="width:100px;text-align: center;" id="startTimeInput">~
+                <input type="text" style="width:100px;text-align: center;" id="endTimeInput">的数据
+            </div>
+            <div class="word-diag-paging" style="text-align: center;"></div>
+            <div class="diag-result-div">
+
+            </div>
+            <div class="word-diag-paging" style="text-align: center;"></div>
+        </div>
+
+        <!-- 无线入店搜索词-->
+        <div class="liTargetDiv tableDiv RecentlySearchWordsWireless">
+            <div class="RecentlySearchWordsTip intro hidden" style="text-align: center;margin-top: 0px;">
+                亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+            </div>
+            <div class="interval-tr-wireless" style="text-align: center;">
+                <input style="width: 18px;height: 18px;" type="radio" name="interval-wireless" class="interval-wireless" value="1">昨日数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval-wireless" class="interval-wireless" value="3">最近三天内数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval-wireless" checked="checked" class="interval-wireless" value="7">最近七天内数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval-wireless" class="interval-wireless" value="14">最近十四天数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval-wireless" class="interval-wireless" value="0">&nbsp;&nbsp;&nbsp;
+                <input type="text" style="width:100px;text-align: center;" id="startTimeInputWireless">~
+                <input type="text" style="width:100px;text-align: center;" id="endTimeInputWireless">的数据
+            </div>
+            <div class="word-diag-paging" style="text-align: center;"></div>
+            <div class="diag-result-div-wireless">
+
+            </div>
+            <div class="word-diag-paging" style="text-align: center;"></div>
+        </div>
+
+        <!-- 中心词-->
+        <div class="liTargetDiv tableDiv CWordsBlock">
+            <div class="wordSearch">
+                <span class="searchLabel">关键词：</span>
+                <input type="text" id="CWordsText" class="wordInput" />
+                <span id="CWordsBtn" class="tmbtn sky-blue-btn">搜索</span>
+            </div>
+            <div class="blank0" style="height: 10px;"></div>
+            <div class="parseCWords titlesplits" style="">种子关键词:</div>
+            <div class="blank0" style="height: 20px;"></div>
+            <div class="cwords-pagging" style="text-align: center;"></div>
+            <table class="bussearch">
+                <thead>
+                <!--<tr>
+                    <td colspan="7">
+                        <div>
+                             <span >全选</span>&nbsp;<span>反选</span>&nbsp;<span>删除</span>&nbsp;<span>标记</span>
+                        </div>
+                    </td>
+                </tr>-->
+                <tr align="center" class="tableRow firstRow">
+                    <th style="width: 200px;">关键词</th>
+                    <th class="bus-search-sort-th" style="width: 80px;">搜索指数<span class="inlineblock sort Desc" sort="pv"></span></th>
+                *{<th class="bus-search-sort-th" style="width: 80px;">点击量<span class="inlineblock sort Desc" sort="click"></span></th>}*
+                    <th class="bus-search-sort-th" style="width: 80px;">宝贝数<span class="inlineblock sort Desc" sort="scount"></span></th>
+                    <th>转化率</th>
+                    <th class="bus-search-sort-th" style="width: 100px;">性价比<span class="inlineblock sort Desc" sort="score"></span><span class="question" content="搜索量/宝贝数，反应该关键词的性价比"></span></th>
+                    <th>平均出价</th>
+                    <th>添加到我的词库</th>
+                </tr>
+                </thead>
+                <tbody id="CWords-tbody">
+                <!-- here will show the result -->
+                </tbody>
+            </table>
+            <div class="cwords-pagging" style="text-align: center;"></div>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+
+        <!-- 黑马词-->
+        <div class="liTargetDiv tableDiv BlackHorseBlock">
+            <div id="topKeyContent" style="">
+                <div class="topkeyNav">
+                    <div class="inlineblock">
+                        <a class="sellup inlineblock uporhot" href="javascript:void(0)" target="_self">
+                            <span class=" current">销售上升</span></a>
+                        <a class="sellhot inlineblock uporhot" href="javascript:void(0)" target="_self">
+                            <span class="">销售热门</span></a>
+
+                    </div>
+                </div>
+                    <div id="leftNavigation" style="display: none;">
+                        <div><img src="/public/images/topkey/resou.png" id="rsrc"></div>
+                        <div><img src="/public/images/topkey/shangsheng.png" id="sszk"></div>
+                        <div><img src="/public/images/topkey/zhitongche.png" id="zyztc"></div>
+                    *{</ul>}*
+                    </div>
+                    <div id="rightContent">
+                        <div class="catgory">
+                            <select name="topkeyselectCat2" class="topkeyselectCat2">
+
+
+                            </select>
+
+                            <select name="topkeyselectCat3" class="topkeyselectCat3">
+                                <option>卫衣/绒衫&nbsp;</option>
+                                <option>毛呢外套</option>
+                                <option>风衣&nbsp;</option>
+                                <option>毛衣&nbsp;</option>
+                                <option>羽绒服</option>
+                                <option>连衣裙</option>
+                                <option>打底衫</option>
+                                <option>衬衫</option>
+                                <option>针织衫&nbsp;</option>
+                                <option>牛仔裤</option>
+                                <option>半身裙</option>
+                                <option>打底裤</option>
+                                <option>马甲</option>
+                                <option>T恤</option>
+                                <option>背心/吊带</option>
+                                <option>女士西装</option>
+                                <option>棉衣/棉服</option>
+                                <option>裤子</option>
+                                <option>婚纱/礼服</option>
+                                <option>中老年服装</option>
+                                <option>蕾丝/雪纺衫</option>
+                                <option>特大特小服装</option>
+                                <option>女士皮衣</option>
+                                <option>短外套</option>
+                                <option>女士皮草</option>
+                                <option>职业套装</option>
+                                <option>休闲长裤</option>
+                                <option>民族/舞台服</option>
+                                <option>学生校服</option>
+                                <option>工作制服</option>
+                                <option>牛奶丝女装</option>
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="tableContent">
+                            <table class="catSearch busSearch">
+                                <thead class="tableRow firstRow">
+                                <tr>
+                                    <td style="text-align: center;" class="cattd1">关键词</td>
+                                    <td style="text-align: center;" class="cattd2">上升名次</td>
+                                    <td style="text-align: center;" class="cattd3">搜索排名</td>
+                                    <td style="text-align: center;" class="cattd4">搜索指数</td>
+                                    <td style="text-align: center;" class="cattd5">提升率</td>
+                                    <td style="text-align: center;" class="cattd6">排名变化</td>
+                                    <td style="text-align: center;" class="cattd7">点击率</td>
+                                    <td style="text-align: center;" class="operation">操作</td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <!--   <div class="addNewCatDiv">
+                                <span id="addNewCat">添加新人气类目+</span>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="rightBottom">
+                            <p  id="topkeyPagination" class="topkeyPagination"> 1,2,3
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <!-- 类目词-->
+        <div class="liTargetDiv tableDiv BusCatPlayBlock">
+            <div class="cat-top-word-container">
+                <div style="height: 10px;"></div>
+                <div class="myAllCats" style="margin-bottom: 0px;">
+                    宝贝所属类目:
+                </div>
+                <div class="catName hidden">
+                    <span class="inlineblock cat-name-span"></span>
+                </div>
+                <div style="text-align: center; padding: 20px 0;">
+                    <table class="cat-select-table" style="border-collapse: collapse; margin: 0 auto;width: auto;">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <select class="first-cat-select" style="width: 190px;">
+
+                                </select>
+                            </td>
+                            <td style="padding-left: 50px;">
+                                <select class="second-cat-select" style="width: 190px;">
+
+                                </select>
+                            </td>
+                            <td style="padding-left: 50px;">
+                                <select class="third-cat-select" style="width: 190px;">
+
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paging-div" style="text-align: center;padding-bottom: 5px;"></div>
+                <div style="padding: 0px 20px;">
+                    <table class="busSearch catWordTable" style="text-align: center;">
+                        <thead>
+                        <tr>
+                            <th style="width: 17%;"><div class="">关键词</div></th>
+                            <th style="width: 12%;"><div class="sort-td sort-down current-sort" orderBy="pv">搜索指数</div></th>
+                            <th style="width: 11%;"><div class="sort-td sort-up" orderBy="click">点击量</div></th>
+                            <th style="width: 10%;"><div class="sort-td sort-up" orderBy="ctrInt">点击率</div></th>
+                            <th style="width: 11%;"><div class="sort-td sort-up" orderBy="itemCount">宝贝数</div></th>
+                            <th style="width: 12%;">
+                                <div ><span class="inlineblock">性价比</span><span class="question" content="搜索量/宝贝数，搜索量除以宝贝数的指标,表示关键词的性价比"></span>
+                                </div>
+                            </th>
+                            <th style="width: 13%;"><div class="sort-td sort-up" orderBy="price">直通车均价</div></th>
+                            <th style="width: 14%;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody class="cat-top-word-tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paging-div" style="text-align: center;padding-top: 5px;"></div>
+                <div style="height: 30px;"></div>
+            </div>
+            *{<div class="myAllCats hidden" style="margin-bottom: 0px;">本店所属类目:
+
+            </div>
+            <div class="catName hidden">
+
+            </div>
+            <div id='bustopkey' style="margin-top: 5px;">
+
+
+                <div id="Content">
+                    <div class="catgory" style="width: 100%;text-align: center;">
+                        <select name="selectCat1"    class="selectCat1" style="margin-right: 18px;">
+
+                        </select>
+                        <select name="selectCat2" class="selectCat2" style="margin-right: 18px;">
+
+                        </select>
+                        <select name="selectCat3" class="selectCat3">
+
+                        </select>
+
+                    </div>
+                    <div class="clear"></div>
+                }**{<div class="bustopkey-page" style="text-align: center;width: 100%;"></div> }**{
+                    <div class=tableContent>
+                        <table class="busSearch catWordTable">
+                            <thead>
+                            <tr class="firstRow">
+                                <th style="text-align: center;" class="cattd1"><div class="">关键词</div></th>
+                                <th style="text-align: center;width: 92px;" class="cattd2"><div >搜索指数</div></th>
+                                <th style="text-align: center;width: 92px;" class="cattd4"><div >点击量</div></th>
+                                <th style="text-align: center;width: 92px;" class="cattd3"><div class="" sortby="">宝贝数</div></th>
+                                <th style="text-align: center;width: 92px;" class="cattd3">
+                                    <div ><span class="inlineblock">性价比</span><span class="question" content="搜索量/宝贝数，搜索量除以宝贝数的指标,表示关键词的性价比"></span>
+                                    </div></th>
+                                <th style="text-align: center;" class="cattd3"><div >直通车行业均价</div></th>
+                                <th style="text-align: center;width:110px;" class="cattd3">操作</th>
+                            </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                    <div class="bustopkey-page" style="text-align: center;width: 100%;margin-bottom:30px;"></div>
+
+                </div>
+
+
+            </div>}*
+        </div>
+
+        <!-- 我的词库-->
+        <div class="liTargetDiv tableDiv mywordsBlock">
+            <div class="blank0" style="height: 5px;"></div>
+            <div class="mywords-pagging" style="text-align: center;"></div>
+            <table class="wordsearch">
+                <thead>
+                <!--<tr>
+                    <td colspan="7">
+                        <div>
+                             <span >全选</span>&nbsp;<span>反选</span>&nbsp;<span>删除</span>&nbsp;<span>标记</span>
+                        </div>
+                    </td>
+                </tr>-->
+                <tr align="center" class="tableRow firstRow">
+                    <th>关键词</th>
+                    <th>展现量</th>
+                    <th>点击量</th>
+                    <th>直通车竞争度</th>
+                    <th>点击率</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="ML_result">
+                <!-- here will show the result -->
+                </tbody>
+            </table>
+            <div class="mywords-pagging" style="text-align: center;"></div>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+        <!-- 火爆标题-->
+        <div class="liTargetDiv tableDiv hotTitleBlock">
+            <div class="blank0" style="height: 5px;"></div>
+
+            <table class="hotTitleTable">
+                <thead>
+                <tr class="hotTitleTr">
+                    <td>同行火爆标题推荐</td>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="blank0" style="height: 0px;"></div>
+            <div id="hotTitleWarning" class="warning"></div>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+
+        <!-- 历史标题-->
+        <div class="liTargetDiv tableDiv renameHistory">
+            <div class="blank0" style="height: 5px;"></div>
+            <div class="rename-history-pagging" style="text-align: center"></div>
+            <table class="renameHistoryTable" style="border: #c0c0c0 1px solid;">
+                <thead>
+                <tr class="renameHistoryTr">
+                    <td class="rename-history-oldtitle" style="width: 345px;">旧标题</td>
+                    <td class="rename-history-newtitle" style="width: 345px;">新标题</td>
+                    <td style="width: 110px;">还原为旧标题</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="rename-history-pagging" style="text-align: center"></div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.gcs("/status/js",function(){
+        TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+            TM.gcs('/js/jquery.pagination.js',function(){
+                TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+                    TM.gcs('/js/utils/Paging.js?_v=2',function(){
+                        TM.gcs('/js/QueryCommodity.js?_v=7',function(){
+                            TM.gcs('/js/TitleOp/RecommendWord.js',function(){
+                                TM.gcs('/js/TitleOp/ModifyTitle.js?_v=53',function(){
+                                    TM.gcs('/js/genKeywordSpan/genKeywordSpan.js',function(){
+                                        TM.gcs('/js/topKey/bustopkeynew.js?_v=10',function(){
+                                            TM.gcs('/js/topKey/topkey.js?_v=9',function(){
+                                                $(document).ready(function () {
+                                                    var params = {};
+                                                    params.itemId = ${numIid};
+                                                    params.currentPage = ${pn};
+                                                    params.offset = ${offset};
+                                                    params.search = "${s}";
+                                                    params.start =${start};
+                                                    params.end =${end};
+                                                    params.sort =${sort};
+                                                    params.status =${status};
+                                                    params.catId =${catId};
+                                                    params.enableHotProps = true;
+                                                    params.optimised = ${optimised};
+                                                    var propEditHref = 'http://upload.taobao.com/auction/publish/edit.htm?item_num_id='+params.itemId+'&auto=false';
+                                                    $('.prop-edit a').attr('href', propEditHref);
+                                                    TM.widget.bindQtips();
+
+                                                    /*if( $.browser.msie && ( $.browser.version == '6.0' || $.browser.version == '7.0' ) ) {
+                                                        // 不隐藏
+
+                                                    } else {
+                                                        // 隐藏标题优化页面的左侧导航
+                                                        $('.nav-table-left-td').remove();
+                                                        $('.nav-table-right-td .main').css("width", "99%");
+                                                        $('.titleOpContainer').css("width", "1024px");
+                                                        $('.titleOpContainer .rowDiv').css("width", "100%");
+                                                        $('.titleOpContainer .rowDiv').css("width", "100%");
+                                                        $('.titleOpContainer .modifyTitleDiv').css("width", "67%");
+                                                        $('.titleOpContainer .diagResultDiv').css("width", "30%");
+                                                    }*/
+
+                                                    ModifyTitle.main.init(params);
+                                                    $.get("/Home/getBaseIdFromCid", {numIid: params.itemId}, function(data){
+                                                        if(data === undefined || data == null) {
+                                                            topKey.init.doInit();
+                                                            return;
+                                                        }
+                                                        if(data.success == false) {
+                                                            topKey.init.doInit();
+                                                            return;
+                                                        }
+                                                        var cid = parseInt(data.message);
+                                                        topKey.init.doInit(cid);
+                                                    });
+
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+});
+</script>
+#{/set}

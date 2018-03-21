@@ -1,0 +1,213 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'宝贝批量分类' /}
+
+<style type="text/css">
+
+
+
+    .seller-cat-container {
+        padding: 10px; font-family: "微软雅黑"; font-size: 14px;
+    }
+
+
+    input[type="radio"] {
+        cursor: pointer;
+    }
+    input[type="text"] {
+        padding-left: 5px;
+    }
+
+    .item-table {
+
+    }
+    .item-table tbody td {
+        padding: 7px 0px;
+    }
+    .item-table .item-img {
+        width: 70px; height: 70px; cursor: pointer;
+    }
+    .item-table input[type=checkbox] {
+        cursor: pointer;
+    }
+    .item-table .item-title {
+        cursor: pointer;
+    }
+
+
+    .check-span {
+        cursor: pointer;
+    }
+    .radio-span {
+        cursor: pointer;
+    }
+    .select35{
+        height: 35px;
+    }
+    .search-container{
+        width: 978px;
+        border: 1px solid #ccc;
+        margin: 0px 0px 20px 0px;
+        padding: 20px 0px;
+        background: #efefef;
+    }
+
+</style>
+
+
+<div class="seller-cat-container">
+
+    <div class="header-tip-container">
+        批量对店铺宝贝进行分类。
+    </div>
+
+    <div class="search-container">
+        <table style="border-collapse: collapse; margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td style="">
+                    <span>宝贝标题：</span>
+                    <input type="text" class="search-text select35" style="width: 150px;"/>
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>淘宝类目：</span>
+                    <select class="tb-category-select select35" style="width: 110px;">
+                        <option value="0" selected="selected">所有宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>店铺分类：</span>
+                    <select class="seller-category-select select35" style="width: 110px;">
+                        <option value="0" selected="selected">所有分类</option>
+                        <option value="-1">未分类的宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>宝贝状态：</span>
+                    <select class="state-select select35" style="width: 110px;">
+                        <option value="2" selected="selected">所有宝贝</option>
+                        <option value="0">在架宝贝</option>
+                        <option value="1">待上架宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn sky-blue-btn search-btn">搜索宝贝</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div style="padding-top: 10px;padding-bottom: 10px;">
+        <table style="border-collapse: collapse;margin: 0 auto;">
+            <tbody>
+            <tr>
+
+                <td style=""><span class="tmbtn too-wide-yellow-btn seller-cat-select-item-btn">分类选中宝贝</span> </td>
+                <td style="padding-left: 40px;">
+                    <span class="tmbtn too-wide-yellow-btn seller-cat-all-item-btn">分类所有搜索宝贝</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="paging-div" style="padding-bottom: 5px;text-align: center;"></div>
+
+    <table class="item-table list-table">
+        <thead>
+        <tr>
+            <td style="width: 6%;"><input type="checkbox" class="all-item-check" /> </td>
+            <td style="width: 11%;">宝贝图片</td>
+            <td style="width: 24%;">宝贝标题</td>
+            <td style="width: 12%;">宝贝分类</td>
+            <td style="width: 11%;"><div class="sort-td sort-down" orderBy="price">价格</div></td>
+            <td style="width: 10%;"><div class="sort-td sort-up" orderBy="salesCount">销量</div></td>
+            <td style="width: 13%;"><div class="sort-td sort-down" orderBy="delist">下架时间</div></td>
+            <td style="width: 11%;">状态</td>
+        </tr>
+        </thead>
+        <tbody class="item-tbody"></tbody>
+    </table>
+
+    <div class="paging-div" style="padding-top: 5px;text-align: center;"></div>
+
+
+</div>
+
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+
+<script type="text/x-jquery-tmpl" id="sellerCatItemRow">
+
+    <tr class="item-tr">
+        <td><input type="checkbox" class="item-checkbox" numIid="{{= numIid}}"/></td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picURL}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+        <td class="item-seller-cats-td"></td>
+
+        <td><div class="item-price">￥{{= priceStr}}</div></td>
+        <td><span class="sale-count">{{= salesCount}}</span> </td>
+        <td><p>{{= delistWeekDay}}</p><p style="padding-top: 5px;">{{= delistHHmmss}}</p></td>
+
+        <td><div class="item-state">{{= statusStr}}</div></td>
+    </tr>
+
+
+</script>
+
+
+
+<script type="text/x-jquery-tmpl" id="sellerCatItemDialogTmpl">
+
+    <div class="seller-cat-item-dialog-div">
+        <div style="padding: 30px 0px 0px 30px;">
+
+            <table class="seller-cat-item-table">
+                <tbody>
+                <tr>
+                    <td>目标店铺分类：</td>
+                    <td>
+                        <select class="target-seller-item-cat-select" style="width: 150px;">
+                            <option value="0" selected="selected">请选择店铺分类</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-top: 20px;">
+                        <input type="checkbox" class="remove-origin-cat-check" /><span class="check-span">去除宝贝原来分类</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</script>
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/newAutoTitle/autotitleutil.js',function(){
+            TM.gcs('/js/newAutoTitle/sellercatitems.js',function(){
+                $(document).ready(function() {
+                    TM.SellerCatItems.init.doInit($('.seller-cat-container'));
+                });
+            });
+        });
+    });
+</script>

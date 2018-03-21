@@ -1,0 +1,719 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'分销批量改价中心' /}
+
+<style type="text/css">
+
+
+
+    .fenxiao-batch-container {
+        padding: 10px;
+    }
+
+
+    input[type="radio"] {
+        cursor: pointer;
+    }
+    input[type="text"] {
+        padding-left: 5px;
+    }
+    .target-item-type-span {
+        cursor: pointer;
+    }
+
+
+
+    .item-table {
+
+    }
+    .item-table tbody td {
+        padding: 7px 0px;
+    }
+    .item-table .item-img {
+        width: 70px; height: 70px; cursor: pointer;
+    }
+    .item-table input[type=checkbox] {
+        cursor: pointer;
+    }
+    .item-table .item-title {
+        cursor: pointer;
+    }
+
+
+
+    .modify-price-dialog {
+        padding: 10px 20px 20px 50px; text-align: left; font-family: "微软雅黑"; font-size: 14px;
+    }
+    .modify-config-table {
+        border-collapse: collapse; margin-top: 10px;
+    }
+
+    .modify-config-table td {
+        padding: 4px 0px; vertical-align: top; text-align: left;
+    }
+
+    .radio-span {
+        cursor: pointer;
+    }
+    .select35{
+           height: 35px;
+    }
+    .search-container{
+        width: 978px;
+        border: 1px solid #ccc;
+        margin: 0px 0px 20px 0px;
+        padding: 20px 0px;
+        background: #efefef;
+    }
+
+</style>
+
+
+<div class="fenxiao-batch-container">
+
+    <div class="header-tip-container">
+        专注&nbsp;<span style="font-weight: bold;">分销商品</span>&nbsp;批量改价，支持根据最高零售价、最低零售价、成本价进行改价。
+    </div>
+
+    <div class="search-container">
+        <table style="border-collapse: collapse; margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td style="">
+                    <span>宝贝标题：</span>
+                    <input type="text" class="search-text select35" style="width: 150px;"/>
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>淘宝类目：</span>
+                    <select class="tb-category-select select35" style="width: 110px;">
+                        <option value="0" selected="selected">所有宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>自定义分类：</span>
+                    <select class="seller-category-select select35" style="width: 110px;">
+                        <option value="0" selected="selected">所有分类</option>
+                    </select>
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>宝贝状态：</span>
+                    <select class="state-select select35" style="width: 110px;">
+                        <option value="0" selected="selected">在架宝贝</option>
+                        <option value="1">待上架宝贝</option>
+                        <option value="2">所有宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn sky-blue-btn search-btn">搜索宝贝</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="FenXiaoMeanUtil" style="padding-top: 20px;">
+        <table style="border-collapse: collapse;">
+            <tbody>
+            <tr>
+                <td style="text-align: left;">
+                    <div>
+                        <input type="radio" name="target-item-type-radio" value="selectedItems" checked="checked" />
+                        <span class="target-item-type-span">修改选中宝贝的价格</span>
+                    </div>
+                </td>
+                <td style="padding-left: 20px;">
+                    <div>
+                        <input type="radio" name="target-item-type-radio" value="allSearchItem" />
+                        <span class="target-item-type-span">修改当前搜索结果的价格&nbsp;(<span class="search-item-num"></span>个宝贝)</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="padding-top: 10px;padding-bottom: 10px;">
+        <table style="border-collapse: collapse;">
+            <tbody>
+            <tr>
+
+                <td style=""><span class="tmbtn too-wide-yellow-btn min-retail-price-add-btn">根据最低零售价加价</span> </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn too-wide-yellow-btn max-retail-price-minus-btn">根据最高零售价减价</span>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn too-wide-yellow-btn cost-price-add-btn">根据采购价加价</span>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn too-wide-yellow-btn origin-price-add-btn">根据宝贝原价加价</span>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn too-wide-yellow-btn origin-price-minus-btn">根据宝贝原价减价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="paging-div" style="padding-bottom: 5px;text-align: center;"></div>
+
+    <table class="item-table list-table">
+        <thead>
+        <tr>
+            <td style="width: 8%;"><input type="checkbox" class="all-item-check" /> </td>
+            <td style="width: 11%;">宝贝图片</td>
+            <td style="width: 30%;">宝贝标题</td>
+            <td style="width: 13%;"><div class="sort-td sort-down" orderBy="price">价格</div></td>
+            <td style="width: 12%;"><div class="sort-td sort-up" orderBy="salesCount">销量</div></td>
+            <td style="width: 15%;"><div class="sort-td sort-down" orderBy="delist">下架时间</div></td>
+            <td style="width: 11%;">状态</td>
+        </tr>
+        </thead>
+        <tbody class="item-tbody"></tbody>
+    </table>
+
+    <div class="paging-div" style="padding-top: 5px;text-align: center;"></div>
+
+
+</div>
+
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+<script type="text/x-jquery-tmpl" id="fenxiaoItemRow">
+
+    <tr class="item-tr">
+        <td><input type="checkbox" class="item-checkbox" numIid="{{= numIid}}"/></td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picURL}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+
+        <td><div class="item-price">￥{{= priceStr}}</div></td>
+        <td><span class="sale-count">{{= salesCount}}</span> </td>
+        <td><p>{{= delistWeekDay}}</p><p style="padding-top: 5px;">{{= delistHHmmss}}</p></td>
+
+        <td><div class="item-state">{{= statusStr}}</div></td>
+    </tr>
+
+
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="lowRetailPriceDialogTmpl">
+
+    <div class="modify-price-dialog">
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">1. 加价幅度:</td>
+                <td style="padding-left: 20px;">
+                    <input type="radio" name="low-retail-add-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="percent-price-div" value="lowRetailPercentAdd" checked="checked" /><span class="radio-span">使用百分比加价</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="low-retail-add-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="fixed-price-div" value="lowRetailFixedAdd" /><span class="radio-span">使用固定金额加价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="">
+                    <div class="percent-price-div edit-parameter-config-div">
+                        在&nbsp;<span class="red-bold">最低零售价</span>&nbsp;的基础上，加价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;%
+                    </div>
+                    <div class="fixed-price-div edit-parameter-config-div" style="display: none;">
+                        在&nbsp;<span class="red-bold">最低零售价</span>&nbsp;的基础上，加价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;元
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">2. 有属性价格的宝贝:</td>
+                <td style="padding-left: 10px;">不同的属性(比如颜色、尺码)，对应各自的价格</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="low-retail-sku-radio" class="sku-config-radio" value="skipSkuItems" checked="checked" /><span class="radio-span">跳过有属性价格的宝贝</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="low-retail-sku-radio" class="sku-config-radio" value="doEditToSku" /><span class="radio-span">仍旧根据最低零售价加价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="red">(如果一个宝贝的属性价格有高有低，建议跳过，建议根据采购价或原价来改价)</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">3. 最低利润:</td>
+                <td style="padding-left: 20px;">利润为宝贝价格与分销采购价的差值</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="">
+                    宝贝利润应不低于&nbsp;<input type="text" class="min-profit-input" style="width: 55px;" value="0"/>&nbsp;元&nbsp;
+                    (填&nbsp;<span class="red-bold">0</span>&nbsp;表示不考虑利润因素)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">4. 加价溢出:</td>
+                <td style="padding-left: 10px;">当加价结果超过最高零售价时</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="low-retail-overflow-radio" class="overflow-config-radio" value="useHighRetailPrice" checked="checked" /><span class="radio-span">使用最高零售价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">5. 抹去分角:</td>
+                <td style="padding-left: 20px;">对价格小数点的处理</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="low-retail-dot-radio" class="dot-config-radio" value="noDecimal" checked="checked" /><span class="radio-span">取整</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="low-retail-dot-radio" class="dot-config-radio" value="oneDecimal" /><span class="radio-span">保留1位小数</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="low-retail-dot-radio" class="dot-config-radio" value="twoDecimal" /><span class="radio-span">保留2位小数</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</script>
+
+
+
+<script type="text/x-jquery-tmpl" id="highRetailPriceDialogTmpl">
+
+    <div class="modify-price-dialog">
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">1. 减价幅度:</td>
+                <td style="padding-left: 20px;">
+                    <input type="radio" name="high-retail-minus-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="percent-price-div" value="highRetailPercentMinus" checked="checked" /><span class="radio-span">使用百分比减价</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="high-retail-minus-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="fixed-price-div" value="highRetailFixedMinus" /><span class="radio-span">使用固定金额减价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="">
+                    <div class="percent-price-div edit-parameter-config-div">
+                        在&nbsp;<span class="red-bold">最高零售价</span>&nbsp;的基础上，减价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;%
+                    </div>
+                    <div class="fixed-price-div edit-parameter-config-div" style="display: none;">
+                        在&nbsp;<span class="red-bold">最高零售价</span>&nbsp;的基础上，减价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;元
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">2. 有属性价格的宝贝:</td>
+                <td style="padding-left: 10px;">不同的属性(比如颜色、尺码)，对应各自的价格</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="high-retail-sku-radio" class="sku-config-radio" value="skipSkuItems" checked="checked" /><span class="radio-span">跳过有属性价格的宝贝</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="high-retail-sku-radio" class="sku-config-radio" value="doEditToSku" /><span class="radio-span">仍旧根据最高零售价减价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="red">(如果一个宝贝的属性价格有高有低，建议跳过，建议根据采购价或原价来改价)</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">3. 最低利润:</td>
+                <td style="padding-left: 20px;">利润为宝贝价格与分销采购价的差值</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="">
+                    宝贝利润应不低于&nbsp;<input type="text" class="min-profit-input" style="width: 55px;" value="0"/>&nbsp;元&nbsp;
+                    (填&nbsp;<span class="red-bold">0</span>&nbsp;表示不考虑利润因素)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">4. 减价溢出:</td>
+                <td style="padding-left: 10px;">当减价结果低于最低零售价时</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="high-retail-overflow-radio" class="overflow-config-radio" value="useLowRetailPrice" checked="checked" /><span class="radio-span">使用最低零售价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">5. 抹去分角:</td>
+                <td style="padding-left: 20px;">对价格小数点的处理</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="high-retail-dot-radio" class="dot-config-radio" value="noDecimal" checked="checked" /><span class="radio-span">取整</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="high-retail-dot-radio" class="dot-config-radio" value="oneDecimal" /><span class="radio-span">保留1位小数</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="high-retail-dot-radio" class="dot-config-radio" value="twoDecimal" /><span class="radio-span">保留2位小数</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</script>
+
+
+
+
+<script type="text/x-jquery-tmpl" id="costPriceDialogTmpl">
+
+    <div class="modify-price-dialog">
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">1. 加价幅度:</td>
+                <td style="padding-left: 20px;">
+                    <input type="radio" name="cost-price-add-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="percent-price-div" value="costPricePercentAdd" checked="checked" /><span class="radio-span">使用百分比加价</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="cost-price-add-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="fixed-price-div" value="costPriceFixedAdd" /><span class="radio-span">使用固定金额加价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="">
+                    <div class="percent-price-div edit-parameter-config-div">
+                        在&nbsp;<span class="red-bold">采购价</span>&nbsp;的基础上，加价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;%
+                    </div>
+                    <div class="fixed-price-div edit-parameter-config-div" style="display: none;">
+                        在&nbsp;<span class="red-bold">采购价</span>&nbsp;的基础上，加价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;元
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">2. 有属性价格的宝贝:</td>
+                <td style="padding-left: 10px;">不同的属性(比如颜色、尺码)，对应各自的价格</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="cost-price-sku-radio" class="sku-config-radio" value="skipSkuItems" checked="checked" /><span class="radio-span">跳过有属性价格的宝贝</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="cost-price-sku-radio" class="sku-config-radio" value="doEditToSku" /><span class="radio-span">根据采购价加价</span>
+                </td>
+            </tr>
+            *{<tr>
+                <td colspan="2">
+                    <span class="red">(如果一个宝贝的属性价格有高有低，建议跳过，建议根据采购价或原价来改价)</span>
+                </td>
+            </tr>}*
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">3. 最低利润:</td>
+                <td style="padding-left: 20px;">利润为宝贝价格与分销采购价的差值</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="">
+                    宝贝利润应不低于&nbsp;<input type="text" class="min-profit-input" style="width: 55px;" value="0"/>&nbsp;元&nbsp;
+                    (填&nbsp;<span class="red-bold">0</span>&nbsp;表示不考虑利润因素)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">4. 加价溢出:</td>
+                <td style="padding-left: 10px;">当加价结果超过最高零售价时</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="cost-price-overflow-radio" class="overflow-config-radio" value="useHighRetailPrice" checked="checked" /><span class="radio-span">使用最高零售价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">5. 抹去分角:</td>
+                <td style="padding-left: 20px;">对价格小数点的处理</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="cost-price-dot-radio" class="dot-config-radio" value="noDecimal" checked="checked" /><span class="radio-span">取整</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="cost-price-dot-radio" class="dot-config-radio" value="oneDecimal" /><span class="radio-span">保留1位小数</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="cost-price-dot-radio" class="dot-config-radio" value="twoDecimal" /><span class="radio-span">保留2位小数</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</script>
+
+
+
+
+<script type="text/x-jquery-tmpl" id="originPriceAddDialogTmpl">
+
+    <div class="modify-price-dialog">
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">1. 加价幅度:</td>
+                <td style="padding-left: 20px;">
+                    <input type="radio" name="origin-price-add-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="percent-price-div" value="originPricePercentAdd" checked="checked" /><span class="radio-span">使用百分比加价</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-add-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="fixed-price-div" value="originPriceFixedAdd" /><span class="radio-span">使用固定金额加价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="">
+                    <div class="percent-price-div edit-parameter-config-div">
+                        在&nbsp;<span class="red-bold">宝贝原价</span>&nbsp;的基础上，加价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;%
+                    </div>
+                    <div class="fixed-price-div edit-parameter-config-div" style="display: none;">
+                        在&nbsp;<span class="red-bold">宝贝原价</span>&nbsp;的基础上，加价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;元
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">2. 有属性价格的宝贝:</td>
+                <td style="padding-left: 10px;">不同的属性(比如颜色、尺码)，对应各自的价格</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="origin-price-add-sku-radio" class="sku-config-radio" value="skipSkuItems" checked="checked" /><span class="radio-span">跳过有属性价格的宝贝</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-add-sku-radio" class="sku-config-radio" value="doEditToSku" /><span class="radio-span">根据原价加价</span>
+                </td>
+            </tr>
+            *{<tr>
+                <td colspan="2">
+                    <span class="red">(如果一个宝贝的属性价格有高有低，建议跳过，建议根据采购价或原价来改价)</span>
+                </td>
+            </tr>}*
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">3. 最低利润:</td>
+                <td style="padding-left: 20px;">利润为宝贝价格与分销采购价的差值</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="">
+                    宝贝利润应不低于&nbsp;<input type="text" class="min-profit-input" style="width: 55px;" value="0"/>&nbsp;元&nbsp;
+                    (填&nbsp;<span class="red-bold">0</span>&nbsp;表示不考虑利润因素)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">4. 加价溢出:</td>
+                <td style="padding-left: 10px;">当加价结果超过最高零售价时</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="origin-price-add-overflow-radio" class="overflow-config-radio" value="useHighRetailPrice" checked="checked" /><span class="radio-span">使用最高零售价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">5. 抹去分角:</td>
+                <td style="padding-left: 20px;">对价格小数点的处理</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="origin-price-add-dot-radio" class="dot-config-radio" value="noDecimal" checked="checked" /><span class="radio-span">取整</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-add-dot-radio" class="dot-config-radio" value="oneDecimal" /><span class="radio-span">保留1位小数</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-add-dot-radio" class="dot-config-radio" value="twoDecimal" /><span class="radio-span">保留2位小数</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="originPriceMinusDialogTmpl">
+
+    <div class="modify-price-dialog">
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">1. 减价幅度:</td>
+                <td style="padding-left: 20px;">
+                    <input type="radio" name="origin-price-minus-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="percent-price-div" value="originPricePercentMinus" checked="checked" /><span class="radio-span">使用百分比减价</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-minus-radio" class="modify-price-type-radio" targetGroup="edit-parameter-config-div" target="fixed-price-div" value="originPriceFixedMinus" /><span class="radio-span">使用固定金额减价</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="">
+                    <div class="percent-price-div edit-parameter-config-div">
+                        在&nbsp;<span class="red-bold">宝贝原价</span>&nbsp;的基础上，减价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;%
+                    </div>
+                    <div class="fixed-price-div edit-parameter-config-div" style="display: none;">
+                        在&nbsp;<span class="red-bold">宝贝原价</span>&nbsp;的基础上，减价&nbsp;<input type="text" class="modify-parameter-input" style="width: 70px;" value="0"/>&nbsp;元
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">2. 有属性价格的宝贝:</td>
+                <td style="padding-left: 10px;">不同的属性(比如颜色、尺码)，对应各自的价格</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="origin-price-minus-sku-radio" class="sku-config-radio" value="skipSkuItems" checked="checked" /><span class="radio-span">跳过有属性价格的宝贝</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-minus-sku-radio" class="sku-config-radio" value="doEditToSku" /><span class="radio-span">根据原价减价</span>
+                </td>
+            </tr>
+            *{<tr>
+                <td colspan="2">
+                    <span class="red">(如果一个宝贝的属性价格有高有低，建议跳过，建议根据采购价或原价来改价)</span>
+                </td>
+            </tr>}*
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">3. 最低利润:</td>
+                <td style="padding-left: 20px;">利润为宝贝价格与分销采购价的差值</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="">
+                    宝贝利润应不低于&nbsp;<input type="text" class="min-profit-input" style="width: 55px;" value="0"/>&nbsp;元&nbsp;
+                    (填&nbsp;<span class="red-bold">0</span>&nbsp;表示不考虑利润因素)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">4. 减价溢出:</td>
+                <td style="padding-left: 10px;">当减价结果低于最低零售价时</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="origin-price-minus-overflow-radio" class="overflow-config-radio" value="useLowRetailPrice" checked="checked" /><span class="radio-span">使用最低零售价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="modify-config-table">
+            <tbody>
+            <tr>
+                <td class="bold">5. 抹去分角:</td>
+                <td style="padding-left: 20px;">对价格小数点的处理</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="origin-price-minus-dot-radio" class="dot-config-radio" value="noDecimal" checked="checked" /><span class="radio-span">取整</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-minus-dot-radio" class="dot-config-radio" value="oneDecimal" /><span class="radio-span">保留1位小数</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <input type="radio" name="origin-price-minus-dot-radio" class="dot-config-radio" value="twoDecimal" /><span class="radio-span">保留2位小数</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/newAutoTitle/autotitleutil.js',function(){
+            TM.gcs('/js/newAutoTitle/fenxiaobatch.js',function(){
+                $(document).ready(function() {
+                    TM.FenxiaoBatch.init.doInit($('.fenxiao-batch-container'));
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,482 @@
+/* CSS Document */
+
+#main-slides {
+    width:600px;
+    height:270px;
+    position:relative;
+}
+
+
+.con-main  .con-left {
+    width: 748px;
+    margin-right: 10px;
+    margin-top:15px;
+
+    /*    border: 1px solid #DDDDDD;
+        border-radius: 5px;
+        box-shadow: 0 1px 5px #DDDDDD;
+        background: none no-repeat scroll 0 0 #FFFFFF;
+        overflow: hidden;*/
+
+    float: left;
+}
+.con-main  .con-left .con-top {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+    background: none no-repeat scroll 0 0 #FFFFFF;
+    overflow: hidden;
+
+    height: 270px;
+}
+.con-main .con-right{
+    width: 228px;
+    margin-top:15px;
+    /*    border: 1px solid #DDDDDD;
+        border-radius: 5px;
+        box-shadow: 0 1px 5px #DDDDDD;
+        background: none no-repeat scroll 0 0 #FFFFFF;*/
+    overflow: hidden;
+
+    float: right;
+}
+.con-main .user-info {
+    height: 270px;
+    /*    color: #CC9999;*/
+}
+.user-info .entity {
+    padding: 10px 20px 0 20px;
+}
+.user-info dt
+{
+    margin-bottom: 3px;
+    /*    color: #C66;*/
+    font-size: 14px;
+    font-weight: 600;
+}
+.user-info dd {
+    line-height: 26px;
+}
+.user-info dd .account {
+    color: #F00;
+}
+.user-info dd .account0 {
+    color: green;
+}
+.user-info dd .account1, .user-info dd .account2 {
+    color: #F00;
+}
+.user-info .user {
+    /*    height: 180px;
+        margin-bottom: 28px;
+        _margin-bottom: 24px;*/
+}
+.user-info .gonggao {
+}
+.con-main .con-right .my-shop {
+    padding: 0 15px 10px;
+
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+    background: none no-repeat scroll 0 0 #FFFFFF;
+
+    /* height: 501px;
+    height: 482px; */
+    overflow: hidden;
+    height: 260px;
+}
+.con-main .con-right .my-shop h3 {
+    height: 42px;
+    line-height: 42px;
+}
+.my-shop dd {
+    padding-bottom: 10px;
+}
+.my-shop .item-des {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 80px;
+}
+.my-shop .item-des h4 {
+    height: 35px;
+    line-height: 30px;
+}
+.my-shop .item-des .item-img {
+    float: left;
+    /*    width: 80px;*/
+    margin-right: 10px;
+}
+.my-shop .item-des .item-info {
+    float: left;
+    width: 102px;
+}
+.my-shop p {
+    padding-top: 5px;
+    display: inline-block;
+    _display: block;
+    _float: left;
+}
+.my-shop .btn-order-now {
+    padding: 3px 10px;
+}
+.my-shop .renew {
+    margin-right: 5px;
+
+    width: 46px;
+    float: left;
+}
+.my-shop .update {
+    width: 46px;
+    float: right;
+}
+#shop-con {
+    position: relative;
+    /*    height: 450px;*/
+    width: 196px;
+    overflow: hidden;
+}
+.my-shop ul {
+    position: absolute;
+    width: 1600px;
+}
+.my-shop ul li {
+    float: left;
+    width: 196px;
+}
+#my-shop-page .page-result a {
+    border: none;
+    padding: 0;
+}
+#my-shop-page .page-result .current {
+    color: #000000;
+}
+.con-main .con-left .con-recom {
+    padding-left: 20px;
+
+    width: 180px;
+    float: left;
+}
+.con-recom .item-con {
+    overflow: hidden;
+    width: 180px;
+    height: 270px;
+
+    position: relative;
+}
+.con-recom .items {
+    position: absolute;
+    width: 540px;
+}
+.con-recom .items li {
+    overflow: hidden;
+    width: 180px;
+    height: 210px;
+}
+.con-recom .item-con li {
+    /*    display: none;*/
+    display: block;
+    float: left;
+}
+.con-recom .item-con li.current {
+    /*    display: block;*/
+}
+.con-recom h3 {
+    color: #333333;
+    font-size: 14px;
+    height: 42px;
+    line-height: 42px;
+}
+.item-trigger li {
+    background: url( ../images/trigger.png ) no-repeat scroll 0 0 transparent;
+}
+.con-recom .item-trigger {
+    position: absolute;
+    right: 0;
+    top: 18px;
+}
+.item-trigger li {
+    float: left;
+
+    height: 6px;
+    width: 6px;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: 0 3px;
+    cursor: pointer;
+
+    background-position: -79px -6px;
+}
+.item-trigger li.current{
+    background-position: -79px 0;
+}
+.item-con .item-attr {
+    overflow: hidden;
+    margin-bottom: 10px;
+    height: auto;
+}
+.item-con .item-attr .item-img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+}
+.item-con .item-img a {
+    width: 60px;
+    height: 60px;
+}
+/*.item-con .item-attr .item-img img {
+    display: none;
+}*/
+.item-con .item-attr h4 {
+    font-size: 100%;
+}
+.item-con .item-attr h4 a {
+    color: #666666;
+}
+.item-con .des {
+    height: 65px;
+    line-height: 22px;
+    overflow: hidden;
+
+    _clear: both;
+}
+.item-con .price {
+    color: #FF8800;
+}
+.item-con .btn-order-now, .item-con .btn-order-use {
+    text-indent: -9999px;
+    display: block;
+    height: 22px;
+    margin-top: 9px;
+    overflow: hidden;
+    width: 79px;
+    padding: 0;
+    background: url( ../images/trigger.png ) no-repeat scroll 0 0 transparent;
+}
+.item-con .btn-order-use {
+    background: url( ../images/use-now.gif ) no-repeat scroll 0 0 transparent;
+
+    width: 103px;
+    height: 31px;
+}
+
+
+#main-slides {
+    float: right;
+    width: 540px;
+    overflow: hidden;
+}
+
+
+
+.con-app {
+    clear: both;
+    margin-top: 10px;
+
+    box-shadow: 0 1px 3px #D7D7D7;
+
+    background-color: #FFFFFF;
+    border-color: #EAEAEA #D7D7D7 #BCBCBC;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+.con-app .app-list {
+    overflow: hidden;
+    width: 990px;
+}
+.con-app .app-list li {
+    margin-top: -11px;
+    float: left;
+}
+.con-app .app-list li:hover {
+    background: url( ../images/list-hover-bak.png ) repeat-x scroll 0 0 transparent;
+}
+.con-app .app-list div {
+    width: 187px;
+    padding: 20px 30px 15px;
+    height: 205px;
+    overflow: hidden;
+
+    background: url( ../images/list-bak.png ) no-repeat scroll 100% 0 transparent;
+}
+.con-app .app-list div.app-list-other {
+    width: 188px;
+    background: none no-repeat scroll 0 0 transparent;
+}
+.con-app .app-list h4 {
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: normal;
+}
+.con-app .app-list h4 a {
+    color: #333333;
+}
+.con-app .app-list p {
+    line-height: 22px;
+    margin-top: 5px;
+}
+.con-app .app-list .app-img {
+    margin: 25px 0 0 10px;
+}
+
+/** é¦–é¡µå±•ç¤ºå± begin */
+.con-show {
+    margin-top: 15px;
+}
+.con-show  .show-left {
+    float: left;
+    width: 748px;
+    margin-right: 10px;
+    height: 342px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+    background: none no-repeat scroll 0 0 #FFFFFF;
+    overflow: hidden;
+}
+.con-show  .show-left #pro-dis {
+    padding: 20px 0;
+    overflow: hidden;
+    width: 718px;
+    margin: 0 15px;
+}
+#pro-dis h4 {
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#pro-dis ul {
+    overflow: hidden;
+    height: 100%;
+    width: 1200px;
+}
+#pro-dis li {
+    width: 160px;
+    float: left;
+    text-align: center;
+    padding: 5px 0;
+}
+.show-right {
+    float: right;
+    width: 228px;
+    height: 342px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+    background: none no-repeat scroll 0 0 #FFFFFF;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.con-show .show-right .head{
+    border-bottom: 1px solid #DDDDDD;
+    height: 30px;
+    line-height: 30px;
+}
+.order-display, .renew-display, .alliance-display {
+    height: 363px;
+    padding: 0 15px 10px;
+    float: left;
+    width: 337px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+    background: none no-repeat scroll 0 0 #FFFFFF;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.alliance-display {
+    width: 196px;
+    margin-top: 10px;
+}
+.order-display {
+    margin-right: 10px;
+}
+
+#box-con, #box-order, #box-renew{
+    width: 100%;
+    overflow: hidden;
+    /*    margin-top: 10px;*/
+    height: 310px;
+}
+#box-con {
+    /*    height: 301px;*/
+    height: 315px;
+    position: relative;
+}
+#box-con .items {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 1200px;
+}
+#box-con .items .box-item {
+    float: left;
+
+    width: 198px;
+    margin-right: 10px;
+}
+.head h3{
+    height: 42px;
+    line-height: 42px;
+}
+#box-con dd, #box-con .box-list{
+    /*    border-bottom: 1px dotted #999999;*/
+}
+#box-con .item {
+    line-height: 22px;
+    overflow: hidden;
+    padding: 5px 0;
+}
+#box-order .item, #box-renew .item {
+    line-height: 22px;
+    overflow: hidden;
+    padding: 5px 0;
+}
+/** é¦–é¡µå±•ç¤ºå± end */
+
+#adslide_slides {
+    height: 400px;
+    position:relative;
+
+    width: 750px;
+    margin: 0 auto;
+    /*    overflow: hidden;*/
+}
+.hdp-slides {
+    top: 0;
+}
+.hdp-slides .slides_container {
+    width: 750px;
+    height: 400px;
+}
+.hdp-slides .slides_container a {
+    width: 750px;
+    height: 400px;
+}
+.hdp-slides .pagination {
+    display: none;
+}
+.hdp-slides .next {
+    left: 749px;
+}
+.hdp-slides .next, .hdp-slides .prev {
+    top: 170px;
+}
+.hdp-slides .next {
+    left: 752px;
+}
+.hdp-slides .prev {
+    left: -27px;
+}
+.novice_navigation {
+    margin: 5px 0;
+    _margin-top:0;
+}

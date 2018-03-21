@@ -1,0 +1,43 @@
+#{extends 'keymain.html' /}
+
+#{set title:'宝贝诊断' /}
+<style>
+       .bodyline{width: 760px;margin: 0 auto;padding: 0 6px;position: relative;}
+       #autodiag{width: 760px;margin: 0 auto;padding: 0 6px;position: relative;text-align: center;}
+       #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+       .diagbtn{background-position: left bottom;top:20px;left:0px;}
+       .diagbtnpos{text-align: center;height:60px;width:200px;;margin: 0 auto;padding-top:40px;position: relative;}
+       .autodiagIntro{font-size:15px;height:50px;margin: 0px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px 10px 10px 30px;;}
+       .autodiagIntro p{margin-top:5px;}
+       .oknoproblem{width:400px;height:100px;margin:0 auto;text-align: center;vertical-align: middle;}
+       .errormsg{background-color: 	#FFF4C1}
+       .oplogs td {border: 1px solid #ccc;padding: 3px 0 3px 0;}
+</style>
+
+
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>宝贝检测
+</div>
+<div class="bodyline">
+    <div class="autodiagIntro">
+        <p>诊断出错的宝贝是<b class="red">无法</b>在我们的服务里面 提交新标题到淘宝的哟！</p>
+        <p>同时,完整规范的宝贝属性，能够增加宝贝的<b class="red">类目搜索展现量</b>，这对提高宝贝流量非常关键！</p>
+    </div>
+</div>
+
+<div id='autodiag' >
+
+</div>
+<div class='clearfix'></div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.gcs('/js/itemdiag/itempropdiag.js?v=2', function(){
+        $(document).ready(function () {
+            TM.PropDiag.init($('#autodiag'));
+        });
+    });
+
+</script>
+#{/set}

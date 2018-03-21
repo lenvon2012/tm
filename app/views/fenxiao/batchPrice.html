@@ -1,0 +1,30 @@
+#{extends 'fxmain.html' /}
+#{set title:'批量修改价格' /}
+
+<link rel="stylesheet" media="screen" href="/css/skinbatch/skinbatch.css"/>
+<style>
+    .batch-modify-price-btn, .update-fenxiao-price-btn{margin:10px;}
+    .batchop-div{border: 1px solid #ddd;}
+    .paging-div{margin:10px;}
+    .search-container{border-top: 1px solid #ddd;border-left: 1px solid #ddd;padding: 5px;}
+    .batch-container .list-table{margin:0px 0 0px 0;}
+</style>
+
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/fenxiao/batchpricedelist.js" type="text/javascript" charset="utf-8"></script>
+<div class="bodyline">
+    <p class="autodiagIntro"><b style="font-weight: bold;color:blue;">功能介绍：</b>批量快速修改宝贝价格</p>
+</div>
+
+<div class="batch-container"></div>
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.Loading.init.show();
+        TM.SkinBatch.init.doInit($(".batch-container"), true);
+    });
+
+</script>

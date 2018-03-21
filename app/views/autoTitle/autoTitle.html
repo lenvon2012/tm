@@ -1,0 +1,271 @@
+#{extends 'keymain.html' /}
+#{set title:'自动标题' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/autoTitle/autoTitle.css">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css">
+#{/set}
+
+*{<div class="intro">标题优化历史记录与还原目前尚在开发中,预计3月10号上线</div>}*
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>首页
+</div>
+<div class="" style="text-align:center;">
+*{<a href="/aituiguang/award" ><img style="width: 1020px;height: 202px;" src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2HyjVXgJXXXXXXXXX_!!22902351.jpg"  style="border: 1px solid #ccc"></a>}*
+    <div  class="slideBox hidden" id="lunbo-area">
+        <ul class="items">
+            <li><a href="/autotitle/award" title="好评有礼" target="_blank"><img style="width: 805px;height: 202px;" src="http://img03.taobaocdn.com/imgextra/i3/1039626382/T25xosXdxaXXXXXXXX_!!1039626382.jpg"  style="border: 1px solid #ccc"></a></li>
+        </ul>
+    </div>
+</div>
+<div class="autoTitleDiv">
+    <div class="notification information png_bg" style="width:760px;margin: 0 auto;display: none;" id="warmNotice">
+        <img src="/public/images/tips/arrow_up.gif" title="Close this notification" alt="close" id="closeImg" class="close">
+        <div >
+            功能介绍:
+            <ol style="list-style: lower-alpha;">
+                <li class="tips">
+                    1).该功能诊断现有宝贝标题存在的问题，包括标题字数、属性词、热搜词、重复关键字等。
+                </li>
+                <li class="tips">
+                    2).标题优化原则：
+                    <ol style="list-style: lower-alpha;">
+                        <li class="tips">
+                            a).标题优化不要过于频繁，一般一周优化一次比较适合
+                        </li>
+                        <li class="tips">
+                            b).尽量填满30个关键字并适当使用少量空格作分隔，加强标题的可读性
+                        </li>
+                        <li class="tips">
+                            c).尽量多使用与宝贝相关的同类目热搜关键字
+                        </li>
+                        <li class="tips">
+                            d).同类的宝贝标题不可完全相同
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div>
+        <div class="headspan" style="width:700px;text-align: center;margin-left:30px;">
+            【淘掌柜】 家族 良心服务推荐 -- <span class="red">中国好服务!</span>
+            <span class="question" content="淘掌柜家族!做良心服务!更做中国好服务!"></span>
+        </div>
+        <div class="blank0" style="height:15px;"></div>
+        <div>
+            <a style="margin-left: 160px;" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.117.UmLIZs&service_code=ts-1820059&tracelog=autohead" target="_blank"><img src="http://img01.taobaocdn.com/top/i1/T10jtLFathXXaCwpjX.png" /></a>
+            <a style="margin-left: 100px;" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.0.9TQlpA&service_code=FW_GOODS-1841777&tracelog=autohead" target="_blank">
+                <img src="http://img01.taobaocdn.com/top/i1/T1xnilFoJXXXaCwpjX.png" />
+            </a>
+            <a style="margin-left: 100px;" href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.12.zx3uhf&service_code=FW_GOODS-1850391&&tracelog=autohead" target="_blank"><img src="http://img01.taobaocdn.com/top/i1/T1x0GZXCxaXXaCwpjX.png" /></a>
+        </div>
+    </div>
+    <div class="batchOpBody">
+        <span class="batchAllUseRecommend tmbtn too-wide-yellow-btn">全店一键推荐标题</span>
+        <span class="batchAllUseGuanfang tmbtn too-wide-yellow-btn">全店一键官方标题</span>
+        <span class="batchAllUseGuanfangRecomm tmbtn too-wide-yellow-btn">全店官方推荐标题</span>
+    </div>
+    <div class='autotTitleBody'>
+        <div class="searchArea">
+            <select name="itemsStatus" id="itemsStatus">
+                *{<option tag="itemsStatus">宝贝状态</option>}*
+                <option tag="onsale">在售宝贝</option>
+                <option tag="instock">仓库中的宝贝</option>
+                <option tag="allItems">全部宝贝</option>
+            </select>
+            <select name="itemsCat" id="itemsCat">
+                <option>卖家分类</option>
+            </select>
+            <select name="taobaoCat" id="taobaoCat">
+                <option>淘宝分类</option>
+            </select>
+            <select name="itemsSortBy" id="itemsSortBy">
+                <option tag="sortBy">默认排序</option>
+                <option tag="sortByScoreUp">得分升序</option>
+                <option tag="sortByScoreDown">得分降序</option>
+                <option tag="sortBySaleCountUp">销量升序</option>
+                <option tag="sortBySaleCountDown">销量降序</option>
+            </select>
+            <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">得分</span>
+            <input id="lowScore" value="0">
+            <span>-</span>
+            <input id="highScore" value="100">
+            <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+            <input id="searchWord" value="">
+            <a id="goSearchItems" href="javascript:void(0);" class="tmbtn blue-btn" style="display: inline-block;margin-left: 10px;">
+                <span style="display: inline-block;*display: inline;"> 搜索宝贝</span>
+            </a>
+        </div>
+        <div class="multiOPArea">
+        </div>
+        <div class="autoTitleBottom" style="text-align: center;height:36px;padding:5px;"></div>
+        <div class="diagResultArea">
+
+        </div>
+    </div>
+    <div class="autoTitleBottom" style="text-align: center;"></div>
+</div>
+
+
+
+<script type="text/x-jquery-tmpl" id="shopRecTmpl">
+    <form>
+        <table>
+            <tbody >
+                <tr class="status">
+                    <td>在架状态:</td>
+                    <td>
+                        <select>
+                        <option value="2">所有宝贝</option>
+                        <option value="1">在售宝贝</option>
+                        <option value="0">下架宝贝</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="allsale">
+                    <td>优化宝贝是否不限销量:</td>
+                    <td><select>
+                        <option value="false">否.只优化没有销量的宝贝</option>
+                        <option name="sale" value="true">是,不限销量</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>是否保留标题中的品牌:</td>
+                    <td>
+                        <input class="smallinput" type="radio" name="brand" value="true" checked="checked">是
+                        <input class="smallinput" type="radio" name="brand" value="false">否
+                    </td>
+                </tr>
+                <tr>
+                    <td>是否保留货号:</td>
+                    <td>
+                        <input class="smallinput" type="radio" name="serialNum" value="true" checked="checked">是
+                        <input class="smallinput" type="radio" name="serialNum" value="false">否
+                    </td>
+                </tr>
+            <tr>
+                <td>是否保留数字:</td>
+                <td><input class="smallinput" type="radio" name="noNumber" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noNumber" value="true">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留颜色:</td>
+                <td><input class="smallinput" type="radio" name="noColor" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noColor" value="true">否
+                </td>
+            </tr>
+                <tr>
+                    <td>标题头部固定词:</td>
+                    <td><input type="text" name="fixedStart" style="width:200px"></td>
+                </tr>
+                <tr>
+                    <td>标题不包含以下词(以<span style="color: red;">空格</span>分割):</td>
+                    <td><input type="text" name="mustExcluded" style="width:200px"></td>
+                </tr>
+                <tr>
+                    <td>是否添加促销词:</td>
+                    <td>
+                        <input class="smallinput" type="radio" name="promotewords" value="true" checked="checked">是
+                        <input class="smallinput" type="radio" name="promotewords" value="false">否
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</script>
+
+<script type="text/x-jquery-tmpl" id="autorecommendoptTmpl">
+    <form style='text-align: center;'>
+        <table style='margin: 0 auto;'>
+            <tr class="allsale">
+                <td>优化宝贝是否不限销量:</td>
+                <td><select>
+                    <option value="false">否.只优化没有销量的宝贝</option>
+                    <option name="sale" value="true">是,不限销量</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>是否保留标题中的品牌:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="brand" value="true" checked="checked" >是
+                    <input class="smallinput" type="radio" name="brand" value="false" >否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留货号:</td>
+                <td><input class="smallinput" type="radio" name="serialNum" value="true" checked="checked">是
+                    <input class="smallinput"  type="radio" name="serialNum" value="false">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留数字:</td>
+                <td><input class="smallinput" type="radio" name="noNumber" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noNumber" value="true">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留颜色:</td>
+                <td><input class="smallinput" type="radio" name="noColor" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noColor" value="true">否
+                </td>
+            </tr>
+
+            <tr>
+                <td>标题头部固定词:</td>
+                <td><input type="text" name="fixedStart" style="width:200px"></td>
+            </tr>
+            <tr>
+                <td>标题不包含以下词(以<span style="color: red;">空格</span>分割):</td>
+                <td>
+                    <input type="text" name="mustExcluded" style="width:200px">
+                </td>
+            </tr>
+            <tr>
+                <td>是否添加促销词:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="promotewords" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="promotewords" value="false">否
+                </td>
+            </tr>
+        </table>
+    </form>
+</script>
+
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    TM.isAutoOnekeyOK = ${controllers.TMController.isAutoOnekeyOK()};
+    TM.totalCount = ${controllers.TMController.totalCount()};
+    TM.userVersionCount = ${controllers.TMController.userVersionCount()};
+
+    TM.Loading.beforeShow = function(){
+        $('.autotTitleBody .searchArea select ').hide();
+    }
+    TM.Loading.afterShow = function(){
+        $('.autotTitleBody .searchArea select ').show();
+    }
+
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+            TM.gcs('/js/jquery.pagination.js',function(){
+                TM.gcs('/js/tm.js',function(){
+                    TM.gcs('/js/autoTitle/autoTitle.js?_v=27',function(){
+                        TM.gcs('/js/QueryCommodity.js?_v=3',function(){
+                            $(document).ready(function(){
+                                TM.gcs('/js/multiModify.js?_v=2',function(){
+                                    TM.autoTitle.Init.init();
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

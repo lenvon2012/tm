@@ -1,0 +1,53 @@
+#{extends '/group/tbtnavGroup.html' /}
+#{set title:'团购模板' /}
+<link rel="stylesheet" media="screen" type="text/css" href="/css/multiModify.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/group.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/groupInPut.css" />
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/group/group">团购模板&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>已结束
+</div>
+
+<div class="tmp_ip_area"></div>
+<div class="tmp_ip_bottom"></div>
+
+
+
+
+<script id="cancelPlanItemBox" type="text/x-jquery-templ">
+<div class="gp_cal_div" data-ta="{{= id}}">
+    <table class="gp_cal_tb">
+        <tr>
+            <td class="cal_div_td cal_td_a" >{{= modelId}}</td>
+            <td class="cal_div_td cal_td_b gp_can_tp" ><a>☂投放模板</a></td>
+            <td class="cal_div_td cal_td_b gp_can_tm" ><a>✎修改模板</a></td>
+            <td class="cal_div_td cal_td_b gp_can_de" ><a>✘删除模板</a></td>
+            <td class="cal_div_td cal_td_a" >模板名称：</td>
+            <td class="cal_td_c">{{= planName}}</td>
+            <td class="cal_td_d gp_can_sh">点击展示</td>
+        </tr>
+    </table>
+</div>
+</script>
+
+
+<script>
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery.tmpl.js',function(){
+        TM.gcs('/js/group/groupCancel.js',function(){
+            $(document).ready(function(){
+                $(document).ajaxStart(function(){
+                     TM.Loading.init.show();
+                     $("body").mask();
+                 });
+                 $(document).ajaxStop(function(){
+                     TM.Loading.init.hidden();
+                     $("body").unmask();
+                 });
+                 TM.groupCancel.showPlans.init();
+            });
+        });
+    });
+</script>

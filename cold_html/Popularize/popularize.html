@@ -1,0 +1,61 @@
+#{extends 'Popularize/skinPopularize.html' /}
+#{set title:'流量推广' /}
+
+<link rel="stylesheet" media="screen" href="/public/stylesheets/autoTitle/autoTitle.css">
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Popularize/popularize.css">
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Switch/switch.css">
+<div class="popuparize">
+    <div class='autotTitleBody'>
+        <div class="searchArea">
+            <select name="itemsStatus" id="itemsStatus">
+            *{<option tag="itemsStatus">宝贝状态</option>}*
+                <option tag="allItems">全部宝贝</option>
+                <option tag="polularized">已推广</option>
+                <option tag="topopularize">未推广</option>
+            </select>
+            <select name="itemsCat" id="itemsCat">
+                <option>所有分类</option>
+            </select>
+            <select name="itemsSortBy" id="itemsSortBy">
+                <option tag="sortBy">默认排序</option>
+                <option tag="sortBySaleCountUp">销量升序</option>
+                <option tag="sortBySaleCountDown">销量降序</option>
+            </select>
+            *{<input id="lowScore" value="0">
+            <span>-</span>
+            <input id="highScore" value="100">}*
+            <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+            <input id="searchWord" value="">
+            <a id="goSearchItems" href="javascript:void(0);" class="commbutton btntext4" style="display: inline-block;">
+                <span style="display: inline-block;*display: inline;"> 获取宝贝</span>
+            </a>
+        </div>
+        <div class="itemsList">
+
+        </div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+
+   // ((function ($, window) {
+   // $(document).ready(function(){
+   TM.gcs('/js/utils/jquery.cookie.js',function(){
+                TM.gcs('/js/tm.js',function(){
+                    TM.gcs('/js/switch.js',function(){
+                        TM.gcs('/js/autoTitle/autoTitle.js',function(){
+                            TM.gcs('/home/firstSync',function(){
+                            TM.gcs('/js/popularize/popularize.js?_=3',function(){
+                                TM.Popularize.Init.init();
+                            });
+                            });
+                        });
+                    });
+                });
+   });
+  //  })
+  //  })(jQuery, window));
+</script>
+#{/set}

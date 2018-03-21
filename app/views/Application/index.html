@@ -1,0 +1,48 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+#{set 'moreStyles'}
+ <link rel="stylesheet" media="screen" href="/css/score.css">
+#{/set}
+
+
+<div class="ShopDiagnoseArea" style='margin: 10px auto; border:1px solid #AAAAAA; background-color: #DDDDDD;'>
+    <div class="DiagnoseChart">
+        <div id="chartContainer" style="width: 200px;height: 450px; float:left;"></div>
+    <!-- this is the shop's score -->
+		<div id = "shopScore" style="background-color: white;">
+		<div id = "face">
+-				<img alt="" id="changeface" src="/public/images/score/md.gif">
+-			</div>
+		   <div id="score">
+		   <br/><br/>
+				<span id="welcome">尊贵的淘标题客户：<span id="userName"></span></span><br/>
+				<span id="comprehensive">在淘宝所有店铺中您的战绩：<span id="comprehensiveScore"></span></span><br/>
+				<span id="category">您的店铺类目：<span id="categoryName"></span></span><br/>
+				<span id = "baby">您的宝贝数：<span id="babyCount"></span></span><br/><br/><br/>
+				<span id = "comprehensive1">您的综合得分：<span id="comprehensiveScore1"></span>分</span><br>
+				<span id = "fight">最近一周内在所有店铺中，您被：<span id="shopFight"></span>的店铺所击败</span><br>
+				<span id = "fight">最近一周内在同类目中，您被：<span id="typeFight"></span>的店铺所击败</span><br/><br/><br/>
+               <a href="/home/commodityDiag"><img alt="" id="rightNow" src="/public/images/ljyh.png"></a>
+
+		   </div>
+		</div>
+    </div>
+   
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $.getScript('/js/jquery.ui.js',function(){
+        $.getScript("/status/js",function(){
+            // If TM.ver is less than 10, then it's just a free version, if it >= 10 and < 20, then it's the basic version, at last, it would be the vip version
+           // alert(TM.ver)
+            
+           //console.info(TM.ver);
+            $.getScript("/js/index.js",function(){
+                #{get 'moreAjaxScripts' /};
+            });
+        });
+    });
+</script>
+#{/set}

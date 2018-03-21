@@ -1,0 +1,142 @@
+#{extends 'seoway.html' /}
+#{set title:'宝贝诊断分析' /}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/commodityDiag.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/tips.css'}">
+
+
+<div class="notification information png_bg" style="width:780px;margin: 33px auto;display:none;" id="warmNotice">
+    <img src="/public/images/tips/arrow_up.gif" title="Close this notification" alt="close" id="closeImg" class="close">
+
+    <div >
+        功能介绍：
+
+        <ol style="list-style: lower-alpha;">
+            <li class="tips">
+                1).该功能诊断现有宝贝标题存在的问题，包括标题字数、属性词、热搜词、重复关键字等。
+            </li>
+            <li class="tips">
+                2).标题优化原则：
+                <ol style="list-style: lower-alpha;">
+                    <li class="tips">
+                        a).标题优化不要过于频繁，一般一周优化一次比较适合
+                    </li>
+                    <li class="tips">
+                        b).尽量填满30个关键字并适当使用少量空格作分隔，加强标题的可读性
+                    </li>
+                    <li class="tips">
+                        c).尽量多使用与宝贝相关的同类目热搜关键字
+                    </li>
+                    <li class="tips">
+                        d).同类的宝贝标题不可完全相同
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+</div>
+<div style="height:35px;margin:0 auto;width:780px;">
+    <div class="header">
+
+        <span class="searchTitle">关键字</span>
+
+        <input type="text" id="searchText" value="" class="textinput" />
+    *{<span class="scoreRange">得分</span>}*
+        <span class="searchTitle">宝贝id:</span>
+        <input type="text" id="NumIid" value="" class="textinput"/>
+        <input type="text" id="lowBegin" value="0" style="display:none;"/>
+    *{<span>-</span>}*
+        <input type="text" id="topEnd" value="100" style="display:none;"/>
+
+        <span>&nbsp;</span>
+        <select name="sellerCat" id="sellerCat" class="searchselect">
+        </select>
+
+        <select name="itemsStatus" id="itemsStatus" class="searchselect">
+            <option tag="onsale">在售宝贝</option>
+            <option tag="instock">下架宝贝</option>
+            <option tag="all">全部宝贝</option>
+        </select>
+    </div>
+    <a href="javascript:void(0)" id="searchBtn" class="bluebutton">搜索宝贝</a>
+
+</div>
+<div style="height:30px;margin:0 auto;width:780px;position: relative;display: none;">
+
+
+
+
+    <a href="javascript:void(0);" class="mzc_button6 mzc_selectPageAll sortup" id="scoreUp" style="margin-right: 20px;position: absolute;left:250px;top:-3px;display: none;" >
+                    <span class="darkbluebtn" style="margin-top:-2px;">
+                        <span>升序</span>
+                    </span>
+    </a>
+    <a href="javascript:void(0);" class="mzc_button6 mzc_selectPageAll sortdown" id="scoreDown" style="margin-right: 20px;position: absolute;left:340px;top:-3px;display: none">
+                    <span class="darkbluebtn" style="margin-top:-2px;">
+                        <span >降序</span>
+                    </span>
+    </a>
+
+*{<span style="float: left;font-size:12px;padding-top: 8px;">按类目搜索：</span>}*
+
+
+
+
+
+    <p  class="Pagination" class="pagination">
+    </p>
+</div>
+<div class="clear"></div>
+<div class="commodityDiagtop tmpage" style="text-align: center;"></div>
+<div id="commodityDiag" ></div>
+<div class="commodityDiagBottom tmpage" style="text-align: center;"></div>
+<div style="height:35px;margin:0 auto;width:700px;">
+    <p  class="Pagination" class="pagination">
+    </p>
+</div>
+<!-- open dialog -->
+<div id="dialog" style="width: 650px; height: 450; display:none;" class="ui-dialog-content ui-widget-content" >
+    <div id="user_version">
+        <span id="user_status">尊敬的用户:</span><br>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;您正在使用：<span id="user_version_status">免费诊断版</span></span><br>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;暂无权限使用该功能，为提高流量与销量，请您<span style="color:red;">立即升级</span>现在升级可尊享一折优惠，并且<span style="color:red;">立即返现</span>。</span>
+        <div id="version_buy">
+            <a href = "/home/buyVersion"><img alt="立即订购" src="/public/images/button/lijidingjgou.png" ></a>
+        </div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery.pagination.js',function(){
+        TM.gcs('/js/tm.js',function(){
+            TM.gcs('/js/utils/jquery.cookie.js',function(){
+                TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+                    TM.gcs('/js/jquery.url.js',function(){
+                        $(document).ready(function(){
+                            TM.gcs('/js/QueryCommodity.js',function(){
+                                var params = {};
+                                params.start=${start};
+                                params.end=${end};
+                                params.sort= ${sort};
+                                params.pn=${pn};
+                                params.status=${status};
+                                params.iskitty = true;
+
+                                QueryCommodity.init(params.pn,params);
+                                $.getScript('/status/js',function(){
+                                    $.getScript('/js/versioncontroller.js',function(){
+                                        if(TM.ver<20){
+                                        }
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

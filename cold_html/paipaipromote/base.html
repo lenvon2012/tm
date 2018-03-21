@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<!--<link rel="stylesheet" media="screen" href='/css/beiju.css?_v=2'>-->
+    <style>
+        .clearfix {
+            clear: both; zoom: 1;
+        }
+
+        .clearfix:after {
+            clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+        }
+.shadowbase{behavior:none;}
+.pagenavi {text-align: center;padding: 10px 0;}
+.pagenavi span,.pagenavi a,.pagenavi input {vertical-align: middle;}
+.pagenavi  a {border: 1px solid #DDD;padding: 5px 10px 5px 10px;background-color: white;color: #008CD7;display: inline-block;}
+.pagenavi .current {padding: 0 3px;}
+.pagenavi a:hover {border: 1px solid #fc7d39;background-color: #fff7ea;color: #fc7d39;}
+.pagenavi .page-prev,.pagenavi .page-next {display: inline-block;padding: 0;border: 0;width: 66px;height: 30px;}
+.pagenavi .page-prev-abled {background: url(images/page1.gif) 0px -143px;}
+.pagenavi .page-prev-abled:hover {border: 0;background: url(images/page2.gif) 0px -107px;}
+.pagenavi .page-prev-disabled {background: url(images/page1.gif) no-repeat 0px -187px;}
+.pagenavi .page-next-abled {background: url(images/page1.gif) no-repeat 0px -48px;}
+.pagenavi .page-next-abled:hover {border: 0;background: url(images/page2.gif) no-repeat 0px -48px;}
+.pagenavi .page-next-disabled {border: 0;background: url(images/page1.gif) no-repeat 0px -99px;}
+.jumpTo {width: 30px;border: 1px solid #ccc;}
+.gopage-submit {}.gopage-submit:hover {}
+.tmNav {top:1px;position: relative;font-weight: bold;color: #1d5987;}
+
+        .look-popularized-btn {
+            display: block; width: 100px; height: 36px; line-height: 36px; text-align: center;
+            font-family: "微软雅黑"; font-size: 14px; border-radius: 5px;
+            background: #8b8bff; color: white; font-weight: bold;
+        }
+        .look-popularized-btn:hover {
+            background: #7068f8;color: white;
+        }
+</style>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d1c105d177f5749cbba2f00f0d289e34";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+#{get 'moreStyles' /}
+
+</head>
+
+<body>
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+    TM.tms = TM.tms || '-';
+</script>
+<!-- <script src="/js/jquery-1.6.4.min.js"></script> -->
+<script src="/js/jquery-1.6.4.min.js"></script>
+
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+
+</script>
+
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+<div class="mengban">
+</div>
+
+<!-- loading等待 -->
+<!--<div class="WaitingForLoadingDiv" style="display: none; position: absolute;">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />
+    <img src='http://img02.taobaocdn.com/imgextra/i2/1039626382/T2S1C2XfXaXXXXXXXX_!!1039626382.gif' alt='正在加载' />
+</div>-->
+
+<div class="LoadingMask" style="display: none; border: 0;"></div>
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;width:500px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+
+    ///js/jquery-ui-1.9.1.custom.min.js
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    TM.gcs('/js/tm.js');
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function(){
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_tms="+TM.tms;
+                }else{
+                    href += "?_tms="+TM.tms;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        $(document).ready(function(){
+            TM.setAnchorSids();
+        })
+
+    })(jQuery, window));
+</script>
+
+<style>
+
+body{ font-size:12px; color:#454545
+;background: url(http://icon.zol-img.com.cn/sj/images/bodyback.jpg) repeat;}
+h1,h2,h3,h4,h5,h6{ font-size:12px;}
+a{ text-decoration:none; color:#454545;}
+a:hover{ text-decoration:underline; color:#ff0000;}
+ul{ list-style:none;}
+li{ list-style:none;}
+    .wrapper, .header, .navbox {width: 1020px;margin: 0 auto;}
+    .allbg{background: url(http://icon.zol-img.com.cn/sj/images/desk_bg.png) no-repeat;}
+    .navbox {height: 42px;line-height: 42px;background-position: 0 -36px;background-repeat: repeat-x;-webkit-border-radius: 3px;border-radius: 3px;position: relative;}
+    .navbox ul{float:left;margin: 0; padding:0;}
+    .nav li.first {padding: 0;background: none;}
+    .nav li {float: left;height: 42px;line-height: 42px;font-size: 16px;background-position: -128px -264px;width: 120px;}
+    .nav li a{display: block;color: white;padding: 0 13px 0 17px;outline: none;text-decoration: none;}
+    .nav li a:hover{color: white;text-decoration: underline}
+    .navselected{background-color: #ccc;         color: blueviolet;          font-weight: bold;}
+</style>
+
+
+<div class="top header"  style="height:30px;" ></div>
+<div class="navbox allbg">
+    <ul class="nav inlineblock">
+        <li class="inlineblock">
+            <a href="/paipaipromote/btuiguang">首页</a>
+        </li>
+        <li class="inlineblock">
+            <a href="/paipaipromote/allItems">推广宝贝</a>
+        </li>
+        <li class="inlineblock">
+            <a href="/paipaipromote/showedItems">已推广</a>
+        </li>
+        <!--<li class="inlineblock" id="commhelp">
+            <a href="/paipaipromote/help">使用教程</a>
+        </li>
+        <li class="inlineblock" style="display:none;" id="tryhelp">
+            <a href="/paipaipromote/tryhelp">使用教程</a>
+        </li>
+
+        <li class="inlineblock">
+            <a href="/paipaipromote/award">好评送推广</a>
+        </li>-->
+        <!--
+        <li class="inlineblock">
+            <a href="/aituiguang/recommend">推荐服务</a>
+        </li>
+         -->
+        <li class="inlineblock upgrade-link" style="display: none;">
+            <a href="/paipaipromote/upgrade">体验版升级</a>
+        </li>
+    </ul>
+
+    <a id="syncBtn" href="javascript:void(0)" class="bluebutton inlineblock" style="margin-left: 20px;padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+    <a class="bluebutton inlineblock" id="logout" style="padding:0px;" href="javascript:void(0);">退出</a>
+
+</div>
+<div class="wrapper" style="min-height:300px;border: 1px solid #eee;background:white;">
+#{doLayout /}
+</div>
+
+
+<div id="mainfoot">
+    <div id="footer-content" style="margin: 0 auto;width:200px;">
+        <!--<p style="font-size:14px;padding-top:15px;">
+            *{在线客服：<a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E&site=cntaobao&s=1&charset=utf-8" ><img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后" /></a></p>}*
+            在线客服：
+                <a id="kefuhref" target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8" >
+                    <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后" />
+                </a>
+        </p>-->
+        <!--  <a href="/home/buyVersion">版本控制</a> -->
+    </div>
+</div>
+
+
+<!-- tips style -->
+<div class="qtip qtip-stylename">
+    <div class="qtip-tip" rel="cornerValue"></div>
+    <div class="qtip-wrapper">
+        <div class="qtip-borderTop"></div>
+        <div class="qtip-contentWrapper">
+            <div class="qtip-title">
+                <div class="qtip-button"></div>
+            </div>
+            <div class="qtip-content"></div>
+        </div>
+        <div class="qtip-borderBottom"></div>
+    </div>
+</div>
+
+
+ <script>
+     var navbox = $('.navbox');
+     navbox.find('a').each(function(){
+         var anchor = $(this);
+         if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+             navbox.find('a.navselected').removeClass('navselected');
+             anchor.addClass('navselected');
+
+//            hasPath = true;
+         }
+     });
+     $(document).ready(function(){
+         $('#mainfoot').hide();
+     })
+     TM.sync = function(){
+         $.get('/paipaiitems/sync',function(){
+             TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                 window.location.reload();
+             });
+         });
+     }
+     $.get('/paipaipromote/getUserInfo',function(data){
+         if(data && data.level <= -1){
+             $('#commhelp').hide();
+             $('#tryhelp').show();
+             $('.upgrade-link').show();
+         }
+     });
+     TM.gcs('/js/tm.js',function(){
+         $('#syncBtn').click(function(){
+             TM.sync();
+         });
+     });
+     TM.gcs('/js/utils/jquery.cookie.js',function(){
+         $('#logout').click(function(){
+             $.ajax({
+                 url : '/paipaiin/logout',
+                 dataType : 'text',
+                 success : function(text){
+                     $.cookie('tm_SESSION',null);
+                     $.cookie('_s',null);
+                     window.location.href = text;
+                 }
+             })
+         })
+     });
+
+ </script>
+
+
+#{get 'moreScripts' /}
+
+<!--
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f2c6f9dd92929062ea90b19d0b688ea' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ -->
+
+</body>
+</html>

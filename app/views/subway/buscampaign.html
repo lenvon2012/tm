@@ -1,0 +1,223 @@
+#{extends 'main.html' /}
+#{set title:'直通车报表' /}
+
+
+<style>
+    .bus-campaign-wrapper {
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+    .bus-campaign-wrapper .add-keyword-tip {
+        font-size: 20px; color: #a10000; padding: 10px 10px; border-bottom: 1px solid #ccc;
+    }
+
+    .bus-campaign-wrapper .bold {
+        font-weight: bold;
+    }
+
+    .shop-rpt-div {
+
+    }
+    .shop-rpt-table td {
+        padding: 5px 0px;
+    }
+    .shop-rpt-table .padding-td {
+        padding-right: 30px;
+    }
+    .rpt-result-span {
+        font-size: 18px; font-weight: bold; color: #a10000;
+    }
+
+    .one-campaign-div {
+        border-bottom: 1px solid #a5906c; padding: 15px 0px; text-align: left;
+    }
+
+    .campaign-title {
+        color: #B27B2F; font-size: 16px; font-weight: bold; padding-left: 20px;
+    }
+
+    .campaign-rpt-table {
+        background: url(/img/subway/plan_th_bg.png) repeat-x 0px 0px; font-size: 12px; width: 100%;
+        border: 1px solid #D4D4D4; border-collapse: collapse; text-align: center;
+    }
+    .campaign-rpt-table thead tr {
+        vertical-align: middle;
+    }
+
+    .campaign-rpt-table thead td {
+        height: 25px; vertical-align: middle;
+    }
+    .campaign-rpt-table thead .thead-td {
+        background: url(/img/subway/th_line.gif) no-repeat right 50%;
+    }
+    .campaign-rpt-table tbody td {
+        height: 20px; vertical-align: middle; color: #a10000;
+    }
+    .campaign-rpt-result {
+        color: #a10000;
+    }
+    .contract-kefu{
+        height: 150px;
+        vertical-align: middle;
+        padding: 5px 10px 5px 10px;
+        font-family: '微软雅黑';
+        border-bottom: 1px solid #ccc;
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+
+
+<div class="bus-campaign-wrapper">
+    <div class="page-hierarchy">
+        <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>直通车报表
+    </div>
+    <div class="contract-kefu hidden">
+        <div style="margin-top: 40px;">亲，您需要直通车浏览器客户端，下载请联系客服~</div>
+        <a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&amp;touid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E%3A%E5%B0%8F%E9%9B%AA&amp;siteid=cntaobao&amp;status=1&amp;charset=utf-8">
+            <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后">
+        </a>
+        <a style="margin-left: 30px;" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E%3A%E9%A3%98%E9%9B%AA&siteid=cntaobao&status=1&charset=utf-8" >
+            <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后">
+        </a>
+    </div>
+    <div class="add-keyword-tip" style="display: none;">
+        <table>
+            <tbody>
+            <td style="">如需要为直通车添加关键词，请直接联系客服哦^-^</td>
+            <td style="padding-left: 10px;">
+                <a class="kefu-link" target="_blank" href="">
+                    <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" title="骑着绵羊飞:飘雪" alt="联系售后">
+                </a>
+            </td>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="shop-rpt-div" style="padding: 10px 10px 10px 10px;">
+
+        <table class="shop-rpt-table">
+            <tbody>
+            <tr>
+                <td class="bold">直通车余额：</td>
+                <td class="padding-td"><span class="rpt-result-span user-balance-span"></span>&nbsp;元 </td>
+                <td class="bold">店铺数据：</td>
+                <td colspan="5">
+                    <select class="rpt-day-select" style="width: 130px;">
+                        <option value="1">最近1天</option>
+                        <option value="3">最近3天</option>
+                        <option value="7" selected="selected">最近7天</option>
+                        <option value="30">最近30天</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td ><span class="rpt-day-span">7</span>天总花费：</td>
+                <td class="padding-td"><span class="rpt-result-span total-cost-span"></span>&nbsp;元 </td>
+                <td ><span class="rpt-day-span">7</span>天成交额：</td>
+                <td class="padding-td"><span class="rpt-result-span total-pay-amount-span"></span>&nbsp;元 </td>
+                <td ><span class="rpt-day-span">7</span>天成交数：</td>
+                <td class="padding-td"><span class="rpt-result-span total-pay-count-span"></span> </td>
+                <td ><span class="rpt-day-span">7</span>天总点击：</td>
+                <td class="padding-td"><span class="rpt-result-span total-click-span"></span> </td>
+            </tr>
+            <tr>
+                <td >点击率：</td>
+                <td class="padding-td"><span class="rpt-result-span total-ctr-span"></span> </td>
+                <td >点击转化率：</td>
+                <td class="padding-td"><span class="rpt-result-span total-ccr-span"></span> </td>
+                <td >平均点击花费：</td>
+                <td class="padding-td"><span class="rpt-result-span total-cpc-span"></span>&nbsp;元 </td>
+                <td >投资回报率：</td>
+                <td class="padding-td"><span class="rpt-result-span total-roi-span"></span> </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="shop-rpt-chart" style="margin-top: 10px;">
+
+        </div>
+
+    </div>
+    <div class="user-campaign-container" style="padding: 10px;">
+        <div class="headspan" style="width: 95%;">
+            推广计划报表
+        </div>
+        <div style="margin: 10px 0px;">
+            <table>
+                <tbody>
+                <tr>
+                    <td><span class="tmbtn long-yellow-btn campaign-rpt-btn" day="1">最近一天报表</span> </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn long-yellow-btn campaign-rpt-btn" day="3">最近三天报表</span> </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn long-yellow-btn campaign-rpt-btn" day="7">最近七天报表</span> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="campaign-rpt-div" style="text-align: center;">
+
+        </div>
+    </div>
+    <div style="height: 30px;"></div>
+
+    <div id="campaign-rpt-template-div" style="display: none;">
+        <div class="one-campaign-div" style="">
+            <div class="campaign-title"></div>
+            <table class="campaign-rpt-table" style="margin-top: 10px;">
+                <thead>
+                <tr>
+                    <td style="" class="thead-td">推广状态</td>
+                    <td style="" class="thead-td">日限额(元)</td>
+                    <td style="" class="thead-td">最近<span class="campaign-rpt-day">七</span>天展现量</td>
+                    <td style="" class="thead-td">最近<span class="campaign-rpt-day">七</span>天点击量</td>
+                    <td style="">点击率</td>
+                </tr>
+                </thead>
+                <tbody>
+                <td class="campaign-rpt-result online-status"></td>
+                <td class="campaign-rpt-result campaign-budget"></td>
+                <td class="campaign-rpt-result campaign-impression"></td>
+                <td class="campaign-rpt-result campaign-click"></td>
+                <td class="campaign-rpt-result campaign-ctr"></td>
+                </tbody>
+            </table>
+            <table class="campaign-rpt-table" style="margin-top: 10px;">
+                <thead>
+                <tr>
+                    <td style="" class="thead-td">最近<span class="campaign-rpt-day">七</span>天花费</td>
+                    <td style="" class="thead-td">平均点击花费</td>
+                    <td style="" class="thead-td">最近<span class="campaign-rpt-day">七</span>天成交额</td>
+                    <td style="" class="thead-td">最近<span class="campaign-rpt-day">七</span>天成交数</td>
+                    <td style="" class="thead-td">最近<span class="campaign-rpt-day">七</span>天收藏数</td>
+                    <td style="">投资回报率</td>
+                </tr>
+                </thead>
+                <tbody>
+                <td class="campaign-rpt-result campaign-cost"></td>
+                <td class="campaign-rpt-result campaign-cpc"></td>
+                <td class="campaign-rpt-result campaign-pay-amount"></td>
+                <td class="campaign-rpt-result campaign-pay-count"></td>
+                <td class="campaign-rpt-result campaign-fav-count"></td>
+                <td class="campaign-rpt-result campaign-roi"></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/highcharts.js',function(){
+        TM.gcs('/js/subway/subwaybase.js?_v=3', function () {
+            TM.gcs('/js/subway/buscampaign.js?_v=2',function(){
+
+                TM.SubwayBase.util.judgeUserBusVersion(function() {
+                    TM.BusCampaign.init.doInit($('.bus-campaign-wrapper'));
+                });
+            });
+        });
+    });
+
+</script>
+#{/set}

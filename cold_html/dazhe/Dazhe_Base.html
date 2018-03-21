@@ -1,0 +1,70 @@
+#{extends '/yangyang.html' /}
+#{set title:'折扣' /}
+<style>
+
+</style>
+<html>
+<head>
+  <title>打折，FirstBlood</title>
+    <meta name="keywords" content="拍拍打折，haoyongzh第一次试水">
+    <meta name="description" content="帮你实现拍拍限时打折，瞬间上手，引爆流量">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link type="text/css" rel="stylesheet" href="/css/dazhe/zhekou.css"  media="all">
+    *{<link type="text/css" rel="stylesheet" href="/css/jquery-ui-timepicker-addon.css"  media="screen">}*
+
+    *{<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />}*
+    *{<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>}*
+    *{<script type="text/javascript" src="/js/jquery.ui.js"></script>}*
+    *{<script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>}*
+    <link type="text/css" href="/css/zhdatecss/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+    <link type="text/css" href="/css/zhdatecss/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/zhdatejs/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="/js/utils/jquery.cookie.js"></script>
+    <!--<script type="text/javascript" src="/js/dazhe/dazhe.js"></script>     -->
+</head>
+<body id="mixlistPage">
+*{<iframe frameborder="0" style="position: absolute; display: none; opacity: 0;">}*
+    *{#document}*
+    *{<html>}*
+    *{<head></head>}*
+    *{<body></body>}*
+    *{</html>}*
+*{</iframe>}*
+*{<div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div>}*
+*{<div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div>}*
+
+<div id="header">
+    <div class="inner">
+        <a herf="/" id="logo">
+           <!-- <img src="/public/images/dazhe/logo.png" height="35">      -->
+        </a>
+        <ul id="mainMenu" class="topMenu">
+            <li class="lv1">
+                <a href="/paipaidiscount/dazhe" class="active">活动列表</a>
+            </li>
+            <li class="lv1">
+                <a href="javascript:" class="highlight">创建新活动:</a>
+
+            </li>
+            <li class="lv1">
+            <a href="/home/zhekou_1">折扣/减价</a>
+            </li>
+        </ul>
+    </div>
+</div>
+#{doLayout /}
+</body>
+
+</html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        window.onload=function()
+        {
+            $('#mainfoot').hide();
+        }
+    })
+</script>

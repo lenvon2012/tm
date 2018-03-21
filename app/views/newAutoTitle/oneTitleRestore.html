@@ -1,0 +1,188 @@
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/newAutoTitle/titleRestoreCenter.css"/>
+
+
+<script src="/public/javascripts/Nepal/jquery-1.8.3.min.js"></script>
+
+
+<script>
+
+    var TM=TM||{};
+    TM.gcs("/public/javascripts/zhdatejs/jquery-ui-1.8.17.custom.min.js",function(){
+        TM.gcs("/public/javascripts/jquery.loadmask.min.js",function(){
+            TM.gcs("/public/javascripts/jquery.tmpl.js",function(){
+                TM.gcs("/public/javascripts/utils/jquery.cookie.js",function(){
+                    TM.gcs("/public/javascripts/tm.js",function(){
+                        TM.gcs("/public/javascripts/newAutoTitle/oneTitleRestore.js",function(){
+                             TM.gcs("/public/javascripts/newAutoTitle/titleRestoreCenter.js",function(){
+
+                             })
+
+                        })
+
+                    })
+                })
+            })
+        })
+    })
+
+</script>
+
+
+
+
+    <div class="backCenterMain">
+
+        <div class="backCenterNav">
+            <span class="backCenterSpan" id="backA2">全店标题还原</span>
+            <span class="backCenterSpan" id="backA1"style="border-bottom: 0px; border-top: 2px solid #0095B1;" >单标题还原</span>
+
+            <span class="backCenterSpan" id="backA3" >按时间点标题还原</span>
+            <span class="NavSpan"></span>
+
+        </div>
+
+
+
+
+        <!-- 数据展示表格开始 -->
+
+        <div class="mainPanel" id="mainPanel">
+
+
+            <div class="searchDiv">
+                <div class="searchDivIn">
+                    <input class="searchText" id="searchText" style="border-radius: 0; border: 1px solid #0095b1" type="text" value="输入关键词搜索商品">
+                    <span  class="startBtn titleBtn" ></span>
+                </div>
+                      <span class="explain">
+                          说明：本操作会将数据还原到指定时间之前的状态。
+                      </span>
+            </div>
+
+            <div class="myalert">
+            *{说明：本操作会将数据还原到指定时间之前的状态！}*
+
+                <span class="alertText">
+
+                </span>
+            </div>
+
+            <!-- 数据展示表格开始 -->
+            <div id="holder"></div>
+            <div class="infoTable">
+
+            </div>
+            <!-- 数据展示表格结束 -->
+
+
+
+
+        </div>
+
+        <!-- 占位符开始 占位符中放的是模板文件-->
+        <div id="desk" class="desk">
+            <!-- id="record" 开始-->
+            <script type="text/x-jquery-tmpl" id="record">
+    <div class="holder"></div>
+
+    <table cellpadding="0" cellspadding="0" class="noteTable" id="noteTable">
+            <thead id="noteThead">
+            <tr style="background: #0095b1; line-height:60px; vertical-align: middle; font-size: 14px ">
+            <td style="width: 20%; font-size: 14px">图片</td>
+    <td style="width: 25%; font-size: 14px">得分</td>
+    <td style="width: 25%; font-size: 14px">当前标题</td>
+    <td style="width: 15%; font-size: 14px">本月销量</td>
+        <td style="width: 15%; font-size: 14px">查看详情</td>
+
+    </tr>
+
+    </thead>
+    <tbody id="noteTbody">
+    {{each(i,myitem) res}}
+    <tr>
+    <td><span style="width:65px; height:65px; padding:5px; margin:10px auto; border:1px solid #eeeeee; display:block"><img style="width:60px; height:60px; " src="{{= myitem.picURL}}" alt="图片加载失败" /></span></td>
+    <td style="padding-left:20px; padding-right:20px;">{{= myitem.score}}</td>
+    <td style="padding-left:20px; padding-right:20px;">{{= myitem.title}}</td>
+    <td>{{= myitem.tradeItemNum}}</td>
+        <td><span class="recoverInfo titleBtn yellow-btn" targetId='{{= myitem.numIid}}'> 历史标题</span></td>
+
+
+    </tr>
+    {{/each}}
+
+
+    </tbody>
+    </table>
+
+    <div class="holder"></div>
+
+            </script>
+            <!-- id="record" 结束-->
+            <!-- id="maskTable" 开始-->
+            <script type="text/x-jquery-tmpl" id="maskTable">
+
+    <div id="maskTdTitle">
+            <span  class="titleText">当前宝贝历史标题</span>
+            <span class="titleClose"></span>
+
+
+    </div>
+
+    <div class="columnName">
+            <span class="columnNameSpan" style="width: 25%;">原标题</span>
+            <span class="columnNameSpan" style="width: 25%;">修改时间</span>
+            <span class="columnNameSpan" style="width: 25%;">新标题</span>
+            <span class="columnNameSpan" style="width: 24%; border-right:0;">操作</span>
+    </div>
+
+    <div class="maskDiv">
+    <table class="maskTableTab" style="width: 100%;">
+        <thead>
+
+
+        </thead>
+
+
+            <tbody class="maskTbody">
+
+
+                  {{each(i,val) res}}
+                       <tr style=" width:100%;  height:50px;">
+
+                             <td style="width: 25%; padding-left:20px; padding-right:20px;">{{= val.oldTitle}}</td>
+                             <td style="width: 25%; padding-left:20px; padding-right:20px;">
+                               {{= val.updated}}
+
+
+                             </td>
+                             <td style="width: 25%; padding-left:15px; padding-right:20px;">{{= val.newTitle}}</td>
+                             <td style="width: 24%; padding-left:14px; padding-right:20px;">
+                            <span class="recoverBtn titleBtn yellow-btn" oldTitle="{{=  val.oldTitle}}" targetId='{{= val.numIid}}'> 还原</span>
+                             </td>
+                       </tr>
+                  {{/each}}
+
+
+            </tbody>
+
+
+    </table>
+    </div>
+
+
+
+            </script>
+            <!-- id="maskTable" 结束-->
+
+
+
+        </div>
+
+
+
+        <!-- 占位符结束 -->
+
+
+
+
+    </div>

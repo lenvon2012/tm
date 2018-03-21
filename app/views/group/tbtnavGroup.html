@@ -1,0 +1,93 @@
+#{extends 'tbtnav/tbtnavmain.html' /}
+*{#{extends 'yangyang.html' /}}*
+
+
+<link rel="stylesheet" type="text/css" href="/css/tbtnav.css?_v=1">
+<table class="nav-table" style="width:1150px;">
+    <tbody>
+    <tr>
+        *{<td class="nav-table-left-td" >}*
+        <td class="leftnavtd" style="">
+            <nav class="leftnav" style="">
+                <ul class="main-lists ">
+                    <li class="menu-goods  ">
+                        <a href="javascript:void(0)" class="menu" >
+                            <em>包邮打折</em>
+                            <i class="icon-fold"></i>
+                        </a>
+
+                        <ul class="sub-lists hidden" >
+                            <li>
+                                <a href="/Sales/index"><em>活动列表</em></a>
+                            </li>
+                            <li>
+                                <a href="/Sales/createDisTime"><em>限时打折</em></a>
+                            </li>
+                            <li>
+                                <a href="/Sales/shopSales"><em>全店打折</em></a>
+                            </li>
+                            <li>
+                                <a href="/Sales/giftAndFreePostage"><em>满就送/包邮</em></a>
+                            </li>
+                            <li>
+                                <a href="/Sales/shopFreePostage"><em>全店满减/包邮</em></a>
+                            </li>
+
+                        *{<li>
+                                <a target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-287826926.htm?spm=0.0.0.0.ZKo5tO" class="title-flow-map "><em>文字教程</em></a>
+                            </li>}*
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="main-lists ">
+                    <li class="menu-goods">
+                        <a href="javascript:void(0)" class="menu" >
+                            <em class="associate-type" type-data="1">关联模板</em>
+                            <i class="icon-fold"></i>
+                        </a>
+                        <ul class="sub-lists hidden" >
+                            <li>
+                                <a href="/associate/associate"><em>制作模板</em></a>
+                            </li>
+                            <li>
+                                <a href="/associate/myAssociate?type=1"><em>投放中</em></a>
+                            </li>
+                            <li>
+                                <a href="/associate/myAssociate?type=2"><em>未投放</em></a>
+                            </li>
+                            <li>
+                                <a href="/associate/myAssociate?type=3"><em>已结束</em></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="main-lists ">
+                    <li class="menu-goods ">
+                        <a href="javascript:void(0)" class="menu" >
+                            <em>团购模板</em>
+                            <i class="icon-fold"></i>
+                        </a>
+                        <ul class="sub-lists" >
+                            <li>
+                                <a href="/group/groupAll"><em>制作模板</em></a>
+                            </li>
+                            <li>
+                                <a href="/group/groupInput"><em>投放中</em></a>
+                            </li>
+                            <li>
+                                <a href="/group/groupUnput"><em>未投放</em></a>
+                            </li>
+                            <li>
+                                <a href="/group/groupCancel"><em>已结束</em></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </td>
+        <td style="" class="nav-table-right-td" >
+            <div class="main">
+                #{doLayout /}
+            </div>
+        </td></tr></tbody>
+</table>

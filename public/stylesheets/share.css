@@ -1,0 +1,44 @@
+#share{background-image: url("/public/images/frame/btn3.png");}
+.share_content{
+	text-align:center;
+	background-color: white;
+	margin: 10px auto;
+	border: solid 1px #AAAAAA;
+	
+}
+#share_container{
+	letter-spacing :2px;
+	margin-left:10%;
+	width: 1100px;
+	background-color: #eee;
+	border-left-style: inset;
+	border-right-style: outset;
+	border-left-width:2px;
+	border-right-width:2px;
+}
+#activeTitle{
+	margin-left:8%;
+	clear:both;
+	text-align:left;
+	font-size: 20px;
+}
+#contentContainer{
+	margin-left:15%;
+	text-align: left;
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 25px;
+}
+#bb{
+	color: green;
+}
+#tj{
+	color: #d42f08;
+	font-weight: bold;
+	font-size: 14px;
+}
+#zs{
+	color:#aaaaaa;
+}
+#share{background-image: url("http://img02.taobaocdn.com/imgextra/i2/1039626382/T2QwXsXbNOXXXXXXXX_!!1039626382.png");}
+

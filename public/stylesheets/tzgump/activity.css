@@ -1,0 +1,95 @@
+
+
+.activity-wrapper {
+    padding-bottom: 150px; width: 1000px;
+}
+
+.activity-wrapper .head-tip {
+    padding: 40px 0px 10px 0px; text-align: left; font-size: 20px;
+}
+
+.activity-out-div {
+    margin-top: 25px;
+}
+
+.activity-inner-div {
+    text-align: left; padding-left: 50px;
+
+}
+
+
+.activity-inner-div .activity-row {
+    padding: 5px 10px;
+
+}
+.activity-inner-div .row-span {
+
+    display: inline-block; *display: inline; zoom: 1;
+    width: 125px; font-size: 18px;
+}
+
+.activity-inner-div .row-text {
+    display: inline-block; *display: inline; zoom: 1;
+    line-height: 35px; font-size: 16px;
+    width: 315px; color: #666; height: 35px;
+}
+#yangyangContent  input[type='text'].row-text {
+    padding: 0px 10px;
+}
+
+.activity-inner-div .row-tip {
+    display: inline-block; *display: inline; zoom: 1;
+    line-height: 40px; height: 40px;
+    margin-left: 0px; padding: 0px 10px; color: #999; text-align: center; font-size: 14px;
+
+}
+
+.activity-inner-div .title-type-btn {
+    width: 90px; display: inline-block; *display: inline; zoom: 1;
+    line-height: 40px; height: 40px;
+    margin-left: 15px; padding: 0 10px;
+    color: #999; background: #FEEDF0; text-align: center;
+    cursor: pointer; font-size: 16px;
+}
+.activity-inner-div .title-type-btn:hover {
+    color: red;
+}
+
+.activity-inner-div .activity-title-select {
+    font-size: 18px;width: 183px;line-height: 200px;position: relative;color: #666;
+}
+
+.activity-inner-div input.input-error {
+    background: #feecf1;
+    border: 1px solid #f26078;
+}
+.activity-inner-div  .row-tip.input-error {
+    color: #a10000;
+}
+
+
+.activity-interal-day {
+    color: #a10000; font-weight: bold; font-size: 16px;
+}
+
+.activity-inner-div .activity-title-clazz-select {
+	font-size: 16px;
+	width: 80px;
+	line-height: 200px;
+	position: relative;
+	color: #666;
+	height: 35px;
+	padding-left: 10px;
+}
+
+.activity-inner-div .activity-title-words-select {
+	font-size: 16px;
+	width: 120px;
+	line-height: 200px;
+	position: relative;
+	color: #666;
+	height: 35px;
+	margin-left: 20px;
+	margin-right: 103px;
+	padding-left: 10px;
+}

@@ -1,0 +1,402 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'自动橱窗管理' /}
+
+
+
+<style type="text/css">
+
+
+
+    .window-admin-container {
+        padding: 10px; font-family: "微软雅黑"; font-size: 14px;
+    }
+
+    .normal-box {
+        border: 1px solid rgb(190, 190, 190);
+        padding: 10px 10px 10px 10px;
+    }
+
+    .yellow-box {
+        background: rgb(255, 255, 221);
+        border: 1px solid rgb(190, 190, 190);
+        padding: 10px 10px 10px 10px;
+
+    }
+
+
+    .layout-table {
+        border-collapse: collapse;
+    }
+    .layout-table td {
+        padding: 7px 0px;
+    }
+
+    input.config-text {
+        width: 70px; font-size: 26px; text-align:center; color: #0095B1; border: 1px solid #999;
+    }
+
+
+    .window-tab-target-div {
+        padding: 10px; display: none;
+    }
+
+    .item-table {
+
+    }
+    .item-table tbody td {
+        padding: 7px 0px;
+    }
+    .item-table .item-img {
+        width: 70px; height: 70px; cursor: pointer;
+    }
+    .item-table input[type=checkbox] {
+        cursor: pointer;
+    }
+    .item-table .item-title {
+        cursor: pointer;
+    }
+
+
+</style>
+
+
+<div class="window-admin-container">
+
+    <div class="normal-box" style="padding-left: 60px;font-size: 24px;">
+        <table class="layout-table">
+            <tbody>
+            <tr>
+                <td><span class="window-status-span"></span> </td>
+                <td style="padding-left: 40px;"><span class="tmbtn switch-window-btn"></span> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="height: 20px;"></div>
+    <div class="normal-box" style="font-size: 20px;padding-left: 30px;">
+        <table class="layout-table">
+            <tbody>
+            <tr>
+                <td>橱窗总数：</td>
+                <td><span class="red-bold total-window-num"></span></td>
+                <td style="padding-left: 30px;">已用橱窗数：</td>
+                <td><span class="red-bold used-window-num"></span> </td>
+                <td style="padding-left: 30px;">剩余橱窗数：</td>
+                <td><span class="red-bold left-window-num"></span> </td>
+                *{<td style="padding-left: 50px;" rowspan="2">
+                    <span class="tmbtn wide-sky-blue-btn sync-window-btn">同步橱窗数据</span>
+                </td>}*
+                <td style="padding-left: 50px;" rowspan="2">
+                    <span class="tmbtn wide-yellow-btn re-execute-window-btn">重新推荐橱窗</span>
+                </td>
+            </tr>
+            <tr>
+                <td>在售宝贝数：</td>
+                <td><span class="red-bold sales-item-num"></span> </td>
+                <td style="padding-left: 30px;">必推荐宝贝数：</td>
+                <td><span class="red-bold must-window-item-num"></span> </td>
+                <td style="padding-left: 30px;">不推荐宝贝数：</td>
+                <td><span class="red-bold exclude-window-item-num"></span> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="height: 20px;"></div>
+    <div class="normal-box" style="padding-left: 30px;font-size: 20px;">
+        <table class="layout-table">
+            <tbody>
+            <tr>
+                <td colspan="2">1. 先推荐月销量排名前&nbsp;<input type="text" class="sales-order-input config-text" />&nbsp;的宝贝，其次推荐快下架的宝贝。</td>
+
+            </tr>
+            <tr>
+                <td>2. 不推荐库存数小于等于&nbsp;<input type="text" class="min-stock-input config-text" />&nbsp;的宝贝。</td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn wide-sky-blue-btn save-config-btn">保存橱窗配置</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="height: 20px;"></div>
+    <div class="base-tab-out">
+        <div class="base-tab-div">
+            <span class="base-tab-unit window-tab select-tab" targetDiv="show-window-list-div">查看橱窗宝贝</span>
+            <span class="base-tab-unit window-tab" targetDiv="window-logs-div">橱窗推荐日志</span>
+            <span class="base-tab-unit window-tab" targetDiv="must-window-div">必推荐宝贝</span>
+            <span class="base-tab-unit window-tab" targetDiv="exclude-window-div">不推荐宝贝</span>
+        </div>
+
+        <div class="show-window-list-div window-tab-target-div" style="display: block;">
+            <table class="item-table window-list-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 11%;">宝贝图片</td>
+                    <td style="width: 30%;">宝贝名称</td>
+                    <td style="width: 12%;">宝贝销量</td>
+                    <td style="width: 14%;">下架时间</td>
+                    <td style="width: 14%;">下架剩余时间</td>
+                    <td style="width: 17%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="item-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="window-logs-div window-tab-target-div">
+*{
+
+            <table class="layout-table">
+                <tbody>
+                <tr>
+                    <td>宝贝标题：</td>
+                    <td><input type="text" class="window-logs-search-text" style="width: 240px;" /> </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn sky-blue-btn search-window-logs-btn">搜索</span> </td>
+                </tr>
+                </tbody>
+            </table>
+}*
+
+            <div class="log-paging-div" style="font-size: 14px; text-align: center;"></div>
+            <table class="item-table window-logs-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 11%;">宝贝图片</td>
+                    <td style="width: 30%;">宝贝名称</td>
+                    <td style="width: 12%;">宝贝销量</td>
+                    <td style="width: 14%;">下架时间</td>
+                    <td style="width: 17%;">推荐时间</td>
+                </tr>
+                </thead>
+                <tbody class="item-tbody"></tbody>
+            </table>
+            <div class="log-paging-div" style="font-size: 14px; text-align: center;"></div>
+        </div>
+
+        <div class="must-window-div window-tab-target-div">
+
+            <table class="layout-table">
+                <tbody>
+                <tr>
+                    <td>宝贝标题：</td>
+                    <td><input type="text" class="must-search-text" style="width: 200px;" /> </td>
+                    <td style="padding-left: 20px;">
+                        <span>淘宝类目：</span>
+                        <select class="tb-category-select" style="width: 110px;">
+                            <option value="0" selected="selected">所有宝贝</option>
+                        </select>
+                    </td>
+                    <td style="padding-left: 20px;">
+                        <span>必推状态：</span>
+                        <select class="must-status-select" style="width: 110px;">
+                            <option value="0" selected="selected">所有宝贝</option>
+                            <option value="1">已必推宝贝</option>
+                            <option value="2">未必推宝贝</option>
+                        </select>
+                    </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn sky-blue-btn search-must-window-btn">搜索</span> </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="layout-table">
+                <tbody>
+                <tr>
+                    <td><span class="tmbtn long-green-btn batch-add-must-btn">选中加入必推</span> </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn wide-yellow-btn batch-cancel-must-btn">选中取消必推</span> </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="must-paging-div" style="font-size: 14px; text-align: center;"></div>
+            <table class="item-table must-window-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 7%"><input type="checkbox" class="all-item-check" /> </td>
+                    <td style="width: 11%;">宝贝图片</td>
+                    <td style="width: 30%;">宝贝名称</td>
+                    <td style="width: 12%;"><div class="sort-td sort-up" orderBy="salesCount">宝贝销量</div></td>
+                    <td style="width: 14%;"><div class="sort-td sort-down" orderBy="delist">下架时间</div></td>
+                    <td style="width: 17%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="item-tbody"></tbody>
+            </table>
+            <div class="must-paging-div" style="font-size: 14px; text-align: center;"></div>
+        </div>
+
+
+        <div class="exclude-window-div window-tab-target-div">
+
+            <table class="layout-table">
+                <tbody>
+                <tr>
+                    <td>宝贝标题：</td>
+                    <td><input type="text" class="exclude-search-text" style="width: 200px;" /> </td>
+                    <td style="padding-left: 20px;">
+                        <span>淘宝类目：</span>
+                        <select class="tb-category-select" style="width: 110px;">
+                            <option value="0" selected="selected">所有宝贝</option>
+                        </select>
+                    </td>
+                    <td style="padding-left: 20px;">
+                        <span>不推状态：</span>
+                        <select class="exclude-status-select" style="width: 110px;">
+                            <option value="0" selected="selected">所有宝贝</option>
+                            <option value="1">已不推宝贝</option>
+                            <option value="2">未不推宝贝</option>
+                        </select>
+                    </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn sky-blue-btn search-exclude-window-btn">搜索</span> </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="layout-table">
+                <tbody>
+                <tr>
+                    <td><span class="tmbtn long-green-btn batch-add-exclude-btn">选中加入排除</span> </td>
+                    <td style="padding-left: 20px;"><span class="tmbtn wide-yellow-btn batch-cancel-exclude-btn">选中取消排除</span> </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="exclude-paging-div" style="font-size: 14px; text-align: center;"></div>
+            <table class="item-table exclude-window-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 7%"><input type="checkbox" class="all-item-check" /> </td>
+                    <td style="width: 11%;">宝贝图片</td>
+                    <td style="width: 30%;">宝贝名称</td>
+                    <td style="width: 12%;"><div class="sort-td sort-up" orderBy="salesCount">宝贝销量</div></td>
+                    <td style="width: 14%;"><div class="sort-td sort-down" orderBy="delist">下架时间</div></td>
+                    <td style="width: 17%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="item-tbody"></tbody>
+            </table>
+            <div class="exclude-paging-div" style="font-size: 14px; text-align: center;"></div>
+        </div>
+
+        <div style="height: 60px;"></div>
+    </div>
+
+
+</div>
+
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+
+<script type="text/x-jquery-tmpl" id="windowListRowTmpl">
+
+    <tr>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picURL}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+        <td><span class="sale-count">{{= salesCount}}</span> </td>
+        <td>{{= delistTimeStr}}</td>
+        <td>{{= leftTimeStr}}</td>
+        <td>
+            <div style="padding-bottom: 10px;" class="red-bold">{{= onShowWindowReason}}</div>
+            <span class="tmbtn sky-blue-btn cancel-window-btn" numIid="{{= numIid}}">取消橱窗</span>
+        </td>
+    </tr>
+
+
+</script>
+
+
+
+<script type="text/x-jquery-tmpl" id="windowLogRowTmpl">
+
+    <tr>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picPath}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+        <td><span class="sale-count">{{= salesCount}}</span> </td>
+        <td>{{= delistTimeStr}}</td>
+        <td>{{= createTimeStr}}</td>
+    </tr>
+
+
+</script>
+
+
+
+<script type="text/x-jquery-tmpl" id="mustWindowRowTmpl">
+
+    <tr>
+        <td><input type="checkbox" class="item-checkbox" numIid="{{= numIid}}"/></td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picURL}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+        <td><span class="sale-count">{{= salesCount}}</span> </td>
+        <td><p>{{= delistWeekDay}}</p><p style="padding-top: 5px;">{{= delistHHmmss}}</p></td>
+        <td class="op-td"></td>
+    </tr>
+
+
+</script>
+
+<script type="text/x-jquery-tmpl" id="excludeWindowRowTmpl">
+
+    <tr>
+        <td><input type="checkbox" class="item-checkbox" numIid="{{= numIid}}"/></td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picURL}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+        <td><span class="sale-count">{{= salesCount}}</span> </td>
+        <td><p>{{= delistWeekDay}}</p><p style="padding-top: 5px;">{{= delistHHmmss}}</p></td>
+        <td class="op-td"></td>
+    </tr>
+
+
+</script>
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/newAutoTitle/autotitleutil.js',function(){
+            TM.gcs('/js/newAutoTitle/windowadmin.js',function(){
+                $(document).ready(function() {
+                    TM.WindowAdmin.init.doInit($('.window-admin-container'));
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,183 @@
+#{extends '/group/tbtnavGroup.html' /}
+#{set title:'团购模板' /}
+
+
+<link rel="stylesheet" media="screen" type="text/css" href="/css/multiModify.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/group.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/groupInPut.css" />
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <a href="/group/groupAll">团购模板&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a href="/group/groupInput">投放中模板&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <span class="th-lev-msg"></span>
+</div>
+<div class="tmp_ip_li">
+    <div class="tmp_ip_area" style="display:block;"></div>
+    <div class="tmp_ip_bottom"></div>
+</div>
+
+<div class="tmp_ip_st" style="display:none;">
+    <div class="tmp_tp_st_top">
+        <table class="tmp_tp_st_tb" style="border-bottom: 3px solid #15a7dc;">
+            <tbody>
+            <tr>
+                <td>
+                    <span class="tmp_tp_st_td in-status in-st-suc">成功投放:&nbsp;<strong class="successNum ip-success"></strong></span>
+                </td>
+                <td>
+                    <span class="tmp_tp_st_td in-status in-st-fai">处理失敗:&nbsp;<strong class="failNum ip-fail"></strong></span>
+                </td>
+                <td>
+                    <span class="tmp_tp_st_td in-status in-st-wai">等待处理:&nbsp;<strong class="waitNum ip-waiting"></strong></span>
+                </td>
+            </tr>
+            <tr class="tmp_tp_st_tr">
+                <td><span class="st-tr-suc triangle-up"></span></td>
+                <td><span class="st-tr-fai"></span></td>
+                <td><span class="st-tr-wai"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="group_st_succ gp_st_st" style="display:none">
+        <div class="tmp_tp_st_lab"></div>
+        <div class="tmp_tp_st_btn gray_btn bt_sign_out">批量退出投放</div>
+        <div class="tmp_tp_st_bottom"></div>
+    </div>
+
+    <div class="group_st_deal gp_st_st" style="display:none">
+        <div class="tmp_tp_st_lab"></div>
+        <div class="tmp_tp_st_btn gray_btn bt_in_out">批量处理</div>
+        <div class="tmp_tp_st_bottom"></div>
+    </div>
+
+    <div class="group_st_wait gp_st_st" style="display:none">
+        <div class="tmp_tp_st_lab"></div>
+        <div class="tmp_tp_st_bottom"></div>
+    </div>
+</div>
+
+<div class="tmp_ip_tp" style="display:none;">
+    <table class="tmp_ip_tp_top" ><tr></tr></table>
+    <table class="tmp_ip_tp_area" ></table>
+    <table class="tmp_ip_tp_bottom"></table>
+</div>
+
+
+
+<script id="groupedItems" type="text/x-jquery-templ">
+    <tr class="tp-st-tr">
+        <td class="tp-st-tr-a">
+            <input type="checkbox" style="margin:0 20px 0;">
+            <a target="_blank" href="//item.taobao.com/item.htm?id={{= numIid}}" title="点击图片查看详情">
+                    <img class="item-pic" src="{{= picURL}}" data="{{= numIid}}">
+            </a>
+            <a target="_blank" href="//item.taobao.com/item.htm?id={{= numIid}}"><span class="item-title">{{= title}}</span></a>
+        </td>
+        <td class="tp-st-tr-p tp-st-clik" title="点击选中">
+            <span class="tmp-price">{{= price}}</span>
+        </td>
+        {{if (status == 1)}}
+        <td class="tp-st-tr-b"><span style="color:#FFA756">等待投放</span></td>
+        {{else (status == 2)}}
+        <td class="tp-st-tr-b"><span style="color:#73bf4d;">投放成功</span></td>
+        <td><span class="tp_st_del tp_st_oper" style="display:none;"><img src="http://img01.taobaocdn.com/imgextra/i1/1039626382/T2ZOxZXc8dXXXXXXXX_!!1039626382.png" style="width:25px;height:25px;float:right;"></span></td>
+        {{else (status == 3)}}
+        <td class="tp-st-tr-b"><span class="inp-fail-msg fail-msg">投放失败</span></td>
+        <td><span class="tp_st_add tp_st_oper" style="display:none;"></span></td>
+        {{else (status == 4)}}
+        <td class="tp-st-tr-b"><span class="out-fail-msg fail-msg">退出失败</span></td>
+        <td><span class="tp_st_del tp_st_oper" style="display:none;"></span></td>
+        {{/if}}
+    </tr>
+</script>
+
+<script id="checkItemBox" type="text/x-jquery-templ">
+<tr class="input-info in-info-box" >
+    <td class="in-info-td-1">
+        <input class="in-info-td-checkbox" type="checkbox">
+    </td>
+    <td class="item_id in-info-td-2" data="{{= numIid}}"></td>
+    <td class="in-info-td-3">
+        <a target="_blank" href="//item.taobao.com/item.htm?id={{= numIid}}">
+            <img class="item_img" src="{{= picURL}}">
+        </a>
+    </td>
+    <td class="in-info-td-4" align="center" >
+        <span>{{= title}}</span>
+    </td>
+    <td class="in-info-td-5">
+        <span class="item_price">{{= price}}</span>
+    </td>
+    <td class="in-info-td-6">
+        <span class="in-info-result">{{= deleteMsg}}</span>
+    </td>
+    <td class="in-info-td-7">
+        <div class="in-info-checkBtn">退出投放</div>
+    </td>
+</tr>
+<tr style="height:4px;"></tr>
+</script>
+
+
+<script id="toPutItemBox" type="text/x-jquery-templ">
+<td>
+    <table class="put_item_div">
+        <tbody>
+            <tr>
+                <td rowspan="2">
+                    <div>
+                        <a target="_blank" href="http://item.taobao.com/item.htm?id={{= id}}">
+                            <img class="tp_item_img" data="{{= id}}" src="{{= picURL}}"/>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="tp_item_info">
+                        <span class="tp_item_title" >{{= title}}</span>
+                    </div>
+                </td>
+                <td rowspan="2" style="width:20px;">
+                    <div class="tp_item_checkBox">
+                        <input type="checkBox">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="tp_item_org">&nbsp;&nbsp;&nbsp;<b>{{= price}}</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="font-size:12px;">已投放<b class="tp_item_org">{{= planCount}}</b>个团购计划</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</td>
+</script>
+
+
+
+<script>
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery.tmpl.js',function(){
+        TM.gcs('/js/group/util.js',function(){
+            TM.gcs('/js/group/group.js',function(){
+                TM.gcs('/js/group/groupInput.js?_v=1',function(){
+                    $(document).ready(function(){
+                        $(document).ajaxStart(function(){
+                             TM.Loading.init.show();
+                             $("body").mask();
+                         });
+                         $(document).ajaxStop(function(){
+                             TM.Loading.init.hidden();
+                             $("body").unmask();
+                         });
+                         TM.groupInput.showPlans.init();
+                    });
+                });
+            });
+        });
+    });
+</script>

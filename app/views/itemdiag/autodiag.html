@@ -1,0 +1,28 @@
+#{extends 'baobeidashi.html' /}
+
+#{set title:'属性诊断' /}
+<style>
+       #autodiag{width: 760px;height:600px;margin: 0 auto;padding: 0 6px;position: relative;text-align: center;}s
+       #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+       .diagbtnpos{text-align: center;height:100px;width:200px;;margin: 0 auto;padding-top:40px;position: relative;}
+       .autodiagIntro{font-size:15px;height:50px;margin: 10px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px 0 10px 0;}
+        s.oknoproblem{width:400px;height:100px;margin:0 auto;text-align: center;vertical-align: middle;}
+       .errormsg{background-color: 	#FFF4C1}
+
+</style>
+
+<div id='autodiag' class="shadowbase">
+</div>
+<div class='clearfix'></div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    $.getScript('/js/itemdiag/itempropdiag.js', function(){
+        $(document).ready(function () {
+            TM.PropDiag.init($('#autodiag'));
+        });
+    });
+
+</script>
+#{/set}

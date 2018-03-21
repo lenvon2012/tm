@@ -1,0 +1,22 @@
+#{extends 'keymain.html' /}
+<link rel="stylesheet" media="screen" href='/public/stylesheets/shopDiag.css'>
+
+<div class="shopDiag">
+
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getScript('/js/utils/jquery.cookie.js',function(){
+            $.getScript('/js/tm.js',function(){
+                $.getScript('/js/shopDiag.js',function(){
+                    var container = $('.shopDiag');
+                    TM.ShopDiag.genShopDiagDiv(container);
+                });
+            });
+        });
+    })
+</script>
+#{/set}

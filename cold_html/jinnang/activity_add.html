@@ -1,0 +1,702 @@
+#{extends 'jinnang/base.html' /}
+#{set title:'活动管理' /}
+<style type="text/css">
+	/* 时间 */
+	.ui-timepicker-div .ui-widget-header {
+		margin-bottom: 8px;
+	}
+	.ui-timepicker-div dl {
+		text-align: left;
+	}
+	.ui-timepicker-div dl dt {
+		height: 25px;
+		margin-bottom: -25px;
+	}
+	.ui-timepicker-div dl dd {
+		margin: 0 10px 10px 65px;
+	}
+	.ui-timepicker-div td {
+		font-size: 90%;
+	}
+	.ui-tpicker-grid-label {
+		background: none;
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.ui-timepicker-rtl {
+		direction: rtl;
+	}
+	.ui-timepicker-rtl dl {
+		text-align: right;
+	}
+	.ui-timepicker-rtl dl dd {
+		margin: 0 65px 10px 10px;
+	}
+</style>
+<style>
+	.diagBody {
+		text-align: center;
+		font-size: 12px;
+	}
+	.twelve {
+		font-size: 12px;
+	}
+	.skinRecommendTitle {
+		color: red;
+		width: 230px;
+		font-size: 12px;
+		margin: 0 0 0 4px;
+	}
+	.heigththirty {
+		height: 35px;
+		line-height: 35px;
+		overflow-y: hidden;
+	}
+	.oldskintitlediv {
+		vertical-align: middle;
+	}
+	.skinrecommendtitlediv {
+		vertical-align: middle;
+	}
+	.skinTitle {
+		vertical-align: top;
+	}
+	.guard, .dorecommend, .dosave, .dorecomsave {
+		background: url("/img/relation/img.png") -168px -210px;
+		text-align: center;
+		width: 62px;
+		height: 27px;
+		line-height: 27px;
+		color: #ffffff;
+	}
+	.dosave:hover {
+		background: url("/img/relation/img.png") -98px -210px;
+	}
+	.dorecommend:hover {
+		background: url("/img/relation/img.png") -98px -210px;
+	}
+	.guard:hover {
+		background: url("/img/relation/img.png") -98px -210px;
+	}
+	.operate {
+		vertical-align: top;
+	}
+	.skinopnavdiv {
+		width: 100%;
+		height: 27px;
+		line-height: 27px;
+		text-align: left;
+	}
+	.skinopnav {
+		width: 90px;
+		margin: 0 5px 0 0;
+		text-align: center;
+	}
+	.skinopnav:hover {
+		background: url("/img/btns/yellowBtn.png") 0 -30px;
+	}
+	.opselected {
+		background: url("/img/btns/yellowBtn.png");
+		color: #ffffff;
+	}
+	.wordarea {
+		width: 98%;
+		border: 1px solid #ccc;
+	}
+	.recomOptions {
+		width: 98%;
+		border: 1px solid #ccc;
+	}
+	.baseblock {
+		padding: 1px;
+	}
+	.titlesplits {
+		padding: 0px;
+		margin: 0px;
+		text-align: left;
+	}
+	.clicksearchbtn {
+		background: url("/img/relation/img.png") -166px -300px;
+		cursor: pointer;
+		text-align: center;
+		width: 62px;
+		height: 27px;
+		line-height: 27px;
+		font-size: 12px;
+	}
+	.clicksearchbtn:hover {
+		background: url("/img/relation/img.png") -98px -210px;
+	}
+	.skinstatus, .skinsort, .skincat {
+		padding: 5px;
+		border: 1px solid #d4d4d4;
+		margin-left: 10px;
+	}
+	.skinsellercat, .skintaobaocat {
+		margin: 10px;
+		padding: 5px;
+		border: 1px solid #d4d4d4;
+	}
+	.clicksearchcatbtn {
+		font-size: 12px;
+		padding: 5px;
+		cursor: pointer;
+		background-color: #EDF3F7;
+		margin: 5px 10px 0 0;
+		border-radius: 5px;
+	}
+	.clicksearchcatbtn:hover {
+		background-color: #39B2F8;
+	}
+	.clicksearchcatbtn input {
+		margin: 0 5px 0 0;
+	}
+	.searchArea {
+		margin-left: 10px;
+	}
+	.diagBody td {
+		border-bottom: 1px solid #d4d4d4;
+		padding: 5px 0 5px 0;
+	}
+	.diagBody thead td {
+		background: url(/img/th_line.gif) no-repeat right 50%;
+	}
+	.searchArea {
+		padding: 5px;
+		border: 1px solid #d4d4d4;
+		margin: 10px;
+	}
+	.autoTitleBottom a {
+		color: blue
+	}
+	.selectcolor {
+		background-color: #39B2F8;
+	}
+	.selectbackground {
+		background: url("/img/relation/img.png") -98px -210px;
+	}
+	#searchWord {
+		width: 180px;
+	}
+	.skinrecommendtitle {
+		vertical-align: top;
+	}
+	.clickRecom {
+		color: #ffffff;
+		width: 90px;
+		height: 30px;
+		line-height: 30px;
+		margin: 0 5px 0 0;
+		text-align: center;
+		background: url("/img/btns/yellowBtn.png")
+	}
+	.clickRecom:hover {
+		background: url("/img/btns/yellowBtn.png") 0 -30px;
+	}
+	.diagHead, .userInf {
+		border: 1px solid #ccc;
+		padding: 5px;
+		margin: 10px;
+	}
+	.diagHeadUL {
+		border-bottom: none;
+		display: block;
+		height: 31px;
+		line-height: 31px;
+		width: 100%;
+	}
+	.batchoptions {
+		height: 30px;
+		line-height: 30px;
+		margin-left: 10px;
+		font-size: 12px;
+		cursor: pointer;
+		color: red;
+	}
+	.diagHead .autorecommendopt {
+		border: 1px solid #ccc;
+	}
+	.autorecommendopt table {
+		border: none;
+	}
+	.autorecommendopt table td {
+		text-align: right;
+		padding-top: 5px;
+		border: none;
+	}
+	.batchrecommopt table td {
+		height: 32px;
+		line-height: 32px;
+	}
+	.diagHead {
+		height: auto;
+	}
+	#goSearchItems {
+		background: url("/img/keywords/kwbtn.png");
+		width: 135px;
+		height: 40px;
+		line-height: 40px;
+	}
+	#goSearchItems:hover {
+		background: url("/img/keywords/kwbtn.png") 0px 40px;
+		width: 135px;
+		height: 40px;
+		line-height: 40px;
+	}
+	.fl {
+		float: left;
+	}
+	.userInfDiv {
+		height: 30px;
+		line-height: 30px;
+		margin-left: 42px;
+	}
+	.infoNum {
+		margin-right: 100px;
+		color: red;
+		font-size: 16px;
+		width: 200px;
+		text-align: center;
+		font-weight: bold;
+	}
+	.batchSelectUsePopularize, .batchSelectRemovePopularize, .batchAllAddPopularize, .batchAllRemovePopularize {
+		background: #E6F5FF;
+		display: block;
+		width: 120px;
+		height: 30px;
+		line-height: 30px;
+		color: #000000;
+		cursor: pointer;
+	}
+	.pic-list2 {
+		width: 100%;
+		display: block;
+		padding-left: 0px;
+		*margin-left: -20px;
+		_margin-left: 0px;
+	}
+	.pic-list2 .photo-list-padding {
+		padding: 11px 11px 19px;
+	}
+	.pic-list2 li {
+		position: relative;
+		float: left;
+		width: 196px;
+		height: 259px;
+		margin: 10px 0 -9px 20px;
+		padding: 11px 11px 9px;
+		_margin-left: 0px;
+		line-height: 24px;
+		text-align: center;
+		_display: inline;
+	}
+	.pic-list2 .pic {
+		position: relative;
+		display: block;
+		width: 210px;
+		height: 210px;
+		top: -90px;
+		overflow: hidden;
+		color: #999;
+		outline: 0 none;
+	}
+	.pic img {
+		vertical-align: middle;
+		border: 1px solid #ccc;
+	}
+	.pic-list2 .pic span {
+		display: block;
+		height: 24px;
+		margin: 7px 0 8px;
+		overflow: hidden;
+		cursor: pointer;
+	}
+	.pic-list2 .shadow {
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 0;
+		width: 230px;
+		height: 189px;
+		background: url(http://icon.zol-img.com.cn/sj/images/bj.png) no-repeat;
+		_background: none;
+		_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://icon.zol-img.com.cn/sj/images/bj.png",sizingMethod="crop");
+	}
+	.boyvonunselected {
+		background: url(/img/relation/chooseing.gif) no-repeat left top;
+		width: 86px;
+		height: 90px;
+		top: 11px;
+		right: -70px;
+		*top: 3px;
+		*right: -70px;
+		position: relative;
+		display: inline-block;
+		z-index: 33;
+	}
+	.boyvonselected {
+		background: url(/public/images/relation/choosed-1.gif) no-repeat left top;
+		width: 86px;
+		height: 90px;
+		top: 2px;
+		right: -125px;
+		*top: 3px;
+		*right: -70px;
+		position: relative;
+		display: block;
+		z-index: 33;
+	}
+	.photo-list-padding .title {
+		position: relative;
+		top: -85px;
+		color: #000000;
+		width: 100%;
+		height: 17px;
+		line-height: 17px;
+		overflow: hidden;
+	}
+	.photo-list-padding .switch {
+		position: relative;
+		top: -85px;
+		*top: -85px;
+		height: 36px;
+		width: 100px;
+		cursor: pointer;
+	}
+	.photo-list-padding .status {
+		position: relative;
+		top: -85px;
+		*top: -85px;
+		width: 70px;
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		vertical-align: top;
+	}
+	.photo-list-padding .switchOn {
+		background: url("http://img04.taobaocdn.com/imgextra/i4/79742176/T2G4_YXbFaXXXXXXXX_!!79742176.png") -300px -270px
+	}
+	.photo-list-padding .switchOff {
+		background: url("http://img04.taobaocdn.com/imgextra/i4/79742176/T2G4_YXbFaXXXXXXXX_!!79742176.png") -300px -310px
+	}
+	.conclution {
+		background: url("/img/bar1_1020.jpg");
+		width: 1000px;
+		height: 33px;
+		margin: 0 auto;
+		margin: 20px 0 0 10px;
+		line-height: 33px;
+		color: #ffffff;
+		font-weight: bold;
+	}
+	.borderon {
+		border: 2px solid green;
+	}
+	.borderoff {
+		border: 2px solid white;
+	}
+</style>
+
+<!-- content -->
+
+<div id="wpbody-content" style="overflow: hidden;">
+	<div class="metabox-prefs" id="screen-meta">
+
+		<div class="hidden no-sidebar" id="contextual-help-wrap">
+			<div id="contextual-help-back"></div>
+			<div id="contextual-help-columns">
+				<div class="contextual-help-tabs">
+					<ul></ul>
+				</div>
+				<div class="contextual-help-tabs-wrap"></div>
+			</div>
+		</div>
+	</div>
+	<div class="update-nag" style="display:none;">
+		<a href="http://www.taobao.com">XX工具
+		1.2.1</a> 现已发布！<a
+		href="http://localhost/update/core/3">现在就更新</a>
+	</div>
+	<style>
+		.wrap * {
+			letter-spacing: 1px;
+		}
+
+		input[type=text], textarea {
+
+		}
+
+		input {
+			padding: 4px 7px;
+		}
+
+		.cfile {
+			margin: 2px;
+			border: 1px solid #008000;
+			background: #F3FFF2;
+			overflow: hidden;
+			padding: 5px;
+		}
+
+		.dfile {
+			margin: 2px;
+			border: 1px solid #800;
+			background: #ffdfdf;
+			overflow: hidden;
+			padding: 5px;
+		}
+
+		.cfile img, .dfile img {
+			cursor: pointer;
+		}
+
+		.inside {
+			padding: 10px !important;
+		}
+
+		#editorcontainer textarea {
+			border: 0px;
+			width: 99.9%;
+		}
+
+		#file_uploadUploader {
+			background: transparenturl('http://localhost:10088/nutrica/wp-content/plugins/ims/images/browse.png')left top no-repeat;
+		}
+
+		#file_uploadUploader:hover {
+			background-position: left bottom;
+		}
+
+		.frm td {
+			line-height: 30px;
+			border-bottom: 1px solid #EEEEEE;
+			padding: 5px;
+			font-size: 9pt;
+			font-family: Tahoma;
+		}
+	</style>
+
+	<!--   选择宝贝区  -->
+	<div id="select_items_tb" style="display:none;width:550px;height:400px;overflow:scroll;" >
+		<div class="clicksearch">
+			<div class="skinsellercat"></div>
+			<div class="skintaobaocat"></div>
+		</div>
+		<div class="multiOPArea"></div>
+		<div class="searchArea">
+			<span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+			<input id="searchWord" value="">
+			<a id="goSearchItems" href="javascript:void(0);" class="commbutton btntext4" style="display: inline-block;"> <span style="display: inline-block;*display: inline;"></span> </a>
+		</div>
+		<div  class="allItemsDiv" ></div>
+	</div>
+	<!-- 页面内容 -->
+	<div id="activity_list">
+		<ul>
+
+		</ul>
+	</div>
+	<div class="wrap metabox-holder has-right-sidebar">
+		<div id="icon-add-new-file" class="icon32">
+			<br>
+		</div>
+		<h2>新建促销活动信息</h2>
+
+		<form enctype="multipart/form-data" method="post" action="">
+			<input type="hidden" value="" name="id">
+			<input
+			type="hidden" value="2013-05-23" name="position[last_update]">
+			<input type="hidden" value="1" name="position[status]">
+			<input
+			type="hidden" value="" name="position[position_id]">
+			<div style="width: 75%; float: left;">
+				<table width="100%" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td valign="top">
+							<div class="postbox ">
+								<h3><span>促销活动信息</span></h3>
+								<div class="inside">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+												<table cellpadding="15" class="frm">
+													<tbody>
+														<tr>
+															<td width="110px">名称:</td>
+															<td>
+															<input type="text" id="act_title"
+															name="title" value="${activity?activity.activityTitle:''}" style="width: 200px"
+															size="10">
+															</td>
+														</tr>
+														<tr>
+															<td width="110px">描述:</td>
+															<td>
+															<input type="text" id="act_desp"
+															name="title" value="${activity?activity.activityDescription:''}" style="width: 200px"
+															size="10">
+															</td>
+														</tr>
+														<!--  
+														<tr>
+															<td width="110px">优惠策略:</td>
+															<td>
+																<input type="radio" name="promotion_policy" value="UNIQUE" checked="checked">统一优惠策略
+																<input type="radio" name="promotion_policy" value="CUSTOMIZE">每个商品单独选择
+															</td>
+														</tr>
+														-->
+														<tr>
+                                                            <td width="110px">用户标签></td>
+                                                            <td>
+                                                                <select name="user_tag" id="user_tag">
+                                                                    *{#{list items:userTags, as:'userTag'}}*
+                                                                        *{<option value="${userTag.id}" selected="selected">${userTag.tagName}</option>}*
+                                                                    *{#{/list}}*
+                                                                    <option value="1">全网淘宝用户</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+														<tr>
+															<td width="110px">开始时间:</td>
+															<td>
+															<input type="text" value="${activity?activity.getActivityStartTimeString():''}" readonly="readonly"
+															name="start_date" id="start_date"
+															style="width: 200px">
+															</td>
+														</tr>
+														<tr>
+															<td width="110px">结束时间:</td>
+															<td>
+															<input type="text" value="${activity?activity.getActivityEndTimeString():''}" readonly="readonly"
+															name="end_date" id="end_date"
+															style="width: 200px">
+															</td>
+														</tr>
+														<tr>          yy
+
+															<td width="110px">选择商品</td>
+															<td>
+															<input type="text" value="" name="items" id="select_items" style="width:200px" readonly>
+															</td>
+															<td style="padding-left:20px;">
+															<input type="button" id="select_items_btn" class="wbox button-secondary" tabindex="9" value="选择商品" />
+															<input type="button" id="inspect_items_btn" class="button-secondary" tabindex="9" style="margin-left:20px;"value="查看" />
+															</td>
+														</tr>
+				 
+														<tr>
+															<td width="110px">活动类型</td>
+															<td>
+																<input type="radio" name="activity_type" value="DISCOUNT" checked="checked"/>打折
+																<input type="radio" name="activity_type" value="PRICE"/>减价
+															</td>
+														</tr>
+														<tr id="set_discount_container">
+															<td width="110px">折扣设置</td>
+															<td>
+																<input type="radio" name="discount_rate" value="6.5">6.5
+																<input type="radio" name="discount_rate" value="7.0">7.0
+																<input type="radio" name="discount_rate" value="7.5">7.5
+																<input type="radio" name="discount_rate" value="8.0">8.0<br/>
+																<input type="radio" name="discount_rate" value="8.5">8.5
+																<input type="radio" name="discount_rate" value="9.0">9.0
+																<input type="radio" name="discount_rate" value="9.5">9.5
+																<input type="text" id="manual_set_discount_value" name="manual_set_discount_value"  placeholder="输入折扣"/>
+																<td><span>手动输入(98折就输入9.8)</span></td>
+															</td>
+														</tr>
+														<tr id="set_reduce_container" style="display:none;">
+															<td width="110px">减价设置</td>
+															<td>
+																<input type="text" id="discount_value" name="discount_value" value="" placeholder="输入减价额度" /><span>减价额度（单位:元)</span>
+															</td>
+															<td>
+																<select name="reduce_count" id="reduce_count">
+																	<option value="1">只减一件</option>
+																	<option value="0">每件都减</option>
+																</select>
+															</td>		
+														</tr>
+													</tbody>
+												</table></td>
+												<td><table cellpadding="5" class="frm" id="position_info">
+
+												</table></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div></td>
+						</tr>
+						<tr>
+							<td>
+							<br>
+							</td>
+						</tr>
+						<tr>
+							<td align="right"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 右边栏 -->
+			<div style="float: right; width: 23%">
+				<!-- 动作 -->
+				<div id="action" class="postbox  closed">
+					<div class="handlediv" title="Click to toggle">
+						<br>
+					</div>
+					<h3 class="hndle"><span>动作</span></h3>
+					<div class="inside">
+						<input
+						type="reset" id="addmetasub" name="addmeta"
+						class="button-secondary" tabindex="9" value="重置">
+						<input
+						type="button" name="publish" class="button-primary" id="create_or_update"
+						tabindex="5" accesskey="p" value="${activity?'更新':'创建'}">
+						<div class="clear"></div>
+					</div>
+				</div>
+				<!--关联信息 -->
+				<div id="doctor_assoc_info" class="postbox">
+					<div class="handlediv" title="Click to toggle">
+						<br>
+					</div>
+					<h3 class="hndle"><span>关联信息</span></h3>
+					<div class="inside">
+						<table width="100%" cellspacing="0" cellpadding="5" class="frm">
+						
+						</table>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+		</form>
+
+	</div>
+
+	<div class="clear"></div>
+</div>
+*{#{set 'moreScripts'}}*
+<script type="text/javascript">
+	TM.gcs('/public/javascripts/tm.js', function() {
+		TM.gcs('/public/javascripts/utils/jquery.cookie.js', function() {
+			TM.gcs('/public/javascripts/jinnang/i18n/jquery-ui-timepicker-zh-CN.js', function() {
+//				TM.gcs('/home/firstSync', function() {
+					TM.gcs('/public/javascripts/jinnang/jinnang.js', function() {
+						TM.jinnang.Main.init();
+						TM.boyvon.allItems.init();
+						TM.jinnang.ActivityCnt.init();
+					});
+				});
+			});
+//		});
+	});
+</script>
+*{#{/set}}*

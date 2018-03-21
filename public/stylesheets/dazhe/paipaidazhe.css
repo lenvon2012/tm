@@ -1,0 +1,301 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    /*padding: 0;*/
+    font-size:12px;
+    font-family: 'Microsoft YaHei', Arial;
+}
+
+a:hover {
+}
+
+ul, ol {
+    list-style: none;
+}
+fieldset, img {
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+h1 {
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px 0 10px 0;
+    font-size: 28px;
+    color: #666;
+    position: relative;
+}
+
+h2 {
+    width: 960px;
+    margin: 0 auto;
+    padding: 10px 0 10px 0;
+    font-size: 24px;
+    color: #666;
+}
+
+#logo {
+    float: left;
+    display: inline;
+    padding: 3px 0 0 20px;
+    width: 76px;
+    margin-top: 2px;
+}
+
+.breadcrumbs {
+    font-family: "宋体";
+    font-size: 14px;
+    color: #999;
+    margin: 5px auto 5px auto;
+    width: 960px;
+}
+.breadcrumbs span {
+    padding: 0 5px 0 0;
+}
+
+#stepBar {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#stepBar .block {
+    float: left;
+    display: inline;
+    width: 212px;
+    margin: 0 5px 0 0;
+    font-size: 17px;
+    padding: 0 14px 0 0;
+    background: #fefefe;
+    border: 1px solid #f9f9f9;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    position: relative;
+}
+#stepBar h3 {
+    color: #d9d9d9;
+    font-weight: normal;
+}
+
+h1 {
+    width: 960px;
+    margin:auto ;
+    padding: 10px 0 10px 0;
+    font-size: 28px;
+    color: #666;
+    position: relative;
+}
+
+.mainFormForm {
+    float: left;
+    dispplay: inline;
+    width: 780px;
+    padding-top: 5px;
+    padding-left: 100px;
+}
+.mainForm .tmLine {
+    padding: 0 10px 10px 29px;
+    width: 755px;
+}
+.mainForm label {
+
+    float: left;
+    display: inline;
+    width: 130px;
+    font-size: 18px;
+    line-height: 40px;
+}
+.mainForm .tmLine .append {
+    float: left;
+    display: inline;
+    line-height: 40px;
+    height: 40px;
+    margin: 0 0 0 15px;
+    padding: 0 10px;
+    color: #999;
+    background: #F2FDEC;
+}
+
+.mainForm input.text {
+    float: left;
+    display: inline;
+    line-height: 38px;
+    font-size: 16px;
+    padding: 0 0 0 10px;
+    width: 310px;
+    color: #a700ff;
+    height: 38px;
+}
+
+.nextStepBtn{
+    margin:0 auto;
+    line-height: 38px;
+    font-size: 16px;
+    padding: 0 0 0 10px;
+    width: 250px;
+    height: 38px;
+
+}
+#stepBar .active {
+    border: 1px solid rgb(228, 199, 179);
+    background: #fcfcfc;
+}
+#stepBar .active h3 {
+    color: #999;
+}
+
+input.text.error {
+    background: #FEEDF0;
+    border: 1px solid #F25E78;
+}
+.mainForm .tmLine span.error {
+    background: #FEEDF0;
+}
+table.item-table {
+    width:100%;
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.item-table thead tr{
+    background: url('/public/images/frame/bg.png');
+}
+table.item-table th {
+    text-align: center;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
+
+table.item-table td {
+    text-align: center;
+    border-width: 1px;
+    padding: 8px;
+    font-size: 15px;
+    border-color: #999999;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.item-table tr{
+    height: 23px;
+    line-height: 23px;
+}
+.item-container{
+    width: 960px;
+    margin: 0 auto;
+}
+.buttonLine {
+    margin: 0 auto;
+    width: 300px;
+    text-align: center;
+    padding: 40px 0 10px 0;
+}
+a.lightBlueBtn {
+    text-align: center;
+    line-height: 50px;
+    height: 50;
+    display: block;
+    border: 1px solid #1779BE;
+    background: #58A9E2;
+    color: #fff;
+    text-decoration:none;
+}
+a.lightGrayBtn{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    color: #999;
+    background: url('/public/images/dazhe/tick.png') no-repeat #fafafa;
+    background-position: 8px 18px;
+    text-decoration:none;
+}
+
+.item-dis{
+    width: 100%;
+    height:40px;
+    text-align: center;
+    font-size: 20px;
+    *padding-top: 10px;
+    *font-size:20px;
+}
+.item-disprice{
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    *padding-top: 10px;
+    *font-size:20px;
+}
+
+.item_disable{
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    display: block;
+    border: 1px solid rgb(248, 217, 222);
+    background: #FEEDF0;
+    text-decoration:none;
+    font-size: 15px;
+}
+
+.disabled{
+    border-width: 1px;
+    padding: 8px;
+    border-style: dashed;
+    border-color: #F25E78;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+a.index_hover:hover{
+    text-decoration: none;
+    background-color: #635555;
+}
+
+
+input.item-dis.error {
+    background: #FEEDF0;
+    border: 1px solid #F25E78;
+}
+.span-text{
+    font-size: 18px;
+}
+
+.tm-paging-container {padding: 5px 0px;}
+.tm-paging-container .paging-nav {display: inline-block; *display: inline; zoom: 1; height: 16px; width: 24px;text-decoration: none; margin: 0px 2px; font-weight: bold;text-align: center; padding: 4px 0px;}
+.tm-paging-container .paging-link {background: url(/img/pagging-back2.png) no-repeat left top;color: #7f7f7f; cursor: pointer;}
+.tm-paging-container .paging-link:hover {background: url(/img/pagging-back2.png) no-repeat left -24px;}
+.tm-paging-container .paging-select {background-color:#b10000;color: #fff; cursor: default;}
+.tm-paging-container .paging-size-link {background: url(/img/pagging-back2.png) no-repeat left top;color: #7f7f7f; cursor: pointer;}
+.tm-paging-container .paging-size-link:hover {background: url(/img/pagging-back2.png) no-repeat left -24px;}
+.tm-paging-container .paging-size-select {background-color:#b10000 ;color: #fff; cursor: default;}
+.nav{margin-bottom:0px;}
+.aside .nav{border: 1px solid #ccc;padding: 0px;font-family: '微软雅黑';}
+input[type="checkbox"]{width:17px;display:inline-block;*display:inline-block;}
+.width17{width:17px;}
+
+.tspy{
+    margin-top: -40px;
+    margin-left: 10px;
+    width: 400px;
+    z-index: 2;
+    display: none;
+    position: absolute;
+}
+.hover_tips_cont {
+    padding: 2px 5px;
+    border: 1px solid #F4CB48;
+    background-color: #FFF9CC;
+    text-align: left;
+}
+
+

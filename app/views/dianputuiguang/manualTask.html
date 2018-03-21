@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>人工刷</title>
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+
+        .sky-blue-btn{width: 82px;height: 30px;font-size: 14px;line-height: 30px;background-position:  -16px -25px;}
+        .sky-blue-btn:hover{background-position: -16px -67px;}
+        .tmbtn{display: inline-block;*display: inline;*zoom:1;font-family:'微软雅黑';text-align: center;vertical-align: middle;cursor: pointer;color: #ffffff;
+            background-image: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T28vqiXntaXXXXXXXX_!!1039626382.png");}
+    </style>
+</head>
+<body>
+    <div style="width: 780px;margin: 0 auto;text-align: center;">
+        宝贝ID： <input class="itemId" type="text" title="请输入宝贝Id" value="37065130230">      <br>
+        输入referer： <input class="referer" type="text" value="www.taobao.com"> <br>
+        输入时间间隔(以秒为单位)： <input class="interval" type="text" value="60"> <br>
+        输入所需的流量个数： <input class="count" type="text" value="3">   <br>
+        <span class="submittask sky-blue-btn tmbtn">提交任务</span>
+    </div>
+
+<script>
+    $('.submittask').unbind('click').click(function(){
+        var itemId = $('.itemId').val();
+        if(isNaN(itemId)) {
+            alert("宝贝ID需为数字，请修正~");
+            return;
+        }
+        if(parseInt(itemId) <= 0) {
+            alert("宝贝ID需大于0，请修正~");
+            return;
+        }
+
+        var referer = $('.referer').val();
+        if(referer.length <= 0) {
+            alert("请输入正确的referer");
+            return;
+        }
+
+        var interval = $('.interval').val();
+        if(isNaN(interval)) {
+            alert("时间间隔需为数字，请修正~");
+            return;
+        }
+        if(parseInt(interval) <= 0) {
+            alert("时间间隔需大于0，请修正~");
+            return;
+        }
+
+        var count = $('.count').val();
+        if(isNaN(count)) {
+            alert("流量个数需为数字，请修正~");
+            return;
+        }
+        if(parseInt(count) <= 0) {
+            alert("流量个数需大于0，请修正~");
+            return;
+        }
+        if(confirm("确定提交任务？")) {
+            $.get("/Dianputuiguang/submitManualTask", {numIid : itemId, referer : referer, interval : interval * 1000, count : count}, function(data){
+
+                if(data === undefined || data == null) {
+                    alert("任务提交失败");
+                }
+                if(data.success == false) {
+                    alert(data.message);
+                }
+
+            });
+        }
+
+    });
+</script>
+</body>
+
+</html>

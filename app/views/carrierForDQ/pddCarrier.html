@@ -1,0 +1,196 @@
+#{extends 'carrierForDQ/leftnav.html' /} #{set title:'拼多多复制' /}
+
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css" />
+
+<style type="text/css">
+.user-admin-wrapper {
+	font-size: 14px;
+	background: white; /*font-family: "微软雅黑";*/
+}
+
+.user-info-tip {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.width950 {
+	width: 950px;
+	margin: 0 auto;
+}
+
+.user-info-table {
+	border: 1px solid #999;
+	border-collapse: collapse;
+}
+
+.user-info-table td {
+	border: 1px solid #999;
+}
+
+.user-info-table .attr-name-td {
+	background: #eee;
+	text-align: right;
+	padding: 10px 20px 10px 0px;
+}
+
+.user-info-table .attr-value-td {
+	text-align: left;
+	padding: 10px 0px 10px 20px;
+}
+
+.search-table tr th {
+	background: #CC0000;
+	font-size: 24px;
+	padding: 10px;
+	font-weight: bolder;
+	color: #fff;
+}
+
+.search-table .search-btn {
+	margin-left: 20px;
+}
+
+.search-table tr td {
+	font-size: 16px;
+	padding: 8px;
+	font-weight: bold;
+}
+
+select {
+	height: 30px;
+}
+
+.condition{
+	margin-left: 10%;
+}
+</style>
+
+<div class="user-admin-wrapper" style="padding: 0px 0px 100px;">
+	<table class="search-table busSearch"
+		style="margin: 0 auto; width: 100%;">
+		<thead>
+			<tr>
+				<th colspan="3">一键复制淘宝任何宝贝</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="width: 40%; text-align: right; color: #FF0000;">温馨提示：</td>
+				<td colspan="2">由于产能限制，每人最多同时复制&nbsp;&nbsp;<span
+					style="color: red; font-size: 30px;">100</span>&nbsp;&nbsp;个宝贝
+				</td>
+				<!-- （宝贝图片自动上传到您的<a href="http://tu.taobao.com" target="_blank">图片空间</a>） -->
+			</tr>
+			
+			<tr>
+				<td colspan="3" style="text-align: center;">
+					<div class="f-itm">
+						注：宝贝复制速度和宝贝图片的数量有关，一般张图片上传需要1-2秒，对于图片较多的宝贝还请掌柜耐心等候！<br/>
+						软件会自动复制标题、详情、主图子图、颜色、尺码及颜色尺码图片<br/>但由于拼多多的商品属性与淘宝不同,类目的Sku信息不一致，复制后最好编辑一下宝贝属性再上架</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: center;">
+					<div class="f-itm">
+						<label class="f-label" style="color: #FF9900;">宝贝地址如图：</label> <img
+							src="http://img02.taobaocdn.com/imgextra/i2/292391495/T2p2e3XCxXXXXXXXXX-292391495.png"
+							style="width: 430px; height: 31px;">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"
+					style="padding: 20px; font-size: 18px;">
+					拼多多账号：<input id="pdduserName" value="" />&nbsp;密码:<input type="password" value="" id="pddpassword" />
+					<span class="btn btn-primary" onclick="loginGetInfo();">登录并读取信息</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"
+					style="padding: 20px; font-size: 18px;"><span
+					style="font-weight: bold; font-size: 22px;">要复制的宝贝地址：</span>
+					<input type="text" class="numIid-input" id="itemUrl" onblur="checkUrl(this.value);"
+					style="width: 280px; padding-left: 5px; height: 30px; line-height: 30px;" />
+					<span id="urlMsg"></span>
+				</td>
+			</tr>
+			<tr class="condition">
+				<td colspan="3" >
+				&nbsp;宝贝分类： 
+				<select id="cmbMainCat">
+						<option value="0" selected="selected">&nbsp;---请选择分类---&nbsp;</option>
+				</select> 
+				<select id="cmbSecondLevelCat">
+						<option value="0" selected="selected">&nbsp;---请选择分类---&nbsp;</option>
+				</select> 
+				<select id="cmbThirdCat">
+						<option value="0" selected="selected">&nbsp;---请选择分类---&nbsp;</option>
+				</select> 
+				&nbsp;运费模板： 
+				<select id="cmbDt">
+						<option value="0" selected="selected">&nbsp;---请选择模板---&nbsp;</option>
+				</select> 
+				</td>
+			</tr>
+			<tr class="condition">
+				<td colspan="3" >标题关键字修改:
+				<input id="oldTitle" name="oldTitle" />
+				<font color="blue">替换为</font>
+				<input id="newTitle" name="newTitle" />
+				价格设置：宝贝原最高价
+				<select id="priceWay">
+					<option value="1">加上</option>
+					<option value="2">乘以</option>
+				</select>
+				<input id="priceVal" type="number" />
+				</td>
+			</tr>
+			
+			<tr class="condition">
+				<td colspan="3" >
+				&nbsp;宝贝类型：
+				 <select id="goodType">
+						<option value="1">普通商品</option>
+						<!--<option  value="2">进口商品</option>-->
+				</select>
+				&nbsp;发货时间承诺：
+				 <select id="promisePost">
+						<option value="1">48小时</option>
+						<option value="2">24小时</option>
+				</select>
+				&nbsp;假一赔十：
+				 <select id="payment">
+						<option value="1">是</option>
+						<!--<option value="2">否</option>-->
+				</select>
+				&nbsp;七天无理由退换货：
+				 <select id="backGood">
+						<option value="1">是</option>
+						<option value="2">否</option>
+				</select>
+				&nbsp;是否直接发布：
+				 <select id="isPublish">
+						<!--<option value="1">是</option>-->
+						<option value="2">否</option>
+				</select>
+				</td>
+			</tr>
+		<!-- 	<tr class="condition">
+				<td colspan="3" >
+				
+				</td>
+			</tr> -->
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" style="text-align: center"><span
+					class="btn btn-primary btn-large search-btn" id="doCopy" onclick="copyItem()">立即拷贝</span></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+#{set 'moreScripts'}
+<script src="/js/carrier/pddCarrier.js?version=1"></script>
+
+#{/set}

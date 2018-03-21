@@ -1,0 +1,106 @@
+#{extends 'keymain.html' /}
+
+#{set title:'自动分类' /}
+<style>
+    .bodyline{margin: 0 auto;position: relative;}
+    #autodiag{margin: 0 auto;position: relative;text-align: center;}
+    #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+    .diagbtn{background-position: left bottom;top:20px;left:0px;}
+    .diagbtnpos{text-align: center;margin: 0 auto;position: relative;border: 1px solid #ddd;}
+    .autodiagIntro{font-size:15px;height:50px;margin: 0px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px 10px 10px 30px;;}
+    .autodiagIntro p{margin-top:5px;}
+    .oknoproblem{width:400px;height:100px;margin:0 auto;text-align: center;vertical-align: middle;}
+    .errormsg{background-color: 	#FFF4C1}
+    .oplogs td {border: 1px solid #ccc;padding: 3px 0 3px 0;}
+
+    .resBody a:hover{color:#ff4500;}
+    .resBody p {text-align: left;margin:3px 0;}
+    .rmlinks {
+        text-align: center;
+        margin: 3px 0px;
+        border: 1px solid #DDDDDD;
+    }
+    .rmlinks a{
+        font-size:13px;
+    }
+    .doAllAutoCatBtn {
+        margin:10px;
+    }
+    .remove-all-label {
+        vertical-align: middle;
+        margin-left: 3px;
+        font-weight: bold;
+    }
+    .loading-text {
+        margin-left: 10px;
+    }
+    table.busSearch td {
+        border: 1px solid #bebebe;
+    }
+    .paging-div {
+        margin: 5px 0;
+    }
+    .edit-autocat, run-autocat {
+        margin: 3px 10px;
+    }
+</style>
+
+
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autoTitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>自动分类
+</div>
+
+<div class="bodyline">
+    <div class="autodiagIntro" style="height: 52px;">
+        <p><b>功能介绍：</b>根据每个类目设定的分类规则，自动将宝贝分类</p>
+        <p><b style="color:blue;">提示：</b>该功能新推出，如发现不能去除的链接，感谢给我们客服留言
+            <a id="fenxiaokefuhref" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&amp;touid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E%3A%E5%B0%8F%E9%9B%AA&amp;siteid=cntaobao&amp;status=1&amp;charset=utf-8">
+                <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后">
+            </a>
+        </p>
+    </div>
+</div>
+
+<div id='autodiag' >
+    <div class="diagbtnpos">
+        <div class="option-panel">
+            <span class="doAllAutoCatBtn btn btn-warning btn-large"><b>执行全部分类规则</b></span>
+        </div>
+        <div class="data-panel">
+            <table class="busSearch">
+                <thead>
+                <tr>
+                    <th>分类</th>
+                    <th>已设置分类规则</th>
+                    <th style="width:30%;">操作</th>
+                </tr>
+                </thead>
+                <tbody class="data-space">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='clearfix'></div>
+
+<!-- jquery template {{= xxx}}写法：注意中间有一个空格 -->
+<script type="text/x-jquery-tmpl" id="tplItem">
+    <tr cid="{{= id}}">
+        <td>{{= name}}({{= count}})</td>
+        <td>{{= ruleData}}</td>
+        <td><span class="edit-autocat btn btn-success">更改分类规则</span><span class="run-autocat btn btn-warning">执行该分类</span></td>
+    </tr>
+</script>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.gcs('/js/jquery.tmpl.js', function(){
+        TM.gcs('/js/fenxiao/autocat.js?v=2', function(){
+            $(document).ready(function () {
+                TM.AutoCat.Init.init();
+            });
+        });
+    });
+</script>
+#{/set}

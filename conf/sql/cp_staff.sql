@@ -1,0 +1,61 @@
+-- MySQL dump 10.13  Distrib 5.5.38, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: tm
+-- ------------------------------------------------------
+-- Server version	5.5.38-0ubuntu0.12.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cp_staff`
+--
+
+DROP TABLE IF EXISTS `cp_staff`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cp_staff` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` bigint(20) NOT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `parentName` varchar(64) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  `phone` varchar(18) DEFAULT NULL,
+  `role` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `uname` (`name`),
+  KEY `parentName` (`parentName`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cp_staff`
+--
+
+LOCK TABLES `cp_staff` WRITE;
+/*!40000 ALTER TABLE `cp_staff` DISABLE KEYS */;
+INSERT INTO `cp_staff` VALUES (1,1409745274437,'xinsheng',NULL,'NzgwY2IwZTYtZDg3cfff22b2640f69108495986a3bb606f8c0002d47','',1,1,1),(2,1409745274455,'longtai',NULL,'YmJjNjNiOTgtMTM56926e03ae8bdca804df7de55f280715ec87a1888','',1,1,1),(3,1409745274458,'xinhong',NULL,'NzBiZjg3M2ItNjE3d9ca62b58ad4bcbe320865991fc536c339ff514f','',1,1,1),(4,1409745274459,'yixin',NULL,'NWE1ODUyZGEtNDRm520bd9733bf3d63852a4061ec51d0746bc65ad44','',1,1,1),(5,1409745274461,'baihe',NULL,'OTdjOWMwZjYtMmYz61e068b61689fa314baea2b21adfe2a5dcafbb13','',1,1,1),(6,1409745274464,'wukong',NULL,'MGM3MTI5YzItMzE475bc7fd7f2866e2e295efc4dd2d2a6828ad66aef','',1,1,1),(7,1409745274466,'taozhuanjia	',NULL,'MzBiNjIxMWUtMzEy6e80a0de2b3caf7d8fb86c4b2f9bf4700689d01d','',1,1,1),(8,1409745274468,'bangbangtao',NULL,'MDdlMjc1ZDYtOWU0a91f9de7ef471501814357029839aec60e39c407','',1,1,1),(9,1409745274470,'zhongchaping',NULL,'YzdkODE1ZmEtZWQw9ea97d81ff6c802ab3111512bb3f2028dbf6e11c','',1,1,1);
+/*!40000 ALTER TABLE `cp_staff` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-09-03 19:55:06

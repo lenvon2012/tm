@@ -1,0 +1,125 @@
+#{extends 'jinnang/base.html' /}
+#{set title:'宝贝营销状态' /}
+<div class="wrap">
+	<div id="icon-users" class="icon32">
+		<br>
+	</div>
+	<h2>
+		<a href="@{JinNangZheKou.items_list()}">宝贝营销状态</a>
+	</h2>
+	<div class="tablenav top">
+
+		<div class="alignleft actions">
+			<select name="action">
+				<option value="-1" selected="selected">批量操作</option>
+				<option value="edit" class="hide-if-no-js">编辑</option>
+				<option value="trash">移至回收站</option>
+			</select> <input type="submit" name="" id="doaction" class="button action"
+				value="应用">
+		</div>
+		<div class="alignleft actions">
+			<select name="m">
+				<option selected="selected" value="0">显示所有日期</option>
+				<option value="201306">2013 年六月</option>
+				<option value="201305">2013 年五月</option>
+			</select> <select name="cat" id="cat" class="postform">
+				<option value="0">查看所有分类目录</option>
+				<option class="level-0" value="3">服装</option>
+				<option class="level-0" value="1">未分类</option>
+			</select> <input type="submit" name="" id="post-query-submit" class="button"
+				value="筛选">
+		</div>
+		<div class="tablenav-pages one-page">
+			<span class="displaying-num">3 个项目</span> <span
+				class="pagination-links"><a class="first-page disabled"
+				title="前往第一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post">«</a>
+				<a class="prev-page disabled" title="前往上一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;paged=1">‹</a>
+				<span class="paging-input">第 <input class="current-page"
+					title="当前页面" type="text" name="paged" value="1" size="1">
+					页，共 <span class="total-pages">1</span> 页
+			</span> <a class="next-page disabled" title="前往下一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;paged=1">›</a>
+				<a class="last-page disabled" title="前往最后一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;paged=1">»</a></span>
+		</div>
+		<input type="hidden" name="mode" value="list">
+		<div class="view-switch">
+			<a
+				href="/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;mode=list"
+				class="current"><img id="view-switch-list"
+				src="http://localhost/wpdev/wp-includes/images/blank.gif" width="20"
+				height="20" title="列表视图" alt="列表视图"></a> <a
+				href="/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;mode=excerpt"><img
+				id="view-switch-excerpt"
+				src="http://localhost/wpdev/wp-includes/images/blank.gif" width="20"
+				height="20" title="摘要视图" alt="摘要视图"></a>
+		</div>
+
+		<br class="clear">
+	</div>
+	<table class="wp-list-table widefat fixed posts">
+		<thead>
+			<tr>
+				<!-- 标题 -->
+				<th scope='col' class='column-author' style=""><span>宝贝名称</span></th>
+				<th scope='col' class='column-author' style=""><span>原价</span></th>
+				<th scope='col' class='column-author' style="">促销价</th>
+				<th scope='col' class='column-author' style=""><span>优惠类型</span></th>
+				<th scope='col' class='column-author' style="">促销力度</th>
+				<th scope='col' class='column-author' style="">优惠数量</th>
+				<th scope='col'	class='column-author' style="">编辑</th>
+					
+			</tr>
+		</thead>
+		<tbody id="the-list">
+			<tr class="" valign="top">
+				<td class="column-title"><strong><a class="row-title"
+						href="#">name1</a></strong>
+					<div class="row-actions">
+						<span class='edit'><a href="#select_position">选择</a> | </span> <span
+							class='edit'><a href="#">编辑</a> | </span> <span class='trash'><a
+							class='submitdelete' href="#">删除</a> </span>
+					</div></td>
+				<td class="column-author">
+					<?php echo $data['symbol'];?>
+				</td>
+				<td class="column-author">
+					<?php echo $data['region_name'];?>
+				</td>
+				<td class="column-author">
+					<?php echo $data['open_date'];?>
+				</td>
+				<td class="column-author"><a href="#">display name1</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="tablenav bottom">
+
+		<div class="alignleft actions">
+			<select name="action2">
+				<option value="-1" selected="selected">批量操作</option>
+				<option value="edit" class="hide-if-no-js">编辑</option>
+				<option value="trash">移至回收站</option>
+			</select> <input type="submit" name="" id="doaction2" class="button action"
+				value="应用">
+		</div>
+		<div class="alignleft actions"></div>
+		<div class="tablenav-pages one-page">
+			<span class="displaying-num">3 个项目</span> <span
+				class="pagination-links"><a class="first-page disabled"
+				title="前往第一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post">«</a>
+				<a class="prev-page disabled" title="前往上一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;paged=1">‹</a>
+				<span class="paging-input">第 1 页，共 <span class="total-pages">1</span>
+					页
+			</span> <a class="next-page disabled" title="前往下一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;paged=1">›</a>
+				<a class="last-page disabled" title="前往最后一页"
+				href="http://localhost/wpdev/wp-admin/edit.php?post_status=publish&amp;post_type=post&amp;paged=1">»</a></span>
+		</div>
+		<br class="clear">
+	</div>
+</div>

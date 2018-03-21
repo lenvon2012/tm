@@ -1,0 +1,91 @@
+#{extends 'skincomment/skinautoopsubbase.html' /}
+#{set title:'一起赚钱' /}
+
+
+
+<style type="text/css">
+    #invite{height:500px;padding: 10px 10px 10px 50px;border:1px solid #ccc}
+    .bigblock{font-size:18px;padding:20px 20px 20px 20px;}
+    .invitewrapper{position: relative;height:100px;}
+    .inviteintro{color:#777;margin:15px 0 15px 0;}
+    .inviteintro div{margin:5px 0 5px 0;}
+    #textinput{;border: 1px solid #ccc;float: none;
+        padding: 5px;display: inline-block;*display: inline;margin:0;height:80px;width:350px;
+        position: absolute;
+    }
+    #paste{position: absolute;top:20px;left:400px;}
+</style>
+
+<div id="poster">
+    <img style="width:800px;height:400px;" src="http://img02.taobaocdn.com/imgextra/i2/22902351/T2WU6uXjNXXXXXXXXX_!!22902351.png">
+</div>
+
+<div id="invite">
+
+    *{<div class="invitetitle " >
+        <div class="h2title basecolor">
+            邀请好使用<a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.0.0ciqhP&service_code=FW_GOODS-1850391" style="font-size: 24px;color: red;">《好评助手》</a>,赚分销提成,获<a style="font-size: 30px;" target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.117.UmLIZs&service_code=ts-1820059&tracelog=search"><b style="color: red;">淘掌柜(淘标题)</b></a>至尊版
+        </div>
+        <div class="blank0 basebottomborder" style="height:2px; "></div>
+    </div>}*
+
+    <div class="inviteintro">
+        <div>每成功邀请一个卖家订购<a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.0.0ciqhP&service_code=FW_GOODS-1850391" style="font-size: 24px;color: red;"><b>《好评助手》</b></a></div>
+        <div>您可以直接赚取其首次订购金额的<b class="tipcolor">30%</b>作为您的佣金</div>
+        <div>邀请成功后,您可以联系客服来获取您的奖励</div>
+        <div>这是您的专属链接,请通过 QQ 或者 旺旺 发送给您的朋友</div>
+    </div>
+
+    <div class="invitewrapper">
+        <textarea id="textinput" style="" class='invite-content'>这是我用过最好的中差评修改神器，再也不用担心恶意差评师的骚扰了！</textarea>
+        <span id='paste' class="baseblock bigblock">复制</span>
+    </div>
+    <div class="inputbottom">
+    *{分享邀请链接到:}*
+    </div>
+    <div class="h2title basecolor">
+        7月份已发放<span style="font-size: 24px;color: red;">3500</span>元佣金，
+        下次发放时间为<span style="font-size: 24px;color: red;">9月30号</span>
+    </div>
+    <div class="blank0 basebottomborder" style="height:1px; "></div>
+    <div class="blank0 " style="height:15px; "></div>
+    <div class="inviterecords">
+        <div class="h2title basecolor">
+            您的邀请记录:
+        </div>
+        <div class="blank0 " style="height:1px; "></div>
+
+        <table class="oplogs">
+            <thead>
+            <tr>
+                <th>邀请用户</th><th>来源ip</th><th>更新日期</th>
+            </tr>
+            </thead>
+            <tbody class="invitebody"></tbody>
+        </table>
+        <div class="blank0 " style="height:10px; "></div>
+        <div class="pagination right" style="margin-right: 80px;"></div>
+        <div class="blank0 " style="height:1px; "></div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    *{<script src="/js/zeroclipboard.js" charset="utf-8"></script>}*
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.pagination.js',function(){
+            TM.gcs('/js/tm.js',function(){
+                TM.gcs('/js/utils/copy.js',function(){
+                    TM.gcs('/js/utils/jquery.cookie.js',function(){
+                        TM.gcs('/js/skincomment/skincommentinvite.js',function(){
+                            $(document).ready(function(){
+                                TM.invite.init($('#invite'));
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery-ui-1.9.1.custom.css'}">
+#{get 'moreStyles' /}
+<link rel="shortcut icon" type="image/png"
+	href="@{'/public/images/favicon.png'}">
+<script	src="/js/jquery-1.6.4.min.js"	type="text/javascript" charset="${_response_encoding}"></script>
+<script src="/js/utils/CenterAlert.js"	type="text/javascript" charset="${_response_encoding}"></script>
+<script src="/js/utils/Loading.js"	type="text/javascript" charset="${_response_encoding}"></script>
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js"	type="text/javascript" charset="${_response_encoding}"></script>
+	*{<script type="text/javascript" src="/js/getAppKeys.js" topappkey="21255586" defer="defer" charset="gbk"></script>}*
+	<script src="/js/jquery.ui.js"	type="text/javascript" charset="${_response_encoding}"></script>
+	<!-- js start
+	<script src="/js/version/jquery.bgiframe-2.1.2.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.core.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.widget.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.mouse.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.draggable.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.position.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.resizable.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.dialog.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.effect.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.effect-blind.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="/js/version/jquery.ui.effect-explode.js"
+	type="text/javascript" charset="${_response_encoding}"></script>
+	end -->
+</head>
+<body>
+	<div class='top-banner'>
+		<img id="logo" alt="LOGO"
+			src="http://img01.taobaocdn.com/imgextra/i1/1039626382/T2R9t.XfJcXXXXXXXX_!!1039626382.jpg">
+		<span id="headtitle"><strong><a href="/in/logout">退出</a> <!-- |<a href="/Share/toShare">分享</a> --></strong></span>
+		<span><a href="javascript:void(0)"><img id="sjtb"
+				src="/public/images/frame/sjtb1.png"></a></span>
+	</div>
+
+		<div class = "head">
+
+			<ul style='margin: 0 auto;width:990px;height:34px;'>
+                <li><a href="/home/index" id = "dpzd">
+                店铺诊断
+                </a></li>
+                <li><a href="/home/commodityDiag" id="bbzd">
+                    宝贝诊断
+                </a></li>
+                <li><a href="/KeyWords/toSerchKeyWords" id="rccx">
+                    关键词查询
+                </a></li>
+                <li><a href="/home/correlativeRecom" id = "carWords">
+                    直通车热词
+                </a></li>
+                <li><a href="/home/multiModify" id = "plxg">
+	       批量修改
+                </a></li>
+             <li><a href="/home/topKey" id = "topkey">
+      top搜词
+                </a></li>
+
+                <li><a href="/monitor/visitorMonitor" id="monitor">
+                    实时监控
+                </a></li>
+                <!-- 
+	          	<li><a href="/Share/toShare" id="share">
+                </a>
+                </li>
+                -->
+
+		</ul>
+		<div class="clear"></div>
+
+
+
+		<div id="striging"></div>
+
+	</div>
+	<div class="clear"></div>
+	<div class="main">#{doLayout /}</div>
+	<div id="mainfoot" class='clearfix'>
+            <div id="footer-content" style="margin: 0 auto;width:200px;">
+            <p style="font-size:14px;padding-top:15px;color:white;">
+
+
+            在线客服：<a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E&site=cntaobao&s=1&charset=utf-8" ><img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后" /></a></p>
+           <!--  <a href="/home/buyVersion">版本控制</a> -->
+            </div>
+    </div>
+	<!-- loading等待 -->
+	<div class="LoadingMask" style="display: none; border: 0;"></div>
+
+	<div class="WaitingForLoadingDiv" style="display: none; border: 0;">
+		亲~系统正在为您努力加载数据...请您稍等片刻...<br />
+    <img src='http://img02.taobaocdn.com/imgextra/i2/1039626382/T2S1C2XfXaXXXXXXXX_!!1039626382.gif'
+			alt='正在加载' />
+
+	</div>
+	<!-- tips style -->
+	<div class="qtip qtip-stylename">
+		<div class="qtip-tip" rel="cornerValue"></div>
+		<div class="qtip-wrapper">
+			<div class="qtip-borderTop"></div>
+			<div class="qtip-contentWrapper">
+				<div class="qtip-title">
+					<div class="qtip-button"></div>
+				</div>
+				<div class="qtip-content"></div>
+			</div>
+			<div class="qtip-borderBottom"></div>
+		</div>
+	</div>
+	<!-- open dialog -->
+		<p style="display: none">
+			<a href="#" id="dialog-link" class="ui-state-default ui-corner-all">
+				<span class="ui-icon ui-icon-newwin">
+				</span>打开通告栏
+			</a>
+		</p>
+
+		<div id="dialog" style="width: 610px; height: 450; display:none;" class="ui-dialog-content ui-widget-content" >
+			<img src="http://img01.taobaocdn.com/imgextra/i1/1039626382/T2Na91XltaXXXXXXXX_!!1039626382.jpg" alt="" usemap="#Map" border="0">
+            <map name="Map" id="Map">
+              <area shape="rect" coords="73,379,162,404" href="#" />
+              <area shape="rect" coords="218,378,312,405" href="#" />
+            </map>
+		</div>
+	
+	<script type="text/javascript">
+            var TM = TM || {};
+            TM.isHelicopter = TM.isHelicopter || ("true"=="${configs.TMConfigs.App.ENABLE_HELICOPTER}");
+            TM.ctxPath = TM.ctxPath || "${play.ctxPath}";
+            TM.session = TM.session || '${session.get("_s")}';
+            TM.created = TM.created || parseInt('${session.get("_cr")}');
+            TM.shield = TM.shield || ("true"=="${configs.TMConfigs.App.ENABLE_SHIELD}");
+            if(TM.isHelicopter==true){
+                $("#logo").attr("src","http://img01.taobaocdn.com/imgextra/i1/1039626382/T2SctNXfXdXXXXXXXX_!!1039626382.jpg");
+                $("#carWords").css("display","block");
+                $("#dpzd").css("display","none");
+
+                $("#rccx").css("display","none");
+                $("#plxg").css("display","none");
+                document.title="爆款直升机，你唯一需要的爆款打造工具";
+            }
+			$("#sjtb").click(function(){
+				$.ajax({
+					url:"/Items/sync"
+				});
+			});
+            $(document).ajaxStart(function(){
+                Loading.init.show();
+            });
+            $(document).ajaxStop(function(){
+                Loading.init.hidden();
+            });
+
+            var path = document.location.pathname;
+            $('.head').find('a').each(function(){
+                var anchor = $(this);
+                if(anchor.attr('href')==path){
+                    anchor.parent().addClass('selected');
+                }
+            });
+
+
+            TM.util = TM.util || {};
+            TM.util.diplaySearch = function(searchCount){
+           		if(searchCount == 0 ){
+           			return '0';
+           		}else if(0 <searchCount && searchCount < 100){
+           			return '0-100';
+           		}else if(searchCount< 500){
+           			return '100-500';
+           		}else if(searchCount< 1500){
+           			return '500-1500';
+           		}else if(searchCount< 5000){
+           			return '1500-5000';
+           		}else if(searchCount< 10000){
+           			return '5000-1万';
+           		}else if(searchCount< 50000){
+           			return '1万-5万';
+           		}else if(searchCount<100000){
+           			return '5万-10万';
+           		}else if(searchCount<500000){
+           			return '10万-50万';
+           		}else if(searchCount<1000000){
+           			return '50万-100万';
+           		}else {
+           			return '大于100万';
+           		}
+           		
+            }
+            String.prototype.cnLength = function () {
+                return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+            }
+
+            String.prototype.trim = function () {
+                return this.replace(/^\s*|\s*$/g, '');
+            }
+            Number.prototype.toPercent = function (n) {
+                n = n || 0;
+                return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+            }
+            Date.prototype.format = function(format) //author: meizz
+            {
+                var o = {
+                    "M+" : this.getMonth()+1, //month
+                    "d+" : this.getDate(),    //day
+                    "h+" : this.getHours(),   //hour
+                    "m+" : this.getMinutes(), //minute
+                    "s+" : this.getSeconds(), //second
+                    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                    "S" : this.getMilliseconds() //millisecond
+                }
+                if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                        (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+                for(var k in o)if(new RegExp("("+ k +")").test(format))
+                    format = format.replace(RegExp.$1,
+                            RegExp.$1.length==1 ? o[k] :
+                                    ("00"+ o[k]).substr((""+ o[k]).length));
+                return format;
+            }
+
+            Date.prototype.formatYMS = function(){
+                return this.format('yyyy-MM-dd');
+            }
+            Date.prototype.formatMS = function(){
+                return this.format('MM月dd');
+            }
+            Date.prototype.formatYMDMS = function(){
+                return this.format('yyyy-MM-dd hh:mm:ss');
+
+            }
+            //***********************************************
+            
+             	$("#dialog").dialog({
+         			closeText: "关闭",
+                		autoOpen: false,
+ 	                width: 630,
+ 	                resizable: false,
+ 	                title:"温馨提示栏",
+ 	                modal: true,
+ 	                buttons: [
+ 	                    {
+ 	                        text: "关闭",
+ 	                        click: function() {
+ 	                            $(this).dialog( "close" );
+ 	                        }
+ 	                    }
+ 	                ]
+             });
+            	 // Link to open the dialog
+            	// alert(TM.ver);
+             	var version_event =function( event ) {
+                 	$( "#dialog" ).dialog( "open" );
+                 	event.preventDefault();
+             	};
+         //***********************************************	
+
+    </script>
+	
+	#{get 'moreScripts' /}
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'促销效果分析' /}
+
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/activityadd.css" />
+
+<style type="text/css">
+</style>
+
+<script type="text/javascript" src="/js/highcharts.js"></script>
+
+<h1> 促销图表</h1>
+
+<div class="item-container">
+    <div class="charts-container">
+        <div id="goodRate-charts" style="width:978px;height: 200px;margin:0 auto;"></div>
+    </div>
+    <div class="warn-search-div">
+        <table style="margin: 0 auto; margin-bottom:10px;">
+            <tbody>
+            <tr>
+                <td style="width: 420px;text-align: right;">
+                    <span style="font-weight:bold;font-size:16px;">查询日期：</span>
+                    <input type="text" class="start-time-text date-picker" style="width: 95px;">
+                    <span style="margin: 0 5px;font-weight:bold;">-</span>
+                    <input type="text" class="end-time-text date-picker" style="width: 95px;">
+                </td>
+
+                <td>（<span style="color:red;font-weight:bold;">提示：</span>促销分析从宝贝参加活动起每天更新，永久保存）</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="combobox-input">
+        <div style="width: 750px;margin: 0 auto;padding-top: 8px;position: relative;">
+            <label style="top:8px;" class="combobox-label-item" for="mq">搜索 商品 标题/关键字</label>
+            <input type="text" title="请输入搜索文字" class="guanjianci" id="mq" style="float: left;" />
+            <button type="submit" class="guanjianci-select">搜索</button>
+        </div>
+    </div>
+    <div class="filter" style="z-index: 1;" >
+        <div class="fRange" style="text-align: center;">
+            <b class="fR-text" order="df">默认排序</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fR-list">
+                <li>
+                    <a class="fRl-ico-pu" href="javascript:void(0);">↑ 价格从低到高</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-pd" href="javascript:void(0);">↓ 价格从高到低</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-su" href="javascript:void(0);">↑ 下架时间</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-sd" href="javascript:void(0);">↓ 下架时间</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-df" href="javascript:void(0);">〓 恢复默认排序</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fSellercat">
+            <s class="fS-label">店铺类目：</s>
+            <b class="fS-text">所有类目</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fS-list" id="sellerCat" style="width: 160px;">
+            </ul>
+        </div>
+        <div class="fItemcat">
+            <s class="fI-label">淘宝类目：</s>
+            <b class="fI-text">所有类目</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fI-list" id="itemCat" style="width: 160px;">
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 10px;">
+        <div class="paging-div" style="text-align: center;margin-bottom: 10px;margin-top: 40px; "></div>
+        <div class="item-table">
+
+        </div>
+        <div class="paging-div" style="text-align: center;margin-top: 5px;"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+//            TM.gcs('/PaiPaiItems/firstSync',function() {   添加商品同步更新
+            TM.gcs('/js/tdazhe/cuxiaofenxi.js', function () {
+                TM.DisItem.init.doInit($(".item-container"));
+            });
+//            });
+        });
+    });
+</script>

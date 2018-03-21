@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+.infoshow {
+	width: 50%;
+}
+.lotteryshow {
+	width: 50%;
+}
+.record {
+	margin: 10px 10px auto;
+}
+.lottery {
+	width: 417px;
+	height: 417px;
+	position: relative;
+	margin: 10px 10px auto;
+}
+.reward {
+	
+}
+.myreward {
+	
+}
+#bgimg {
+	width: 417px;
+	height: 417px;
+	background: url("http://img03.taobaocdn.com/imgextra/i3/22902351/T2Tw.DXltaXXXXXXXX_!!22902351.png") no-repeat;
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;
+}
+#start {
+	width: 163px;
+	height: 320px;
+	position: absolute;
+	top: 46px;
+	left: 130px;
+}
+#start img {
+	cursor: pointer;
+	padding: 50px 24px;
+}
+
+.container {
+	width: 800px;
+	min-height: 450px;
+	max-height:none;/* for ie7 firefox opera*/ 
+	_height: 450px;
+	overflow:hidden;
+	margin: 0px auto 0 auto;
+	-moz-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.ui-widget-header {
+	background: orange;
+	border: 1px solid #FC7D39;
+}
+
+.ui-widget-content {
+	border: 1px solid #FC7D39;
+}
+
+.ui-button{
+	border: 1px solid #E17009;
+	background: orange;
+}
+
+body {
+	font-size: 14px;
+	margin: 0px;
+	color:white;
+}
+
+ul li a {
+	color: red;
+	font-size: 14px;
+}
+
+h2 {
+	font-size: 18px;
+	color:#FAD42E;
+}
+
+.topitem {
+	width: 100%;
+	height: 100%;
+	background-image: url("http://img04.taobaocdn.com/imgextra/i4/22902351/T2Fo7EXfFXXXXXXXXX_!!22902351.gif");
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+	-moz-background-size:100% 100%;
+	background-size:100% 100%;
+}
+
+.product {
+	width: 100%;
+}
+.product img {
+	display:block;
+}
+
+.autotitle {
+	width: 100%;
+}

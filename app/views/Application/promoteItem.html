@@ -1,0 +1,128 @@
+#{extends 'tbtnav/tbtnavump.html' /}
+
+#{set title:'宝贝促销方案分析' /}
+
+<style>
+    .red{
+        color: red;
+    }
+    .borderTable td{
+        border: 1px solid #ccc;
+    }
+    .priceTable td{
+        width: 80px;
+        height: 20px;
+    }
+    .priceTable{
+        text-align: center;
+    }
+    .optimiseTable td{
+        width: 80px;
+        height: 20px;
+    }
+    .optimiseTable {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<table style="width: 1000px;height: 150px;margin: 0 auto;font-family: '微软雅黑';font-size: 14px;margin-top: 50px;">
+    <tbody>
+        <tr style="height: 150px;">
+            <td style="vertical-align: top;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="width: 100px;">
+                                <a target="_blank" href="http://item.taobao.com/item.htm?id=16150274657">
+                                    <img src="http://img04.taobaocdn.com/bao/uploaded/i4/T17yZlFidbXXXXXXXX_!!0-item_pic.jpg" style="width: 80px;height: 80px;">
+                                </a>
+                            </td>
+                            <td>
+                                <div>标题:</div>
+                                <div>
+                                    网袜连裤美腿天鹅绒镂空中等特价促销条纹性感秋季塑形8202
+                                </div>
+                                <table class="borderTable priceTable" style="margin-top: 8px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                供货价
+                                            </td>
+                                            <td>
+                                                零售价区间:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                105
+                                            </td>
+                                            <td>
+                                                110-218
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </td>
+            <td>
+                <table class="borderTable optimiseTable">
+                    <thead>
+                        <tr>
+                            <td style="width: 100px;">价格区间</td>
+                            <td style="width: 100px;">110-130</td>
+                            <td>130-150</td>
+                            <td>150-170</td>
+                            <td>170-190</td>
+                            <td>190-218</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>分销商占比</td>
+                            <td>25%</td>
+                            <td>21%</td>
+                            <td>24%</td>
+                            <td class="red">16%</td>
+                            <td>14%</td>
+                        </tr>
+                        <tr>
+                            <td>平均销量</td>
+                            <td>252</td>
+                            <td>168</td>
+                            <td>148</td>
+                            <td class="red">150</td>
+                            <td>86</td>
+                        </tr>
+                        <tr>
+                            <td>综合收益的分</td>
+                            <td>3780</td>
+                            <td>5880</td>
+                            <td>8140</td>
+                            <td class="red">11250</td>
+                            <td>8514</td>
+                        </tr>
+                        <tr>
+                            <td>建议</td>
+                            <td>建议避开</td>
+                            <td>建议避开</td>
+                            <td>建议避开</td>
+                            <td class="red">最佳</td>
+                            <td>建议避开</td>
+                        </tr>
+                        <tr>
+                            <td class="red">最佳促销方式</td>
+                            <td colspan="1">打折+优惠券</td>
+                            <td colspan="1">包邮</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

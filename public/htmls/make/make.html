@@ -1,0 +1,50 @@
+<script type='text/x-jquery-tmpl' class='itemDetailTmpl'>
+
+    <div id="panel">
+
+      <div id="palette">
+                <span style="display: inline; float: left;">
+                可选颜色：
+                </span>
+                <span style=" width: 500px; height: auto; display: inline; float: left;">
+                    {{each(i,OtherColor) OtherColors}}
+                            <span class="colorNav" myele="{{= OtherColor}}" style="background:{{= OtherColor}};">
+                                <span class="colorNavIn pointer"></span>
+                            </span>
+
+                    {{/each}}
+
+                </span>
+
+      </div>
+
+
+        <div id="tmpinfo">
+        尺寸选择：
+        {{each(i,With) Withs}}
+        <span class="slecetePX pointer">
+        {{= With}}像素
+         </span>
+        {{/each}}
+        <br/>
+        <br/>
+        宝贝主图尺寸：{{= itemImageSize}}
+        <br/>
+        <br/>
+        每行显示：{{= numForEachRow}}
+        <br/>
+        <br/>
+
+        最多展示：{{= maxNum}}
+        <br/>
+        <br/>
+
+        活动名称：<input type="text" class="saleNameText" value="{{= saleName}}"/>
+        
+        名称：<input type="text" class="saleNameText" value="{{= saleName}}"/>
+        </div>
+
+    </div>
+
+</script>
+

@@ -1,0 +1,80 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'智能上架' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/jquery-ui-timepicker-addon.css"/>
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/pagination.css">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/autoDeList.css?_v=1">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/distributeRule.css?_v=1">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+#{/set}
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>自动上下架
+</div>
+<div id='kits'>
+
+</div>
+<div class='clearfix'></div>
+
+<div class="weekTimes" style="display:none;">
+    <table style="width:90%;">
+        <tbody>
+        <tr><td colspan="10">
+            <div class="headspan " style="width:600px;">计划上架时间<span class="question" title="计划中的宝贝上架时间"></span></div>
+        </td></tr>
+        <tr class="planRow weekRow"></tr>
+        <tr><td colspan="10">
+            <div class="headspan" style="width:600px;">当前上架时间<span class="question" title="当前宝贝上下架时间"></span></div>
+        </td></tr>
+        <tr class="realRow weekRow"></tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/x-jquery-tmpl" id="delistWeekDistribution">
+    <td class="delistWeekTd">
+        <div class="weekName">{{= weekName}}</div>
+        <div class="blank0" style="height:2px;"></div>
+        <div class="weekValue">{{= weekValue}}</div>
+    </td>
+</script>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/multiOpByURL.js?_v=2', function () {
+            TM.gcs('/js/jquery.pagination.js', function () {
+                TM.gcs('/js/jquery.url.js', function () {
+                    TM.gcs('/js/tm.js', function () {
+                        TM.gcs('/js/switch.js', function () {
+                            TM.gcs('/js/commstab/commstab.js', function () {
+                                TM.gcs('/js/Kits/autodelist.js', function () {
+                                    TM.gcs("/js/jquery-ui-timepicker-addon.js", function () {
+                                        TM.gcs("/status/js", function () {
+                                            $(document).ready(function () {
+                                                TM.gcs('/js/kits.js', function () {
+                                                    TM.gcs("/js/delistplan/delistbase.js", function () {
+                                                        TM.gcs('/js/Kits/autodelist.js?_v=6',function(){
+                                                            TM.AudotDelist.init($('#kits'));
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+
+</script>
+#{/set}

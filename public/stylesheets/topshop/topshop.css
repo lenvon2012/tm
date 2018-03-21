@@ -1,0 +1,33 @@
+.topshopcontainer{
+	width: 100%;
+	background-color: white;
+	overflow: auto;
+	zoom:1;
+}
+.moreimg{
+	margin-left:20px;
+	width: 20px;
+	height: 20px;
+}
+.shopcat{
+	font-family:"黑体";
+}
+.secelctbox{
+	height:30px;
+	font-size:14px;
+	font-family:"黑体";
+	width: 200px;
+}
+.shoplogo{
+	width: 40px;
+	height: 40px;
+}
+.shopswitch{
+	width: 25px;
+	height: 25px;
+}
+.shopnumber{
+	font-weight: bolder;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}

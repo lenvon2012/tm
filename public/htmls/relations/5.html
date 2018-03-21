@@ -1,0 +1,53 @@
+<div type='text/x-jquery-tmpl' class="itemDetailTmpl">
+    <table width="950" border="0" cellspacing="0" cellpadding="0"
+           style="color:#fff;background-color:{{= defaultColor}}; margin: 0 auto; padding:3px 0 3px 3px; ">
+        <tbody>
+            <tr>
+                 <td>
+                     <!--  内部的table开始-->
+                     {{each(i,commodity) commoditys}}
+                     <table width="232" border="0" cellspacing="0" cellpadding="0" style="background-color:{{= defaultColor}}; float: left; border: 1px solid #cccccc; margin: 2px; ">
+                         <tbody>
+                         <tr>
+                             <td valign="middle" align="center" width="220" height="220" style="padding:5px; background-color:{{= defaultColor}};">
+                                 <a target="_blank" href="http://item.taobao.com/item.htm?id=12744523607"> <img style="display:block; width: 220px; height: 220px;"
+                                                                                                                border="0"
+                                                                                                                src="{{= commodity.picture}}">
+                                 </a></td>
+                         </tr>
+                         <tr>
+                             <td height="40" align="center" style="background-color:{{= defaultColor}}; color:#fff; font-size:12px;">
+                                 <table width="100%" height="40" border="0" cellspacing="0" cellpadding="0"
+                                        style="line-height:40px;">
+                                     <tbody>
+                                     <tr>
+                                         <td width="50%" align="center" style="color: black;">{{= saleName}}：<span style="font-family:Arial; font-size:18px;">{{= commodity.sole}}</span>
+                                         </td>
+                                         <td width="50%" valign="middle" align="center" style="font-size:14px;"><a href="#"
+                                                                                                                   target="_blank"
+                                                                                                                   style="display:inline-block;width:90px;height:24px;line-height:24px; text-decoration:none; background-color:#ffcc00;color:{{= defaultColor}};">加入购物车</a>
+                                         </td>
+                                     </tr>
+                                     </tbody>
+                                 </table>
+                             </td>
+                         </tr>
+                         </tbody>
+                     </table>
+                     {{/each}}
+                     <!--  内部的table结束-->
+
+                 </td>
+            </tr>
+            <tr>
+                 <td>
+
+                 </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+

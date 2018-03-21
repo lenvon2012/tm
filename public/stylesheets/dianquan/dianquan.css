@@ -1,0 +1,236 @@
+html{
+    width: 100%;
+}
+body {
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, tahoma, arial, Verdana, sans-serif, "WenQuanYi Micro Hei", "\5B8B\4F53";
+    width: 900px;
+    margin: auto;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    margin-left: 5px;
+    display: inline;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+    color: black;
+}
+
+#dianquanMain {
+    margin: auto;
+    width: 100%;
+    text-align: center
+}
+
+.goods-type {
+    cursor: pointer;
+}
+
+.goods-type:hover,.goods-order:hover {
+    color: #ff6600;
+}
+
+.goods-type.select,.goods-order.select-order {
+    color: #e94643;
+}
+.goods-order.select-order,.goods-order:hover{
+    border-top: #ff6255 2px solid;
+    background: white;
+    box-sizing: border-box;
+}
+.goods-order{
+    float: left;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+    padding: 8px 27px;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+hr {
+    margin: 10px 0px;
+}
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.price-range, .ratio-range, .sales-range {
+    width: 40px;
+}
+
+.goods-list {
+
+    position: relative;
+}
+.goods-list:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.goods {
+    width: 284px;
+    height: auto;
+    background-color: #FFFFFF;
+    margin: 0 10px 10px 0;
+    border: 1px solid #E5E5E5;
+    float: left;
+    box-shadow: 2px 2px 5px #eee;
+    position: relative;
+}
+.goods:nth-child(3n+1){
+    margin: 0 10px 10px 10px;
+}
+
+.goods-select{
+    box-shadow: 0px 0px 5px 3px #dc7575;
+    top: 1px
+}
+
+.goods-pic {
+    width: 260px;
+    height: 260px;
+    margin: 12px 12px 0 12px;
+    overflow: hidden;
+}
+
+.goods-title {
+    margin: 8px 12px;
+    overflow: hidden;
+    height: 22px;
+}
+
+.goods-price {
+    overflow: hidden;
+    margin: 0px 12px;
+}
+
+.goods-price-describe {
+    width: 85px;
+    height: 50px;
+    border-right: 1px solid #E5E5E5;
+    float: left;
+    display: inline;
+    text-align: center;
+}
+
+.goods-price-describe:last-child {
+    border-right: none;
+}
+
+.goods-coupon-info {
+    margin: 8px 12px;
+    overflow: hidden;
+}
+
+.goods-coupon {
+    border: 1px dotted #ff9489;
+    margin-right: 12px;
+    padding: 0 7px;
+    float: left;
+    display: inline;
+}
+
+.goods-sale {
+    margin: 8px 12px;
+    height: 25px;
+}
+
+.goods-coupon-num {
+    float: left;
+    display: inline;
+}
+
+.goods-coupon-icon {
+    float: right;
+    display: inline;
+}
+
+.goods-coupon:hover {
+    background-color: #FFD9BC
+}
+
+.site-img {
+    width: 16px;
+    height: 16px;
+    background: url(/img/dianquan/site-img.png) no-repeat;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.site-tm {
+    background-position: -26px 0
+}
+
+.site-tb {
+    background-position: -0px 0
+}
+
+.site-jhs {
+    background-position: -79px 0
+}
+
+.site-yfx {
+    background-position: -54px 0
+}
+
+.site-tqg {
+    background-position: -106px 0
+}
+
+.goods .intro {
+    position: absolute;
+    width: 290px;
+    height: auto;
+    word-break: break-all;
+    background: #333;
+    opacity: 0.9;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    z-index: 99999;
+    display: none;
+    left: 282px;
+    top: 300px;
+}
+
+.goods .intro {
+    position: absolute;
+    width: 290px;
+    height: auto;
+    word-break: break-all;
+    background: #333;
+    opacity: 0.9;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    z-index: 99999;
+    display: none;
+    left: 282px;
+    top: 250px
+}
+
+.goods:nth-child(3n) .intro {
+    left: -120px
+}
+
+.search {
+    border: 1px solid #e3e3e3;
+    color: #999;
+    height: 40px;
+    width: 400px;
+    background: #fafafa;
+    font-size: 12px;
+    line-height: normal;
+    padding-left: 15px;
+    padding-right: 16%;
+    margin: auto;
+}

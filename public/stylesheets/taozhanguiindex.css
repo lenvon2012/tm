@@ -1,0 +1,79 @@
+#upTopTenWordsTable thead tr{
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    overflow: hidden;
+    color: #424242;
+    background: -moz-linear-gradient(top, #f0f0f0, #e4e4e4 100%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f0f0f0), to(#e4e4e4));
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#f0f0f0', endColorStr='#e4e4e4', gradientType='0');
+    background-color: #f1f1f1;
+    text-align: left;
+}
+
+#upTopTenWordsTable {
+    border: 1px solid #ccc;
+}
+.top-ten{
+    background: url(//a.tbcdn.cn/apps/bang/110623/images/topv3icon.png) no-repeat 999em 999em;
+    display: block;
+    width: 18px;
+    height: 18px;
+    zoom: 1;
+}
+.top1 {
+    background-position: 0 -477px;
+}
+.top2{
+    background-position: 0 -506px;
+}
+.top3{
+    background-position: 0 -535px;
+}
+.top4{
+    background-position: 0 -564px;
+}
+.top5{
+    background-position: 0 -593px;
+}
+.top6{
+    background-position: 0 -622px;
+}
+.top7{
+    background-position: 0 -651px;
+}
+.top8{
+    background-position: 0 -680px;
+}
+.top9{
+    background-position: 0 -709px;
+}
+.top10{
+    background-position: 0 -738px;
+}
+.top-ten-topkey-table{
+    width: 100%;
+}
+
+.rate.up {
+    background-position: -1px -415px;
+}
+.rate.down {
+    background-position: -1px -432px;
+}
+.rate.draw {
+    background-position: -1px -449px;
+}
+
+.rate {
+    background: url(//a.tbcdn.cn/apps/bang/110623/images/topv3icon.png) no-repeat 999em 999em;
+    display: inline-block;
+    *display: inline;
+    zoom:1;
+    width: 9px;
+    height: 9px;
+}
+.right-td{
+    border-right: 1px solid #ccc;
+}

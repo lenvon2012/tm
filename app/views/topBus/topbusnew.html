@@ -1,0 +1,131 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavword.html' /}
+#{set title:'类目最热100词' /}
+<link media="screen" rel="stylesheet" href="/css/cornerDiv.css?v=2">
+<style>
+    .selectCat1,.selectCat2,.selectCat3{font-family: '微软雅黑'}
+    .myAllCats{
+        background: #eee;
+        width: 95%;
+        height: 30px;
+        border-left: 5px solid #30A3EB;
+        font-size: 22px;
+        padding-top: 10px;
+        padding-left: 30px;
+        /*margin: 0 auto;*/
+        margin-left:20px;
+    }
+    .catName{
+        width: 95%;
+        /*margin: 15px auto;*/
+        border: 1px solid #ccc;
+        padding: 12px;
+        margin-left:20px;
+    }
+    .catName span{
+        height: 30px;
+        line-height: 30px;
+        margin: 4px;
+        background-color: #58a9e2;
+        font-weight: bold;
+        font-family: '微软雅黑';
+        cursor: pointer;
+        padding: 0 10px;
+        color: #ffffff;
+    }
+    .catName span:hover{
+        background-color: #1779b3;
+    }
+
+
+    .sort-td {
+        padding-right: 20px;color: #2EB1AA;cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .sort-down{background: url("/img/sort-bg.png") right -25px no-repeat}
+    .sort-up{background: url("/img/sort-bg.png") right -47px no-repeat;}
+
+
+    .catWordTable thead th {
+
+    }
+    .catWordTable tbody td {
+        padding: 5px 0px; font-size: 13px;
+    }
+
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>类目热搜词
+</div>
+
+
+<div class="cat-top-word-container">
+    <div style="height: 10px;"></div>
+    <div class="myAllCats" style="margin-bottom: 0px;">本店所属类目:
+
+    </div>
+    <div class="catName hidden">
+        <span class="inlineblock cat-name-span"></span>
+    </div>
+    <div style="text-align: center; padding: 20px 0;">
+        <table class="cat-select-table" style="border-collapse: collapse; margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td>
+                    <select class="first-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+                <td style="padding-left: 50px;">
+                    <select class="second-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+                <td style="padding-left: 50px;">
+                    <select class="third-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="paging-div" style="text-align: center;padding-bottom: 5px;"></div>
+    <div style="padding: 0px 20px;">
+        <table class="busSearch catWordTable" style="text-align: center;">
+            <thead>
+            <tr>
+                <th style="width: 17%;"><div class="">关键词</div></th>
+                <th style="width: 12%;"><div class="sort-td sort-down current-sort" orderBy="pv">搜索指数</div></th>
+                <th style="width: 11%;"><div class="sort-td sort-up" orderBy="click">点击量</div></th>
+                <th style="width: 10%;"><div class="sort-td sort-up" orderBy="ctrInt">点击率</div></th>
+                <th style="width: 11%;"><div class="sort-td sort-up" orderBy="itemCount">宝贝数</div></th>
+                <th style="width: 12%;">
+                    <div ><span class="inlineblock">性价比</span><span class="question" content="搜索量/宝贝数，搜索量除以宝贝数的指标,表示关键词的性价比"></span>
+                    </div>
+                </th>
+                <th style="width: 13%;"><div class="sort-td sort-up" orderBy="price">直通车均价</div></th>
+                <th style="width: 14%;">操作</th>
+            </tr>
+            </thead>
+            <tbody class="cat-top-word-tbody">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="paging-div" style="text-align: center;padding-top: 5px;"></div>
+    <div style="height: 30px;"></div>
+</div>
+
+<script>
+    TM.Loading.init.show();
+    $(document).ready(function(){
+
+        TM.gcs('/js/tm.js',function(){
+            TM.gcs('/js/topKey/bustopkeynew.js?_v=15',function(){
+                TM.widget.bindQtips();
+                TM.CatTopWord.init.doInit($('.cat-top-word-container'), 0);
+            })
+        });
+    });
+
+</script>

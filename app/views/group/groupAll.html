@@ -1,0 +1,204 @@
+#{extends '/group/tbtnavGroup.html' /}
+#{set title:'团购模板' /}
+
+
+<link rel="stylesheet" media="screen" type="text/css" href="/css/multiModify.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/group.css" />
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/group/groupAll">团购模板&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>制作模板
+</div>
+
+<div class="gp-set-step" style="display:none;">
+    <table>
+        <tr>
+            <td class="set-step step-one"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span>①设置模板</span></td>
+            <td class="set-step-arrow"><span> > </span></td>
+            <td class="set-step step-two"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><span>②修改宝贝</span></td>
+            <td class="set-step-arrow"><span> > </span></td>
+            <td class="set-step step-three"><span>③投放模板</span></td>
+        </tr>
+    </table>
+</div>
+
+<div id="content">
+    <div class="tmp_list" style="display:block">
+        <div class="tmp_list_area" ></div>
+        <div class="tmp_list_bottom"></div>
+    </div>
+    <div class="tmp_set" style="display:none">
+        <div class="tmp_set_top">
+            <table style="margin:0 auto;">
+                <tbody>
+                <tr>
+                    <td>
+                        <a>模板名称:</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="templateName" type="text" placeholder="为了区别其他模板(最多支持四十个字符)" default="为了区别其他模板(最多支持四十个字符)"  name="templateName"/>
+                    </td>
+                    <td class="tmp_set_top_td_gap"></td>
+                    <td>
+                        <div class="group_btn group_modify" value="100208">自定义宝贝</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tmp_set_area"></div>
+
+        <div class="tmp_set_prop">
+            <table class="tmp_set_prop_tab"></table>
+        </div>
+        <div class="tmp_set_btn">
+            <div class="group_btn group_b_w group_next">下一步</div>
+        </div>
+
+        <div class="item_set_prop" style="display:none"></div>
+        <div class="item_set_btn" style="display:none;">
+            <div class="group_btn group_b_w step-one gp_up_btn">上一步</div>
+            <div class="group_btn group_b_w item_next gp_next_btn">下一步</div>
+        </div>
+
+    </div>
+
+    <div class="tmp_toPut">
+    </div>
+</div>
+
+
+<script id="group_tmp_prop" type="text/x-jquery-templ">
+    <div class="group_tmp_div">
+        <div class="group_tmp_div_1">
+            <div class="group_btn set_begin" modelId="{{= modelId}}" maxNum="{{= maxNum}}">
+                    <span>使用该模板</span>
+            </div>
+        </div>
+        <div class="group_tmp_div_2">
+            {{if favorite}}
+            <a class="group_tmp_div_fav group_tmp_div_fav_tru" style="width:80px;"></a>
+            {{else}}
+            <a class="group_tmp_div_fav group_tmp_div_fav_nor" style="width:80px;"></a>
+            {{/if}}
+            <a>
+                <b>编号：<span>{{= modelId}}</span></b>
+            </a>
+            <a>
+                <span>宽度： {{= width}}像素 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a>
+                <span>主图尺寸：{{= itemPicSize}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a>
+                <span>宝贝数量：{{= maxNum}}个</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a>
+                <span>{{= comments}}</span>
+            </a>
+        </div>
+        <div class="group_tmp_div_3"></div>
+    </div>
+</script>
+
+<script id="group_item_prop" type="text/x-jquery-templ">
+<table class="group_item_prop">
+    <tbody>
+    <tr>
+        <td rowspan="3">
+            <a target="_blank" class="group_item_href"  href="http://item.taobao.com/item.htm?id={{= id}}" title="点击图片可查看宝贝详情">
+                <img class="group_item_image" src="{{= image}}"  data="{{= id}}">
+            </a>
+        </td>
+        {{if (title != "")}}
+        <td>&nbsp;&nbsp;&nbsp;标题：&nbsp;&nbsp;<input type="text" class="g_pro_td_input group_item_title" value="{{= title}}"></td>
+        {{/if}}
+        {{if (count > 0)}}
+        <td>&nbsp;&nbsp;&nbsp;销售量：&nbsp;&nbsp;<input type="text" class="g_pro_td_input group_item_count" value="{{= count}}"></td>
+        {{/if}}
+    </tr>
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;原价：&nbsp;&nbsp;<input type="text" class="g_pro_td_input group_item_price" value="{{= price}}"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;特价：&nbsp;&nbsp;<input type="text" class="g_pro_td_input group_item_minPrice" value="{{= minPrice}}"></td>
+        <td><div class="g_pro_in_msg"></div></td>
+    </tr>
+    </tbody>
+</table>
+</script>
+
+<script id="dialogItemBox" type="text/x-jquery-templ">
+<td class="dia-item-td">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <img class="dia-item-img" src="{{= picURL}}" data="{{= id}}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a target="_blank"  href="http://item.taobao.com/item.htm?id={{= id}}">
+                        <span class="dia-item-tit" >{{= title}}</span>
+                        <span class="dia-item-pri">{{= price}}</span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</td>
+</script>
+
+<script id="toPutItemBox" type="text/x-jquery-templ">
+<td>
+    <table class="put_item_div">
+        <tbody>
+            <tr>
+                <td rowspan="2">
+                    <div>
+                        <a target="_blank" href="http://item.taobao.com/item.htm?id={{= id}}">
+                            <img class="tp_item_img" data="{{= id}}" src="{{= picURL}}"/>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="tp_item_info">
+                        <span class="tp_item_title" >{{= title}}</span>
+                    </div>
+                </td>
+                <td rowspan="2" style="width:20px;">
+                    <div class="tp_item_checkBox">
+                        <input type="checkBox">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="tp_item_org">&nbsp;&nbsp;&nbsp;<b>{{= price}}</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="font-size:12px;">已投放<b class="tp_item_org">{{= planCount}}</b>个团购计划</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</td>
+</script>
+
+<script>
+TM.Loading.init.show();
+TM.gcs('/js/jquery.tmpl.js',function(){
+    TM.gcs('/js/group/util.js',function(){
+        TM.gcs('/js/group/group.js?_v=2',function(){
+            $(document).ready(function(){
+                 $(document).ajaxStart(function(){
+                     TM.Loading.init.show();
+                     $("body").mask();
+                 });
+                 $(document).ajaxStop(function(){
+                     TM.Loading.init.hidden();
+                     $("body").unmask();
+                 });
+                 TM.group.showModel.init("showAll");
+            });
+        });
+    });
+});
+</script>

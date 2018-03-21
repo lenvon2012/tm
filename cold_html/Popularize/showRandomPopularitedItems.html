@@ -1,0 +1,16 @@
+#{extends 'popularitedMain.html' /}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Popularize/showRandomPopularitedItems.css">
+
+<div class="showRandomPopularitedItemsDiv">
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getScript('/js/tm.js',function(){
+            $.getScript('/js/popularize/showRandomPopularitedItems.js',function(){
+                ShowRandomPopularizedItems.Init.init(${numIid});
+            });
+        });
+    })
+</script>
+#{/set}

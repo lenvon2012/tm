@@ -1,0 +1,239 @@
+#{extends 'yangyang.html' /}
+
+<style>
+
+
+    *,body,form,menu,dir,fieldset,blockquote,pre,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6
+    {
+        padding: 0;
+        margin: 0;
+    }
+    #mainfoot{background: #FB8314;}
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    ul,ol,dl,li {
+        list-style: none;
+    }
+
+    div#skinTitle {
+        width: 780px;
+        margin-left:200px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    div.main {
+        width: 780px;
+        /*float: right;*/
+        /*display: inline;*/
+        /*margin-left:200px;*/
+        /*border: 1px solid #aaa;*/
+        background: white;
+    }
+
+
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {
+        /*margin: 5px auto;*/
+        height: auto;
+    }
+    .kwcontainer {
+        background: transparent;
+        margin: 10px auto;
+        width: 100%;
+        overflow: auto;
+        zoom: 1;
+    }
+
+    .head ul li{margin: 13px 0 0 0;}
+    #report_menu{background-color:#fff;border:#C4CED8 1px solid;padding:5px;}
+    #cubex_ask{display:block;width:172px;height:43px;margin-top:10px;}
+    .sidebar{width:160px;}
+    #curTab{text-decoration:none;background:url(http://easytitle-asset.stor.sinaapp.com/img/menubg-actived2.gif) no-repeat 0 0;}
+    .tmpage a{color: #197BBE;}
+
+
+
+        /*http://easytitle-asset.stor.sinaapp.com/img/nav-bg.png*/
+
+        /*.menu_sub li{float:right;}*/
+    a{color:white;text-decoration:none;}
+    a:hover{color:#ff4d00;text-decoration:underline}
+        /*a {text-decoration: none;cursor: pointer;color: #197BBE;}*/
+
+    .menu_sub a{height:30px;line-height:30px;margin-right:1px;text-align:center;font-family: "微软雅黑";}
+    .menu_sub a.menu_w{display:inline;float:left;height:35px;line-height:35px;font-size:14px;font-weight:bold;cursor:pointer;width:130px;
+        margin-left:5px;}
+    .menu_sub a.menu_u{display:inline;float:left;height:35px;line-height:35px;font-size:14px;font-weight:bold;cursor:pointer;width:250px;
+        margin-left:5px;}
+    .menu_sub a.menu_u:hover{text-decoration: none;}
+    .menu_sub a.menu_t:hover{text-decoration: none;}
+    .menu_sub a.menu_t{display:inline;float:left;height:27px;line-height:27px;font-size:14px;font-weight:bold;cursor:pointer;width:60px;
+        margin-left:5px;background: url("/img/relation/img.png") -168px -210px;}
+    .menu_sub a.menu_t:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .menu_sub a:hover{color:#fff6ec;}
+    .curTab_w{color:#000;text-decoration:none;background:url(http://easytitle-asset.stor.sinaapp.com/img/nav-bg.png) no-repeat -10px -10px;}
+
+    .left_nav {
+        width: 184px;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        background: #FFF8ED;
+        font-family: "微软雅黑";
+    }
+
+    .left_nav ul {
+    }
+
+    .left_nav ul li {
+        height: 34px;
+        line-height: 34px;
+        background: url(http://yinliu.zhushou001.com/img/icon_left_nav_li.png) 30px center no-repeat;
+        text-indent: 35px;
+    }
+
+    .left_nav ul li a {
+        display: block;
+        width: 100%;
+        height: 34px;
+        color:#197BBE;
+        text-align: left;
+    }
+
+    .left_nav ul li a:hover {
+        color: #96460b;
+    }
+
+    .left_nav_title {
+        text-indent: 30px !important;
+        font-size: 14px;
+        font-weight: bold;
+        color: #585858;
+        background: none !important;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .left_nav .current {
+        background: url(http://yinliu.zhushou001.com/img/left_nav_current.png) no-repeat;
+        line-height: 32px;
+        text-indent: 40px;
+    }
+
+    .left_nav .current a {
+        color: #FFF;
+        font-weight: bold;
+    }
+
+    .left_nav .current a:hover {
+        color: #FFF;
+        font-weight: bold;
+        text-indent: 40px !important;
+    }
+    .navSelected{background-color: #e3eef8;}
+</style>
+
+
+*{http://easytitle-asset.stor.sinaapp.com/img/new_head_bg.gif?24036}*
+
+<div style="background:url(http://easytitle-asset.stor.sinaapp.com/img/new_head_bg.gif) repeat-x;height:78px;">
+    <div id="userinfo"></div>
+    <div id="headnav" style="width:1000px;height:45px;margin: 0 auto;" class="menu_sub">
+        <div style="height:30px;"></div>
+        <div class="blank0" style="height:1px;"></div>
+        <div style="height:32px;width:1100px;" class="headnavcontent">
+            <a class="menu_w" class="curTab_w" href="/SheepTitle/sheeptitle">自动标题</a>
+
+            <a class="menu_u" href="javascript:void(0)"><span style="font-size: 16px;">玩转站内</span>欢迎你，<span class="username" style="font-size: 15px;"></span></a>
+            <a class="bluebutton" href="javascript:void(0)" id="synbtn" style="height: 32px;line-height: 32px;margin: 8px 0 0 0;font-weight: normal;">更新数据</a>
+            <a class="bluebutton" href="javascript:void(0)" id="logout" style="height: 32px;line-height: 32px;margin: 8px 0 0 0;font-weight: normal;">退出</a>
+        </div>
+    </div>
+    <div class="blank0" style="height:1px;"></div>
+</div>
+
+
+<div id="skinTitle" style="margin: 0 auto;width:1000px;">
+
+    <div class="left_nav" style="float:left;width:184px">
+        <ul>
+            <li class="left_nav_title">
+                <a href="javascript:void(0)" style="color: #1C19FF;">欢迎您，<span class="username"></span></a>
+            </li>
+            <li class="left_nav_title">
+                <a href="/SheepTitle/sheeptitle">自动标题</a>
+            </li>
+            <li class="left_nav_title">
+                <a href="javascript:void(0);" class="feedback">意见反馈</a>
+            </li>
+        *{<li >
+            <a href="">自动优化</a>
+        </li>
+            <li >
+                <a href="">优化记录</a>
+            </li>}*
+
+        </ul>
+        <div class="blank0" style="height:1px;"></div>
+    </div>
+    <div class="content" style="float:right;width:803px;">
+    #{doLayout /}
+    </div>
+</div>
+</div>
+
+<script>
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+    TM.gcs('/js/tm.js',function(){
+        $('#synbtn').click(function(){
+            TM.sync();
+        });
+    });
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    $.cookie('_s',null);
+
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+    $('.left_nav').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.left_nav').find('div.navSelected').removeClass("navSelected");
+            anchor.addClass("navSelected");
+        }
+    });
+    $('.headnavcontent').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.headnavcontent').find('.curTab_w').removeClass("curTab_w");
+            anchor.addClass("curTab_w");
+        }
+    });
+    $(document).ready(function(){
+        var href = "http://amos.im.alisoft.com/msg.aw?v=2&uid=clorest510&site=cntaobao&s=1&charset=utf-8";
+        $('#kefuhref').attr("href",href);
+    });
+    $.getScript("/Status/user",function(data){
+        $('.username').html(TM.name);
+    });
+    //tr><td><img src="http://img02.taobaocdn.com/bao/uploaded/i2/12176031702636254/T1qjo8XcVXXXXXXXXX_!!0-item_pic.jpg_80x80.jpg" alt="pic" class="ipic 22392272794" name="22392272794" title="晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形" /></td><td class="t"><h3><a href="http://item.taobao.com/item.htm?id=22392272794" target="_blank">晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形</a> (&yen; 28.80)</h3><div class="snsList"><a class="jtico jtico_qzone" href="http://www.jiathis.com/send/?webid=qzone&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到QQ空间" target="_blank">QQ空间</a> <a class="jtico jtico_tsina" href="http://www.jiathis.com/send/?webid=tsina&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到新浪微博" target="_blank">新浪微博</a> <a class="jtico jtico_tqq" href="http://www.jiathis.com/send/?webid=tqq&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到腾讯微博" target="_blank">腾讯微博</a> <a class="jtico jtico_renren" href="http://www.jiathis.com/send/?webid=renren&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到人人网" target="_blank">人人网</a> <a class="jtico jtico_kaixin001" href="http://www.jiathis.com/send/?webid=kaixin001&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到开心网" target="_blank">开心网</a> <a class="jtico jtico_taobao" href="http://www.jiathis.com/send/?webid=taobao&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到淘江湖" target="_blank">淘江湖</a> <a class="jtico jtico_meilishuo" href="http://www.jiathis.com/send/?webid=meilishuo&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到美丽说" target="_blank">美丽说</a> <a class="jtico jtico_mogujie" href="http://www.jiathis.com/send/?webid=mogujie&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到蘑菇街" target="_blank">蘑菇街</a> <a class="jtico jtico_tsohu" href="http://www.jiathis.com/send/?webid=tsohu&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到搜狐微博" target="_blank">搜狐微博</a> <a class="jtico jtico_baidu" href="http://www.jiathis.com/send/?webid=baidu&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到百度搜藏" target="_blank">百度搜藏</a> <a class="jtico jtico_douban" href="http://www.jiathis.com/send/?webid=douban&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到豆瓣" target="_blank">豆瓣</a> <a class="jtico jtico_t163" href="http://www.jiathis.com/send/?webid=t163&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到网易微博" target="_blank">网易微博</a> <a class="jtico jtico_qingsina" href="http://www.jiathis.com/send/?webid=qingsina&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到新浪轻博" target="_blank">新浪轻博</a> <a class="jtico jtico_tianya" href="http://www.jiathis.com/send/?webid=tianya&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到天涯社区" target="_blank">天涯社区</a> <a class="jtico jtico_feixin" href="http://www.jiathis.com/send/?webid=feixin&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到飞信" target="_blank">飞信</a> <a class="jtico jtico_hi" href="http://www.jiathis.com/send/?webid=hi&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到百度空间" target="_blank">百度空间</a> <a class="jtico jtico_51" href="http://www.jiathis.com/send/?webid=51&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到51社区" target="_blank">51社区</a> <a class="jtico jtico_qq" href="http://www.jiathis.com/send/?webid=qq&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到QQ收藏" target="_blank">QQ收藏</a> <a class="jtico jtico_mop" href="http://www.jiathis.com/send/?webid=mop&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到猫扑推客" target="_blank">猫扑推客</a> <a class="jtico jtico_sohu" href="http://www.jiathis.com/send/?webid=sohu&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到搜狐白社会" target="_blank">搜狐白社会</a> <a class="jtico jtico_huaban" href="http://www.jiathis.com/send/?webid=huaban&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到花瓣网" target="_blank">花瓣网</a> <a class="jtico jtico_139" href="http://www.jiathis.com/send/?webid=139&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到移动微博" target="_blank">移动微博</a> <a class="jtico jtico_115收藏" href="http://www.jiathis.com/send/?webid=115收藏&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到115" target="_blank">115</a> <a class="jtico jtico_i139" href="http://www.jiathis.com/send/?webid=i139&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到爱分享" target="_blank">爱分享</a> <a class="jtico jtico_tongxue" href="http://www.jiathis.com/send/?webid=tongxue&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到同学网" target="_blank">同学网</a> <a class="jtico jtico_tieba" href="http://www.jiathis.com/send/?webid=tieba&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到百度贴吧" target="_blank">百度贴吧</a> <div class="more"><a class="jtico jtico_tifeng" href="http://www.jiathis.com/send/?webid=tifeng&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到凤凰微博" target="_blank">凤凰微博</a> <a class="jtico jtico_xiaoyou" href="http://www.jiathis.com/send/?webid=xiaoyou&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到朋友网" target="_blank">朋友网</a> <a class="jtico jtico_msn" href="http://www.jiathis.com/send/?webid=msn&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到MSN" target="_blank">MSN</a> <a class="jtico jtico_youdao" href="http://www.jiathis.com/send/?webid=youdao&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到有道书签" target="_blank">有道书签</a> <a class="jtico jtico_google" href="http://www.jiathis.com/send/?webid=google&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到谷歌" target="_blank">谷歌</a> <a class="jtico jtico_fanfou" href="http://www.jiathis.com/send/?webid=fanfou&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到饭否" target="_blank">饭否</a> <a class="jtico jtico_189share" href="http://www.jiathis.com/send/?webid=189share&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到翼分享" target="_blank">翼分享</a> <a class="jtico jtico_buzz" href="http://www.jiathis.com/send/?webid=buzz&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到谷歌Buzz" target="_blank">谷歌Buzz</a> <a class="jtico jtico_xianguo" href="http://www.jiathis.com/send/?webid=xianguo&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到鲜果" target="_blank">鲜果</a> <a class="jtico jtico_sina" href="http://www.jiathis.com/send/?webid=sina&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到新浪vivi" target="_blank">新浪vivi</a> <a class="jtico jtico_ifensi" href="http://www.jiathis.com/send/?webid=ifensi&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到粉丝网" target="_blank">粉丝网</a> <a class="jtico jtico_qu1" href="http://www.jiathis.com/send/?webid=qu1&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到趣一网" target="_blank">趣一网</a> <a class="jtico jtico_youshi" href="http://www.jiathis.com/send/?webid=youshi&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到优士网" target="_blank">优士网</a> <a class="jtico jtico_digu" href="http://www.jiathis.com/send/?webid=digu&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到嘀咕网" target="_blank">嘀咕网</a> <a class="jtico jtico_hexun" href="http://www.jiathis.com/send/?webid=hexun&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到和讯" target="_blank">和讯</a> <a class="jtico jtico_duitang" href="http://www.jiathis.com/send/?webid=duitang&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到堆糖" target="_blank">堆糖</a> <a class="jtico jtico_189cn" href="http://www.jiathis.com/send/?webid=189cn&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到天翼社区" target="_blank">天翼社区</a> <a class="jtico jtico_cnfol" href="http://www.jiathis.com/send/?webid=cnfol&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑色天鹅绒中等美腿塑形&uid=1524913" title="分享到中金微博" target="_blank">中金微博</a> <a class="jtico jtico_thexun" href="http://www.jiathis.com/send/?webid=thexun&url=http://item.taobao.com/item.htm?id=22392272794&title=晨尔秋季圆点中厚连裤袜性感镂空网袜黑
+    </script>

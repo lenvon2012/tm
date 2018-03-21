@@ -1,0 +1,76 @@
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/newAutoTitle/titleRestoreCenter.css"/>
+<link rel="stylesheet" type="text/css"
+      href="/public/javascripts/newAutoTitle/DateTimePicker/jquery.datetimepicker.css"/>
+
+<script src="/public/javascripts/Nepal/jquery-1.8.3.min.js"></script>
+
+<script>
+    var TM = TM || {};
+    TM.gcs("/public/javascripts/zhdatejs/jquery-ui-1.8.17.custom.min.js", function () {
+        TM.gcs("/public/javascripts/jquery.loadmask.min.js", function () {
+            TM.gcs("/public/javascripts/jquery.tmpl.js", function () {
+                TM.gcs("/public/javascripts/utils/jquery.cookie.js", function () {
+                    TM.gcs("/public/javascripts/tm.js", function () {
+
+                        TM.gcs("/public/javascripts/newAutoTitle/DateTimePicker/jquery.datetimepicker.js", function () {
+                            TM.gcs("/public/javascripts/newAutoTitle/timeLineRestore.js", function () {
+                                TM.gcs("/public/javascripts/newAutoTitle/titleRestoreCenter.js", function () {
+
+                                })
+
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+
+</script>
+
+
+
+
+    <div class="backCenterMain">
+
+        <div class="backCenterNav">
+            <span class="backCenterSpan" id="backA2" >全店标题还原</span>
+            <span class="backCenterSpan" id="backA1" >单标题还原</span>
+
+            <span class="backCenterSpan" id="backA3"  style="border-bottom: 0px; border-top: 2px solid #0095B1;">按时间点标题还原</span>
+            <span class="NavSpan"></span>
+        </div>
+
+        <div class="mainPanel">
+
+
+            <div class="sleceteDate">
+                <div class="sleceteDateDiv">
+                    指定时间：<input id="startText1" class="startText" type="text" value=""/>
+                </div>
+                      <span class="explain">
+                          说明：本操作会将数据还原到指定时间之前的状态。
+                      </span>
+            </div>
+            <div class="myalert">
+            *{说明：本操作会将数据还原到指定时间之前的状态！}*
+                <span class="rebntSpan">
+
+                     <span class="retex">一键还原：</span>
+                     <span class="rebnt" id="rebnt"></span>
+                 </span>
+                <span class="alertText">
+
+                </span>
+            </div>
+
+            <div id="holder"></div>
+            <div class="infoTable">
+
+            </div>
+
+
+        </div>
+
+
+    </div>

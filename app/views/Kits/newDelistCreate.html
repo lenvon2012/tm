@@ -1,0 +1,146 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'创建上下架计划' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/autoDeList/newDelistPlans.css?_v=1">
+#{/set}
+
+
+<div class="page-hierarchy">
+    <span>当前位置: &nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="/kits/delistPlans">上下架计划管理&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>创建计划
+</div>
+
+<section class="page-head">
+    <div style="margin-top:5px;">
+        <ul>
+            <li class="step-head step-head1 current">
+                <b>1</b>
+                分类选择
+            </li>
+            <li class="step-head step-head2">
+                <b>2</b>
+                宝贝排除
+            </li>
+            <li class="step-head step-head3">
+
+            </li>
+        </ul>
+    </div>
+</section>
+
+<div class="delist-container">
+    <div class="delist-choose">
+        <table>
+            <thead>
+            <tr>
+                <td class="edit-title w-80">
+                        计划名称：
+                </td>
+                <td class="edit-context w-200">
+                    <input class="input-text">
+                </td>
+            <tr/>
+
+            <tr>
+                <td>
+                    <div style="margin-left:30px;margin-top:30px;margin-bottom:20px;" >请选择分类(注:只能选择下面分类中的一种):</div>
+                    <input type="checkbox" style="margin-left:60px;" tarDiv="all-item-container" class="all-item category-tab">
+                    所有出售宝贝
+                    <input type="checkbox" style="margin-left:60px;" tarDiv="seperate-category-container" class="category-item category-tab">
+                    类目
+                    <input type="checkbox" style="margin-left:60px;" tarDiv="single-item-container" class="single-item category-tab">
+                    单个出售宝贝
+                </td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="delist-choose-show">
+        <div class="delist-choose-container current all-item-container">
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <b>1.</b>
+                        &nbsp;&nbsp;排除销量前10的宝贝？&nbsp;&nbsp;
+                        <input type="radio" name="first10sale" status="true" checked="checked">
+                        是&nbsp;&nbsp;
+                        <input type="radio" name="first10sale" status="false">
+                        否
+                    </td>
+                </tr>
+                <tr style="height:50px;">
+                    <td>
+                        <b>2.</b>
+                        &nbsp;&nbsp;自动增加新增宝贝？&nbsp;&nbsp;
+                        <input type="radio" name="addnewitem" status="true" checked="checked">
+                        是&nbsp;&nbsp;
+                        <input type="radio" name="addnewitem" status="false">
+                        否
+                    </td>
+                </tr>
+                <tr>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="delist-choose-container seperate-category-container">
+            <div>
+                <p>
+                    <b>1.</b>&nbsp;&nbsp;淘宝商品分类：
+                </p>
+                <div id="itemCatContainer" style="padding-left:30px;">
+
+                </div>
+            </div>
+
+            <div>
+                <p>
+                    <b>2.</b>&nbsp;&nbsp;店铺自定义分类：
+                </p>
+                <div id="sellerCatContainer" style="padding-left:30px;">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="delist-choose-container single-item-container">
+
+        </div>
+
+        <div class="steptwobtn" style="margin:20px 0px 10px 200px;">
+            <span class="tmbtn wide-sky-blue-btn">下一步,排除宝贝</span>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="catTmpl">
+    <p>
+        <input type="checkbox" icd="{{= cid}}" name="itemCid" style="padding:0px;margin:0px;width:auto;"> >>
+        <span style="300px;">{{= name}}</span>
+        (
+        出售中:&nbsp;<span style="width:120px;text-align:center;"><b style="color:green">{{= onSaleCount}}</b></span>|
+        仓库中:&nbsp;<span style="width:120px;text-align:center;"><b style="color:green">{{= inStockCount}}</b></span>
+        )
+    </p>
+</script>
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/Kits/newdelistplan.js',function() {
+        TM.gcs('/js/jquery.tmpl.js', function () {
+            TM.delistChooseManager.init.doInit($('.delist-container'));
+        });
+    });
+</script>

@@ -1,0 +1,272 @@
+#{extends 'seoway.html' /}
+#{set title:'标题优化' /}
+
+<link rel="stylesheet" media="screen" href='/css/Titles/titleOp.css'>
+*{<link rel="stylesheet" media="screen" href='/css/pagination.css'>}*
+<link rel="stylesheet" media="screen" href='/css/commodityDiag.css'>
+<style type="text/css">
+    .oplogs td{height:24px;}
+    .greybottom{border-bottom: 1px solid #9c9c9c}
+</style>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        TM.gcs("/status/js",function(){
+            TM.gcs('/js/jquery.pagination.js',function(){
+                TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+                    TM.gcs('/js/utils/Paging.js',function(){
+                        TM.gcs('/js/QueryCommodity.js',function(){
+                            TM.gcs('/js/TitleOp/RecommendWord.js',function(){
+                                TM.gcs('/js/TitleOp/ModifyTitle.js?_v=53',function(){
+                                    TM.gcs('/js/genKeywordSpan/genKeywordSpan.js',function(){
+                                        $(document).ready(function() {
+                                            var params = {};
+                                            params.itemId = ${numIid};
+                                            params.currentPage = ${pn};
+                                            params.offset = ${offset};
+                                            params.search = "${s}";
+                                            params.start=${start};
+                                            params.end=${end};
+                                            params.sort=${sort};
+                                            params.status=${status};
+                                            params.catId=${catId};
+                                            params.enableHotProps = true;
+                                            params.isKitty = true;
+                                            ModifyTitle.main.init(params);
+                                            //alert(TM.ver);
+                                            //if(TM.ver<20){
+                                            //$(".jumpTo").removeAttr("href");
+                                            //$(".jumpTo").click(function( event ) {
+                                            //	$( "#dialog" ).dialog( "open" );
+                                            //	event.preventDefault();
+                                            //});
+                                            //}
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}
+
+
+
+<div style="text-align: center;width:100%;margin-left: auto;margin-right: auto;">
+<div class="blank0"></div>
+<div class="titleOpContainer">
+
+<div class="titleTipDiv rowDiv">
+    <span class="titleTip">标题小贴士</span>
+    <div class="tipContent">
+        <span class="tipItem">1.亲，请在下面修改宝贝标题，使宝贝更有竞争力。o(∩_∩)o</span>
+        <span class="tipItem">2.亲，采用我们推荐的关键词，让搜索命中率飞一下。o(∩_∩)o</span>
+        <span class="tipItem">3.亲，可以先诊断新标题，比较新旧标题的得分，再提交新标题。o(∩_∩)o</span>
+    </div>
+</div>
+<div class="blank0" style="height: 15px;"></div>
+<div class="rowDiv itemInfoDiv">
+    <div class="modifyTitleDiv">
+        <div class="itemInfoBlock">
+            <a class="goto-item-page" href="#" target="_blank"><img class="itemImg bottomMargin" /></a><br>
+            <a class="lookItem goto-item-page" href="#" target="_blank">查看详情</a>
+        </div>
+        <div class="modifyBlock">
+            <span class="titleSpan bottomMargin">宝贝原标题：</span><span class="originTitle bottomMargin"></span>
+            <span class="titleSpan bottomMargin">输入新标题：</span>
+            <div class="newTitleDiv bottomMargin">
+            *{<input type="text" class="newTitle" value=""/>}*
+                <textarea class="newTitle"></textarea>
+                <!--<div class="remainWord">可用字数<span class="remainLength">11</span>/ 30</div>-->
+            </div>
+            <span class="titleBtn diagNewTitle bottomMargin">诊断新标题</span>
+            <span class="titleBtn submitNewTitle bottomMargin">提交新标题</span>
+            <div id="remainWordId" class="newRemainWord">
+            </div>
+            <div class="blank0"></div>
+        </div>
+        <div class="blank0"></div>
+
+    </div>
+
+    <div class="diagResultDiv">
+        <div class="resultScore originScore">
+            <div style="font-weight: bold;">原标题得分<span class="diagScore"></span></div>
+            <div>质量等级：<span class="scoreLevel"></span></div>
+            <div>建议：<span class="advice"></span></div>
+        </div>
+        <div class="resultScore newScore">
+            <div style="font-weight: bold;">新标题得分<span class="diagScore"></span></div>
+            <div>质量等级：<span class="scoreLevel"></span></div>
+            <div>建议：<span class="advice"></span></div>
+        </div>
+        <div class="blank0"></div>
+        <div class="modifyEvaluate">
+            亲，修改标题后，先诊断新标题吧。o(∩_∩)o
+        </div>
+    </div>
+
+    <div class="blank0" style="height: 15px;"></div>
+    <div style="margin-left: 330px;">
+        <span class="linkBtn enableBtn diagnosePrevItem"><a href="javascript:void(0);">上一个宝贝</a></span>
+        <span class="linkBtn enableBtn backToItemList"><a href="#">返回</a></span>
+        <span class="linkBtn enableBtn diagnoseNextItem"><a href="javascript:void(0);">下一个宝贝</a></span>
+        <div class="blank0"></div>
+    </div>
+</div>
+<div class="blank0" style="height: 15px;"></div>
+<!--
+<div class="recommendTipDiv rowDiv">
+    <span class="recommendTip">亲，请在下面推荐的关键词中挑选与宝贝相关的关键词加到标题里面哦。o(∩_∩)o </span>
+</div>
+<div class="blank0" style="height: 15px;"></div>
+-->
+<div class="recommendDiv rowDiv">
+    <div class="tabDiv">
+        <ul class="clearfix">
+            <li><span targetDiv="diagResultBlock"   class="select">当前诊断结果</span></li>
+            <li id="hotprops"><span targetDiv="hotPropsBlock">热销属性</span></li>
+            <li><span targetDiv="recommendWordBlock" >关键词推荐</span></li>
+            <li><span targetDiv="longTailBlock" >长尾词推荐</span></li>
+            <li><span targetDiv="propBlock" >宝贝属性列表</span></li>
+            <li><span targetDiv="promoteBlock" >促销词推荐</span></li>
+            <li><span targetDiv="estimateSearchBlock" >预计搜索词</span></li>
+        *{<li><a targetDiv="hotTitleBlock" href="javascript:void(0);">同行火爆标题</a></li>}*
+        </ul>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+    <!-- 诊断结果-->
+    <div class="liTargetDiv diagResultBlock" style="display: block;">
+        <div class="blank0" style="height: 5px;"></div>
+        <div class="lzlDetailResult">
+        </div>
+    </div>
+
+    <div class="liTargetDiv hotPropsBlock" style="display: block;">
+    </div>
+
+
+
+    <!-- 长尾词推荐-->
+    <div class="liTargetDiv tableDiv longTailBlock">
+        <div class="wordSearch">
+            <span class="searchLabel">关键词：</span>
+            <input type="text" id="longTailSearchText" class="wordInput" />
+            <span id="longTailSearchBtn" class="searchBtn">搜索</span>
+        </div>
+        <div class="blank0" style="height: 10px;"></div>
+        <div class="parseWords titlesplits" style="">种子关键词:</div>
+        <div class="blank0" style="height: 20px;"></div>
+
+        <table class="longTailTable">
+            <thead>
+            <tr class="longTailTr">
+                <td style="width: 70%;">长尾词列表</td>
+                <td style="width: 30%;">获取相关长尾词</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="blank0" style="height: 0px;"></div>
+        <div id="longTailWarning" class="warning"></div>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+
+    <!-- 关键词推荐-->
+    <div class="liTargetDiv tableDiv recommendWordBlock">
+        <div class="wordSearch">
+            <span class="searchLabel">核心词：</span>
+            <input type="text" id="recommendSearchText" class="wordInput" />
+            <span id="recommendSearchBtn" class="searchBtn">搜索</span>
+            <div class="blank0" style="height: 10px;"></div>
+            <div class="parseWords titlesplits" style="">种子关键词:</div>
+            <div id="recommendWordPaging" class="pagingDiv">
+            </div>
+        </div>
+        <div class="blank0" style="height: 20px;"></div>
+        <table class="recommendTable">
+            <thead>
+            <tr class="recommendTr">
+                <td class="wordTd">关键词列表</td>
+                <td class="searchTd">搜索指数</td>
+                <td class="saleTd">热卖指数</td>
+                <td class="competeTd">直通车竞争指数</td>
+                <td class='opTd'>获取相关推荐词</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="blank0" style="height: 0px;"></div>
+        <div id="recommendWarning" class="warning"></div>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+    <!-- 宝贝属性-->
+    <div class="liTargetDiv tableDiv propBlock">
+        <div class="blank0" style="height: 5px;"></div>
+        <table class="propTable">
+            <thead>
+            <tr class="propTr firstRow">
+                <td class="propKeyTd">属性列表</td>
+                <td class="propValueTd">属性内容</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- 促销词推荐-->
+    <div class="liTargetDiv promoteBlock">
+
+    </div>
+
+    <!-- 预计搜索词-->
+    <div class="liTargetDiv tableDiv estimateSearchBlock">
+        <div class="blank0" style="height: 5px;"></div>
+
+        <table class="estimateTable">
+            <thead>
+            <tr class="estimateTr">
+                <td>预计搜索词</td>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+    <!-- 火爆标题-->
+    <div class="liTargetDiv tableDiv hotTitleBlock">
+        <div class="blank0" style="height: 5px;"></div>
+
+        <table class="hotTitleTable">
+            <thead>
+            <tr class="hotTitleTr">
+                <td>同行火爆标题推荐</td>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="blank0" style="height: 0px;"></div>
+        <div id="hotTitleWarning" class="warning"></div>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+
+</div>
+</div>
+
+</div>

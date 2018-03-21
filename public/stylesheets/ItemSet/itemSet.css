@@ -1,0 +1,178 @@
+ul {
+    padding: 0px; margin: 0px 0px 0px 0px; list-style-image: none; list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    padding: 0px; margin: 0px 0px 0px 0px; list-style-image: none; list-style-type: none;
+}
+
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+
+.clearfix {
+    clear: both; zoom: 1;
+}
+
+.clearfix:after {
+    clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+}
+
+.blueImgBtn {
+    line-height: 30px; width: 90px; height: 30px; font-family: "微软雅黑"; color: white;
+    font-size: 13px; background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+    display: block; float: left;
+    text-align: center; cursor: pointer;
+}
+
+.whiteImgBtn {
+    font-family: "微软雅黑"; text-align: center; cursor: pointer; color: #333;
+    background: url(/public/images/btns/whiteBtn.png) no-repeat 0px 0px;
+    width: 90px; height: 30px; line-height: 30px; font-size: 13px;
+    display: block; float: left;
+}
+
+.ItemSetContainer {
+    width: 960px; font-size: 12px; text-align: left; margin-top: 20px;
+    border: #D4D4D4 1px solid; padding: 20px; margin-left: auto;margin-right: auto;
+
+}
+
+.ItemSetContainer .itemTip {
+    background: url(/public/images/tips/info.png) no-repeat 0px 4px; padding-left: 25px;
+    font-size: 20px; font-weight: bold; display: block; margin-bottom: 10px;
+}
+
+.ItemSetContainer .rowBorder {
+    border: #D4D4D4 1px solid; padding: 10px;
+}
+
+.ItemSearchBlock {
+
+}
+
+.ItemSearchBlock .searchText {
+    height: 25px; line-height: 25px; width: 450px; border: #2D8ABE 1px solid;
+    background: #ffffff; float: left; font-size: 14px;
+}
+
+.ItemSetContainer .separator {
+    border-bottom: #2D8ABE 5px solid; height: 0px; width: 100%;
+}
+
+.ItemListBlock {
+    background: #ffffff;
+}
+
+.ItemListBlock .returnListBtn {
+    margin-left: 60px;
+}
+
+.ItemListBlock .pagingDiv {
+    float: right; font-size: 14px; background: #ffffff;
+}
+
+.ItemListDiv {
+
+}
+
+.ItemBigList {
+    width: 100%;
+}
+
+.ItemSmallList {
+    float: left; width: 16%;
+}
+
+.ItemListDiv .bigTable {
+    border: #D4D4D4 1px solid; width: 100%; border-spacing: 0; border-collapse: collapse;
+}
+
+.ItemListDiv .bigTable tr {
+    height: 80px; background: #fffb9f;
+}
+
+.ItemListDiv .bigTable tr:hover {
+    background: #ceffbc;
+}
+
+.ItemListDiv .bigTable td {
+    border-bottom: #D4D4D4 1px solid;
+}
+
+.ItemListDiv .bigTable .imgTd {
+    width: 17%;
+}
+
+.ItemListDiv .bigTable .itemImg {
+    width: 100px; height: 60px; margin-left: 25px;
+}
+
+.ItemListDiv .bigTable .titleTd {
+    width: 65%;
+}
+
+.ItemListDiv .bigTable .itemTitle {
+    color: blue; font-size: 14px; display: block; margin-bottom: 10px;
+}
+
+.ItemListDiv .bigTable .lookItem {
+    color: #a10000; float: left;
+}
+
+.ItemListDiv .bigTable .itemOpTd {
+    width: 18%;
+}
+
+.ItemListDiv .bigTable .itemDetailBtn {
+    margin-left: 20px;
+}
+
+.ItemListDiv .smallTable {
+    border: #D4D4D4 1px solid; width: 100%; border-spacing: 0; border-collapse: collapse;
+}
+
+.ItemListDiv .smallTable tr {
+    cursor: pointer;
+}
+
+.ItemListDiv .smallTable .stNormalTr {
+    height: 80px; background: #fffb9f;
+}
+
+.ItemListDiv .smallTable tr:hover {
+    background: #ceffbc;
+}
+
+.ItemListDiv .smallTable .stSelectTr {
+    background: #ceffbc;
+}
+
+.ItemListDiv .smallTable td {
+    border-bottom: #999 1px solid;
+}
+
+.ItemListDiv .smallTable .itemImg {
+    width: 100px; height: 60px; margin-left: 23px;
+}
+
+.ItemOpDiv {
+    border: #D4D4D4 1px solid; padding: 10px;
+    width: 80%; float: right;
+}
+
+.ItemOpDiv .ItemDescDiv .curItemSpan {
+    font-size: 14px; font-weight: bold;
+}
+
+.ItemOpDiv .ItemDescDiv .curItemTitle {
+    font-size: 14px; color: #a10000;
+}
+
+.ItemOpDiv .ItemDescDiv a:hover {
+    text-decoration: underline; color: #a10000;
+}

@@ -1,0 +1,630 @@
+#{extends 'yangyang.html' /}
+<style>
+    div#yangyangContent {
+        width: 1000px;
+        margin: 0 auto;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    div.main {
+        width: 820px;
+        /*float: right;*/
+        /*display: inline;*/
+        margin-left:200px;
+        border: 1px solid #aaa;
+        background: white;
+    }
+
+
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {
+        margin: 5px auto;
+        width: 780px;
+        height: auto;
+    }
+    .kwcontainer {
+        background: transparent;
+        margin: 10px auto;
+        width: 100%;
+        overflow: auto;
+        zoom: 1;
+    }
+    .navSelected{background-color: #d0e5f5;}
+
+</style>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css'>
+
+<style>
+    .navmain {
+        width: 1000px;
+        margin: 0 auto;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    .aside {
+        width: 173px;
+        /*float: left;*/
+        margin: 20px 0 0 0;
+        position: fixed;
+        z-index: 9999;
+    }
+    .aside .sidebox {
+        clear: both;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    .sidemenu {
+        border: 1px solid #C7CACC;font-size:13px;
+    }
+    .sidemenu li a {
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        border-bottom: 1px solid #C6C8CB;
+        overflow: hidden;
+        text-align: left;
+        width:100%;
+        color:#444;
+    }
+    .sidemenuAnchor{background: url("http://s.libdd.com/img/bg/sidemenu-item.$5106.png") repeat;}
+    .sidemenu li a:hover{
+        text-align: left;
+        background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;
+        color:black;
+    }
+    .sidemenu li a:hover span{color:black;}
+    .asideselected{background-color: #3668A5;}
+    .asideselected span{color:white;}
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {height: auto;width:1000px;}
+
+    .kwcontainer {background: transparent;margin: 10px auto;width: 100%;overflow: hidden;zoom: 1;min-height:400px;_height:400px;}
+    .sidemenu li.aside-hot-tag .aside-icon {cursor: move;}
+    .sidemenu li.aside-hot-tag .aside-icon {
+        background-position: -92px 10px;
+    }
+    .sidemenu li a{}
+    .sidemenu li a .aside-icon {float: left;width: 30px;height: 30px;background-image: url("http://s.libdd.com/img/icon/sidemenu.$6372.png");background-repeat: no-repeat;}
+    #kits{width: 780px;}
+
+    .ddSqureButton{padding: 5px 10px 0px 10px;height:28px;background: #134E97;}
+    .ddSqureButton:hover{background: #598BC7;}
+    .head ul{margin-top:0px;}
+    .head ul li.selected{background-image: none;background-color: #32547D;}
+    .userheadop{padding-top:15px;}
+
+    .recommendDiv .tabDiv li .select {color: white; background: #32547D;}
+    .recommendDiv .tabDiv li a:hover {color: white;background: #3668A5;}
+
+
+    .btntext4{background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px}
+    .btntext4:hover{background-position: 0 -34px;}
+    .btntext6{background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') -98px -4px  no-repeat}
+    .btntext6:hover{background-position: -98px -34px;}
+    .navSelected{background-color: #598BC7;}
+    .head a{font-size:20px;}
+    .head ul li{width:120px;}
+        ul{margin : 0 0 0 0 ;}
+    li{float:none;}
+    .clear {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+
+    .bluebutton {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;
+        height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+        width:96px;
+     }
+    .bluebutton:hover{background-position: 0 -34px;}
+    .optimizebtn{width: 120px;height: 30px;line-height: 32px;text-align: center;cursor: pointer;color:white;font-size:16px;display:block;}
+    #container{border: 1px solid #9c9c9c;}
+
+    .blank0 {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+    .clearfix {clear: both; zoom: 1;}
+    .clearfix:after {clear: both; display: block; visibility: hidden; height: 0px; content: '.';}
+
+    #skincomment{width:800px;margin-left:200px;min-height: 380px;_height:380px;}
+    .skincomment-table {width: 100%; font-family: "微软雅黑"; font-size: 14px; color: #333;margin: 10px 0px;border:1px solid #d9d9d9}
+    .skincomment-table thead{border:1px solid #d9d9d9}
+    .skincomment-table thead tr {
+        width: 100%; font-family: "微软雅黑"; font-size: 14px; color: #1D5987; font-weight: bold;
+        background: left -102px url('/img/frame/bg.png'); height: 32px;
+        text-align: center;
+    }
+    .skincomment-table tbody td {
+        text-align: center; padding: 5px; border-bottom: #999 1px solid;
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+    #skincomment input[type=text] {
+        border: #666 1px solid;
+    }
+
+    /****kitIndex  autocomment  start**********/
+    .swOpArea{background-color: #ffd;margin: 10px 10px 10px 10px;padding: 10px 0 10px 0;border:1px solid #BEBEBE;padding-left:10px;}
+    .swOpArea span{display: inline-block;}
+    .tmNav span{ line-height: 30px;height: 30px;padding: 5px 15px 0 10px;margin:5px 10px 0 15px;display:inline-block;
+        cursor: pointer;
+        /*border-bottom:1px solid #4297D7;*/
+        border-top: 1px solid #BBB;border-left: 1px solid #BBB;
+        border-right: 1px solid #BBB;background: white;color: #598BC7;}
+
+    .tmNav span.selected{background: #32547D;; color: #ffffff;border-left: 1px solid #79b7e7;border-right: 1px solid #79b7e7;}
+    .tmNav span:hover{ background: #598BC7;; color: white;font-weight: bold; }
+    input.numberInput{width:40px;}
+    input.commentInput{width:200px;}
+    /****kitIndex  autocomment  end**********/
+</style>
+
+<!-- <div class='top-banner' style="background: url('/img/frame/header-bg.png');height: 48px; "> -->
+<div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; ">
+
+    <div class='top-nav head-nav' >
+            <span class = "head">
+                <ul style='padding-top:15px;'>
+                    <li class='selected'>
+                        <a href="/home/index" id = "dpzd">
+                        店铺诊断
+                        </a>
+                    </li>
+                    <!--
+                    <li>
+                        <a href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1841777&tracelog=taozhanguinav" target="_blank">
+                        开车赚钱！
+                        </a>
+                    </li>
+                      -->
+
+                    <!--
+                    <li>
+                        <a href="/home/commodityDiag" id="bbzd">
+                        标题优化
+                        </a>
+                    </li>
+                    -->
+
+                    *{<li>}*
+                        *{<a href="/kits/index">}*
+                        *{超级工具箱}*
+                        *{</a>}*
+                    *{</li>}*
+
+                    *{<li>}*
+                        *{<a href="/KeyWords/toSerchKeyWords" id="rccx">}*
+                        *{热词查询}*
+                        *{</a>}*
+                    *{</li>}*
+
+<!--
+                    <li>
+                        <a href="/home/multiModify" id = "plxg">
+                        批量修改
+                        </a>
+                    </li>
+-->
+
+<!--
+                    <li>
+                        <a target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-283059378.htm?tracelog=tm" id = "plxg">
+                            隐形降权
+                        </a>
+                    </li>
+-->
+
+                </ul>
+
+             <!--
+             <span style='float:left;width:220px;height: 41px;text-align: right;display: inline-block;*display:inline;' class="userheadop">
+                 *{<a id="goHelp" style='width:30px;height:20px;color:white;padding: 15px 5px 0 0' href="http://bangpai.taobao.com/group/thread/15247314-278929271.htm?spm=0.0.0.123.CWPUQf" target='_blank'>使用教程</a>}*
+                 *{<a id="titleHelp" style='width:30px;height:20px;color:white;padding: 15px 5px 0 0' href="http://bangpai.taobao.com/group/thread/15247314-278987348.htm?spm=0.0.0.0.WdGqu9" target='_blank'>标题优化教程</a>}*
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+                 <a id="logout" class="bluebutton" style='padding:0px;' href="javascript:void(0)">退出</a> <!-- |<a href="/Share/toShare">分享</a>
+             </span>
+               -->
+             <span style='float:left;width:240px;;line-height: 41px;height: 41px;text-align: center;display: inline-block;*display:inline;' class="userheadop">
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;font-size:14px;">更新数据</a>
+                 <a class="bluebutton"  id="logout" style='padding:0px;font-size:14px;' href="javascript:void(0);">退出</a> <!-- |<a href="/Share/toShare">分享</a> -->
+             </span>
+
+        </span>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<!--<div id="help">
+        *{<li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/KeyWords/toSerchKeyWords">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+                <span class="fold-icon fold"></span>
+            </li>}*
+            
+
+        </ul>
+</div>-->
+<div id="yangyangContent">
+    <div class="aside">
+        <ul class="sidemenu sidebox side-tracked-tag navContent" style="">
+            <li class="aside-hot-tag first">
+                <div class="navwrapper">
+                    <a class="followed-tag clearfix" href="/home/index">
+                        <span class="aside-icon"></span>
+                        <span>店铺诊断</span>
+                    </a>
+                    *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/home/commodityDiag">
+                    <span class="aside-icon"></span>
+                    <span>标题优化</span>
+                </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="javascript:void(0)">
+                    <span class="aside-icon"></span>
+                    <span>超级工具箱</span>
+                </a>
+                <span class="fold-icon fold"></span>
+                <div class="secondUl" style="display:none;">
+                    <div class="secondLi" tag="kits">
+                        <a href="/kits/comment" style="background: url('');border-bottom: 0px;">自动评价</a>
+                    </div>
+                    <div class="secondLi" tag="kits"><a href="/kits/delist" style="background: url('');border-bottom: 0px;">自动上下架</a></div>
+                    <div class="secondLi" tag="kits"><a href="/kits/window" style="background: url('');border-bottom: 0px;">自动橱窗</a></div>
+                </div>
+                </div>
+            </li>
+            *{<li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/KeyWords/toSerchKeyWords">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+                <span class="fold-icon fold"></span>
+            </li>}*
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/home/multiModify">
+                    <span class="aside-icon"></span>
+                    <span>批量修改</span>
+                </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/home/topKey">
+                    <span class="aside-icon"></span>
+                    <span>top搜词</span>
+                </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag">
+                <div class="navwrapper">
+                    <a class="followed-tag clearfix" href="/home/bussearchkey">
+                        <span class="aside-icon"></span>
+                        <span>类目搜词</span>
+                    </a>
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                    <a class="followed-tag clearfix" href="/home/mywords">
+                        <span class="aside-icon"></span>
+                        <span>我的词库</span>
+                    </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag real-time-monitor">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/monitor/visitorMonitor">
+                    <span class="aside-icon"></span>
+                    <span>实时监控</span>
+                </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag award-li">
+                <div class="navwrapper">
+                    <a class="followed-tag clearfix" href="/taozhanggui/award" style="height:28px;">
+                        <span class="aside-icon"></span>
+                        <span style="font-weight:bold;color:red;font-size:15px;">好评有礼！</span>
+                    </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                    <a class="followed-tag clearfix" href="/taozhanggui/invite" style="height:28px;">
+                        <span class="aside-icon"></span>
+                        <span style="font-weight:bold;color:red;font-size:15px;">一起赚钱！</span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="aside-hot-tag hidden">
+                <div class="navwrapper">
+                    <a class="followed-tag clearfix" href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1841777&tracelog=taozhanguileftnav" target="_blank" style="height:28px;">
+                        <span class="aside-icon"></span>
+                        <span style="font-weight:bold;color:red;font-size:15px;">开车赚钱！</span>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+        <div class="blank0" style="height:1px;"></div>
+        <ul id="opnav" class="sidemenu sidebox side-tracked-tag " style="margin-top:15px ;*margin-top: 0px; display:none;">
+            <li id="ordershengyeji" class="aside-hot-tag first">
+                <div id="left1" class="navwrapper hidden">
+                    *{<a href="http://to.taobao.com/aHZ5Mjy" style="width:190px;height:50px;padding-top:5px;padding-left:3px;">}*
+                        *{<img class="" src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2RRfuXchXXXXXXXXX_!!22902351.gif" style="width:188px;height:48px">}*
+                    *{</a>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" target="_blank" href="http://to.taobao.com/TguGTiy">
+                    <span class="aside-icon"></span>
+                    <!-- <div>老用户专享<span style="color:red;">49一年</span>(4元/月)</div> -->
+                    <div>老用户专享<span style="color:red;">39一年</span>(3元/月)</div>
+                    <div></div>
+                </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+            <li class="aside-hot-tag ">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="javascript:void(0)">
+                    <span class="aside-icon"></span>
+                    <span>使用教程</span>
+                </a>
+                <span class="fold-icon fold"></span>
+                <div class="secondUl" style="display:none">
+                    <div class="secondLi" tag="kits">
+                        <a href="http://bangpai.taobao.com/group/thread/15247314-278653313.htm?spm=0.0.0.0.DVdxRI" target="_blank" style="background: url('');border-bottom: 0px;">教程</a>
+                    </div>
+
+                    <div class="secondLi" tag="kits">
+                        <a href="http://bangpai.taobao.com/group/thread/15247314-278929271.htm " target="_blank" style="background: url('');border-bottom: 0px;">常见问答</a>
+                    </div>
+                    <div class="secondLi" tag="kits"><a target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-278923120.htm?spm=0.0.0.0.nfh3l7" style="background: url('');border-bottom: 0px;">功能介绍</a></div>
+                    <div class="secondLi" tag="kits"><a target="_blank" href="http://bangpai.taobao.com/group/15247314.htm?spm=0.0.0.0.1CgNtH" style="background: url('');border-bottom: 0px;">标题优化注意事项</a></div>
+                </div>
+                </div>
+            </li>
+            <li class="aside-hot-tag">
+                <div class="navwrapper">
+                <a class="followed-tag clearfix" href="javascript:void(0)">
+                    <span class="aside-icon"></span>
+                    <span>加入我们</span>
+                </a>
+                <span class="fold-icon unfold"></span>
+                <div class="secondUl" style="">
+                    <div class="secondLi" tag="kits">
+                        <a href="javascript:void(0);" style="background: url('');border-bottom: 0px;font-weight: bold;color: blue;">
+                            QQ群(62230623)
+                        </a>
+                        <!--
+                        <a href="javascript:void(0);" style="background: url('');border-bottom: 0px;font-weight: bold;color: blue;">
+                            QQ群(187074356)
+                        </a>
+                        -->
+                    </div>
+                </div>
+                </div>
+            </li>
+         </ul>
+    </div>
+    <div class="main">
+        #{doLayout /}
+    </div>
+</div>
+
+
+*{
+<table id="yangyangTable" style="width: 955px;">
+    <tr style="width: 100%;">
+        <td style="width: 150px;">
+            <div class="aside">
+                <ul class="sidemenu sidebox side-tracked-tag" style="padding: 0 0 0 0;">
+                    <li class="aside-hot-tag first">
+                        <a class="followed-tag clearfix" href="/home/index">
+                            <span class="aside-icon"></span>
+                            <span>店铺诊断</span>
+                        </a>
+                    </li>
+                    <li class="aside-hot-tag ">
+                        <a class="followed-tag clearfix" href="/home/commodityDiag">
+                            <span class="aside-icon"></span>
+                            <span>标题优化</span>
+                        </a>
+                    </li>
+                    <li class="aside-hot-tag ">
+                        <a class="followed-tag clearfix" href="/kits/index">
+                            <span class="aside-icon"></span>
+                            <span>超级工具箱</span>
+                        </a>
+                    </li>
+                    <li class="aside-hot-tag ">
+                        <a class="followed-tag clearfix" href="/KeyWords/toSerchKeyWords">
+                            <span class="aside-icon"></span>
+                            <span>热词查询</span>
+                        </a>
+                    </li>
+                    <li class="aside-hot-tag ">
+                        <a class="followed-tag clearfix" href="/home/multiModify">
+                            <span class="aside-icon"></span>
+                            <span>批量修改</span>
+                        </a>
+                    </li>
+                    <li class="aside-hot-tag ">
+                        <a class="followed-tag clearfix" href="/home/topKey">
+                            <span class="aside-icon"></span>
+                            <span>top搜词</span>
+                        </a>
+                    </li>
+                    <li class="aside-hot-tag ">
+                        <a class="followed-tag clearfix" href="/monitor/visitorMonitor">
+                            <span class="aside-icon"></span>
+                            <span>实时监控</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+        <td style="width: 780px;">
+            <div class="main">
+            #{doLayout /}
+            </div>
+        </td>
+
+</table>
+}*
+
+<script type="text/javascript">
+
+    TM.gcs('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        if(TM.ver >= 20){
+            orderAnchor.parent().hide();
+        }else if(TM.ver >= 10){
+            orderAnchor.attr('href','/home/buyzhizun');
+        }else{
+            orderAnchor.attr('href','/home/buyVersion');
+        }
+
+        *{TM.isOp = true");}*
+        var target = "left1";
+        $.get('/op/adbanner',{name:target},function(r){
+
+
+            if(!r || !r.enable){
+                return;
+            }
+
+            var div = $('#'+target);
+            div.html('<a href="'+r.href+'" style="'+r.anchorStyle+'" target="_blank"><img src="'+r.imgPath+'" style="'+r.imgStyle+'"></a>');
+            div.show();
+        })
+
+    });
+
+    var head = $('.head');
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+
+//            hasPath = true;
+        }
+    });
+
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+
+    TM.gcs('/status/user',function(){
+        //if(TM.lastUpdateTime > 1371988495000) {
+            $('.real-time-monitor').hide();
+        //}
+    });
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+    $('.fold-icon').click(function(){
+        if($('.unfold').length == 1 && $(this).hasClass('unfold')){
+
+        } else {
+            $('.unfold').addClass('fold');
+            $('.unfold').parent().find('.secondUl').hide();
+            $('.unfold').removeClass('unfold');
+        }
+        var t = 500;
+        if($(this).hasClass("fold")) {
+            $(this).removeClass("fold");
+            $(this).addClass("unfold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideDown(t);
+            }
+        } else if($(this).hasClass("unfold")) {
+            $(this).removeClass("unfold");
+            $(this).addClass("fold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideUp(t);
+            }
+        }
+    });
+    $('.fold-icon').each(function(){
+        if($(this).parent().find('.secondUl').length == 0){
+        }
+    });
+    $('.navContent').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.navContent').find('div.navSelected').removeClass("navSelected");
+            anchor.parent().addClass("navSelected");
+            if(path.indexOf("/kits/") >= 0){
+                anchor.parent().parent().slideDown(500);
+            }
+        }
+    });
+
+    TM.gcs('/status/js',function(){
+        var welcome = $("<div style='position:absolute;left:460px;top:26px;color:white;font-size:17px;'><b>淘掌柜</b>&nbsp;&nbsp;欢迎您,&nbsp;&nbsp;<b>"+TM.name+"</b></div>");
+        $('.top-nav').append(welcome);
+        TM.setAnchorSids();
+    });
+
+    var hideNav = 'true'== '${session.get("_hidenav")}'
+    if(!hideNav){
+        $('#opnav').show();
+    }
+
+    $(document).ready(function(){
+        //$('#footer-content').find('p').hide();
+        $('#kefuhref').attr('href','http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8');
+    })
+
+</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f2c6f9dd92929062ea90b19d0b688ea' type='text/javascript'%3E%3C/script%3E"));
+</script>

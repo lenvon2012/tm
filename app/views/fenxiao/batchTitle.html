@@ -1,0 +1,249 @@
+#{extends 'fxmain.html' /}
+#{set title:'批量修改' /}
+
+<link rel="stylesheet" media="screen" href="/css/multiModify.css">
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+*{<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">}*
+
+<style>
+    .errorTable {margin-bottom: 10px;}
+    .origin-title {font-size: 13px;vertical-align: middle;}
+    .subCheckTd {text-align: center;}
+    .updateNewTitle, .resetTitle, .setFenxiaoTitle {margin: 2px;}
+    .item-title-table tr td {vertical-align: middle;font-size: 13px;}
+    .action-area{margin-left:30px;}
+    .addPromoteWords, .addHotWords, .addLongtailWords {margin: 0 5px;}
+    .remain-section{width:120px;}
+    .choose-word-area{display: none;border: 1px solid #ddd;padding-bottom:10px;}
+    .busSearch tbody tr td {
+        background-color: #fff;
+    }
+    .choose-this-word{margin:3px;padding:3px;border: 1px solid #aaa;cursor: pointer;}
+    .choose-this-word:hover{border: 1px solid #CC3300;}
+    .item-container{padding:10px;}
+    .search-pagging{padding:10px;}
+    .liRadio {height: 40px;}
+</style>
+
+*{<div class="page-hierarchy" style="margin-bottom: 10px;">}*
+    *{<span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/fenxiao">分销神器&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>批量修改标题}*
+*{</div>}*
+<div class="bodyline">
+    <div class="autodiagIntro">
+        <b style="font-weight: bold;color:blue;">功能介绍：</b>批量快速修改宝贝标题，包括批量替换、批量删除、批量添加前后缀、批量去除空格等
+        <br><b class="red">注意：</b>替换关键词或添加前后缀时，若修改后淘宝名称超过30个汉字则不能修改成功。
+    *{<p style="font-weight: bold;padding-top:5px;">如果需要重新排查已去外链的宝贝，请点击&nbsp;<span class="btn" >清除历史记录</span></p>}*
+    </div>
+</div>
+
+<div class="pageContent" id="multiModifyArea">
+    <form id="showcaseSettingForm" onsubmit="return false;">
+        <dl style="margin-bottom:0px;">
+
+            <dt style="background: #eee;padding: 8px;font-size: 18px;">
+                批量修改标题
+            </dt>
+            <dd>
+                <ul style="margin-left: 30px; line-height: 2.5em;">
+                    <li class="liRadio">
+                        <span onclick="$('#replacement').attr('checked', 'checked');$('#deleteKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" class="orange">替换宝贝标题中 <input class="text" type="text" name="oldKeyword" id="oldKeyword" style="width:80px;"> 替换为 <input class="text" type="text" name="newKeyword" id="newKeyword" style="width:80px;"></span>
+                        <span class="replaceAllBtn btn">执行替换</span>
+                    </li>
+                    <li class="liRadio">
+                        <span onclick="$('#prefix').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#suffixKeyword').val('');" class="orange">在标题前面加上 <input class="text" type="text" name="prefixKeyword" id="prefixKeyword" style="width:214px;"></span>
+                        <span class="addPrefixBtn btn">添加前缀</span>
+                    </li>
+                    <li class="liRadio">
+                        <span onclick="$('#suffix').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#prefixKeyword').val('');" class="orange">在标题后面加上 <input class="text" type="text" name="suffixKeyword" id="suffixKeyword" style="width: 214px;"></span>
+                        <span class="addSuffixBtn btn">添加后缀</span>
+                    </li>
+                    <li class="liRadio">
+                        <span onclick="$('#delete').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" class="orange">删除宝贝标题中 <input class="text" type="text" name="deleteKeyword" id="deleteKeyword" style="width:150px;"></span>
+                        <span class="removeAllBtn btn">执行删除</span><span class="removeAllSpaceBtn btn" style="margin-left:10px;">删除标题里所有空格</span>
+                    </li>
+                </ul>
+            </dd>
+
+            *{<dd>}*
+				*{<span class="tmbtn long-blue-btn" id="modifyButton" style="font-size:16px;margin-left: 40px;">执行批量修改</span>}*
+
+                *{<span class="tmbtn short-green-btn" id="showResultButton" style="font-size:16px;margin-left: 30px;">查看结果</span>}*
+
+                *{<span class="tmbtn long-green-btn batchAllUseGuanfangRecomm" style="font-size:16px;margin-left: 30px;">一键还原分销标题</span>}*
+
+                *{<a class="tmbtn long-sky-blue-btn showTaskOp" style="font-size:16px;margin-left:100px;" href="/titletaskop/fenxiao">查看任务</a>}*
+			*{</dd>}*
+			*{<dd>}*
+				*{<span style="font-size:12px;color:red;margin-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：建议您每次修改不要超过1000个宝贝哦</span>}*
+			*{</dd>}*
+            *{<dd style="border-bottom: 1px; border-color: #999; border-bottom-style: dotted">&nbsp;}*
+
+            *{</dd>}*
+			*{<dt style="margin-top: 10px;">}*
+				*{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题修改成功个数：<span class="successNum">0</span>}*
+				*{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题修改失败个数：<span class="failNum">0</span>}*
+			*{</dt>}*
+			*{<dd style="border-bottom: 1px; border-color: #999; border-bottom-style: dotted">&nbsp;}*
+				*{}*
+			*{</dd>}*
+		</dl>
+
+	</form>
+
+</div>
+
+<div class="item-container">
+    <div style="background: #eee;padding: 8px;font-size: 18px;font-weight: bolder;">
+        手动标题优化
+    </div>
+    <div class="search-pagging" style="text-align: center"></div>
+    *{<div style="margin:10px;height:30px;">}*
+        *{<span class="updateSelectTitle btn btn-primary">更新选中的标题</span>}*
+        *{<span style="float: right;margin-top: 10px;">如果对我们软件有任何建议，欢迎联系我们客服，谢谢！</span>}*
+    *{</div>}*
+    <table class="item-title-table busSearch" style="margin: 0px 0 0px 0;">
+        <thead>
+            <tr>
+                *{<th style="width:5%;"><input type="checkbox" tag="checkAll" class="checkAll" style="width:13px;"></th>}*
+                <th style="width:82px;">宝贝主图</th>
+                <th style="width:70%;">宝贝标题</th>
+                <th style="width:18%">操作</th>
+            </tr>
+        </thead>
+        <tbody class="item-title-tbody" >
+            <tr>
+                <td colspan="9" style="height:40px;">稍等，正在载入数据。建议使用浏览器[急速模式]，速度更快</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="search-pagging" style="text-align: center"></div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="tplItem">
+    <tr tag="{{= cid}}" numiid="{{= id}}">
+        *{<td rowspan="3" class="subCheckTd"><input type="checkbox" tag="subCheck" class="subCheck" style="width:13px;"></td>}*
+        <td rowspan="3"><a href="http://item.taobao.com/item.htm?id={{= id}}" target="_blank" class="thumbnail"><img class="imgsnap" src="{{= picURL}}_80x80.jpg" /></a></td>
+        <td style="height:24px;"><b style="font-size:13px;vertical-align: middle;">原始标题：</b><div class="origin-title divinline">{{= title}}</div></td>
+        <td rowspan="3" style="text-align: center;"><span class="updateNewTitle btn btn-primary">提交修改标题</span><br><span class="resetTitle btn btn-success">使用原始标题</span><br><span class="setFenxiaoTitle btn btn-success">使用分销标题</span></td>
+    </tr>
+    <tr>
+        <td style="height: 26px;"><b style="font-size:13px;vertical-align: middle;color:blue;">修改标题：</b><input type="text" class="newTitleTxt" name="newTitle" value="{{= title}}" style="width:460px;font-size:13px;" /></td>
+    </tr>
+    <tr>
+        <td>
+            <div class="remain-section divinline" id="newTitleRemainObj{{= rowno}}"></div><div class="action-area divinline"><span class="addHotWords btn btn-info">添加热词</span><span class="addLongtailWords btn btn-info">添加长尾词</span><span class="addPromoteWords btn btn-info">添加促销词</span></div>
+            <div></div>
+        </td>
+    </tr>
+    <tr><td colspan="4" class="choose-word-area" style="padding-bottom: 10px;"></td></tr>
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="shopRecTmpl">
+    <form>
+        <table>
+            <tbody >
+            <tr class="status">
+                <td>在架状态:</td>
+                <td>
+                    <select>
+                        <option value="2">所有宝贝</option>
+                        <option value="1">在售宝贝</option>
+                        <option value="0">下架宝贝</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="allsale">
+                <td>优化宝贝是否不限销量:</td>
+                <td><select>
+                    <option value="false">否.只优化没有销量的宝贝</option>
+                    <option name="sale" value="true">是,不限销量</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>是否保留标题中的品牌:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="brand" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="brand" value="false">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留货号:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="serialNum" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="serialNum" value="false">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留数字:</td>
+                <td><input class="smallinput" type="radio" name="noNumber" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noNumber" value="true">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留颜色:</td>
+                <td><input class="smallinput" type="radio" name="noColor" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noColor" value="true">否
+                </td>
+            </tr>
+            <tr>
+                <td>标题头部固定词:</td>
+                <td><input type="text" name="fixedStart" style="width:200px"></td>
+            </tr>
+            <tr>
+                <td>标题不包含以下词(以<span style="color: red;">空格</span>分割):</td>
+                <td><input type="text" name="mustExcluded" style="width:200px"></td>
+            </tr>
+            <tr>
+                <td>是否添加促销词:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="promotewords" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="promotewords" value="false">否
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</script>
+
+
+<!-- open dialog -->
+<div id="dialog" style="width: 650px; height: 450; display:none;" class="ui-dialog-content ui-widget-content" >
+    <div id="user_version">
+        <span id="user_status">尊敬的用户:</span><br>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;您正在使用：<span id="user_version_status">免费诊断版</span></span><br>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;暂无权限使用该功能，为提高流量与销量，请您<span style="color:red;">立即升级</span>现在升级可尊享一折优惠，并且<span style="color:red;">立即返现</span>。</span>
+        <div id="version_buy">
+            <a href = "/home/buyVersion"><img alt="立即订购" src="/public/images/button/lijidingjgou.png" ></a>
+            </div>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $.getScript('/js/jquery.pagination.js',function(){
+        $.getScript('/js/jquery.tmpl.js',function(){
+            $.getScript('/js/jquery.inputlimitor.1.0.js',function(){
+                $.getScript('/js/tm.js',function(){
+                    $.getScript('/js/commChoose/commChoose.js',function(){
+                        $.getScript('/js/fenxiao/batchTitle.js',function(){
+                            $.getScript('/status/js',function(){
+                                $.getScript('/js/versioncontroller.js',function(){
+                                    if(TM.ver<20){
+                                    //	$( "#multiModifyArea" ).click(version_event);
+                                    }
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+});
+</script>
+#{/set }

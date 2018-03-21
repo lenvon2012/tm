@@ -1,0 +1,109 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'淘标题-类目7天高点击率图片' /}
+
+#{set 'moreStyles'}
+
+#{/set}
+
+<style>
+    .catClickRateTable {
+        width: 98%;
+        margin: 0 auto;
+        border-bottom: 1px solid #bbbdc6;
+        text-align: center;
+    }
+    .catClickRateTable tr{
+        border-left: 1px solid #bbbdc6;
+        border-right: 1px solid #bbbdc6;
+        border-top: 1px solid #bbbdc6;
+        height: 30px;
+    }
+    .busSearch thead tr {
+        background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+        background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+    }
+    .sort {
+        width: 20px;
+        height: 20px;
+    }
+    .Desc {
+        background: url("/img/sort-bg.png") 0px -17px;
+    }
+    .Asc {
+        background: url("/img/sort-bg.png") right -39px no-repeat;
+    }
+    .sortTd {
+        cursor: pointer;
+    }
+</style>
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>类目7天高点击率图片
+</div>
+
+<div class="catClickRate">
+    <div style="text-align: center; padding: 20px 0;">
+        <table class="cat-select-table" style="border-collapse: collapse; margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td>
+                    <select class="first-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+                <td style="padding-left: 50px;">
+                    <select class="second-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+                <td style="padding-left: 50px;">
+                    <select class="third-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="catClickRateContent">
+        <div class="catClickRateContentPagging" style="text-align: center;"></div>
+        <table class="catClickRateTable busSearch" style="width: 780px;margin: 0 auto;">
+            <thead>
+                <tr>
+                    <td>
+                        宝贝主图
+                    </td>
+                    <td class="sortTd">
+                        7天展现量<span class="inlineblock sort Desc" sort="impression"></span>
+                    </td>
+                    <td class="sortTd">
+                        7天点击量<span class="inlineblock sort Desc" sort="aclick"></span>
+                    </td>
+                    <td class="sortTd">
+                        7天点击率<span class="inlineblock sort Desc" sort="clickRate"></span>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="catClickRateContentPagging" style="text-align: center;"></div>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+        TM.gcs('/js/tm.js',function(){
+            TM.gcs('/js/CatAnalysis/catClickRate.js?_v=3',function(){
+                TM.catClickRate.Init.doInit($('.catClickRate'));
+            })
+        });
+</script>
+#{/set}

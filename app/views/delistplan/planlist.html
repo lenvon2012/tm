@@ -1,0 +1,80 @@
+#{extends 'main.html' /}
+#{set title:'智能上下架计划管理' /}
+
+<style>
+    .delist-plan-admin-wrapper {
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+
+    .list-table {
+        border-collapse: collapse; width: 100%;
+        border: 1px solid #ccc; border-collapse: collapse; text-align: center;
+    }
+    .list-table thead tr {
+        vertical-align: middle; background: left -102px url('/img/frame/bg.png');
+    }
+
+    .list-table thead td {
+        height: 29px; vertical-align: middle; border-bottom: 1px solid #ccc;
+    }
+
+    .list-table tbody tr td {
+        vertical-align: middle; padding: 3px 5px; border-bottom: 1px solid #ccc;
+    }
+
+    .list-table tbody tr.no-delist-plan-tr td {
+        padding: 15px; font-size: 16px;
+    }
+
+
+</style>
+
+<div class="delist-plan-admin-wrapper" style="padding: 10px;">
+    <div style="padding-top: 10px;">
+        <span class="tmbtn wide-yellow-btn add-delist-plan-btn">创建上下架计划</span>
+    </div>
+    <div class="" style="padding: 20px 0px 70px 0px;">
+        <table class="list-table delist-plan-table">
+            <thead>
+            <tr>
+                <td style="width: 7%;">序号</td>
+                <td style="width: 18%;">标题</td>
+                <td style="width: 15%;">创建时间</td>
+                <td style="width: 15%;">修改时间</td>
+                <td style="width: 10%;">宝贝数</td>
+                <td style="width: 15%;">状态</td>
+                <td style="width: 20%;">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    $(document).ready(function () {
+        TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+            TM.gcs('/js/jquery.url.js', function () {
+                TM.gcs('/js/tm.js', function () {
+                    TM.gcs('/js/switch.js', function () {
+                        TM.gcs("/status/js", function () {
+                            TM.gcs("/js/delistplan/delistbase.js", function () {
+                                TM.gcs("/js/delistplan/delistadmin.js", function () {
+                                    TM.DelistAdmin.init.doInit($(".delist-plan-admin-wrapper"));
+
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+
+</script>
+#{/set}

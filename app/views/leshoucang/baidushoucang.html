@@ -1,0 +1,24 @@
+#{extends 'leshoucang/base.html' /}
+#{set title:'乐收藏 - 百度收藏' /}
+
+<style type="text/css">
+
+</style>
+
+<div class="item-container">
+
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript" src="/js/leshoucang/leshoucangitems.js?_v=1"></script>
+<script type="text/javascript" src="/js/leshoucang/baidushoucang.js?_v=1"></script>
+<script type="text/javascript">
+    $.get('/home/firstSync',function(){
+        $(document).ready(function() {
+            var baidushoucang = true;
+            TM.DptgHot.init.doInit($(".item-container"),baidushoucang);
+        });
+    });
+</script>
+#{/set}

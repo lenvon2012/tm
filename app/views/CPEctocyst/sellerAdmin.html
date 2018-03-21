@@ -1,0 +1,119 @@
+
+#{extends 'CPEctocyst/CPEctocystMain.html'/}
+#{set title:'卖家管理' /}
+
+<style>
+   .sellerAdminContainer {
+       width: 100%;
+   }
+   .sellerAdminPaging {
+       text-align: center;
+       margin: 10px 0;
+   }
+   .sellerAdminTable {
+       width: 100%;
+       font-family: '微软雅黑';
+   }
+   div.tmAlertDetail{
+       text-align: center;
+   }
+    .allocateKefuSelector {
+        width: 230px;
+        margin: 15px 0;
+    }
+    .kefuSearchSelector{
+        width: 150px;
+        margin: 0 10px;
+        height: 26px;
+        color: grey;
+    }
+</style>
+
+<script type="text/x-jquery-tmpl" id="sellerAdminTableTr">
+    <tr class="sellerAdminTableTr" userid="{{= userId}}">
+        <td>
+            {{= userNick}}
+            <a style="margin-left: 5px;" href="javascript:void(0);" class="rank seller-rank-{{= userLevel}}"></a>
+        </td>
+
+        <td>
+            {{= totalToDeal}}
+        </td>
+        {{if subStaffId==0}}
+        <td class="showOnlyAdmin">
+            ~
+        </td>
+        <td class="showOnlySuperAdmin">
+            <span class="tmbtn sky-blue-btn allocateToSubStaff">分配客服</span>
+        </td>
+        {{else}}
+        <td class="showOnlyAdmin">
+            {{= subStaffName}}
+        </td>
+        <td class="showOnlySuperAdmin">
+            <span class="tmbtn sky-blue-btn allocateToSubStaff" substaffid="{{= subStaffId}}">重新分配</span>
+        </td>
+
+        {{/if}}
+        <td>
+            <a href="/CPEctocyst/name?name={{= userNick}}" class="tmbtn yellow-btn " style="color:white;" target="_blank">进入后台</a>
+        </td>
+    </tr>
+</script>
+
+<div class="sellerAdminContainer">
+
+    <div class="sellerAdminSearchDiv">
+        卖家旺旺:
+        <input style="width: 200px;color: grey;margin:0 10px;" id="sellerAdminSearchText" class="" value="请输入卖家旺旺进行搜索"
+               onfocus='if(this.value=="请输入卖家旺旺进行搜索"){this.value="";}; '
+               onblur='if(this.value==""){this.value="请输入卖家旺旺进行搜索";};'>
+        <span class="staffSelectorSearchWrapper hidden">
+            客服名称:
+        </span>
+        <span style="margin-left: 20px;" class="tmbtn sky-blue-btn sellerAdminSearchBtn">立即搜索</span>
+    </div>
+
+    <div class="sellerAdminPaging"></div>
+
+    <table class="sellerAdminTable cpectocyst-table">
+        <thead>
+            <tr>
+                <td>
+                    卖家旺旺
+                </td>
+
+                <td>
+                    可修改
+                </td>
+                <td class="showOnlyAdmin">
+                    当前客服
+                </td>
+                <td class="showOnlySuperAdmin">
+                    分配客服
+                </td>
+                <td>
+                    详情
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="no-seller-tr">
+                 <td colspan="20">
+                     暂无卖家
+                 </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="sellerAdminPaging"></div>
+</div>
+
+
+<script>
+    TM.gcs('/js/jquery.tmpl.js', function(){
+        TM.gcs('/js/CPEctocyst/sellerAdmin.js?_v=3', function(){
+            TM.SellerAdmin.init.doInit($('.sellerAdminContainer'));
+        });
+    });
+</script>

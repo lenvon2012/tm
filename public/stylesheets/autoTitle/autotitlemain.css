@@ -1,0 +1,93 @@
+.navmain {width: 1025px;margin: 0 auto;border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;position: relative;margin-top: 15px;}
+.aside .sidebox {clear: both;margin-bottom: 0px;padding: 0;}
+.sidemenu {border: 1px solid #C7CACC;font-size:13px;}
+.sidemenu li a {display: inline-block;*display: inline;zoom : 1;height: 30px;line-height: 30px;color: #444;overflow: hidden;text-align: center;}
+.sidemenu li:hover{text-align: left;background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;}
+.sidemenu li a:hover{text-align: center;background: url("");}
+.clearfix, #content {zoom: 1;}
+.all_container {height:500px;width: 805px;height: auto;border: 1px solid #aaa;background: white;}
+.kwcontainer {background: transparent;margin: 10px auto;width: 100%;;zoom: 1;min-height:600px;_height:600px;}
+.sidemenu li.aside-hot-tag .aside-icon {cursor: move;}
+.sidemenu li.aside-hot-tag .aside-icon {background-position: -92px 10px;}
+.sidemenu li a .aside-icon {float: left;width: 36px;height: 28px;background-image: url("http://s.libdd.com/img/icon/sidemenu.$6372.png");background-repeat: no-repeat;}
+
+#kits{width: 780px;}
+.asideselected{background-color: #8BB7E9;}
+.recommendDiv .tabDiv li a{width:69px;}
+.head ul{width: 770px;}
+
+#opnav{border: none;}
+.head-nav{*margin-top: 15px;}
+.bluebutton {font-family: "微软雅黑";text-align: center;cursor: pointer;color: white;height: 30px;line-height: 30px;font-size: 13px;width: 96px;display: inline-block;zoom: 1;background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;}
+.bluebutton:hover {background-position: 0 -34px;}
+.asideselected span{color:white;_color:black;_font-weight: bold;_font-size: 16px;}
+.clear {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+.bluebutton {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+    background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;}
+.bluebutton:hover{background-position: 0 -34px;}
+.blank0 {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+.clearfix {clear: both; zoom: 1;}
+.clearfix:after {clear: both; display: block; visibility: hidden; height: 0px; content: '.';}
+.navbar ul{padding:5px 0px;}
+.pull-right {padding: 3px 3px;}
+#logout {margin-left: 4px;}
+.dropdown-menu {top: 32px;}
+li a:hover{}
+li a:hover span{color:#0088cc;}
+.left-nav {background-color: #f5f5f5;border: 1px solid #e3e3e3;}
+.Desc {
+    background: url("/img/sort-bg.png") 0px -17px;
+}
+.sort {
+    width: 20px;
+    height: 20px;
+}
+.Asc {
+    background: url("/img/sort-bg.png") 0px -40px;
+}
+
+input[type="radio"], input[type="checkbox"]{width:18px;display:inline-block;*display:inline;}
+input[type="radio"], input[type="checkbox"]{width:18px;display:inline-block;*display:inline;}
+.smallinput{width:18px;}
+.too-wide-yellow-btn{font-size:17px;}
+.nav-header{
+    background-color: #eee;
+}
+.tm-paging-container .paging-nav {
+    display: inline-block;
+    zoom: 1;
+    height: 16px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px 0px;
+}
+.tm-paging-container .paging-link {
+    background: url(/img/pagging-back2.png) no-repeat left top;
+    color: #7f7f7f;
+    cursor: pointer;
+}
+.tm-paging-container .paging-link:hover {
+    background: url(/img/pagging-back2.png) no-repeat left -24px;
+}
+.tm-paging-container .paging-select {
+    background: url(/img/pagging-back2.png) no-repeat left -72px;
+    color: #fff;
+    cursor: default;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+.navbar-inner{
+    border-radius: 0px;
+}
+.xufeiheadop {
+    font-weight: bold;
+}
+.xufeiheadop a {
+    color: white;
+}
+.xufeiheadop a.toggle-color {
+    color: #ffff00;
+}

@@ -1,0 +1,44 @@
+div.aside{display:none;}
+div.main{width:100%;max-width:1680px;min-width:1000px;margin: 0 auto;}
+div.all_container{width:100%;max-width:1680px;min-width:1000px;margin: 0 auto;}
+#kits{width:98%;}
+.busSearch tbody td{height:60px;text-align: center;}
+.delistPlansWrapper{width:99%;padding: 5px;min-height:600px;_height:600px;}
+.headspan{padding:0px;width:95%;padding-top:10px;padding-left:20px;margin-top:15px;margin-bottom:15px;}
+
+.step p{margin: 15px;}
+
+.stepbody b{font-size:20px;}
+#step3-manual .busSearch tbody{
+    font-size: 14px;
+}
+#step3-manual .busSearch{
+
+}
+.auto-delist-distribute-table {
+    border: 1px solid #BEBEBE;
+}
+#step2 .input-tip{
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/*.stepOptLine{margin: 10px;}*/
+.green {
+    color: green;
+}
+
+#yangyangContent input[type="text"]{height:30px;font-size:20px;}
+.stepbody{font-size:18px;margin-left:30px}
+.step{font-size:20px;display:none;}
+
+#yangyangContent .nav-table-left-td{width: 0px;display:none;}
+/*#yangyangContent .nav-table-right-td{    width: 1000px;}*/
+
+
+.tmNav label, .tmNav a {
+    font-size: 16px;
+}

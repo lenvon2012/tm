@@ -1,0 +1,426 @@
+#{extends 'relationbase.html' /}
+#{set title:'关联销售' /}
+
+<link rel="stylesheet" media="screen" type="text/css" href="/css/Relation/RelationOp2.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/associate/listItemsWindow.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/multiModify.css" />
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/relation/relationOper">关联营销&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>制作模板
+</div>
+
+<div class="associate-main">
+<div class="set_step" style="display:none;">
+    <table class="set_step_table">
+        <tbody>
+        <tr>
+            <td class="set_tmp_step set_step1" >
+                <!--<span class="set_tmp_step1"></span>-->
+                <span>①选择模板</span>
+            </td>
+            <td>
+                <span class="set_tmp_arrow" style="font-size:20px;"> > </span>
+            </td>
+            <td class="set_tmp_step set_step2 ">
+                <!--<span class="s_tmp_se set_tmp_step2" ></span>-->
+                <span>②设置模板</span>
+            </td>
+            <td>
+                <span class="set_tmp_arrow" style="font-size:20px;"> ></span>
+            </td>
+            <td class="set_tmp_step set_step3">
+                <!--<span class="s_tmp_se set_tmp_step3" ></span>-->
+                <span>③投放模板</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--淘模板-选择导航页-->
+<div id="content">
+    <div class="tmp_pro_div" style="width:100%;">
+        <div class="tmp_prop_in"  style="z-index: 2;position:relative;">
+            <table class="template_property" >
+                <tbody>
+                <tr >
+                    <td class="title">模板宽度</td>
+                    <td class="tmp_li_prop templateWidth tmpl_w_selected" width="750">宽度750</td>
+                    <td class="tmp_li_prop templateWidth" width="790">宽度790</td>
+                    <td class="tmp_li_prop templateWidth" width="950">宽度950</td>
+                    <td style="width:80px;"></td>
+                    <td class="title">宝贝数量</td>
+                    <td class="tmp_li_prop templateItemCount tmpl_w_selected" count="0" >不限</td>
+                    <td class="tmp_li_prop templateItemCount" count="4">4个宝贝</td>
+                    <td class="tmp_li_prop templateItemCount" count="6">6个宝贝</td>
+                    <td class="tmp_li_prop templateItemCount" count="8">8个宝贝</td>
+                    <td class="tmp_li_prop templateItemCount" count="9">9个宝贝</td>
+                    <td class="tmp_li_prop templateItemCount" count="12">12个宝贝</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="width:100%;height:auto;">
+            <div style="width:100%;height:25px;"></div>
+            <div class="template_area" >
+
+            </div>
+        </div>
+        <div class="template_area_bottom"></div>
+    </div>
+</div>
+
+
+<div id="defaultTemplate" style="display:none;">
+    <div>
+        <div class="to_modify_item">
+            <table style="position:relative;margin:0 auto;">
+                <tr>
+                    <td style="width:180px;text-align:center;display:none;"></a><span class="templateId" style="font-size:15px;font-weight:bold;"><a></a></span></td>
+                    <td style="width:350px;text-align:center;color:#000000;"><span>模板名称:</span>
+                        <input class="templateName" type="text" placeholder="为了区别其他模板(最多支持四十个字符)" default="为了区别其他模板(最多支持四十个字符)"  name="templateName"/>
+                    </td>
+                    <td style="cursor:pointer;">
+                        <span class="user-defined de_use_btn">自定义宝贝</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="defaultTmp_Area" style="clear:left;position:relative;width:100%;;"></div>
+        <div class="defaultModel_property" style="position:relative;left:10%;margin-top:40px;"></div>
+    </div>
+    <div class="btn_under_template" >
+        <!--点击保存模板计划-->
+        <!--<div class="ass_Btn save_associate_plan" name="defaultSavePlan" style="position:relative;left:30%;float:left;">-->
+        <!--<span>保存计划(等待下次投放)</span>-->
+        <!--</div>-->
+        <!--下一步-->
+        <div class="ass_Btn go_Next" name="defaultNext" style="position:relative;left:40%;">
+            <span>下一步</span>
+        </div>
+    </div>
+</div>
+
+<div id="setModel" style="display:none;">
+    <div>
+        <div class="to_modify_item" >
+            <table class="to_mod_ite_table">
+                <tr>
+                    <td style="width:180px;text-align:center;display:none;"><a><span class="templateId" style="font-size:15px;font-weight:bold;"></span></a></td>
+                    <td style="cursor:pointer;">
+                        <span class="to_add_item de_use_btn">+添加宝贝</span>
+                    </td>
+                    <td style="width:500px;text-align:center;color:#000000;"><span>模板名称:</span>
+                        <input class="templateName" type="text" placeholder="为了区别其他模板(最多支持四十个字符)" default="为了区别其他模板(最多支持四十个字符)"  name="templateName"/>
+                    </td>
+                    <td style="cursor:pointer;">
+                        <span class="go_back_to_default de_use_btn"><< 返回推荐模板</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="template_Msg" style="with:100%;background-color:#fff;clear:left;"></div>
+        <div class="setModel_property" style="position:relative;left:10%;margin-top:40px;"></div>
+    </div>
+
+    <div class="btn_under_template" >
+        <!--点击保存模板计划-->
+        <!--<div class="ass_Btn save_associate_plan" name="setSavePlan" style="position:relative;left:30%;float:left;">-->
+        <!--<span>下一步(等待下次投放)</span>-->
+        <!--</div>-->
+        <div class="ass_Btn go_Next " name="clickNext" style="position:relative;left:40%;float:left;">
+            <span>下一步</span>
+        </div>
+    </div>
+</div>
+
+<div class="toPutBtn" style="display:none;width:100%;">
+    <div id="toPutAllBtn" style="margin-top:40px;" >
+        <div class="ass_Btn go_Next" style="position:relative;left:40%;">
+            <span>一键全店投放</span>
+        </div>
+        <div class="toPutAllComments toPutComments" style="visibility:hidden;">
+                <span>
+                    点击全店投放,将这个模板投放到店铺内
+                    <strong>所有已上架</strong>
+                    宝贝中
+                </span>
+        </div>
+    </div>
+
+    <div id="toPut"></div>
+
+    <div id="clickShowItems">
+        <div class="ass_Btn go_Next" style="position:relative;left:40%;margin-top:10px;;">
+            <span>自定义投放</span>
+        </div>
+        <div class="clickShowItemsComments toPutComments" style="visibility:hidden;">
+                <span>
+                    点击自定义投放,将显示可投放的宝贝列表信息
+                </span>
+        </div>
+    </div>
+
+    <div id="toPutItemList" style="border:1px solid #D8D2D2;">
+        <div class="toPutItemListTop"  >
+            <div class="searchParams" >
+                <table style="margin: 10px auto;">
+                    <tbody>
+                    <tr>
+                        <td style="width:330px;text-align:center;">
+                            <span class="searchTitle">关键字&nbsp;&nbsp;</span>
+                            <input class="textInput" type="text" placeholder="请输入关键字" default="请输入关键字"  style="width:250px;border:1px solid #B10000;"/>
+                        </td>
+                        <td style="width:240px;text-align:center;">
+                            <select name="sellerCat" value="sellerCat" class="searchSelect" style="width:220px;border:1px solid #B10000;">
+                            </select>
+                        </td>
+
+                        <td sort="1" style="width:60px;text-align:center;display:none;border:1px solid #e1e2e5" class="saleSort saleSortUp"><span href="javascript:void(0);">销量↑</span></td>
+                        <td sort="0" style="width:60px;text-align:center;border:1px solid #e1e2e5" class="saleSort saleSortDown"><span href="javascript:void(0);">销量↓</span></td>
+                        <td sort="3" style="width:60px;text-align:center;display:none;border:1px solid #e1e2e5" class="priceSort priceSortUp"><span href="javascript:void(0);">价格↑</span></td>
+                        <td sort="2" style="width:60px;text-align:center;border:1px solid #e1e2e5" class="priceSort priceSortDown"><span href="javascript:void(0);">价格↓</span></td>
+                        <td >
+                            <div  value="searchBtn" class="doSearch put-item-doSearchRed" >搜索宝贝</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="toPutItemListArea" style="margin:10px 90px;"> </table>
+
+        <div class="toPutBottom" style="position:relative;margin-top:20px;text-align:center;"></div>
+
+        <div id="toPutCheckedBtn" style="width:150px;margin: 40px 410px;">
+            <div class="ass_Btn go_Next" style="width:150px;">
+                <span>投放选中宝贝</span>
+            </div>
+            <div class="toPutCheckedComments toPutComments" style="visibility:hidden;width:200px;">
+                <span>先选中宝贝，然后点击投放选中宝贝</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="window">
+    <div class="itemsWindow" style="display:none">
+        <div class="searchParams" >
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width:300px;text-align:center;">
+                        <span class="searchTitle">关键字&nbsp;&nbsp;</span>
+                        <input class="textInput" type="text" placeholder="请输入关键字" default="请输入关键字"  style="width:230px;"/>
+                    </td>
+                    <td style="width:200px;text-align:center;">
+                        <select name="sellerCat" value="sellerCat" class="searchSelect" style="width:200px;height:23px;">
+                        </select>
+                    </td>
+
+                    <td sort="1" style="width:80px;text-align:center;display:none;border:1px solid #e1e2e5" class="saleSort saleSortUp"><a href="javascript:void(0);">销量↑</a></td>
+                    <td sort="0" style="width:80px;text-align:center;border:1px solid #e1e2e5" class="saleSort saleSortDown"><a href="javascript:void(0);">销量↓</a></td>
+                    <td sort="3" style="width:80px;text-align:center;display:none;border:1px solid #e1e2e5" class="priceSort priceSortUp"><a href="javascript:void(0);">价格↑</a></td>
+                    <td sort="2" style="width:80px;text-align:center;border:1px solid #e1e2e5" class="priceSort priceSortDown"><a href="javascript:void(0);">价格↓</a></td>
+                    <td >
+                        <!--<a href="javascript:void(0)" value="searchBtn" class="tmbtn sky-blue-btn" >搜索宝贝</a>-->
+                        <div  value="searchBtn" class="doSearch li-dia-doSearch" style="width:100px;">搜索宝贝</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <table class="itemsList_Area" style="border-collapse:inherit;"></table>
+
+        <div class="itemListBottom" style="position:relative;bottom:-15px;"></div>
+    </div>
+</div>
+</div>
+
+<script id="windowListItemBox" type="text/x-jquery-templ">
+<td class="wid-item-box">
+    <div>
+        <div class="item_img" style="height:120px;">
+            <a>
+                <img style="height:145px;width:145px;" src="{{= picURL}}"/>
+            </a>
+        </div>
+
+        <div class="item_id" style="height:25px;width:160px;" value="{{= id}}"></div>
+
+        <div class="item_info" style="width:155px" >
+            <a target="_blank"  href="http://item.taobao.com/item.htm?id={{= id}}">
+                <span class="item_title" >{{= title}}</span>
+            </a>
+            </br>
+            <!--价格-->
+            <span class="item_price"><b>{{= minPrice}}</b></span>
+            <span class="item_origPrice"><b>{{= price}}</b></span>
+        </div>
+    </div>
+</td>
+</script>
+
+
+<script id="toPutItemBox" type="text/x-jquery-templ">
+<td style="padding:8px">
+    <div class="put_item_div" style="width:248px;">
+        <table>
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="height:64px;width:64px">
+                        <div class="item_img" style="height:64px;width:64px">
+                            <a target="_blank" href="http://item.taobao.com/item.htm?id={{= id}}"><img style="height:64px;width:64px;" src="{{= picURL}}"/></a>
+                        </div>
+                        <div class="item_id" value="{{= id}}"></div>
+                    </td>
+                    <td>
+                        <div class="item_info">
+                            <span class="item_title" >{{= title}}</span>
+                        </div>
+                    </td>
+                    <td rowspan="2" style="width:18px;">
+                        <div class="item_checkBox">
+                            <input type="checkBox" style="width:13px;height:13px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="item_price">&nbsp;&nbsp;&nbsp;<b>{{= price}}</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="item_price" style="font-size:12px;">已投放<b>{{= planCount}}</b>个计划</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</td>
+</script>
+
+<script id="template_prop" type="text/x-jquery-templ">
+    <div class="template_div" style="position:relative;margin:0 auto;width:100%;">
+        <div style="width:100%;height:30px;">
+            <div class="set_begin" modelId="{{= modelId}}" maxNum="{{= maxNum}}">
+                    <span>使用该模板</span>
+            </div>
+        </div>
+        <div style="width:{{= width}}px;height:30px;margin:0 auto;color: rgb(141, 149, 161);font-size:14px;margin-top:10px;text-align:center;">
+            <a style="width:200px;">
+                <b style="">编号：<span>{{= modelId}}</span></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a style="width:200px;">
+                <span>宽度： {{= width}}像素 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a style="width:200px;">
+                <span>支持宝贝数量：1 ~ {{= maxNum}}个</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a style="width:200px;">
+                <span>{{= comments}}</span>
+            </a>
+            <!--<div style="width:80px;">
+                <a class="tmbtn sky-blue-btn" href="javascript:void(0);" modelId="{{= modelId}}" maxNum="{{= maxNum}}">选择</a>
+            </div>-->
+        </div>
+        <div style="text-align:center;">
+            <a ><img style="width:{{= width}}px" src="{{= picPath}}"/></a>
+        </div>
+    </div>
+    <div style="width:100%;height:50px;border-top: 1px solid #ccc ">
+    </div>
+</script>
+
+<script id='setModel-property' type='text/x-jquery-tmpl' >
+<div id="panel">
+    <div id="palette">
+        {{if fontColorNotNull}}
+        <span style="display: inline; float: left;">
+        颜色选择：
+        </span>
+        <span style=" width: 500px; height: auto; display: inline; float: left;">
+                    {{each(i,fc) fontColor}}
+                    <span class="colorNav pan-fon-col" data="{{= fc}}" style="background:{{= fc}};">
+                        <span class="colorNavIn pointer"></span>
+                    </span>
+                    {{/each}}
+        </span>
+        {{/if}}
+        {{if borderColorNotNull}}
+        <span style="display: inline; float: left;">
+        颜色选择：
+        </span>
+        <span style=" width: 500px; height: auto; display: inline; float: left;">
+                    {{each(i,bc) borderColor}}
+                    <span class="colorNav pan-bor-col" data="{{= bc}}" style="background:{{= bc}};">
+                        <span class="colorNavIn pointer"></span>
+                    </span>
+                    {{/each}}
+        </span>
+        {{/if}}
+        {{if backgroundColorNotNull}}
+        <span style="display: inline; float: left;">
+        颜色选择：
+        </span>
+        <span style=" width: 500px; height: auto; display: inline; float: left;">
+                    {{each(i,bgc) backgroundColor}}
+                    <span class="colorNav pan-bac-col" data="{{= bgc}}" style="background:{{= bgc}};">
+                        <span class="colorNavIn pointer"></span>
+                    </span>
+                    {{/each}}
+        </span>
+        {{/if}}
+    </div>
+
+    <div id="tmpinfo">
+        尺寸选择：
+        <span class="pan-wid-px selectPX pointer" style="background-color:#efefef" data="{{= width}}">{{= width}}像素 </span>
+        <br/>
+        <br/>
+        每行显示：<span class="pan-col-num">{{= columnNum}}</span>
+        {{if activityTitleNotNull}}
+        <br/><br/>
+        活动标题：<input type="text"  class="pan-act-tit" value="{{= activityTitle}}"/>
+        {{/if}}
+        {{if counterPriceNotNull}}
+        <br/><br/>
+        专柜价：<input type="text"  class="pan-cou-pri" value="{{= counterPrice}}"/>
+        {{/if}}
+        {{if originalPriceNotNull}}
+        <br/><br/>
+        原价：<input type="text" class="pan-ori-pri" value="{{= originalPrice}}"/>
+        {{/if}}
+        {{if activityNameChineseNotNull}}
+        <br/><br/>
+        活动名称(中文)：<input type="text"  class="pan-act-nam-chi" value="{{= activityNameChinese}}"/>
+        {{/if}}
+        {{if activityNameEnglishNotNull}}
+        <br/><br/>
+        活动名称(英文)：<input type="text"  class="pan-act-nam-eng" value="{{= activityNameEnglish}}"/>
+    {{/if}}
+    </div>
+</div>
+</script>
+
+<script>
+TM.Loading.init.show();
+TM.gcs('/js/jquery.tmpl.js',function(){
+     TM.gcs('/js/tm.js',function(){
+        TM.gcs('/js/Relation/myRelation.js',function(){
+            TM.gcs('/js/Relation/RelationOp2.js',function(){
+                $(document).ready(function(){
+                    $(document).ajaxStart(function(){
+                        TM.Loading.init.show();
+                        $("body").mask();
+                    });
+                    $(document).ajaxStop(function(){
+                        TM.Loading.init.hidden();
+                        $("body").unmask();
+                    });
+                    TM.associate.init.doInit($(".associate-main"));
+                });
+             });
+        });
+    });
+});
+</script>

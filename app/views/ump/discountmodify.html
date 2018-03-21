@@ -1,0 +1,101 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'修改限时打折活动' /}
+
+<link type="text/css" rel="stylesheet" href="/css/ump/activity.css" />
+
+<style>
+
+</style>
+
+<div class="activity-wrapper" style="">
+
+    <div class="head-tip">修改限时打折活动信息</div>
+    <div class="activity-out-div">
+        <div class="activity-inner-div">
+            <div class="activity-row ">
+                <span class="row-span">活动描述：</span>
+                <input type="text" class="row-text activity-description" >
+                <span class="row-tip">请输入2到30个字(仅自己可见)</span>
+            </div>
+            <div class="activity-row ">
+                <span class="row-span">开始时间：</span>
+                <input type="text" class="row-text start-date"  >
+                <span class="row-tip">促销活动开始时间</span>
+            </div>
+            <div class="activity-row ">
+                <span class="row-span">结束时间：</span>
+                <input type="text" class="row-text end-date" >
+                <span class="row-tip">促销活动结束时间</span>
+            </div>
+            *{<div class="activity-row ">
+                <span class="row-span">促销标签：</span>
+                <input type="text" class="target-activity-title row-text" readonly="readonly">
+                <span class="row-tip" style=" background: #F25E78; color: #ffffff;margin-left: 10px;">优惠标题,不能更改</span>
+            </div>}*
+
+            <!-- 因淘宝规定，不允许使用自定义标签 -->
+            <!-- <div class="activity-row ">
+                <span class="row-span">促销标签：</span>
+                <select type="text" class="activity-title-select target-activity-title"  style="">
+                    <option selected="selected" value="限时促销">限时促销</option>
+                    <option value="新春特惠">新春特惠</option>
+                    <option value="团购价">团购价</option>
+                    <option value="亏本清仓">亏本清仓</option>
+                    <option value="新品上市">新品上市</option>
+                </select>
+                <input type="text" class="row-text activity-title-input" style="width: 183px;">
+                <span class="title-type-btn self-put">自定义标签</span>
+                <span class="title-type-btn select-put">选择标签</span>
+                <span class="row-tip">促销标签，在淘宝详情页显示</span>
+            </div> -->
+			<div class="activity-row ">
+				<span class="row-span">促销标签：</span>
+				<select type="text" class="activity-title-clazz-select">
+					<option selected="selected" value="促销">促销</option>
+					<option value="时间">时间</option>
+					<option value="优惠">优惠</option>
+					<option value="价格">价格</option>
+					<option value="其他">其他</option>
+				</select>
+				<select type="text" class="activity-title-words-select target-activity-title">
+					
+				</select>
+				<span class="row-tip">促销标签，在淘宝详情页显示</span>
+			</div>
+
+        </div>
+    </div>
+    <div class="haoniu-submit-div">
+        <span class="haoniu-submit-btn submit-modify-activity-btn" style="">修改限时打折活动</span>
+    </div>
+
+    <input type="hidden" class="activityId" value="${activityId}" />
+
+</div>
+<script src="http://tianyun.b0.upaiyun.com/tm/tm.js" charset="utf-8"></script>
+
+
+<script src="http://tianyun.b0.upaiyun.com/tm/umputil.js" charset="utf-8"></script>
+
+
+<script src="http://tianyun.b0.upaiyun.com/tm/discountcommon.js?_v=1" charset="utf-8"></script>
+
+
+<script src="http://tianyun.b0.upaiyun.com/tm/discountmodify.js" charset="utf-8"></script>
+
+<script>
+    TM.Loading.init.show();
+
+    $(document).ready(function(){
+        //TM.gcs('/js/tm.js?_v=2', function () {
+            //TM.gcs('/js/ump/umputil.js?_v=2',function(){
+                //TM.gcs('/js/ump/discountcommon.js?_v=4',function(){
+                    //TM.gcs('/js/ump/discountmodify.js?_v=3',function(){
+                        TM.ModifyDiscount.init.doInit($(".activity-wrapper"));
+                    });
+                //});
+            //});
+        //});
+    //});
+</script>
+

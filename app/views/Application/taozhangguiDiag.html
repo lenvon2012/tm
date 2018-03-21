@@ -1,0 +1,130 @@
+#{extends 'tbtnav/tbtnavdata.html' /}
+*{#{extends 'main.html' /}}*
+#{set title:'淘标题-智能流量优化专家' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/score.css">
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/public/stylesheets/commsTab/commsTab.css">
+#{/set}
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>店铺诊断
+</div>
+<div class="DiagnoseChart" >
+    <div id="shop_check_controller" style="height: 120px;display:none">
+        <div id="check_table" style="height: 120px;">
+            <div>
+                <div id = "shop_check_radar">
+                    <img alt="开始扫描" id="shop_check_radar_scoling" src="/public/images/check/saomiaox86.gif">
+                </div>
+                <div id = "shop_check_progress">
+                    <div id ="check_progressbar">
+                        <img id = "_schedule" width = "0px"src = '/public/images/check/loadinggrn.png'>
+                    </div>
+                </div>
+                <div id="shop_check_startbtn" style=""></div>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr><td style="width: 5px;" >
+            <div id="chartContainer" style="width: 200px;display:none;"></div>
+        </td><td style=";width: 100%;max-width:1600px;">
+            <div id="shop_check_result">
+                <div class="result_list" id="list_1" style = "display: none">
+                    <div id="diag_star"></div>
+                    <div   class="result_stylte">
+                        <div><span class="result_stylte" id="result_diag">您的店铺的最近一个月销量为<span id= "diag_xl"></span>
+		  			*{，落后于<span id="diag_th"></span>的同行}*</span></div>
+                        <div class="diagDetailText" >您可以通过 自动上下架、自动橱窗、优化标题、 来提升您的销量，预计使用一个月后，提升销量<span id = "diag_ts"></span></div>
+                        <div class='buttonline'><a href="/home/commodityDiag" target='_blank' class="optimizebtn tmbtn long-flat-green-btn">立即优化</a></div>
+                    </div>
+                </div>
+                <div class="result_list" id="list_2" style = "display: none">
+                    <div id="autoup_star"></div>
+                    <div  class="result_stylte">
+                        <div><span  >当前商品上架分布（开启自动上架后系统调整需要一周）：<span id="inBadTimeCount"></span></span></div>
+                        <div class='diagDetailText'><span id = "_week"><br>星期一:<span id="monday"></span>星期二:<span id="tuesday"></span>星期三:<span id="wednesday"></span>星期四:<span id="thursday"></span>星期五:<span id="friday"></span>星期六:<span id="saturday"></span>星期天:<span id="sunday"></span></span></div>
+                        <div class='buttonline'>
+                            <a href="/kits/delistplans" target='_blank' class="optimizebtn tmbtn long-flat-green-btn">立即优化</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result_list" id="predict-delist" style = "display: none">
+                    <div id="predict-delist-star"></div>
+                    <div  class="result_stylte">
+                        <div><span  >系统为您计划的上下架安排为：</span></div>
+                        <div class='diagDetailText'><span id = "predict-week"><br>星期一:<span id="predict-monday"></span>星期二:<span id="predict-tuesday"></span>星期三:<span id="predict-wednesday"></span>星期四:<span id="predict-thursday"></span>星期五:<span id="predict-friday"></span>星期六:<span id="predict-saturday"></span>星期天:<span id="predict-sunday"></span></span></div>
+                        <div class='buttonline'>
+                            <a href="/kits/delist" target='_blank' class="optimizebtn tmbtn long-flat-green-btn">立即优化</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="result_list" id="list_3" style = "display: none">
+                    <div id="window_star"></div>
+                    <div class="result_stylte">
+                        <div><span >自动橱窗的利用率是：<span id="autowin_ratio"></span>；</span><span id= "remainWindowCount">您当前的自动橱窗剩余个数：<span id="_count"></span>。</span></div>
+                        <div class='diagDetailText'><span id = "autowin_c"></span></div>
+                        <div class='buttonline'><a href="/kits/window" target='_blank' class="optimizebtn tmbtn long-flat-green-btn">立即优化</a></div>
+                    </div>
+                </div>
+                <div class="result_list" id="list_4" style = "display: none">
+                    <div id="title_star"></div>
+                    <div  class="result_stylte">
+		  			<span>
+						*{<span id = "baby">经诊断您店铺的宝贝总数：<span id="babyCount"></span>个</span><br>}*
+                            <span id = "comprehensive1">您标题的综合得分：<span id="comprehensiveScore1"></span>分。</span>
+                        <div id='itemScoresText' class='diagDetailText'></div>
+                        <div class='buttonline'><a href="/home/commodityDiag" target='_blank' class="optimizebtn tmbtn long-flat-green-btn">立即优化</a></div>
+                        *{<span>您的宝贝标题中有<span id="best"></span>个优秀，<span id="good"></span>个良好，}*
+                        *{<span id="pass"></span>个及格，<span id="fail"></span>个不及格。</span>}*
+		  			</span>
+                    </div>
+                </div>
+            </div>
+        </td></tr>
+    </table>
+</div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    // If TM.ver is less than 10, then it's just a free version, if it >= 10 and < 20, then it's the basic version, at last, it would be the vip version
+    // alert(TM.ver)
+    //console.info(TM.ver);
+    TM.Loading.init.show();
+    TM.isFirst = TM.isFirst || ("true"=="${isFirst}");
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.url.js',function(){
+            TM.gcs("/js/tm.js", function () {
+                TM.gcs("/status/js", function () {
+                    TM.gcs('/js/switch.js', function () {
+                        TM.gcs('/js/commstab/commstab.js', function () {
+                            TM.gcs('/home/firstSync',function(){
+                                $(document).ready(function () {
+                                    TM.gcs("/js/index.js?_v=3", function () {
+                                        TM.gcs("/js/newindex.js?_v=3", function () { var page_url = window.location.href;
+                                            var uri = $.url(page_url,true);
+                                            var first = uri.data.param.query.isFirst;
+
+                                            var isFirst = (first == "true")?true:false;
+                                            TM.Newindex.init(isFirst);
+                                            if(TM.isFirst){
+                                                TM.Newindex.intro();
+                                            }
+                                            TM.gcs('/js/Kits/autodelist.js');
+                                                #{get 'moreAjaxScripts' /};
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}
+
+#{get 'moreAjaxScripts' /};

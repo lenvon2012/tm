@@ -1,0 +1,88 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavword.html' /}
+#{set title:'热词排行版' /}
+<link media="screen" rel="stylesheet" href="/css/topKey/topKey.css?v=2">
+<link media="screen" rel="stylesheet" href="/css/cornerDiv.css">
+<style>
+    .tableContent{overflow: hidden;width:100%;margin-left:0px;}
+    .topkeyselectCat2,.topkeyselectCat3{font-family: '微软雅黑'}
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>关键词榜单
+</div>
+<div id="topKeyContent" style="">
+        <div class="topkeyNav">
+            <div class="inlineblock">
+                <a class="sellup inlineblock uporhot" href="javascript:void(0)" target="_self">
+                    <span class=" current">搜索上升</span></a>
+                <a class="sellhot inlineblock uporhot" href="javascript:void(0)" target="_self">
+                    <span class="">搜索热门</span></a>
+
+            </div>
+        </div>
+        <div id="leftNavigation" style="display: none;">
+                    <div><img src="/public/images/topkey/resou.png" id="rsrc"></div>
+                    <div><img src="/public/images/topkey/shangsheng.png" id="sszk"></div>
+                    <div><img src="/public/images/topkey/zhitongche.png" id="zyztc"></div>
+        </div>
+        <div id="rightContent">
+            <div class="catgory">
+                <select name="topkeyselectCat2" class="topkeyselectCat2" id="topKeySelectorCat2">
+
+                </select>
+
+                <select name="topkeyselectCat3" class="topkeyselectCat3" id="topKeySelectorCat3">
+                </select>
+            </div>
+            <div class="clear"></div>
+            <div class="tableContent">
+                <table class="catSearch busSearch">
+                    <thead class="tableRow firstRow">
+                        <tr>
+                        <td style="text-align: center;" class="cattd1">关键词</td>
+                        <td style="text-align: center;" class="cattd3">排名变化</td>
+                        <td style="text-align: center;" class="cattd4">升降幅度</td>
+                        <td style="text-align: center;" class="cattd5">人气指数</td>
+                        <td style="text-align: center;" class="cattd7">点击率</td>
+                        <td style="text-align: center;" class="operation">操作</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="rightBottom">
+                <p  id="topkeyPagination" class="topkeyPagination">
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script src="/js/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/genKeywordSpan/genKeywordSpan.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    TM.gcs("/js/topKey/topkey.js?_v=14",function(){
+        var cid = topKey.Widget.getUrlParam("cid");
+        if(cid === undefined || cid == null || isNaN(cid)) {
+            $.get("/Home/getBaseIdByUser", function(data){
+                if(data === undefined || data == null) {
+                    topKey.init.doInit();
+                    return;
+                }
+                if(data.success == false) {
+                    topKey.init.doInit();
+                    return;
+                }
+                var cid = parseInt(data.message);
+                topKey.init.doInit(cid);
+            })
+        } else {
+            topKey.init.doInit(cid);
+        }
+
+    });
+</script>
+#{/set }

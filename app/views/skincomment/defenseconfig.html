@@ -1,0 +1,473 @@
+
+#{extends 'skincomment/skinautodefendersubbase.html' /}
+#{set title:'差评防御设置' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css?_v=12"/>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css">
+    .skincomment-table tbody tr td.dfconfigtd {
+        text-align: left;
+    }
+    .configintro{color:blue;}
+</style>
+
+<div class="defensewarn-container">
+	<table>
+		<tbody>
+			<tr><td><div class="blacklist-tab"></div></td>
+				<td><div class="switch-defense-div"></div></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<form action="/SkinDefender/update" method="post" >
+		<table class="skincomment-table">
+			*{<thead>
+				<tr>
+					<th>自动关闭订单开关</th>
+				</tr>
+			</thead>}*
+			<tbody>
+				<tr>
+					<td style="padding-left:15px;border-bottom: 1px solid #D9D9D9;">
+              		*{<input type="radio" id="autoCloseOn" name="option.autoCloseTrade" #{if option.autoCloseTrade == true}checked="checked"#{/if} value="1">
+					<label class="radio" for="autoCloseOn">打开&nbsp;&nbsp;
+					</label>
+					
+					<input type="radio"id="autoCloseOff" name="option.autoCloseTrade" #{if option.autoCloseTrade == false}checked="checked"#{/if} value="0">
+					<label class="radio" for="autoCloseOff">关闭&nbsp;&nbsp;
+					</label>
+					}*
+					<font id="titleinfo1" color="red" style="font-weight: bold;">若要使用自动关闭疑似差评师订单功能，请确保为【打开】状态</font>
+					<br>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-left:15px;border-bottom: 1px solid #D9D9D9;"><div id="titleinfo2" style="color: #f6931f;font-size:14px;">本功能主要是<b style="color:red;">自动关闭</b>疑似差评师的订单，符合您下面所设置条件的订单，将自动关闭订单，并通知卖家。</div></td>
+				</tr>
+                <tr>
+                    <td style="padding-left:15px;border-bottom: 1px solid #D9D9D9;"><div id="titleinfo3" style="color: #f6931f;font-size:14px;"><b style="color:red;">特别提醒：</b>关闭订单约需<b style="color: red;">10秒</b>,若买家在拍下订单后<b style="color: red;">10秒</b>内完成付款，则<b style="color: red;">无法关闭</b>订单</div></td>
+                </tr>
+				*{<tr>
+					<td> 使用前建议亲们看一下这个：&nbsp;&nbsp;<a href="/" target="_blank">使用教程</a> &nbsp;&nbsp;&nbsp;<a href="/" target="_blank">如何查看买家信誉教程</a></td>
+				</tr>}*
+			</tbody>
+		</table>
+    <table class="skincomment-table">
+        <thead>
+        <tr>
+            <th style="width:50px;">序号</th>
+            <th>防御配置</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td class="dfconfigtd"><b>是否允许卖家购买：</b>
+                <select name="allowSeller">
+                    <option value="0" #{if option.allowSeller == false }selected="selected" #{/if}>不允许卖家</option>
+                    <option value="1" #{if option.allowSeller == true }selected="selected" #{/if}>允许卖家</option>
+                </select>购买我店里的商品。<br>
+            </td>
+        </tr>
+
+        *{<tr>
+            <td>2</td>
+            <td class="dfconfigtd"><b>买家实名认证：</b>
+                <select name="isVerifyLimit">
+                <option value="0" #{if option.isVerifyLimit == false }selected="selected" #{/if}>无论是否实名认证都可以</option>
+                <option value="1" #{if option.isVerifyLimit == true }selected="selected" #{/if}>仅支付宝实名认证可以</option>
+            </select>购买我店里的商品。<br>
+            </td>
+        </tr>}*
+        <tr>
+            <td>2</td>
+            <td class="dfconfigtd"><b>买家注册时间：</b><font color="red">大于或等于</font><input type="text" class="numberInput" name="option.regDays" value="${option.regDays}">
+            	天的买家，可以购买店铺的商品&nbsp;<span class="configintro">（0表示禁用该选项）</span>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="dfconfigtd">
+                <b>买家信誉值：</b><font color="red">大于或等于</font><input type="text" class="numberInput" name="option.buyerCreditLimt" value="${option.buyerCreditLimt}">分的买家，可以购买店铺的商品
+                <span class="configintro">（0表示禁用该选项）</span>
+                <br><b>信誉为0的买家：</b><select name="allowNoCreditBuyer">
+                	<option value="1" #{if option.allowNoCreditBuyer == true }selected="selected" #{/if}>允许</option>
+                	<option value="0" #{if option.allowNoCreditBuyer == false }selected="selected" #{/if}>不允许</option>
+            	</select>购买我店里的商品。
+                <br/>
+                <span class="configintro">（淘宝买家等级对应信誉值:1星4分，2星11分，3星41分，4星91分，5星151分，1钻251分）</span>
+                
+            </td>
+        </tr>
+        *{<tr>
+            <td>5</td>
+            <td class="dfconfigtd"><b>买家信用分布：</b>
+                买家收到的信用周不过<input type="text" class="numberInput" name="option.buyerWeekCreditLimit" value="${option.buyerWeekCreditLimit}">,
+                月不过<input type="text" class="numberInput" name="option.buyerMonthCreditLimit" value="${option.buyerMonthCreditLimit}">,
+                半年不过<input type="text" class="numberInput" name="option.buyerHalfYearCreditLimit" value="${option.buyerHalfYearCreditLimit}">
+                <span class="configintro">（0表示禁用该选项）</span>
+                <br>
+                <span class="configintro">（注:此项仅对<span style="color: red;font-size: 16px;">非卖家账号</span>生效）</span>
+            </td>
+        </tr>}*
+        <tr>
+            <td>4</td>
+            <td class="dfconfigtd"><b>买家地域分布：</b>
+                <span style="color: red;">不允许</span>以下地区的买家购买我的商品
+                <br>
+                <input type="text" class="excludeAreas" value="${option.excludeAreas}" name="option.excludeAreas" style="width: 530px;">
+                <span class="toSelectExcludeAreas tmbtn long-flat-green-btn" style="margin-left: 10px;">选择排除地域</span>
+            </td>
+        </tr>
+        *{<tr>
+            <td>4</td>
+            <td  class="dfconfigtd">
+                只有<select name="option.vipLevel" id="option.vipLevel">
+                <option value="0" #{if option.vipLevel == 0 }selected="selected" #{/if}>普通淘宝用户及以上等级</option>
+                <option value="1" #{if option.vipLevel == 1 }selected="selected" #{/if}>VIP1及以上等级</option>
+                <option value="2" #{if option.vipLevel == 2 }selected="selected" #{/if}>VIP2及以上等级</option>
+                <option value="3" #{if option.vipLevel == 3 }selected="selected" #{/if}>VIP3及以上等级</option>
+                <option value="4" #{if option.vipLevel == 4 }selected="selected" #{/if}>VIP4及以上等级</option>
+                <option value="5" #{if option.vipLevel == 5 }selected="selected" #{/if}>VIP5及以上等级</option>
+                <option value="6" #{if option.vipLevel == 6 }selected="selected" #{/if}>VIP6及以上等级</option>
+                <option value="7" #{if option.vipLevel == 7 }selected="selected" #{/if}>VIP7(不对外出售)</option>
+            </select>的买家才可以购买店铺的宝贝。 <a href="http://vip.taobao.com/account_info.htm" target="_blank">查看会员等级介绍</a><br>
+                <font color="green">目前淘宝最高为VIP6，若设置VIP7则全淘宝无人能购买。</font>
+
+            </td>
+        </tr>
+        }*
+        <tr>
+            <td>5</td>
+            <td class="dfconfigtd">
+                给自己店铺<b>中差评次数：</b><font color="red">小于</font>
+                <input type="text" class="numberInput" name="option.recentMeChapingCount" value="${option.recentMeChapingCount}" maxlength="2">
+                 次的买家，能购买我店铺的商品<span class="configintro">（0表示禁用此选项）</span>
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td class="dfconfigtd">
+                给自己店铺<b>退款次数：</b><font color="red">小于</font>
+                <input type="text" class="numberInput" name="option.refundNum" value="${option.refundNum}" maxlength="2">
+                 次的买家，能购买我店铺的商品<span class="configintro">（0表示禁用此选项）</span>
+		*{
+		<input type="hidden" class="numberInput" name="option.positiveRate" maxlength="5" value="${option.positiveRate}" id="option.positiveRate" >
+      	<input type="hidden" class="numberInput" name="option.halfYearTotalNum" value="${option.halfYearTotalNum}" maxlength="4" >
+		<input type="hidden" class="numberInput" name="option.halfYearNonPositiveNum" value="${option.halfYearNonPositiveNum}" maxlength="2" >
+        }*
+            </td>
+        </tr>
+        *{<tr>
+            <td>9</td>
+            <td class="dfconfigtd">
+                <b>买家给出的好评率：</b><font color="red">高于或等于</font>
+                <input type="text" class="numberInput" name="option.positiveRate" maxlength="5" value="${option.positiveRate}" id="option.positiveRate" >
+                %&nbsp;的买家，可以购买我店铺的商品<span class="configintro">（设置范围0-100，0表示禁用此选项）</span>
+            }**{<br>
+        		若买家一个月总购买次数在
+        		<input type="text" class="numberInput" name="option.monthTotalNum" value="${option.monthTotalNum}" maxlength="2" >
+        		次以内，给中评差评数量不高于<input type="text" class="numberInput" name="option.monthNonPositiveNum" value="${option.monthNonPositiveNum}" maxlength="2" >
+        		<span class="configintro">（0表示禁用此选项）</span>
+        		}**{
+        	<br>
+        		如果买家半年内总购买次数在
+        		<input type="text" class="numberInput" name="option.halfYearTotalNum" value="${option.halfYearTotalNum}" maxlength="4" >
+        		次以内，给中评差评数量不高于<input type="text" class="numberInput" name="option.halfYearNonPositiveNum" value="${option.halfYearNonPositiveNum}" maxlength="2" >次
+        		<span class="configintro">（0表示禁用此选项）</span>
+        	</td>
+        </tr>}*
+        <tr>
+            <td>7</td>
+            <td class="dfconfigtd">
+                <b>买家获得的好评率：</b><font color="red">高于或等于</font>
+                <input type="text" class="numberInput" name="option.goodCreditRateLimit" value="${option.goodCreditRateLimit}" >
+                %&nbsp;的买家，可以购买我店铺的商品&nbsp;<span class="configintro">（设置范围0-100，0表示禁用此选项）</span>
+                *{<br><span class="configintro">此数据是卖家给买家的评价，但双方互评前不一定知道对方的评价，所以此选项可不设置)</span>}*
+            </td>
+        </tr>
+        *{
+        <tr>
+            <td>8</td>
+            <td  class="dfconfigtd">
+                最近&nbsp;<input type="text" class="numberInput" name="option.recentTimes" value="${option.recentTimes}" maxlength="3" >
+				次购物中，<br>总中差评次数小于
+                <input type="text" class="numberInput" name="option.recentChapingCount" value="${option.recentChapingCount}" maxlength="2" >
+                &nbsp;次的买家可以购买我店铺的商品&nbsp;
+                <span class="configintro">（设置范围0-10，0表示禁用此选项）</span><br>
+                给我中差评数小于
+                <input type="text" class="numberInput" name="option.recentMeChapingCount" value="${option.recentMeChapingCount}" maxlength="2" >
+                 次的买家可以购买我店铺的商品&nbsp;<span class="configintro">（设置范围0-10，0表示禁用此选项）</span>
+            </td>
+        </tr>
+        }*
+        <tr>
+            <td>8</td>
+            <td class="dfconfigtd">
+                订单总金额（包括邮费）<font color="red">低于</font><input type="text" class="numberInput" name="option.priceLimit" value="${option.priceLimit}">元的直接关闭订单
+                <span class="configintro">（0表示禁用此选项）</span>
+            </td>
+        </tr>
+        *{<tr>
+        	<td>9</td>
+        	<td class="dfconfigtd" style="color:green;">拦截被其他卖家加入黑名单
+				<input type="text" class="numberInput" name="option.addBlackListTimes" value="${option.addBlackListTimes}">次及以上的买家
+				<span class="configintro">（0或空表示禁用此选项）</span>
+			</td>
+        </tr>}*
+        <tr>
+            <td>9</td>
+            <td class="dfconfigtd">
+                关闭订单时，给买家显示理由：&nbsp;
+                <select class="commentInput" name="option.closeReason">
+                    <option #{if option.closeReason == "未及时付款" }selected="selected" #{/if}>未及时付款</option>
+                    <option #{if option.closeReason == "买家不想买了" }selected="selected" #{/if}>买家不想买了</option>
+                    <option #{if option.closeReason == "买家信息填写错误，重新拍" }selected="selected" #{/if}>买家信息填写错误，重新拍</option>
+                    <option #{if option.closeReason == "恶意买家/同行捣乱" }selected="selected" #{/if}>恶意买家/同行捣乱</option>
+                    <option #{if option.closeReason == "缺货" }selected="selected" #{/if}>缺货</option>
+                    <option #{if option.closeReason == "买家拍错了" }selected="selected" #{/if}>买家拍错了</option>
+                    <option #{if option.closeReason == "同城见面交易" }selected="selected" #{/if}>同城见面交易</option>
+                </select>
+               *{ <input type="text" name="option.closeReason" maxlength="14" value="${option.closeReason}" class="commentInput">}*
+                <br><span class="configintro">当买家联系客服时，可以直接把邮费链接发给买家拍（邮费类目不计分）<br>如果客服确认该买家正常，也可以将其加入白名单过滤掉这些规则。</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" maxlength="20" value="保存设置" class="btn btn-success">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+   </form>
+
+    <div class="excludeAreaSelector hidden">
+    <table>
+    <thead>
+    <tr>
+        <td colspan="6" style="font-size: 24px;text-align: center;">
+            设置排除地区
+        </td>
+        <td>
+        *{<span class="exitAreaSelector inlineblock">
+
+                </span>}*
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td colspan="3">
+            <span class="selectAllAreas inlineblock">全选</span>
+        </td>
+        <td colspan="3">
+            <span class="selectNoArea inlineblock">全不选</span>
+        </td>
+        <td>
+            <span class="noRemoteAreas inlineblock" style="width: 90px;">排除边缘地区</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="selectChild" style="width: 10%;">
+            <input type="checkbox"  class="">华北
+        </td>
+        <td class="areaName" style="width: 15%;">
+            <input type="checkbox" tag="beijing" word="北京"><span
+                class="areatext" areaId="110000">北京</span>
+        </td>
+        <td class="areaName" style="width: 15%;">
+            <input type="checkbox" tag="tianjing" word="天津"><span
+                class="areatext" areaId="120000">天津</span>
+        </td>
+        <td class="areaName" style="width: 15%;">
+            <input type="checkbox" tag="hebei" word="河北省"><span class="areatext" areaId="130000">河北省</span>
+        </td>
+        <td class="areaName" style="width: 15%;">
+            <input type="checkbox" tag="shandong" word="山东省"><span class="areatext" areaId="370000">山东省</span>
+        </td>
+        <td class="areaName" style="width: 15%;">
+            <input type="checkbox" tag="shanxi1" word="山西省"><span class="areatext" areaId="140000">山西省</span>
+        </td>
+        <td class="areaName" style="width: 15%;">
+            <input type="checkbox" tag="neimenggu" word="内蒙古自治区" class="remoteArea"><span class="areatext" areaId="150000">内蒙古</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox">东北
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="liaoning" word="辽宁省"><span class="areatext" areaId="210000">辽宁省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="jilin" word="吉林省"><span class="areatext" areaId="220000">吉林省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="heilongjiang" word="黑龙江省"><span class="areatext" areaId="230000">黑龙江省</span>
+        </td>
+        <td colspan="3">
+
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox">华东
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="shanghai" class="areaName " word="上海"><span
+                class="areatext" areaId="310000" >上海</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="jiangsu" class="areaName " word="江苏省"><span
+                class="areatext" areaId="320000" >江苏省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="zhejiang" class="areaName " word="浙江省"><span
+                class="areatext" areaId="330000" >浙江省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="anhui" word="安徽省"><span class="areatext" areaId="340000">安徽省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="jiangxi" word="江西省"><span class="areatext" areaId="360000">江西省</span>
+        </td>
+        <td colspan="1">
+
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox">华中
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="henan" word="河南省"><span class="areatext" areaId="410000">河南省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="hubei" word="湖北省"><span class="areatext" areaId="420000">湖北省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="hunan" word="湖南省"><span class="areatext" areaId="430000">湖南省</span>
+        </td>
+
+        <td colspan="3">
+
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox"  class="">华南
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="guangdong" word="广东省"><span class="areatext" areaId="440000">广东省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="guangxi" word="广西壮族自治区"><span class="areatext" areaId="450000">广西</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="fujian" word="福建省"><span class="areatext" areaId="350000">福建省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="hainan" word="海南省" class="remoteArea"><span class="areatext" areaId="460000">海南省</span>
+        </td>
+        <td colspan="2">
+
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox">西南
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="chongqing" word="重庆"><span class="areatext" areaId="500000">重庆</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="sichuan" word="四川省"><span class="areatext" areaId="510000">四川省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="guizhou" word="贵州省"><span class="areatext" areaId="520000">贵州省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="yunan" word="云南省"><span class="areatext" areaId="530000">云南省</span>
+        </td>
+        <td colspan="2">
+
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox"  class="">西北
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="shanxi2" word="陕西省"><span class="areatext" areaId="610000">陕西省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="gansu" word="甘肃省"><span class="areatext" areaId="620000">甘肃省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="qinghai" word="青海省"  class="remoteArea"><span class="areatext" areaId="630000">青海省</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="ningxia" word="宁夏回族自治区"  class="remoteArea"><span class="areatext" areaId="640000">宁夏</span>
+        </td>
+        <td colspan="2">
+
+        </td>
+    </tr>
+    <tr>
+        <td class="selectChild">
+            <input type="checkbox"  class="">其他
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="xizang" word="西藏自治区"  class="remoteArea"><span class="areatext" areaId="540000">西藏</span></span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="xinjiang" word="新疆维吾尔自治区"  class="remoteArea"><span class="areatext" areaId="650000">新疆</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="hongkong" word="香港特别行政区"  class="remoteArea"><span class="areatext" areaId="810000">香港</span></span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="Macau" word="澳门特别行政区"  class="remoteArea"><span class="areatext" areaId="820000">澳门</span>
+        </td>
+        <td class="areaName">
+            <input type="checkbox" tag="taiwan" word="台湾"  class="remoteArea"><span class="areatext" areaId="710000">台湾</span>
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="10" style="text-align: center;">
+                     <span class="areaSelectOK inlineblock">
+                         确认选择
+                     </span>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+</div>
+
+
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+    	TM.gcs('/js/skincomment/defenseconfig.js?_v=12', function () {
+    		//TM.gcs('/status/js', function () {
+        	$(document).ready(function () {
+           		TM.Loading.init.show();
+           		TM.DefenseConfig.init.doInit($(".defensewarn-container"));
+           		
+        	//});
+        	});
+        });
+    });
+</script>

@@ -1,0 +1,8 @@
+.tm-paging-container .paging-select,
+.tm-paging-container .paging-size-select{
+    background: #f43;
+    border: 1px solid #f43;
+}
+.gopage-submit{
+    background: #f43;
+}

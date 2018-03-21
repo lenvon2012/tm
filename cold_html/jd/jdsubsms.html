@@ -1,0 +1,147 @@
+#{extends 'jd/jdmain.html' /}
+<style>
+    .kwcontainer{overflow-y: hidden;}
+    .tabbar {
+        background: url("/img/jdserver/tabbar_bg.gif") repeat-x scroll 0 0 transparent;
+        height: 33px;
+        margin-bottom: 15px;
+        margin-top: 0;
+        margin: 0 5px;
+    }
+    ul.tab {
+        padding-left: 8px;
+        padding-top: 5px;
+    }
+    ul.tab li.on {
+        background: url("/img/jdserver/tabon_bg.gif") repeat-x scroll 0 0 transparent;
+    }
+    ul.tab li {
+        background: url("/img/jdserver/tab_bg.gif") repeat-x scroll left top transparent;
+        border-left: 1px solid #7ECAEE;
+        border-right: 1px solid #7ECAEE;
+        display: inline;
+        float: left;
+        height: 20px;
+        margin-right: 8px;
+        padding-left: 13px;
+        padding-right: 13px;
+        padding-top: 8px;
+    }
+    ul.tab li.on a {
+        font-weight: bold;
+    }
+    ul li a {
+        color: black;
+        font-family: '微软雅黑';
+    }
+    td {
+        FONT: 12px Verdana, Arial, Helvetica, sans-serif;
+        COLOR: #333333;
+    }
+    .button {
+        BORDER-RIGHT: #cde6ff 1px solid;
+        PADDING-RIGHT: 3px;
+        BORDER-TOP: #cde6ff 1px solid;
+        PADDING-LEFT: 3px;
+        BACKGROUND: #e4f2ff;
+        PADDING-BOTTOM: 0px;
+        FONT: 12px/20px Verdana, Arial, Helvetica, sans-serif;
+        BORDER-LEFT: #cde6ff 1px solid;
+        COLOR: #555;
+        PADDING-TOP: 0px;
+        BORDER-BOTTOM: #cde6ff 1px solid;
+        HEIGHT: 22px;
+        cursor: pointer;
+    }
+</style>
+
+*{<div class="aside">
+    <ul class="sidemenu sidebox side-tracked-tag ">
+    </ul>
+</div>}*
+<div class="aside">
+    <ul class="sidemenu sidebox side-tracked-tag funnav" style="padding: 0px;margin: 0;">
+        <li class="aside-hot-tag title-center">
+            <a class="followed-tag clearfix sidemenuAnchor hasSecondNav" href="javascript:void(0);">
+                <span class="aside-icon"></span>
+                <span>短信中心</span>
+            </a>
+
+            <span class="fold-icon fold"></span>
+            <div class="secondUl" style="display: none;">
+                <div class="secondLi" tag="kits">
+                    <a href="/jdserver/smsmanual" style="background: url('');border-bottom: 0px;">人工发送</a>
+                </div>
+                <div class="secondLi" tag="kits">
+                    <a href="/jdserver/groupSmsLog" style="background: url('');border-bottom: 0px;">短信群发记录</a>
+                </div>
+            </div>
+        </li>
+        <!-- 客户列表 -->
+        <li class="aside-hot-tag ">
+            <div class="navwrapper">
+                <a href="javascript:void(0)" class="followed-tag clearfix">
+                    <span class="aside-icon"></span>
+                    <span>客户资料</span>
+                </a>
+                <span class="fold-icon fold"></span>
+                <div style="display: none;" class="secondUl">
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">全部客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">成交客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">潜在客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">超过3个月未购买的客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">超过半年未购买的客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">超过一年未购买的客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">只购买过一次的客户</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/showmember">多次购买过的客户</a></div>
+                </div>
+            </div>
+        </li>
+        <!-- 等级设置 -->
+        <li class="aside-hot-tag ">
+            <div class="navwrapper">
+                <a href="javascript:void(0)" class="followed-tag clearfix">
+                    <span class="aside-icon"></span>
+                    <span>客户等级设置</span>
+                </a>
+                <span class="fold-icon fold"></span>
+                <div style="display: none;" class="secondUl">
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/setmember">会员折扣设置</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/member_privilege">前台展示</a></div>
+                </div>
+            </div>
+        </li>
+        <!-- 客户分析 -->
+        <li class="aside-hot-tag ">
+            <div class="navwrapper">
+                <a href="javascript:void(0)" class="followed-tag clearfix">
+                    <span class="aside-icon"></span>
+                    <span>客户分析</span>
+                </a>
+                <span class="fold-icon fold"></span>
+                <div style="display: none;" class="secondUl">
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/memberanalysis">客户等级分析</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/memberanalysis">客户购买频次分析</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/memberanalysis">客户流失趋势分析</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/memberanalysis">回头客增长趋势分析</a></div>
+                    <div tag="kits" class="secondLi"><a style="background: url('');border-bottom: 0px;" href="/JDServer/memberanalysis">新增客户增长趋势分析</a></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="all_container">
+    <div class="kwcontainer jdmain">
+    #{doLayout /}
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(".head-nav").find(".head").html(
+            '<ul style="margin-top:0;">' +
+                    '<li ><a href="/jdserver/memberlevelset">会员管理</a></li>' +
+                    '<li class="selected"><a  href="/jdserver/smsmanual">营销中心</a></li>' +
+                    '</ul>'
+    );
+</script>
+

@@ -1,0 +1,327 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'批量去外链' /}
+
+<style type="text/css">
+
+
+
+    input[type="radio"] {
+        cursor: pointer;
+    }
+    input[type="text"] {
+        padding-left: 5px;
+    }
+
+
+    .tab-target-div {
+        padding: 0px 10px;
+    }
+
+
+
+    .item-table {
+
+    }
+    .item-table td {
+        border: #ccc 1px solid;
+    }
+    .item-table tbody td {
+        padding: 7px 0px;
+    }
+    .item-table .item-img {
+        width: 70px; height: 70px; cursor: pointer;
+    }
+    .item-table input[type=checkbox] {
+        cursor: pointer;
+    }
+    .item-table .item-title {
+        cursor: pointer;
+    }
+
+
+    .link-table tbody td {
+        padding: 7px 0px;
+    }
+    .link-table td {
+        border: #ccc 1px solid;
+    }
+
+    table td.links-td {
+        padding-left: 10px; text-align: left;
+    }
+    table .keep-span {
+        font-weight: bold;
+    }
+    table .remove-span {
+        font-weight: bold; color: red;
+    }
+
+    table td.links-td a {
+        word-break: break-all; font-size: 13px;
+    }
+    table td.links-td a:hover {
+        color: #a10000;
+    }
+    .select35{
+        height: 35px;
+    }
+    .search-container{
+        width: 978px;
+        border: 1px solid #ccc;
+        margin: 0px 0px 20px 0px;
+        padding: 20px 0px;
+        background: #efefef;
+    }
+    table.busSearch {width:100%;font-family:verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-collapse: collapse;border:1px solid #ccc;}
+    .busSearch thead td,.busSearch tbody td,.busSearch-tbody td,.busSearch-tbody th{
+        border-bottom:1px solid #ccc;border-top:1px solid #ccc;
+    }
+
+
+    .busSearch tbody tr:hover{background-color: #ffe;}
+    .busSearch thead tr{
+        background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+        background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+    }
+    table.busSearch th {padding: 4px;height:24px;}
+    table.busSearch td {word-wrap: break-word;word-break: break-all;padding:3px;}
+    table.busSearch td  .addTextWrapper{margin:8px 3px 8px 5px;}
+    .busSearch-tbody tr{height: 18px;line-height: 18px;}
+
+</style>
+
+
+<div class="remove-links-container">
+
+    <div class="header-tip-container">
+        <div>系统自动检测出宝贝详情页中包含的外链，并提供一键删除的功能。</div>
+        <div style="padding-top: 10px;">如果需要保留其中的某些外链，可以在&nbsp;配置要保留或去除的链接&nbsp;这个选项下面设置</div>
+    </div>
+
+
+
+    <div class="base-tab-out">
+        <div class="base-tab-div">
+            <span class="base-tab-unit remove-links-tab-btn select-tab" target="item-link-list-div">宝贝的外链列表</span>
+            <span class="base-tab-unit remove-links-tab-btn " target="all-link-config-div">配置要保留或去除的链接</span>
+        </div>
+
+        <div style="height: 20px;"></div>
+
+
+        <div class="item-link-list-div tab-target-div">
+            <div class="search-container">
+                <table style="border-collapse: collapse; margin: 0 auto;">
+                    <tbody>
+                    <tr>
+                        <td style="">
+                            <span>宝贝标题：</span>
+                            <input type="text" class="search-text select35" style="width: 150px;"/>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            <span>淘宝类目：</span>
+                            <select class="tb-category-select select35" style="width: 110px;">
+                                <option value="0" selected="selected">所有宝贝</option>
+                            </select>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            <span>自定义分类：</span>
+                            <select class="seller-category-select select35" style="width: 110px;">
+                                <option value="0" selected="selected">所有分类</option>
+                            </select>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            <span>宝贝状态：</span>
+                            <select class="state-select select35" style="width: 110px;">
+                                <option value="0">在架宝贝</option>
+                                <option value="1">待上架宝贝</option>
+                                <option value="2" selected="selected">所有宝贝</option>
+                            </select>
+                        </td>
+                        <td style="padding-left: 20px;">
+                            <span class="tmbtn sky-blue-btn search-btn">搜索宝贝</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div style="padding-top: 20px;padding-bottom: 10px;text-align: center;">
+                <table style="border-collapse: collapse;margin: 0 auto;">
+                    <tbody>
+                    <tr>
+                        <td style=""><span class="tmbtn too-wide-yellow-btn checkLinkBtn">立即查找外链</span> </td>
+                        <td style="padding-left: 40px;"><span class="tmbtn too-wide-yellow-btn remove-select-item-btn">删除选中宝贝的外链</span> </td>
+                        <td style="padding-left: 40px;">
+                            <span class="tmbtn too-wide-yellow-btn remove-all-item-btn">删除所有宝贝的外链</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="item-paging-div" style="padding-bottom: 5px;text-align: center;"></div>
+
+            <table class="item-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 8%;"><input type="checkbox" class="all-item-check"  checked="checked" /> </td>
+                    <td style="width: 11%;">宝贝图片</td>
+                    <td style="width: 30%;">宝贝标题</td>
+                    <td style="width: 51%;">详情页中的外链</td>
+                </tr>
+                </thead>
+                <tbody class="item-tbody"></tbody>
+            </table>
+
+            <div class="item-paging-div" style="padding-top: 5px;text-align: center;"></div>
+
+
+
+        </div>
+
+
+
+
+        <div class="all-link-config-div tab-target-div" style="display: none;">
+            <div class="link-search-container">
+                <table style="border-collapse: collapse;">
+                    <tbody>
+                    <tr>
+                        <td style="">
+                            <span>外链：</span>
+                            <input type="text" class="link-search-text select35" style="width: 400px;"/>
+                        </td>
+                        <td style="padding-left: 20px;">
+                            <span class="tmbtn sky-blue-btn link-search-btn">搜索外链</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="padding-top: 20px;padding-bottom: 10px;text-align: center;">
+                <table style="border-collapse: collapse;margin: 0 auto;">
+                    <tbody>
+                    <tr>
+
+                        <td style=""><span class="tmbtn too-wide-yellow-btn set-select-keep-btn">要保留选中的链接</span> </td>
+                        <td style="padding-left: 20px;">
+                            <span class="tmbtn too-wide-yellow-btn set-all-keep-btn">要保留所有的链接</span>
+                        </td>
+                        <td style="padding-left: 120px;">
+                            <span class="tmbtn too-wide-yellow-btn set-select-remove-btn">要去除选中的链接</span>
+                        </td>
+                        <td style="padding-left: 20px;">
+                            <span class="tmbtn too-wide-yellow-btn set-all-remove-btn">要去除所有的链接</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="link-paging-div" style="padding-bottom: 5px;text-align: center;"></div>
+
+            <table class="link-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 8%;"><input type="checkbox" class="all-link-check" /> </td>
+                    <td style="width: 72%;">链接的配置状态 (是否在详情页中保留)</td>
+                    <td style="width: 20%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="link-tbody"></tbody>
+            </table>
+
+            <div class="link-paging-div" style="padding-top: 5px;text-align: center;"></div>
+
+        </div>
+
+
+        <div style="height: 60px;"></div>
+    </div>
+
+
+
+
+</div>
+
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+<script type="text/x-jquery-tmpl" id="linkItemRow">
+
+    <tr class="item-tr">
+        <td><input type="checkbox" class="item-checkbox" checked="checked" numIid="{{= numIid}}"/></td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <img class="item-img" src="{{= picUrl}}_120x120.jpg" />
+            </a>
+        </td>
+        <td>
+            <a class="item-link" target="_blank" href="{{= itemLink}}">
+                <span class="item-title" style="color: #333;">{{= title}}</span>
+            </a>
+        </td>
+        <td class="links-td">
+            {{each(i, linkJson) linkJsonArray}}
+            <div>
+                {{if linkJson.action == 0}}
+                <span class="keep-span">保留链接:</span>
+                {{else}}
+                <span class="remove-span">等待删除:</span>
+                {{/if}}
+                <a target="_blank" href="{{= linkJson.linkUrl}}">{{= linkJson.linkUrl}}</a>
+            </div>
+            {{/each}}
+        </td>
+
+    </tr>
+
+
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="linkConfigRow">
+
+    <tr class="link-config-tr">
+        <td><input type="checkbox" class="link-checkbox" linkId="{{= id}}"/></td>
+        <td class="links-td">
+            {{if action == 0}}
+            <span class="keep-span">可以保留:</span>
+            {{else}}
+            <span class="remove-span">需要删除:</span>
+            {{/if}}
+            <a target="_blank" href="{{= link}}">{{= link}}</a>
+        </td>
+        <td>
+            {{if action == 0}}
+            <span class="tmbtn yellow-btn set-link-remove-btn" linkId="{{= id}}">去除链接</span>
+            {{else}}
+            <span class="tmbtn short-green-btn set-link-keep-btn" linkId="{{= id}}">保留链接</span>
+            {{/if}}
+        </td>
+
+    </tr>
+
+
+</script>
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/newAutoTitle/autotitleutil.js',function(){
+            TM.gcs('/js/newAutoTitle/removelinks.js?_v=2',function(){
+                $(document).ready(function() {
+                    TM.RemoveLinks.init.doInit($('.remove-links-container'));
+                });
+            });
+        });
+    });
+</script>

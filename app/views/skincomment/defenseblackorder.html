@@ -1,0 +1,72 @@
+#{extends 'skincomment/skinautodefendersubbase.html' /}
+#{set title:'黑名单用户订单' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+
+*{<script src="/js/skincomment/defensewarn.js" type="text/javascript" charset="utf-8"></script>}*
+
+<div class="defensewarn-container">
+    <div class="warn-search-div">
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <span>交易编号：</span>
+                    <input type="text" class="trade-id-text" style="width: 100px;">
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>买家昵称：</span>
+                    <input type="text" class="buyer-name-text" style="width: 80px;"></td>
+                <td style="padding-left: 10px;">
+                    <span>发生日期：</span>
+                    <input type="text" class="start-time-text date-picker" style="width: 75px;">
+                    <span>-</span>
+                    <input type="text" class="end-time-text date-picker" style="width: 75px;">
+                </td>
+                <td style="padding-left: 10px;">
+                    <span class="search-btn commbutton btntext4">搜索日志</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="warn-table-div">
+    <div class="paging-div"></div>
+    <table class="skincomment-table">
+        <thead>
+        <!-- <th><input type="checkbox"></th> -->
+        <th>订单号</th>
+        <th>订单创建时间</th>
+        <th>支付完成时间</th>
+        <!-- <th>评价时间/评价到期时间</th> -->
+        <th>买家旺旺</th>
+        <th>买家电话</th>
+        <th>订单金额</th>
+        <th>订单状态</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="paging-div"></div>
+    </div>
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+	    TM.gcs('/js/skincomment/defenseblacklist.js', function () {
+    		TM.gcs('/js/ChineseDatePicker.js', function () {
+		        $(document).ready(function() {
+		            TM.Loading.init.show();
+		            TM.DefenseBlacklist.init.doInit($(".defensewarn-container"));
+		        });
+	    	});
+    	});
+    });
+
+
+</script>

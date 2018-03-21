@@ -1,0 +1,329 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'创建上下架计划' /}
+
+<link rel="stylesheet" media="screen" href="/css/autoDeList/newDelistPlans.css?_v=1">
+<style>
+    .delist-choose table{
+        width:90%;
+        text-align:left;
+        margin:0 auto;
+    }
+    .delist-choose table tr{
+        height:80px;
+        padding-bottom:20px;
+
+    }
+    .delist-choose table tr td{
+        padding-left:20px;
+    }
+    .input-text{
+        border:1px solid #ccd0d9;
+        color:#434a54;
+        border-radius:5px;
+        padding:0 4px;
+        height:28px;
+        font-family:Tahoma;
+        width:300px;
+    }
+
+    .delist-choose-container{
+        display:none;
+    }
+
+    .all-item-container{
+        margin:20px 0px 0px 150px;
+    }
+
+    .seperate-category-container{
+        margin:0 0 0 100px;
+    }
+
+    .single-item-container{
+        margin:0 0 0 100px;
+    }
+
+    .current{
+        display:block;
+    }
+
+    .delist-container{
+        padding:10px;
+        font-family:"微软雅黑";
+        font-size:16px;
+        min-height:500px;
+    }
+    .choose-span{
+        cursor:pointer;
+    }
+</style>
+<div class="delist-container">
+    <div class="delist-choose" style="padding-bottom:5px;">
+        <div style="margin:20px 0 10px 0;text-align:center">
+            <table>
+                <tbody>
+                <tr style="border-bottom: 1px dotted rgb(190,190,190)">
+                    <td class="edit-title" style="width:30%;font-size:20px;">
+                        一、计划名称：
+                    </td>
+                    <td class="edit-context" style="width:70%;">
+                        <input class="input-text" style="font-size:18px;width:350px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td  style="font-size:20px;">
+                        二、选择上下价架宝贝:
+                    </td>
+
+                    <td style="font-size:20px;">
+                        <input type="radio" name="category-choose" tarDiv="seperate-category-container" class="category-item category-tab">
+                        <span class="choose-span" tarDiv="category-item">类目</span>
+                        <input type="radio" name="category-choose" style="margin-left:60px;" tarDiv="all-item-container" class="all-item category-tab">
+                        <span class="choose-span" tarDiv="all-item">所有宝贝</span>
+                        <input type="radio" name="category-choose" style="margin-left:60px;" tarDiv="single-item-container" class="single-item category-tab">
+                        <span class="choose-span" tarDiv="single-item">选择上架宝贝</span>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="delist-choose-show" tarDiv="" style="font-size:16px;">
+        <div class="delist-choose-container current all-item-container">
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <b>1.</b>
+                        &nbsp;&nbsp;排除销量前10的宝贝？&nbsp;&nbsp;
+                        <input type="radio" name="first10saleother" status="true" checked="checked">
+                        是&nbsp;&nbsp;
+                        <input type="radio" name="first10saleother" status="false">
+                        否
+                    </td>
+                </tr>
+
+                <tr style="height:50px;">
+                    <td>
+                        <b>2.</b>
+                        &nbsp;&nbsp;自动增加新增宝贝？&nbsp;&nbsp;
+                        <input type="radio" name="addnewitemother" status="true" checked="checked">
+                        是&nbsp;&nbsp;
+                        <input type="radio" name="addnewitemother" status="false">
+                        否
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="delist-choose-container seperate-category-container">
+            <div>
+                <table style="margin-left:28px;margin-bottom:10px;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <b>1.</b>
+                            &nbsp;&nbsp;排除销量前10的宝贝？&nbsp;&nbsp;
+                            <input type="radio" name="first10sale" status="true" checked="checked">
+                            是&nbsp;&nbsp;
+                            <input type="radio" name="first10sale" status="false">
+                            否
+                        </td>
+                    </tr>
+
+                    <tr style="height:50px;">
+                        <td>
+                            <b>2.</b>
+                            &nbsp;&nbsp;自动增加新增宝贝？&nbsp;&nbsp;
+                            <input type="radio" name="addnewitem" status="true" checked="checked">
+                            是&nbsp;&nbsp;
+                            <input type="radio" name="addnewitem" status="false">
+                            否
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div style="margin-left:150px;">
+                    <span style="text-align:center;color:#eaab2e;font:12px/1.5 tahoma,'\5b8b\4f53',arial,sans-serif;">注：下面同时选取淘宝分类和商品分类时将取它们共有的宝贝，如果没有选择，则默认为全部选择</span>
+                </div>
+                <ul>
+
+                    <li style="text-align:right;float:left;font-size:16px;line-height:40px;width:120px;"><b>3.</b>选择分类：</li>
+
+                    <li style="margin:10px 0 10px 10px;width:500px;min-height:400px;overflow:auto;padding:5px;border:1px solid #ccc">
+                        <div class="tree-row">
+                            <div class="head-row tree-head"></div>
+                            <div style="display:inline-block;">
+                                <input class="head-box taobaobox-head" type="checkbox">&nbsp;淘宝商品分类
+                            </div>
+                        </div>
+                        <div class="tree-children taobaoitem">
+
+                        </div>
+
+
+
+                        <div class="tree-row">
+                            <div class="head-row-second tree-head"></div>
+                            <div style="display:inline-block;">
+                                <input type="checkbox" class="head-box sellerbox-head">&nbsp;店铺自定义分类
+                            </div>
+                        </div>
+
+                        <div class="tree-children selleritem" style="margin-left:13px;">
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="delist-choose-container search-container single-item-container">
+            <div class="">
+                <table>
+                    <tbody>
+                    <tr>
+
+                        <td>
+                            <span>宝贝标题:</span>
+                        </td>
+                        <td>
+                            <input type="text" class="searchText" style="font-size:14px;height:30px;width:250px;border-radius:3px;">
+                        </td>
+                        <td style="width:250px;">
+                            <span class="tmbtn sky-blue-btn delist-searchbtn" style="margin-left:10px;">搜索宝贝</span>
+                        </td>
+
+                        <td style="width:120px;">
+                            <span class="tmbtn long-sky-blue-btn selectPageAll">
+                                <span>
+                                全选本页宝贝
+                                </span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="tmbtn long-sky-blue-btn unselectPageAll">
+                                <span>
+                                取消本页宝贝
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top:30px;"></div>
+            <div class="manualPaging" style="text-align:center;"></div>
+            <table class="manualTable list-table" style="text-align:left;padding-left:5px;">
+                <thead>
+                    <tr class="tableHead">
+                        <td width="40%">宝贝标题</td>
+                        <td width="40%">上架时间</td>
+                        <td width="20%">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="manualPaging" style="text-align:center;"></div>
+
+            <div style="text-align:center;margin:40px 0;">
+                <span class="tmbtn wide-sky-blue-btn configitems">下一步,配置</span>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin:40px 0;">
+            <span class="tmbtn wide-sky-blue-btn excludeitembtn">下一步,排除宝贝</span>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="taobaoitem-tmpl">
+    {{each(i, item) data}}
+    <div class="tree-row">
+        {{if i==len-1}}
+        <div class="left-row"></div>
+        <div class="last-row"></div>
+        <div style="display:inline-block;">
+            <input type="checkbox" class="taobaobox-child" cid="{{= item.id}}" name="itemCid" style="padding:0px;margin:0px;width:auto;">
+            <span>{{= item.name}}</span>
+            &nbsp;&nbsp;(宝贝数:<span style="color:green;">{{= item.onSaleCount}}</span>)
+        </div>
+        {{else}}
+        <div class="left-row"></div>
+        <div class="child-row"></div>
+        <div style="display:inline-block;">
+            <input type="checkbox" class="taobaobox-child" cid="{{= item.id}}" name="itemCid" style="padding:0px;margin:0px;width:auto;">
+            <span>{{= item.name}}</span>
+            &nbsp;&nbsp;(宝贝数:<span style="color:green;">{{= item.onSaleCount}}</span>)
+        </div>
+        {{/if}}
+    </div>
+    {{/each}}
+</script>
+
+<script type="text/x-jquery-tmpl" id="selleritem-tmpl">
+    {{each(i, item) data}}
+    <div class="tree-row">
+        {{if i==len-1}}
+        <div class="last-row"></div>
+        <div style="display:inline-block;">
+            <input type="checkbox" class="sellerbox-child" cid="{{= item.id}}" name="itemCid" style="padding:0px;margin:0px;width:auto;">
+            <span>{{= item.name}}</span>
+            &nbsp;&nbsp;(宝贝数:<span style="color:green;">{{= item.onSaleCount}}</span>)
+        </div>
+        {{else}}
+        <div class="child-row"></div>
+        <div style="display:inline-block;">
+            <input type="checkbox" class="sellerbox-child" cid="{{= item.id}}" name="itemCid" style="padding:0px;margin:0px;width:auto;">
+            <span>{{= item.name}}</span>
+            &nbsp;&nbsp;(宝贝数:<span style="color:green;">{{= item.onSaleCount}}</span>)
+        </div>
+        {{/if}}
+    </div>
+    {{/each}}
+</script>
+
+<script type="text/x-jquery-tmpl" id="singlechooseitem-tmpl">
+    <tr class="tableHead" numIid="{{= id}}">
+        <td width="40%" style="text-align:left; padding:5px;">
+            <a target="_blank" style="width:80px;height:80px; margin:5px;" style="position:absolute;" href="http://item.taobao.com/item.htm?id={{= id}}">
+             <img style="width:80px;height:80px;" src="{{= picURL}}">
+            </a>
+            <span style="position:absolute; width:250px;margin:20px 0 0 10px;text-align:center;">
+            <a target="_blank" style="width:80px;height:80px; color:#5694e1;" style="position:absolute;" href="http://item.taobao.com/item.htm?id={{= id}}">
+            {{= name}}</a>
+            </span>
+        </td>
+        <td width="40%">{{= listTime}}</td>
+        <td width="20%">
+        <div class="choose-sign" style="color:#5694e1;cursor:pointer;">选择</div>
+        <div class="hide ">
+        已选择&nbsp;|&nbsp;
+        <span class="back-sign-span back-sign" style="color:#5694e1;cursor:pointer;">取消</span>
+        </div>
+        </td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/tm.js',function() {
+            TM.gcs('/js/delistplan/delistbase.js', function () {
+                TM.gcs('/js/jquery.tmpl.js', function() {
+                    TM.gcs('/js/newAutoTitle/delistCreate.js?_v=3', function () {
+                        $(document).ready(function () {
+                            TM.delistChooseManager.init.doInit($('.delist-container'));
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,371 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'添加促销宝贝' /}
+
+<link type="text/css" rel="stylesheet" href="/css/ump/promotion.css?_v=2" />
+<link type="text/css" rel="stylesheet" href="/css/ump/umpselectitem.css" />
+<style type="text/css">
+    .item_thisActivity{
+        line-height: 50px;
+        height: 50px;
+        display: block;
+        border: 1px solid #fff;
+        background: #D6D5D5;
+        font-size: 15px;
+        text-align: center;
+    }
+    .thisActivity{
+        border-width: 1px;
+        padding: 8px;
+        border-style: dashed;
+        border-color: #EF6400;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    input.item-dis.error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+    .span-text{
+        font-size: 18px;
+    }
+
+
+</style>
+
+
+
+<div style="padding: 0px 20px;"><div class="intro shop-discount-div"></div></div>
+
+<h1 class="add-item-header" style="font-size: 22px;"> </h1>
+<div class="" style="padding: 20px; font-size: 20px; color: #ccc; font-weight: normal;">
+
+    <span style="" class="bold-header first-step-header" >1. 选择宝贝</span>&nbsp;&nbsp;>&nbsp;&nbsp;<span class=" second-step-header">2. 设置宝贝折扣</span>
+
+</div>
+
+<div class="item-container select-item-container">
+    <div class="combobox-input">
+        <div style="width: 750px;margin: 0 auto;padding-top: 8px;position: relative;">
+            <label style="top:8px;" class="combobox-label-item" for="mq">搜索 商品 标题/关键字</label>
+            <input type="text" title="请输入搜索文字" class="guanjianci" id="mq" style="float: left;" />
+            <button type="submit" class="guanjianci-select">搜索</button>
+        </div>
+    </div>
+    <div class="filter" >
+        <div class="fRange" style="text-align: center;">
+            <b class="fR-text" order="df">默认排序</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fR-list">
+                <li>
+                    <a class="fRl-ico-pu" href="javascript:void(0);">↑ 价格从低到高</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-pd" href="javascript:void(0);">↓ 价格从高到低</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-su" href="javascript:void(0);">↑ 下架时间</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-sd" href="javascript:void(0);">↓ 下架时间</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-df" href="javascript:void(0);">〓 恢复默认排序</a>
+                </li>
+            </ul>
+        </div>
+        <div class="item-status-select" style="text-align: center;">
+            <b class="item-status-text" itemStatus="1">已上架的宝贝</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="item-status-list">
+                <li>
+                    <a class="item-status-option" itemStatus="1" href="javascript:void(0);">已上架的宝贝</a>
+                </li>
+                <li>
+                    <a class="item-status-option" itemStatus="0" href="javascript:void(0);">在仓库的宝贝</a>
+                </li>
+                <li>
+                    <a class="item-status-option" itemStatus="2" href="javascript:void(0);">全部的宝贝</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fSellercat">
+            <s class="fS-label">店铺类目：</s>
+            <b class="fS-text">所有类目</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fS-list" id="sellerCat" style="width: 160px;">
+            </ul>
+        </div>
+        <div class="fItemcat">
+            <s class="fI-label">淘宝类目：</s>
+            <b class="fI-text">所有类目</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fI-list" id="itemCat" style="width: 160px;">
+            </ul>
+        </div>
+        <div class="fDiscount">
+            <s class="fD-label">是否参加活动：</s>
+            <b class="fD-text" isDis="all">所有宝贝</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fD-list"  style="width: 200px;">
+                <li>
+                    <a class="fD-ico-dis" href="javascript:void(0);">已参加活动宝贝</a>
+                </li>
+                <li>
+                    <a class="fD-ico-undis" href="javascript:void(0);">未参加活动宝贝</a>
+                </li>
+                <li>
+                    <a class="fD-ico-all" href="javascript:void(0);">所有宝贝</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fAllselect" style="position: relative;float: right;width: 80px;">
+            <a href="javascript:void(0);">
+                <b class="fA-text choose">本页全选</b>
+                <b class="fA-text unchoose">取消全选</b>
+            </a>
+        </div>
+    </div>
+
+    <div style="margin: 50px 0px 10px 0px;font-size: 14px;">注：一个打折活动最多可以添加&nbsp;<span class="red-bold-num total-item-num">150</span>&nbsp;个宝贝，当前已添加&nbsp;<span class="red-bold-num already-item-num"></span>&nbsp;个 </div>
+
+    <div class="item-paging-div" style="text-align: center;margin-bottom: 20px; "></div>
+
+    <div style="padding: 0px 0px;">
+        <table class="item-select-table">
+            <tbody class="item-select-tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="item-paging-div" style="text-align: center;margin-bottom: 10px;margin-top: 20px; "></div>
+
+    <div class="haoniu-submit-div">
+        <span class="haoniu-submit-btn goto-set-discount-btn">下一步设置折扣</span>
+    </div>
+
+    <input type="hidden" class="activityId" value="${activityId}" />
+</div>
+
+
+<div class="set-discount-container item-container" style="display: none;">
+
+    <input type="hidden" class="activityId" value="${activityId}" />
+
+    <div class="combobox-input">
+        <div style="width: 750px;margin: 0 auto;padding-top: 8px;position: relative;">
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <label style="top:8px;" class="combobox-label-item" for="mq">搜索 商品 标题/关键字</label>
+                        <input type="text" title="请输入搜索文字" class="search-text-input"  />
+                    </td>
+                    *{<td style="padding-left: 10px;">
+                        <select class="item-type-select" style="width: 160px; height: 25px;">
+                            <option class="all-activity-item-option" value="1">活动中所有宝贝</option>
+                            <option class="origin-activity-item-option" value="2">活动中原有宝贝</option>
+                            <option class="new-activity-item-option" value="4" selected="selected">活动中新增宝贝</option>
+                        </select>
+                    </td>}*
+                    <td style="padding-left: 10px;">
+                        <button type="submit" class="search-btn">搜索</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    <div class="filter" >
+        <div class="item-type-select" style="text-align: left;width: 220px;">
+            <s class="fD-label">宝贝类型：</s>
+            <b class="item-type-text" itemType="4" style="margin-left: 80px">活动中新增宝贝</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="item-type-list" style="width: 220px; text-align: center;">
+                <li>
+                    <a class="item-type-option all-activity-item-option" itemType="1" href="javascript:void(0);">活动中所有宝贝</a>
+                </li>
+                <li>
+                    <a class="item-type-option exist-activity-item-option" itemType="2" href="javascript:void(0);">活动中原有宝贝</a>
+                </li>
+                <li>
+                    <a class="item-type-option new-activity-item-option" itemType="4" href="javascript:void(0);">活动中新增宝贝</a>
+                </li>
+                <li>
+                    <a class="item-type-option error-activity-item-option" itemType="8" href="javascript:void(0);">参数错误的宝贝</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 10px;">
+        <div class="promotion-paging-div" style="text-align: center;margin-bottom: 10px;margin-top: 40px; "></div>
+        <div class="tspy">
+            <div class="hover_tips_cont"><span class="tip-content" style="font-size: 16px;"></span></div>
+        </div>
+        <div class="attr" style="margin: 0 auto;text-align: center;" >
+            <div class="attrKey" style="padding-top: 18px;font-size: 18px;">
+                <span>批量操作</span>
+            </div>
+            <div class="attrValue">
+                <div class="piliang-batch" style="margin-left: 45px;">
+                    *{促销模式：
+                    <br>}*
+                    <a href="javascript:void(0);" class="modelBtn doDazhe" type="text" style="border: 1px solid #b10000;">批量变为打折</a>
+                    <a href="javascript:void(0);" class="modelBtn doJianjia" type="text" style="border: 1px solid #b10000;">批量变为减价</a>
+                </div>
+                <div class="piliang-batch" style="margin-left: 45px;">
+                    *{批量打折：
+                    <br>}*
+                    打
+                    <input class="piliang" type="text" style="border: 1px solid #b10000;" />
+                    折
+                </div>
+                <div class="piliang-batch" style="margin-left: 15px;">
+                    *{批量减价：
+                    <br>}*
+                    减
+                    <input class="piliang-jianjia" type="text" style="border: 1px solid #b10000;" />
+                    元
+                </div>
+                <div class="piliang-batch" style="margin-left: 25px;">
+                    <a href="javascript:void(0);" class="molinBtn dofen" type="text" style="border: 1px solid #b10000;">减价去分</a>
+                    <a href="javascript:void(0);" class="molinBtn dofenjiao" type="text" style="border: 1px solid #b10000;">减价去分角</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="promotion-table">
+
+        </div>
+
+        <div class="promotion-paging-div" style="text-align: center;margin-top: 5px;margin-bottom: 30px;"></div>
+
+
+        <div class="haoniu-submit-div">
+            <table style="border-collapse: collapse;margin: 0 auto;">
+                <tbody>
+                <tr>
+                    <td>
+                        <span class="haoniu-submit-btn goto-choose-item-btn" style="width: 150px;">上一步选宝贝</span>
+
+                    </td>
+                    <td style="padding-left: 30px;">
+
+                        <span class="haoniu-submit-btn submit-discount-btn" style="width: 150px;">提交到淘宝</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+<script type="text/x-jquery-tmpl" id="promotionRow">
+
+    <div class="item" numIid="{{= numIid}}" oldPrice="{{= price}}"
+            originDiscount="{{= discountRate}}" originDecrease="{{= decreaseAmount}}"
+            originPromotionType="{{= promotionType}}"
+            hasSkuPrices="{{= hasSkuPricesStr}}" minSkuPrice="{{= minSkuPrice}}" maxSkuPrice="{{= maxSkuPrice}}"
+            promotionType="" hasPromotion="{{= hasPromotionStr}}">
+
+        <a class="productImg item-href" target="_blank" href="{{= itemLink}}">
+            <img class="item-img"  src="{{= picURL}}_120x120.jpg"/>
+        </a>
+        <div class="productInfo">
+            <div class="productTitle">
+                <a style="height: 40px;width: 100%;overflow: hidden;" target="_blank" href="{{= itemLink}}"
+                   class="item-href item-link item-name">
+                    {{= title}}
+                </a>
+            </div>
+            <p>
+                <em class="proSell-price">¥</em>
+                <em class="proSell-price item-price">{{= price}}</em>
+                &nbsp;&nbsp;&nbsp;
+                <span style="font-size: 12px;color: #C49173">促销模式：</span>
+                <a class="disModel" style="color:#FF9A36" href="javascript:void(0)">
+                    <b class="Model-dazhe" title="点击改为减价模式">打折</b>
+                    <b class="Model-jianjia" title="点击改为打折模式">减价</b>
+                </a>
+            </p>
+            <p style="padding-top: 5px;display: none;" class="fenxiao-price-div">
+                <span class="fenxiao-price" style="font-weight: bold;">￥{{= fenxiaoPrice}}</span>&nbsp;(采购价)&nbsp;&nbsp;<span class="out-id-span" title="商家编码">{{= outId}}</span>
+            </p>
+            <p style="padding-top: 5px;display: none;" class="sku-price-div">
+                <span class="sku-price" style="font-weight: bold;">￥{{= minSkuPrice}}-{{= maxSkuPrice}}</span>&nbsp;(多个价格)&nbsp;&nbsp;<span class="out-id-span" title="商家编码">{{= outId}}</span>
+            </p>
+            <p style="padding-top: 5px;display: none;" class="out-id-div">
+                <span class="out-id-span" title="商家编码">{{= outId}}</span>&nbsp;(商家编码)
+            </p>
+        </div>
+        <div class="productDis">
+            <div class="discount-div discount-set-div">
+            *{<span class="discount-type-span">打折：</span>
+                <br>}*
+                <span class="discount-type-span">打</span>
+                <input class="item-dis" type="text" style=""   />
+                <span class="discount-type-span">折</span>
+            </div>
+            <div class="decrease-div discount-set-div">
+            *{<span class="decrease-type-span">减价：</span>
+                <br>}*
+                <span class="decrease-type-span">减</span>
+                <input class="item-jianjia" type="text" style="" />
+                <span class="decrease-type-span">元</span>
+            </div>
+            <div class="result-price-div">
+            *{<span class="discount-price-span">折后价：</span>}*
+
+                <div class="sku-result-span" style="height: 20px;"></div>
+                结果
+                <input class="item-disprice" type="text" style="color:#C00;" />
+                元
+            </div>
+        </div>
+        <div class="delete-btn-div" style="">
+            <a class="delete-promotion" href="javascript:void(0)" style="width: 30px;height: 30px;display: block;border: 1px solid #fff;position: absolute;right:0;top:0;"> <a class="closed-img delete-promotion" href="javascript:void(0)" style="right: 9px;top:9px;"></a></a>
+        </div>
+        <div>
+            <span class="activity-promotion-tip" style=""></span>
+        </div>
+
+    </div>
+</script>
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/ump/umputil.js?_v=4',function(){
+            TM.gcs('/js/ump/promotioncommon.js?_v=5',function(){
+                TM.gcs('/js/ump/promotionadd.js',function(){
+                    TM.gcs('/js/ump/umpselectitem.js?_v=1',function(){
+                        TM.gcs('/js/ump/promotionselectitem.js?_v=2',function(){
+                            TM.gcs('/js/ump/addpromotioncommon.js?_v=2',function(){
+                                TM.gcs('/js/ump/shopmindiscount.js?_v=3', function () {
+                                    $(document).ready(function() {
+                                        TM.AddPromotion.init.doInit($("body"));
+                                        TM.ShopMinDiscount.init.doInit($(".shop-discount-div"));
+                                    });
+                                });
+
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>

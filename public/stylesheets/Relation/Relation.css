@@ -1,0 +1,198 @@
+.PlanOP {
+    width: 780px;
+    margin: 0 auto;
+    background: url(/public/images/relation/background1.png) center repeat-y;
+    padding: 0 6px;
+}
+
+.p {
+    background: url(/public/images/relation/pTop1.png) no-repeat top;
+}
+
+#pInt {
+    padding: 0 5px 10px;
+    background: url(/public/images/relation/pBottom1.png) no-repeat bottom;
+    position: relative;
+    min-height: 500px;
+}
+
+.mainNav {
+    width: 780px;
+    height: 80px;
+    background: url(/public/images/relation/navBg780px.png) no-repeat;
+    position: absolute;
+    left: 0;
+    _left: -6px;
+    top: 25px;
+}
+
+.logo-glyx {
+    display: block;
+    background: url(/public/images/relation/logo-glyx.gif) no-repeat;
+    width: 169px;
+    height: 33px;
+    margin: 20px;
+}
+
+ul.nav {
+    display: block;
+    float: right;
+    top: -71px;
+    right: 20px;
+    position: relative;
+    height: 71px;
+    -webkit-margin-before: 0;
+}
+
+ul.nav li {
+    *display: inline;display: inline-block;
+    float: left;
+    width: 90px;
+    height: 71px;
+    text-align: center;
+    position: relative;
+}
+
+ul.nav li a {
+    padding: 40px 0 0;
+    width: 90px;
+    height: 31px;
+    display: block;
+    color: #674B2A;
+    margin-left: 0;
+    background-image:none;
+}
+
+ul.nav li.on {
+    background: url(/public/images/relation/ssyh.png) no-repeat -200px 0;
+}
+
+ul li a {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+ul.nav i {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url(/public/images/relation/ssyh.png);
+    _background-image: url(/public/images/relation/ssyh.gif);
+    background-position: -360px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 31px;
+}
+
+.planGroup {
+    zoom: 1;
+    padding: 20px 0 20px 15px;margin-left: 0px;margin-top: 0px;list-style: none;min-height: 400px;
+}
+
+
+.planGroup li {
+    display: inline-block;
+    width: 290px;
+    height: 165px;
+    padding: 10px;
+    background: url(/public/images/relation/img-glyx.png) no-repeat 0 -215px;
+    _background: url(i/gl2/img-glyx.gif) no-repeat 0 -215px;
+    float: left;
+    margin-right: 30px;
+    margin-left: 25px;
+    overflow: hidden;
+}
+
+.existedPlan{
+   padding-top: 100px;
+}
+
+.planName{
+    float: left;
+    font-weight: bolder;
+    font-size: 12px;
+    color: #000000;
+    text-align: left;
+    margin-bottom: 5px;  width: auto; display: inline-block;
+}
+.planName:hover{color: #000000;font-weight: bolder;font-size: 12px;text-align: left; margin-bottom: 5px;width: auto;display: inline-block;}
+
+.deletePlanSpan{display: inline-block;color: #000000;font-weight: bolder;font-size: 12px;margin-top:6px;float: right;cursor: pointer;}
+.installTo{
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+    float: left;
+    padding: 3px 3px 0 3px;
+    font-weight: normal;
+}
+
+.installedItems{float: left;height: 24px;}
+
+.installedItems a{
+    padding-top: 0px;
+    margin-left: 0px;
+    float: left;
+}
+
+.installedItems img {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #CCC;
+    float: left;
+    margin-left: -1px;
+}
+
+.groupPosition {
+    zoom: 1;
+}
+.deletePlan{float: right;font-weight: normal;font-size: 12px;cursor: pointer;
+    background: url(/public/images/tab/userful.jpg) -2px -2px no-repeat;}
+.planGroup li.addPlan{background: url(/public/images/relation/img-glyx.png) no-repeat 0 -399px;_background: url(http://qcdn.maijiatang.net/r/i/gl2/img-glyx.gif) no-repeat 0 -399px;cursor: pointer;}
+.planGroup li.realPlan{background: url(/public/images/relation/img-glyx.png) no-repeat 0 -215px;_background: url(http://qcdn.maijiatang.net/r/i/gl2/img-glyx.gif) no-repeat 0 -215px;cursor: pointer;}
+.paging{text-align: right;padding: 10px;margin-right: 20px;}
+.paging a {display: inline-block;    height: 16px;     line-height: 16px;      min-width: 16px;       _width: 16px;     margin-left: 3px;
+    border: 1px solid #EAEAEA;       background: #F9F9F9;         text-align: center;      color: #999;        -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;   }
+
+.paging a:hover{background: #669BB7;color: white;}
+
+.paging a.prev, .page a.next {      width: 45px;      }
+
+.selectPlan{padding: 20px 40px;zoom:1;}
+.newPlan{padding-top: 65px;}
+.npHead{}
+.planNameEdit{margin-top: 30px;}
+.npBody{}
+.npBody .recommendBox {border: 1px solid #CCC;       background: white;      padding: 45px 0 10px 15px;      -moz-box-shadow: 2px 2px 2px #ddd inset;
+    -webkit-box-shadow: 2px 2px 2px #DDD inset;       box-shadow: 2px 2px 2px #DDD inset;         position: relative; display: inline-block;}
+
+.recommendBox h3 {display: block;      width: 140px;       height: 34px;    line-height: 29px;       font-size: 14px;      color: white;
+    position: absolute;       top: 5px;      left: -5px;       _left: -20px;    background: url(/public/images/relation/img-glyx.png) 0 0 no-repeat;
+    _background: url(i/gl2/img-glyx.gif) 0 0 no-repeat;      text-indent: 1em;    }
+.module{width: 300px;padding-top: 30px;padding-right:30px;display: inline-block;*display: inline;}
+.npFoot {text-align: right; padding: 10px 0; display: inline-block; }
+
+a.mainBtn, a.updateBtn, a.backBtn{width: 59px;     height: 26px;         line-height: 26px;        text-align: center;        display: inline-block;
+    background: url(/public/images/relation/img.png) -100px -210px no-repeat;       color: white;margin-left: 20px; }
+
+.choosed {background: url(/public/images/relation/choosed-1.gif) no-repeat left top;     width: 86px;       height: 90px;
+    top: -303px; right: -215px;  position: relative;display: inline-block;}
+.choosing {
+    background: url(/public/images/relation/chooseing.gif) no-repeat left top;
+    width: 86px;
+    height: 90px;
+    top: -303px;
+    right: -215px;
+    position: relative;  display: inline-block;
+}
+
+.oneModel{width:300px;height: 250px;border:1px solid #ccc;}
+.scroller-left{background: url(/public/images/tab/scroller-bg.gif) -2px -2px no-repeat;float: right;width: 16px;height: 18px;margin-left: 2px;cursor: pointer;}
+.scroller-right{background: url(/public/images/tab/scroller-bg.gif) -18px -2px no-repeat;float: right;width: 16px;height: 18px;margin-left: 2px;cursor: pointer;}
+.installedItems{width: 242px;}
+.addItems{background: url(/public/images/tab/22.gif) -2px -2px no-repeat;float: right;width: 16px;height: 18px;margin-left: 3px;margin-top: 4px;cursor: pointer;}
+.removeItems{background: url(/public/images/tab/11.gif) -2px -2px no-repeat;float: right;width: 16px;height: 18px;margin-left: 3px;margin-top: 4px;cursor: pointer;}

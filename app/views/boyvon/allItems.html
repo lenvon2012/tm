@@ -1,0 +1,204 @@
+#{extends 'boyvon.html' /}
+#{set title:'所有宝贝' /}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/main.css">
+<style>
+
+    .diagBody{text-align: center;font-size: 12px;}
+    .twelve{font-size: 12px;}
+    .skinRecommendTitle{color: red;width: 230px;font-size: 12px;margin: 0 0 0 4px;}
+    .heigththirty{height: 35px;line-height: 35px;overflow-y: hidden;}
+    .oldskintitlediv{vertical-align: middle;}
+    .skinrecommendtitlediv{vertical-align: middle;}
+    .skinTitle{vertical-align: top;}
+    .guard,.dorecommend,.dosave, .dorecomsave{background: url("/img/relation/img.png") -168px -210px;text-align: center;width: 62px;height: 27px;line-height: 27px;color: #ffffff;}
+    .dosave:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .dorecommend:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .guard:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .operate{vertical-align: top;}
+    .skinopnavdiv{width: 100%;height: 27px;line-height:27px;text-align: left;}
+    .skinopnav{width: 90px;margin: 0 5px 0 0;text-align: center;}
+    .skinopnav:hover{background: url("/img/btns/yellowBtn.png") 0  -30px;}
+    .opselected{background: url("/img/btns/yellowBtn.png");color: #ffffff;}
+    .wordarea{width: 98%;border: 1px solid #ccc;}
+    .recomOptions{width: 98%;border: 1px solid #ccc;}
+    .baseblock{padding: 1px;}
+    .titlesplits{padding: 0px;margin: 0px;text-align: left;}
+    .clicksearchbtn{background: url("/img/relation/img.png") -166px -300px;cursor: pointer;text-align: center;width: 62px;height: 27px;line-height: 27px; font-size: 12px;}
+    .clicksearchbtn:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .skinstatus,.skinsort, .skincat{padding: 5px;border: 1px solid #d4d4d4;margin-left: 10px;}
+    .skinsellercat, .skintaobaocat{margin: 10px;padding: 5px;border: 1px solid #d4d4d4;}
+    .clicksearchcatbtn{font-size: 12px;padding: 5px;cursor: pointer;background-color: #EDF3F7;margin:5px 10px 0 0;border-radius: 5px;}
+    .clicksearchcatbtn:hover{background-color: #39B2F8;}
+    .clicksearchcatbtn input{margin: 0 5px 0 0;}
+    .searchArea{margin-left: 10px;}
+    .diagBody td{border-bottom: 1px solid #d4d4d4;padding: 5px 0 5px 0;}
+    .diagBody thead td{background: url(/img/th_line.gif) no-repeat right 50%;}
+    .searchArea{padding: 5px;border: 1px solid #d4d4d4;margin: 10px;}
+    .autoTitleBottom a{color: blue}
+    .selectcolor{background-color: #39B2F8;}
+    .selectbackground{background: url("/img/relation/img.png") -98px -210px;}
+    #searchWord{width: 180px;}
+    .skinrecommendtitle{vertical-align: top;}
+    .clickRecom{color: #ffffff;width: 90px;height: 30px;line-height: 30px;margin: 0 5px 0 0;text-align: center;background: url("/img/btns/yellowBtn.png")}
+    .clickRecom:hover{background: url("/img/btns/yellowBtn.png") 0  -30px;}
+    .diagHead,.userInf{border: 1px solid #ccc;padding: 5px;margin: 10px;}
+    .diagHeadUL{border-bottom: none;display: block;height: 31px;line-height: 31px;width: 100%;}
+    .batchoptions{height: 30px;line-height: 30px;margin-left: 10px;font-size: 12px;cursor: pointer;color: red;}
+    .diagHead .autorecommendopt{border: 1px solid #ccc;}
+    .autorecommendopt table{border:none;}
+    .autorecommendopt table td{text-align: right;padding-top:5px;border: none;}
+    .batchrecommopt table td{height: 32px;line-height: 32px;}
+    .diagHead{height: auto;}
+    #goSearchItems{background: url("/img/keywords/kwbtn.png");width: 135px;        height: 40px;         line-height: 40px;}
+    #goSearchItems:hover{background: url("/img/keywords/kwbtn.png") 0px 40px;width: 135px;        height: 40px;         line-height: 40px;}
+    .fl {float: left;}
+    .userInfDiv{height: 30px;line-height: 30px;margin-left: 42px;}
+    .infoNum{margin-right: 100px;color: red;font-size: 16px;width: 200px;text-align: center;font-weight: bold;}
+    .batchSelectUsePopularize ,.batchSelectRemovePopularize ,.batchAllAddPopularize ,.batchAllRemovePopularize {background: #E6F5FF;;
+        display:block;width: 120px;height: 30px;line-height: 30px;color: #000000;cursor: pointer;}
+    .pic-list2 {
+        width: 100%;
+        display: block;
+        padding-left: 0px;
+        *margin-left: -20px;
+        _margin-left : 0px;
+    }
+    .pic-list2 .photo-list-padding {
+        padding: 11px 11px 19px;
+    }
+    .pic-list2 li {
+        position: relative;
+        float: left;
+        width: 196px;
+        height: 259px;
+        margin: 10px 0 -9px 20px;
+        padding: 11px 11px 9px;
+        _margin-left: 0px;
+        line-height: 24px;
+        text-align: center;
+        _display: inline;
+    }
+    .pic-list2 .pic {
+        position: relative;
+        display: block;
+        width: 210px;
+        height: 210px;
+        top :-90px;
+        overflow: hidden;
+        color: #999;
+        outline: 0 none;
+    }
+    .pic img {
+        vertical-align: middle;
+        border: 1px solid #ccc;
+    }
+    .pic-list2 .pic span {
+        display: block;
+        height: 24px;
+        margin: 7px 0 8px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .pic-list2 .shadow {
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        width: 230px;
+        height: 189px;
+        background: url(http://icon.zol-img.com.cn/sj/images/bj.png) no-repeat;
+        _background: none;
+        _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://icon.zol-img.com.cn/sj/images/bj.png",sizingMethod="crop");
+    }
+    .boyvonunselected{
+        background: url(/img/relation/chooseing.gif) no-repeat left top;
+        width: 86px;
+        height: 90px;
+        top: 11px;
+        right: -70px;
+        *top : 3px;
+        *right:-70px;
+        position: relative;
+        display: inline-block;
+        z-index: 33;
+    }
+    .boyvonselected {
+        background: url(/public/images/relation/choosed-1.gif) no-repeat left top;
+        width: 86px;
+        height: 90px;
+        top: 2px;
+        right: -125px;
+        *top : 3px;
+        *right : -70px;
+        position: relative;
+        display: block;
+        z-index: 33;
+    }
+    .photo-list-padding .title{position: relative;top:-85px;color: #000000;width: 100%;          height: 17px;line-height: 17px;         overflow: hidden;}
+    .photo-list-padding .switch{position: relative;top:-85px;*top:-85px;height: 36px;width: 100px;cursor: pointer;}
+    .photo-list-padding .status{position: relative;top:-85px;*top:-85px;width: 70px;height: 36px;line-height: 36px;text-align: center;vertical-align: top;}
+    .photo-list-padding .switchOn{background: url("http://img04.taobaocdn.com/imgextra/i4/79742176/T2G4_YXbFaXXXXXXXX_!!79742176.png") -300px -270px}
+    .photo-list-padding .switchOff{background: url("http://img04.taobaocdn.com/imgextra/i4/79742176/T2G4_YXbFaXXXXXXXX_!!79742176.png") -300px -310px}
+    .conclution{background: url("/img/bar1_1020.jpg");width: 1000px;height: 33px;margin: 0 auto;margin: 20px 0 0 10px;line-height: 33px;
+        color: #ffffff;font-weight: bold;}
+    .borderon{border: 2px solid green;}
+    .borderoff{border: 2px solid white;}
+</style>
+
+*{<div class="searchArea">
+    <select name="itemsStatus" id="itemsStatus">
+    }**{<option tag="itemsStatus">宝贝状态</option>}**{
+        <option tag="allItems">全部宝贝</option>
+        <option tag="polularized">已推广</option>
+        <option tag="topopularize">未推广</option>
+    </select>
+    <select name="itemsCat" id="itemsCat">
+        <option>所有分类</option>
+    </select>
+    <select name="itemsSortBy" id="itemsSortBy">
+        <option tag="sortBy">默认排序</option>
+        <option tag="sortBySaleCountUp">销量升序</option>
+        <option tag="sortBySaleCountDown">销量降序</option>
+    </select>
+}**{<input id="lowScore" value="0">
+            <span>-</span>
+            <input id="highScore" value="100">}**{
+    <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+    <input id="searchWord" value="">
+    <a id="goSearchItems" href="javascript:void(0);" class="commbutton btntext4" style="display: inline-block;">
+        <span style="display: inline-block;*display: inline;"> </span>
+    </a>
+</div>}*
+<div class="conclution">
+    <span style="margin-left: 20px;">查看推广</span>
+</div>
+<div class="searchArea">
+    <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+    <input id="searchWord" value="">
+    <a id="goSearchItems" href="javascript:void(0);" class="commbutton btntext4" style="display: inline-block;">
+        <span style="display: inline-block;*display: inline;"></span>
+    </a>
+</div>
+<div class="clicksearch">
+    <div class="skinsellercat"></div>
+    <div class="skintaobaocat"></div>
+</div>
+<div class="multiOPArea">
+</div>
+<div style="" class="allItemsDiv">
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/utils/jquery.cookie.js',function(){
+            TM.gcs('/home/firstSync',function(){
+                TM.gcs('/js/boyvon/boyvon.js?_t=4',function(){
+                   //TM.gcs('/js/boyvon/boyvon.js?_t=2',function(){
+                   TM.boyvon.allItems.init();
+               });
+            });
+        });
+    })
+</script>
+#{/set}

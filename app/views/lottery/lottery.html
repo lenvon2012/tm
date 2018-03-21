@@ -1,0 +1,62 @@
+#{extends 'playmain.html' /}
+#{set title:'欢乐大转盘' /}
+#{set 'moreStyles'}
+ <link rel="stylesheet" media="screen" href="/css/score.css">
+ <link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+ <link rel="stylesheet" media="screen" href="/css/jquery-ui-1.9.1.custom.min.css"/>
+ <link rel="stylesheet" media="screen" href="/css/lottery/main.css"/>
+#{/set}
+    
+
+<script src="/js/lottery/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.ui.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lottery/jquery.easing.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lottery/jQueryRotate.2.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lottery/lottery.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#startbtn").click(function() {
+			lottery();
+		});
+		
+		loadData();
+	});
+</script>
+
+<div class="topitem">
+<div class="container">
+	<table width="100%">
+		<tr><td class="infoshow">
+		<div class="record">
+			<div class="reward">
+				<h2>最近中奖名单：</h2>
+				<ul id="reward-record"><li>天***店   <b>流量套餐六折</b>   2013-07-19 00:27:20</li><li>天***店   <b>流量套餐七折</b>   2013-07-19 00:25:50</li><li>天***店   <b>流量套餐六折</b>   2013-07-19 00:25:44</li><li>天***店   <b>流量套餐七折</b>   2013-07-18 23:24:35</li></ul>
+			</div>
+			<br>
+			<div class="myreward">
+				<h2>我的中奖记录：</h2>
+				<ul id="myreward-record"><li>2013-07-19 00:27:20   <b>流量套餐六折</b>   <a href="undefined" target="_blank">立即领奖</a></li><li>2013-07-19 00:25:50   <b>流量套餐七折</b>   <a href="undefined" target="_blank">立即领奖</a></li><li>2013-07-19 00:25:44   <b>流量套餐六折</b>   <a href="undefined" target="_blank">立即领奖</a></li><li>2013-07-18 23:24:35   <b>流量套餐七折</b>   <a href="undefined" target="_blank">立即领奖</a></li></ul>
+			</div>
+		</div>
+		</td>
+		<td class="lotteryshow">
+		<div>
+			<div class="lottery">
+				<div id="bgimg"></div>
+				<div id="start"><img src="/public/images/zhizheng1.png" id="startbtn" style="cursor: default;">
+				</div>
+			</div>
+		</div>
+		</td>
+		</tr>
+	</table>
+</div>
+</div>
+<div class="autotitle">
+	<img src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2Ps3EXotXXXXXXXXX_!!22902351.gif" width="100%" />
+</div>
+
+
+<div class='clearfix'></div>

@@ -1,0 +1,70 @@
+#{extends 'main.html' /} #{set title:'share' /}
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/share.css'}">
+#{set 'moreScripts'}
+
+<script src="@{'/js/share/share.js'}"
+	type="text/javascript" charset="utf-8"></script>
+<script src="@{'/js/share/jquary.copy.js'}"
+	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://v2.jiathis.com/code_mini/jia.js?uid=1581996"
+	charset="utf-8"></script>
+#{/set}
+
+<div class="share_content">
+	<div id="share_container">
+
+		<div id="activeTitle">
+			<span><br>分享送豪礼！活动永不停！！！让你免费享受至尊级待遇还能赚红包！</span><br>
+		</div>
+		<br>
+		<div id="contentContainer">
+			<span>您当前的版本：<strong><span id="bb">免费版</span></strong></span><br>
+			<span>分享活动详情：</span><br> <span>·每成功邀请1个<span id="tj">一钻以上或商城卖家</span>，您即可获得一个月优化版使用时间
+			</span><br> <span>·每成功邀请3个<span id="tj">一钻以上或商城卖家</span>，您即可获得一个月至尊版使用时间
+			</span><br> <span>·每成功邀请10个<span id="tj">一钻以上或商城卖家</span>，您即可获5元红包一个
+			</span><br>
+			<p id="zs">
+				这是您的专属链接，请通过<img src="/public/images/share/qqIcon.png" height="18" />QQ或者<img
+					src="/public/images/share/aliIcon.png" height="18" />旺旺发送给朋友
+			</p>
+			<textarea rows="5" cols="60" id="shareCode"></textarea>
+			<input type="button" id="copy" value="复制"><br>
+			<!-- JiaThis Button BEGIN -->
+			<style type="text/css">
+.mzc_mainBox p#ckepop {
+	margin-top: 0;
+	padding: 8px 0 0 90px;
+	overflow: hidden;
+	width: 600px;
+}
+
+#ckepop dl,#ckepop dt,#ckepop dd,#ckepop ol,#ckepop ul,#ckepop li,#ckepop fieldset,#ckepop form,#ckepop label,#ckepop legend,#ckepop table,#ckepop caption,#ckepop tbody,#ckepop tfoot,#ckepop thead,#ckepop tr,#ckepop th,#ckepop td,#ckepop span
+	{
+	font-family: '宋体';
+}
+</style>
+			<p id="ckepop">
+				<span class="jiathis_txt">分享邀请链接到：</span> <a
+					class="jiathis_button_taobao">淘江湖</a> <a
+					class="jiathis_button_renren">人人网</a> <a
+					class="jiathis_button_tsina">新浪微博</a> <a class="jiathis_button_tqq">腾讯微博</a>
+				<a class="jiathis_button_qzone">QQ空间</a>
+			</p>
+			<script type="text/javascript">
+				var jiathis_config = {
+					data_track_clickback : true,
+					url : "http://fuwu.taobao.com/serv/detail.htm?service_id=''"&amp;",
+					title : $("#shareCode").val(),
+					summary : $("#shareCode").val()
+				};
+			</script>
+
+			<!-- JiaThis Button END -->
+			<br> <span id="zs">备注：<span>奖励可以累积，邀请的卖家可以是订购我们任意版本的服务！</span><br>
+				<span>当您邀请的人数达到一定数量的时候，可以赢取更多的礼包（详情敬请期待···）</span>
+			</span><br><br> <span id="zs">本活动一切解释权归@淘标题团队所有</span>
+		</div>
+	</div>
+</div>

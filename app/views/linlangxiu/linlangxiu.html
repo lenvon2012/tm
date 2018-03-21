@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta http-equiv=”X-UA-Compatible” content=”IE=EmulateIE7″ >
+<link class="shortcut-yangyang" rel="shortcut icon" type="image/png" href='/img/favicon.png'>
+<link rel="stylesheet" media="screen" href='/css/main.css?_ts=8'>
+
+#{get 'moreStyles' /}
+
+</head>
+<body>
+
+*{cookie contained....}*
+<script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+    var path = document.location.pathname;
+    var TM = TM || {};
+    TM.path = path;
+    TM.tms = $.cookie('_s');
+    TM.userNick = $.cookie('_n');
+    TM.encodeUid = $.cookie('_eu');
+    TM.sessionUid = '${session.get("_eu")}';
+    TM.ver = $.cookie('_v');
+    TM.hasCookie = $.cookie('tm_SESSION') && $.cookie('tm_SESSION').length > 0;
+
+</script>
+
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;_color:black;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: black;padding: 20px 10px 10px 10px;z-index: 200001;position:relative;">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;background:black;width:550px;height:120px;">
+    </iframe>
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<!--
+<div class="WaitingForLoadingDiv" style="display: none;z-index: 500001">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;"></iframe>
+    <div style="text-align: center;font-size: 16px;font-weight: bolder;color: #262626;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: white;padding: 30px;z-index: 500001;">
+        亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+        <img src='/img/catunion/loading.gif' alt='正在加载' style="" />
+    </div>
+</div>
+  -->
+
+    <div class='app-nav head-nav hidden' style="position: relative;">
+        <a onclick="javascript:void(0)" style="margin-left:50px;">
+            <img src='/public/images/header/Glossy_Menus_01.png' style="height:66px;" />
+        </a>
+    *{<span id='app-logos' style="margin-left:100px;">}*
+        <a style="margin-left:100px;" onclick="javascript:void(0)" >
+            <img  id="tempLogoImg" src='/public/images/header/Glossy_Menus_02.png' style="width:124px;height:66px;" />
+        </a>
+    *{</span>}*
+        <a id="goHelp" style='position:absolute;top:40px;left:850px;width:60px;height:20px;color:blue;' href="http://bangpai.taobao.com/group/thread/15247314-278929271.htm?spm=0.0.0.123.CWPUQf" target='_blank'>
+            *{<div style='height:20px;width:30px;'>使用教程</div>}*
+             使用教程
+        </a>
+    </div>
+    *{<div style='width:100%;height:1px;margin: 0px auto;' class='clearfix'></div>}*
+<script src="http://cdn.laiqt.com/kb/js/tbt/jquery-ui-1.9.1.custom.min.js"></script>
+<script type="text/javascript">
+    TM.JSLoad = TM.JSLoad || {};
+    var getCacheScript = function(url, callback){
+        if(TM.hasCookie){
+        }else if(url.indexOf('?')>=0){
+            //url += "&_eu="+TM.sessionUid;
+        }else{
+            //url+="?_eu="+TM.sessionUid;
+        }
+        callback = callback || function(){}
+        if(TM.JSLoad[url]){
+            callback();
+        }else{
+            $.ajax({url:url,dataType:"script",cache:true, success : function(){
+                TM.JSLoad[url] = true;
+                callback();
+            }});
+        }
+    }
+    TM.gcs = getCacheScript;
+    var ensureJs = function(url, callback){
+        if(TM.JSLoad[url]){
+            callback();
+        }else{
+            TM.gcs(url,callback);
+        }
+    }
+    TM.ensureJs = ensureJs;
+
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    if(!$.ui) {
+        TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    }
+    TM.gcs('/js/tm.js');
+
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.hasCookie){
+            	return;
+            }
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_eu="+TM.sessionUid;
+                }else{
+                    settings.url += "?_eu="+TM.sessionUid;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function(){
+            if(TM.hasCookie){
+                return;
+            }
+
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if(TM.hasCookie){
+                    return;
+                }
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_eu="+TM.sessionUid;
+                }else{
+                    href += "?_eu="+TM.sessionUid;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        var hasPath = false;
+
+        TM.util = TM.util || {};
+        TM.util.hasListRes = function(data){
+            return data && data.res && data.res.length > 0;
+        }
+
+        TM.util.diplaySearch = function(searchCount){
+            if(searchCount == 0 ){
+                return '0';
+            }else if(0 <searchCount && searchCount < 100){
+                return '0-100';
+            }else if(searchCount< 500){
+                return '100-500';
+            }else if(searchCount< 1500){
+                return '500-1500';
+            }else if(searchCount< 5000){
+                return '1500-5000';
+            }else if(searchCount< 10000){
+                return '5000-1万';
+            }else if(searchCount< 50000){
+                return '1万-5万';
+            }else if(searchCount<100000){
+                return '5万-10万';
+            }else if(searchCount<500000){
+                return '10万-50万';
+            }else if(searchCount<1000000){
+                return '50万-100万';
+            }else {
+                return '大于100万';
+            }
+
+        }
+
+        TM.util.isNotTaobaoCeshi = function(){
+            var nick = TM.userNick;
+            if(nick === undefined || nick == null){
+                nick = "";
+            }
+            if(nick.indexOf("测试") >= 0 || nick.indexOf("淘宝")>=0 || nick.indexOf("开放平台")>=0 || nick.indexOf("support")>=0||
+                    nick.indexOf("包u吧 ")>=0|| nick.indexOf("包邮吧")>=0 || nick.indexOf("ssnh_1982") >=0){
+                return false;
+            }
+            return true;
+        }
+
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Number.prototype.toTenThousand = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n)) / Math.pow(10, n + 4) ).toFixed(n) + '万';
+        }
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function(){
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+        jQuery.fn.replaceClass = function(oldClass, newClass){
+            this.removeClass(oldClass);
+            this.addClass(newClass);
+        }
+
+    })(jQuery, window));
+</script>
+
+#{doLayout /}
+
+<div id="mainfoot">
+    <div id="footer-content" style="margin: 0 auto;width:200px;">
+        <p style="font-size:14px;padding-top:15px;color:white;">
+            在线客服：
+                <a id="kefuhref" target="_blank" >
+                    <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后" />
+                </a>
+        </p>
+        <!--  <a href="/home/buyVersion">版本控制</a> -->
+    </div>
+</div>
+
+<!-- tips style -->
+<div class="qtip qtip-stylename">
+    <div class="qtip-tip" rel="cornerValue"></div>
+    <div class="qtip-wrapper">
+        <div class="qtip-borderTop"></div>
+        <div class="qtip-contentWrapper">
+            <div class="qtip-title">
+                <div class="qtip-button"></div>
+            </div>
+            <div class="qtip-content"></div>
+        </div>
+        <div class="qtip-borderBottom"></div>
+    </div>
+</div>
+<link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>
+
+#{get 'moreScripts' /}
+</body>
+</html>

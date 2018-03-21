@@ -1,0 +1,79 @@
+#{extends 'yangyang.html' /}
+
+
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/keywords/keywords.css'}">
+
+
+
+<div class='top-banner' style="background: url('/public/images/frame/header-bg.png');height: 48px; ">
+*{<img id="logo" alt="LOGO"}*
+*{src="http://img01.taobaocdn.com/imgextra/i1/1039626382/T2R9t.XfJcXXXXXXXX_!!1039626382.jpg">}*
+
+    <div class='top-nav head-nav' >
+            <span class = "head">
+                <ul style='margin:0px;'>
+                    <li><a href="/home/relation">
+                        关联营销
+                    </a></li>
+                    <li class='selected'><a href="/Props/autodiag">
+                        宝贝属性检测
+                    </a></li>
+                    <li><a href="/home/promote">
+                        自动评价
+                    </a></li>
+                </ul>
+
+             <span style='float:left;width:150px;;line-height: 41px;height: 41px;text-align: center;display: inline-block;*display:inline;' class="userheadop">
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+                 <a class="bluebutton" style='padding:0px;' href="/in/退出">切换帐号</a> <!-- |<a href="/Share/toShare">分享</a> -->
+             </span>
+        </span>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div class="main">
+    <div class = "all_container">
+        <div class = "kwcontainer">
+            #{doLayout /}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $('.app-nav').hide();
+    var head = $('.head');
+    var path = document.location.pathname;
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+        }
+    });
+
+
+    $.getScript('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        orderAnchor.parent().hide();
+    });
+
+    $.getScript('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功</p>',200,180);
+            });
+        });
+    });
+
+    // TODO, this is for the preview temp...
+    $('#goHelp').hide();
+    var img = $('#tempLogoImg');
+    img.attr('src','/public/images/header/Glossy_Menus_05_blue.png');
+    img.css({width:'100px'});
+</script>

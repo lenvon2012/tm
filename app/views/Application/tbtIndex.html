@@ -1,0 +1,493 @@
+#{extends 'tbtMain.html' /}
+#{set title:'淘标题-智能流量优化专家' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/score.css">
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/public/stylesheets/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/taozhanguiindex.css">
+<link rel="stylesheet" media="screen" href="/css/newindex.css">
+#{/set}
+<style>
+div#yangyangContent {
+	width: 1300px;
+}
+
+.nav-table-left-td {
+	width: 256px;
+}
+
+div.main {
+	width: 1033px;
+}
+
+.shop-pc-online-info-table .key-value-tr .value {
+	font-size: 36px;
+}
+
+.data_show {
+	width: 99%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+.data_show td,.data_show th {
+	border: 1px solid #cad9ea;
+	padding: 0 1em 0;
+}
+
+.data_show tbody tr {
+	height: 36px;
+	font-size: 13px;
+}
+
+.data_show tbody :hover {
+	background-color: #F4F4FF;
+}
+
+.data_show thead tr {
+	height: 44px;
+	background-color: #28A3EF;
+	color: #FFFFFF;
+}
+
+.tabBtn {
+	background: #f43;
+	border-radius: 4px;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	line-height: 35px;
+	height: 35px;
+	width: 100px;
+	color: white;
+}
+.tabBtn a {
+	font-size: 16px;
+	color: white;
+	display: block;
+}
+</style>
+<div class="showinfree" style="background-color:#f2efde;display:none;">
+    <div style="width:700px;margin-left:119px;">
+        <a target="_blank" href="http://to.taobao.com/uRbfzgy" style="border: 1px solid #ccc;">
+            <img src="http://img02.taobaocdn.com/imgextra/i2/22902351/T2B.kQXb4XXXXXXXXX_!!22902351.jpg">
+        </a>
+    </div>
+</div>
+<div class="before-xianjia hidden" style="width: 100%;text-align: center;background-color: #ffd;">
+    <p style="margin-top: 0px;padding-top: 15px;">接淘宝最新通知，淘掌柜<span style="color: blue;font-size: 24px;">至尊全功能版</span><a
+            target="_blank" href="http://to.taobao.com/TguGTiy"><span
+            style="color: red;font-size: 24px;">39包年</span></a>最后倒计时···</p>
+
+    <p>8月4号起，将定价<span style="color: blue;font-size: 24px;">99包年</span>~~~亲们抓紧最后机会<a target="_blank"
+                                                                                    href="http://to.taobao.com/TguGTiy"><span
+            style="color: red;font-size: 24px;">续费</span></a>哦！</p>
+    <a href="http://to.taobao.com/TguGTiy" target="_blank" class=" verbtn btn btn-warning"
+       id="before-xianjia-link">立即升级</a>
+</div>
+*{<div style="text-align: center;">
+        <span class="intro inlineblock"
+              style="width: 100%;font-size: 16px;margin: 0;padding: 4px 0;border-left: none;border-right: none;">
+            免费培训，解答一切淘宝经营问题 直接 qq联系：<span style="color: red; font-size: 20px;">800053633</span>
+        </span>
+</div>}*
+
+
+<div id="" class="" style="width: 100%;">
+	<table class="top-ten-topkey-table">
+		<tbody>
+			<tr style="height: 150px;" id="top-ten-table">
+				<td>
+					<div id="userInfo" style="background: none;border-bottom: none;height: 215px;">
+						<div id='subscribe' class='firstLineDiv' style="height: 210px;">
+							<div id='username' style="font-size: 16px;font-weight: bold;">绵羊团队欢迎您</div>
+							<div><span class="tabBtn"><a href="/Sales/createDisTime">+限时打折</a></span></div>
+							<div><span class="tabBtn"><a href="/Sales/giftAndFreePostage">+满就送/包邮</a></span></div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="chedaoxueyuan" style="width: 908px; height: 200px;">
+						<div class="shop-pc-online-info-table-div">
+							<div class="title-head" style="margin-top: 0;">
+								&nbsp;&nbsp;昨日流量成交数据
+								<a href="/Diag/shopViewTrade">
+									<span style="margin-left: 24px;font-size: 14px;font-family: '微软雅黑';color: red;">流量成交数据详情>></span>
+								</a>
+								<a href="/Diag/commodityDiag">
+									<span style="margin-left: 24px;font-size: 14px;font-family: '微软雅黑';color: red;">宝贝流量数据详情>></span>
+								</a>
+								<span class="one_day_check" style="margin-left: 24px;font-size: 14px;font-family: '微软雅黑';color: red; display: none;">亲，该数据需要订购满一天后才能查看哦！</span>
+							</div>
+							<table class="shop-pc-online-info-table">
+								<tbody>
+									<tr style="height: 15px;">
+									
+									</tr>
+									<tr class="key-value-tr">
+										<td class="IntTd">
+											<div class="value pv">0</div>
+											<div class="key">浏览量</div>
+										</td>
+										<td class="IntTd">
+											<div class="value uv">0</div>
+											<div class="key">访客数</div>
+										</td>
+										<td class="IntTd">
+											<div class="value viewRepeat">0</div>
+											<div class="key">浏览回头客</div>
+										</td>
+										<td class="IntTd">
+											<div class="value tradeRepeat">0</div>
+											<div class="key">成交回头客</div>
+										</td>
+										<td class="PercentTd">
+											<div class="value accessDeepth">0</div>
+											<div class="key">访问深度</div>
+										</td>
+										<td class="PercentTd">
+											<div class="value viewRepeatRate">0</div>
+											<div class="key">回头客率</div>
+										</td>
+									</tr>
+									<tr class="key-value-tr">
+										<td class="IntTd">
+											<div class="value alipayTradeNum">0</div>
+											<div class="key">付款订单数</div>
+										</td>
+										<td class="IntTd">
+											<div class="value alipayItemNum">0</div>
+											<div class="key">付款宝贝数</div>
+										</td>
+										<td class="IntTd">
+											<div class="value alipayTradeAmount">0</div>
+											<div class="key">支付宝付款金额</div>
+										</td>
+										<td class="IntTd">
+											<div class="value alipayUserNum">0</div>
+											<div class="key">支付宝付款人数</div>
+										</td>
+										<td class="PercentTd">
+											<div class="value tradeRate">0</div>
+											<div class="key">成交转化率</div>
+										</td>
+										<td class="PercentTd">
+											<div class="value bounceRate">0</div>
+											<div class="key">跳失率</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- <div id="shop-pv-uv-trade-trend-chart">
+
+							</div> -->
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div>
+    <div class="title-head" style="margin-bottom: 20px;">
+        &nbsp;&nbsp;成交数据&nbsp;&nbsp;&nbsp;<a href="/Diag/shopViewTrade"><span style="margin-left: 24px;font-size: 16px;font-family: '微软雅黑';color: red;">分日成交数据详情&gt;&gt;</span></a>
+    	<span class="seven_day_check" style="margin-left: 24px;font-size: 14px;font-family: '微软雅黑';color: red; display: none;">亲，您订购不满7天，只能查看部分数据！</span>
+    </div>
+    <div class="diag-result-div" style="font-size: 15px;">
+        <table class="data_show" border="1">
+            <thead>
+            <tr>
+                <th style="width:7%;">日期</th>
+                <th style="width:7%;">浏览量</th>
+                <th style="width:7%;">访客量</th>
+                <th style="width:7%;">销售额</th>
+                <th style="width:7%;" title="通过支付宝付款的商品总件数">成交件数</th>
+                <th style="width:7%;" title="成功拍下并完成支付宝付款的人数">订单数</th>
+                <th style="width:7%;">转化率</th>
+                <th style="width:7%;">入口数</th>
+                <th style="width:7%;">收藏</th>
+                <th style="width:7%;">收藏率</th>
+                <th style="width:7%;">购物车</th>
+                <th style="width:7%;">加购率</th>
+                <th style="width:7%;">搜索UV</th>
+                <th style="width:7%;">PC类目UV</th>
+            </tr>
+            </thead>
+            <tbody id="view_item_show" style="text-align: center;"> </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="ShopDiagnoseArea" style='width:1033px;;margin: 2px auto; background-color: white;'>
+    <div class="title-head" style="margin-bottom: 20px;">
+        &nbsp;&nbsp;功能列表
+    </div>
+    <div class="" style="background: #ffd;padding: 15px 0;margin-bottom: 20px;border: 1px solid #bebebe;color: #DB4701; width: 1020px;">
+        <p class="t-center">
+            <a class="cBlue" href="/Diag/commodityDiag" style="font-size: 24px;margin: 0 8px;">宝贝效果分析<span style="color: red;">&nbsp;(热)</span></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="cBlue" href="/Diag/appShopSearchWords" style="font-size: 24px;margin: 0 8px;">无线端入店关键词</a>
+        </p>
+    </div>
+    <table style="width: 99%;">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="CatDelistAnalysis ShopDiagnoseAreaTablePic"></div>
+                    <div class="ShopDiagnoseAreaTbodyTdText">促销中心</div>
+                </td>
+                <td>
+                    <div class="titleModify ShopDiagnoseAreaTablePic"></div>
+                    <div class="ShopDiagnoseAreaTbodyTdText">站内引流</div>
+                </td>
+                <td>
+                    <div class="searchRank ShopDiagnoseAreaTablePic"></div>
+                    <div class="ShopDiagnoseAreaTbodyTdText">数据中心</div>
+                </td>
+                <td>
+                    <div class="showWindow ShopDiagnoseAreaTablePic"></div>
+                    <div class="ShopDiagnoseAreaTbodyTdText">批量中心</div>
+                </td>
+                <td>
+                    <div class="autoDelist ShopDiagnoseAreaTablePic"></div>
+                    <div class="ShopDiagnoseAreaTbodyTdText">词库中心</div>
+                </td>
+
+
+            </tr>
+            <tr class="detailFunTR">
+                <td>
+                    <div class="detailFun"><a target="_blank" href="/Sales/index"><span>包邮打折</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/associate/associate"><span>关联模板</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/group/groupall"><span>团购模板</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/taozhanggui/invite"><span>一起赚钱</span></a></div>
+                </td>
+                <td>
+                    <div class="detailFun"><a target="_blank" href="/home/commodityDiag"><span>标题优化</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/kits/delistPlans"><span>智能上架</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/kits/window"><span>智能橱窗</span></a></div>
+                    *{<div class="detailFun"><a target="_blank" href="/delistsearch/index"><span>行业上下架分析</span></a></div>}*
+                    <div class="detailFun"><a target="_blank" href="/home/instantsearch"><span>查排名</span></a></div>
+                    <!-- <div class="detailFun"><a target="_blank" href="/CatAnalysis/catPayHour"><span>买家什么时候来</span></a></div> -->
+                </td>
+                <td>
+                    <!-- <div class="detailFun"><a target="_blank" href="/TradeQuery/hotsales"><span>行业爆款<span style="color: red;">(新)</span></span></a></div> -->
+                    <div class="detailFun"><a target="_blank" href="/Diag/shopViewTrade"><span>店铺经营数据</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/Diag/shopSrcDiag"><span>流量来源分析</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/Diag/searchDiag"><span>宝贝搜索分析</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/Diag/shopSearchWords"><span>入店关键词分析</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/Diag/areaDiag"><span>地域分析</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/Diag/commodityDiag"><span>宝贝分析</span></a></div>
+                </td>
+                <td>
+                    <div class="detailFun"><a target="_blank" href="/kits/comment"><span>自动评价</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/home/multiModify"><span>批量标题</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/skinbatch/batchprice"><span>批量改价</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/skinbatch/batchdelist"><span>批量下架</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/kits/alibabaCarrier"><span>1688复制</span><span style="color:red">(新)</span></a></div>
+                </td>
+                <td>
+                    <div class="detailFun"><a target="_blank" href="/home/mywords"><span>我的词库</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/home/bussearchkey"><span>淘词</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/home/bustopkey"><span>类目热搜词</span></a></div>
+                    <div class="detailFun"><a target="_blank" href="/home/topKey"><span>关键词榜单</span></a></div>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- this is the prize area -->
+<div id="prize_track" style="display: none;">
+    <marquee behavior="slide" direction="down" scrollamount="1">
+        <a id="open_prize" href="javascript:void(0)"><img alt="礼盒" id="prize_box" src="/public/images/prize/prize.gif"></a>
+    </marquee>
+</div>
+<!-- open dialog -->
+<div id="dialog" style="width: 725px; height: 450; display: none; text-align: center; "
+     class="ui-dialog-content ui-widget-content">
+    <div style="margin-left:35px;text-align: center;">
+        <div id="version_top">
+            <img alt="top" src="/public/images/version/version_top.jpg">
+        </div>
+        <div id="version_middle">
+            <img src="/public/images/version/version_middle.jpg" alt="top" usemap="#Map2" border="0">
+            <map name="Map2" id="Map2">
+                <area shape="rect" coords="211,152,302,182" href="javascript:void(0)" id="buy_version_1"/>
+                <area shape="rect" coords="362,153,450,180" href="javascript:void(0)" id="buy_version_2"/>
+            </map>
+        </div>
+        <div id="version_foot">
+            <img src="/public/images/version/version_foot.jpg" alt="top" usemap="#Map" border="0">
+            <map name="Map" id="Map">
+                <area shape="rect" coords="211,147,303,176" href="javascript:void(0)" id="buy_version_3"/>
+                <area shape="rect" coords="361,146,452,175" href="javascript:void(0)" id="buy_version_4"/>
+            </map>
+        </div>
+    </div>
+</div>
+
+
+<div style="display:none;">
+    <img src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2A8MUXdFaXXXXXXXX_!!22902351.png"/>
+    <img src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2s5.VXfXaXXXXXXXX_!!22902351.png"/>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    // If TM.ver is less than 10, then it's just a free version, if it >= 10 and < 20, then it's the basic version, at last, it would be the vip version
+    // alert(TM.ver)
+    //console.info(TM.ver);
+    TM.Loading.init.show();
+    var doAfterSync = function(){
+        TM.gcs('/home/firstSync', function () {
+            $(document).ready(function () {
+                //TM.gcs("/js/index.js?_v=3", function () {
+                TM.gcs("/js/newindex.js?_v=40", function () {
+
+                    TM.widget.setLotteryInterval();
+                    var page_url = window.location.href;
+                    var uri = $.url(page_url, true);
+                    var first = uri.data.param.query.isFirst;
+                    var isFirst = (first == "true") ? true : false;
+                    TM.isFirst = isFirst;
+
+                    if (parseInt(TM.ver) >= 30) {
+                        $('.ransom-qqqun').text(334623381);
+                    } else {
+                        $('.ransom-qqqun').text(334623381);
+                    }
+
+                    $.get("/Home/getCidTopKey", function (data) {
+                        if (data === undefined || data == null) {
+                            return;
+                        }
+                        if (data == "用户不存在") {
+                            return;
+                        }
+                        if (data.res.length == 0) {
+                            return;
+                        }
+                        var tbody = $('<tbody></tbody>');
+                        $(data.res).each(function (i, word) {
+                            var indexClass = "top" + (i + 1);
+                            var rankClass = "";
+                            if (parseInt(word.rankChange) > 0) {
+                                rankClass = "up";
+                            } else if (parseInt(word.rankChange) == 0) {
+                                rankClass = "draw";
+                            } else {
+                                rankClass = "down";
+                            }
+                            var text = word.text.length > 10 ? word.text.substr(0,10) + "..." : word.text;
+                            tbody.append($('<tr><td><span class="top-ten ' + indexClass + ' inlineblock"></span></td><td>' + text + '</td><td>' + word.rankChange + '</td><td class="right-td"><span class="inlineblock rate ' + rankClass + '"></span></td></tr>'))
+                        });
+                        if (!isNaN(data.msg)) {
+                            var cid = parseInt(data.msg);
+                            $('#upTopTenWordsTable .look-all').attr("href", "/Home/topKey?cid=" + cid)
+                        }
+
+                        $('#upTopTenWordsTable tbody').remove();
+                        $('#upTopTenWordsTable').append(tbody);
+                    });
+
+                    TM.Newindex.init(isFirst);
+                    //TM.Newindex.intro();
+                    TM.widget.bindQtips();
+                    //TM.gcs('/js/Kits/autodelist.js');
+                        #{get 'moreAjaxScripts' /};
+                });
+                //});
+            });
+        });
+    }
+
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/jquery.url.js', function () {
+                TM.gcs("/status/js", function () {
+                    TM.gcs('/js/switch.js', function () {
+                        TM.gcs('/js/commstab/commstab.js', function () {
+                            TM.gcs("/js/tm.js?", function () {
+                            TM.gcs('/home/firstSync', function () {
+                                $(document).ready(function () {
+                                    //TM.gcs("/js/index.js?_v=3", function () {
+                                    TM.gcs("/js/newindex.js?_v=41", function () {
+
+                                        TM.widget.setLotteryInterval();
+                                        var page_url = window.location.href;
+                                        var uri = $.url(page_url, true);
+                                        var first = uri.data.param.query.isFirst;
+                                        var isFirst = (first == "true") ? true : false;
+                                        TM.isFirst = isFirst;
+
+                                        if (parseInt(TM.ver) >= 30) {
+                                            $('.ransom-qqqun').text(334623381);
+                                        } else {
+                                            $('.ransom-qqqun').text(334623381);
+                                        }
+
+                                        $.get("/Home/getCidTopKey", function (data) {
+                                            if (data === undefined || data == null) {
+                                                return;
+                                            }
+                                            if (data == "用户不存在") {
+                                                return;
+                                            }
+                                            if (data.res.length == 0) {
+                                                return;
+                                            }
+                                            var tbody = $('<tbody></tbody>');
+                                            $(data.res).each(function (i, word) {
+                                                var indexClass = "top" + (i + 1);
+                                                var rankClass = "";
+                                                if (parseInt(word.rankChange) > 0) {
+                                                    rankClass = "up";
+                                                } else if (parseInt(word.rankChange) == 0) {
+                                                    rankClass = "draw";
+                                                } else {
+                                                    rankClass = "down";
+                                                }
+                                                var text = word.text.length > 10 ? word.text.substr(0,10) + "..." : word.text;
+                                                tbody.append($('<tr><td><span class="top-ten ' + indexClass + ' inlineblock"></span></td><td>' + text + '</td><td>' + word.rankChange + '</td><td class="right-td"><span class="inlineblock rate ' + rankClass + '"></span></td></tr>'))
+                                            });
+                                            if (!isNaN(data.msg)) {
+                                                var cid = parseInt(data.msg);
+                                                $('#upTopTenWordsTable .look-all').attr("href", "/Home/topKey?cid=" + cid)
+                                            }
+
+                                            $('#upTopTenWordsTable tbody').remove();
+                                            $('#upTopTenWordsTable').append(tbody);
+                                        });
+
+                                        TM.Newindex.init(isFirst);
+                                        //TM.Newindex.intro();
+                                        TM.widget.bindQtips();
+                                        //TM.gcs('/js/Kits/autodelist.js');
+                                            #{get 'moreAjaxScripts' /};
+                                    });
+                                    //});
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    //});
+</script>
+#{/set}
+
+#{get 'moreAjaxScripts' /}
+<script>
+    var browser = navigator.appName;
+    var b_version = navigator.appVersion;
+    var version=b_version.split(";");
+    var trim_Version=version[1].replace(/[ ]/g,"");
+    if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0") {
+//        $('#top-ten-table').css('height', '200px');
+        $('#userInfo').css('height', '206px');
+    }
+</script>

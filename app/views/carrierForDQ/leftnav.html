@@ -1,0 +1,58 @@
+#{extends 'yangyang.html' /}
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=3">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=3">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+<![endif]-->
+<link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=5'>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+<link rel="stylesheet" type="text/css" href="/css/tbtnav.css?_v=1">
+<link rel="stylesheet" type="text/css" href="/css/tbtnav.css?_v=1">
+<table class="nav-table" style="">
+    <tbody>
+    <tr>
+        <td class="leftnavtd" style="">
+            <nav class="leftnav" style="">
+                <ul class="main-lists ">
+                    <li class="menu-goods  ">
+                        <a href="javascript:void(0)" class="menu" >
+                            <em>宝贝复制<span style="color: red;">(新)</span></em>
+                            <i class="icon-fold"></i>
+                        </a>
+                        <ul class="sub-lists hidden" >
+                            <li>
+                                <a href="/ItemCarrierForDQ/TZGItemCarrier"><em>淘宝天猫复制</em></a>
+                            </li>
+                            <li>
+                                <a href="/ItemCarrierForDQ/alibabaCarrier"><em>1688复制<span style="color:red">(新)</span></em></a>
+                            </li>
+                            <li style="display: none;">
+                                <a href="/ItemCarrierForDQ/pddCarrier"><em>拼多多复制<span style="color:red">(新)</span></em></a>
+                            </li>
+                        </ul>
+                        <ul class="sub-lists hidden" style="display:none;">
+                            <li>
+                                <a href="/ItemCarrierForDQ/taskList"><em>任务中心</em></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </td>
+        <td style="" class="nav-table-right-td" >
+            <div class="main">
+            #{doLayout /}
+            </div>
+        </td></tr></tbody>
+</table>
+
+<script>
+    TM.gcs('/js/tm.js',function(){
+        TM.widget.buildLeft150Nav();
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+</script>

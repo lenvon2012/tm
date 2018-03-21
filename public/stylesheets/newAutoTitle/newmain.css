@@ -1,0 +1,142 @@
+
+/*
+.tm-paging-container .paging-select {
+    background: none;
+    cursor: default;
+    color: #0095B1; background-color: white; border: 1px solid #0095B1;font-weight: 700;
+}
+.tm-paging-container .paging-nav {
+    padding: 0px; height: auto;font-weight: 700; width: 22px;
+}
+.tm-paging-container .paging-link {
+    background: none; color: #666; border: 1px solid #ccc;font-weight: 700;
+}
+.tm-paging-container .paging-link:hover {
+    background: none; border: 1px solid #0095B1;font-weight: 700;
+}
+
+.tm-paging-container .paging-size-link {
+    background: none; color: #666; border: 1px solid #ccc;font-weight: 700;
+}
+.tm-paging-container .paging-size-link:hover {
+    background: none; border: 1px solid #0095B1;font-weight: 700;
+}
+.tm-paging-container .paging-size-select {
+    background: none;
+    cursor: default;
+    color: #0095B1; background-color: white; border: 1px solid #0095B1;font-weight: 700;
+}*/
+/*
+.tm-paging-container .page-prev-abled {
+    color: #fd7005;
+}
+.tm-paging-container .page-next-abled {
+    color: #fd7005;
+}*/
+
+
+.tmbtn {
+    background-image: url("/img/newAutoTitle/f_newbtn.png");
+}
+
+
+.blue-btn{width: 82px;height: 30px;font-size: 14px;line-height: 30px;background-position:  -16px -382px;}
+.blue-btn:hover{background-position: -16px -424px;}
+
+.sky-blue-btn{width: 82px;height: 30px;font-size: 14px;line-height: 30px;background-position:  -16px -25px;}
+.sky-blue-btn:hover{background-position: -16px -67px;}
+
+.red-short-btn{width: 54px;height: 30px;font-size: 14px;line-height: 30px;background-position: -190px -387px;}
+.red-short-btn:hover{background-position: -190px -427px;}
+.big-blue-btn{width: 116px;height: 44px;font-size: 17px;line-height: 44px;background-position: -120px -254px;}
+.big-blue-btn:hover{background-position: -120px -304px;}
+.long-yellow-btn{width: 110px;height: 30px;font-size: 14px;line-height: 30px;background-position: -346px -115px;}
+
+.long-yellow-btn:hover{background-position: -346px -155px;}
+/*.green-100-btn{width: 110px;height: 30px;font-size: 14px;background-position: -346px -115px;}*/
+.long-green-btn{width: 138px;height: 44px;font-size: 14px;line-height: 44px;background-position: -346px -214px;}
+.long-green-btn:hover{background-position: -346px -264px;}
+.long-blue-btn{width: 124px;height: 44px;font-size: 14px;line-height: 44px;background-position: -116px -254px;}
+.long-blue-btn:hover{background-position: -116px -304px;}
+.short-green-btn{width: 82px;height: 30px;font-size: 14px;line-height: 30px;background-position: -16px -202px;}
+.short-green-btn:hover{background-position: -16px -244px;}
+.long-flat-green-btn{width: 124px;height: 30px;font-size: 14px;line-height: 30px;background-position: -503px -145px;}
+.long-flat-green-btn:hover{background-position: -503px -187px;}
+.too-long-blue-btn{width: 184px;height: 44px;font-size: 17px;line-height: 47px;background-position: -502px -40px;}
+.too-long-blue-btn:hover{background-position: -502px -89px;}
+
+
+.long-red-btn{width: 138px;height: 30px;font-size: 14px;line-height: 30px;background-position: -503px -467px;}
+.long-red-btn:hover{background-position: -503px -507px;;}
+.yellow-btn{width: 82px;height: 30px;font-size: 14px;line-height: 30px;background-position: -16px -115px;}
+.yellow-btn:hover{background-position: -16px -157px;}
+.long-sky-blue-btn{width: 100px;height: 30px;font-size: 14px;line-height: 30px;background-position: -111px -472px;}
+.long-sky-blue-btn:hover{background-position: -111px -512px;}
+.wide-sky-blue-btn{width: 116px;height: 44px;font-size: 14px;line-height: 44px;background-position: -119px -26px;}
+.wide-sky-blue-btn:hover{background-position: -119px -75px;}
+.wide-yellow-btn{width: 116px;height: 44px;font-size: 14px;line-height: 44px;background-position: -119px -136px;}
+.wide-yellow-btn:hover{background-position: -119px -185px;}
+
+.too-wide-yellow-btn{width: 148px;height: 44px;font-size: 14px;line-height: 44px;background-position: -345px -429px;}
+.too-wide-yellow-btn:hover{background-position: -345px -479px;}
+.blue-short-btn{width: 54px;height: 30px;font-size: 14px;line-height: 30px;background-position: -250px -387px;}
+.blue-short-btn:hover{background-position: -250px -427px;}
+
+.tm-paging-container .paging-size-link {background: url("/public/images/newAutoTitle/pagging-back2.png") no-repeat left top;color: #7f7f7f; cursor: pointer;}
+.tm-paging-container .paging-size-link:hover {background: url("/public/images/newAutoTitle/pagging-back2.png") no-repeat left -24px;}
+
+.tm-paging-container .paging-size-link{
+    background: white;
+    color: #7f7f7f;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    width: 24px;
+    height: 22px;
+    line-height: 22px;
+}
+.tm-paging-container .paging-nav{
+    padding: 0;
+    margin: 0;
+}
+.tm-paging-container .paging-size-select{
+    background: #999;
+    color: #fff;
+    width: 24px;
+    cursor: default;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ccc;
+}
+.tm-paging-container .paging-select{
+    background: #999;
+    color: #fff;
+    width: 24px;
+    cursor: default;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ccc;
+}
+.jumpTo{
+    width: 50px;
+    height: 22px;
+}
+.gopage-submit{
+    width: 45px;
+    height: 22px;
+    background: #fff;
+    border: 1px solid #999;
+}
+.tm-paging-container .paging-link{
+    background: white;
+    color: #7f7f7f;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    width: 24px;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+.top_bar{
+    background: white;
+
+}

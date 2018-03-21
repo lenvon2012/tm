@@ -1,0 +1,229 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'行业上下架分析' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+#{/set}
+
+<style>
+    #yangyangContent .nav-table-left-td .aside {display: none;}
+
+    .industry-delist-container {
+        font-size: 14px; font-family: "微软雅黑";
+    }
+    .search-input {
+        height: 20px; border: 1px solid #999;
+    }
+
+    .search-table {
+        border-collapse: collapse;
+    }
+    .search-table td {
+        vertical-align: middle;
+    }
+
+
+    .list-table {
+        border-collapse: collapse; width: 100%;
+        border: 1px solid #ccc; border-collapse: collapse; text-align: center;
+    }
+    .list-table thead tr {
+        vertical-align: middle; background: left -102px url('/img/frame/bg.png');
+    }
+
+    .list-table thead td {
+        height: 29px; vertical-align: middle; border-bottom: 1px solid #ccc; font-weight: bold;
+    }
+
+    .delist-chart-table thead td {
+        border: 1px solid #ccc;
+    }
+    .delist-chart-table tbody td {
+        border: 1px solid #ccc; padding: 8px 3px;
+    }
+
+    .delist-search-table tbody td {
+        border-bottom: 1px solid #ccc; padding: 8px 3px;
+    }
+
+
+    .sort-td {
+        padding-right: 20px;color: #2EB1AA;cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .sort-down{background: url("/img/sort-bg.png") right -25px no-repeat}
+    .sort-up{background: url("/img/sort-bg.png") right -47px no-repeat;}
+
+</style>
+
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>行业上下架分析
+</div>
+
+
+<div class="industry-delist-container" style="padding: 10px;">
+
+    <div style="text-align: center;">
+        <table class="search-table" style="margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td>关键词：</td>
+                <td style="padding-left: 10px;"><input maxlength="30" type="text" class="search-input" style="width: 150px;" /> </td>
+                <td style="padding-left: 20px;">
+                    <select class="order-style-select" style="width: 90px;">
+                        <option value="default" selected="selected">综合排序</option>
+                        <option value="renqi-desc">人气排序</option>
+                    </select>
+                </td>
+                <td style="padding-left: 20px;">
+                    <select class="search-place-select" style="width: 90px;">
+                        <option value="tb" selected="selected">淘宝</option>
+                        <option value="tm">天猫</option>
+                    </select>
+                </td>
+                <td style="padding-left: 20px;">
+                    <select class="search-page-select" style="width: 100px;">
+                        <option value="1">前1页宝贝&nbsp;&nbsp;&nbsp;(1分钟左右)</option>
+                        <option value="3" selected="selected">前3页宝贝&nbsp;&nbsp;&nbsp;(2~3分钟)</option>
+                        <option value="6">前5页宝贝&nbsp;&nbsp;&nbsp;(5~7分钟)</option>
+                        <option value="12">前10页宝贝&nbsp;(8~10分钟)</option>
+                    </select>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn big-blue-btn delist-analyse-btn" style="font-size: 14px;">行业下架分析</span>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn wide-sky-blue-btn delist-search-btn" style="font-size: 14px;">行业下架查询</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:40px"></td>
+                <td style="padding-left:40px"></td>
+                <td style="padding-left:40px"></td>
+                <td style="padding-left:40px"></td>
+                <td style="padding-left:200px"></td>
+                <td style="font-weight: bolder;color:red;padding-top:20px">亲 ~ 查询间隔一分钟哦^_^ ！</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="industry-tip-div" style="margin-top: 30px;padding-bottom: 100px;padding-left: 70px;">
+        <div style="font-size: 28px; color: red;">淘掌柜最新上线，行业人气宝贝下架时间统计</div>
+        <div style="padding-top: 20px;">
+            1. 当买家搜索关键词时，宝贝的综合排名受到宝贝人气和下架时间的影响。
+        </div>
+        <div style="padding-top: 15px;">
+            2. 合理设置自己宝贝的下架时间，<span style="color: red;">避开人气高的宝贝的下架时段</span>，不在这些时间段与这些宝贝竞争！
+        </div>
+        <div style="padding-top: 15px;">
+            3. 在淘掌柜中输入关键词，选择要统计的宝贝页数，即可查询到<span style="color: red;">在该关键词下的人气宝贝</span>的下架分布。
+        </div>
+        <div style="padding-top: 15px;">
+            4. 尝试搜索多个关键词，结合自己宝贝的人气，综合考虑下架的小时和日期，找到适合自己宝贝的下架时间段。
+        </div>
+    </div>
+    <div class="delist-search-loading" id="loading-img" style="display:none;color:red;text-align: center;font-size: 18px;">
+                亲~系统正在为您努力加载数据...请您稍等片刻...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src='/img/catunion/loading3.gif' />
+    </div> 
+    <div class="delist-chart-div" style="display: none;margin-top: 10px;padding-bottom: 30px;">
+        <div style="text-align: left;padding-bottom: 10px;">
+            <table class="delist-tip-table" style="border-collapse: collapse;color: red;">
+                <tbody>
+                <tr>
+                    <td style="">注1：</td>
+                    <td>下表是搜索关键词下人气宝贝的下架时间分布，每个单元格的含义：<span style="font-weight: bold;">下架宝贝数</span>。 </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 5px;">注2：</td>
+                    <td style="padding-top: 5px;">可以选择下架宝贝比较少的日期，下架自己的宝贝，从而避开竞争。 </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <table class="list-table delist-chart-table">
+            <thead>
+            <tr>
+                <td>时间段</td>
+                <td>周一</td>
+                <td>周二</td>
+                <td>周三</td>
+                <td>周四</td>
+                <td>周五</td>
+                <td>周六</td>
+                <td>周日</td>
+                <td>7天总和</td>
+            </tr>
+            </thead>
+            <tbody class="delist-chart-tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="delist-search-div"  style="display: none;margin-top: 10px;padding-bottom: 30px;">
+        <div style="text-align: left;padding-bottom: 10px;">
+            <table class="delist-tip-table" style="border-collapse: collapse;color: red;">
+                <tbody>
+                <tr>
+                    <td style="">注1：</td>
+                    <td>下表是在指定的搜索关键词下，淘宝人气宝贝的列表；您可以根据人气或下架时间排序，更好地掌握行业情报。 </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="paging-div" style="text-align: center;"></div>
+        <table class="list-table delist-search-table">
+            <thead>
+            <tr>
+                <!--*{<td style="width: 11%;">宝贝图片</td>
+                <td style="width: 25%;">宝贝标题</td>
+                <td style="width: 10%;"><div class="sort-td sort-up current-sort" orderBy="orderIndex">搜索排名</div></td>
+                <td style="width: 14%;"><div class="sort-td sort-down" orderBy="createTime">宝贝创建时间</div></td>
+                <td style="width: 15%;"><div class="sort-td sort-down" orderBy="relativeDelistTime">下架时间</div></td>
+                <td style="width: 13%;"><div class="sort-td sort-down" orderBy="leftTime">下架剩余时间</div></td>
+                <td style="width: 12%;"><div class="sort-td sort-up" orderBy="salesCount">宝贝成交量</div></td>}*-->
+
+                <td style="width: 11%;">宝贝图片</td>
+                <td style="width: 31%;">宝贝标题</td>
+                <!--<td style="width: 11%;"><div class="sort-td sort-up current-sort" orderBy="orderIndex">搜索排名</div></td>-->
+                <td style="width: 17%;"><div class="sort-td sort-down" orderBy="relativeDelistTime">下架时间</div></td>
+                <!--<td style="width: 16%;"><div class="sort-td sort-down" orderBy="leftTime">下架剩余时间</div></td>
+                <td style="width: 14%;"><div class="sort-td sort-up" orderBy="salesCount">宝贝成交量</div></td>-->
+            </tr>
+            </thead>
+            <tbody class="delist-search-tbody" id="search-Ds"></tbody>
+        </table>
+        <div class="paging-div" style="text-align: center;"></div>
+    </div>
+
+
+</div>
+
+
+#{set 'moreScripts'}
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/commstab/commstab.js', function () {
+                TM.gcs("/status/js", function () {
+                    TM.gcs("/js/industry/industrybase.js?_v=7", function () {
+                        TM.gcs("/js/delistplan/delistsearch.js?_v=10", function () {
+                            $(document).ready(function () {
+                                TM.DelistSearch.init.doInit($(".industry-delist-container"));
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

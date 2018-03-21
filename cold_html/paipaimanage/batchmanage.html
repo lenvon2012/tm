@@ -1,0 +1,21 @@
+#{extends '/dazhe/base.html' /}
+#{set title:'批量管理' /}
+
+<link rel="stylesheet" media="screen" href="/css/skinbatch/skinbatch.css"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/paipaimanage/batchmanage.js?_v=1" type="text/javascript" charset="utf-8"></script>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/paipaidiscount/base_index">拍拍店长&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>批量中心
+</div>
+<div class="batch-container" style="padding-bottom: 100px;"></div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.SkinBatch.init.doInit($(".batch-container"));
+    });
+</script>

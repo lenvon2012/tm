@@ -1,0 +1,223 @@
+#version_givendata{
+	cursor:pointer;
+	height:210px;
+	width: 100%;
+	background-image: url("/public/images/version/marketbg.jpg");
+}
+#version_content{
+	width: 1002px;
+	height: auto;
+	overflow:hidden
+}
+#version_buynow_point{
+	background-image:url("/public/images/version/arrowsbuy.png");
+	width: 100%;
+	height: 34px;
+	background-repeat: no-repeat;
+	background-position: 10%;
+}
+#version_buynow_choose{
+	overflow:hidden;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.version_choose{
+	overflow:hidden;
+}
+.version_choose_li{
+	margin-left: 8px;
+	margin-right: 8px;
+	text-align: left;
+	display: inline-block;
+	*display: inline;
+}
+.version_choose_ul{
+	margin-top: 10px;
+	overflow:hidden;
+	margin: 0px;	
+	padding-left: 0px;
+}
+
+#version_zhizun_12,
+#version_zhizun_6,
+#version_zhizun_3,
+#version_zhizun_1{
+    background: url("/public/images/version/version_bg2.jpg") no-repeat;
+    width: 228px;
+    height: 195px;
+    display: block;
+    cursor: pointer;
+}
+#version_zhizun_1{
+    background-position: left -15px;
+}
+#version_zhizun_1:HOVER{
+    background-position: left -228px;
+}
+#version_zhizun_3{
+    background-position: -252px -15px;
+}
+#version_zhizun_3:HOVER{
+    background-position: -252px -228px;
+}
+#version_zhizun_6{
+    background-position: -505px -15px;
+}
+#version_zhizun_6:HOVER{
+    background-position: -505px -228px;
+}
+#version_zhizun_12{
+    background-position: -757px -15px;
+}
+#version_zhizun_12:HOVER{
+     background-position: -757px -228px;
+}
+#version_zhizun_12_title{
+	height: 47px;
+}
+#version_zhizun_6_name,
+#version_zhizun_12_name,
+#version_zhizun_6_name,
+#version_zhizun_12_name{
+	font-size: 24px;
+	font-weight: bold;
+	color: #C60000;
+	margin-left: 96px;
+}
+#version_oldprice{
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: line-through underline;
+	color: #0B6DCA;
+	left: 98px;
+	top: 62px; 
+	margin-left: 98px;
+}
+#old_price{
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: line-through underline;
+	color: #0B6DCA;
+	left: 98px;
+	top: 62px; 
+}
+#now_price{
+	font-size: 36px;
+	font-weight: bold;
+	color: #C60000;
+	margin-left: 36px;
+	margin-top: -8px;
+}
+#yuan{
+	font-size: 24px;
+	font-weight: bold;
+	color: #C60000;
+	z-index:-1;
+}
+#version_youhui{
+	margin-left:150px;
+	margin-top:-20px;
+	z-index:-1;
+	font-size:12px;
+	width: 51px;
+	height: 21px;
+	padding-left: 10px;
+	padding-top: 4px;
+	color: #F8F73D;
+	display: block;
+	background: url("/public/images/version/discountbg.gif");
+}
+#version_btn_4,
+#version_btn_3,
+#version_btn_2,
+#version_btn_1{
+	height: 42px;
+	width: 100%;
+	background-image: url("/public/images/version/qianggou.png");
+	background-repeat: no-repeat;
+	margin-left: 40px;
+}
+#version_btn_4,
+#version_btn_3,
+#version_btn_2,
+#version_btn_1{
+	cursor: pointer;
+}
+#version_illustrate{
+	margin-top: 30px;
+	background-image: url("/public/images/version/shuoming.png");
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 574px;
+}
+#shangjia_btn,
+#biaoti_btn,
+#chuchuang_btn,
+#pingjia_btn{
+	width: 142px;
+	height: 49px;
+	background-image: url("/public/images/version/xiangqing.png");
+	background-repeat: no-repeat;
+	background-position: left 0px;
+}
+#shangjia_btn:HOVER,
+#biaoti_btn:HOVER,
+#chuchuang_btn:HOVER,
+#pingjia_btn:HOVER{
+	background-position: left -49px;
+	cursor: pointer;
+}
+#shangjia_btn{
+	float:left;
+	margin-left: 250px;
+	margin-top: 240px;
+}
+#biaoti_btn{
+	float:left;
+	margin-left: 230px;
+	margin-top: 240px;
+}
+#chuchuang_btn{
+	clear:both;
+	float:left;
+	margin-left: 250px;
+	margin-top: 200px;
+}
+#pingjia_btn{
+	float:left;
+	margin-left: 230px;
+	margin-top: 200px;
+}
+#version_illustrate_one{
+	background-color:white;
+	min-height:20px;
+	height: auto;
+	width: 98%;
+	border:2px solid; 
+}
+#version_buynow_btn{
+	margin-top:30px;
+	clear:both;
+	background-image: url("/public/images/version/buynowbtn.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 80px;
+	width: 300px;
+}
+#version_buynow_btn:HOVER {
+	background-position: 0px -80px;
+	cursor: pointer;
+}
+#version_buynow_btn_second{
+	margin-top:30px;
+	clear:both;
+	background-image: url("/public/images/version/buynowbtn.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 80px;
+	width: 300px;
+}
+#version_buynow_btn_second:HOVER {
+	background-position: 0px -80px;
+	cursor: pointer;
+}

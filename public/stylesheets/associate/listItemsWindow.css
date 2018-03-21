@@ -1,0 +1,86 @@
+.itemsWindow ul{
+
+    height:216px;
+    width:648px;
+    list-style-type:none
+}
+
+.itemsWindow li{
+    height:216px;
+    width:160px;
+    float:left;
+}
+
+.item_img{
+    text-align:center;
+}
+
+.itemWindow img{
+    width:140px;
+    height:140px;
+    vertical-align: middle;
+    margin:0 auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.item_info {
+   /* padding: 7px;*/
+    text-align: left;
+    overflow: hidden;
+    width:160px;
+    height:36px;
+    display: inline-block;
+    float:left;
+    line-height:18px;
+    vertical-align:middle;
+}
+.item_checkBox{
+    text-align:center;width:18px;height:18px; display:inline-block; float:right;
+}
+
+.item_title{
+    color:black;
+    font-size:10px;
+    line-height:18px;
+}
+
+.item_price b{
+    color:rgb(251, 110, 82);
+}
+
+.searchParams li{
+    width:120px;
+    height:22px;
+    float:left
+}
+
+.putItem_Mouse_In{
+    /*border: 1px solid #FF7744;*/
+    background-color:#efefef;
+}
+
+.putItem_Mouse_Click{
+    border: 1px solid #FF7744;
+    background-color:#DAD4D4;
+}
+
+.put_item_div{
+    cursor:pointer;
+    border: 1px solid #fff;
+}
+
+.li-dia-doSearch{
+    background-color:#56B7C4;
+}
+
+.doSearch{
+    font-size:12px;width:80px;height: 30px;color:#fff;line-height:30px;text-align:center;cursor:pointer;
+}
+
+.put-item-doSearch{
+    background-color: #5CACEE;
+}
+
+.put-item-doSearchRed{
+    background-color: #B10000;
+}

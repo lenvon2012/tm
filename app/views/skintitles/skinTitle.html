@@ -1,0 +1,121 @@
+#{extends 'copyskin.html' /}
+
+<style>
+    div#skinTitle {
+        width: 780px;
+        margin-left:200px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    div.main {
+        width: 780px;
+        /*float: right;*/
+        /*display: inline;*/
+        /*margin-left:200px;*/
+        /*border: 1px solid #aaa;*/
+        background: white;
+    }
+
+
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {
+        /*margin: 5px auto;*/
+        height: auto;
+    }
+    .kwcontainer {
+        background: transparent;
+        margin: 10px auto;
+        width: 100%;
+        overflow: auto;
+        zoom: 1;
+    }
+    .head ul li{margin: 13px 0 0 0;}
+</style>
+<div class="aside">
+    <ul class="sidemenu sidebox side-tracked-tag navContent" style="">
+        <li class="aside-hot-tag first">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/SkinTitles/index">
+                    <span class="aside-icon"></span>
+                    <span>店铺诊断</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+        <li class="aside-hot-tag ">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/SkinTitles/skinTitle">
+                    <span class="aside-icon"></span>
+                    <span>自动标题</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+        <li class="aside-hot-tag ">
+            <div class="navwrapper">
+                <a class="followed-tag clearfix" href="/SkinTitles/dicHome">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+            *{<span class="fold-icon fold"></span>}*
+            </div>
+        </li>
+
+    </ul>
+
+    <div class="blank0" style="height:1px;"></div>
+</div>
+
+<div id="skinTitle">
+    <div class="main">
+    #{doLayout /}
+    </div>
+</div>
+
+<script>
+    $('.fold-icon').click(function(){
+    var t = 500;
+    if($(this).hasClass("fold")) {
+        $(this).removeClass("fold");
+        $(this).addClass("unfold");
+        if($(this).parent().find('.secondUl').length > 0) {
+            $(this).parent().find('.secondUl').slideDown(t);
+        }
+    } else if($(this).hasClass("unfold")) {
+        $(this).removeClass("unfold");
+        $(this).addClass("fold");
+        if($(this).parent().find('.secondUl').length > 0) {
+            $(this).parent().find('.secondUl').slideUp(t);
+        }
+    }
+    });
+    $('.fold-icon').each(function(){
+        if($(this).parent().find('.secondUl').length == 0){
+        }
+    });
+    $('.navContent').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.navContent').find('div.navSelected').removeClass("navSelected");
+            anchor.parent().addClass("navSelected");
+            if(path.indexOf("/kits/") >= 0){
+                anchor.parent().parent().slideDown(500);
+            }
+        }
+    });
+    $('.navContent').find('li').each(function(){
+        var href = $(this).find('a').attr('href');
+        var anchorName = $(this).find('a').text();
+        $(".headUl").append($('<li class=""><a href="'+href+'">'+anchorName+'</a></li>'));
+    });
+
+    $('.head').append(            '<ul style="">' +
+            '   <li><a href="/SkinTitles/index">店铺诊断</a></li>' +
+            '   <li><a href="/SkinTitles/skinTitle">自动标题</a></li>' +
+            '   <li><a href="/SkinTitles/dicHome">热词查询</a></li>' +
+            '</ul>');
+</script>

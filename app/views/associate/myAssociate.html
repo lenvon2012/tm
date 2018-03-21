@@ -1,0 +1,212 @@
+#{extends '/associate/tbtnavAssociate.html' /}
+#{set title:'淘模板-我的模板' /}
+
+<link rel="stylesheet" media="screen" type="text/css" href="/css/associate/myAssociate.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/associate/associate.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/associate/listItemsWindow.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/multiModify.css" />
+
+<script>
+     $(document).ready(function(){
+           var url = window.location.href;
+           var type1 = url.indexOf("?type=1");
+           var type2 = url.indexOf("?type=2");
+           var type3 = url.indexOf("?type=3");
+           if(type1 > 0){
+                $(".page-hierarchy .sec-menu-lev").html("投放中");
+           }
+           else if(type2 > 0){
+                $(".page-hierarchy .sec-menu-lev").html("未投放");
+           }
+           else if(type3 > 0){
+                $(".page-hierarchy .sec-menu-lev").html("已结束");
+           }else{
+                $(".page-hierarchy .sec-menu-lev").html("投放中");
+           }
+     });
+</script>
+<div class="page-hierarchy" >
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/associate/associate">关联模板&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a><span class="sec-menu-lev">投放中</span>
+</div>
+
+<!--当前位置-->
+<div class="associate-main">
+    <div class="ass_mod_style validAssociateModels">
+        <div class="validAssociateModels_area" style="position:relative;margin-top:20px;"></div>
+        <div class="validAssociateModels_Bottom" style="position:relative;text-align:center;"></div>
+    </div>
+
+    <div class="ass_mod_style waitAssociateModels" style="display:none;" >
+        <div class="waitAssociateModels_area"></div>
+        <div class="waitAssociateModels_Bottom" style="position:relative;text-align:center;"></div>
+    </div>
+
+    <div class="ass_mod_style invalidAssociateModels" style="display:none;" >
+        <div class="invalidAssociateModels_area"></div>
+        <div class="invalidAssociateModels_Bottom" style="position:relative;text-align:center;"></div>
+    </div>
+
+    <div class="checkWindowList" style="display:none;">
+        <table class="checkWindow_Area" >
+        </table>
+    </div>
+
+    <div class="toAddPutArea" style="display:none;margin-top:20px;">
+        <div class="searchParams"  >
+            <table style="margin:0 auto;">
+                <tbody>
+                <tr>
+                    <td style="width:300px;text-align:center;">
+                        <span class="searchTitle">关键字&nbsp;&nbsp;</span>
+                        <input class="textInput" type="text" placeholder="请输入关键字" default="请输入关键字"  style="width:230px;"/>
+                    </td>
+                    <td style="width:200px;text-align:center;">
+                        <select name="sellerCat" value="sellerCat" class="searchSelect" style="width:200px;height:23px;">
+                        </select>
+                    </td>
+
+                    <td sort="1" style="width:80px;text-align:center;display:none;border:1px solid #e1e2e5" class="saleSort saleSortUp"><a href="javascript:void(0);">销量↑</a></td>
+                    <td sort="0" style="width:80px;text-align:center;border:1px solid #e1e2e5" class="saleSort saleSortDown"><a href="javascript:void(0);">销量↓</a></td>
+                    <td sort="3" style="width:80px;text-align:center;display:none;border:1px solid #e1e2e5" class="priceSort priceSortUp"><a href="javascript:void(0);">价格↑</a></td>
+                    <td sort="2" style="width:80px;text-align:center;border:1px solid #e1e2e5" class="priceSort priceSortDown"><a href="javascript:void(0);">价格↓</a></td>
+                    <td >
+                        <div  value="searchBtn" class="doSearch put-item-doSearch" style="width:100px;">搜索宝贝</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <table class="toAddPut_Area" style="position:relative;margin-top:10px;"> </table>
+        <div class="toAddItem_Bottom" style="position:relative;bottom:-15px;text-align:center;"></div>
+        <div class="toAddItemBtn_div">
+            <div class="ass_Btn toAddItemBtn" >投放选中宝贝</div>
+        </div>
+    </div>
+</div>
+
+<script id="checkItemBox" type="text/x-jquery-templ">
+<tr class="input-info in-info-box" >
+    <td class="in-info-td-1">
+        <input class="in-info-td-checkbox" type="checkbox">
+    </td>
+    <td class="item_id in-info-td-2" value="{{= id}}"></td>
+    <td class="in-info-td-3">
+        <a target="_blank" href="//item.taobao.com/item.htm?id={{= id}}">
+            <img class="item_img" src="{{= picURL}}">
+        </a>
+    </td>
+    <td class="in-info-td-4" align="center" >
+        <span>{{= title}}</span>
+    </td>
+    <td class="in-info-td-5">
+        <span class="item_price">{{= price}}</span>
+    </td>
+    <td class="in-info-td-6">
+        <span class="in-info-result"></span>
+    </td>
+    <td class="in-info-td-7">
+        <div class="in-info-checkBtn">退出投放</div>
+    </td>
+</tr>
+</script>
+
+<!--<script id="checkItemBox" type="text/x-jquery-templ">
+<td style="padding:2px;">
+    <div style="position:relative;width:145px;display:block;" >
+        <div class="item_img" style="height:120px;">
+            <a target="_blank" href="//item.taobao.com/item.htm?id={{= id}}">
+                <img style="height:120px;width:120px;" src="{{= picURL}}"/>
+            </a>
+        </div>
+
+        <div class="item_id" style="width:145px;" value="{{= id}}"></div>
+
+        <div class="item_info" style="width:145px" >
+            <a><span class="item_title" style="display:inline;height:45px;font-size:10px;">{{= title}}</span></a>
+            <span class="item_price"><b>{{= price}}</b></span>
+        </div>
+    </div>
+</td>
+</script>-->
+
+<script id="validAssociateModelsOper" type="text/x-jquery-templ">
+{{each(i,planHtml) data.res}}
+     <div class="associateDiv" style="height:2000px;;position:relative;top:30px;">
+        <div class="associateOperate">
+            <div class="small_Ass_Btn" style="float:left;margin-right:20px;"><span class="checkItems">已投放宝贝</span></div>
+            <div class="small_Ass_Btn" style="float:left;"><span>添加投放宝贝</span></div>
+        </div>
+        <div class="associateOper">
+            <span class="ass-ope-span" class="associateStop">取消投放</span>
+            <span class="ass-ope-span" class="associateModify">修改模板</span>
+            <span class="ass-ope-span" class='associateCopy'>复制代码</span>
+            <span class="ass-ope-span checkItems">投放宝贝数：</span>
+            <span class="ass-ope-span checkItems">个</span>
+            <span class="ass-ope-span planName" style="cursor:default;">模板名称：</span>
+            <span style="display:none">{{= i}}</span>
+        </div>
+        <div>{{= planHtml}}</div>
+    </div>
+{{/each}}
+</script>
+
+<script id="toAddPutItem" type="text/x-jquery-templ">
+<td style="padding:5px">
+    <div class="put_item_div" style="width:250px;">
+        <table>
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="height:64px;width:64px">
+                        <!--图片-->
+                        <div class="item_img" style="height:64px;width:64px">
+                            <a target="_blank" href="http://item.taobao.com/item.htm?id={{= id}}"><img style="height:64px;width:64px;" src="{{= picURL}}"/></a>
+                        </div>
+                        <div class="item_id" value="{{= id}}"></div>
+                    </td>
+                    <td>
+                        <div class="item_info" style="width:160px;" >
+                            <span class="item_title" >{{= title}}</span>
+                        </div>
+                    </td>
+                    <td rowspan="2" style="width:18px;">
+                        <!--checkbox-->
+                        <div class="item_checkBox" style="text-align:center;width:18px;height:18px;">
+                            <input type="checkbox" style="width:13px;height:13px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!--价格-->
+                        <span class="item_price" style="float:left;"><b>{{= price}}</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="item_price" style="font-size:12px;">已投放<b>{{= planCount}}</b>个计划</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</td>
+</script>
+
+<script>
+TM.Loading.init.show();
+TM.gcs('/js/tm.js',function(){
+    TM.gcs('/js/jquery.tmpl.js',function(){
+        TM.gcs('/js/associate/associate.js',function(){
+            TM.gcs('/js/associate/myAssociate.js',function(){
+                $(document).ready(function(){
+                    $(document).ajaxStart(function(){
+                        TM.Loading.init.show();
+                        $("body").mask();
+                    });
+                    $(document).ajaxStop(function(){
+                        TM.Loading.init.hidden();
+                        $("body").unmask();
+                    });
+                    TM.myAssociate.init.doInit($(".main"));
+                });
+            });
+        });
+    });
+});
+</script>

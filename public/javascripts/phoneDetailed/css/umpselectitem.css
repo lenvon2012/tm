@@ -1,0 +1,121 @@
+
+.item-select-table {
+    border-collapse: collapse; width: 100%; border: none;
+}
+
+.item-select-td {
+    border: none; width: 50%; padding: 5px 0px 5px 0px; text-align: center; cursor: pointer;
+}
+.item-left-td {
+    padding-right: 20px;
+}
+.item-right-td {
+    padding-left: 20px;
+}
+
+.single-item-table {
+    border-collapse: collapse; width: 100%; border: none; margin: 0 auto;
+}
+
+.single-item-table .td {
+    border: none; font-family: "微软雅黑"; font-size: 14px;
+}
+
+.single-item-table .select-img-td {
+    padding: 0px 10px 0px 0px; width: 70px;
+}
+
+.single-item-table .select-title-td {
+    text-align: left;
+    padding: 0px 10px 5px 0px; word-wrap:break-word; line-height: 20px;
+}
+
+.single-item-table .select-item-img {
+    width: 70px; height: 70px; border: none;
+}
+
+.single-item-table .select-price-td {
+    text-align: left;
+}
+
+.single-item-table .select-status-td {
+    text-align: center; font-size: 14px; width: 100px; font-weight: bold; padding: 5px;
+}
+
+.single-item-table .select-price-span {
+    font-weight: bold;
+}
+
+.single-item-table .select-item-link {
+    font-size: 12px; color: #b10000;
+}
+.single-item-table .select-item-link:hover {
+    font-weight: bold; text-decoration: underline;
+}
+
+
+
+
+.item-select-td .single-item-out-div {
+    padding: 3px;
+}
+.item-select-td .single-item-inner-div {
+    background: white;
+}
+
+
+.normal-item .single-item-out-div {
+    background: white;
+}
+.normal-item .single-item-inner-div {
+    border: 1px solid #b10000;
+}
+.normal-item .select-status-td {
+    color: #999;
+}
+
+
+
+.hover-item .single-item-out-div {
+    /*background: #5aace6;*/ background: #f48a9c;
+}
+.hover-item .single-item-inner-div {
+    border: 1px solid #f48a9c;
+}
+.hover-item .select-status-td {
+    background: #f48a9c; color: white;
+}
+
+
+.checked-item .single-item-out-div {
+    background: #f48a9c;
+}
+.checked-item .single-item-inner-div {
+    border: 1px solid #f48a9c;
+}
+.checked-item .select-status-td {
+    background: #f48a9c; color: white;
+}
+
+
+
+.my-activity-item .single-item-out-div {
+    background: #f48a9c;
+}
+.my-activity-item .single-item-inner-div {
+    border: 1px solid #f48a9c;
+}
+.my-activity-item .select-status-td {
+    background: #f48a9c; color: white;
+}
+
+
+.other-activity-item .single-item-out-div {
+    background: #f48a9c;
+}
+.other-activity-item .single-item-inner-div {
+    border: 1px solid #f48a9c;
+}
+.other-activity-item .select-status-td {
+    background: #f48a9c; color: white;
+}

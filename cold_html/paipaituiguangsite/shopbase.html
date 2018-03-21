@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<meta name="keywords" content="爱推广,淘宝宝贝,淘宝卖家,宝贝推广,宝贝分享,宝贝热卖,宝贝推荐,热卖推荐,热卖推广,热卖分享">
+<meta name="description" content="爱推广，帮助淘宝卖家推广和分享热卖的淘宝宝贝，是一个很好的淘宝宝贝推广平台。">
+<!--<link rel="shortcut icon" type="image/png" href='/img/favicon.png'>-->
+#{get 'moreStyles' /}
+<style>
+
+.WaitingForLoadingDiv {
+    display: none; z-index: 10002;
+    color: blue;
+    font-weight: bold;
+    font-size: 18px;
+    text-align:center;
+    background-color:#fff;
+    width:520px; height: 90px;
+    padding:40px 30px;
+    font-family:'微软雅黑','宋体';
+    border: 2px solid #bebebe;
+    /*border: 3px solid transparent;*/
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    /*-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+    /*-moz-box-shadow: 0 0 10px rgba(0,0,0,0.4);*/
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+
+}
+.WaitingForLoadingDiv img{
+    /*margin-bottom:15px;*/
+}
+a {
+    text-decoration: none;
+}
+.inlineblock {
+    display: inline-block; *display: inline; zoom: 1;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+.clearfix {
+    clear: both; zoom: 1;
+}
+
+.clearfix:after {
+    clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+}
+
+.shadowbase{behavior:none;}
+
+body {
+    padding: 0px; margin: 0px; background: #F1EFF0; color: #333;
+}
+.title-wapper {
+    background: #666666; font-family: "微软雅黑"; color: white;  width: 100%;
+}
+.title-try-entry{
+    width:1024px;height:90px;margin:0 auto;
+}
+.title-wapper .search-div {
+    width: 400px;
+}
+.title-wapper .item-search-input {
+    width: 300px;height: 22px;border: #333333 1px solid; padding-left: 5px;
+    font-size: 12px; background: white; line-height: 22px;
+}
+.title-wapper .search-tip {
+    color: #999999;
+}
+.title-wapper .item-search-btn {
+    background: #E6F5FF; width: 80px; border-radius: 4px; display: inline-block; *display: inline; zoom: 1;
+    font-size: 14px; font-weight: bold; font-family: "微软雅黑"; text-align: center;
+    height: 30px; line-height: 30px; color: #333; cursor: pointer;
+    background: #39B2F8; color: white;
+}
+.title-wapper .item-search-btn:hover {
+    background: #10a3f8; color: white;
+}
+.nav-wrapper {
+    background: white; border-bottom: 3px solid #39B2F8; padding: 3px 0px; width: 100%;
+}
+.nav-wrapper .nav-link {
+    color: #FF3301; color: #39B2F8; font-family: "微软雅黑"; font-size: 14px;cursor: pointer;
+    display: block; text-align: center; padding: 5px 10px; font-weight: bold;
+    margin: 0px 5px;
+}
+.nav-wrapper .nav-link:hover {
+    color: white; background: #39B2F8; border-radius: 4px;
+}
+.nav-wrapper .selected-nav {
+    color: white; background: #39B2F8; border-radius: 4px;
+}
+.result-wrapper {
+    font-family: "微软雅黑"; font-size: 14px; padding: 10px 0px;
+}
+.bottom-wrapper {
+
+}
+img {
+    border: none;
+}
+    .bottom-wrapper .next-page-btn {
+        font-size: 18px; color: blue; cursor: pointer;
+    }
+    .bottom-wrapper .next-page-btn:hover {
+        text-decoration: underline; font-weight: bold; color: #a10000;
+    }
+
+</style>
+
+
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+</script>
+<script src="/js/jquery-1.6.4.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+
+</script>
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+<!--<div class="LoadingMask" style="display: none; border: 0;"></div>-->
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        //if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    //TM.gcs('/js/tm.js');
+
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            //TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            //TM.Loading.init.hidden();
+        });
+
+
+
+        var hasPath = false;
+
+
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function(){
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+    })(jQuery, window));
+</script>
+
+<script src="/js/paipaituiguangsite/shopbase.js"></script>
+
+
+<div class="title-wapper" style="text-align: center; padding: 20px 0px;">
+
+    <!--<div style="width:100%;background-color:#5bc0fe;">
+        <div class="title-try-entry" >
+            <a href="/tryshare">
+                <img src="http://img03.taobaocdn.com/imgextra/i3/333336410/T2Wy23XcdXXXXXXXXX_!!333336410.jpg">
+             </a>
+        </div>
+    </div>-->
+
+    <table style="width: 800px; margin: 0 auto;" class="title-table">
+        <tbody>
+        <tr>
+            <td style="padding-top: 10px;">
+                <span style="font-size: 26px; font-weight: bold; ">爱 推 广</span>
+            </td>
+            <td style="padding-top: 12px;padding-left: 40px; font-size: 15px; font-weight: bold;" >
+                <span>热卖&nbsp;.&nbsp;分享&nbsp;.&nbsp;推荐</span>
+            </td>
+            <td class="" style="padding-left: 100px;padding-top: 10px; width: 315px;">
+                <input type="text" class="item-search-input search-tip" value="输入宝贝标题，轻松搜索宝贝" />
+
+            </td>
+            <td style="padding-top: 10px; text-align: left;">
+                <span class="item-search-btn">立即搜索</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="nav-wrapper" style="text-align: center;">
+    <div class="nav-container" style="margin: 0 auto;text-align: left;">
+        <table>
+            <tbody>
+            <tr><td>&nbsp;</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <div class="content-wrapper" style="padding: 0px 0px; text-align: center; margin: 0 auto;">
+        <div class="result-wrapper">
+        #{doLayout /}
+        </div>
+    </div>
+</div>
+<div class="bottom-wrapper " style="margin-bottom: 50px;">
+
+</div>
+
+<script type="text/javascript">
+    TM.ShopBase.init.doInit();
+</script>
+
+<script type="text/javascript">
+
+</script> 
+
+#{get 'moreScripts' /}
+
+</body>
+</html>

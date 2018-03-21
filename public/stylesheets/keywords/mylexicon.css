@@ -1,0 +1,25 @@
+
+#mylexicon_top_name{
+	float: left;
+	font-size: 20px;
+	font-weight: bolder;
+}
+#mylexicon_top_back{
+	float: right;
+	font-weight: bolder;
+	margin-right: 20px;
+}
+#mylexicon_top_back:HOVER{
+	color: blue;
+	cursor: pointer;
+}
+.mylexicon_container{width:100%;margin-top: 20px;text-align:center;}
+.hoverRow:hover{background-color:#DDE0EE;}
+.firstRow{background: left -102px url('/public/images/frame/bg.png');height:24px;width:100%;}
+.tableRow{height:30px;weigth:100%;text-align: center;}
+.wordsearch thead tr{background: left -102px url('/public/images/frame/bg.png');height:24px;width:100%;}
+.grey-bg{background-color:#EEEEEE}
+.remove:HOVER{cursor: pointer;color: blue;}
+.removeimg{width: 15px;height:15px;}
+.backimg{margin-top: -8px;}
+.mylexiconimg{width: 20px;height: 20px;margin-right: -5px;}

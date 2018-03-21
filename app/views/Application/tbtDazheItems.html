@@ -1,0 +1,461 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavump.html' /}
+
+#{set title:'促销宝贝' /}
+
+<link rel="stylesheet" media="screen" href='/css/commodityDiag.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/tips.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/cornerDiv.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/searchDiag/uvpvDiag.css?_v=1'>
+<style>
+    .title {
+        float: none;
+        width: 120px;
+        background: none;
+        border: none;
+    }
+
+    table.busSearch {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .busSearch .pricetd {
+        font-size: 20px;
+    }
+
+    .busSearch .scoretd {
+        font-size: 24px;
+    }
+
+    .diagTable tbody tr {
+        border: 1px dashed #ccc;
+    }
+
+    .diagTable .td1, .diagTable .td3, .diagTable .td2 {
+        border: none;
+        border-bottom: 1px dashed #ccc;
+    }
+
+    .busSearch tbody tr.diagtr:hover {
+        background: none;
+    }
+
+        /*div.main {*/
+        /*width: 1040px;*/
+        /*border: 1px solid #aaa;*/
+        /*background: white;*/
+        /*}*/
+        /*.nav-table-left-td{*/
+        /*display: none;*/
+        /*}*/
+    .itemdetail{
+        height: 80px;
+    }
+</style>
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>促销宝贝
+</div>
+
+<div class="searchDiagTip intro hidden" style="text-align: center;margin: 0 auto;margin: 10px 5px;">
+    亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+</div>
+*{<div style="height:35px;margin:10px 5px;padding:20px;background:#f9f9f9;border:1px solid #ccc;">
+    <div class="header">
+
+        <span class="searchTitle">关键字</span>
+
+        <input style="width: 220px;" type="text" id="searchText" value="" class="textinput"/>
+
+        <span>&nbsp;</span>
+
+        <div style="display:inline-block;*display:inline;position: relative;">
+        }**{<iframe border="0" frameborder="0" src="" style="z-index:1;width:140px;height:120px;position: absolute;">}**{
+        }**{</iframe>}**{
+            <select name="sellerCat" id="sellerCat" class="searchselect">
+            </select>
+        </div>
+
+    }**{<iframe style="z-index:1;width:140px;height:20px;position: absolute;">}**{
+        <div style="display:inline-block;*display:inline;position: relative;">
+        }**{<iframe border="0" frameborder="0" src="" style="z-index:1;width:140px;height:120px;position: absolute;">}**{
+        }**{</iframe>}**{
+            <select name="itemsStatus" id="itemsStatus" class="searchselect" style="width: 100px;">
+                <option tag="onsale">在售宝贝</option>
+                <option tag="instock">下架宝贝</option>
+                <option tag="all">全部宝贝</option>
+            </select>
+        </div>
+
+
+    }**{</iframe>}**{
+    </div>
+    <a href="javascript:void(0)" id="searchBtn" class="tmbtn sky-blue-btn">搜索宝贝</a>
+
+</div>}*
+<div class="clear"></div>
+<div style="min-height:600px;_height:600px;margin-top: 20px;">
+    <div class="commodityDiagtop tmpage" style="text-align: center;"></div>
+    <table style="width:99%;margin: 0 auto;" class="busSearch">
+        <thead>
+        <tr style="height:24px;">
+
+            <th style="width:90px;">宝贝主图</th>
+            <th style="width:60%">宝贝标题</th>
+            <th style="width:10%">宝贝价格(元)</th>
+            <th style="width:10%">分析详情</th>
+            <th style="width:10%">选择该宝贝</th>
+        </tr>
+        </thead>
+        <tbody id="">
+        <tr class="singlecomm itemdetail" numiid="16150274657">
+            <td><a class="thumbnail" href="http://item.taobao.com/item.htm?id=16150274657" target="_blank"
+                   style="width:64px;height:64px;"> <img class="imgsnap " style="width:64px;height:64px;"
+                                                         src="http://img04.taobaocdn.com/bao/uploaded/i4/T17yZlFidbXXXXXXXX_!!0-item_pic.jpg">
+            </a></td>
+            <td>
+                <div> 网袜连裤美腿天鹅绒镂空中等特价促销条纹性感秋季塑形8202</div>
+            </td>
+            <td>
+                <div> ￥30</div>
+            </td>
+
+            <td>
+                <span class="tmbtn wide-sky-blue-btn  explore-diag" numiid="16150274657">分析详情</span>
+            </td>
+            <td>
+                <a href="/TzgUmpActivity/editDetail"><span class="tmbtn wide-sky-blue-btn  userThis" numiid="16150274657">选择该宝贝</span></a>
+            </td>
+        </tr>
+        <tr class="diagtr hidden" numiid="16150274657">
+            <td colspan="10">
+                <div class="tabDiv" style="width:100%;margin:10px auto 10px auto;">
+                    <ul class="clearfix" iid="16150274657">
+                        <li><a style="width: 100px;" targetcls="comeInWords" href="javascript:void(0);"
+                               class="">同款行业分析</a></li>
+                        <li><a style="width: 100px;" targetcls="itemViewTrade" href="javascript:void(0);">同款价格区间分布</a>
+                        </li>
+                        <li><a style="width: 100px;" targetcls="tradeNum" href="javascript:void(0);">同款销量分析</a>
+                        </li>
+                        <li><a style="width: 100px;" targetcls="uvpv" href="javascript:void(0);"
+                               class="select">竞争宝贝分析</a></li>
+                        <li><a style="width: 100px;" targetcls="relativeAccess" href="javascript:void(0);">同款价格分析</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="liTargetDiv">
+                    <div class="" style="display: block;" id="target16150274657">
+
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="singlecomm itemdetail" numiid="16150830478">
+            <td><a class="thumbnail" href="http://item.taobao.com/item.htm?id=16150830478" target="_blank"
+                   style="width:64px;height:64px;"> <img class="imgsnap " style="width:64px;height:64px;"
+                                                         src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qeH_FcFcXXXXXXXX_!!0-item_pic.jpg">
+            </a></td>
+            <td>
+                <div> 全棉纯色抗菌中等百搭特价促销四季通用12-006fd黑色深灰色褐色</div>
+            </td>
+            <td>
+                <div> ￥48.41</div>
+            </td>
+
+            <td>
+                <span class="tmbtn wide-sky-blue-btn explore-diag" numiid="16150830478">分析详情</span>
+            </td>
+            <td>
+                <a href="/TzgUmpActivity/editDetail"><span class="tmbtn wide-sky-blue-btn userThis" numiid="16150274657">选择该宝贝</span></a>
+            </td>
+        </tr>
+        <tr class="diagtr hidden" numiid="16150830478">
+            <td colspan="10">
+                <div class="tabDiv" style="width:100%;margin:10px auto 10px auto;">
+                    <ul class="clearfix" iid="16150830478">
+                        <li><a style="width: 100px;" targetcls="comeInWords" href="javascript:void(0);"
+                               class="">同款行业分析</a></li>
+                        <li><a style="width: 100px;" targetcls="itemViewTrade" href="javascript:void(0);">同款价格区间分布</a>
+                        </li>
+                        <li><a style="width: 100px;" targetcls="tradeNum" href="javascript:void(0);">同款销量分析</a>
+                        </li>
+                        <li><a style="width: 100px;" targetcls="uvpv" href="javascript:void(0);"
+                               class="select">竞争宝贝分析</a></li>
+                        <li><a style="width: 100px;" targetcls="relativeAccess" href="javascript:void(0);">同款价格分析</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="liTargetDiv">
+                    <div class="" style="display: block;" id="target16150830478">
+
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="commodityDiagBottom tmpage" style="text-align: center;"></div>
+    <div style="height:35px;margin:0 auto;width:700px;">
+        <p class="Pagination" class="pagination">
+        </p>
+    </div>
+</div>
+
+*{<div class="competitionTable" style="display: none;">
+    <table>
+        <thead>
+            <tr>
+                <td colspan="10">
+                    同款最具竞争力宝贝分析
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>
+                  <table>
+                      <tbody>
+                        <tr>
+                            <td>
+                                <img src="http://img04.taobaocdn.com/bao/uploaded/i4/T17yZlFidbXXXXXXXX_!!0-item_pic.jpg" style="width: 40px;height: 40px;">
+                            </td>
+                            <td>
+                                <div style="height: 18px">网袜连裤美腿天鹅绒镂空中等特价促销条纹性感秋季塑形8202</div>
+
+                            </td>
+                        </tr>
+                      </tbody>
+                  </table>
+               </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>}*
+
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    //TM.Loading.init.show();
+    TM.gcs('/js/jquery.pagination.js', function () {
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/tm.js', function () {
+                TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+                    TM.gcs('/js/jquery.url.js', function () {
+                        // 设置事件
+                        $('.tabDiv a').click(function(){
+                            var numIid = $(this).parent().parent().attr("iid");
+                            var diagtr = $('.diagtr[numiid="'+numIid+'"]');
+                            diagtr.find('.tabDiv .select').removeClass("select");
+                            $(this).addClass("select");
+
+                            var targetcls = $(this).attr("targetcls");
+                            switch (targetcls) {
+                                case "comeInWords" :
+                                    catAnalysis(numIid);return;
+                                case "uvpv" :
+                                    competitionItems(numIid);return;
+                                case "relativeAccess" :
+                                    discountRange(numIid);return;
+                                case "itemViewTrade" :
+                                    priceRange(numIid);return;
+                                case "tradeNum" :
+                                    tradeNum(numIid);return;
+                                default :
+                                    catAnalysis(numIid);return;
+                            }
+                        });
+
+                        $('.explore-diag').click(function(){
+                            var oThis = $(this);
+                            var numiid = oThis.attr('numiid');
+                            var diagRow = $('.diagtr[numiid="'+numiid+'"]');
+                            if(oThis.text() == "分析详情") {
+                                diagRow .show(400);
+                                oThis.text("收起详情")
+                                diagRow.find('.tabDiv ul li a').eq(0).trigger("click");
+                            } else {
+                                oThis.text("分析详情");
+                                diagRow.hide();
+                            }
+
+
+                        });
+
+                        // 填充数据
+                        var tradeNum = function(numIid){
+                            $("#target"+numIid).empty();
+                            chart = new Highcharts.Chart({
+                                chart : {
+                                    renderTo : 'target' + numIid,
+                                    defaultSeriesType: 'spline' //图表类型line(折线图)
+                                },
+                                credits : {
+                                    enabled: false   //右下角不显示LOGO
+                                },
+                                title: {
+                                    text: "当日同款宝贝销量"
+                                }, //图表标题
+                                xAxis: {  //x轴
+                                    categories: ["04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", ], //x轴标签名称
+                                    gridLineWidth: 0, //设置网格宽度为1
+                                    lineWidth: 2,  //基线宽度
+                                    labels:{
+                                        y:20   //x轴标签位置：距X轴下方26像素
+                                        /*rotation: -45   //倾斜度*/
+                                    }
+                                },
+                                yAxis: [{  //y轴
+                                    title: {text: '当日同款宝贝销量'}, //标题
+                                    lineWidth: 0 //基线宽度
+                                }
+                                ],
+                                plotOptions:{ //设置数据点
+                                    line:{
+                                        dataLabels:{
+                                            enabled:true  //在数据点上显示对应的数据值
+                                        },
+                                        enableMouseTracking: true //取消鼠标滑向触发提示框
+                                    }
+                                },
+                                series: [
+                                    {  //数据列
+                                        name: '当日同款宝贝销量',
+                                        color:'#96CBF1',
+                                        data: [900, 726, 813, 912, 905, 919, 896],
+                                        yAxis:0
+                                    }
+                                ]
+                            });
+                            //$("#target"+numIid).prepend("<div>宝贝所属类目:<select style='margin-left: 32px;'><option>毛绒布艺类玩具</option><option>男装</option><option>女装</option></select></div>");
+
+                        }
+
+                        var competitionItems = function(numIid){
+                            $("#target"+numIid).empty();
+                            $("#target"+numIid).append($('<img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2aKmnXbBdXXXXXXXX-1039626382.jpg" alt="同行最具竞争力宝贝" style="width: 1000px;height: 500px;">'));
+                        }
+
+                        var priceRange = function(numIid){
+                            $("#target"+numIid).empty();
+                            chart = new Highcharts.Chart({
+                                chart : {
+                                    renderTo : 'target' + numIid,
+                                    defaultSeriesType: 'column' //图表类型line(折线图)
+                                },
+                                credits : {
+                                    enabled: false   //右下角不显示LOGO
+                                },
+                                title: {
+                                    text: "同款宝贝价格区间分布"
+                                }, //图表标题
+                                xAxis: {  //x轴
+                                    categories: ["110-130", "130-150", "150-170", "170-190", "190-218"], //x轴标签名称
+                                    gridLineWidth: 0, //设置网格宽度为1
+                                    lineWidth: 2,  //基线宽度
+                                    labels:{
+                                        y:20   //x轴标签位置：距X轴下方26像素
+                                        /*rotation: -45   //倾斜度*/
+                                    }
+                                },
+                                yAxis: [{  //y轴
+                                    title: {text: '同款宝贝价格区间分布'}, //标题
+                                    lineWidth: 0 //基线宽度
+                                    }
+                                ],
+                                tooltip: {//当鼠标悬置数据点时的提示框
+                                    formatter: function() { //格式化提示信息
+                                        return  this.x + '<br>当日同款宝贝销量： ' + this.y;
+                                    }
+                                },
+                                plotOptions:{ //设置数据点
+                                    line:{
+                                        dataLabels:{
+                                            enabled:true  //在数据点上显示对应的数据值
+                                        },
+                                        enableMouseTracking: true //取消鼠标滑向触发提示框
+                                    }
+                                },
+                                series: [
+                                    {  //数据列
+                                        name: '宝贝数量',
+                                        color:'#96CBF1',
+                                        data: [1200, 2348, 3860, 1060, 500],
+                                        yAxis:0
+                                    }
+                                ]
+                            });
+                        }
+
+                        var catAnalysis = function(numIid){
+                            $("#target"+numIid).empty();
+                            chart = new Highcharts.Chart({
+                                chart : {
+                                    renderTo : 'target' + numIid,
+                                    defaultSeriesType: 'spline' //图表类型line(折线图)
+                                },
+                                credits : {
+                                    enabled: false   //右下角不显示LOGO
+                                },
+                                title: {
+                                    text: "同款宝贝行业分析"
+                                }, //图表标题
+                                xAxis: {  //x轴
+                                    categories: ["110-130", "130-150", "150-170", "170-190", "190-218"], //x轴标签名称
+                                    gridLineWidth: 0, //设置网格宽度为1
+                                    lineWidth: 2,  //基线宽度
+                                    labels:{
+                                        y:20   //x轴标签位置：距X轴下方26像素
+                                        /*rotation: -45   //倾斜度*/
+                                    }
+                                },
+                                yAxis: [{  //y轴
+                                    title: {text: '同款宝贝行业分析'}, //标题
+                                    lineWidth: 0 //基线宽度
+                                }],
+                                tooltip: {//当鼠标悬置数据点时的提示框
+                                    formatter: function() { //格式化提示信息
+                                        return  '该宝贝最近七天销量环比增长<span style="color: red;">5.9%</span>,与去年同期相比增加<span style="color:red;">1596.5%</span>' +
+                                                '<br>' +
+                                                '该宝贝最近三十天销量环比增长<span style="color: red;">6.4%</span>,与去年同期相比增加<span style="color:red;">2376.7%</span>' +
+                                                '<br>' +
+                                                '该宝贝未来一周总体趋势预测：<span style="color: red;">稳中有升</span>';
+                                    }
+                                },
+                                plotOptions:{ //设置数据点
+                                    line:{
+                                        dataLabels:{
+                                            enabled:true  //在数据点上显示对应的数据值
+                                        },
+                                        enableMouseTracking: true //取消鼠标滑向触发提示框
+                                    }
+                                },
+                                series: [
+                                    {  //数据列
+                                        name: '行业分析',
+                                        color:'#96CBF1',
+                                        data: [1200, 2348, 3860, 1060, 500],
+                                        yAxis:0
+                                    }
+                                ]
+                            });
+                        }
+
+                        var discountRange = function(numIid){
+                            $("#target"+numIid).empty();
+                            $("#target"+numIid).html($('<img style="width: 1000px;height: 500px;" src="http://img03.taobaocdn.com/imgextra/i3/1039626382/T2LTNmXtNbXXXXXXXX-1039626382.jpg" alt="同款定价折扣分布">'));
+                        }
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}

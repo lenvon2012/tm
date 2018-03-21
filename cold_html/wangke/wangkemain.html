@@ -1,0 +1,172 @@
+#{extends 'yangyang.html' /}
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css'>
+<style>
+    .navmain {width: 965px;margin: 0 auto;border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;position: relative;}
+    .aside .sidebox {clear: both;margin-bottom: 20px;padding: 0;}
+    .sidemenu {border: 1px solid #C7CACC;font-size:13px;}
+    .sidemenu li a {display: inline-block;*display: inline;zoom : 1;height: 30px;line-height: 30px;color: #444;overflow: hidden;text-align: left;}
+    .sidemenu li:hover{text-align: left;background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;}
+    .sidemenu li a:hover{text-align: left;background: url("");}
+    .clearfix, #content {zoom: 1;}
+    .all_container {margin-left:200px;height:500px;width: 805px;height: auto;border: 1px solid #aaa;background: white;}
+    .kwcontainer {background: transparent;margin: 10px auto;width: 100%;overflow: auto;zoom: 1;}
+    .sidemenu li.aside-hot-tag .aside-icon {cursor: move;}
+    .sidemenu li.aside-hot-tag .aside-icon {background-position: -92px 10px;}
+    .sidemenu li a .aside-icon {float: left;width: 36px;height: 28px;background-image: url("http://s.libdd.com/img/icon/sidemenu.$6372.png");background-repeat: no-repeat;}
+
+    #kits{width: 780px;}
+    .asideselected{background-color: #8BB7E9;}
+    .recommendDiv .tabDiv li a{width:72px;}
+    .head ul{width: 770px;}
+
+    #opnav{border: none;}
+    .head-nav{*margin-top: 15px;}
+    .bluebutton {font-family: "微软雅黑";text-align: center;cursor: pointer;color: white;height: 30px;line-height: 30px;font-size: 13px;width: 96px;display: inline-block;zoom: 1;background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;}
+    .bluebutton:hover {background-position: 0 -34px;}
+    .asideselected span{color:white;_color:black;_font-weight: bold;_font-size: 16px;}
+    .clear {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+    .bluebutton {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;}
+    .bluebutton:hover{background-position: 0 -34px;}
+    .blank0 {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+    .clearfix {clear: both; zoom: 1;}
+    .clearfix:after {clear: both; display: block; visibility: hidden; height: 0px; content: '.';}
+    .jd-container{width:760px;}
+    .jdmain{min-height: 300px;_height:300px;}
+</style>
+
+
+<div class='top-banner' style="background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px;height: 72px; line-height: 72px;">
+
+    <div class='top-nav head-nav' >
+            <span class = "head">
+                <ul style='margin:0px;'>
+                </ul>
+             <span style='float:right;width:240px;;line-height: 41px;height: 41px;text-align: center;margin-top: 15px;*margin-top:0px;display: inline-block;*display:inline;zoom:1;' class="userheadop">
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+                 <a id="logout" class="bluebutton" style='padding:0px;' href="javascript:void(0);">切换帐号</a> <!-- |<a href="/Share/toShare">分享</a> -->
+             </span>
+        </span>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div class="navmain">
+    <div class="aside">
+        <ul class="sidemenu sidebox side-tracked-tag funnav" style="padding: 0px;margin: 0;">
+            <li class="aside-hot-tag title-center">
+                <a class="followed-tag clearfix sidemenuAnchor hasSecondNav" href="javascript:void(0);">
+                    <span class="aside-icon"></span>
+                    <span class="wangkename">短信中心</span>
+                </a>
+
+                <span class="fold-icon fold"></span>
+                <div class="secondUl" style="display: none;">
+
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="all_container">
+        <div class="kwcontainer jdmain">
+        #{doLayout /}
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    var head = $('.head');
+    var path = document.location.pathname;
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+        }
+    });
+
+    TM.sync = function(){
+//        $.get('/items/sync',function(){
+//            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+//                window.location.reload();
+//            });
+//        });
+    }
+
+    $(".app-nav").hide();
+    // TODO, this is for the preview temp...
+    $('#goHelp').hide();
+    var img = $('#tempLogoImg');
+    img.attr('src','/public/images/header/Glossy_Menus_05_blue.png');
+    img.css({width:'100px'});
+    $('.fold-icon').click(function(){
+        if($(this).hasClass("fold")) {
+            $(this).removeClass("fold");
+            $(this).addClass("unfold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').css("display","block");
+            }
+        } else if($(this).hasClass("unfold")) {
+            $(this).removeClass("unfold");
+            $(this).addClass("fold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').css("display","none");
+//                $(this).parent().css("height","34px");
+            }
+        }
+    });
+    var aside = $('.aside');
+
+    aside.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.aside').find('li.asideselected').removeClass('asideselected');
+            anchor.parent().addClass('asideselected');
+            if(path.indexOf("/AutoTitle/") >= 0) {
+                anchor.parent().parent().slideDown(500);
+            }
+            if(anchor.parent().hasClass("secondLi")){
+                anchor.parent().parent().parent().find('.fold-icon').trigger("click");
+            }
+        }
+    });
+
+
+    //$('.fold-icon').trigger("click");
+    $('.hasSecondNav').click(function(){
+        if($(this).parent().find('.fold-icon').hasClass("fold")) {
+            $(this).parent().find('.fold-icon').removeClass("fold");
+            $(this).parent().find('.fold-icon').addClass("unfold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').css("display","block");
+            }
+        } else if($(this).parent().find('.fold-icon').hasClass("unfold")) {
+            $(this).parent().find('.fold-icon').removeClass("unfold");
+            $(this).parent().find('.fold-icon').addClass("fold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').css("display","none");
+            }
+        }
+    });
+
+    $('.fold-icon').each(function(){
+        if($(this).parent().find('.secondUl').length == 0){
+            $(this).css("display","none");
+        }
+    });
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+        })
+    });
+
+    $(document).ready(function(){
+    })
+
+</script>

@@ -1,0 +1,46 @@
+*{#{extends 'main.html' /}             }*
+#{extends 'tbtnav/tbtnavitem.html' /}
+#{set title:'批量图片换位' /}
+
+<link rel="stylesheet" media="screen" href="/css/skinbatch/skinbatch.css?_v=3"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+
+    .red-bold {
+        font-weight: bold;color: #a10000;
+    }
+    .red {
+        color: #a10000;
+    }
+
+    .direct-price-table tbody td {padding: 5px 0px;}
+
+    .scale-price-table tbody td {padding: 5px 0px;}
+
+    .sort-td {
+        padding-right: 20px;color: #2EB1AA;cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .sort-down{background: url("/img/sort-bg.png") right -25px no-repeat}
+    .sort-up{background: url("/img/sort-bg.png") right -47px no-repeat;}
+
+</style>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/skinbatch/batchposition.js?_v=0" type="text/javascript" charset="utf-8"></script>
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>批量图片换位
+</div>
+<div class="batch-container" style="padding-bottom: 100px;"></div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.Loading.init.show();
+        TM.SkinBatch.init.doInit($(".batch-container"), false);
+    });
+
+</script>

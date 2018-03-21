@@ -1,0 +1,85 @@
+#{extends 'main.html' /}
+#{set title:'批量中心' /}
+
+<link rel="stylesheet" media="screen" href="/css/skinbatch/skinbatch.css"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/skinbatch/skinbatch.js?_v=1" type="text/javascript" charset="utf-8"></script>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>中差评记录
+</div>
+<div class="batch-container" style="padding-bottom: 100px;">
+	<div class="log-search-div">
+        <table class="skincomment-table">
+        	<thead>
+				<tr>
+					<th>中差评记录</th>
+				</tr>
+			</thead>
+            <tbody>
+            <tr>
+                <td>
+                	<select name="rate" id="rate" class="searchselect">
+						<option tag="1">中差评</option>
+						<option tag="2">中评</option>
+						<option tag="3">差评</option>
+					</select>
+					<select name="online" id="online" class="searchselect">
+						<option tag="0">全部旺旺</option>
+						<option tag="1">在线旺旺</option>
+					</select>
+                    <span>交易编号:</span>
+                    <input type="text" class="trade-id-text" style="width: 100px;">
+                    <span>买家昵称:</span>
+                    <input type="text" class="buyer-name-text" style="width: 100px;">
+                    <span>发生日期:</span>
+                    <input type="text" class="start-time-text date-picker" style="width: 75px;" >
+                    <span>-</span>
+                    <input type="text" class="end-time-text date-picker" style="width: 75px;" >
+					
+                    <span class="search-btn btn btn-primary" style="margin: 5px auto;">搜索评价</span>
+               </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="log-table-div" style="padding:10px 0px">
+	    <div class="trade-search-pagging" style="text-align: center"></div>
+	    <table class="skincomment-table commentNormal-table">
+	        <thead>
+            <th style="width:5%;"><input type="checkbox" tag="checkAll" class="checkAll" style=""></th>
+            <th style="width:10%">宝贝主图</th>
+            <th style="width:25%;">宝贝标题</th>
+            <th style="width:25%;">订单号/评价时间</th>
+            <th style="width:10%;">买家评价</th>
+            <th style="width:25%;">联系方式</th>
+            
+	        </thead>
+	        <tbody class="skincomment-table-tbody" >
+				<tr>
+	            	<td colspan="9" style="height:40px;">亲，暂无您的评价记录哦</td>
+	        	</tr>
+	        </tbody>
+	    </table>
+	    <div class="trade-search-pagging" style="text-align: center"></div>
+    </div>
+
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+TM.gcs('/js/skinbatch/skinbadcomment.js', function () {
+	TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+		TM.gcs('/js/ChineseDatePicker.js', function () {
+    $(document).ready(function() {
+        TM.Loading.init.show();
+        TM.CommentNormal.Init.init($(".batch-container"));
+    });
+		});
+	});
+});
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+   <title></title>
+   <style>
+       .tmbtn{display: inline-block;*display: inline;*zoom:1;font-family:'微软雅黑';text-align: center;vertical-align: middle;cursor: pointer;color: #ffffff;
+           background-image: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T28vqiXntaXXXXXXXX_!!1039626382.png");
+       }
+       .wide-sky-blue-btn{width: 116px;height: 44px;font-size: 14px;line-height: 44px;background-position: -119px -26px;}
+       .wide-sky-blue-btn:hover{background-position: -119px -75px;}
+       .wide-yellow-btn{width: 116px;height: 44px;font-size: 14px;line-height: 44px;background-position: -119px -136px;}
+       .wide-yellow-btn:hover{background-position: -119px -185px;}
+   </style>
+    <script type="text/javascript" src='/js/jquery-1.6.4.min.js' charset="utf-8"></script>
+</head>
+<body>
+<div class="confirmWrapper" style="width: 1000px; margin: 0 auto;margin-top: 50px;font-size: 30px;text-align: center;">
+    <div style="text-align: center;margin: 0 auto;margin-top: 50px;margin-bottom: 20px;font-size: 38px;width: 1000px;color: orange;">
+        好评助手-外包确认
+    </div>
+    <div style="text-align: center;margin: 0 auto;margin-top: 20px;margin-bottom: 20px;font-size: 20px;width: 1000px;color: orange;">
+        亲，您确认将<span style="margin: 0 10px;font-size: 28px;color: red;font-weight: bold;">${sellerNick}</span> 的中差评处理工作交给
+        <span style="margin: 0 10px;font-size: 28px;color: red;font-weight: bold;" class="companyName">${companyName}</span> 公司进行处理?
+    </div>
+    <div style="text-align: center;margin: 0 auto;margin-top: 20px;margin-bottom: 20px;font-size: 20px;width: 1000px;color: orange;">
+        <span class="tmbtn wide-sky-blue-btn confirm" style="margin-left: 30px;font-size: 18px;">我确认授权</span>
+    </div>
+</div>
+
+
+<script>
+    var companyName = $('.companyName').text();
+/*    $('.cancel').unbind("click").click(function(){
+        window.opener=null;
+        window.open('','_self');
+        window.close();
+    });*/
+    $('.confirm').unbind("click").click(function(){
+        if(confirm("亲确定授权  "+companyName+"  公司来协助处理中差评吗?")) {
+
+            $.get("/SkinDefender/reConfirm", {companyName: companyName}, function(data){
+                if(data === undefined || data == null) {
+                    alert("亲，授权失败，请重试或联系客服");
+                    return;
+                }
+                if(data.success == false) {
+                    alert(data.message);
+                    return;
+                }
+                var obj = $('<div>恭喜，授权成功!</div>')
+                $('.confirmWrapper').html(obj);
+                setTimeout(function(){
+                    window.location.href = "/SkinDefender/index";
+                }, 1000);
+            });
+        }
+    });
+
+</script>
+</body>
+</html>

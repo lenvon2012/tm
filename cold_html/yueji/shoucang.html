@@ -1,0 +1,25 @@
+#{extends 'yueji/base.html' /}
+#{set title:'店铺推广 - 百度收藏' /}
+
+<style type="text/css">
+
+</style>
+
+<div class="item-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/home/firstSync',function() {
+                TM.gcs('/js/dianputuiguang/dptghot.js', function () {
+                    TM.gcs('/js/Shoucang/shoucang.js', function () {
+                        var baidushoucang = true;
+                        TM.DptgHot.init.doInit($(".item-container"),baidushoucang);
+                    });
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,78 @@
+#{extends 'Popularize/skinPopularize.html' /}
+<style>
+    #sites{text-align: center;border: 1px solid #ccc;}
+    #sites tr{height: 40px;width: 100%;}
+    #sites td,th{border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+</style>
+<table id="sites">
+    <thead>
+        <tr>
+            <th style="width: 100px;">序号</th>
+            <th style="width: 200px;">合作站点</th>
+            <th style="width: 480px;">地址</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <tr>
+            <td>1</td>
+            <td>聚易商城</td>
+            <td>http://gouwu.tobtn.com/</td>
+        </tr> -->
+        <tr>
+            <td>1</td>
+            <td>微购网</td>
+            <td>http://vgou.tobtn.com/taobaoke/</td>
+        </tr> 
+        <tr>
+            <td>2</td>
+            <td>光线影视</td>
+            <td>http://movie.tobbn.com/movie/</td>
+        </tr>
+        *{<tr>
+            <td>3</td>
+            <td>商家联盟网</td>
+            <td>http://www.52sjlm.com/</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>中华女人减肥网</td>
+            <td>http://www.zhonghua163.com/index.html/</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>浙江信息网</td>
+            <td>http://www.86wzfc.com/</td>
+        </tr>}*
+        <tr>
+            <td>3</td>
+            <td>天悦淘商城</td>
+            <td>http://www.tianyuesc.com/</td>
+        </tr>
+        *{<tr>
+            <td>7</td>
+            <td>139源码下载网</td>
+            <td>http://www.139ymxz.com/</td>
+        </tr>}*
+    </tbody>
+</table>
+
+<script>
+    $.get("/Popularize/getUserInfo",function(data){
+        $.cookie("awarded",data.award);
+        if(data.award){
+            $.cookie("totalNum",data.totalNum+1);
+        } else {
+            $.cookie("totalNum",data.totalNum);
+        }
+        $.cookie("level",data.level);
+        $.cookie("popularizedNum",data.popularizedNum);
+
+        $('.userInfo').find('span[tag="version"]').html(data.version);
+        $('.userInfo').find('span[tag="totalNum"]').html($.cookie("totalNum"));
+        if(data.award){
+            $('.userInfo').find('span[tag="totalNum"]').parent().append($('<span class="userData" tag="awardNum">(+1)</span>'));
+        }
+        $('.userInfo').find('span[tag="popularizedNum"]').html($.cookie("popularizedNum"));
+        $('.userInfo').find('span[tag="remainNum"]').html($.cookie("totalNum") - $.cookie("popularizedNum"));
+    })
+</script>

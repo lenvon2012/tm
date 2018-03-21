@@ -1,0 +1,275 @@
+
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'查排名' /}
+
+<link rel="stylesheet" media="screen" href='/css/cornerDiv.css?_v=2'>
+<style type="text/css">
+    .kwcontainer{min-height:300px;_height:300px;}
+    .div-inline {
+        display:inline-block;
+        *display:inline;
+        position:relative;
+        *zoom:1;
+    }
+    .pagenavi .gopage-submit{
+        width:45px;
+    }
+    #car-data-charts{padding-left: 50px;}
+        /* .query-text{font-size: 24px;width: 400px;} */
+    .do-search-btn{margin:0 5px;}
+    .search-box {
+        padding: 12px 0;
+        border: 1px solid #d9d9d9;
+        background: #fafafa;
+        border-radius: 4px;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .info-container{
+        width: 100%;
+        text-align: center;
+        background-color: #fafafa;
+        /*border: 1px solid #d9d9d9;*/
+        margin: 0 auto;
+    }
+    .iteminfo-table td{
+        vertical-align: middle;
+    }
+    .selectItem{
+        width: 280px;
+        height:28px;
+    }
+
+    .itemwordsholder{
+        font-size:12px;
+    }
+
+    .itemwordsholder .ms-title {
+        display:block;
+        width:400px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .itemwordsholder table tbody tr {
+        line-height: 30px;
+    }
+    .itemwordsholder table tr.odd {
+        background: #eee;
+    }
+
+    #yangyangContent .search-box input[type="radio"]{
+        margin-left:7px;
+    }
+    .radio-switch{
+        height: 30px;vertical-align: middle;*height: 15px;*width:18px;
+    }
+    .radio-label{
+        margin-left:5px;
+        vertical-align: middle;
+        width:30px;
+        display:inline-block;
+        *display:inline;
+        position: relative;
+        *zoom: 1;
+    }
+    .search-box .search-titile{
+        padding: 10px;line-height: 30px;
+        width:620px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .item-title {
+        line-height: 20px;
+    }
+    .item-title a{
+        font-size:12px;
+    }
+    #secondary {
+        color: #333;
+        font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+        position: relative;
+        height: 30px;
+        border-bottom: 1px solid #FFF;
+        border-bottom: 1px solid #CCC;
+        background: #fafafa;
+        background: -moz-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fafafa),color-stop(100%,#f5f5f5));
+        background: -webkit-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+        background: -o-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+        background: -ms-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+        background: linear-gradient(to bottom,#fafafa 0,#f5f5f5 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#f5f5f5',GradientType=0);
+    }
+    #secondary .gap {
+        margin: 0 20px;
+    }
+    #secondary .wrapper {
+        position: relative;
+        z-index: 8;
+        width: 400px;
+        _width: 380px;
+        margin: 0 auto;
+    }
+    #secondary .secnav {
+        float: left;
+        margin-left: 30px;
+        _margin-left: 15px;
+    }
+    #secondary .secnav .current {
+        color: #fa7a19;
+    }
+    #secondary .secnav a {
+        margin-right: 30px;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 30px;
+        color: #333;
+    }
+    #secondary .secnav a:hover {
+        color: #fa7a19;
+    }
+    .tmNav span a{
+        color: #598BC7;
+    }
+    .tmNav span a:hover {
+        color: white;
+        font-weight: bold;
+    }
+
+
+    .search-table td {
+        vertical-align: middle; padding: 4px 0px; text-align: left;
+    }
+    .recent-word {
+        cursor: pointer; color: #a10000;
+    }
+    .recent-word:hover {
+        color: #a10000; text-decoration: underline;
+    }
+    .priceInput{width:100px;}
+
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;查排名
+</div>
+<div class="intro " style="color:#555;">
+    *{<p style="font-size:14px;">
+        <b style="color:red;font-size:28px;">淘掌柜</b> 6月13日正式上线<b class="red" style="font-size:20px;">手机查排名</b>功能，使用中有<b style="color:blue;">任何建议或想法</b>，欢迎联系
+        <a style="float: none;" id="kefuhref" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8">
+            <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后"></a>
+    </p>
+    <br>
+    <p><b style="color:blue;font-size:16px;">提示：</b>因曾经搜索记录或个性化搜索原因，导致查询排名的结果可能与您实际看到的搜索结果略有偏差，希望亲理解</p>}*
+        <p style="font-size:14px;text-align: center;    ">
+            <span style="color:red;font-size:20px;">请加QQ群 </span>&nbsp;&nbsp;&nbsp;<span style="color:red;font-size:20px;font-weight: bold;">474788246</span>
+        </p>
+</div>
+<div class="clearfix kitNav" style="margin: 0 auto;">
+    <div class="tmNav second-type" style="color:white;padding-bottom:1px;margin-left: 100px;">
+            <span>
+                <label class="current" type="1" onclick="location.href='/home/instantsearch'" style="padding:0 7px;">查排名</label>
+            </span>
+            <span class="selected">
+                <label class="" type="1" onclick="location.href='/home/mobilerank'" style="padding:0 7px;">手机查排名</label>
+            </span>
+            <span>
+                <label href="/home/searchhistory" type="2" onclick="location.href='/home/searchhistory'">历史查询记录</label>
+            </span>
+    </div>
+</div>
+<div class="search_container" style="min-height:600px;_height:600px;margin: 0 auto;padding:0 5px;padding-top:10px;">
+*{<div style="text-align: left;font-size: 20px;font-weight: bolder;">}*
+*{<img class="mylexiconimg" src="http://img04.taobaocdn.com/imgextra/i4/759708778/T2vsdQXXVeXXXXXXXX_!!759708778.png">}*
+*{查排名</div>}*
+
+    <div id="search-box" class="search-box">
+    *{<div class="search-titile div-inline">排序方式：
+            <div class="div-inline"><input type="radio" name="sort" id="default" value="default" class="radio-switch" checked="checked" /><label for="default" class="radio-label">综合</label></div>
+            <div class="div-inline"><input type="radio" name="sort" id="renqi" value="renqi-desc" class="radio-switch" /><label for="renqi" class="radio-label">人气</label></div>
+            <div class="div-inline"><input type="radio" name="sort" id="sale" value="sale-desc" class="radio-switch" /><label for="sale" class="radio-label">销量</label></div>
+            <div class="div-inline"><input type="radio" name="sort" id="credit" value="credit-desc" class="radio-switch" /><label for="credit" class="radio-label">信用</label></div>
+            <div class="div-inline"><input type="radio" name="sort" id="old_starts" value="old_starts" class="radio-switch" /><label for="old_starts" class="radio-label">最新</label></div>
+            <div class="div-inline"><input type="radio" name="sort" id="price" value="price-asc" class="radio-switch" /><label for="price" class="radio-label">价格</label></div>
+        </div>}*
+        <div>
+            <table style="margin:0 auto;" class="search-table">
+                <tr>
+                    <td>排序方式：</td>
+                    <td colspan="3">
+                        <div class="div-inline"><input type="radio" name="sort" id="default" value="default" class="radio-switch" checked="checked" /><label for="default" class="radio-label">默认</label></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle;"><span>关键词：</span></td>
+                    <td><input type="text" class="input-large query-text" placeholder="请输入您要查找的关键词" default="请输入您要查找的关键词" style="height: 28px;*height:20px;width: 330px;padding-left: 8px;vertical-align: middle;"></td>
+                    <td style="padding-left: 10px;">
+                        <select name="pages" class="pages-select" style="height:30px;*height:20px;width:100px;*margin:5px 0;vertical-align: middle;">
+                            <option value="10">查前10页</option>
+                            <option value="20">查前20页</option>
+                            <option value="30">查前30页</option>
+                        </select>
+                    </td>
+                    <td style="padding-left: 10px;"><span class="tmbtn sky-blue-btn do-search-btn">查 询</span></td>
+                </tr>
+*{                <tr>
+                    <td>
+                        价格区间
+                    </td>
+                    <td colspan="4">
+                        <input type="text" class="priceInput" name="minPrice"> - <input type="text" class="priceInput" name="maxPrice">
+                        元
+                    </td>
+                </tr>}*
+                <tr class="recent-search-tr" style="display: none;">
+                    <td style="padding-top: 8px;">最近查询：</td>
+                    <td colspan="3" class="recent-search-td" style="padding-top: 8px; padding-left: 5px;">
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="info-container">
+        <div class="iteminfo" style="display:none;">
+            <table class="iteminfo-table">
+                <tbody class="iteminfo-tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="itemwordsholder" style="display:none;">
+            <table class="adwordtable busSearch" style="margin: 3px auto;">
+                <thead class="detail-head">
+                <tr>
+                    <th>宝贝主图</th>
+                    <th style="width:250px;">宝贝标题</th>
+                    <th>关键词</th>
+                    <th>当前排名</th>
+                    <th>排名方式</th>
+                </tr>
+                </thead>
+                <tbody class="detail-tbody"></tbody>
+                <tfoot><tr><td class="itemwordsfoot" colspan="5"></td></tr></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+#{set 'moreScripts'}
+<Script type="text/javascript">
+    TM.gcs("/js/tm.js",function(){
+        TM.gcs("/js/txm/mobileRank.js?_v=4",function(){
+            $(document).ready(function(){
+                TM.MobileRank.init($(".info-container"));
+                    #{get 'moreAjaxScripts' /};
+            })
+        });
+    });
+</Script>
+#{/set}
+

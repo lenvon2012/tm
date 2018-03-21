@@ -1,0 +1,131 @@
+#{extends '/dazhe/base.html' /}
+#{set title:'宝贝诊断分析' /}
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.inputlimitor.1.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/QueryCommodity.js?_v=1" type="text/javascript" charset="utf-8"></script>
+<script src="/js/paipaimanage/diagnose.js?_v=2" type="text/javascript" charset="utf-8"></script>
+
+<style>
+    .search-option-table{margin: 0 auto;margin-top: 20px;text-align: center;}
+    .diagnose-container .tabDiv ul {
+        border-bottom: #2D8ABE 2px solid;
+        overflow: hidden;
+    }
+    .tabDiv ul {
+        padding: 0px;
+        margin: 0px 0px 0px 0px;
+        list-style-image: none;
+        list-style-type: none;
+    }
+    .clearfix {
+        clear: both;
+        zoom: 1;
+    }
+    .tabDiv li {
+        margin: 0px 0px 0px 0px;
+        float: left;
+        padding: 0px;
+        list-style-image: none;
+        list-style-type: none;
+    }
+    .tabDiv li .select {
+        color: white;
+        background: #2D8ABE;
+    }
+    .tabDiv li a {
+        border: 1px solid #BBBBBB;
+        cursor: pointer;
+        color: #2D8ABE;
+        background: white;
+        font-family: "tahoma, arial, 宋体b8b体";
+        line-height: 25px;
+        height: 25px;
+        padding: 5px 2px 5px 2px;
+        font-weight: bold;
+        font-size: 12px;
+        width: 78px;
+        margin-left: 4px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+    }
+    .liTargetDiv{
+        min-height: 400px;
+        _height:400px;
+    }
+    .itemDetailRow:hover{
+        background: none;
+    }
+    .busSearch tbody tr:hover{background-color: white;}
+    .diagTable{
+        width: 100%;
+        text-align: center;
+    }
+    .diagTable tbody tr{
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc;
+        font-size: 16px;
+    }
+    .promoteWordsTable{
+        width: 100%;
+    }
+    .keywordsTable{
+        width: 100%;
+    }
+    .oldRemainLength{
+        color: red;
+    }
+    .propsTable{
+        width: 100%;
+    }
+    .longtailTable{
+        width: 100%;
+    }
+</style>
+<div class="diagnose-container">
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/paipaidiscount/base_index">拍拍店长&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>标题诊断
+</div>
+<table class="search-option-table">
+    <tbody>
+    <tr>
+        <td style="padding-left: 10px;"><span>宝贝标题：</span><input type="text" class="search-text"></td>
+        <td style="padding-left: 20px;"><span>分类：</span><select class="category-select">
+            <option value="0" selected="selected">所有分类</option>
+        </select></td>
+        <td style="padding-left: 20px;"><span>宝贝状态：</span> <select class="state-select">
+            <option value="IS_FOR_SALE" selected="selected">在架宝贝</option>
+            <option value="IS_IN_STORE">待上架宝贝</option>
+            <option value="ALL">所有宝贝</option>
+        </select></td>
+        <td style="padding-left: 20px;"><span class="tmbtn sky-blue-btn search-btn">搜索宝贝</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<p class="paging" style="text-align: center"></p>
+
+<table class="busSearch item-table">
+    <thead>
+        <th style="width: 10%;">宝贝主图</th>
+        <th style="width: 30%;">原标题</th>
+        <th style="width: 30%;">新标题</th>
+        <th style="width: 8%">价格</th>
+        <th style="width: 8%;">得分</th>
+        <th style="width: 14%;">诊断详情</th>
+    </thead>
+    <tbody style="text-align: center;">
+        <tr class="no-item-tr"><td colspan="6" style="text-align: center;height: 50px;">查询不到对应宝贝</td></tr>
+    </tbody>
+</table>
+
+<p class="paging" style="text-align: center"></p>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.Diagnose.init.doInit($(".diagnose-container"));
+    });
+</script>

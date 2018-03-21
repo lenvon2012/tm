@@ -1,0 +1,248 @@
+
+.autoDelistIntroductionDiv {
+    height:70px;margin: 10px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px;
+}
+
+.autoDelistIntroductionDiv .autoDelistTip {
+    display: block; margin-bottom: 5px; font-size: 12px; color: #666;
+}
+
+
+
+.autoDelistDistriDiv .distriTypeSpan{margin-left:10px;margin-right: 30px;font-size: 18px;height:35px;line-height: 35px;}
+
+.autoDelistDistriDiv .distriTypeName{margin-left:30px;margin-right: 20px;font-size: 14px;height:35px;line-height: 35px; font-weight: bold;}
+
+.autoDelistDistriDiv .distriTypeNameNoHeight{margin-left:30px;margin-right: 20px;font-size: 14px;font-weight: bold;}
+
+
+.autoDelistDistriDiv .singleType {margin-right: 10px; zoom:1;display:inline-block;*display: inline;}
+.autoDelistDistriDiv .singleType input{width:17px;display:inline-block;*display: inline;}
+.singleType input{}
+.autoDelistDistriDiv .oneTypeSpan,.autoDelistDistriDiv .oneTimeSpan {    cursor: pointer;display:inline-block;*display: inline;}
+
+
+
+
+.autodelistInfo {}
+.autodelistInfo .delistTip{margin-top: 25px; padding-left: 40px; display: block; color: #a10000;}
+.autodelistInfo div{*margin-top:5px;*margin-bottom:5px;}
+
+
+
+.autoDelistArea {
+}
+
+.autoDelistArea .blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+
+.autoDelistArea .listPagingDiv {
+    float: right;  font-size: 14px; margin-top: 2px;
+}
+
+.autoDelistArea .listTable{
+    width: 99%; text-align: center; border-spacing: 0; border-collapse: collapse;
+    background: white;
+}
+
+.autoDelistArea .listTable img {
+    width:50px;height:50px;margin-left: 5px; border: none;
+}
+
+
+
+.autoDelistArea .itemsearchdiv {
+    margin-bottom: 10px;
+}
+
+.itemsearchdiv .searchtable {
+    border-spacing: 0; border-collapse: collapse;
+    background: white;
+}
+
+.itemsearchdiv .searchtable .searchlabel {
+    display: block; margin-left: 3px; margin-right: 5px;
+}
+
+.itemsearchdiv .searchtable .searchtext {
+    width: 300px;
+}
+
+
+
+.autoDelistArea .week-select {
+    font-size: 12px;
+}
+
+.autoDelistArea .delist-time {
+    width: 60px;
+}
+
+
+
+
+.advance-hour-setting-btn {
+    color: blue; cursor: pointer;font-weight: bold;
+}
+.advance-hour-setting-btn:hover {
+    font-weight: bold; color: #a10000;
+}
+.advance-hour-span {
+    cursor: pointer;
+}
+.advance-hour-setting-div table tbody td {
+    padding: 0px 0px 8px 0px; font-size: 14px; width: 130px;
+}
+.checked-hour {
+    font-weight: bold;
+}
+
+.commontextcursor{font-size: 12px;color:#A0522D;cursor:pointer;}
+.commontextcursor:hover {font-weight: bold;}
+
+
+input[type="checkbox"] {
+    margin: 0px;
+}
+input[type="radio"] {
+    margin: 0px;
+}
+
+
+input {
+    width: auto;
+}
+
+
+
+input.advance-hour-check {
+    margin: 0px;padding: 0px;
+}
+span.advance-hour-span {
+    float: none;
+}
+
+.layout-table {
+    border-collapse: collapse;
+}
+
+.layout-table td {
+
+}
+
+    ul{margin : 0 0 0 0 ;}
+    li{float:none;}
+    #kits{width:780px;margin: 15px auto;clear:both;}
+    #funcList{width:100%;height:100%;text-align: center;}
+    #funcOp{border: 1px solid #bebebe;float:left;}
+    #funcTitle{width:100%;;display: none;;padding: 10px 0 10px 10px;}
+    #funcArea{width:100%;display: none;border-left: 1px solid #bebebe;min-height:444px;overflow-x: hidden;}
+    .funcdesc{width:460px;height:200px;background-color: white;border: 1px solid #d0d0d0;margin:5px 5px 5px 5px;display: inline-block;}
+    .funcdesc{*display: inline;zoom:1;}
+    .funcdesc .dl{float:left;height:100%;text-align: center;margin-right: 5px;}
+    .funcImg{width:138px;text-align: center;padding-left:25px;}
+    .funcTextDesc{width:275px;padding-top:10px;}
+    .funcTextDesc h2{color:#259;}
+    .funcTextDesc p{color:grey;}
+    .funcTextDesc table{width:100%;text-align: center;}
+    .funcOpDesc{width:85px;padding-top:10px}
+    .funclogolarge{width:128px;height:128px;}
+    .switchon{width:100px;height:48px;}
+    .funcTitleHead{width:96px;height:96px;text-align: center; margin: 0 50px 5px 50px}
+    .funcTitleHead a:hover{cursor: pointer;display: inline-block;*display: inline;}
+    .funcTitleHead img{}
+    .funcTitleHead img.funclogolarge{width:96px;height:96px;}
+
+    #swItemBase{margin: 10px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px 0 10px 0;}
+    #swItemBase span{margin-left:10px;margin-right: 30px;font-size: 18px;height:35px;line-height: 35px;}
+    #swItemBase label{color:red;font-weight: bold;margin: 0 10px 0 10px;}
+
+    .showWindowStatus{}
+
+    .commentsLog{width: 100%;min-height: 450px;_height: 450px;}
+    .commentsTableHead{text-align: center;background-color: #E3EEF8;font-weight: bolder;color: #1D5987;}
+    .result{width: 80px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;height: 50px;text-align: center;}
+    .goodResult{}
+    .neutralResult{background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;background-position: -185px -235px;}
+    .badResult{background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;background-position: -185px -165px;}
+    .buyer_nick{width: 150px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;text-align: center;}
+    .content{width: 500px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;}
+    .oid{width: 150px;border-bottom: 1px solid #BEBEBE;text-align: center;}
+    .pagination{float: right;}
+
+
+    .autoDelistDistriDiv .reDistriBtn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;
+        height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+
+    }
+    .autoDelistArea .itemsearchdiv .searchtable .searchbtn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;
+        height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+        width:96px;
+    }
+    .autoDelistArea .itemsearchdiv .searchtable .searchbtn:hover{background-position: 0 -34px;}
+    .evenRow {
+        background-color: rgb(249,249,249);
+    }
+    .autodelistTodayTable tbody tr{
+        border-bottom: 1px solid #ccc;
+    }
+    .autodelistTodayTable tbody tr:hover{
+        background-color: #ffe;
+    }
+    .autodelistWeekTable tbody tr:hover{
+        background-color: #ffe;
+    }
+    .autodelistWeekTable tbody tr{
+        border-bottom: 1px solid #ccc;
+    }
+    .oplogs tbody tr:hover{
+        background-color: #ffe;
+    }
+    .oplogs tbody tr{
+        border-top: 1px solid #ccc;
+    }
+    .autodelistLogTable tbody tr:hover{
+        background-color: #ffe;
+    }
+    .autodelistLogTable tbody tr{
+        border-bottom: 1px solid #ccc;
+    }
+    .selected a{
+        color: white;
+    }
+    .weekTimes table{width:90%;margin: 0 auto;}
+    .weekTimes table tr{padding:1px;}
+    .weekTimes table td{padding-top:10px;cursor:pointer;}
+
+    .weekTimes div.headspan{width:600px;}
+    .weekName,.weekValue{font-size:20px;padding:15px;text-align: center;color:white;}
+    .weekValue{font-weight:bold;font-size:32px ;}
+    .planRow .weekName,.planRow .weekValue{background:#FF9A75;}
+    .planRow .delistWeekTd:hover .weekName,.planRow .delistWeekTd:hover .weekValue{background:#F35318}
+    .realRow .weekName,.realRow .weekValue{background:#76CFFC;}
+    .realRow .delistWeekTd:hover .weekName,.realRow .delistWeekTd:hover .weekValue{background:#45BDF9}
+     .stepbody input{
+         margin: 0px; padding: 0px; width: auto;
+     }
+
+
+     .plan-config-area {
+         background: #ffd; margin: 10px; padding: 10px 0px; border: 1px solid #BEBEBE; padding-left: 10px;
+     }
+
+
+     .plan-config-div .plan-config-table td {
+         font-size: 16px; padding: 8px 0px;
+     }
+
+     .simple-plan-table td {
+         font-size: 14px; padding: 5px 0px;
+     }
+     .simple-plan-table .week-distri-span {
+         cursor: pointer;
+     }
+    .simple-plan-table .day-distri-span {
+        cursor: pointer;
+    }

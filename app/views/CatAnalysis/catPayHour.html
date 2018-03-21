@@ -1,0 +1,56 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'淘标题-买家什么时候来' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/searchDiag/areaDiag.css">
+#{/set}
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>买家什么时候来
+</div>
+
+<div class="catPayHourWrapper">
+    <div style="text-align: center; padding: 20px 0;">
+        <table class="cat-select-table" style="border-collapse: collapse; margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td>
+                    <select class="first-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+                <td style="padding-left: 50px;">
+                    <select class="second-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+                <td style="padding-left: 50px;">
+                    <select class="third-cat-select" style="width: 190px;">
+
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="catPayHourContent">
+        <div class="no-data hidden">该类目暂无数据</div>
+        <div id="catPayHourCharts">
+
+        </div>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.gcs('/js/highcharts.js', function () {
+        TM.gcs('/js/tm.js',function(){
+            TM.gcs('/js/CatAnalysis/catPayHour.js?_v=4',function(){
+                TM.CatPayHour.Init.doInit($('.catPayHourWrapper'));
+            })
+        });
+    });
+</script>
+#{/set}

@@ -1,0 +1,63 @@
+.associate_menu ul{
+    list-style:none;
+    }
+
+.associate_menu li{
+    float:left;width:100px;background:#E5E5E5;margin-left:3px;line-height:30px;
+    }
+
+
+.associate_menu a{
+    display:block;text-align:center;height:30px;font-size: 14px; color: #333333;font-weight: bold;text-decoration:none!important;
+    }
+
+.associate_menu a:link{
+    color:#666;text-decoration:none!important;
+    }
+
+.associate_menu a:visited{
+    color:#666;text-decoration:underline!important;
+    }
+
+.associate_menu a:hover{
+    color:#FFF; font-weight:bold;text-decoration:none;background: #1E90FF ;
+    }
+
+
+.associate-menu{
+    position:absolute;margin:0px;width:100%;background-color:#1E90FF;height:43px;font-family:'微软雅黑';
+}
+
+.associate-menu table{
+    position:relative;left:20%;height:42px;width:500px;
+}
+
+ .associate-menu td {
+    float:left;
+    position:relative;
+}
+.associate-menu td a, .menu td a:visited {
+    font-size:16px!important;
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    width:120px;
+    height:41px;
+    color:#fff;
+    background:#1E90FF;
+    line-height:42px;
+}
+ .associate-menu td:hover a {
+    background:#0066ff;
+}
+
+.associate-menu .current{
+    background-color:#0066ff!important;
+}
+
+.associate-menu .current-mouse-in{
+    background-color:#0066ff!important;
+}
+
+
+

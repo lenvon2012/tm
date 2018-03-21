@@ -1,0 +1,100 @@
+#{extends 'fxmain.html' /}
+#{set title:'超级工具箱' /}
+<link rel="stylesheet" media="screen" href='/css/Switch/switch.css'/>
+<link rel="stylesheet" media="screen" href='/css/commsTab/commsTab.css'>
+<link rel="stylesheet" media="screen" href='/css/pagination.css'>
+<link rel="stylesheet" media="screen" href='/css/autoDeList/autoDeList.css'>
+<link rel="stylesheet" media="screen" href='/css/commChoose/commChoose.css'>
+<style>
+    /*.all_container{width: 780px;}*/
+    ul{margin : 0 0 0 0 ;}
+    li{float:none;}
+    #kits{width:100%;margin: 0px auto;margin-top:5px;clear:both;height: 1300px}
+    #funcList{width:100%;height:100%;text-align: center;}
+    #funcOp{border: 1px solid #bebebe;float:left;}
+    #funcTitle{width:100%;;display: none;;padding: 10px 0 10px 10px;}
+    #funcArea{width:100%;display: none;border-left: 1px solid #bebebe;min-height:444px;overflow-x: hidden;}
+    .funcdesc{width:460px;height:200px;background-color: white;border: 1px solid #d0d0d0;margin:5px 5px 5px 5px;display: inline-block;}
+    .funcdesc{*display: inline;zoom:1;}
+    .funcdesc .dl{float:left;height:100%;text-align: center;margin-right: 5px;}
+    .funcImg{width:138px;text-align: center;padding-left:25px;}
+    .funcTextDesc{width:275px;padding-top:10px;}
+    .funcTextDesc h2{color:#259;}
+    .funcTextDesc p{color:grey;}
+    .funcTextDesc table{width:100%;text-align: center;}
+    .funcOpDesc{width:85px;padding-top:10px}
+    .funclogolarge{width:128px;height:128px;}
+    .switchon{width:100px;height:48px;}
+    .funcTitleHead{width:96px;height:96px;text-align: center; margin: 0 50px 5px 50px}
+    .funcTitleHead a:hover{cursor: pointer;display: inline-block;*display: inline;}
+    .funcTitleHead img{}
+    .funcTitleHead img.funclogolarge{width:96px;height:96px;}
+
+
+    #swItemBase{margin: 10px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px 0 10px 0;}
+    #swItemBase span{margin-left:10px;margin-right: 30px;font-size: 18px;height:35px;line-height: 35px;}
+    #swItemBase label{color:red;font-weight: bold;margin: 0 10px 0 10px;}
+    .showWindowStatus{}
+    .kitNav{border-bottom:1px solid #4297d7;padding-left:10px;}
+    .kitListArea{margin: 10px 10px 10px 10px;border: 1px solid #BEBEBE;min-height:444px;}
+    .swOpArea{background-color: #e3eef8;margin: 10px 10px 10px 10px;padding: 10px 0 10px 0;border:1px solid #BEBEBE;padding-left:10px;}
+    .swOpArea span{display: inline-block;}
+
+    .commentsLog{width: 100%;height: 450px;border-bottom:  1px solid #BEBEBE;}
+    .commentsTableHead{text-align: center;background-color: #E3EEF8;font-weight: bolder;color: #1D5987;}
+    .result{width: 80px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;height: 50px;text-align: center;}
+    .goodResult{background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;background-position: -210px -85px;}
+    .neutralResult{background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;background-position: -210px -225px;}
+    .badResult{background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;background-position: -210px -155px;}
+    .buyer_nick{width: 100px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;text-align: center;}
+    .content{width: 400px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;}
+    .oid{width: 100px;border-bottom: 1px solid #BEBEBE;border-right: 1px solid #BEBEBE;text-align: center;}
+    .ts {
+        width: 90px;
+        border-bottom: 1px solid #BEBEBE;
+        text-align: center;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .pagination{float: right;}
+    .kwcontainer{overflow: hidden;}
+</style>
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>自动评价
+</div>
+<div id='kits'>
+</div>
+<div class='clearfix'></div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/multiOpByURL.js?_v=2', function () {
+            TM.gcs('/js/jquery.pagination.js', function () {
+                TM.gcs('/js/jquery.url.js', function () {
+                    TM.gcs('/js/tm.js', function () {
+                        TM.gcs('/js/switch.js', function () {
+                            TM.gcs('/js/commstab/commstab.js', function () {
+                                TM.gcs('/js/Kits/autodelist.js', function () {
+                                    TM.gcs("/js/jquery-ui-timepicker-addon.js", function () {
+                                        TM.gcs("/status/js", function () {
+                                            $(document).ready(function () {
+                                                TM.gcs('/js/kits.js', function () {
+                                                    TM.gcs('/js/Kits/comment.js?_v=2',function(){
+                                                        TM.Comment.init($("#kits"));
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

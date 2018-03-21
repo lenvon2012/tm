@@ -1,0 +1,444 @@
+#{extends 'yangyang.html' /}
+#{set title:'转盘抽奖' /}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/main.css">
+
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css'>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css">
+<![endif]-->
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+<link rel="stylesheet" media="screen" href='/css/autoTitle/autotitlemain.css'>
+
+<script type="text/javascript" src="/js/bootstrap/bootstrap.js"></script>
+<script type="text/javascript" src="/js/bootstrap/bootstrap-ie.js"></script>
+
+<style >
+.boyvonaward{width: 820px;margin: 0 auto;}
+    p{font-size: 30px;}
+    p a{font-size: 30px;}
+    .marginmillde{margin: 0 auto;}
+    .infoshow {
+    width: 50%;
+}
+.lotteryshow {
+    width: 50%;
+}
+.record {
+    margin: 10px 10px auto;
+}
+.lottery {
+    width: 417px;
+    height: 417px;
+    position: relative;
+    margin: 10px 10px auto;
+}
+tbody {
+    vertical-align: top;
+}
+.reward {
+    
+}
+.myreward {
+    
+}
+#bgimg {
+    width: 417px;
+    height: 417px;
+	/* background: url("http://img04.taobaocdn.com/imgextra/i4/1132351118/T2WYz3XchbXXXXXXXX_!!1132351118.png") no-repeat; */
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size:100% 100%;
+    background-size:100% 100%;
+}
+#start {
+    position: absolute;
+    top: 104px;
+    left: 154px;
+}
+#start img {
+    cursor: pointer;
+    
+}
+.zzcontainer {
+    width: 800px;
+    min-height: 450px;
+    max-height:none;/* for ie7 firefox opera*/ 
+    _height: 450px;
+    overflow:hidden;
+    margin: 0px auto 0 auto;
+    -moz-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+body{
+    margin-left:0px;
+    margin-right:0px;
+    height:100%;
+}
+.lotteryfull {
+    margin: 0 auto;
+    color:white;
+    background-color:#660808;
+    width:100%;
+    height:100%;
+}
+.topitem {
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+    background-image: url("http://img04.taobaocdn.com/imgextra/i4/22902351/T2Fo7EXfFXXXXXXXXX_!!22902351.gif");
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.product {
+    margin: 0 auto;
+    width: 1000px;
+}
+.product img {
+    display:block;
+    border:none;
+}
+.clearfix {
+    clear:both;
+}
+.WaitingForLoadingDiv img {
+	width:350px;
+}
+
+.pull-right {
+	padding: 1px;
+}
+#yangyangContent{
+	padding-top: 45px;
+}
+*html #yangyangContent{
+	padding-top: 30px;
+}
+.navbar .btn, .navbar .btn-group{margin-top:0px;}
+.navbar .nav{display:inline-block;*display:inline;zoom:1; *zoom: 1;}
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 1000px;
+}
+.ui-dialog .ui-dialog-titlebar {background: #AF0808; border: 1px solid #AF0808;}
+.ui-dialog .ui-dialog-buttonpane button {background: #AF0808; border: 1px solid #AF0808;}
+</style>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top nav-head">
+	<div class="navbar-inner">
+		<div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse"
+				data-target=".nav-collapse">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="brand" style="color: #fff;" href="/home/autotitle"><img src="http://img01.taobaocdn.com/top/i1/T1u0B1FaBcXXaCwpjX.png" style="width:30px;height:30px;padding-right:10px;margin-top: -4px;margin-bottom: -3px;"/>自动标题</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav head">
+					<li><a href="/home/autoTitle">首页</a></li>
+				</ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">标题中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home/autoTitle">自动标题</a></li>
+                            <li><a href="/autotitle/recover">标题还原中心</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">站内引流 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/AutoTitle/comment">自动评价</a></li>
+                            <li><a href="/AutoTitle/delist">智能上架</a></li>
+                            <li><a href="/AutoTitle/window">智能橱窗</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">批量中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/autotitle/batchmulti">批量修改标题</a></li>
+                            <li><a href="/autotitle/propdiag">属性检测</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">词库中心<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home/mylexicon">我的词库</a></li>
+                            <li><a href="/home/newkeywords">海量词库</a></li>
+                        </ul>
+                    </li>
+                </ul>
+				<ul class="nav">
+					<li class="dropdown">
+		             <a href="" class="dropdown-toggle" data-toggle="dropdown">活动中心 <b class="caret"></b></a>
+		             <ul class="dropdown-menu">
+		               <li><a href="/autotitle/lottery">转盘抽奖</a></li>
+		               <li><a href="/autotitle/award">好评有礼</a></li>
+		               <li><a href="/autotitle/invite">一起赚钱</a></li>
+		             </ul>
+		           </li>
+				</ul>
+				
+				<p class="pull-right">
+					<!-- <span class="userheadop"></span> -->
+					<a class="btn btn-success btn-vcenter" id='syncBtn' href="javascript:void(0)" >更新数据</a>
+                 	<a class="btn btn-info btn-vcenter"  id="logout" href="javascript:void(0);">切换账号</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <div class='top-banner' style="background: url('/img/frame/header-bg.png');height: 48px; "> -->
+<!-- <div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; "> -->
+
+<div class="clear"></div>
+<!--<div id="help">
+        *{<li class="aside-hot-tag ">
+                <a class="clearfix" href="/KeyWords/toSerchKeyWords">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+                <span class="fold-icon fold"></span>
+            </li>}*
+            
+
+        </ul>
+</div>-->
+<div id="yangyangContent" style="width:100%;">
+
+<div class="">
+<div class="">
+<div class="lotteryfull">
+<div class="topitem">
+<div class="zzcontainer">
+    <table width="100%">
+        <tbody><tr><td class="infoshow">
+        <div class="record">
+			<!-- <div class="reward">
+				<h2>最近中奖名单：</h2>
+				<ul id="reward-record"><li>天***店   <b>流量套餐六折</b>   2013-07-19 00:27:20</li><li>天***店   <b>流量套餐七折</b>   2013-07-19 00:25:50</li><li>天***店   <b>流量套餐六折</b>   2013-07-19 00:25:44</li><li>天***店   <b>流量套餐七折</b>   2013-07-18 23:24:35</li></ul>
+			</div>
+			<br>
+			<div class="myreward">
+				<h2>我的中奖记录：</h2>
+				<ul id="myreward-record"><li>2013-07-19 00:27:20   <b>流量套餐六折</b>   <a href="undefined" target="_blank">立即领奖</a></li><li>2013-07-19 00:25:50   <b>流量套餐七折</b>   <a href="undefined" target="_blank">立即领奖</a></li><li>2013-07-19 00:25:44   <b>流量套餐六折</b>   <a href="undefined" target="_blank">立即领奖</a></li><li>2013-07-18 23:24:35   <b>流量套餐七折</b>   <a href="undefined" target="_blank">立即领奖</a></li></ul>
+			</div> -->
+		</div>
+        </td>
+        <td class="lotteryshow">
+        <div>
+            <div class="lottery">
+                <div id="bgimg" style="width:417px;height:417px;"></div>
+                <div id="start"><img src="http://img02.taobaocdn.com/imgextra/i2/1132351118/T2PlV0XnXdXXXXXXXX_!!1132351118.png" id="startbtn" style="cursor: default;">
+                </div>
+            </div>
+        </div>
+        </td>
+        </tr>
+    </tbody></table>
+</div>
+</div>
+<div class="product">
+<p style="text-align: center;line-height:60px;">每天只能抽两次哦^_^~抽取之后不领奖，奖品会丢失哦~</p>
+</div>
+<div class="autotitle product">
+    <a href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1835721&tracelog=8yuef" target="_blank">
+    <img src="http://img03.taobaocdn.com/imgextra/i3/333336410/T2C7H4XeFbXXXXXXXX_!!333336410.gif" width="100%" /></a></div>
+
+    
+<div class="clearfix"></div>
+</div>
+
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+    TM.gcs('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        if(TM.ver >= 20){
+            orderAnchor.parent().hide();
+        }else if(TM.ver >= 10){
+            orderAnchor.attr('href','/home/buyzhizun');
+        }else{
+            orderAnchor.attr('href','/home/buyVersion');
+        }
+
+        *{TM.isOp = true");}*
+        var target = "left1";
+        $.get('/op/adbanner',{name:target},function(r){
+
+
+            if(!r || !r.enable){
+                return;
+            }
+
+            var div = $('#'+target);
+            div.html('<a href="'+r.href+'" style="'+r.anchorStyle+'" target="_blank"><img src="'+r.imgPath+'" style="'+r.imgStyle+'"></a>');
+            div.show();
+        })
+        
+        if(TM.ver <= 20) {
+			$("#bgimg").css({'background-image' : 'url(http://img03.taobaocdn.com/imgextra/i3/292391495/T2lygOXgRXXXXXXXXX_!!292391495.png)',
+        	      'background-repeat': 'no-repeat'});
+        } else {
+        	$("#bgimg").css({'background-image' : 'url(http://img03.taobaocdn.com/imgextra/i3/292391495/T2l5QNXiNaXXXXXXXX_!!292391495.png)',
+        	      'background-repeat': 'no-repeat'});
+        }
+
+    });
+
+    var head = $('.head');
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+
+//            hasPath = true;
+        }
+    });
+
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+
+    TM.gcs('/status/user',function(){
+        //if(TM.lastUpdateTime > 1371988495000) {
+            $('.real-time-monitor').hide();
+        //}
+    });
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+    $('.itools').click(function(){
+    	if($('.itools-detail').attr('unfold') == undefined || $('.itools-detail').attr('unfold') == '') {
+	    	$('.itools-detail').attr('unfold', 'fold');
+    		$(".itools-detail").show();
+    		$(".itools").addClass('asideselected');
+    	} else {
+    		$('.itools-detail').attr('unfold', '');
+    		$(".itools-detail").hide();
+    	}
+    	
+    });
+    $('.fold-icon').click(function(){
+        if($('.unfold').length == 1 && $(this).hasClass('unfold')){
+
+        } else {
+            $('.unfold').addClass('fold');
+            $('.unfold').parent().find('.secondUl').hide();
+            $('.unfold').removeClass('unfold');
+        }
+        var t = 500;
+        if($(this).hasClass("fold")) {
+            $(this).removeClass("fold");
+            $(this).addClass("unfold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideDown(t);
+            }
+        } else if($(this).hasClass("unfold")) {
+            $(this).removeClass("unfold");
+            $(this).addClass("fold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideUp(t);
+            }
+        }
+    });
+    $('.fold-icon').each(function(){
+        if($(this).parent().find('.secondUl').length == 0){
+        }
+    });
+    $('.navContent').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.navContent').find('div.navSelected').removeClass("navSelected");
+            anchor.parent().addClass("navSelected");
+            if(path.indexOf("/kits/") >= 0){
+                anchor.parent().parent().slideDown(500);
+            }
+        }
+    });
+    var aside = $('.aside');
+    aside.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.aside').find('a.asideselected').removeClass('asideselected');
+            anchor.addClass('asideselected');
+        }
+    });
+    TM.gcs('/status/js',function(){
+        //var welcome = $("<div style='position:absolute;left:460px;top:26px;color:white;font-size:17px;'><b>淘掌柜</b>&nbsp;&nbsp;欢迎您,&nbsp;&nbsp;<b>"+TM.name+"</b></div>");
+        //$('.top-nav').append(welcome);
+        /* if(TM.name != undefined) {
+			$(".userheadop").text(TM.name);
+		} */
+        TM.setAnchorSids();
+    });
+
+    var hideNav = 'true'== '${session.get("_hidenav")}'
+    if(!hideNav){
+        $('#opnav').show();
+    }
+
+    $(document).ready(function(){
+        //$('#footer-content').find('p').hide();
+        $('#kefuhref').attr('href','http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8');
+        
+        $('.dropdown').live('mouseenter',function(){
+        	$(this).addClass('open');
+        }).live('mouseleave',function(){
+        	$(this).removeClass('open');
+        });
+    })
+</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f2c6f9dd92929062ea90b19d0b688ea' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+#{set 'moreScripts'}
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+*{<script src="/js/jquery.ui.js" type="text/javascript" charset="utf-8"></script>}*
+<script src="/js/jquery-ui-1.9.1.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lottery/jquery.event.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lottery/jquery.easing.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/lottery/lottery.js?v=1" type="text/javascript" charset="utf-8"></script>
+#{/set}

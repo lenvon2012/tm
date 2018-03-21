@@ -1,0 +1,141 @@
+
+
+#{extends 'Application/topcrud.html' /}
+#{set title:'任务中心' /}
+
+
+<h1>Common Jobs</h1>
+<table style="margin: 0 auto 0 20px;;border: 2px solid #ccc;">
+    <tbody id='commjobs' class='job-list' >
+
+    </tbody>
+</table>
+
+
+<h1>User Jobs</h1>
+<table>
+    <tbody id='userJobs' class='job-list'>
+
+    </tbody>
+</table>
+
+<h1>User Daily Jobs</h1>
+<table>
+    <tbody id='userDailyJobs' class='job-list'>
+
+    </tbody>
+</table>
+
+#{set 'moreScripts'}
+
+
+<script type="text/javascript"charset="utf-8">
+    $(document).ready(function(){        
+        (function(){
+            var container = $('#commjobs');
+            $.ajax({
+                url:'/CRUDJobExecutor/commJobs',
+                success : function(data){
+                    for(var i in data){
+                         var job =data[i];
+                        var li= $("<tr></tr>");
+                        li.append("<td class='name'>"+job+"</td>");
+                        li.append("<td style='height:40px;'><span class='run-btn btn btn-info' >点击运行</span></td>");
+                        container.append(li)
+                    }
+                    container.find('.run-btn').each(function(){
+                        var anchor = $(this);
+                        anchor.click(function(){
+                        if ( confirm(anchor.parent().parent().find('.name').text()) ){
+                            $.ajax({
+                                type:'GET',
+                                url :'/CRUDJobExecutor/runJob',
+                                data :{job:anchor.parent().parent().find('.name').text()},
+                                success :function(data){
+                                    alert('job ['+data+'] runs');
+                                }
+                            });
+                        }   
+                        });
+                    });
+                }
+            });
+        }());
+
+
+        (function(){
+            var container = $('#userJobs');
+            $.ajax({
+                url:'/CRUDJobExecutor/userJobs',
+                success : function(data){
+                    for(var i in data){
+                        var job =data[i];
+                        var li= $("<tr></tr>");
+                        li.append("<td class='name'>"+job+"</td>");
+                        li.append("<td>userId : <input name='userId' type='text' /></td>");
+                        li.append("<td><span class='run-btn'>点击运行</span></td>");
+                        container.append(li);
+                    }
+
+
+                    container.find('.run-btn').each(function(){
+                        var anchor = $(this);
+                        var li = anchor.parent().parent();
+                        anchor.click(function(){
+                        if ( confirm(anchor.parent().parent().find('.name').text()) ){
+                            $.ajax({
+                                type:'GET',
+                                url :'/CRUDJobExecutor/runUserJob',
+                                data :{job:li.find('.name').text(),userId:li.find("input[name='userId']").val()},
+                                success :function(data){
+                                    alert('job ['+data+'] runs');
+                                }
+                            });
+                        }   
+                        });
+                    });
+                }
+            });
+        }());
+
+        (function(){
+            var container = $('#userDailyJobs');
+            $.ajax({
+                url:'/CRUDJobExecutor/userDailyJobs',
+                success : function(data){
+                    for(var i in data){
+                        var job =data[i];
+                        var li= $("<tr></tr>");
+                        li.append("<td class='name'>"+job+"</td>");
+                        li.append("<td>userId : <input name='userId' type='text' /></td>");
+                        li.append("<td>ts : <input name='ts' type='text' /></td>");
+                        li.append("<td><span class='run-btn'>点击运行</span></td>");
+                        container.append(li);
+                    }
+
+
+                    container.find('.run-btn').each(function(){
+                        var anchor = $(this);
+                        var li = anchor.parent().parent();
+                        anchor.click(function(){
+                        if ( confirm(anchor.parent().parent().find('.name').text()) ){
+                        
+                            $.ajax({
+                                type:'GET',
+                                url :'/CRUDJobExecutor/runUserDailyJob',
+                                data :{job:li.find('.name').text(),userId:li.find("input[name='userId']").val(),
+                                    ts:li.find("input[name='ts']").val()},
+                                success :function(data){
+                                    alert('job ['+data+'] runs');
+                                }
+                            });
+                        }   
+                        });
+                    });
+                }
+            });
+        }());
+
+    });
+</script>
+#{/set}

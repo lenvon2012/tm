@@ -1,0 +1,248 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'自动评价管理' /}
+
+
+
+
+<style type="text/css">
+
+
+    .comment-admin-container {
+        padding: 10px;
+        font-family: "微软雅黑";
+        font-size: 14px;
+    }
+
+    .comment-admin-status-table, .comment-admin-table {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .comment-admin-status-table tr, .comment-admin-table tr {
+        height: 50px;
+    }
+
+    .comment-admin-left-td {
+        width: 22%;
+
+        padding: 8px 10px;
+    }
+
+    .comment-admin-right-td {
+        width: 78%;
+        padding: 15px;
+    }
+
+    .comment-before-deadline-days {
+        width: 50px;
+        margin: 0 5px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    textarea.comment-content {
+        width: 95%;
+        height: 100px;
+        padding: 10px;
+    }
+/*
+
+    .comment-open {
+        width: 116px;
+        height: 44px;
+        font-size: 14px;
+        line-height: 44px;
+        background-position: -120px -254px;
+    }
+
+    .comment-open:hover {
+        background-position: -120px -304px;
+    }
+
+    .comment-close {
+        width: 116px;
+        height: 44px;
+        font-size: 14px;
+        line-height: 44px;
+        background-position: -119px -136px;
+    }
+
+    .comment-close:hover {
+        background-position: -119px -185px;
+    }
+*/
+
+    .comment-time-config-text {
+        cursor: pointer;
+    }
+
+    input[name="comment-time-config"] {
+        width: 18px;
+        height: 18px;
+    }
+
+    .comment-admin-log-header {
+        font-size: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .comment-admin-log-table {
+        width: 100%;
+        text-align: center;
+    }
+    .comment-admin-log-table tr{
+        height: 37px;
+    }
+
+    .no-log-tr{
+        font-size: 16px;
+    }
+
+    .result {
+        width: 80px;
+        height: 30px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .comment-admin-log-table-tr {
+        font-size: 15px;
+    }
+
+    .goodResult div {
+        background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;
+        background-position: -210px -85px;
+        width: 100%;
+        height: 53px;
+    }
+
+    .neutralResult div {
+        background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;
+        background-position: -210px -225px;
+        width: 100%;
+        height: 53px;
+    }
+
+    .badResult div {
+        background: url(/public/images/comments.gif) no-repeat scroll 1000px 1000px;
+        background-position: -210px -155px;
+        width: 100%;
+        height: 53px;
+    }
+    .header-tip-container{
+        background-color: white;
+        color: black;
+    }
+    .green-bold {
+        color: green;
+        font-weight: bold;
+    }
+</style>
+
+
+<div class="comment-admin-container">
+
+    <div class="header-tip-container">
+        <table class="comment-admin-status-table">
+            <tbody>
+            <tr>
+                <td class="comment-admin-left-td">
+                    <span class="red-bold comment-status">当前自动评价<span class="comment-status-text">尚未开启</span></span>
+                </td>
+                <td class="comment-admin-right-td">
+                    <span class="tmbtn comment-open comment-switch">点击关闭</span>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="header-tip-container">
+        <table class="comment-admin-table">
+            <tbody>
+            <tr>
+                <td class="comment-admin-left-td">
+                    评价时间:
+                </td>
+                <td class="comment-admin-right-td">
+                    <input value="0" type="radio" name="comment-time-config" tag="comment-after-confirm"
+                           checked="checked">
+                    <span class="comment-time-config-text" tag="comment-after-confirm">买家确认收货就评价</span>
+                    <input value="2" type="radio" name="comment-time-config" tag="comment-before-deadline"
+                           style="margin-left: 20px;">
+                    <span class="comment-time-config-text" tag="comment-before-deadline">买家评价后不立即给其评价，到期前<input
+                            value="0" class="comment-before-deadline-days" type="text" style="font-size: 16px;">天，进行抢评</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="comment-admin-left-td">
+                    <span>评语设置:</span>
+                </td>
+                <td class="comment-admin-right-td">
+                    <textarea class="comment-content">买家人很好，希望下次再来</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <span class="tmbtn too-wide-yellow-btn save-comment-config">保存修改</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="header-tip-container">
+        <div class="comment-admin-log-header">评价记录</div>
+        <div style="text-align: center;margin: 10px 0" class="comment-admin-log-paging"></div>
+        <table class="comment-admin-log-table list-table">
+            <thead>
+            <tr style="border-bottom: 1px solid #ccc;">
+                <td class="result">卖家评价</td>
+                <td class="buyer_nick">被评买家</td>
+                <td class="content">评价内容</td>
+                <td class="oid">订单号</td>
+                <td class="ts" style="width: 10%;">评价时间</td>
+            </tr>
+            </thead>
+            <tbody style="">
+                <tr class="no-log-tr">
+                    <td colspan="6">
+                        暂时无评价记录
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center;margin: 10px 0;" class="comment-admin-log-paging"></div>
+    </div>
+
+</div>
+
+<script type="text/x-jquery-tmpl" id="comment-admin-log-table-tr">
+    <tr class="comment-admin-log-table-tr" style="height: 50px;border-bottom: 1px solid #ccc;">
+        <td class="result {{= resultPic}}"><div></div></td>
+        <td>{{= buyerNick}}</td>
+        <td style="padding:0 8px;">{{= content}}</td>
+        <td>{{= oid}}</td>
+        <td>{{= commentTs}}</td>
+    </tr>
+</script>
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs('/js/newAutoTitle/autotitleutil.js', function () {
+            TM.gcs('/js/newAutoTitle/commentadmin.js', function () {
+                $(document).ready(function () {
+                    TM.CommentAdmin.init.doInit($('.comment-admin-container'));
+                });
+            });
+        });
+    });
+</script>

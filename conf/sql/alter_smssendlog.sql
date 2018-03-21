@@ -1,0 +1,1 @@
+alter table SmsSendLog_ add column tid bigint(20) default 0;

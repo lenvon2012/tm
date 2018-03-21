@@ -1,0 +1,72 @@
+<script type="text/x-jquery-tmpl" id="maskTable">
+
+    <div id="maskTdTitle">
+            <span  class="titleText">标题还原中心</span>
+            <span class="titleClose"></span>
+
+
+    </div>
+    <div class="columnName">
+            <span class="columnNameSpan" style="width: 19%;">宝贝图片</span>
+            <span class="columnNameSpan" style="width: 20%;">原标题</span>
+            <span class="columnNameSpan" style="width: 20%;">是否成功</span>
+            <span class="columnNameSpan" style="width: 20%;">执行结果</span>
+            <span class="columnNameSpan" style="width: 20%; border-right:0;">操作说明</span>
+    </div>
+
+    <div class="maskDiv">
+    <table class="maskTableTab" style="width: 100%;">
+        <thead>
+
+
+        </thead>
+
+
+            <tbody class="maskTbody">
+
+
+                  {{each(i,val) dataArr}}
+                        {{if (i+1)%2==0}}
+                            <tr class="bac-gray">
+                        {{else}}
+                            <tr>
+                        {{/if}}
+                             <td style="width: 20%;">
+                                    <div id="imgDiv">
+                                       <a href="http://item.taobao.com/item.htm?id={{= numIid}}" target="_blank">
+                                       <img id="maskTableImg" src="{{= val.picPath}}" title="商品图片" alt="加载失败"/>
+                                       </a>
+                                     </div>
+
+                             </td>
+                             <td style="width: 20%;">{{= val.originTitle}}</td>
+                             <td style="width: 20%;">
+                                {{if val.ok}}
+                                     成功
+                                     {{else}}
+                                     失败
+                                {{/if}}
+
+
+                             </td>
+                             <td style="width: 20%;">{{= val.newTitle}}</td>
+                             <td style="width: 20%;">
+                             {{if val.msg==null||val.msg==""}}
+                                 正常
+                             {{else}}
+                                {{= val.msg}}
+                             {{/if}}
+
+                             </td>
+                       </tr>
+                  {{/each}}
+
+
+            </tbody>
+
+
+    </table>
+    </div>
+
+
+</script>

@@ -1,0 +1,73 @@
+#{extends 'dazhe/base.html' /}
+#{set title:'修改商品信息' /}
+
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/activityadd.css" />
+<style type="text/css">
+    input.item-dis.error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+</style>
+
+<div id="content">
+    <div class="breadcrumbs">
+        <span>修改限时打折活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block active">
+                <h3>修改商品信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block">
+                <h3>添加商品</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block lastPercent">
+                <h3>修改活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<h1> 修改商品信息</h1>
+
+<div class="item-container">
+    <div style="margin-top: 10px;">
+        <div class="paging-div" style="text-align: center; margin-bottom: 5px;"></div>
+        <input type="hidden" class="activityId" value="${activityId}" />
+        <table class="item-table result-table">
+            <thead>
+            <tr>
+                <td style="width: 15%;text-align:center;">宝贝图片 </td>
+                <td style="width: 20%;text-align:center;">宝贝标题 </td>
+                <td style="width: 15%;text-align:center;">宝贝原价(元) </td>
+                <td style="width: 15%;text-align:center;">折扣 </td>
+                <td style="width: 15%;text-align:center;">宝贝折扣价（元）</td>
+                <td style="width: 20%;text-align:center;">操作 </td>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="paging-div" style="text-align: center;margin-top: 5px;"></div>
+    </div>
+</div>
+<div class="buttonLine">
+    <input type="submit" value="完成并提交"  class="nextStepBtn StepBtn2" style="color: #ffffff;
+    background-color: #EF6400;">
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+//            TM.gcs('/PaiPaiItems/firstSync',function() {   添加商品同步更新
+            TM.gcs('/js/dazhe/reviseItem.js', function () {
+                TM.DisItem.init.doInit($(".item-container"));
+            });
+//            });
+        });
+    });
+</script>

@@ -1,0 +1,22 @@
+#{extends 'tmSearch/searchbase.html' /}
+
+<style type="text/css">
+
+</style>
+
+<link rel="stylesheet" media="screen" href='/css/tmSearch/searchauthority.css'>
+
+<div class="authority-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.lazyload.min.js', function () {
+            TM.gcs('/js/tmSearch/searchauthority.js', function () {
+                TM.SearchAuthority.init.doInit($(".authority-container"));
+            });
+        });
+
+    });
+</script>

@@ -1,0 +1,117 @@
+#{extends 'carrierForDQ/head.html' /}
+#{set title: '宝贝复制子任务查询' /}
+
+<style type="text/css">
+    .sui-table td {
+        font-size: 12px;
+        text-align: center;
+    }
+    #from .control-label{
+		width: auto!important;
+		padding-left: 5px;
+        padding-top: 0px;
+        display: inline;
+	}
+</style>
+<div style="width: 96%;margin: 10px auto;">
+	<form class="sui-form form-horizontal" id="from">
+		<div class="control-group">
+            <div data-toggle="datepicker" class="controls input-daterange">
+                <label class="control-label">时间选择：</label>
+                <input type="text" class="input-medium input-date begin-time"><span> -</span>
+                <input type="text" class="input-medium input-date end-time">
+            </div>
+            <div class="controls">
+                <label class="control-label" for="task-id">任务编号：</label>
+                <input type="text" class="input-medium" id="task-id">
+            </div>
+			<div class="controls">
+                <label class="control-label" for="numiid">宝贝id：</label>
+                <input type="text" class="input-medium" id="numiid">
+			</div>
+            <div class="controls">
+                <label class="control-label" for="cid">宝贝cid：</label>
+                <input type="text" class="input-medium" id="cid">
+			</div>
+            <div class="controls">
+                <label class="control-label" for="error-msg-key">错误信息：</label>
+                <input type="text" class="input-medium" id="error-msg-key">
+            </div>
+			<div class="controls">
+                <label class="control-label" for="userId">用户id：</label>
+                <input type="text" class="input-medium" id="userId">
+			</div>
+            <div class="controls">
+                <label class="control-label" for="task-status">任务类型：</label>
+                <select class="input-medium input-fat" id="sub-task-type">
+                    <option value="-1">所有</option>
+                    <option value="1">淘宝复制</option>
+                    <option value="2">1688复制</option>
+                </select>
+            </div>
+			<div class="controls">
+                <label class="control-label" for="task-status">任务状态：</label>
+				<select class="input-medium input-fat" id="task-status">
+				 	<option value="-1">所有</option>
+                	<option value="4">复制失败</option>
+					<option value="0">等待复制</option>
+					<option value="1">复制进行中</option>
+					<option value="2">复制成功</option>
+            	</select>
+			</div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0);" class="sui-btn btn-large btn-primary search">搜索</a>
+
+		</div>
+		<div class="control-group">
+            <a href="javascript:void(0);" class="sui-btn btn-large btn-primary reboot-checked">重启选中</a>
+		</div>
+
+	</form>
+	<table class="sui-table table-zebra table-primary">
+		<thead>
+			<tr>
+                <th class="center" style="width: 5%; background-color: #ffffff"><label class="checkbox-pretty inline"><input type="checkbox" class="all-operate-check"><span></span></label></th>
+                <th class="center" style="width: 10%">任务编号</th>
+                <th class="center" style="width: 10%">宝贝id</th>
+                <th class="center" style="width: 10%">宝贝cid</th>
+                <th class="center" style="width: 10%">任务类型</th>
+                <th class="center"  style="width: 25%">错误信息</th>
+                <th class="center"  style="width: 10%">用户id</th>
+                <th class="center"  style="width: 10%">创建时间</th>
+                <th class="center"  style="width: 15%">操作</th>
+			</tr>
+		</thead>
+		<tbody> </tbody>
+	</table>
+	<!-- 分页开始 -->
+	<div class="sui-pagination pagination-centered">
+		<ul>
+			<li class="prev disabled"><a href="#">«上一页</a></li>
+			<li class="next"><a href="#">下一页»</a></li>
+		</ul>
+		<div>
+			<span> 到 <input type="text" class="page-num">
+			<button class="page-confirm">确定</button> 页
+			</span>
+		</div>
+	</div>
+	<!-- 分页结束 -->
+</div>
+
+<script type="text/x-jquery-tmpl" id="templetRow">
+	<tr subTaskId="{{= id}}">
+		<td><label class="checkbox-pretty inline"><input type="checkbox" class="operate-check"><span></span></label></td>
+		<td>{{= entityId}}</td>
+		<td>{{= numIid}}</td>
+		<td>{{= cid}}</td>
+		<td>{{= type}}</td>
+		<td>{{= msg}}</td>
+		<td>{{= userId}}</td>
+		<td>{{= createTs}}</td>
+		<td><button class="sui-btn btn-primary del-btn">删除</button>&nbsp;<button class="sui-btn btn-primary reboot-btn">重启</button></td>
+		</tr>
+</script>
+
+<script src="/js/carrierForDQ/ItemFailLog.js?v_10" type="text/javascript"></script>

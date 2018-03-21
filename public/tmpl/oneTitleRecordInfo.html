@@ -1,0 +1,52 @@
+<script type="text/x-jquery-tmpl" id="maskTable">
+
+    <div id="maskTdTitle">
+            <span  class="titleText">当前宝贝历史标题</span>
+            <span class="titleClose"></span>
+
+
+    </div>
+
+    <div class="columnName">
+            <span class="columnNameSpan" style="width: 25%;">原标题</span>
+            <span class="columnNameSpan" style="width: 25%;">修改时间</span>
+            <span class="columnNameSpan" style="width: 25%;">新标题</span>
+            <span class="columnNameSpan" style="width: 24%; border-right:0;">操作</span>
+    </div>
+
+    <div class="maskDiv">
+    <table class="maskTableTab" style="width: 100%;">
+        <thead>
+
+
+        </thead>
+
+
+            <tbody class="maskTbody">
+
+
+                  {{each(i,val) res}}
+                       <tr style=" width:100%;  height:50px;">
+
+                             <td style="width: 25%; padding-left:20px; padding-right:20px;">{{= val.oldTitle}}</td>
+                             <td style="width: 25%; padding-left:20px; padding-right:20px;">
+                               {{= val.updated}}
+
+
+                             </td>
+                             <td style="width: 25%; padding-left:15px; padding-right:20px;">{{= val.newTitle}}</td>
+                             <td style="width: 24%; padding-left:14px; padding-right:20px;">
+                            <span class="recoverBtn titleBtn yellow-btn" oldTitle="{{=  val.oldTitle}}" targetId='{{= val.numIid}}'> 还原</span>
+                             </td>
+                       </tr>
+                  {{/each}}
+
+
+            </tbody>
+
+
+    </table>
+    </div>
+
+
+</script>

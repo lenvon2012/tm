@@ -1,0 +1,104 @@
+#{extends 'skincomment/skincommentbase.html' /}
+
+#{set title:'评价统计' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+<style>
+.defense-info{width:780px; text-align:center;font-size:14px;border-top:1px solid #999;margin-top: 20px;}
+.defense-info th {width:78px;background: #eee; color:#000; height:30px;border-top: 1px solid #d9d9d9;border-bottom: 1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;height:35px;font-size: 14px;}
+.defense-info td {border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top:1px solid #d9d9d9;border-bottom:1px solid #d9d9d9; height:22px;}
+/* .defense-info thead {background: #ffe; height:30px;} */
+.defense-info .row-date {font-weight:bold; color: #000;border-left: 1px solid #999999;border-right: 1px solid #999999;width: 110px;}
+.defense-info .col-bold {border-right: 1px solid #999999;}
+.update-btn {margin-left:10px;}
+.defense-info .even {background: rgb(249, 249, 249);}
+</style>
+
+<div id="secondary">
+    <div class="gap">
+        <div class="wrapper">
+            <div class="secnav">
+                <a href="/SkinComment/commentNormal">中差评管理</a>
+                <a href="/SkinComment/commentStatus" class="current">评价统计</a>
+                <a href="/SkinComment/shopScore">动态评分</a>
+                <a href="/SkinComment/commentUrge">催评管理</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="defensewarn-container">
+    *{<div style="margin-bottom: 15px;border-bottom: 1px solid #aaa;padding-bottom: 10px;">}*
+        *{<label class="" style="font-size:16px;padding: 8px;vertical-align: middle;font-weight:bold;">中差评管理：</label>&nbsp;&nbsp;&nbsp;<a href="/SkinComment/commentNormal" class="badge badge-info" style="font-size:14px;padding: 8px;vertical-align: middle;background-color: #bbb;">中差评记录</a>&nbsp;&nbsp;&nbsp;<a href="/SkinComment/commentStatus" class="badge badge-warning" style="font-size:14px;padding: 8px;vertical-align: middle;">评价统计</a>&nbsp;&nbsp;&nbsp;<a href="/SkinComment/noticeLog" class="badge badge-info" style="font-size:14px;padding: 8px;vertical-align: middle;background-color: #bbb;">短信提醒日志</a>}*
+    *{</div>}*
+    <div class="charts-container">
+        <div id="goodRate-charts" style="width:978px;height: 200px;margin:0 auto;"></div>
+    </div>
+    <div class="warn-search-div">
+        <table style="margin: 0 auto; margin-top:10px;">
+            <tbody>
+            <tr>
+                <td>
+                    <span style="font-weight:bold;font-size:16px;">查询日期：</span>
+                    <input type="text" class="start-time-text date-picker" style="width: 95px;">
+                    <span style="margin: 0 10px;font-weight:bold;">-</span>
+                    <input type="text" class="end-time-text date-picker" style="width: 95px;">
+                </td>
+                <td style="padding-left: 10px;">
+                    <span class="search-btn btn btn-primary">查询</span>
+                    <span class="update-btn btn btn-warning">更新评价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <table class="defense-info busSearch" style="">
+   		<thead>
+   			<tr><th class="row-date">统计时间</th><th>未评价总数</th><th>评价总数</th><th>催评好评总数</th><th class="col-bold">好评总数</th><th>中差评总数</th><th>中评总数</th><th class="col-bold">差评总数</th><th>修改中差评用户数</th><th>修改中评用户数</th><th class="col-bold">修改差评用户数</th><th>修改中差评数</th><th>修改中评数</th><th class="col-bold">修改差评数</th></tr>
+   		</thead>
+    	<tbody id="rows">
+    	
+    	</tbody>
+    </table>
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/x-jquery-tmpl" id="tplRow">
+    <tr {{if this.dataArrayIndex(this.data)%2 == 1}}class="even"{{/if}}>
+    <td class="row-date">{{= date}}</td>
+    <td>{{= noCommentCount}}</td>
+    <td>{{= haveCommentCount}}</td>
+    <td>{{= urgeGoodCommentCount}}</td>
+    <td class="col-bold">{{= goodCommentCount}}</td>
+    <td>{{= count}}</td>
+    <td>{{= neutralCount}}</td>
+    <td class="col-bold">{{= badCount}}</td>
+    <td>{{= modifyUserCount}}</td>
+    <td>{{= modifyNeutralUserCount}}</td>
+    <td class="col-bold">{{= modifyBadUserCount}}</td>
+    <td>{{= modifyCount}}</td>
+    <td>{{= modifyNeutralCount}}</td>
+    <td class="col-bold">{{= modifyBadCount}}</td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+    	TM.gcs('/js/skincomment/commentStatus.js?_v=20131204', function () {
+    		TM.gcs('/js/ChineseDatePicker.js', function () {
+                TM.gcs('/js/highcharts.js',function(){
+                    $(document).ready(function() {
+                        TM.Loading.init.show();
+                        TM.CommentStatus.init.doInit($(".defensewarn-container"));
+                    });
+                });
+        	});
+        });
+    });
+</script>

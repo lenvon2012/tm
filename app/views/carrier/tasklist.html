@@ -1,0 +1,204 @@
+#{extends 'tbtnav/tbtnavitem.html' /}
+#{set title:'宝贝复制任务' /}
+
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+<link rel="stylesheet" media="screen" href='/css/autoTitle/autotitlemain.css?v=4'>
+
+<style type="text/css">
+    .task-admin-wrapper {
+        font-family: "微软雅黑"; font-size: 14px; padding: 10px;
+    }
+    .task-admin-div {
+        padding: 0px 10px;
+    }
+    .task-admin-wrapper .task-admin-tip {
+        font-size: 20px; font-weight: bold; color: #a10000;
+    }
+
+    .list-table {
+        border-collapse: collapse; width: 100%; font-size: 12px;
+        text-align: center;
+        border: 1px solid #ccc;
+        width: 100%; margin: 0 auto;
+    }
+
+    .list-table thead tr {
+        background: left -102px url('/img/frame/bg.png');
+
+    }
+
+    .list-table tr {
+        vertical-align: middle;
+    }
+
+    .list-table thead td {
+        height: 24px; vertical-align: middle; font-family: "微软雅黑"; font-weight: bold;
+        font-size: 14px; text-align: center;
+    }
+
+    .list-table thead .headtd {
+
+    }
+
+    .list-table tbody td {
+        vertical-align: middle; border-bottom: 1px solid #ccc; padding: 15px 0px;
+        font-size: 14px;
+    }
+
+    .user-admin-wrapper {
+        font-size: 14px; background: white;/*font-family: "微软雅黑";*/
+    }
+    .user-info-tip {
+        font-size: 20px; font-weight: bold;
+    }
+    .width950 {
+        width: 950px; margin: 0 auto;
+    }
+    .user-info-table {
+        border: 1px solid #999;border-collapse: collapse;
+    }
+    .user-info-table td {
+        border: 1px solid #999;
+    }
+    .user-info-table .attr-name-td {
+        background: #eee; text-align: right; padding: 10px 20px 10px 0px;
+    }
+    .user-info-table .attr-value-td {
+        text-align: left; padding: 10px 0px 10px 20px;
+    }
+    .search-table tr th {
+        background: #CC0000;
+        font-size: 24px;
+        padding: 10px;
+        font-weight: bolder;
+        color: #fff;
+    }
+    .search-table .search-btn{
+        margin-left:20px;
+    }
+    .search-table tr td {
+        font-size: 16px;
+        padding: 8px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="user-admin-wrapper" style="padding: 0px 0px 100px;">
+    <div class="current-admin-div">
+
+        <table style="width: 100%">
+            <td style="width: 40%; text-align: left;">
+                <div class="task-admin-tip">
+                    当前任务管理：
+                </div>
+            </td>
+            *{<td style="width: 43%; text-align: right;">
+                <div style="font-weight: bold; font-size: 20px; padding-right: 40px;">
+                    <span class="refresh-second" style="color: #a10000;"></span>秒后刷新
+                </div>
+            </td>
+            *{<td style="width: 17%; text-align: left;">
+                <div class="commbutton btntext4 ctr-refresh-btn ison" id="modifyButton">停止刷新</div>
+            </td>}*
+        </table>
+        <table class="list-table current-task-table" style="margin-top: 10px;">
+            <thead>
+            <tr>
+                <td class="headtd" style="width: 20%;">任务创建时间</td>
+                <td class="headtd" style="width: 20%;">任务类型</td>
+                <td class="headtd" style="width: 20%;">任务信息</td>
+                <td class="headtd" style="width: 20%;">任务状态</td>
+                <td class="headtd" style="width: 20%;">操作</td>
+            </tr>
+            </thead>
+            <tbody class="current-task-body">
+
+            </tbody>
+        </table>
+        <div class="current-paging-div" style="text-align: center;margin-top: 10px; margin-bottom: 5px;"></div>
+    </div>
+
+    <div class="history-admin-div" style="margin-top: 60px; padding-bottom: 150px;">
+
+        <div class="task-admin-tip">
+            历史任务日志：
+        </div>
+
+        <table class="list-table history-task-table" style="">
+            <thead>
+            <tr>
+                <td class="headtd" style="width: 20%;">任务创建时间</td>
+                <td class="headtd" style="width: 20%;">任务类型</td>
+                <td class="headtd" style="width: 20%;">任务信息</td>
+                <td class="headtd" style="width: 20%;">任务状态</td>
+                <td class="headtd" style="width: 20%;">操作</td>
+            </tr>
+            </thead>
+            <tbody class="history-task-body">
+
+            </tbody>
+        </table>
+        <div class="history-paging-div" style="text-align: center;margin-top: 5px;"></div>
+    </div>
+</div>
+<script type="text/x-jquery-tmpl" id="myTaskTrTmpl">
+    <tr>
+        <td>
+            <span>{{= createTsStr}}</span>
+        </td>
+        <td>
+            <span>{{= taskTypeStr}}</span>
+        </td>
+        <td>
+            <span>{{= ww}}复制到{{= publisher}}</span>
+        </td>
+        <td>
+            {{= statusStr}}
+        </td>
+        <td>
+            <span class="tmbtn sky-blue-btn detail-btn" taskid={{= id}}>查看详情</span>
+            <span class="tmbtn yellow-btn cancel-btn" taskid={{= id}}>取消任务</span>
+        </td>
+    </tr>
+</script>
+<script type="text/x-jquery-tmpl" id="myHistoryTaskTrTmpl">
+    <tr>
+        <td>
+            <span>{{= createTsStr}}</span>
+        </td>
+        <td>
+            <span>{{= taskTypeStr}}</span>
+        </td>
+        <td>
+            <span>{{= ww}}复制到{{= publisher}}</span>
+        </td>
+        <td>
+            {{= statusStr}}
+        </td>
+        <td>
+            <span class="tmbtn sky-blue-btn detail-btn" taskid={{= id}}>查看详情</span>
+        </td>
+    </tr>
+</script>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.url.js', function () { //
+            TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+                TM.gcs('/js/jquery.loadmask.min.js', function () {
+                    TM.gcs('/js/jquery.tmpl.js', function() {
+                        TM.gcs('/js/tm.js', function () {
+                            TM.gcs("/js/carrier/carrierTaskList.js?_v=4", function () {
+                                TM.CarrierTaskList.init.doInit($('.user-admin-wrapper'));
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}

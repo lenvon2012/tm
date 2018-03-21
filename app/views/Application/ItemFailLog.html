@@ -1,0 +1,103 @@
+#{extends 'Application/topcrud.html' /}
+#{set title: '宝贝复制子任务查询' /}
+
+<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://g.alicdn.com/sj/qnui/1.5.1/js/sui.min.js"></script>
+<link href="http://g.alicdn.com/sj/qnui/1.5.1/css/sui.min.css" rel="stylesheet">
+<link href="http://g.alicdn.com/sj/qnui/1.5.1/css/sui-append.min.css" rel="stylesheet">
+<style type="text/css">
+    .sui-table td {
+        font-size: 12px;
+        text-align: center;
+    }
+    .form-horizontal .control-label{
+		width: auto!important;
+		padding-left: 5px;
+        padding-top: 0px;
+	}
+</style>
+<div style="width: 96%;margin: 0 auto;">
+	<form class="sui-form form-horizontal">
+		<div class="control-group">
+            <div data-toggle="datepicker" class="controls input-daterange">
+                <label class="control-label">时间选择：</label>
+                <input type="text" class="input-medium input-date begin-time"><span> -</span>
+                <input type="text" class="input-medium input-date end-time">
+            </div>
+            <div class="controls">
+                <label class="control-label" for="task-id">任务编号：</label>
+                <input type="text" class="input-medium" id="task-id">
+            </div>
+			<div class="controls">
+                <label class="control-label" for="good-url">宝贝url：</label>
+                <input type="text" class="input-medium" id="good-url">
+			</div>
+            <div class="controls">
+                <label class="control-label" for="error-msg-key">错误信息：</label>
+                <input type="text" class="input-medium" id="error-msg-key">
+            </div>
+			<div class="controls">
+                <label class="control-label" for="publisher">用户名称：</label>
+                <input type="text" class="input-medium" id="publisher">
+			</div>
+            <div class="controls">
+                <label class="control-label" for="task-status">任务类型：</label>
+                <select class="input-medium input-fat" id="sub-task-type">
+                    <option value="-1">所有</option>
+                    <option value="0">淘宝复制</option>
+                    <option value="1">1688复制</option>
+                    <option value="2">天猫复制</option>
+                </select>
+            </div>
+			<div class="controls">
+                <label class="control-label" for="task-status">任务状态：</label>
+				<select class="input-medium input-fat" id="task-status">
+                	<option value="2">错误</option>
+					<option value="0">等待</option>
+					<option value="1">成功</option>
+            	</select>
+			</div>
+
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0);" class="sui-btn btn-large btn-primary search">搜索</a>
+
+		</div>
+		<div class="control-group">
+            <a href="javascript:void(0);" class="sui-btn btn-large btn-primary reboot-checked">重启选中</a>
+		</div>
+
+	</form>
+	<table class="sui-table table-zebra table-primary">
+		<thead>
+			<tr>
+                <th class="center" style="width: 3%; background-color: #ffffff"><label class="checkbox-pretty inline"><input type="checkbox" class="all-operate-check"><span></span></label></th>
+                <th class="center" style="width: 6%">任务编号</th>
+                <th class="center" style="width: 6%">子任务编号</th>
+                <th class="center" style="width: 6%">任务类型</th>
+                <th class="center"  style="width: 10%">宝贝标题</th>
+                <th class="center"  style="width: 15%">宝贝url</th>
+                <th class="center"  style="width: 22%">错误信息</th>
+                <th class="center"  style="width: 10%">用户名称</th>
+                <th class="center"  style="width: 8%">创建时间</th>
+                <th class="center"  style="width: 8%">Pull时间</th>
+                <th class="center"  style="width: 6%">操作</th>
+			</tr>
+		</thead>
+		<tbody> </tbody>
+	</table>
+	<!-- 分页开始 -->
+	<div class="sui-pagination pagination-centered">
+		<ul>
+			<li class="prev disabled"><a href="#">«上一页</a></li>
+			<li class="next"><a href="#">下一页»</a></li>
+		</ul>
+		<div>
+			<span> 到 <input type="text" class="page-num">
+			<button class="page-confirm">确定</button> 页
+			</span>
+		</div>
+	</div>
+	<!-- 分页结束 -->
+</div>
+<script src="/js/carrier/ItemFailLog.js?v_10" type="text/javascript"></script>

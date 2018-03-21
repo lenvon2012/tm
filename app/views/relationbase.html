@@ -1,0 +1,216 @@
+#{extends 'yangyang.html' /}
+
+
+
+*{<link rel="stylesheet" media="screen" href="/css/keywords/keywords.css">}*
+<link rel="stylesheet" media="screen" href='/css/dajie/djsearch.css'>
+
+<link rel="stylesheet" media="screen" href='/css/dajie/pagination.css'>
+*{<link rel="stylesheet" media="screen" href='/css/dajie/bootstrap.min.css'>}*
+*{<link rel="stylesheet" media="screen" href='/css/dajie/bootstrap-responsive.min.css'>}*
+<link rel="stylesheet" media="screen" href='/css/dajie/buttons.css'>
+<link rel="stylesheet" media="screen" href='/css/dajie/font-awesome.min.css'>
+<link rel="stylesheet" type="text/css" href="/css/jinnang/wp.css" />
+<link rel="stylesheet" type="text/css" href="/css/jinnang/colors-fresh.css" />
+<link type="text/css" rel="stylesheet" href="/css/jinnang/netease_main.css" />
+<link type="text/css" rel="stylesheet" href="/css/jinnang/common_nav_mod.css" />
+<link type="text/css" href="/css/zhdatecss/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/dajie/font-awesome-ie7.min.css">
+
+
+<script type="text/javascript" src='/js/jinnang/jquery-ui-sliderAccess.js'></script>
+<![endif]-->
+<style type="text/css">
+    .userheadop a{padding: 4px 12px;}
+    .head ul li.selected{ 	background-color:#4F9D9D;background-image: none;}
+    body{ font-size:12px; color:#454545;width:100%;min-width:960px;}
+    h1,h2,h3,h4,h5,h6{ font-size:12px;}
+    a{ text-decoration:none; color:#454545;}
+    a:hover{ text-decoration:underline; color:#ff0000;}
+    ul{ list-style:none;}
+    li{ list-style:none;}
+    .navbox {width: 1020px;margin: 0 auto;}
+    .allbg{background: url(http://icon.zol-img.com.cn/sj/images/desk_bg.png) no-repeat;}
+    .navbox {height: 42px;line-height: 42px;background-position: 0 -36px;background-repeat: repeat-x;-webkit-border-radius: 3px;border-radius: 3px;position: relative;}
+    .navbox ul{float:left;margin: 0; padding:0;}
+    .nav li.first {padding: 0;background: none;}
+    .nav li {float: left;height: 42px;line-height: 42px;font-size: 16px;background-position: -128px -264px;width: 120px;}
+    .nav li a{display: block;color: white;padding: 0 13px 0 17px;outline: none;text-decoration: none;}
+    .nav li a:hover{color: white;text-decoration: underline}
+    .navselected{background-color: #ccc;         color: blueviolet;          font-weight: bold;}
+    .c-fl {height: 43px;line-height: 43px;}
+    #exposeMask{position: static;}
+    .ntes-nav a.toggle-color {
+        color: #ffff00;
+    }
+</style>
+
+*{background: #63C6B2 url(/img/xiaoqingxin/head_nav_bg.png) repeat-x 0 0;}*
+*{height: 38px;}*
+*{overflow: hidden;}*
+<div class="ntes-nav" id="js_N_nav" style="background: url('/img/dazhe/liuliangbao40_40.png') no-repeat #EF6400;background-position: 80px;">
+    <!-- 顶部导航 -->
+    <div class="ntes-nav-main clearfix">
+        <!-- 左部导航 -->
+        <div class="c-fl" >
+            <div
+                    class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"
+                    tabindex="0">
+                <a href="#"
+                   class="ntes-nav-select-title ntes-nav-entry-bgblack">活动管理<em
+                        class="ntes-nav-select-arr"></em></a>
+                <div class="ntes-nav-select-pop">
+                    <ul class="ntes-nav-select-list clearfix">
+                        *{<li><a href="/taodiscount/index"><span><em}*
+                                *{class="ntes-nav-app-act-mnt">活动列表</em></span></a></li>}*
+                        *{<li><a href="@{TaoDiscount.activity_add()}"><span><em}*
+                                *{class="ntes-nav-app-act-add">创建活动</em></span></a></li>}*
+                        *{<li><a href="@{TaoDiscount.item_alladd()}"><span><em}*
+                                *{class="ntes-nav-app-act-mnt">全店打折</em></span></a></li>}*
+                    </ul>
+                </div>
+            </div>
+            <!--<a class="ntes-nav-entry-wide c-fl" href="/relation/relationop"-->
+               <!--title="关联营销" >关联营销</a>-->
+            <div class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"  tabindex="0" style="z-index:3">
+                <a  href="/relation/relationoper"  class="ntes-nav-select-title ntes-nav-entry-bgblack">关联营销<em class="ntes-nav-select-arr"></em></a>
+                <div class="ntes-nav-select-pop">
+                    <ul class="ntes-nav-select-list clearfix">
+                        <li><a href="/relation/relationoper"><span><em class="ntes-nav-app-act-mnt">制作模版</em></span></a></li>
+                        <li><a href="/Relation/myRelation?type=1"><span><em class="ntes-nav-app-act-mnt">投放中</em></span></a></li>
+                        <li><a href="/Relation/myRelation?type=2"><span><em class="ntes-nav-app-act-mnt">未投放</em></span></a></li>
+                        <li><a href="/Relation/myRelation?type=3"><span><em class="ntes-nav-app-act-mnt">已结束</em></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="ntes-nav-entry-wide c-fl" href="/watermarker/watermarker"
+               title="水印大师" >水印大师</a>
+            *{<a class="ntes-nav-entry-wide c-fl" href="@{TaoDiscount.award()}"}*
+               *{title="好评有礼" >好评有礼</a>}*
+            <a class="ntes-nav-entry-wide c-fl" href="/Relation/relationop" title="回到旧版" >回到旧版</a>
+        </div>
+        <!-- 右部导航 -->
+        <div class="c-fr">
+            <div class="c-fl">
+                <div class="c-fl" id="js_N_NavLoginAfter" style="display: block;">
+                    <span class="left mr6">您好，</span>
+                    <div id="js_N_logined_warp"
+                         class="js_N_navSelect ntes-nav-logined ntes-nav-logined-scroll"
+                         tabindex="0">
+							<span class="ntes-nav-select-title ntes-nav-logined-userinfo"><span
+                                    id="js_N_navUsername"></span><em
+                                    class="ntes-nav-select-arr"></em></span>
+                        <div id="js_login_suggest_wrap" class="ntes-nav-select-pop">
+                            <ul id="js_logined_suggest"
+                                class="ntes-nav-select-list clearfix">
+                                <li><a
+                                        href="#"><span>重新授权</span></a></li>
+                                <li><a href="#" id="sync_data"><span>同步数据</span></a></li>
+                                <li><a href="#" id="logout"><span>退出</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 连接导航 -->
+                    <a class="ntes-nav-entry-wide c-fl" target="_self"
+                       href="#"
+                       id="syncBtn">更新数据</a>
+                    <a class="ntes-nav-entry-wide c-fl" target="_blank" style="font-size: 20px;"
+                       href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.19.marzxO&service_code=ts-10452&tracelog=xufei"
+                       id="xufei-now">我要续费</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div class="main" style="width:960px;float:none;margin: 0 auto;">
+    <div class = "all_container">
+        <div class = "kwcontainer">
+            #{doLayout /}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".ntes-nav-select").mouseover(function() {
+            $(this).addClass("ntes-nav-select-unfold");
+        });
+        $(".ntes-nav-select").mouseout(function() {
+            $(this).removeClass("ntes-nav-select-unfold");
+        });
+        $("#js_N_logined_warp").mouseover(function() {
+            $(this).addClass("ntes-nav-select-unfold");
+        });
+        $("#js_N_logined_warp").mouseout(function() {
+            $(this).removeClass("ntes-nav-select-unfold");
+        });
+    });
+
+    var head = $('.head');
+    var path = document.location.pathname;
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+        }
+    });
+
+//    $('#main').css('margin-left',($(document).width()-960)/2+"px");
+    $.getScript('/status/discountName',function(){
+        $('#js_N_navUsername').text(TM.name);
+    });
+
+    $.getScript('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                    window.location.reload();
+                });
+            });
+        });
+        $('#sync_data').click(function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                    window.location.reload();
+                });
+            });
+        });
+    });
+
+    setInterval(function(){
+        $('#xufei-now').toggleClass("toggle-color");
+    }, 500)
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+
+    $(".app-nav").hide();
+    // TODO, this is for the preview temp...
+    $('#goHelp').hide();
+    var img = $('#tempLogoImg');
+    img.attr('src','/public/images/header/Glossy_Menus_05_blue.png');
+    img.css({width:'100px'});
+
+    $(document).ready(function(){
+        $('#kefuhref').attr('href','http://www.taobao.com/webww/ww.php?ver=3&touid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&siteid=cntaobao&status=1&charset=utf-8');
+        $('#mainfoot').css({'background-color':'#EF6400'});
+    });
+
+</script>

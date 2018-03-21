@@ -1,0 +1,70 @@
+/**
+ * 日期：2014年9月
+ * 作者： 柯常青
+ * 依赖：该插件依赖于 tmpage
+ * */
+
+/**
+    this css copy from main.css
+ */
+.tm-paging-container {font-size: 12px;}
+.tm-paging-container .paging-nav {display: inline-block; *display: inline; zoom: 1; height: 16px; width: 24px;text-decoration: none; margin: 0px 2px; font-weight: bold;text-align: center; padding: 4px 0px;}
+.tm-paging-container .paging-link {background: url(/img/pagging-back2.png) no-repeat left top;color: #7f7f7f; cursor: pointer;}
+.tm-paging-container .paging-link:hover {background: url(/img/pagging-back2.png) no-repeat left -24px;}
+.tm-paging-container .paging-select {background: url(/img/pagging-back2.png) no-repeat left -72px;color: #fff; cursor: default;}
+.tm-paging-container .paging-size-link {background: url(/img/pagging-back2.png) no-repeat left top;color: #7f7f7f; cursor: pointer;}
+.tm-paging-container .paging-size-link:hover {background: url(/img/pagging-back2.png) no-repeat left -24px;}
+.tm-paging-container .paging-size-select {background: url(/img/pagging-back2.png) no-repeat left -72px;color: #fff; cursor: default;}
+
+
+.tm-paging-container{
+    text-align: center;
+}
+.tm-paging-container .paging-nav{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+.tm-paging-container .paging-size-link{
+    background: none;
+    border: 1px solid #ccc;
+}
+.tm-paging-container .paging-size-link:hover{
+    background: none;
+    border-color: #666;
+}
+.tm-paging-container .paging-size-select{
+    background: #019875;
+    color: #fff;
+    border: 1px solid #019875;
+}
+
+.tm-paging-container .paging-select{
+    background: #019875;
+    color: #fff;
+    cursor: default;
+    border: 1px solid #019875;
+}
+.tm-paging-container .jumpTo{
+    width: 30px;
+    border: 1px solid #ccc;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0;
+}
+.gopage-submit{
+    width: 55px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    background: #019875;
+    border: 0;
+    color: white;
+    border-radius: 2px;
+}

@@ -1,0 +1,135 @@
+
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+
+
+.clearfix {
+    clear: both; zoom: 1;
+}
+
+.clearfix:after {
+    clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+}
+
+.batch-container {
+    padding: 10px;
+}
+.search-container {
+    font-family: "微软雅黑"; font-size: 14px; color: #333;
+}
+.search-container .search-text {
+    width: 180px;
+}
+.search-container .category-select {
+    width: 130px;
+}
+.search-container .state-select {
+    width: 90px;
+}
+.search-container .search-btn {
+
+}
+
+
+.batch-container .batchop-div {
+    text-align: center;
+}
+.batch-container .batchop-div table {
+    margin-top: 20px;
+}
+.batch-container .batchop-div table td {
+    padding-left: 20px;
+}
+.batch-container .paging-div {
+    text-align: center;
+}
+
+.batch-container .list-table {
+    width: 100%;
+    font-family: "微软雅黑"; font-size: 14px; color: #333;
+    margin: 10px 0px;
+}
+.batch-container .list-table thead tr {
+    width: 100%;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #1D5987;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.batch-container .list-table tbody td {
+    text-align: center; padding: 5px; border-bottom: #999 1px solid;
+    font-family: "微软雅黑"; font-size: 14px;
+}
+.batch-container .item-table .item-img {
+    width: 60px; height: 60px; cursor: pointer;
+}
+.batch-container .item-table input[type=checkbox] {
+    cursor: pointer;
+}
+.batch-container .list-table .item-title {
+    cursor: pointer;
+}
+
+
+.batch-container .error-item-div {
+    font-family: "微软雅黑";display: none;
+}
+.batch-container .error-tip-span {
+    font-size: 22px; display: block;
+}
+.batch-container .error-item-table .item-img {
+    width: 80px; height: 80px; cursor: pointer;
+}
+
+.modify-price-dialog {
+    font-family: "微软雅黑"; font-size: 14px; text-align: center; margin-top: 15px;
+}
+.modify-price-dialog .new-price-text {
+    width: 100px;
+}
+.modify-price-dialog .modify-price-type-radio {
+    cursor: pointer;
+}
+.modify-price-dialog .modify-price-type-span {
+    cursor: pointer;
+}
+.modify-price-dialog .modify-div {
+    margin-top: 10px;
+}
+.modify-price-dialog{background:white;margin-top:0px;}
+/*.ui-widget-content{background:rgba(82, 82, 82, 0.7);}*/
+
+.error-modify-item-dialog {
+    font-family: "微软雅黑"; font-size: 14px; text-align: center;
+}
+.error-modify-item-dialog .error-tip-span {
+    font-size: 22px; display: block;
+}
+.error-modify-item-dialog .diag-error-item-table .item-img {
+    width: 80px; height: 80px; cursor: pointer;
+}
+.error-modify-item-dialog .list-table {
+    width: 100%;
+    font-family: "微软雅黑"; font-size: 14px; color: #333;
+    margin: 10px 0px;
+}
+.error-modify-item-dialog .list-table thead tr {
+    width: 100%; font-family: "微软雅黑"; font-size: 14px; color: #1D5987; font-weight: bold;
+    background: left -102px url('/public/images/frame/bg.png'); height: 32px;
+    text-align: center;
+}
+.error-modify-item-dialog .list-table tbody td {
+    text-align: center; padding: 5px; border-bottom: #999 1px solid;
+    font-family: "微软雅黑"; font-size: 14px;
+}
+.error-modify-item-dialog .list-table .item-title {
+    cursor: pointer;
+}

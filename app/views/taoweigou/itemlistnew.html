@@ -1,0 +1,112 @@
+#{extends 'taoweigou/base.html' /}
+*{#{set title:'淘微购 - 宝贝推广' /}}*
+
+<style type="text/css">
+    .item-container .item-link {
+        color: #333; cursor: pointer;
+    }
+    .item-container .item-link:hover {
+        color: #a10000;
+    }
+
+    .item-container .item-div {
+        border: 2px solid #fccea5; margin:8px 5px; padding: 0px; font-family: "宋体";
+    }
+    .item-container .item-img {
+        cursor: pointer;
+    }
+    .item-container .item-img:hover {
+        filter:alpha(opacity=70);
+        opacity: 0.7;
+    }
+
+    .item-container .next-page-btn {
+        font-size: 18px; color: blue; cursor: pointer;
+    }
+    .item-container .next-page-btn:hover {
+        text-decoration: underline; font-weight: bold; color: #a10000;
+    }
+</style>
+
+<div class="item-container">
+
+    <div class="first-items-div" style="margin: 0 auto;">
+        <table style="border-collapse: collapse;margin: 0 auto;">
+            <tbody>
+            #{if isNoItem}
+                <tr>
+                    <td style="text-align: center; font-size: 22px;padding: 30px 0px;">暂无收录 ${commonInfo.search} 条件下的宝贝~~</td>
+                </tr>
+            #{/if}
+            #{else}
+                #{list items:normalItemsList, as:'normalItemList' }
+                <tr>
+                    #{list items:normalItemList, as:'item' }
+                        <td style="padding-right: 6px;">
+                            <div class="item-div" style="width: 190px; padding: 10px 10px 0px 10px; background: #ffffff;">
+                                <div class="item-img-div" style="">
+                                    <a class="item-href" target="_blank" href="${item.itemLink}">
+                                        <img style="width: 190px; height: 190px;" class="item-img"  src="${item.imgPath}"/>
+                                    </a>
+                                </div>
+                                <div style="font-size: 12px; text-align: left; padding-top: 5px; padding-bottom: 10px;" class="item-price-div">
+                                    #{if item.isShowSku}
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    原价：
+                                                </td>
+                                                <td style="text-decoration:line-through;">
+                                                    <span class="item-origin-price">${item.originPrice}</span>&nbsp;元
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="">
+                                                    优惠价：
+                                                </td>
+                                                <td>
+                                                    <span class="item-new-price item-price" style="font-weight: bold; font-size: 14px;">${item.skuMinPrice}</span>&nbsp;元
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    #{/if}
+                                    #{else}
+                                        价格：<span class="item-price" style="font-weight: bold; font-size: 14px;">${item.originPrice}</span>&nbsp;元
+                                    #{/else}
+                                </div>
+                                <div style="font-size: 12px; text-align: left;padding-bottom: 10px;">
+                                    <a class="item-href item-link item-title" style="line-height: 16px;" target="_blank" href="${item.itemLink}">${item.title}</a>
+                                </div>
+                            </div>
+                        </td>
+                    #{/list}
+                </tr>
+                #{/list}
+            #{/else}
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="masonry-div" style="margin: 0 auto;"></div>
+    <div class="loading-div" style="text-align: center; padding: 10px 0px;display: none;">
+        <img src="/img/taoweigou/loading3.gif" />
+    </div>
+    <div class="bottom-paging-div"></div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.masonry.js', function () {
+            TM.gcs('/js/jquery.url.js', function () {
+                TM.gcs('/js/taoweigou/weigoulistnew.js?_v=3', function () {
+                    TM.WeigouHot.init.doInit($(".hot-recommend-container"), ${isHotMasonry});
+                    TM.WeigouList.init.doInit($(".item-container"), ${isNormalMasonry});
+                });
+            });
+        });
+    });
+</script>

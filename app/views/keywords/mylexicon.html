@@ -1,0 +1,54 @@
+
+#{extends 'keymain.html' /}
+#{set title:'我的词库' /}
+
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/keywords/mylexicon.css'}">
+<style type="text/css">
+.kwcontainer{min-height:300px;_height:300px;}
+</style>
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>我的词库
+</div>
+<div class = "mylexicon_container" style="min-height:600px;_height:600px;width:95%;margin: 0 auto;">
+	<div><span id="mylexicon_top_name">
+	*{<img class="mylexiconimg" src="http://img04.taobaocdn.com/imgextra/i4/759708778/T2vsdQXXVeXXXXXXXX_!!759708778.png">}*
+	我的词库</span><span id="mylexicon_top_back" class="hidden">
+	<img class = "backimg" src="http://img02.taobaocdn.com/imgextra/i2/759708778/T2CvbeXk8XXXXXXXXX_!!759708778.png">返回继续添加</span></div>
+	<br>
+	<table class="wordsearch busSearch">
+		<thead>
+			<tr align="center" class="tableRow firstRow">
+				<th>序号</th>
+				<th>关键词</th>
+				<th>展现量</th>
+				<th>点击量</th>
+				<th>直通车竞争度</th>
+				<th>点击率</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="ML_result">
+			<!-- here will show the result -->
+		</tbody>
+		<tfoot>
+			<tr align="center">
+				<td colspan="7" id = "cutpage">
+				</td>
+			 </tr>
+		</tfoot>
+	</table>
+</div>
+#{set 'moreScripts'}
+<Script type="text/javascript">
+	$.getScript("/js/tm.js",function(){
+		$.getScript("/js/KeyWords/mylexicon.js",function(){
+			$(document).ready(function(){
+				//$.getScript("/js/KeyWords/mylexicon.js",function(){
+				ML.result.searchwords();
+				#{get 'moreAjaxScripts' /};
+		    })
+		});
+	});
+</Script>
+#{/set}
+

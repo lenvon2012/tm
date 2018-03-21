@@ -1,0 +1,361 @@
+#{extends 'dazhe/base.html' /}
+#{set title:'设置活动详情' /}
+
+<style>
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+        margin: 0;
+        /*padding: 0;*/
+        font-size:12px;
+        font-family: 'Microsoft YaHei', Arial;
+    }
+
+    ul, ol {
+        list-style: none;
+    }
+    fieldset, img {
+        border: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 100%;
+    }
+
+    h1 {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px 0 10px 0;
+        font-size: 28px;
+        color: #666;
+        position: relative;
+    }
+
+    h2 {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px 0 10px 0;
+        font-size: 24px;
+        color: #666;
+    }
+    .breadcrumbs {
+        font-family: "宋体";
+        font-size: 14px;
+        color: #999;
+        margin: 5px auto 5px auto;
+        width: 960px;
+    }
+    .breadcrumbs span {
+        padding: 0 5px 0 0;
+    }
+
+    #stepBar {
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    #stepBar .block {
+        float: left;
+        display: inline;
+        width: 212px;
+        margin: 0 5px 0 0;
+        font-size: 17px;
+        padding: 0 14px 0 0;
+        border: 1px solid #e9e9e9;
+        background: #fcfcfc;
+        height: 43px;
+        line-height: 43px;
+        text-align: center;
+        position: relative;
+    }
+    #stepBar h3 {
+        color: #d9d9d9;
+        font-weight: normal;
+    }
+
+    h1 {
+        width: 960px;
+        margin:auto ;
+        padding: 60px 0 10px 0;
+        font-size: 28px;
+        color: #666;
+        position: relative;
+    }
+
+    .nextStepBtn{
+        margin: 0 auto;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 250px;
+        height: 38px;
+    }
+        /*#stepBar .active {*/
+        /*border: 1px solid rgb(228, 199, 179);*/
+        /*background: #fcfcfc;*/
+        /*}*/
+    #stepBar .ok h3 {
+        color: #4f4f50;
+    }
+    #content {
+        width: 960px;
+        margin: 0 auto;
+        padding: 15px 0;
+        border-bottom: 1px solid #C0DAEC;
+        min-height: 400px;
+    }
+
+    input.text.error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+    .mainForm .tmLine span.error {
+        background: #FEEDF0;
+    }
+    #stepBar .arrow {
+        display: block;
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        width: 14px;
+        height: 45px;
+        background: url('/public/images/dazhe/stepBarArrow.png') 0 0 no-repeat;
+        background-position: 0 -90px;
+    }
+    .filter{
+        width: 800px;
+        padding: 0 10px 5px 10px;
+        /*border-bottom: 1px solid #C0DAEC;*/
+        font-size: 16px;
+    }
+    .tabs{
+
+        float: left;
+        display: inline;
+        width: auto;
+    }
+    .tab{
+        float: left;
+        display: inline;
+        width: auto;
+        padding: 0 10px;
+        line-height: 30px;
+        background: #FEEDF0;
+    }
+    .delete-tab{
+        float: right;
+        display: inline;
+        text-align: right;
+        width: 100px;
+        padding: 0 10px;
+        line-height: 30px;
+        background: url("/public/images/dazhe/cross.png") #E6F5FF no-repeat;
+        background-position: 5px;
+    }
+    .tmLine  {
+        display: inline-block;
+        width: auto;
+        font-size: 18px;
+        padding: 5px 8px;
+        line-height: 34px;
+        height: 36px;
+        border-bottom: 1px solid #FEEDF0;
+        /*overflow: hidden;*/
+    }
+    input.text{
+        height: 32px;
+        line-height: 32px;
+        font-size: 28px;
+        width: 80px;
+        text-align: center;
+        margin: 0 5px;
+        font-family: Arial;
+        background: #fff;
+        color: #ddd;
+    }
+    input.checkbox{
+        margin: 3px 3px 3px 4px;
+    }
+    input.activeType {
+        background: #fff;
+        color: #333;
+    }
+    .selectIcon-manyuan,.selectIcon-manjian{
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        background: transparent;
+    }
+    .selectIcon-manjian{
+        display: inline-block;
+        margin: 0 0 0 30px;
+        width: 26px;
+        height: 26px;
+        background: transparent;
+    }
+    .selectedIcon{
+        display: inline-block;
+        background: url('/public/images/dazhe/check-mark.png') 0 0 no-repeat;
+    }
+    .chose-discount,.chose-songli,.chose-baoyou{
+        margin: 20px 0;font-size: 15px;display: inline-block;border-bottom: 1px dotted #ddd; padding-bottom: 20px;width: 800px;
+    }
+    .add-promotion-detail{
+        text-align: center;
+        line-height: 40px;
+        height: 40px;
+        display: block;
+        border: 1px solid #1779BE;
+        background: #58A9E2;
+        color: #fff;
+        text-decoration:none;
+    }
+    .appendmanxuan {
+        display: inline;
+        line-height: 40px;
+        height: 40px;
+        margin: 0 0 0 15px;
+        padding: 0 10px;
+        color: #999;
+        background: #F2FDEC;
+    }
+    .promotion-detail {
+       margin: 20px 0;
+    }
+    .append {
+        display: inline-block;
+        line-height: 40px;
+        height: 40px;
+        margin: 0 0 0 40px;
+        padding: 0 10px;
+        color: #999;
+        background: #F2FDEC;
+    }
+    .error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+    .buttonLine {
+        width: 300px;
+        text-align: center;
+        padding: 40px 0 10px 0;
+    }
+
+</style>
+
+<div id="content">
+    <div class="breadcrumbs">
+        <span>创建满减送活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block ok">
+                <h3>设置活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block ok">
+                <h3>设置活动详情</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block ">
+                <h3>完成</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <h1>2. 设置活动详情</h1>
+    <div class="promotion-details" style="width: 900px;">
+        <input type="hidden" class="activityString" value="${activityString}" />
+        <div class="promotion-detail" >
+            <div class="filter">
+                <div class="tabs">
+                    <a class="tab" href="javascript:">优惠详情：</a>
+                </div>
+            </div>
+            <div style=""></div>
+            <div class="tiaojian" style="border:1px solid red;width: 850px">
+                <div class="up" >
+                    <div class="tmLine">
+                        <input type="hidden" class="costFlag" value="1">
+                        <span class="selectIcon-manyuan selectedIcon"></span>
+                        <span style="font-size: 18px;">满</span>
+                        <input class="text manyuan activeType" type="text" value="100">
+                        <span style="font-size: 18px;">元</span>
+                        <span class="selectIcon-manjian "></span>
+                        <span style="font-size: 18px;">满</span>
+                        <input class="text manjian" type="text" value="2">
+                        <span style="font-size: 18px;">件</span>
+                        <span class="appendmanxuan">满足2选1条件，做以下优惠措施：</span>
+                    </div>
+                </div>
+                <div class="down">
+                    <div class="chose-discount">
+                        <input type="checkbox" class="checkbox-discount" style="margin: 0 10px;">
+                        <span style="font-size: 18px">减价/打折：</span>
+                        <select class="discount-select">
+                            <option value="1">减价</option>
+                            <option value="2">打折</option>
+                        </select>
+                        <div class="discount-input-jianjia" style="font-size: 15px;display: inline;margin: 0 25px;">
+                            <span style="font-size: 15px">减</span>
+                            <input class="jianjia text activeType" type="text" >
+                            <span style="font-size: 15px">元</span>
+                        </div>
+                        <div class="discount-input-zhekou" style="font-size: 15px;display: inline;margin: 0 25px;">
+                            <span style="font-size: 15px">打</span>
+                            <input class="zhekou text activeType" type="text" >
+                            <span style="font-size: 15px">折</span>
+                        </div>
+                    </div>
+                    <div class="separateLine"></div>
+                    <div class="chose-songli" >
+                        <input type="checkbox" class="checkbox-songli" style="margin: 0 10px;">
+                        <span style="font-size: 18px">送礼物!</span>
+                        <span style="margin-left: 20px">礼物名称：</span>
+                        <input class="liwu-name text activeType" type="text" style="width: 150px;" >
+                        <span>礼物链接：</span>
+                        <input class="liwu-href text activeType" type="text" style="width: 300px;">
+                    </div>
+                    <div class="chose-baoyou">
+                        <input type="checkbox" class="checkbox-baoyou" style="margin: 0 10px;">
+                        <span style="font-size: 18px">包邮!</span><span class="append"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-detail">
+        <a class="add-promotion-detail" style="width: 850px;margin: 10px 0;" href="javascript:">点击添加优惠条件！</a>
+    </div>
+    <div>
+        <div class="buttonLine" style="width: 850px;">
+            <input type="submit" value="完成并提交"  class="nextStepBtn StepBtn2" style="color: #ffffff;
+    background-color: #a700ff;">
+        </div>
+    </div>
+
+    *{<div class="foot-effect">}*
+        *{<div class="ploy ploy_big">}*
+            *{<div class="hd">}*
+                *{<div class="ploy_icon_64">}*
+                *{</div>}*
+                *{<h4><span>商家促销</span></h4>}*
+            *{</div>}*
+            *{<div class="bd">}*
+                *{<p class="ploy_list">每笔订单满<em>5</em>件减<em>10</em>元，送<a href="http://321564" target="_blank">645465</a>，免运费！</p>}*
+                *{<p class="ploy_reason"><strong>本店带有</strong>“<span class="ico-span ico-man" title="此商品参加店铺促销，按照店铺制定规则，购满一定金额或数量，则可享受优惠。"></span>”<strong>图标的商品参与商家促销。</strong><br><span class="ploy_give">活动时间2013-09-05 - 2013-09-06</span><br>}*
+                    *{<span class="ploy_give">123131312312</span>}*
+                *{</p>}*
+            *{</div>}*
+        *{</div>}*
+    *{</div>}*
+</div>
+
+<script>
+    $(document).ready(function(){
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/dazhe/manjiansong.js',function(){
+                TM.MJD.init.doInit() ;
+            });
+        });
+    });
+
+</script>

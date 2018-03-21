@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+
+#{get 'moreStyles' /}
+<style>
+
+    .WaitingForLoadingDiv {
+        display: none; z-index: 10002;
+        color: blue;
+        font-weight: bold;
+        font-size: 18px;
+        text-align:center;
+        background-color:#fff;
+        width:520px; height: 90px;
+        padding:40px 30px;
+        font-family:'微软雅黑','宋体';
+        border: 2px solid #bebebe;
+        /*border: 3px solid transparent;*/
+        /*-webkit-border-radius: 5px;*/
+        /*-moz-border-radius: 5px;*/
+        /*border-radius: 5px;*/
+        /*-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+        /*-moz-box-shadow: 0 0 10px rgba(0,0,0,0.4);*/
+        /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+
+    }
+    .WaitingForLoadingDiv img{
+        /*margin-bottom:15px;*/
+    }
+
+
+    a {
+        text-decoration: none;
+    }
+    .inlineblock {
+        display: inline-block; *display: inline; zoom: 1;
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+    .blank0 {
+        display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+    }
+    .clearfix {
+        clear: both; zoom: 1;
+    }
+
+    .clearfix:after {
+        clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+    }
+    img {
+        border: none;
+    }
+    .shadowbase{behavior:none;}
+
+    body {
+        font-family: "微软雅黑"; font-size: 14px; background: #dbdbdb;
+        padding: 0px; margin: 0px; text-align: center;
+    }
+
+    .user-op-btn {
+        /*background: url('/img/button/bluebutton.png');*/ background: #2ad10d;
+        border: #58b00d 1px solid; margin-left: 7px; border-radius: 4px;
+        width:68px;height: 32px;line-height: 32px;
+        display: inline-block;*display: inline; zoom:1;
+        color: white;text-align: center;font-weight: bold;font-size: 14px;cursor: pointer;font-size:13px;
+    }
+    .user-op-btn:hover {
+        background: #32a621;
+    }
+    .basebtn {
+        width: 90px; height: 28px; line-height: 28px; border: #D84600 1px solid;
+        color: white; text-align: center; background: #F37406;
+        font-size: 14px; cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .basebtn:hover {
+        background: #E26101;
+    }
+
+    .all-container {
+        width: 1000px; background: white;margin: 0 auto;
+        border-left: 1px #60ac00 solid;border-right: 1px #60ac00 solid;
+    }
+    .body-container-table {
+        border-collapse: collapse; width: 100%;
+    }
+    .body-container-table .left-td {
+        border-right: 2px #60ac00 solid; text-align: left;
+        background: #b6deaa;
+        vertical-align: top;
+    }
+    .body-container-table .right-td {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .title-wrapper {
+        padding: 20px 10px; text-align: center;
+        background: white;
+    }
+    .title-wrapper .title-logo {
+        font-size: 26px; color: green; font-weight: bold;
+        margin-left: 40px;
+    }
+    .title-wrapper .top-user-nick {
+        font-weight: bold;
+    }
+
+
+    .nav-box-container {
+        padding: 0px 0px; font-size: 14px; text-align: center;
+    }
+    .nav-box-container .nav-item-block {
+        border-bottom: 1px solid #fccea5; padding: 10px 0px; display: block;
+        color: #000; cursor: pointer;
+    }
+    .nav-box-container .nav-item-block:hover {
+        color: #FF4400; background: #ffd6c3; font-weight: bold; background: #fff8ed; background: white;
+    }
+    .nav-box-container .selected-nav {
+        color: #FF4400; background: #ffd6c3; font-weight: bold; background: #fff8ed; background: white;
+    }
+
+</style>
+
+
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+</script>
+<script src="/js/jquery-1.6.4.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+
+</script>
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+<!--<div class="LoadingMask" style="display: none; border: 0;"></div>-->
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    //TM.gcs('/js/tm.js');
+
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function(){
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_tms="+TM.tms;
+                }else{
+                    href += "?_tms="+TM.tms;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        $(document).ready(function(){
+            TM.setAnchorSids();
+        })
+
+
+
+        var hasPath = false;
+
+
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function(){
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+    })(jQuery, window));
+</script>
+
+<script src="/js/taotuiguang/taotgbase.js"></script>
+
+<div style="text-align: center;">
+    <div class="all-container">
+        <table class="body-container-table">
+            <tbody>
+            <tr>
+                <td class="left-td" style="width: 20%;">
+                    <div style="margin-bottom: 100px;">
+                        <div class="nav-box-container" style="margin-top: 130px;">
+                            <a class="nav-item-block">首&nbsp;页</a>
+                        </div>
+                    </div>
+
+                </td>
+                <td class="right-td">
+                    <div class="title-wrapper">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td style="width: 200px;">
+                                    <div class="title-logo">淘 推 广</div>
+                                </td>
+                                <td style="width: 250px; text-align: right;">
+                                    <div style="">欢迎您!&nbsp; <span class="top-user-nick"></span></div>
+                                </td>
+                                <td style="width: 200px; text-align: right;">
+                                    <span id='syncBtn' class="user-op-btn ">更新数据</span>
+                                    <span id="logout" class="user-op-btn " >退出</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $.get("/taotuiguang/queryUserNick", function(data) {
+        $(".title-wrapper .top-user-nick").html(data);
+    });
+
+</script>
+
+<script type="text/javascript">
+    var navObj = $('.nav-box-container');
+    var lowPath = path.toLowerCase();
+
+    navObj.find('a').each(function(){
+        var anchor = $(this);
+        var anchorHref = anchor.attr('href').toLowerCase();
+        if(lowPath.indexOf(anchorHref) >= 0 && lowPath.length > 2){
+            navObj.find('a').removeClass('selected-nav');
+            anchor.addClass('selected-nav');
+        }
+    });
+
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            /*TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+             window.location.reload();
+             });*/
+            alert("亲，同步成功,点击确定刷新页面");
+            window.location.reload();
+        });
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+
+</script>
+
+#{get 'moreScripts' /}
+
+</body>
+</html>

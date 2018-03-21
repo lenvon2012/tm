@@ -1,0 +1,230 @@
+
+body{
+        font: 62.5% "Trebuchet MS", sans-serif;
+    }
+
+.DiagnoseChart{background-color: white;height:750px;}
+.DiagnoseChart td{vertical-align: top;}
+
+    #dialog-link {
+        padding: .4em 1em .4em 20px;
+        text-decoration: none;
+        position: relative;
+    }
+    #dialog-link span.ui-icon {
+        margin: 0 5px 0 0;
+        position: absolute;
+        left: .2em;
+        top: 50%;
+        margin-top: -8px;
+    }
+    #score{
+    margin-left:450px;
+    width:auto;
+    height:450px;
+    background:url("http://img01.taobaocdn.com/imgextra/i1/1039626382/T2N5OHXlNbXXXXXXXX_!!1039626382.jpg");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    }
+       #face{
+    width:200px;
+   height:260px;
+   margin-top:6%;
+    float: left;
+   margin-bottom: 6%;
+   }
+    #welcome{
+    	margin-top:200px;
+     	font-size: 24px;
+     	font-weight: bold;
+    }
+    #comprehensive{
+    	font-size: 20px;
+    }
+    #comprehensiveScore{
+    	font-size: 20px;
+    	font-weight: bold;
+    	color: red;
+    }
+    #comprehensive1{
+    	font-size: 20px;
+    }
+    #comprehensiveScore1{
+    	font-size: 20px;
+    	font-weight: bold;
+    	color: red;
+    }
+	#category{
+		font-size: 18px;
+	}
+	#categoryName{
+		font-size: 20px;
+    	font-weight: bold;
+    	color: maroon;
+	}
+	#baby{
+		font-size: 18px;
+	}
+	#babyCount{
+		color: red;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	#fight{
+		font-size: 18px;
+	}
+	#shopFight{
+		color: red;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	#typeFight{
+		color: red;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	#rightNow{
+		border: 0;
+	}
+	#version_top{
+		width:700px;
+		height:148px;
+	}
+	#version_middle{
+		width:700px;
+		height:191px;
+	}
+	#version_foot{
+		width:700px;
+		height:190px;
+	}
+	#shop_check_controller{
+		text-align: center;
+	}
+	#shop_check_radar{
+		width: 120px;
+		height: 120px;
+		background-image: url("/public/images/check/saomiaox86_bg.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		float:left;
+	}
+	#shop_check_radar_scoling{
+		margin-top: 14px;
+	}
+	#shop_check_progress{
+		background-image: url("/public/images/check/loadingbg.png");
+		width: 500px;
+		height:120px;
+		float:left;
+		background-repeat:no-repeat;
+		background-position: center; 
+	}
+	#check_begin{
+		margin-top:50px; 
+	}
+	#check_progressbar{
+	    text-align:left;
+		margin-top:-25px;
+		width:0px;
+		z-index: -1;
+        background-image: url('/public/images/check/loadingright.png');
+	}
+	#_schedule{
+		clear:both;
+		height: 20px;
+        margin-top:75px;
+        z-index:1;
+        float: left;
+        display:block;
+	}
+	#shop_check_startbtn{
+		margin-top:20px;
+		width: 260px;
+		height: 75px;
+		background-image:url("/public/images/check/de-button.png");
+		background-position: left top;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		position: relative;
+		display: block;
+		float:left;
+	}
+	#shop_check_startbtn:HOVER{
+		background-position: left -75px;
+	}
+	#check_table{
+		margin-left: 100px;
+	}
+	#shop_check_result{
+	    position:relative;
+		margin-left: 100px;
+        /*border:5px solid red;*/
+        /*margin: 0px auto;*/
+        background: url(http://img02.taobaocdn.com/imgextra/i2/1039626382/T2Wd6CXbVbXXXXXXXX_!!1039626382.png) no-repeat;
+        padding-top:200px;
+        width:800px;
+	}
+	.result_list{
+        background-image: url("/public/images/check/1.png");
+		width: 580px;
+		height: 130px;
+        padding: 0 20px 0 20px;
+        margin-top:3px;
+        margin: 0 auto;
+        /*border:5px solid blue;*/
+	}
+	.result_list:HOVER {
+
+		cursor:pointer;
+	}
+	.result_stylte{
+		/*margin-top:25px;*/
+        margin-left:10px;
+		font-size: 18px;
+		color: black;
+	}
+	#diag_xl,#diag_ts,#diag_th,#best,#good,#pass,#fail{
+		color: red;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	#auto_time,#_rational,
+	#autowin_ratio,#_count,
+	#inBadTimeCount,{
+		font-weight:bold;
+		font-size: 20px;
+		color: red;
+	}
+
+    #monday,#tuesday,#wednesday,#thursday,#friday,#saturday,#sunday,
+    #predict-monday,#predict-tuesday,#predict-wednesday,#predict-thursday,#predict-friday,#predict-saturday,#predict-sunday{
+        font-weight:bold;
+        font-size: 12px;
+        color: red;
+    }
+
+	#diag_star{
+		background-image:url("/public/images/check/de-icon.png");
+		background-repeat:no-repeat;
+		width: 24px;
+		height: 24px;
+		background-position: 0px 0px;
+		float: left;
+	}
+
+/* 
+.optimizebtn{
+    width: 182px;height: 52px;line-height: 52px;text-align: center;
+    background:url("/public/images/check/button.png") no-repeat;
+    cursor: pointer;color:white;font-size:16px;
+    display:block;
+    padding-left: 2px;
+}
+.optimizebtn:hover{background-position: left -55px;}
+ */
+.diagDetailText{
+    font-size:12px;margin-top:1px;line-height: 20px;color:#5B5B5B;
+}
+
+.buttonline{padding-left:150px;}

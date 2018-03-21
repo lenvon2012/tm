@@ -1,0 +1,16 @@
+alter table jd_item_0 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_1 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_2 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_3 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_4 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_5 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_6 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_7 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_8 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_9 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_10 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_11 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_12 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_13 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_14 add column `skuId` bigint(20) NOT NULL default 0;
+alter table jd_item_15 add column `skuId` bigint(20) NOT NULL default 0;

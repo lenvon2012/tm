@@ -1,0 +1,98 @@
+#{extends 'fxmain.html' /}
+
+#{set title:'自动分类' /}
+<style>
+       #autodiag{margin: 0 auto;position: relative;text-align: center;}
+       #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+       .diagbtn{background-position: left bottom;top:20px;left:0px;}
+       .diagbtnpos{text-align: center;margin: 0 auto;position: relative;border: 1px solid #ddd;}
+       .oknoproblem{width:400px;height:100px;margin:0 auto;text-align: center;vertical-align: middle;}
+       .errormsg{background-color: 	#FFF4C1}
+       .oplogs td {border: 1px solid #ccc;padding: 3px 0 3px 0;}
+
+       .resBody a:hover{color:#ff4500;}
+       .resBody p {text-align: left;margin:3px 0;}
+       .rmlinks {
+           text-align: center;
+           margin: 3px 0px;
+           border: 1px solid #DDDDDD;
+       }
+       .rmlinks a{
+           font-size:13px;
+       }
+       .doAllAutoCatBtn {
+           margin:10px;
+       }
+       .remove-all-label {
+           vertical-align: middle;
+           margin-left: 3px;
+           font-weight: bold;
+       }
+       .loading-text {
+           margin-left: 10px;
+       }
+       table.busSearch td {
+           border: 1px solid #bebebe;
+       }
+       .paging-div {
+           margin: 5px 0;
+       }
+       .edit-autocat, run-autocat {
+           margin: 3px 10px;
+       }
+</style>
+
+*{<div class="page-hierarchy" style="margin-bottom: 10px;">}*
+    *{<span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/fenxiao">分销神器&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>自动分类}*
+*{</div>}*
+<div class="bodyline">
+    <div class="autodiagIntro" style="height: 50px;">
+        <b style="font-weight: bold;color:blue;">功能介绍：</b>根据每个类目设定的分类规则，自动将宝贝分类
+        <br><b>注意：</b>目前只支持根据 <b class="red">标题含此关键词</b> 来分类；其他分类规则我们近期将开通
+        *{<p style="font-weight: bold;padding-top:5px;">如果需要重新排查已去外链的宝贝，请点击&nbsp;<span class="btn" >清除历史记录</span></p>}*
+    </div>
+</div>
+
+<div id='autodiag' >
+    <div class="diagbtnpos">
+        <div class="option-panel">
+            <span class="doAllAutoCatBtn btn btn-warning btn-large"><b>执行全部分类规则</b></span>
+        </div>
+        <div class="data-panel">
+            <table class="busSearch">
+                <thead>
+                <tr>
+                    <th>分类</th>
+                    <th>已设置分类规则</th>
+                    <th style="width:30%;">操作</th>
+                </tr>
+                </thead>
+                <tbody class="data-space">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='clearfix'></div>
+
+<!-- jquery template {{= xxx}}写法：注意中间有一个空格 -->
+<script type="text/x-jquery-tmpl" id="tplItem">
+    <tr cid="{{= id}}">
+        <td>{{= name}}({{= count}})</td>
+        <td>{{= ruleData}}</td>
+        <td><span class="edit-autocat btn btn-success">更改分类规则</span><span class="run-autocat btn btn-warning">执行该分类</span></td>
+    </tr>
+</script>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+TM.gcs('/js/jquery.tmpl.js', function(){
+    TM.gcs('/js/fenxiao/autocat.js?v=2', function(){
+        $(document).ready(function () {
+            TM.AutoCat.Init.init();
+        });
+    });
+});
+</script>
+#{/set}

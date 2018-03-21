@@ -1,0 +1,73 @@
+#{extends 'skinWindows/skinWindowsIndex.html' /}
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+#{set title:'宝贝收藏' /}
+<style>
+    .shoucang{width: 780px;}
+    .shoucangList{width: 780px;}
+    .shoucangTable,.unfavedTable{font-size: 13px;}
+    .itemcheck{width: 30px;text-align: center;}
+    .itemimg{width: 70px;text-align: center;}
+    .itemtitle{width: 580px;text-align: center;}
+    .operation{width: 90px;text-align: center;}
+    .opertaionSpan{cursor: pointer;background:url("/img/btn-bg-blue-s.jpg");display: inline-block;width: 80px;height: 25px;line-height: 25px;color: #ffffff;}
+    .opertaionSpan:hover{background:url("/img/btn-bg-blue-s.gif");}
+    .addItems{cursor: pointer;width: 80px;height: 25px;background:url("/img/btn-bg-blue-s.jpg");margin: 10px 0 0 20px;line-height: 25px;color: #ffffff;font-size: 13px;text-align: center;}
+    .addItems:hover{background:url("/img/btn-bg-blue-s.gif");}
+    .tmNav{border-bottom:1px solid #4297d7;margin-right: 10px;}
+    .tmNav span{border-bottom: none;}
+</style>
+<div class="notification information png_bg" style="width:760px;margin: 0 auto;" id="warmNotice">
+    <img src="/public/images/tips/arrow_up.gif" title="关闭功能介绍" alt="close" id="closeImg" class="close">
+    <div >
+        功能介绍：
+
+        <ol style="list-style: none;-webkit-padding-start:0px;">
+            <li class="tips">
+                1)."百度搜藏"是免费的网络收藏夹。帮您高效地收藏、整理网络资源，无论您到哪里，都可以随时随地浏览、搜索和使用.
+            </li>
+            <li class="tips">
+                <br />
+                2)."百度收藏"不必担心网页链接失效，您可以通过“快照”快速浏览页面内容
+
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="tmNav"><span class="selected"><a tag="faved">已推广宝贝</a></span><span><a tag="unfaved">未推广宝贝</a></span></div>
+
+<div class="shoucang">
+    <div class="paging" style="text-align: center;"></div>
+    <div class="shoucangList"></div>
+    <div class="paging" style="text-align: center;"></div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/jquery.pagination.js', function () {
+            TM.gcs('/js/multiOpByURL.js?_v=2', function () {
+                TM.gcs('/js/Shoucang/shoucang.js', function () {
+                    TM.shoucang.Itemlist.getItems($('.shoucangList'));
+                    $("#closeImg").click(function(){
+                        if($("#warmNotice ol").css("display")=="block")
+                        {
+                            $("#warmNotice ol").slideUp('normal');
+                            $("#closeImg").attr("title", "打开功能介绍");
+                            $("#closeImg").attr("src","http://img02.taobaocdn.com/imgextra/i2/1039626382/T2S5O1XoJXXXXXXXXX_!!1039626382.gif");
+                        }
+                        else if($("#warmNotice ol").css("display")=="none")
+                        {
+                            $("#warmNotice ol").slideDown('normal');
+                            $("#closeImg").attr("title", "关闭功能介绍");
+                            $("#closeImg").attr("src","http://img03.taobaocdn.com/imgextra/i3/1039626382/T2No11XjNXXXXXXXXX_!!1039626382.gif");
+                        }
+                    });
+                });
+            });
+        });
+    })
+
+</script>
+#{/set}

@@ -1,0 +1,44 @@
+<div type='text/x-jquery-tmpl' class="itemDetailTmpl">
+    <table width="750" border="0" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
+        <tbody>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                {{each(i,commodity) commoditys}}
+                <table cellspacing="0" cellpadding="0" border="0" style="float: left; margin: 2px;">
+                    <tbody>
+                    <tr>
+                        <td style="width:180px; height:180px; background-repeat:no-repeat; border:1px solid #dadada; background-position:50% 50%;overflow:hidden;">
+                            <a style="display:block;width:180px; height:180px;" href="#2" target="_blank"
+                               title="{{= commodity.ctitle}}">
+                                <img src="{{= commodity.picture}}" style="display: block; width: 180px; height:180px; "/>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                {{/each}}
+
+                <table cellspacing="0" cellpadding="0" border="0" style="float:left;margin:2px;">
+                    <tbody>
+                    <tr>
+                        <td style="width:160px; height:180px; color:#FFF; background:{{= defaultColor}}; font-size:20px; font-weight:700; border:1px solid #dadada; overflow:hidden; text-align:left; padding-left:20px;">
+                            <div style="">ITEMS</div>
+                            <div style="">RECOMMEND</div>
+                            <div style=" font-family: 'Microsoft YaHei', '微软雅黑';">{{= saleName}}</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+

@@ -1,0 +1,48 @@
+#{extends 'fxmain.html' /}
+
+#{set title:'宝贝诊断' /}
+<style>
+       #autodiag{margin: 0 auto;position: relative;text-align: center;}
+       #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+       .diagbtn{background-position: left bottom;top:20px;left:0px;font-size: 30px;line-height: 60px;}
+       .oknoproblem{width:400px;height:200px;margin:0 auto;text-align: center;vertical-align: middle;}
+       .errormsg{background-color: 	#FFF4C1}
+       .oplogs td {border: 1px solid #ccc;padding: 3px 0 3px 0;}
+       .tochekcbtn{margin:10px;}
+       .diagbtnpos{text-align: center;margin: 0 auto;position: relative;border: 1px solid #ddd;}
+       .oplogs{width: 100%;margin:0px;}
+
+</style>
+
+
+*{<div class="page-hierarchy" style="margin-bottom: 10px;">}*
+    *{<span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/fenxiao">分销神器&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>宝贝检测}*
+*{</div>}*
+<div class="bodyline">
+    <p class="autodiagIntro">
+        <b style="font-weight: bold;color:blue;">功能介绍：</b>检查宝贝属性是否完整，是否符合规范。
+        <br>
+        <b>提示：</b>完善宝贝属性，能够增加宝贝的<b class="red">搜索展现量</b>，能有效提高流量！
+    </p>
+</div>
+
+<div class="diagbtnpos">
+    <span class="tochekcbtn btn btn-large btn-success">立即检查宝贝属性</span>
+</div>
+
+<div id='autodiag' >
+
+</div>
+<div class='clearfix'></div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.gcs('/js/itemdiag/itempropdiag.js?v=4', function(){
+        $(document).ready(function () {
+            TM.PropDiag.init($('#autodiag'));
+        });
+    });
+
+</script>
+#{/set}

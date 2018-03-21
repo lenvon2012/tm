@@ -1,0 +1,98 @@
+
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+
+
+.clearfix {
+    clear: both; zoom: 1;
+}
+
+.clearfix:after {
+    clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+}
+
+
+.relationOpContainer {
+    padding: 10px;
+}
+.search-container {
+    font-family: "微软雅黑"; font-size: 14px; color: #333;
+    background: #ececec;border: 1px rgb(214, 209, 209) solid;
+}
+.search-container .search-text {
+    width: 180px;
+}
+.search-container select {
+    width: 110px;
+}
+.search-container .search-btn {
+
+}
+
+
+.relationOpContainer .batchop-div {
+    text-align: center;
+}
+.relationOpContainer .batchop-div table {
+    margin: 0 auto;
+}
+.relationOpContainer .batchop-div table td {
+    padding-left: 20px;
+}
+.relationOpContainer .paging-div {
+    text-align: center;
+}
+
+.relationOpContainer .list-table {
+    width: 100%;
+    font-family: "微软雅黑"; font-size: 14px; color: #333;
+    margin: 10px 0px;
+}
+.relationOpContainer .list-table thead tr {
+    width: 100%; font-family: "微软雅黑"; font-size: 14px; color: #1D5987; font-weight: bold;
+    background: left -102px url('/public/images/frame/bg.png'); height: 32px;
+    text-align: center;
+}
+.relationOpContainer .list-table tbody td {
+    text-align: center; padding: 5px;
+    font-family: "微软雅黑"; font-size: 14px;
+}
+.relationOpContainer .item-table .item-img {
+    width: 60px; height: 60px; cursor: pointer;
+}
+.relationOpContainer .item-table input[type=checkbox] {
+    cursor: pointer;
+}
+.relationOpContainer .list-table .item-title {
+    cursor: pointer;
+}
+
+
+.relationOpContainer .error-item-div {
+    font-family: "微软雅黑";display: none;
+}
+.relationOpContainer .error-tip-span {
+    font-size: 22px; display: block;
+}
+.relationOpContainer .error-item-table .item-img {
+    width: 80px; height: 80px; cursor: pointer;
+}
+
+.modify-price-dialog {
+    font-family: "微软雅黑"; font-size: 14px; text-align: center; margin-top: 15px;
+}
+.modify-price-dialog .new-price-text {
+    width: 100px;
+}
+.modify-price-dialog .modify-price-type-radio {
+    cursor: pointer;
+}
+.modify-price-dialog .modify-price-type-span {
+    cursor: pointer;
+}
+.modify-price-dialog .modify-div {
+    margin-top: 10px;
+}
+.modify-price-dialog{background:white;margin-top:0px;}
+/*.ui-widget-content{background:rgba(82, 82, 82, 0.7);}*/

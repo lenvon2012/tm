@@ -1,0 +1,108 @@
+#{extends 'skincomment/skinautodefendersubbase.html' /}
+#{set title:'商品保护(限购)' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+
+<div class="itemprotection-container">
+	<form action="/SkinDefender/updateItemProtectionDetail" method="post" >
+		<input type="hidden" name="option.numIid" value="${option.numIid}" />
+		<table class="skindefender-table" width="100%">
+			<thead>
+				<tr>
+					<th colspan="3">限购宝贝信息</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="${item.picURL}" width="100px" height="100px" /></td>
+					<td>
+					<font color="red" style="font-weight: bold;">${item.title}</font>
+					<br>
+					</td>
+					*{<td><a href="" target="_blank">使用教程</a></td>}*
+				</tr>
+			</tbody>
+		</table>
+    <table class="skincomment-table">
+        <thead>
+        <tr>
+            <th style="width:50px;">序号</th>
+            <th>防御配置</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td class="dfconfigtd">
+            	同一个用户在<input type="text" class="numberInput" name="option.daysLimit" value="${option.daysLimit}"> 天内，<br>
+            	购买该宝贝的订单数不超过：<input type="text" class="numberInput" name="option.tradeNum" value="${option.tradeNum}">
+            	<br>
+            	每个订单最少购买商品个数：<input type="text" class="numberInput" name="option.itemMinNum" value="${option.itemMinNum}">，
+            	每个订单最多购买商品个数：<input type="text" class="numberInput" name="option.itemMaxNum" value="${option.itemMaxNum}">
+            	
+            	<span class="configintro">&nbsp;&nbsp;<font color="green">(0或为空表示禁用该选项)</font></span>
+            </td>
+        </tr>
+        
+        *{<tr>
+            <td>2</td>
+            <td  class="dfconfigtd">
+                只有<select name="option.vipLevel" id="option.vipLevel">
+                <option value="0" #{if option.vipLevel == 0 }selected="selected" #{/if}>普通淘宝用户及以上等级</option>
+                <option value="1" #{if option.vipLevel == 1 }selected="selected" #{/if}>VIP1及以上等级</option>
+                <option value="2" #{if option.vipLevel == 2 }selected="selected" #{/if}>VIP2及以上等级</option>
+                <option value="3" #{if option.vipLevel == 3 }selected="selected" #{/if}>VIP3及以上等级</option>
+                <option value="4" #{if option.vipLevel == 4 }selected="selected" #{/if}>VIP4及以上等级</option>
+                <option value="5" #{if option.vipLevel == 5 }selected="selected" #{/if}>VIP5及以上等级</option>
+                <option value="6" #{if option.vipLevel == 6 }selected="selected" #{/if}>VIP6及以上等级</option>
+                <option value="7" #{if option.vipLevel == 7 }selected="selected" #{/if}>VIP7(不对外出售)</option>
+            </select>的买家才可以购买该宝贝。 <a href="http://vip.taobao.com/account_info.htm" target="_blank">查看会员等级介绍</a><br>
+                <font color="green">目前淘宝最高为VIP6，若设置VIP7则全淘宝无人能购买。</font>
+
+            </td>
+        </tr>
+        }*
+        <tr>
+            <td>2</td>
+            <td class="dfconfigtd">
+                关闭订单时，给买家显示理由：&nbsp;
+                <input type="text" name="option.closeReason" maxlength="14" value="${option.closeReason}" class="commentInput">
+                <br><span class="configintro" style="color:green">字数范围在6字到14字之间，建议设置成“系统错误，请联系客服！”</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" maxlength="20" value="更新配置" class="search-btn commbutton btntext4">
+                <input type="button" maxlength="20" value="删除配置" class="delete-btn commbutton btntext4" numiid="${option.numIid}">
+                <input type="button" maxlength="20" value="取消" class="cancel-btn commbutton btntext4">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+   </form>
+
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/x-jquery-tmpl" id="tplItem">
+	<tr><td>${"\${picUrl}"}</td><td>${"\${title}"}</td><td>${"\${itemLimit}"}</td><td><input type="button" id="addItemProtection" value="添加规则" /></td></tr>
+</script>
+
+<script type="text/javascript">
+	TM.gcs('/js/switch.js', function() {
+		TM.gcs('/js/skincomment/itemprotection.js',function(){
+			$(document).ready(function() {
+				TM.Loading.init.show();
+				TM.ItemProtection.init.doInit($(".itemprotection-container"));
+				});
+			});
+		}); 
+</script>
+
+
+

@@ -1,0 +1,1 @@
+play run --%%ww -XX%:MaxPermSize=512M  -Xms2048M -Xmx2048M

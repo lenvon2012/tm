@@ -1,0 +1,66 @@
+#{extends 'keymain.html' /}
+
+#{set title:'标题还原中心' /}
+<style>
+    #recover{margin:10px 20px 0 20px;min-height:1000px;_height:1000px;}
+    .pagination{text-align: center;margin: 0;}
+    .oplogs td{height:40px;}
+    .pagination a, .pagination span{
+        float: none;
+        display: inline;
+    }
+</style>
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>标题还原中心
+</div>
+<div id='recover' class="">
+    *{<div class="intro">}*
+        *{<div class="red">标题还原中心</div>}*
+    *{</div>}*
+    <div class="nav">
+        *{<span>全店标题一个键优化记录</span>}*
+    </div>
+    <div id="batchAllRecords">
+        <div class="blank0" style="height: 1px;"></div>
+        <div class="pagination"></div>
+
+        <div class="blank0" style="height: 30px;"></div>
+        <div>
+            <table class="oplogs">
+                <thead><tr>
+                    <th width="40px">序号</th>
+                    <th width="180px">操作时间</th>
+                    <th width="120px">成功优化宝贝数</th>
+                    <th>查看详情</th>
+                    <th>一键还原</th>
+                </tr></thead>
+                <tbody id="batchAllBody"></tbody>
+            </table>
+        </div>
+        <div class="blank0" style="height: 5px;"></div>
+        <div class="pagination"></div>
+        <div class="blank0" style="height: 1px;"></div>
+    </div>
+</div>
+<div class='clearfix'></div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/tm.js',function(){
+            TM.gcs('/js/jquery.url.js',function(){
+            TM.gcs('/js/multiModify.js',function(){
+                TM.gcs('/js/autoTitle/recover.js',function(){
+                    $(document).ready(function(){
+                        var page_url = window.location.href;
+                        var uri = $.url(page_url,true);
+                        var id = uri.data.param.query.id;
+                        TM.TitleRecover.init(id);
+                    });
+                });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

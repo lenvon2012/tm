@@ -1,0 +1,159 @@
+#{extends 'keymain.html' /}
+#{set title:'topshop' /}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/topshop/topshop.css'}">
+<div class = "topshopcontainer">
+	<!-- 筛选器 -->
+	<div class = "topshopsizer">
+		<div class = "catgory" >
+			<span>店铺类目</span>
+                <select name="selectCat2" class="selectCat2">
+                    <option value="9">时尚女装</option>
+                    <option value="10">靓丽女鞋码</option>
+                    <option value="11">帅气男装</option>
+                    <option value="12">流行男鞋</option>
+                    <option value="13">内衣/家居服</option>
+                    <option value="14">精品箱包</option>
+                    <option value="15">男人帮 配饰</option>
+                    <option value="16">闺蜜秀 配饰</option>
+                    <option value="17">璀璨珠宝</option>
+                    <option value="18">电脑/配件</option>
+                    <option value="19">手机/配件</option>
+                    <option value="20">摄影器材</option>
+                    <option value="21">影音产品</option>
+                    <option value="22">厨房家电</option>
+                    <option value="23">生活家电</option>
+                    <option value="24">办公数码</option>
+                    <option value="25">3c数码配件</option>
+                    <option value="26">美容护肤</option>
+                    <option value="27">香水/美丽彩妆</option>
+                    <option value="28">身体护理</option>
+                    <option value="29">功效</option>
+                    <option value="30">宝宝服饰</option>
+                    <option value="31">宝宝食品</option>
+                    <option value="32">宝宝用品</option>
+                    <option value="33">宝宝玩具</option>
+                    <option value="34">孕妇用品</option>
+                    <option value="35">孕妇服饰</option>
+                    <option value="36">休闲零食</option>
+                    <option value="37">冲饮品</option>
+                    <option value="38">民生食品</option>
+                    <option value="39">保健食品</option>
+                    <option value="40">茶叶饮品</option>
+                    <option value="41">活力户外</option>
+                    <option value="42">健康运动</option>
+                    <option value="43">热销图书</option>
+                    <option value="44">投资收藏</option>
+                    <option value="45">度假旅游</option>
+                    <option value="46">乐器/配件</option>
+                    <option value="47">日用/礼品</option>
+                    <option value="48">床品/布艺</option>
+                    <option value="49">厨房/餐饮</option>
+                    <option value="50">日化/清洁</option>
+                    <option value="51">折扣券</option>
+                    <option value="52">成人用品</option>
+                    <option value="53">商业/办公家具</option>
+                    <option value="54">布艺软饰</option>
+                    <option value="55">工艺饰品</option>
+                    <option value="56">家装主材</option>
+                    <option value="57">住宅家具</option>
+                    <option value="58">五金/工具</option>
+                    <option value="59">买房/租房</option>
+                    <option value="60">趣味玩具</option>
+                    <option value="61">游戏</option>
+                    <option value="62">汽车配件</option>
+                    <option value="63">骑行/配件</option>
+                    <option value="64">宠物宝贝</option>
+                    <option value="65">鲜花植物</option>
+                </select>
+
+                <select name="selectCat3" class="selectCat3" >
+                    <option>卫衣/绒衫</option>
+                    <option>毛呢外套</option>
+                    <option>风衣</option>
+                    <option>毛衣</option>
+                    <option>羽绒服</option>
+                    <option>连衣裙</option>
+                    <option>打底衫</option>
+                    <option>衬衫</option>
+                    <option>针织衫</option>
+                    <option>牛仔裤</option>
+                    <option>半身裙</option>
+                    <option>打底裤</option>
+                    <option>马甲</option>
+                    <option>T恤</option>
+                    <option>背心/吊带</option>
+                    <option>女士西装</option>
+                    <option>棉衣/棉服</option>
+                    <option>裤子</option>
+                    <option>婚纱/礼服</option>
+                    <option>中老年服装</option>
+                    <option>蕾丝/雪纺衫</option>
+                    <option>特大特小服装</option>
+                    <option>女士皮衣</option>
+                    <option>短外套</option>
+                    <option>女士皮草</option>
+                    <option>职业套装</option>
+                    <option>休闲长裤</option>
+                    <option>民族/舞台服</option>
+                    <option>学生校服</option>
+                    <option>工作制服</option>
+                    <option>牛奶丝女装</option>
+                    <option></option>
+                </select>
+		</div>
+		
+		<div class = "shopsales" style="display: none;">
+			<span>
+				30天内的销量：
+			</span>
+			<div>
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 结果显示区 -->
+	<div class = "topshopresult">
+		<table class = "shopresult">
+		<!-- 各式样板 -->
+			<!-- <tr class = "showItems" style="display:none">
+			<td></td>
+			<td></td>
+			<td>
+				<table class = "itemResult" >
+					<tr>
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+								<img alt='宝贝图片' src="asdasd">
+								</td>
+								<td>
+									<span>宝贝名称：</span><span>宝贝销量：</span>
+								</td>
+							</tr>
+						</table>
+					</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			 -->
+			
+		</table>
+	</div>
+</div>
+#{set 'moreScripts'}
+<Script type="text/javascript">
+$(document).ready(function(){
+    	$.getScript("/js/tm.js",function(){
+        	$.getScript("/js/topshop/topshop.js",function(){
+        		TS.shops.select2changeFunction();
+        		TS.shops.select3changeFunction();
+        		#{get 'moreAjaxScripts' /};
+            });
+        });
+    });
+</Script>
+#{/set}

@@ -1,0 +1,16 @@
+alter table order_display_0 add column `receiverName` varchar(63) NULL;
+alter table order_display_1 add column `receiverName` varchar(63) NULL;
+alter table order_display_2 add column `receiverName` varchar(63) NULL;
+alter table order_display_3 add column `receiverName` varchar(63) NULL;
+alter table order_display_4 add column `receiverName` varchar(63) NULL;
+alter table order_display_5 add column `receiverName` varchar(63) NULL;
+alter table order_display_6 add column `receiverName` varchar(63) NULL;
+alter table order_display_7 add column `receiverName` varchar(63) NULL;
+alter table order_display_8 add column `receiverName` varchar(63) NULL;
+alter table order_display_9 add column `receiverName` varchar(63) NULL;
+alter table order_display_10 add column `receiverName` varchar(63) NULL;
+alter table order_display_11 add column `receiverName` varchar(63) NULL;
+alter table order_display_12 add column `receiverName` varchar(63) NULL;
+alter table order_display_13 add column `receiverName` varchar(63) NULL;
+alter table order_display_14 add column `receiverName` varchar(63) NULL;
+alter table order_display_15 add column `receiverName` varchar(63) NULL;

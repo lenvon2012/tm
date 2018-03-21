@@ -1,0 +1,193 @@
+#{extends 'tbtnav/tbtnavdata.html' /}
+
+#{set title:'热销宝贝排行榜' /}
+
+<link href="https://g.alicdn.com/sj/qnui/1.4.3/css/sui.min.css?qntag=1" rel="stylesheet">
+<link href="https://g.alicdn.com/sj/qnui/1.4.3/css/sui-append.min.css?qntag=2" rel="stylesheet">
+<!-- <script type="text/javascript" src="https://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js?qntag=3"></script>
+<script type="text/javascript" src="https://g.alicdn.com/sj/qnui/1.4.3/js/sui.min.js?qntag=4"></script> -->
+
+<link href="http://txgyun.b0.upaiyun.com/paiming/css/rank/top.css?v=1" rel="stylesheet" type="text/css">
+
+<link href="http://cdn.laiqt.com/kb/css/paiming/tradequery.css?v=20160903" rel="stylesheet" type="text/css">
+
+<div class="page-hierarchy">
+	<span style="font-size: 16px;">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>热销宝贝排行榜
+</div>
+
+<div class="Salesranking" style="width: 1500px;">
+	<div class="ShopSalesAnalysis_three_top" style="width: 1500px; margin-top: 15px;">
+		<a class="SurStoreInformation_content_righttop_a1">选择行业：</a>
+		<div class="input_text">
+
+			<div class="hy_action">
+				<div id="hy_select">
+					<div class="hy_select_top">
+						<span class="select-span" lang="-1" style="color: rgb(48, 133, 213);">您当前无已关注的行业</span> <img class="select-span-icon" src="http://txgyun.b0.upaiyun.com/paiming/img/rank/trade/top_select_anniu1_27.png" alt="倒叙排序" style="margin-top: 9px; margin-left: 8px;">
+					</div>
+					<div class="select-ul-div hidden">
+						<ul class="select-ul">
+						</ul>
+					</div>
+				</div>
+				<input type="button" id="followBtn" class="addBtn actionBtn" value="我要关注行业" style="background-color: #3085D5;"> <input type="button" id="unfollowBtn"  class="deleteBtn actionBtn" value="取消关注">
+				<div class="enable_cat" style="color: #6eb2dc; font-size: 14px; float: left; margin-left: 10px; margin-top: 3px;"></div>
+			</div>
+
+			<script type="text/html" id="dialog_addCat">
+				<div class="trade_selector">
+					<span class="trade_selector_close">×</span>
+					<span class='note_title_cls'>选择行业类目</span>
+					<div class="sel_boxs">
+						<div class="trade_search">
+							<div>
+								<span class="trade_search_title">类目选择：</span>
+								<input type="text" style="margin-bottom: 7px; border: 0; height: 31px;" class="trade_selected_input" readonly="readonly"/>
+								<img class="select_icon" src="http://txgyun.b0.upaiyun.com/paiming/img/rank/trade/top_select_anniu1_27.png"  alt="倒叙排序">
+							</div>
+						</div>
+
+						<div class="trade_selector_div">
+							<div class="trade_selector_class selector_1">
+								<div class="selector_search" style="margin-left: -1px;">
+									<label>
+										<input type="text" class="trade_search_input" style="width: 148px; height: 23px;" placeholder="可输入类目直接查询"/>
+										<div class="ic_search floatRight mt-5 ml-5 mr-5"></div>
+									</label>
+								</div>
+								<div class="selector_content" style="height: 359px;">
+								</div>
+							</div>
+							<div class="trade_selector_class selector_2">
+								<div class="selector_content">
+								</div>
+							</div>
+							<div class="trade_selector_class selector_3">
+								<div class="selector_content">
+								</div>
+							</div>
+							<div class="trade_selector_class selector_4">
+								<div class="selector_content">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cust_panel_cls">
+						<span class="hrCls" style="margin-top:10px;"></span>
+						<span class='note_title_cls'>自定义行业</span>
+						<span class="hrCls"></span>
+						<br>
+						<ul class="ul_form" id="id2" style="position:relative;width:700px !important">
+							<li class="li_note">添加此关键词，我们需要48小时帮您收集数据，请于48小时之后再进行查看
+							</li>
+							<li class="li_label">关键词名称:</li>
+							<li class="li_input">
+								<input id="keyword" name="keyword" size=10>
+							</li>
+						</ul>
+					</div>
+					<div class="trade_selector_notice">
+						<span style="color: red; margin-left: 42px;">成功关注后的行业只能在12小时后取消关注，谨慎选择需要关注的行业哦~</span>
+						<span class="vip_not" style="display: none;">您当前可以关注{tradeLimit}个行业，目前已关注了{tradeCount}个。想要关注更多行业，<a
+								href="/order/product_purchase.htm" target="_blank">请升级您的权限</a></span>
+					</div>
+					<div class="add_trade_div">
+						<div class="add_trade_btn" id="addTrade">添加关注</div>
+					</div>
+				</div>
+			</script>
+			<script type="text/html" id="trade_select">
+				<li id="key_li_{key_id}" lang="{key_id}" isParent="{key_isParent}" updateTs="{key_updateTs}" status="{status}" index="{index}">
+				<span class="store_name" style="color: rgb(48, 133, 213);" title="{key_keyword}">{key_keyword}</span>
+				<ul class="sub_items"></ul>
+				</li>
+			</script>
+		</div>
+		<div style="display: none">
+			<input type="button" class="Flow_commodity_list_div2_But1_1 plat_item" data-plattype="c2c" value="淘宝"> <input type="button" class="Flow_commodity_list_div2_But2_1 plat_item" data-plattype="tmall" value="天猫"> <input type="button" class="Flow_commodity_list_div2_But3_1 plat_item plat_item_select" data-plattype="all" value="全网">
+		</div>
+	</div>
+
+	<div class="ShopSalesAnalysis_three_middle_content_top">
+		<img src="http://txgyun.b0.upaiyun.com/paiming/img/rank/trade/middle_img2_03.png" alt="导航分级" class="ShopSalesAnalysis_three_middle_content_top_img">
+		<a class="ShopSalesAnalysis_three_middle_content_top_a" style="text-decoration: none;">
+			<i style="font-size: 21px;line-height: 45px;font-style: normal;">热销宝贝排行榜</i>
+		</a>
+		<div class="SurStoreInformation_content_righttop_a2 date_choose_area" only="true" style="width: 215px;">
+			<form class="sui-form" style="margin: 0 -50px 18px;">
+			  <div id="datezone" class="input-prepend date"><span class="add-on">日期选择</span>
+			    <input type="text" class="span2 input-fat" style="padding: 4px 8px 4px 8px;">
+			  </div>
+			</form>
+		</div>
+	</div>
+	<div class="Salesranking_content">
+		<div id="treasureRankList" class="">
+			<table class="treasure_table" style="width: 1498px;border-collapse: collapse;">
+				<thead class="Salesranking_content1_rxbbphb_middle">
+					<tr>
+						<th style="width: 50px;">序号</th>
+						<th style="width: 70px;">热销宝贝</th>
+						<th style="width: 200px;">宝贝标题</th>
+						<th style="width: 120px;">店铺名称</th>
+						<th style="width: 85px;">卖家发货地</th>
+						<th style="width: 80px;">价格</th>
+						<th class="soldDesc" id="soldColumn" style="width: 120px; cursor: pointer;"><span style="font-size: 14px; display: block; float: left; margin-left: 13px;">近30天销售量</span>
+							<img style="margin-top: 0px; float: left; display: block;" src="http://txgyun.b0.upaiyun.com/paiming/img/rank/trade/sort_desc.png" alt="排序选择"></th>
+						<th style="width: 150px;">近30天销售额</th>
+						<!--<th style="width: 160px;">近30天付款人数</th> -->
+						<th style="width: 100px;">更多操作</th>
+					</tr>
+				</thead>
+
+				<tbody class="treasureList">
+					<tr>
+						<td colspan="10">
+							<table class="no_data_cls" style="display: none">
+								<tbody>
+									<tr>
+										<td><img src="http://txgyun.b0.upaiyun.com/paiming/img/rank/trade/nothing.png" alt="排名哥"></td>
+										<td class="no_data_text_input">该时间没有数据，请更换时间看看</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="Salesranking_contentlast" style="width: 1498px;">
+				<div class="Passthroughcarwash_last">
+					<a class="Passthroughcarwash_lasta1"> 共<span class="Successful_task_middle2_1_top_span count" style="float: none; margin-left: 4px;margin-right: 4px;">0</span>条记录，每页 <span class="Successful_task_middle2_1_top_span pageSize" style="float: none; margin-left: 4px;margin-right: 4px;">10</span>条
+					</a>
+					<div class="pagination" style="margin-top: 7px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 搜索热度统计图表 -->
+<div id="search-heat-tmpl">
+
+</div>
+<!-- 宝贝销量统计图表 -->
+<div id="item-sold-tmpl">
+
+</div>
+
+
+<script type="text/javascript">
+		TM.gcs('http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js', function () {
+			TM.gcs('http://g.alicdn.com/sj/qnui/1.5.1/js/sui.min.js', function () {
+				TM.gcs('http://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js', function () {
+					TM.gcs('//cdn.bootcss.com/highcharts/4.2.6/highcharts.js', function () {
+						TM.gcs('/js/autoTitle/hotsales.js?v=20161209', function () {
+							$('document').ready(function () {
+								TM.HotSales.init.doInit();
+							});
+						});
+					});
+				});
+			});
+		});
+</script>

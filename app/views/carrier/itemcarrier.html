@@ -1,0 +1,168 @@
+#{extends 'carrier/carrierbase.html' /}
+#{set title:'一键复制宝贝' /}
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+    .user-admin-wrapper {
+        font-size: 14px; background: white;/*font-family: "微软雅黑";*/
+    }
+    .user-info-tip {
+        font-size: 20px; font-weight: bold;
+    }
+    .width950 {
+        width: 950px; margin: 0 auto;
+    }
+    .user-info-table {
+        border: 1px solid #999;border-collapse: collapse;
+    }
+    .user-info-table td {
+        border: 1px solid #999;
+    }
+    .user-info-table .attr-name-td {
+        background: #eee; text-align: right; padding: 10px 20px 10px 0px;
+    }
+    .user-info-table .attr-value-td {
+        text-align: left; padding: 10px 0px 10px 20px;
+    }
+    .search-table tr th {
+        background: #CC0000;
+        font-size: 24px;
+        padding: 10px;
+        font-weight: bolder;
+        color: #fff;
+    }
+    .search-table .search-btn{
+        margin-left:20px;
+    }
+    .search-table tr td {
+        font-size: 16px;
+        padding: 8px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="user-admin-wrapper" style="padding: 0px 0px 100px;">
+    <table class="search-table busSearch" style="margin: 0 auto;width:100%;">
+        <thead>
+            <tr>
+                <th colspan="3">一键复制任何宝贝</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="width:25%;text-align: right;color:#FF0000;">操作指南：</td>
+            <td colspan="2">填入你要复制的宝贝ID或地址，点击“立即拷贝”，即可将任何宝贝复制到您的仓库中。</td> <!-- （宝贝图片自动上传到您的<a href="http://tu.taobao.com" target="_blank">图片空间</a>） -->
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:center;">
+                <div class="f-itm">
+                    <label class="f-label" style="color:#FF9900;">注：ID为11位纯数字：</label>
+                    <img src="http://img02.taobaocdn.com/imgextra/i2/292391495/T2p2e3XCxXXXXXXXXX-292391495.png" style="width:430px;height:31px;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td style="padding-right: 10px;font-size: 18px;">拷贝卖家旺旺：</td>
+            <td style="padding-right: 10px;"><input type="text" class="wangwang-input" style="width: 180px; padding-left: 5px;" /></td> -->
+            <td colspan="3" style="padding:20px;font-size: 18px;text-align:center;">
+                <span style="font-weight:bold;font-size:22px;">要复制的[宝贝ID]或[宝贝地址]：</span>
+                <input type="text" class="numIid-input" style="width: 280px; padding-left: 5px;height: 30px;line-height: 30px;" />
+                <span class="btn btn-primary btn-large search-btn">立即拷贝</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+        TM.gcs('/js/jquery.url.js',function(){ //
+            TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+                TM.gcs('/js/jquery.loadmask.min.js',function(){
+                    TM.gcs('/js/tm.js',function(){
+                        $(".search-btn").click(function(){
+    //                		var userNick = $(".wangwang-input").val();
+                            var numIid = $(".numIid-input").val();
+                            $.post("/ItemCarrier/doCarryItem", {input: numIid}, function(data){
+                                if(data) {
+    //                				alert(data.msg);
+                                    TM.Alert.load('<br><p style="font-size:15px">'+data.msg+'</p>',400,230,function(){
+                                        //window.location.reload();
+                                    });
+                                }
+                            }).error(function() {
+    //                            alert("宝贝复制错误，请重试，或者联系客服反馈。");
+                                TM.Alert.load('<br><p style="font-size:15px">宝贝复制错误，请重试，或者联系客服反馈。</p>',400,230);
+                            });
+
+                        });
+
+                        $.get('/OPUserInterFace/show5XingHaoPing',function(res){
+                            if(res == 'show'){
+                                $.get('/OPUserInterFace/haopingshowed',function(data){
+                                    if(data == "unshowed") {
+                                        $.get('/status/user',function(data){
+                                            var firstlogintime = TM.firstLoginTime;
+                                            var now = new Date().getTime();
+                                            var interval = now - firstlogintime;
+                                            if(interval > 7*24*3600*1000){
+                                                var html = ''+
+                                                        '<table style="z-index: 1001;width: 750px;height: 350px;background: url(http://img02.taobaocdn.com/imgextra/i2/1039626382/T2mzqCXcXdXXXXXXXX-1039626382.png);position: fixed;_position:absolute;">' +
+                                                        '<tbody>' +
+                                                        '<tr style="height: 270px;width: 750px;">' +
+                                                        '<td style="width: 550px;">' +
+                                                        '<a target="_blank" href="http://fuwu.taobao.com/serv/manage_service.htm?service_code=FW_GOODS-1854059">' +
+                                                        '<div style="cursor: pointer;width: 550px;height: 270px;"></div>'+
+                                                        '</a>'+
+                                                        '</td>'+
+                                                        '<td style="width: 200px;">' +
+                                                        '<a target="_blank" href="http://fuwu.taobao.com/serv/manage_service.htm?service_code=FW_GOODS-1854059">' +
+                                                        '<div style="cursor: pointer;width: 200px;height: 270px;"></div>'+
+                                                        '</a>'+
+                                                        '</td>'+
+                                                        '</tr>' +
+                                                        '<tr style="height: 80px;width: 750px;">' +
+                                                        '<td style="width: 550px">' +
+                                                        '<a target="_blank" href="http://fuwu.taobao.com/serv/manage_service.htm?service_code=FW_GOODS-1854059">' +
+                                                        '<div style="cursor: pointer;width: 200px;height: 80px;"></div>'+
+                                                        '</a>'+
+                                                        '</td>'+
+                                                        '<td class="" style="width: 200px;cursor: pointer;">' +
+                                                        '<a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E7%BA%A2%E5%BF%83%E5%9B%A2%E9%98%9F&siteid=cntaobao&status=1&charset=utf-8"><img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后"></a>' +
+                                                        '</td>'+
+                                                        '</tr>' +
+                                                        '</tbody>'+
+                                                        '</table>'+
+                                                        '';
+                                                var left = ($(document).width() - 750)/2;
+                                                var top = 130;
+                                                var content = $(html);
+                                                content.css('top',top+"px");
+                                                content.css('left',left+"px");
+                                                content.unbind('click').click(function(){
+                                                    content.remove();
+                                                    $('body').unmask();
+                                                });
+                                                $('body').mask();
+                                                $('body').append(content);
+                                                $.post('/OPUserInterFace/setHaoPingShowed',function(data){
+
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

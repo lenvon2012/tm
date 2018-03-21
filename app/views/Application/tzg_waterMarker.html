@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'宝贝水印' /}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/jquery-ui-1.9.1.custom.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/pagination.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/pagination.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/commChoose/commChoose.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/watermarker.css'}">
+<link rel="stylesheet" media="screen" href='/css/Relation/RelationOp.css'>
+<link rel="stylesheet" media="screen" href="/css/paipaimanage/paipaimanage.css"/>
+<style type="text/css">
+    .watermarker-container .marker-separator,.watermarker-container .marker-tab,.watermarker-container .marker-type-div{background:#4F9D9D}
+</style>
+
+<div class="watermarker-wrapper">
+
+</div>
+
+<script type="text/javascript">
+    $.getScript('/js/jquery.pagination.js', function () {
+        $.getScript('/js/jquery.ui.js', function () {
+            $.getScript('/js/multiOpByURL.js?_v=2', function () {
+                $.getScript('/js/watermarker.js',function(){
+                    TM.WaterMarker.init.doInit($(".watermarker-wrapper"));
+                })
+            })
+        })
+    });
+</script>

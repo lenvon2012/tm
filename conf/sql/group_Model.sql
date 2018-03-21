@@ -1,0 +1,29 @@
+--
+-- Table structure for table `group_Model`
+--
+
+DROP TABLE IF EXISTS `group_Model`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_Model` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `color` varchar(255) DEFAULT NULL,
+  `columnNum` int(11) NOT NULL,
+  `comments` varchar(255) DEFAULT NULL,
+  `isBig` bit(1) NOT NULL,
+  `itemPicSize` int(11) NOT NULL,
+  `maxNum` int(11) NOT NULL,
+  `modelId` bigint(20) DEFAULT NULL,
+  `modelName` varchar(255) DEFAULT NULL,
+  `rowNum` int(11) NOT NULL,
+  `width` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+LOCK TABLES `group_Model` WRITE;
+/*!40000 ALTER TABLE `group_Model` DISABLE KEYS */;
+INSERT INTO `group_Model` VALUES (5,'#dd32c6,#ff4660,#4d4244,#03889d,#198023',1,NULL,'\0',310,1,7101201,'750 多色',1,'750'),(6,NULL,1,NULL,'\0',310,1,123451,'测试模板750 790',1,'750,790'),(7,NULL,1,NULL,'\0',310,1,123461,'测试模板 750',1,'750'),(8,NULL,1,NULL,'\0',310,1,7101301,'黃色 750 ',1,'750'),(9,NULL,1,NULL,'',370,1,7101401,'紅色 750 ',1,'750'),(10,NULL,1,NULL,'',310,1,7101501,'750 ',1,'750'),(11,NULL,0,NULL,'',310,1,7101601,'750 ',1,'750'),(12,NULL,3,NULL,'\0',220,1,7101803,'750 3个',3,'750'),(13,NULL,2,NULL,'\0',209,2,7101902,'750',1,'750'),(14,NULL,1,NULL,'\0',209,2,7102001,'750',1,'750'),(15,NULL,3,NULL,'\0',220,3,7102103,'790 3个',3,'790'),(16,NULL,1,NULL,'\0',220,1,7102201,'750',1,'750'),(17,NULL,1,NULL,'',400,1,7102301,'750',1,'750'),(18,NULL,1,NULL,'',430,1,7102401,'750',1,'750'),(19,NULL,1,NULL,'',430,1,7102501,'750',1,'750'),(20,NULL,1,NULL,'',430,1,7102601,'750',1,'750'),(21,NULL,1,NULL,'\0',310,1,7102701,'750',1,'750'),(22,NULL,1,NULL,'\0',344,1,7102801,'750',1,'750'),(23,'#8646a8,#ff092f,#4aa846,#94a846,#090cff',1,NULL,'\0',310,1,7102901,'750',1,'750'),(24,'#019a01,#9a015c,#011f9a,#019a64,#e63845',1,NULL,'\0',348,1,7103001,'750',1,'750'),(25,NULL,3,NULL,'\0',220,3,7103103,'750',1,'750'),(26,NULL,2,NULL,'\0',320,2,7103202,'750',1,'750'),(27,NULL,2,NULL,'\0',310,2,7103301,'750',1,'750'),(28,NULL,2,NULL,'\0',310,2,7103401,'750',1,'750'),(29,NULL,1,NULL,'\0',250,1,7103501,'750',1,'750'),(30,NULL,1,NULL,'\0',310,1,7103601,'750',1,'750'),(31,NULL,1,NULL,'\0',300,1,7103701,'750',1,'750'),(32,NULL,3,NULL,'\0',209,3,7103803,'750',1,'750'),(33,NULL,1,NULL,'\0',310,1,7103901,'750',1,'750'),(34,'#ed145b,#148ded,#ed14c9,#ed9714,#ed3814,#f80a0a',1,NULL,'\0',220,1,7104001,'750',1,'750'),(35,'#da1d3d,#ca33ab,#7725ae,#2f2ec7,#2e9cc7,#c77e2e,#c73b2e',1,NULL,'\0',312,1,7104101,'750',1,'750'),(36,NULL,1,NULL,'\0',310,1,7104201,'750',1,'750');
+/*!40000 ALTER TABLE `group_Model` ENABLE KEYS */;
+UNLOCK TABLES;

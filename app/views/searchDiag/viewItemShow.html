@@ -1,0 +1,92 @@
+#{extends 'tbtnav/tbtnavdata.html' /}
+#{set title:'成交数据每日详情' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/searchDiag/shopSearchWords.css">
+#{/set}
+<style>
+	.data_show {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+	}
+	.data_show td, .data_show th {
+		border: 1px solid #cad9ea;
+		padding: 0 1em 0;
+	}
+	.data_show tbody tr {
+		height: 36px;
+		font-size: 13px;
+	}
+	.data_show tbody :hover{
+		background-color: #F4F4FF;
+	}
+	.data_show thead tr {
+		height:44px;
+		background-color: #28A3EF;
+		color: #FFFFFF;
+	}
+</style>
+<div class="page-hierarchy" style="border-bottom: 1px solid #ccc;">
+	<span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>成交数据详情
+</div>
+
+<div class="diag-container">
+	<div class="shop-diag-div">
+		<div class="searchDiagTip intro hidden" style="text-align: center;margin: 0 auto;margin-bottom: 10px;">
+			亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+		</div>
+		<div class="interval-wrapper">
+			<div class="interval-tr">
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 1-day" value="1">最近1天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 3-day" value="3">最近3天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 7-day" value="7">最近7天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 14-day" value="14">最近14天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 0-day" value="0">&nbsp;&nbsp;&nbsp;
+				<input type="text" style="width:100px;text-align: center;" id="startTimeInput"> ~ <input type="text" style="width:100px;text-align: center;" id="endTimeInput">的数据
+			</div>
+		</div>
+		<div class="title-head">&nbsp;&nbsp;成交数据每日详情</div>
+		<div class="word-diag-paging" style="text-align: center;"></div>
+		<div class="diag-result-div">
+			<table class="data_show" border="1">
+				<thead>
+					<tr>
+						<th style="width:7%;">日期</th>
+						<th style="width:7%;">浏览量</th>
+						<th style="width:7%;">访客量</th>
+						<th style="width:7%;">销售额</th>
+						<th style="width:7%;">销量</th>
+						<th style="width:7%;">订单数</th>
+						<th style="width:7%;">转化率</th>
+						<th style="width:7%;">入口数</th>
+						<th style="width:7%;">收藏</th>
+						<th style="width:7%;">收藏率</th>
+						<th style="width:7%;">购物车</th>
+						<th style="width:7%;">加购率</th>
+						<th style="width:7%;">搜索UV</th>
+						<th style="width:7%;">PC类目UV</th>
+					</tr>
+				</thead>
+				<tbody id="view_item_show" style="text-align: center;"> </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show()
+    if(typeof(TM.firstLoginTime) == "undefined") {
+        TM.gcs("/status/js", function () {
+            TM.gcs('/js/searchDiag/viewItemShow.js?_v=06', function () {
+                TM.viewItemShow.init.doInit($('.diag-container'));
+            });
+        });
+    } else {
+        TM.gcs('/js/searchDiag/viewItemShow.js?_v=06', function () {
+            TM.viewItemShow.init.doInit($('.diag-container'));
+        });
+    };
+</script>
+#{/set}

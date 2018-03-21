@@ -1,0 +1,186 @@
+#{extends 'keymain.html' /}
+#{set title:'批量修改' /}
+
+<link rel="stylesheet" media="screen" href="/css/multiModify.css">
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+
+
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>批量修改标题
+</div>
+<div style="width:780px;margin: 33px auto;">
+<div class="notification information png_bg" id="warmNotice">
+    <img src="/public/images/tips/arrow_up.gif" title="Close this notification" alt="close" id="closeImg" class="close">
+    <div>
+        功能介绍：
+        <br>
+        <ol style="list-style: lower-alpha;">
+            <li class="tips">
+                1).该功能可对宝贝标题进行批量快速修改，包括批量替换、批量删除、批量添加前后缀以及批量去除空格；
+            </li>
+            <li class="tips">
+                2).注意：替换关键词或添加前后缀时，若修改后淘宝名称超过60字节则不能修改成功。
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="pageContent" id="multiModifyArea">
+    <form id="showcaseSettingForm" onsubmit="return false;">
+        <dl>
+
+            <dt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、选择标题要修改的范围
+            </dt>
+            <dd>
+                <ul style="margin-left: 30px; margin-top: 5px; line-height: 2.5em;line-height: 2.5em;" class="itemChoseList">
+                    <li>
+                        <input onclick="$('#itemsChooseSpan').css('display','none');" type="radio" value="1" name="modifyArea" id="modifyAll"  checked="checked" style="vertical-align: middle;">&nbsp;<label for="modifyAll">修改所有宝贝</label>
+
+                    </li>
+                    <li>
+                        <input onclick="$('#itemsChooseSpan').css('display','inline-block');" type="radio" value="2" name="modifyArea" id="modifyPart"  style="vertical-align: middle;">&nbsp;<label for="modifyPart">修改部分宝贝</label>
+                        <span  id="itemsChooseSpan">[选择宝贝]</span>
+                    </li>
+
+                </ul>
+
+            </dd>
+
+            <dd class="clearMM">&nbsp;
+
+            </dd>
+            <dd style="border-bottom: 1px; border-color: #999; border-bottom-style: dotted">&nbsp;
+
+            </dd>
+            <dd>&nbsp;
+
+            </dd>
+            <dt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、选择标题要修改的内容
+            </dt>
+            <dd>
+                <ul style="margin-left: 30px; margin-top: 5px; line-height: 2.5em;">
+                    <li class="liRadio">
+                        <input onclick="$('#deleteKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" type="radio" value="1" name="modifyRules" id="replacement" checked="checked" style="vertical-align: middle;">&nbsp;<label for="replacement">替换关键字:</label>
+                        <span onclick="$('#replacement').attr('checked', 'checked');$('#deleteKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" class="orange">把宝贝标题中的 <input class="text" type="text" name="oldKeyword" id="oldKeyword" style="width:80px;"> 替换为 <input class="text" type="text" name="newKeyword" id="newKeyword" style="width:80px;"></span>
+                    </li>
+                    <li class="liRadio"><input onclick="$('#oldKeyword').val('');$('#newKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" type="radio" value="2" name="modifyRules" id="delete" style="vertical-align: middle;">&nbsp;<label for="delete">删除关键字:</label>
+                        <span onclick="$('#delete').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" class="orange">把宝贝标题中的 <input class="text" type="text" name="deleteKeyword" id="deleteKeyword" style="width:214px;"> 删除</span>
+                    </li>
+                    <li class="liRadio">
+                        <input onclick="$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#suffixKeyword').val('');" type="radio" value="3" name="modifyRules" id="prefix" style="vertical-align: middle;">&nbsp;<label for="prefix">标题加前缀:</label>
+                        <span onclick="$('#prefix').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#suffixKeyword').val('');" class="orange">在标题前面加上 <input class="text" type="text" name="prefixKeyword" id="prefixKeyword" style="width:214px;"> 作为前缀</span>
+                    </li>
+                    <li class="liRadio">
+                        <input onclick="$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#prefixKeyword').val('');" type="radio" value="4" name="modifyRules" id="suffix" style="vertical-align: middle;">&nbsp;<label for="suffix">标题加后缀:</label>
+                        <span onclick="$('#suffix').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#prefixKeyword').val('');" class="orange">在标题后面加上 <input class="text" type="text" name="suffixKeyword" id="suffixKeyword" style="width: 214px;"> 作为后缀</span>
+                    </li>
+                    <li class="liRadio">
+                        <input onclick="$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" type="radio" value="5" name="modifyRules" id="deleteSpaces" style="vertical-align: middle;">&nbsp;<label for="deleteSpaces">删 除 空格:</label>
+                        <span onclick="$('#deleteSpaces').attr('checked', 'checked');$('#oldKeyword').val('');$('#newKeyword').val('');$('#deleteKeyword').val('');$('#prefixKeyword').val('');$('#suffixKeyword').val('');" class="orange">删除标题里面的所有空格</span>
+                    </li>
+                </ul>
+            </dd>
+            <dd class="clearMM">&nbsp;
+
+            </dd>
+            <dd style="border-bottom: 1px; border-color: #999; border-bottom-style: dotted">&nbsp;
+
+            </dd>
+            <dd>
+				<span class="tmbtn sky-blue-btn" id="modifyButton" style="font-size:16px;margin-left: 30px;">批量修改</span>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="tmbtn sky-blue-btn" id="showResultButton" style="font-size:16px;margin-left: 30px;">查看结果</span>
+				
+			</dd>
+			<dd>
+				<span   style="font-size:12px;color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;温馨提示：建议您每次修改不要超过1000个宝贝哦</span>
+			</dd>
+			
+			<dt>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题修改成功个数：<span class="successNum">0</span>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标题修改失败个数：<span class="failNum">0</span>
+			</dt>
+			<dd class="clearMM">&nbsp;
+				
+			</dd>
+			<dd style="border-bottom: 1px; border-color: #999; border-bottom-style: dotted">&nbsp;
+				
+			</dd>
+			<dd>&nbsp;
+				
+			</dd>
+		</dl>
+
+	</form>
+
+	<!--<div>
+	
+	<table id="errorTable" >
+					<tr class="firstRow ">
+						<th >宝贝图片</td>
+						<th >当前标题</td>
+						<th >错误原因</td>
+					</tr>
+					<tr class="errorContent evenRow">
+						<td class="errImg"><img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Nh5UXdJXXXXXXXXX_!!1039626382.jpg" style="width:50px;height:50px;"></td>
+						<td class="errTitle">5双包邮春秋款优惠券新品晨尔薄款天鹅绒爱心美腿塑形性感连裤袜</td>
+						<td class="errCause">原标题找不到要替换的字符串！</td>
+					</tr>
+					<tr class="errorContent oddRow">
+						<td class="errImg"><img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Nh5UXdJXXXXXXXXX_!!1039626382.jpg" style="width:50px;height:50px;"></td>
+						<td class="errTitle">5双包邮春秋款优惠券新品晨尔薄款天鹅绒爱心美腿塑形性感连裤袜</td>
+						<td class="errCause">原标题找不到要替换的字符串！</td>
+					</tr>
+					<tr class="errorContent evenRow">
+						<td class="errImg"><img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Nh5UXdJXXXXXXXXX_!!1039626382.jpg" style="width:50px;height:50px;"></td>
+						<td class="errTitle">5双包邮春秋款优惠券新品晨尔薄款天鹅绒爱心美腿塑形性感连裤袜</td>
+						<td class="errCause">原标题找不到要替换的字符串！</td>
+					</tr>
+					<tr class="errorContent oddRow">
+						<td class="errImg"><img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Nh5UXdJXXXXXXXXX_!!1039626382.jpg" style="width:50px;height:50px;"></td>
+						<td class="errTitle">5双包邮春秋款优惠券新品晨尔薄款天鹅绒爱心美腿塑形性感连裤袜</td>
+						<td class="errCause">原标题找不到要替换的字符串！</td>
+					</tr>
+				</table>
+	</div>
+</div>
+<div id="switch">--></div>
+
+<!-- open dialog -->
+		<div id="dialog" style="width: 650px; height: 450; display:none;" class="ui-dialog-content ui-widget-content" >
+			<div id="user_version">
+				<span id="user_status">尊敬的用户:</span><br>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;您正在使用：<span id="user_version_status">免费诊断版</span></span><br>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;暂无权限使用该功能，为提高流量与销量，请您<span style="color:red;">立即升级</span>现在升级可尊享一折优惠，并且<span style="color:red;">立即返现</span>。</span>
+				<div id="version_buy">
+					<a href = "/home/buyVersion"><img alt="立即订购" src="/public/images/button/lijidingjgou.png" ></a>
+					</div>
+			</div>
+		</div>
+</div>
+#{set 'moreScripts'}
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $.getScript('/js/jquery.pagination.js',function(){
+        $.getScript('/js/tm.js',function(){
+            $.getScript('/js/commChoose/commChoose.js',function(){
+                $.getScript('/js/multiModify.js',function(){
+                    $.getScript('/status/js',function(){
+                        $.getScript('/js/versioncontroller.js',function(){
+                            if(TM.ver<20){
+                            //	$( "#multiModifyArea" ).click(version_event);
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    });
+});
+</script>
+#{/set }

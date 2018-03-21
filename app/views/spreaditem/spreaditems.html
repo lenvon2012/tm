@@ -1,0 +1,63 @@
+#{extends 'spreaditem/spreadbase.html' /}
+#{set title:'推广宝贝管理' /}
+
+
+<style type="text/css">
+    .item-container a {
+        color: blue; cursor: pointer;
+    }
+    .item-container a:hover {
+         color: #a10000;
+     }
+    .item-container .spread-num {
+        color: #a10000; font-weight: bold;
+    }
+    .item-container .show-detail-spread-info {
+        color: blue; text-decoration: underline;
+    }
+    .item-container .show-detail-spread-info:hover {
+        color: #a10000;
+    }
+    .item-container .add-spread-btn {
+        /*background: url("/img/spreaditem/add-spread-btn.png") no-repeat; width: 217px; height: 58px;
+        display: inline-block; *display: inline; zoom: 1;*/
+    }
+    .item-container .item-search-table td {
+        text-align: left; vertical-align: bottom; font-size: 14px;
+    }
+
+    .item-container .spread-op-btn {font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;height: 30px; line-height: 30px; font-size: 13px;display: inline-block;*display:inline; zoom:1;
+        margin-left: 10px;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') -98px -4px;width: 120px;}
+    .item-container .spread-op-btn:hover{background-position: -98px -34px;}
+
+    .item-detail-table tbody .detail-td {
+        border: 0px; vertical-align: top; padding: 2px;
+    }
+
+
+    .item-container .itemopbtn {
+        color: blue;
+    }
+    .item-container .itemopbtn:hover {
+        color: #a10000; font-weight: bold; cursor: pointer;
+    }
+</style>
+
+<div class="item-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/home/firstSync',function() {
+                TM.gcs('/js/spreaditem/spreaditems.js', function () {
+                    TM.Loading.init.show();
+                    TM.SpreadItems.init.doInit($(".item-container"));
+                });
+            });
+        });
+
+    });
+</script>

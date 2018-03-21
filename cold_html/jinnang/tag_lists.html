@@ -1,0 +1,70 @@
+#{extends 'jinnang/base.html' /} #{set title:'标签列表' /}
+<div class="wrap">
+	<div id="icon-users" class="icon32">
+		<br>
+	</div>
+	<h2>
+		<a href="@{JinNangZheKou.user_tag_mnt()}">添加新标签</a>
+	</h2>
+	<table class="wp-list-table widefat fixed posts">
+		<thead>
+			<tr>
+				<th scope='col' class='column-title' style=""><span>标签名称</span></th>
+				<th scope='col' class='column-author' style=""><span>标签描述</span></th>
+				<th scope='col' class='column-author' style="">创建日期</th>
+				<th scope='col' class='column-author' style="">查看</th>
+				<th scope='col' class='column-author' style=""><span>用户管理</span></th>
+			</tr>
+		</thead>
+		<!-- 列表 -->
+		<tbody id="the-list">
+			#{list items:userTags, as:'userTag'}
+			<tr class="" valign="top">
+				<td class="column-title"><strong><a class="row-title"
+						href="#">${userTag.tagName}</a></strong>
+					<div class="row-actions">
+						<div style="display:none">${userTag.id}</div>
+						<span
+							class='edit'><a href="@{JinNangZheKou.user_tag_mnt(userTag.id)}">编辑</a> | </span> 
+						<span class='trash'><a
+							class='submitdelete' href="@{JinNangZheKou.user_tag_list()}">删除</a> </span>
+					</div></td>
+				<td class="column-author">
+					${userTag.description}
+				</td>
+				<td class="column-author">
+					${userTag.getCreateDateString()}
+				</td>
+				<td class="column-author">
+						<a href="#">查用用户</a>	
+				</td>
+				<td class="column-author"><a href="#">添加删除用户</a></td>
+			</tr>
+			#{/list}
+		</tbody>
+	</table>
+	<div class="tablenav bottom">
+		<div class="tablenav-pages one-page">
+			<span class="displaying-num">${userTags.size()}个标签</span> 
+		</div>
+		<br class="clear">
+	</div>
+</div>
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+	TM.gcs('/public/javascripts/tm.js', function() {
+		TM.gcs('/public/javascripts/utils/jquery.cookie.js', function() {
+			TM.gcs('/public/javascripts/jinnang/i18n/jquery-ui-timepicker-zh-CN.js', function() {
+				TM.gcs('/home/firstSync', function() {
+					TM.gcs('/public/javascripts/jinnang/jinnang.js', function() {
+						TM.boyvon.allItems.init();
+						//TM.jinnang.UserTagCnt.init();
+						TM.jinnang.UserTagList.init();
+					})
+				})
+			})
+		})
+	})
+</script>
+#{/set}

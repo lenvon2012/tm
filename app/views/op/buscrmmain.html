@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=8'>
+    <link rel="stylesheet" media="screen" href='/css/cornerDiv.css?_ts=8'>
+    <link rel="stylesheet" media="screen" href='/css/KefuSweety/KefuSweety.css?_ts=1'>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=2">
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=2">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+    <![endif]-->
+    *{<link rel="stylesheet" media="screen" href='/css/dajie/bootstrap-responsive.min.css'>}*
+    <link rel="stylesheet" media="screen" href='/css/dajie/font-awesome.min.css'>
+    <link rel="stylesheet" media="screen" href="/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" media="screen" href="/css/ui/css/tm/jquery-ui-1.10.1.custom.css">
+    <link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body{background:white;}
+        table.busSearch th{height:auto;vertical-align: middle;}
+        p{margin:5px;}
+        .pagenav{background-color:#FEFEFE;border:1px solid #9c9c9c;margin:10px;padding:10px;}
+        table{text-align:center;}
+        .busSearch tbody tr:hover{background-color: #ffe;}
+        .busSearch thead tr{border-left:1px solid #ccc;border-right:1px solid #ccc;}
+        table.busSearch th {padding: 4px;height:48px;font-size:18px;font-weight: normal;}
+        table.busSearch td {word-wrap: break-word;word-break: break-all;padding:3px;text-align: center;}
+        table.busSearch td  .addTextWrapper{margin:8px 3px 8px 5px;}
+        .tmbtn{display: inline-block;*display: inline;*zoom:1;font-family:'微软雅黑';background-image: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T28vqiXntaXXXXXXXX_!!1039626382.png");;text-align: center;vertical-align: middle;cursor: pointer;}
+        .busSearch thead td,.busSearch tbody td,.busSearch-tbody td,.busSearch-tbody th{border-bottom:1px solid #ccc;border-top:1px solid #ccc;vertical-align: middle;}
+        table.busSearch {width:100%;font-family:verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-collapse: collapse;border:1px solid #ccc;}
+
+        table.busSearch thead tr{
+            width: 100%;font-weight: bold;  background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);  background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+            background: -ms-linear-gradient(#FEFEFE,#F7F7F7);  background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);height: 36px;line-height: 36px;font-size: 16px;
+        }
+        table.busSearch tbody tr{
+            height: 50px;
+        }
+        table.busSearch tbody tr:hover{
+            background-color: #ffe;
+        }
+        table.busSearch tbody td{
+            vertical-align: middle;border-top: 1px solid #ccc;font-size:16px;
+        }
+
+    </style>
+
+#{get 'moreStyles' /}
+
+</head>
+
+<body>
+<div class="WaitingForLoadingDiv" style="display: none;z-index: 500001;position: absolute;">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;"></iframe>
+    <div style="text-align: center;font-size: 16px;font-weight: bolder;color: #262626;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: white;padding: 30px;z-index: 500001;">
+        亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+        <img src='/img/loading.gif' alt='正在加载' style="" />
+    </div>
+</div>
+<div id="u">
+    <span id="user">
+        <a href="javascript:void(0)" class="un hidden">
+            欢迎你，<span class="sweety-name">clorest510</span><i class="c-icon c-icon-triangle-down-blue"></i>
+        </a>
+        <a href="javascript:void(0)" class="tmstaff-allocate hidden">
+            <span>分配卖家</span>
+        </a>
+        <a href="javascript:void(0)" class="edit-password">
+            <span>修改密码</span>
+        </a>
+        <a href="javascript:void(0)" class="logout hidden">
+            <span>退出</span>
+        </a>
+        <a href="javascript:void(0)" class="relogin hidden">
+            <span>切换用户</span>
+        </a>
+        <a href="javascript:void(0)" class="login">
+            <span>登陆</span>
+        </a>
+
+        *{<a href="javascript:void(0)" class="register">
+            <span>注册</span>
+        </a>}*
+    </span>
+</div>
+<div class="navbar navbar-inverse nav-head">
+    <div class="navbar-inner">
+        <div class="container" style="width:1000px;margin: 0 auto;position:relative;">
+            <div class="nav-collapse collapse">
+                <ul class="nav head" style="*font-size:16px;">
+                    <li><a href="/buscrm/userlist">用户列表</a></li>
+                    <li><a href="/buscrm/online">在线用户列表</a></li>
+                    <li><a href="/buscrm/userexpired">即将到期卖家</a></li>
+                    <li><a href="/buscrm/unrenew">未续费名单</a></li>
+                    <li><a href="#">需要回访用户列表</a></li>
+                    <li><a href="/buscrm/userreport">用户报表</a></li>
+                    <li><a href="/buscrm/allocatedtome">查看分配给我的卖家</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<p></p>
+#{doLayout /}
+
+<script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+<script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>
+
+<script type="text/javascript" src="/js/tm.js"></script>
+<script type="text/javascript" src='/js/jquery.ui.js' charset="utf-8"></script>
+<script type="text/javascript" src='/js/jquery.tmpl.js' charset="utf-8"></script>
+<script type="text/javascript" src='/js/jquery.ui.js' charset="utf-8"></script>
+<script type="text/javascript" src="/js/jquery.url.js" ></script>
+<script src="/js/KefuSweety/KefuSweety.js"></script>
+<script>
+    var TM = TM || {};
+    TM.Article = TM.Article || {};
+    TM.Loading = TM.Loading || {};
+
+    TM.Loading.init = $.extend({
+        //显示加载，opts是选项，暂时没用到
+        show: function() {
+            var scrollLeft = $(document).scrollLeft();
+            var scrollTop = $(document).scrollTop();
+            var left = ($(window).width() - $(".WaitingForLoadingDiv").width())/2 + scrollLeft;
+            var top = ($(window).height() - $(".WaitingForLoadingDiv").height())/2 + scrollTop;
+            $(".WaitingForLoadingDiv").css("left", left+"px");
+            $(".WaitingForLoadingDiv").css("top", top+"px");
+            $(".WaitingForLoadingDiv").show();
+        },
+        hidden: function() {
+            $(".WaitingForLoadingDiv").hide();
+        }
+    }, TM.Loading.init);
+
+    $(document).ajaxStart(function(){
+        TM.Loading.init.show();
+    });
+    $(document).ajaxStop(function(){
+        TM.Loading.init.hidden();
+    });
+
+    $(document).ready(function(){
+        TM.KefuSweety.Init.doInit($('#user'));
+    });
+    TM.Article.renderList = function(list){
+        $.each(list, function(i, elem){
+            elem.wangwang = "" + encodeURI(elem.nick) + "";
+            elem.wwHref =  "http://www.taobao.com/webww/ww.php?ver=3&touid="+elem.wangwang+"&siteid=cntaobao&status=1&charset=utf-8";
+            elem.wwImg = "http://amos.alicdn.com/online.aw?v=2&uid="+elem.wangwang+"&site=cntaobao&s=2&charset=UTF-8";
+            elem.goodRate = elem.willGoodRate?"<b class='green'>是</b>":"<b class='red'>否</b>";
+            elem.enterAdminUrl = "http://chedao.taovgo.com/tm/name?name="+elem.wangwang;
+        });
+    }
+    Date.prototype.format = function(format) //author: meizz
+    {
+        var o = {
+            "M+" : this.getMonth()+1, //month
+            "d+" : this.getDate(),    //day
+            "h+" : this.getHours(),   //hour
+            "m+" : this.getMinutes(), //minute
+            "s+" : this.getSeconds(), //second
+            "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+            "S" : this.getMilliseconds() //millisecond
+        }
+        if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)if(new RegExp("("+ k +")").test(format))
+            format = format.replace(RegExp.$1,
+                    RegExp.$1.length==1 ? o[k] :
+                            ("00"+ o[k]).substr((""+ o[k]).length));
+        return format;
+    }
+    Date.prototype.formatYMSH = function(){
+        return this.format('yyyyMMddhh');
+    }
+
+    Date.prototype.formatYMS = function(){
+        return this.format('yyyy-MM-dd');
+    }
+
+    Date.prototype.formatYMSHMS = function(){
+        return this.format('yyyy-MM-dd hh:mm:ss');
+    }
+
+</script>
+
+#{get 'moreScripts' /}
+
+</body>
+</html>

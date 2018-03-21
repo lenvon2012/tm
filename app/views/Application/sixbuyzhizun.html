@@ -1,0 +1,90 @@
+#{extends 'main.html' /}
+#{set title:'版本升级' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/version_zhizun.css'}">
+#{/set}
+<!-- this is the version controller -->
+<div id = "version_main" align="center">
+	<div id="version_givendata"><img alt="" src="/public/images/version/top.png"></div>
+	<div id="version_content" >
+		<div id="version_buynow_point"></div>
+		<div class = "version_choose"  >
+			<ul class = "version_choose_ul">
+				<li class = "version_choose_li">
+					<div id="version_zhizun_12">
+						<img id="version_zhizun_12_title" src="/public/images/version/bigsale.png">
+						<br><br><span id="version_oldprice">原价</span><span id="old_price">69元</span><br>
+						<br><span id="now_price">39<span id="yuan">元</span></span>
+						<span id="version_youhui">立省30元</span>
+					</div>
+				</li>
+				<li class = "version_choose_li">
+					<div id="version_zhizun_6">
+						<div id="version_zhizun_12_title"></div>
+						<br><span id="version_oldprice">原价</span><span id="old_price">36元</span><br>
+						<br><span id="now_price">22<span id="yuan">元</span></span>
+						<span id="version_youhui">立省14元</span>
+					</div>
+				</li>
+				<li class = "version_choose_li">
+					<div id="version_zhizun_3">
+						<div id="version_zhizun_12_title"></div>
+						<br><span id="version_oldprice">原价</span><span id="old_price">24元</span><br>
+						<br><span id="now_price">15<span id="yuan">元</span></span>
+						<span id="version_youhui">立省9元</span>
+					</div>
+				</li>
+					<li class = "version_choose_li">
+					<div id="version_zhizun_1">
+						<div id="version_zhizun_12_title"></div>
+						<br><span id="version_oldprice">原价</span><span id="old_price">12元</span><br>
+						<br><span id="now_price">9.9<span id="yuan">元</span></span>
+						<span id="version_youhui">立省3元</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="version_buynow_btn"></div>
+		<div id="version_illustrate">
+			<div id ="shangjia_btn" ></div>
+			<div id ="biaoti_btn" ></div>
+			<div id ="chuchuang_btn" ></div>
+			<div id ="pingjia_btn" ></div>
+		</div>
+		<div id="version_buynow_btn_second"></div>
+	</div>
+	 <!-- open dialog -->
+		<div id="dialog_shangjia" style="width: 765px; height: 450; display: none; text-align: center; " class="ui-dialog-content ui-widget-content" >
+            <div style="text-align: center;">
+            	<img alt="" src="http://img03.taobaocdn.com/imgextra/i3/679214160/T2iHG.XhFaXXXXXXXX_!!679214160.jpg">
+		  </div>
+		</div>
+		<div id="dialog_biaoti" style="width: 725px; height: 450; display: none; text-align: center; " class="ui-dialog-content ui-widget-content" >
+            <div style="text-align: center;">
+            <img alt="" src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2g4G4XetaXXXXXXXX_!!1039626382.jpg">
+            <img alt="" src="http://img02.taobaocdn.com/imgextra/i2/1039626382/T2He5kXXXcXXXXXXXX_!!1039626382.jpg">
+		  </div>
+		</div>
+		<div id="dialog_chuchuang" style="width: 725px; height: 450; display: none; text-align: center; " class="ui-dialog-content ui-widget-content" >
+            <div style="text-align: center;">
+            <img alt="" src="http://img04.taobaocdn.com/imgextra/i4/22902351/T2nl9.XaXXXXXXXXXX_!!22902351.jpg">
+		  </div>
+		</div>
+		<div id="dialog_pingjia" style="width: 725px; height: 450; display: none; text-align: center; " class="ui-dialog-content ui-widget-content" >
+            <div style="text-align: center;">
+            <img alt="" src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2dOO.XkVXXXXXXXXX_!!22902351.jpg">
+		  </div>
+		</div>
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+        $.getScript("/js/newbuyzhizun.js",function(){
+            $(document).ready(function(){
+                $("#version_zhizun_12").trigger('click');
+            });
+
+            #{get 'moreAjaxScripts' /};
+        });
+</script>
+#{/set}

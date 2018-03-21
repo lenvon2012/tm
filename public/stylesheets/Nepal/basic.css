@@ -1,0 +1,1218 @@
+/* CSS Document */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    /* font-family: Arial, Helvetica, sans-serif, 'å®‹ä½“'; */
+    font: 12px/1.5 tahoma,arial,å®‹ä½“,sans-serif;
+    text-align: left;
+    background-color: #FFFFFF;
+}
+body {
+    _background-image: url( about:blank );
+    _background-attachment: fixed;
+}
+h1, h2, h3, h4, h5, h6, ul, ol, li, p, div, dl, dt, dd, em, span, strong, i, b, br, table, thead, tbody, tr, th, td, form {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+
+    float: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+s {
+    text-decoration: none;
+}
+.marquee_panels ul li{
+	list-style:none;
+	float: left;
+	margin-left: 
+}
+.cl, .clear {
+    clear: both;
+}
+.txt-red, .col-red, .txt-error {
+    color: #CC3300;
+}
+.txt-green, .col-green {
+    color: #009900;
+}
+.txt-blue {
+    color: #0579C6;
+}
+.txt-orange {
+    color: #FF9900;
+}
+.text-left, .table-list th.text-left, .table-list td.text-left {
+    text-align: left;
+}
+input.col-gray, a.col-gray {
+    color: #CCCCCC;
+}
+.mark-try {
+    color: #CC3300;
+}
+.mark-free {
+    color: #009900;
+}
+.hidden .hide {
+    display: none;
+}
+.cross-bar {
+    clear: both;
+    height: 20px;
+    background: url(/public/images/Nepal/cross-bar.png) repeat-x scroll 0 0 transparent;
+}
+.ui-radius {
+    background-color: #FFFFFF;
+    border-color: #EAEAEA #D7D7D7 #BCBCBC;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+/*.icon-radius a {
+    
+    display: block;
+    
+    border: 1px solid #999999;
+    border-radius: 10px;
+    
+    width: 78px;
+    height: 78px;
+}*/
+.ui-icon-radius {
+    background-size: 80px 80px;
+    border: 1px solid #999999;
+    border: none\9;
+    border-radius: 8px 8px 8px 8px;
+
+    position: relative;
+    width: 78px;
+    height: 78px;
+
+    background-position: 50% 50%;
+}
+.ui-icon-radius a {
+    display: block;
+    height: 80px;
+}
+.ui-icon-remove img {
+    display: none;
+
+    display: block \9;
+    _display: none;
+}
+.ui-radius-shadow{
+    background: none no-repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+}
+.ui-shadow {
+    box-shadow: 0 1px 3px #D7D7D7;
+}
+.ui-control-title {
+    background: url("/public/images/Nepal/ui-control-title-bak.png") repeat-x scroll center top #F8F8F8;
+    border-bottom: 1px solid #DEDEDE;
+    border-radius: 4px 4px 0 0;
+    height: 36px;
+    line-height: 36px;
+}
+.ui-control-bar {
+    display: block;
+    font-size: 0;
+    padding: 5px 0;
+    text-align: center;
+}
+.ui-control {
+    display: inline-block;
+    font-size: 12px;
+    margin: 6px auto;
+    position: relative;
+    vertical-align: top;
+
+    *display: inline;
+    *zoom: 1;
+
+    _position: static;
+}
+.ui-control li {
+    cursor: pointer;
+    float: left;
+    height: 25px;
+}
+.ui-control li .first {
+    background-position: -24px 0;
+    left: -8px;
+}
+.ui-control li .last {
+    background-position: -36px 0;
+    right: -8px;
+}
+.ui-control li.actived .first {
+    background-position: 0 0;
+}
+.ui-control li.actived .last {
+    background-position: -12px 0;
+}
+.ui-control li span {
+    height: 25px;
+    position: absolute;
+    width: 12px;
+}
+.ui-control li a, .ui-control li span {
+    background: url("/public/images/Nepal/ui-control-bak.png") repeat-x scroll 0 0 transparent;
+}
+.ui-control li a {
+    background-position: 0 -50px;
+    /*    border-right: 1px solid #767676; */
+    border-left: 1px solid #767676;
+
+    color: #666666;
+
+    display: block;
+
+    height: 25px;
+    line-height: 23px;
+    padding: 0 24px;
+    text-decoration: none;
+
+    _display: inline-block;
+}
+.ui-control li.begin a {
+    border-left: none;
+}
+.ui-control li a, .ui-control li span {
+    _position: static;
+    float: left;
+}
+.ui-control li.actived a {
+    background-position: 0 -25px;
+    color: #FFFFFF;
+}
+.ui-control li a:hover {
+    text-decoration: none;
+}
+.flag-offical-recommend {
+    background: url( "/public/images/Nepal/flag-tuijian.png" ) no-repeat scroll 0 0 transparent;
+
+    display: block;
+    height: 55px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 54px;
+}
+
+.funimg img{
+    height:80px;
+    width: 80px;
+}
+img {
+    border: none;
+}
+a {
+    text-decoration: none;
+    color: #336699;
+}
+a:hover {
+    text-decoration: underline;
+}
+a.btn-order-now {
+    text-decoration: none;
+    color: #666666;
+    margin-top: 5px;
+
+    background: -moz-linear-gradient(center top , #FFFFFF, #EFEFEF) repeat scroll 0 0 transparent;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px 2px 2px 2px;
+    display: inline-block;
+    overflow: hidden;
+
+    padding: 0 3px;
+}
+a.btn-order-now:hover {
+    text-decoration: none;
+}
+
+/** top begin */
+/*#nav-top {
+    height: 25px;
+    border-bottom: 1px solid #8FC2E5;
+    line-height: 25px;
+    position: relative;
+    background: url(../images/top-bak.png) repeat-x scroll 0 0 transparent;
+}*/
+#user-info {
+    color: #666666;
+    float: left;
+    padding-left: 12px;
+}
+#nav-top .fast-menu {
+    /*    position: absolute;*/
+    right: 0;
+    top: 0;
+
+    float: right;
+}
+#nav-top .fast-menu li {
+    float: left;
+    padding-right: 10px;
+    font-size: 14px;
+    line-height: 35px;
+}
+#nav-top .fast-menu li span, #nav-top .fast-menu li div {
+    font-size: 14px;
+}
+#nav-top .seller-nav li, #nav-top .menu-list li {
+    padding-right: 0;
+}
+#nav-top .panel {
+    position: relative;
+}
+#nav-top .panel .menu-panel {
+    display: none;
+    position: relative;
+}
+/*#nav-top .hover div.menu-panel {
+    display: block;
+    _position: absolute;
+    
+    border-left: 1px solid #8FC2E5;
+    border-right: 1px solid #8FC2E5;
+    border-bottom: 1px solid #8FC2E5;
+}*/
+/*#nav-top .panel div.menu-panel {
+    margin-left: -54px;
+}*/
+/*#nav-top .seller-nav .panel div.menu-panel {
+    margin-left: -150px;
+}*/
+#nav-top .panel a.menu-panel {
+    /* background-color: #FFFFFF;    
+    display: none; */
+
+    display: block;
+    cursor: pointer;
+    height: 23px;
+    line-height: 20px;
+    margin: 3px 1px 0;
+    padding: 0 22px 0 10px;
+    /*    z-index: 10000;*/
+    z-index: 100;
+
+    width: 48px;
+}
+/*#nav-top .hover a.menu-panel {
+    border-bottom: none;
+    border-top: 1px solid #8FC2E5;
+    
+    background-color: #FFFFFF;
+       border-style: solid solid none;
+    border-width: 1px 1px medium;
+
+    border-left: 1px solid #8FC2E5;
+    border-right: 1px solid #8FC2E5;
+    border-top: 1px solid #8FC2E5;
+    
+    margin: 2px 0px 0;
+}*/
+#nav-top a {
+    color: #0579C6;
+}
+#nav-top a:hover {
+    text-decoration: none;
+}
+#nav-top .panel div.menu-panel {
+    width: 74px;
+    background-color: #FFFFFF;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    border-color: #8FC2E5 #8FC2E5 -moz-use-text-color;
+
+    border-top: none;
+    border-bottom: 1px solid #8FC2E5;
+
+    z-index: 10000;
+}
+#nav-top .panel:hover .menu-panel {
+    display: block;
+    background-color: #FFFFFF;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    border-color: #8FC2E5 #8FC2E5 -moz-use-text-color;
+
+    border-top: none;
+    border-bottom: 1px solid #8FC2E5;
+}
+#nav-top .panel:hover div.menu-panel, #nav-top .hover div.menu-panel {
+    position: absolute;
+
+    display: block;
+    background-color: #FFFFFF;
+    margin-left: -24px;
+
+    border-left: 1px solid #8FC2E5;
+    border-right: 1px solid #8FC2E5;
+    border-bottom: 1px solid #8FC2E5;
+}
+#nav-top .seller-service .hover div.menu-panel {
+    margin-left: -10px;
+}
+#nav-top .seller-nav .panel:hover div.menu-panel, #nav-top .seller-nav .panel div.menu-panel {
+    margin-left: -120px;
+}
+#nav-top .panel:hover a.menu-panel, #nav-top .hover a.menu-panel {
+    border-bottom: none;
+    border-top: 1px solid #8FC2E5;
+    margin: 2px 0px 0;
+    background-color: #FFFFFF;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    border-left: 1px solid #8FC2E5;
+    border-right: 1px solid #8FC2E5;
+    border-top: 1px solid #8FC2E5;
+}
+#nav-top .panel a span {
+    -moz-transition: -moz-transform 0.2s ease-in 0s;
+    border-color: #0579C6 #ECF7FF #ECF7FF;
+    border-style: solid;
+    border-width: 4px;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 0;
+}
+#nav-top .panel:hover a span, #nav-top .hover a span {
+    -moz-transform: rotate( 180deg );
+    -moz-transform-origin: 50% 30%;
+    -webkit-transform: rotate(180deg);
+    -webkit-transform-origin: 50% 30%;
+    -o-transform: rotate(180deg);
+    -o-transform-origin: 50% 30%;
+    transform: rotate(180deg);
+    transform-origin: 50% 30%;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    border-color: #0579C6 #FFFFFF #FFFFFF;
+    top: 3px\9;
+    _top: 5px;
+}
+#nav-top .seller-nav div.menu-panel {
+    width: 180px;
+    padding: 8px 5px 10px 15px;
+}
+#nav-top .menu-panel {
+    /* background-color: #FFFFFF;
+    line-height: 22px; */
+    padding: 8px 2px 10px 3px;
+}
+#nav-top .menu-panel li {
+    float: none;
+}
+#nav-top .fast-menu .menu-list {
+    padding-right: 0;
+}
+#nav-top .list-other{
+    padding: 0 10px;
+}
+#nav-top .list-help, #nav-top .panel .list-separator {
+    background: url(/public/images/Nepal/separator.png) no-repeat scroll 50% -25px transparent;
+}
+#nav-top .list-help {
+    background-position: 33px 0;
+}
+#nav-top .panel .panel-first {
+    padding: 0 0 10px 0;
+}
+#nav-top .panel .list-separator {
+    padding: 10px 0;
+    clear: both;
+}
+#nav-top .panel .menu-float-list, #nav-top .panel .menu-float-list li {
+    float: left;
+}
+#nav-top .panel .menu-float-list li {
+    overflow: hidden;
+    padding-right: 12px;
+    width: 48px;
+}
+#nav-top .menu-float-list li.menu-list-oth {
+    width: 60px;
+}
+.panel .menu-panel-list {
+    clear: both;
+}
+#nav-top .seller-service div.menu-panel{
+    width: 60px;
+}
+
+/** 3.13 ä¿®æ”¹ begin*/
+#nav-top .my-hdp {
+    margin-right: 10px;
+}
+#nav-top .my-hdp .hover div.menu-panel {
+    margin-left: -10px;
+}
+#nav-top .my-help a.menu-panel {
+    width: 26px;
+}
+#nav-top .my-help a.menu-panel {
+    width: 26px;
+}
+#nav-top .my-help .hover div.menu-panel {
+    margin-left: -46px;
+}
+/** 3.13 ä¿®æ”¹ end*/
+/** top end */
+
+/** header begin */
+#header {
+    background: url(/public/images/Nepal/head-bak.png) repeat-x scroll 0 0 transparent;
+}
+#nav-header {
+    width: 990px;
+    margin: 0 auto;
+    /*    height: 87px;*/
+    height: 70px;
+    padding: 5px 0;
+}
+#nav-header .header-top {
+    background: url(/public/images/Nepal/logo.png) no-repeat scroll 0 0 transparent;
+    /*    _background-image: url( "../images/logo.gif" );*/
+
+    /*    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo.png");
+        _background-image: none;*/
+
+    width: 252px;
+    height: 65px;
+    overflow: hidden;
+}
+#nav-header .header-top .logo, #nav-header .header-top .logo h1, #nav-header .header-top .logo a{
+    display: block;
+    height: 60px;
+}
+#nav-header .header-top .logo a {
+    text-indent: -9999px;
+    overflow: hidden;
+    /*
+    height: 36px;
+    margin-top: 25px;
+    */
+}
+#hdp-nav {
+    background: url(/public/images/Nepal/nav.png) repeat-x scroll 0 3px transparent;
+}
+#hdp-nav .nav-list {
+    width: 990px;
+    height: 38px;
+    line-height: 35px;
+    margin: -3px auto 0;
+    /*    overflow: hidden;*/
+}
+#hdp-nav .nav-list ul {
+    height: 38px;
+    float: left;
+}
+#hdp-nav .nav-list ul li {
+    float: left;
+    width: 83px;
+    margin-right: 5px;
+    z-index: 999;
+}
+#hdp-nav .app-service-list-new ul {
+    height: auto;
+}
+#hdp-nav .app-service-list-new ul li {
+    width: 100px;
+
+}
+
+#hdp-nav .nav-list li span {
+    margin-top: 3px;
+    display: inline-block;
+    text-align: center;
+}
+#hdp-nav .nav-list li span strong {
+    display: block;
+    width: 80px;
+    font-weight: 400;
+}
+#hdp-nav .nav-list li span a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 14px;
+    height: 35px;
+    text-shadow: 0 -1px 0 #608DBB;
+}
+
+/** 2012.3.13 add begin */
+#hdp-nav .nav-list li span a:hover {
+    text-decoration: underline;
+}
+#hdp-nav .nav-list li.nav-panel span a:hover {
+    text-decoration: none;
+}
+#hdp-nav .nav-list .especially {
+    width: 96px;
+}
+#hdp-nav .nav-list .especially strong {
+    width: 93px;
+}
+/** 2012.3.13 add end */
+
+#hdp-nav .nav-list li span.current, #hdp-nav .nav-list li span.current strong, #hdp-nav .nav-list li.activity span, #hdp-nav .nav-list li.activity span strong, #hdp-nav .especially span, #hdp-nav .especially span strong {
+    background: url(/public/images/Nepal/nav-bak.png) no-repeat scroll 0 0 transparent;
+}
+#hdp-nav .nav-list li span.current, #hdp-nav .nav-list li.activity span {
+    margin-top: 0;
+    background-position: 0 -38px;
+}
+#hdp-nav .nav-list li span.current strong, #hdp-nav .nav-list li.activity span strong {
+    background-position: 100% -38px;
+    height: 38px;
+    margin-left: 3px;
+
+    /*    padding: 0 10px 0 7px;*/
+    padding: 0 10px;
+    width: 60px;
+}
+#hdp-nav .nav-list li span.current strong {
+    padding: 0;
+    text-align: center;
+    width: 80px;
+}
+#hdp-nav .nav-list li span.current a, #hdp-nav .nav-list .activity span a {
+    font-weight: 700;
+    color: #666666;
+    padding-top: 3px;
+    text-shadow: none;
+}
+#hdp-nav .additional {
+    color: #FFFFFF;
+    float: right;
+    height: 38px;
+    line-height: 41px;
+}
+#hdp-nav .additional a {
+    color: #FFFFFF;
+}
+#hdp-nav .nav-list li span a {
+    text-decoration: none;
+}
+#hdp-nav .nav-list li span.current a {
+    color: #666666;
+}
+#hdp-nav .nav-list li.activity span a {
+    color: #336699;
+}
+#hdp-nav .nav-list-panel{
+    background-color: #FFFFFF;
+    border-color: #3894D0;
+    border-radius: 0 0 4px 4px;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    box-shadow: 1px 2px 3px #AAAAAA;
+    line-height: 22px;
+    min-width: 100px;
+    *width: 100px;
+
+    padding: 5px 10px 10px;
+    position: absolute;
+    /* visibility: hidden; */
+    white-space: nowrap;
+    margin-top: -1px;
+
+    display: none;
+
+    *left: 0;
+    *top: 38px;
+    z-index: 999;
+}
+#hdp-nav .app-service-list-new {
+    padding: 0;
+    white-space: normal;
+}
+
+#hdp-nav .activity .nav-list-panel {
+    display: block;
+}
+#hdp-nav .nav-list-panel a {
+    color: #336699;
+}
+#hdp-nav .nav-list .especially span{
+    background-position: 0 0;
+    margin-top: 0;
+}
+#hdp-nav .nav-list .especially span strong{
+    background-position: 100% 0;
+    margin-left: 3px;
+}
+#hdp-nav .nav-panel {
+    /* *position: relative; //app-service-list ç”¨ä¸äº† */
+}
+#hdp-nav .app-service-list {
+    position: absolute;
+    width: 990px;
+    z-index: 105;
+    display: none;
+}
+#hdp-nav .app-service-list h3, .app-service-list .hd, .nav-list-panel .hd {
+    line-height: normal;
+
+    padding-top: 32px;
+}
+#hdp-nav .app-service-list ul, #hdp-nav .app-service-list ul li {
+    float: none;
+    _float: left;
+}
+#hdp-nav .app-service-list ul {
+    height: auto;
+}
+#hdp-nav .app-service-list ul li {
+    width: 110px;
+}
+/** header end */
+
+/** footer begin */
+#footer {
+    clear: both;
+    border-top: 1px solid #D1D7DC;
+}
+#footer a {
+    color: #666666;
+}
+#footer .footer-con {
+    width: 990px;
+    margin: 0 auto;
+}
+#footer .site-map {
+    border-bottom: 1px solid #D1D7DC;
+    overflow: hidden;
+    width: 100%;
+}
+#footer .site-map dl {
+    width: 160px;
+    margin: 0 30px 0 50px;
+    padding: 20px 0 10px;
+
+    float: left;
+}
+#footer .site-map dt {
+    background: url(/public/images/Nepal/site-map.png ) no-repeat scroll 0 0 transparent;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 114px;
+    height: 34px;
+}
+#footer .site-map .charge-order dt {
+    background-position: 0 -34px;
+}
+#footer .site-map .using-help dt {
+    background-position: 0 -68px;
+}
+#footer .site-map .customer-service dt {
+    background-position: 0 -102px;
+}
+#footer .site-map .novice-road {
+    _margin-left: 25px;
+}
+#footer .site-map dd {
+    line-height: 24px;
+    padding-left: 43px;
+}
+#footer #site-footer {
+    margin-top: 10px;
+    text-align: center;
+
+    clear: both;
+}
+#footer .footer-nav{
+    height: 20px;
+}
+#footer .footer-nav a {
+    margin: 0 7px;
+}
+#footer .site-link{
+    margin: 5px auto;
+}
+#footer #bottom-separator {
+    color: #FFFFFF;
+    height: 17px;
+    line-height: 17px;
+}
+/** footer end */
+
+/** å†…å®¹ begin */
+#page {
+    background-color: #EDEFEF;
+    padding: 1px 0 15px;
+
+    background: url(/public/images/Nepal/channel-bak.png) repeat-x scroll 0 0 #F4F4F4;
+}
+#page #page-content {
+    width: 990px;
+    margin: 0 auto;
+
+    color: #666666;
+}
+/** å†…å®¹ end */
+.flag-recommend, .flag-hot, .flag-new {
+    background: url(/public/images/Nepal/flag.png) no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    margin-left: 3px;
+    overflow: hidden;
+}
+.flag-recommend {
+    background-position: 0 0;
+    height: 17px;
+    width: 25px;
+}
+.flag-hot {
+    background-position: 0 -17px;
+    height: 13px;
+    width: 21px;
+}
+.flag-new {
+    background-position: 0 -31px;
+    height: 14px;
+    width: 21px;
+}
+
+/** åˆ†é¡µ begin */
+.pagination {
+
+}
+.pagination .page-result {
+    padding: 5px 0;
+    text-align: right;
+
+    vertical-align: top;
+}
+.page-result a, .page-result strong {
+    padding: 2px 6px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.page-result a {
+    border: 1px solid #CCCCCC;
+}
+.page-result a.current {
+    color: #666666;
+    font-weight: bold;
+    border: none;
+}
+.page-result a:hover {
+    text-decoration: none;
+}
+/** åˆ†é¡µ end */
+
+#nav-fast-menu {
+    float: right;
+    margin-top: 15px;
+}
+#nav-fast-menu .entity {
+    overflow: visible;
+}
+#nav-fast-menu #nav-top{
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 5px #DDDDDD;
+    background-color: #FFFFFF;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    *padding-right: 0;
+    height: 35px;
+    *background-color: transparent;
+}
+.txt-min {
+    width: 50px;
+}
+.txt-long{
+    width: 240px;
+}
+.txt-slong{
+    width: 450px;
+}
+.msg {
+    border: 1px solid #DEDEDE;
+    padding: 10px 15px;
+
+    margin-top: 15px;
+}
+.msg p {
+    line-height: 28px;
+}
+.app-service-list {
+    margin-top: 10px;
+    overflow: hidden;
+}
+.app-service-list .entity {
+    /*    height: 150px;*/
+}
+.app-service-list h3, .app-service-list .hd, .app-service-list-new .hd {
+    float: left;
+    display: inline;
+    margin-left: 18px;
+    width: 14px;
+    font-size: 14px;
+    word-wrap: break-word;
+    word-break: nomal;
+
+    color: #CCCCCC;
+    font-weight: normal;
+
+    padding-top: 40px;
+    line-height: 17px;
+
+    margin-right: 100px;
+}
+.app-service-list ul, .app-service-list-new ul {
+    /*    margin-left: 110px;*/
+    padding: 20px 0 15px;
+    width: 850px;
+}
+.app-service-list li, .app-service-list ul, .app-service-list-new ul, .app-service-list-new li {
+    display: inline-block;
+    *display: inline;
+    *float: left;
+}
+.app-service-list li, .app-service-list-new li {
+    width: 100px;
+    text-align: center;
+}
+.app-service-list h5, .app-service-list-new h5 {
+    line-height: 18px;
+    color: #333333;
+    font-weight: normal;
+}
+.app-service-list .desc {
+    display: none;
+}
+.app-service-list li .item-desc, #tip_desc .item-desc {
+    width: 238px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    position: absolute;
+    border: 2px solid #FF6600;
+    text-align: left;
+    box-shadow: 0 1px 5px #DDDDDD;
+    word-wrap: break-word;
+    line-height: 22px;
+}
+.app-service-list .item-desc .soft-level .item-desc-hd, #tip_desc .item-desc .soft-level .item-desc-hd {
+    background: url( "/public/images/Nepal/item-levels.gif" ) scroll 0 0 transparent;
+    height: 20px;
+    margin-bottom: 5px;
+}
+.app-service-list .item-desc .soft-level-2 .item-desc-hd, #tip_desc .item-desc .soft-level-2 .item-desc-hd,
+.app-service-list .item-desc .soft-level-level2 .item-desc-hd, #tip_desc .item-desc .soft-level-level2 .item-desc-hd{
+    background-position: 0 -23px;
+}
+.app-service-list .item-desc .soft-level-3 .item-desc-hd, #tip_desc .item-desc .soft-level-3 .item-desc-hd,
+.app-service-list .item-desc .soft-level-level3 .item-desc-hd, #tip_desc .item-desc .soft-level-level3 .item-desc-hd{
+    background-position: 0 -48px;
+}
+.app-service-list li a, .app-service-list-new li a {
+    color: #333333;
+}
+.app-service-list li a:hover, .app-service-list-new li a:hover {
+    text-decoration: underline;
+}
+.app-service-list .separate-bar, .app-service-list-new .separate-bar {
+    diaplay: block;
+    margin-top: 20px;
+}
+.entity {
+    overflow: hidden;
+}
+
+/* jquery-ui dialog modity */
+.ui-dialog{
+    height:200px;
+    width:150px;
+    box-shadow: 0 0 0 7px rgba(255,255,255,0.5) !important;
+
+}
+.ui-dialog-titlebar {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+
+    border: 1px solid #999999;
+    color: #FF0000;
+    font-weight: normal;
+    padding: 0;
+
+}
+
+
+
+.view-detail{
+    display:block;
+    background: url('/public/images/Nepal/btn-yellow-bg.png') no-repeat;
+    background-position: 0 0;
+    height: 30px;
+    width: 90px;
+    line-height: 30px;
+    color: #fff;
+    font-family: '微软雅黑';
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btn-yellow, .btn-blue, .btn-gray, .submit input, input.submit {
+    font-style: normal;
+    background: url( "/public/images/Nepal/buttons.png" ) no-repeat scroll 0 0 transparent;
+    height: 27px;
+    line-height: 26px;
+    width: 78px;
+    display: inline-block;
+    color: #336699;
+    text-align: center;
+
+    cursor: pointer;
+}
+a.btn-yellow:hover, a.btn-blue:hover, a.btn-gray:hover {
+    text-decoration: none;
+}
+.btn-b60, .btn-b60 input {
+    background-position: -2px -135px;
+    width: 60px;
+}
+.btn-blue, input.btn-blue {
+    background-position: -2px -201px;
+}
+.btn-yellow {
+    background-position: -2px -234px;
+    color:#996633;
+}
+.btn-gray {
+    background-position: -2px -284px;
+}
+.btn-b60, .item-list .btn-b60 input {
+    background-position: -2px -135px;
+    width: 60px;
+}
+.btn-b600{
+    width: 80px;
+}
+.btn-y60 {
+    background-position: -2px -168px;
+    width: 60px;
+}
+.btn-g60 {
+    background-position: -2px -312px;
+    width: 60px;
+}
+.item-main .submit input, .submit input, input.submit , .style_button input.submit{
+    background-position: -2px -201px;
+    border: medium none;
+    cursor: pointer;
+    height: 27px;
+    overflow: hidden;
+    width: 80px;
+}
+input.col-gray, a.col-gray {
+    color: #CCCCCC;
+}
+
+/*************task-dialog**********************/
+.task-dialog .ui-widget-header{
+    display: none;
+}
+
+
+.nav-app {
+    position: relative;
+}
+.new-app {
+    position: absolute;
+    right: -3px;
+    top: -3px;
+}
+.nav-secret {
+    color: #FFFF00 !important;
+    font-weight: 700;
+}
+
+.app-service-list .func-list{
+    height: 70px;
+    border: 3px solid #ccc;
+    font-family:tahoma,arial,宋体,sans-serif;
+    padding-top: 8px;
+    padding-right: 2px;
+    padding-bottom: 25px;
+    margin: 25px;
+    display:block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.75);
+    margin-left:128px;
+    width:790px;
+    padding-left: 30px;
+    display:block;
+    font-size:19px;
+    border-color: #999999;
+
+}
+
+.app-service-list li .func-list, #tip_desc .func-list {
+    width: 238px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    position: absolute;
+    border: 2px solid #FF6600;
+    text-align: left;
+    box-shadow: 0 1px 5px #DDDDDD;
+    word-wrap: break-word;
+    line-height: 22px;
+}
+.func-list {
+    margin:0 0.38em;
+    border:1px solid #ccc;
+    background: #fff;
+    border-radius:6px;
+}
+.func-list li {
+    display:none;
+    position: relative;
+    padding: 0.5em;
+    font-size: 2em;
+    line-height: 1.8em;
+}
+.func-list li.active {
+    display:block;
+}
+.func-list .func-title {
+    display: inline;
+    position: relative;
+    left: -2em;
+    top: -2em;
+    padding: 0.25em;
+    background: #F0F0F0;
+    border-radius: 4px 0 8px 0;
+    border-bottom: 3px solid #CCC;
+    border-right: 3px solid #CCC;
+    margin-right: 3em;
+    color: #464646;
+    font-size: 20px;
+    font-weight: bold;
+}
+.func-list .popup {
+    font-weight:bold;
+}
+input.col-gray, a.col-gray {
+    color: #CCCCCC;
+}
+
+
+.marquee_nav { position: absolute; width: 240px; top: 310px; right: 20px; text-align: right; }
+.marquee_nav a {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-left: 15px;
+    background: url(../Images/nav_buttons.png) no-repeat 0px 0px;
+    cursor: pointer;
+}
+.marquee_nav a:hover { background-position: -25px 0px; }
+.marquee_nav a.selected { background-position: -50px 0px; }
+.fb-cont {
+        bottom: 80px;
+        overflow: hidden;
+        position: fixed;
+        right: 0;
+        width: 29px;
+
+        _position: absolute;
+        _bottom:auto;
+        _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10) + 80 ||0)));
+
+        border: 1px solid #DDDDDD;
+        box-shadow: 0 1px 5px #DDDDDD;
+    }
+    .fb-cont a, .fb-cont a:link, .fb-cont a:visited {
+        /*      background-color: #F6830C;
+                border: 1px solid #DDDDDD;
+                box-shadow: 0 1px 5px #DDDDDD;
+        */
+        background-color: #EE3300;
+
+        display: inline-block;
+        line-height: 18px;
+        padding: 10px 7px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+
+
+        color: #FFFFFF;
+    }
+
+    .fb-shadow {
+        background: none repeat scroll 0 0 #D9D9D9;
+        height: 100%;
+        width: 100%;
+        display: none;
+    }
+    .fb-shadow .fb-box {
+        background: none repeat scroll 0 0 #FFFFFF;
+
+        height: 100%;
+        width: 100%;
+    }
+    .fb-shadow .fb-box h3 {
+        color: #5F7A5B;
+        font-size: 14px;
+        font-weight: bold;
+        height: 34px;
+        line-height: 34px;
+        padding-left: 5px;
+    }
+    .fb-shadow .fb-box textarea {
+        border: 1px solid #C8C8C8;
+        height: 180px;
+        line-height: 20px;
+        margin: 10px 0 0 5px;
+        outline: medium none;
+        overflow: hidden;
+        padding: 5px;
+        resize: none;
+        width: 550px;
+    }
+    .fb-shadow .fb-box .btn-submit {
+        background-color: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        border-radius: 2px 2px 2px 2px;
+
+        cursor: pointer;
+        display: block;
+        float: right;
+        height: 25px;
+        margin: 10px 13px 0 0;
+        text-align: center;
+        width: 62px;
+    }
+
+    .ui-dialog-titlebar {
+        background: none;
+        border: none;
+    }
+
+    .fb-box .opt-list {
+        line-height: 35px;
+        padding-left: 5px;
+        height: 35px;
+    }
+    .fb-box .opt-list span {
+        margin-left: 5px;
+    }
+

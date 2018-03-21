@@ -1,0 +1,359 @@
+.set-step{
+    width: 150px;line-height: 30px;font-size: 14px;color: rgb(141, 149, 161);text-align: center;cursor: pointer;
+}
+.set-step-arrow{
+    font-size:20px;
+}
+
+.gp-set-step{
+    width:100%;height:50px;border-bottom: 1px solid #93ddf8;
+}
+
+.gp-set-step table{
+    margin:0 auto;position: relative;top: 10px;
+}
+
+.step-fixed{
+    color:#73bf4d;
+}
+
+.step-cur{
+    color:#0066ff;
+}
+
+.step-tag{
+    background: url("http://img01.taobaocdn.com/imgextra/i1/79742176/TB2K3.BXVXXXXX3XXXXXXXXXXXX-79742176.png") no-repeat 0 0;
+}
+
+.group_tmp_div{
+    width:100%;margin: 25px 0 25px;border-bottom: 1px solid #ABA9A9;
+}
+
+.group_tmp_div_bg{
+   background-color:#efefef;
+}
+
+.group_tmp_div_1{
+    width:100%;height:30px;
+}
+
+.group_tmp_div_2{
+    width:100%;height:30px;margin:10px 0 10px;color: rgb(141, 149, 161);text-align:center;
+}
+
+.group_tmp_div_2 a{
+    font-size:14px;
+    float:left;
+    display:block;
+    width:130px;
+}
+
+.group_tmp_div_3{
+    width:100%;margin: 20px 0 20px;
+}
+
+.group_tmp_div_fav{
+    /*width:60px;*/
+    height:16px;
+    margin-left:250px;
+    /*display:block;*/
+    cursor:pointer;
+    background-image:url(http://img02.taobaocdn.com/imgextra/i2/79742176/TB2SiDjXVXXXXacXXXXXXXXXXXX-79742176.png);
+    background-repeat :no-repeat;
+}
+
+.group_tmp_div_fav_nor{
+    background-position:-2px -17px;
+}
+
+.group_tmp_div_fav_hov{
+    background-position:-2px 0px;
+}
+
+.group_tmp_div_fav_cancel{
+    background-position:-2px -51px;
+}
+
+.group_tmp_div_fav_tru{
+    background-position:-2px -34px;
+}
+
+.group_btn{
+    text-align:center;background-color:#5CACEE;color:white;margin:0 auto;cursor:pointer;
+}
+
+.group_li_btn{
+    text-align:center;background-color:#5CACEE;color:white;margin:0 auto;cursor:pointer;
+}
+
+.gray_btn{
+    text-align: center;
+    background-color: #828aa1;
+    color: white;
+    /*margin: 0 auto;*/
+    cursor: pointer;
+}
+
+.set_begin{
+    width:107px;line-height:30px;font-size:16px;
+}
+
+.tp_search{
+    width:107px;line-height:30px;font-size:16px;
+}
+
+.group_modify{
+    width:107px;line-height:30px;font-size:16px;
+}
+
+.group_btn:hover{
+    background-color:#5196CF;
+}
+
+.templateName{
+    width:250px;height:25px;
+}
+
+.tmp_set_top{
+    width:100%;text-align:center;line-height:50px;height:50px;
+}
+
+.tmp_set_top_td_gap{
+    width:20px;
+}
+
+.tmp_set_area{
+    margin:10px 0 50px;
+}
+
+.tmp_set_prop_tab{
+    font-size:14px;
+}
+
+.g_pro_td_1{
+    width:180px;height:45px;text-align:right;
+}
+
+.g_pro_td_2{
+    width:30px;
+}
+
+.g_pro_a{
+    display:block;height:25px;line-height:25px;width:60px;text-align:center;float: left;margin-right: 10px;border:1px solid #CECECE;cursor:pointer;
+}
+
+.g_pro_choosed{
+     background:url(/public/images/associateModel/choosedGroup.png); background-position: initial initial; background-repeat: initial initial;
+}
+
+.g_pro_on{
+    background-color:#CECECE;
+}
+
+.g_pro_on span{
+    color:#ffffff;font-weight:bold;
+}
+
+.g_pro_off span{
+   color:#656C78;font-weight:bold;
+}
+
+.g_pro_td_input{
+    height:30px;width:240px;border-radius: 4px;
+}
+
+.group_search_input_wrap{
+    width:350px;height:25px;border:2px solid #C5C1C1!important;
+}
+
+.searchSelect{
+    width:180px;height:28px;font-size:14px;border: 2px solid #C5C1C1;cursor:pointer;
+}
+
+.dia-item-img{
+    width:140px;height:140px;border:none;
+}
+
+.group_sort{
+    width:50px;
+    display:block;
+    cursor:pointer;
+}
+
+.tmp_set_dia_area{
+    margin-top:15px;
+    border-collapse:collapse;
+}
+
+.dia-item-td table{
+    border:1px solid #fff;
+    height:188px;
+}
+
+.dia-item-td a{
+    font-size: 12px;
+    width: 145px;
+    display: block;
+    height:42px;
+}
+
+.dia-item-td{
+    padding:10px;
+}
+
+.dia-item-pri{
+    color:#FF4400;
+}
+
+.item-box-in{
+    background-color:#e8e8e8;
+    border:1px solid #ff7744;
+}
+
+.item-box-fix{
+     background-color:#e8e8e8;
+     border:1px solid #ff7744;
+}
+
+.group_b_w{
+    width:180px;line-height:40px;font-size:16px;height:40px;
+}
+
+.group_td_gap{
+    width:10px;
+}
+
+.dialog_btn{
+    text-align:center;width:107px;line-height:30px;background-color:#56B7C4;color:white;margin:0 auto;font-size:16px;cursor:pointer;
+}
+
+.dialog_btn:hover{
+    background-color:#408A94
+}
+
+.item_set_prop{
+    margin-left:50px;margin-top:40px;
+}
+
+.group_item_prop{
+    margin-bottom:40px;
+}
+
+.sales_sort_down{
+    height: 16px;
+    background: url('http://img01.taobaocdn.com/imgextra/i1/79742176/TB2YrTRXVXXXXbDXXXXXXXXXXXX-79742176.png') no-repeat -47px -21px;
+}
+
+.sales_sort_up{
+    height: 16px;
+    background: url('http://img01.taobaocdn.com/imgextra/i1/79742176/TB2YrTRXVXXXXbDXXXXXXXXXXXX-79742176.png') no-repeat 2px -21px;
+}
+
+.price_sort_down{
+    height: 16px;
+    background: url('http://img01.taobaocdn.com/imgextra/i1/79742176/TB2YrTRXVXXXXbDXXXXXXXXXXXX-79742176.png') no-repeat -47px -1px;
+}
+
+.price_sort_up{
+    height: 16px;
+    background: url('http://img01.taobaocdn.com/imgextra/i1/79742176/TB2YrTRXVXXXXbDXXXXXXXXXXXX-79742176.png') no-repeat 2px -1px;
+}
+
+.group_item_image{
+    width:120px;height:120px;
+}
+
+.group_btn_tp{
+    width:200px;line-height: 40px;font-size:16px;
+}
+
+.tp_allShop{
+    margin-top:40px;
+}
+
+.tp_showItems{
+    margin-top:20px;
+}
+
+.tp_checked{
+     width:160px;line-height: 35px;font-size:16px;margin:30px auto 30px;
+ }
+
+.tmp_toPut_top{
+    margin: 50px auto 0;width:800px;
+}
+
+/*.tmp_toPut_area{
+    margin: 20px auto auto;
+}*/
+
+.tmp_toPut_bottom{
+    margin:20px auto;
+}
+
+.tp_item_img{
+    height:64px;width:64px;
+}
+
+.tp_item_checkBox{
+    height:13px;width:13px;
+}
+
+.put_item_div{
+    font-size:12px;margin: 8px; border: 1px solid #fff; height: 66px;width: 249px;cursor:pointer;
+}
+
+.tp_item_org{
+    color:#FB6E52
+}
+
+.tmp_list_bottom{
+    text-align:center;
+}
+
+.tmp_set_btn{
+    margin:20px 0 20px;
+}
+
+.item_set_btn{
+    margin:20px 0 20px;
+    height:40px;
+}
+
+.g_pro_in_msg{
+    font-size: 12px;
+    color: #ff0000;
+}
+
+.gp_tp_coms{
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: center;
+    color: #5B84B8;
+}
+
+.gp_up_btn{
+    float:left;left:30%;position:relative;
+}
+
+.gp_next_btn{
+    position:relative;left:34%;float:left;
+}
+
+.gp-num-red{
+    color:red;
+    font-size:18px;
+    margin:0 5px;
+}
+
+.gp-num-blue{
+    color:blue;
+    font-size:18px;
+    margin:0 5px;
+}
+
+.gp-dia-msg{
+    font-size: 14px!important;
+    margin: 25px;
+}

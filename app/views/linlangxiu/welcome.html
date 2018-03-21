@@ -1,0 +1,15 @@
+#{extends 'linlangxiu/tbtnavdata.html' /}
+#{set title:'琳琅秀欢迎页面' /}
+
+<div>
+	<img src="/img/linlangxiu/welcome.png">
+</div>
+
+
+<script type="text/javascript">
+	TM.gcs('/js/linlangxiu/welcome.js?_v=0', function () {
+		$(document).ready(function () {
+			TM.Welcome.init.doInit($('.content'));
+		});
+	});
+</script>

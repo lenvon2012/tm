@@ -1,0 +1,32 @@
+#{extends 'tmSearch/searchbase.html' /}
+
+<style type="text/css">
+
+</style>
+
+<link rel="stylesheet" media="screen" href='/css/tmSearch/searchcomment.css'>
+<link rel="stylesheet" media="screen" href='/css/pagination.css'>
+
+<div id="seocomment" style="color:#f8f8f8">
+#{list items:comments, as:'comment'}
+<p>
+    <span class="comment-author">${comment.title}</span>
+    <span class="comment-date">${comment.content}</span>
+</p>
+#{/list}
+</div>
+
+<div class="comment-container">
+</div>
+
+<script type="text/javascript">
+    $("#seocomment").hide();
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.pagination.js', function () {
+            TM.gcs('/js/tmSearch/searchcomment.js', function () {
+                TM.SearchComment.init.doInit($(".comment-container"));
+            });
+        });
+    });
+
+</script>

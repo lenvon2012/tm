@@ -1,0 +1,123 @@
+#{extends 'yangyang.html' /}
+<style>
+    div#yangyangContent {
+        width: 955px;
+        margin: 0 auto;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    div.main {
+        width: 780px;
+        float: right;
+    }
+    div.aside {
+        width: 150px;
+        float: left;
+        margin: 20px 0 0 0;
+        position: fixed;
+    }
+    #aside .sidebox {
+        clear: both;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    .sidemenu {
+        border: 1px solid #C7CACC;font-size:13px;
+    }
+    .sidemenu li a {
+        display: block;
+        height: 36px;
+        line-height: 36px;
+        border-bottom: 1px solid #C6C8CB;
+        color: #444;
+        background: url("http://s.libdd.com/img/bg/sidemenu-item.$5106.png") repeat;
+        overflow: hidden;
+        text-align: left;
+    }
+    .sidemenu li a:hover{
+        text-align: left;
+        background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;
+    }
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {
+        margin: 5px auto;
+        width: 780px;
+        height: auto;
+    }
+    .kwcontainer {
+        background: transparent;
+        margin: 10px auto;
+        width: 100%;
+        overflow: auto;
+        zoom: 1;
+    }
+    .sidemenu li.aside-hot-tag .aside-icon {
+        cursor: move;
+    }
+    .sidemenu li.aside-hot-tag .aside-icon {
+        background-position: -92px 10px;
+    }
+    .sidemenu li a .aside-icon {
+        float: left;
+        width: 36px;
+        height: 36px;
+        background-image: url("http://s.libdd.com/img/icon/sidemenu.$6372.png");
+        background-repeat: no-repeat;
+    }
+</style>
+
+<div id="yangyangContent">
+
+    <div class="aside">
+        <ul class="sidemenu sidebox side-tracked-tag">
+            <li class="aside-hot-tag first">
+                <a class="followed-tag clearfix" href="/home/shopDiag">
+                    <span class="aside-icon"></span>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/home/autoTitle">
+                    <span class="aside-icon"></span>
+                    <span>自动标题</span>
+                </a>
+            </li>
+            <li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/home/kits">
+                    <span class="aside-icon"></span>
+                    <span>超级工具箱</span>
+                </a>
+            </li>
+            <li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/home/autoMultimodify">
+                    <span class="aside-icon"></span>
+                    <span>批量修改</span>
+                </a>
+            </li>
+            <li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/home/newkeywords">
+                    <span class="aside-icon"></span>
+                    <span>海量词库</span>
+                </a>
+            </li>
+            <li class="aside-hot-tag ">
+                <a class="followed-tag clearfix" href="/home/mylexicon">
+                    <span class="aside-icon"></span>
+                    <span>我的词库</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="main">
+        <div class = "all_container">
+            <div class = "kwcontainer">
+            #{doLayout /}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+    <meta name="keywords" content="淘宝卖家,淘宝宝贝,宝贝推广,推广宝贝,宝贝分享,热卖宝贝,热卖推荐,宝贝购买,宝贝推荐,宝贝热卖">
+    <meta name="description" content="为淘宝买家提供大量优质宝贝，推荐热卖宝贝，是很好的淘宝宝贝购买和推广平台。">
+    <link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+    <!--<link rel="shortcut icon" type="image/png" href='/img/favicon.png'>-->
+#{get 'moreStyles' /}
+    <style>
+
+        .WaitingForLoadingDiv {
+            display: none; z-index: 10002;
+            color: blue;
+            font-weight: bold;
+            font-size: 18px;
+            text-align:center;
+            background-color:#fff;
+            width:520px; height: 90px;
+            padding:40px 30px;
+            font-family:'微软雅黑','宋体';
+            border: 2px solid #bebebe;
+            /*border: 3px solid transparent;*/
+            /*-webkit-border-radius: 5px;*/
+            /*-moz-border-radius: 5px;*/
+            /*border-radius: 5px;*/
+            /*-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+            /*-moz-box-shadow: 0 0 10px rgba(0,0,0,0.4);*/
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+
+        }
+        .WaitingForLoadingDiv img{
+            /*margin-bottom:15px;*/
+        }
+        a {
+            text-decoration: none;
+        }
+        .inlineblock {
+            display: inline-block; *display: inline; zoom: 1;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .blank0 {
+            display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+        }
+        .clearfix {
+            clear: both; zoom: 1;
+        }
+
+        .clearfix:after {
+            clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+        }
+        img {
+            border: none;
+        }
+        .orange {
+            color: #FF4400;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .collapse-table {
+            border-collapse: collapse;
+        }
+
+        .shadowbase{behavior:none;}
+
+        body {
+            padding: 0px; margin: 0px; background: #F1EFF0; color: #333;
+            font-family: "微软雅黑"; font-size: 14px;
+            /*background: url('/img/taoweigou/bodyback.jpg') repeat;*/
+        }
+
+        .page-width {
+            width: 1000px;
+        }
+
+        .title-wapper .logo-div {
+            font-size: 36px; color: #63C6B2; font-weight: bold;
+        }
+
+        .title-wapper .item-search-input {
+            width: 400px; height: 28px; line-height: 28px;
+            border-top: 3px solid #F27B04; border-left: 3px solid #F27B04; border-bottom: 3px solid #F27B04;
+            border-right: none;
+        }
+        .title-wapper .item-search-tip {
+            padding-left: 23px; background: url('/img/taoweigou/search-tip.png') no-repeat 3px 50%;
+        }
+        .title-wapper .item-search-tip-color {
+            color: #999;
+        }
+        .title-wapper .item-search-btn {
+            width: 123px; height: 36px; display: block;
+            cursor: pointer; line-height: 36px; color: white; font-size: 16px; font-weight: bold;
+            background: url('/img/taoweigou/search-btn.png') no-repeat -2px 0px;
+        }
+        .title-wapper .item-search-btn:hover {
+            background: url('/img/taoweigou/search-btn.png') no-repeat -2px -36px;
+        }
+
+        .nav-back {
+            background: #f27b03;
+        }
+        .nav-wrapper .nav-link {
+            height: 33px; line-height: 33px; color: white; display: block; font-size: 16px;
+            padding: 0 15px; cursor: pointer; margin: 1px; border-radius: 4px;
+        }
+        .nav-wrapper .nav-link:hover {
+            font-weight: bold; background: white;color: #FF4400;
+        }
+        .nav-wrapper .selected-nav {
+            font-weight: bold; background: white;color: #FF4400;
+        }
+
+
+        .content-wrapper {
+            margin: 20px 0px;
+        }
+        .content-wrapper .content-container {
+            background: white; padding: 10px; border: 1px solid #f27b03;
+        }
+        .content-container .hot-recommend-tip {
+            padding-bottom: 4px; border-bottom: 2px solid #FF4400;
+        }
+        .content-container .item-img:hover {
+            filter:alpha(opacity=70);
+            opacity: 0.7;
+        }
+        .content-wrapper .item-price {
+            color: #FF4400;
+        }
+        .content-wrapper .hot-recommend-container .item-link {
+            color: #333; font-size: 13px; font-family: "宋体";
+        }
+        .content-wrapper .item-link:hover {
+            color: #a10000;
+        }
+        .content-wrapper .hot-recommend-table {
+            border-collapse: collapse;
+        }
+        .content-wrapper .hot-recommend-table td {
+            padding: 3px 0px; border-bottom: 1px solid #cccccc; vertical-align: middle;
+        }
+        .navTable{
+            background: #63C6B2 url(/img/xiaoqingxin/head_nav_bg.png) repeat-x 0 0;
+            height: 38px;
+            overflow: hidden;
+        }
+        .topBG{
+            background: url("/img/xiaoqingxin/head_bg.jpg")
+        }
+        .searchword{background: #fff url(/img/xiaoqingxin/input_bg_sd.png) 0 0 no-repeat;
+            height: 25px;
+            line-height: 26px;
+            margin: 0;
+            padding: 0 5px;
+            border: none;
+            float: left;
+            color: #999;
+            _background-attachment: fixed;
+            overflow: hidden;
+        }
+        .searchbtn{width: 30px;
+            height: 25px;
+            background: url(/img/xiaoqingxin/nav_search_bg.png) right 0 no-repeat;
+            margin: 0;
+            border: none;
+            float: left;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .xiaoqingxin-content{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #back2top {
+            position: fixed;
+            bottom: 200px;
+            _bottom: auto;
+            _position: absolute;
+            _top: expression((document.compatMode && document.compatMode=='CSS1Compat' ? documentElement.scrollTop+(documentElement.clientHeight - this.clientHeight):document.body.scrollTop+(document.body.clientHeight - this.clientHeight))-200);
+            width: 11px;
+            height: 70px;
+            background-color: #63C6B2;
+            font-size: 12px;
+            padding: 0 8px;
+            line-height: 110%;
+            text-align: center;
+            display: none;
+        }
+        #back2top a {
+            color: #fff;
+        }
+        #back2top a span {
+            color: #fff;
+            padding: 0;
+            font-size: 10px;
+            line-height: 180%;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+</script>
+<script src="/js/jquery-1.6.4.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+
+</script>
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+<!--<div class="LoadingMask" style="display: none; border: 0;"></div>-->
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<div id="back2top" style="left: 1173px; display: block;">
+    <a href="#">
+        <span class="arrow">▲</span>
+        回顶部
+    </a>
+</div>
+
+
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        //if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){};
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    //TM.gcs('/js/tm.js');
+
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            //TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            //TM.Loading.init.hidden();
+        });
+
+
+
+        var hasPath = false;
+
+
+        String.prototype.cnLength = function () {
+            return this.replace(/[^u4E00-u9FA5]/g, 'nn').length;
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s*|\s*$/g, '');
+        }
+        Number.prototype.toPercent = function (n) {
+            n = n || 0;
+            return ( Math.round(this * Math.pow(10, n + 2)) / Math.pow(10, n) ).toFixed(n) + '%';
+        }
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+        Date.prototype.formatMS = function(){
+            return this.format('MM月dd');
+        }
+        Date.prototype.formatYMDMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+
+    })(jQuery, window));
+</script>
+
+<div style="text-align: center;" class="topBG">
+    <div style="margin: 0 auto;" class="page-width">
+        <div class="title-wapper" style="text-align: center;padding: 15px 0px; ">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tbody>
+                <tr>
+                    <td style="text-align: left;"><span class="logo-div">小清新</span> </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="text-align: center; padding: 0px;" class="navTable">
+    <div style="margin: 0 auto;" class="page-width">
+        <div class="nav-wrapper" style="text-align: left;">
+            <table style="border-collapse: collapse;">
+                <tbody>
+                <tr class="">
+                    <td><a class="nav-link first-page-link" href="/xiaoqingxin/index">首页</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=1">女装</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=2">男装</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=3">鞋子</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=4">包包</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=5">美容</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=6">家居</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=7">母婴</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=8">数码</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=9">美食</a></td>
+                    <td><a class="nav-link" href="/xiaoqingxin/catitem?catid=10">随意淘</a></td>
+                    <td style="padding-left: 40px;"><input type="text" class="searchword" tooltip="请输入关键词"><input type="submit" value=" " class="searchbtn"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div  class="slideBox" id="xiaoqxlunbo" style="margin: 10px auto;">
+    <ul class="items">
+        <li><a target="_blank" href="/aituiguang/index" title="小清新小组"><img style="width: 960px;height: 280px;" src="/img/xiaoqingxin/GROUPAD.jpg"></a></li>
+        <li><a target="_blank" href="/aituiguang/help" title="小清新博客"><img style="width: 960px;height: 280px;" src="/img/xiaoqingxin/blogad.jpg"></a></li>
+
+    </ul>
+</div>
+<div class="xiaoqingxin-content">
+    #{doLayout /}
+</div>
+
+
+
+
+
+<script src="/js/lunbo/jquery.slideBox.min.js"></script>
+<script type="text/javascript">
+    TM.gcs("/js/lunbo/jquery.slideBox.min.js",function(){
+        $('#xiaoqxlunbo').slideBox();
+    })
+</script>
+
+#{get 'moreScripts' /}
+
+</body>
+</html>

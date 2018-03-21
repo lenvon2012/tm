@@ -1,0 +1,308 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+
+<div id="crudShow" class="${type.name}">
+
+    <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
+
+    <div class="objectForm">
+    #{form action:@save(object._key()), enctype:'multipart/form-data'}
+        #{crud.form /}
+    <form action="/local/crudtmrefundtrades/2" method="post" accept-charset="utf-8" enctype="multipart/form-data"><input type="hidden" name="authenticityToken" value="30497ba93974f35abb56c2ee13552babd7c2b5f7">
+
+
+
+
+    <div class="crudField crud_unknown">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_text">
+
+
+
+        <label for="object_app">
+            app
+        </label>
+        <input id="object_app" class="" type="text" name="object.app" value="淘掌柜Refund" size="50">
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_text">
+
+
+
+        <label for="object_status">
+            status
+        </label>
+        <input id="object_status" class="" type="text" name="object.status" value="已提交未处理" size="50">
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_text">
+
+
+
+        <label for="object_wangwang">
+            wangwang
+        </label>
+        <input id="object_wangwang" class="" type="text" name="object.wangwang" value="1231231" size="50">
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_number">
+
+
+
+
+
+
+
+        <label for="object_amount">
+            amount
+        </label>
+        <input id="object_amount" type="text" name="object.amount" value="100.0" size="5">
+
+
+
+
+
+
+    <span class="crudHelp">
+        Numeric.
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_number">
+
+
+
+
+
+
+
+        <label for="object_created">
+            created
+        </label>
+        <input id="object_created" type="text" name="object.created" value="1373993332628" size="5">
+
+
+
+
+
+
+    <span class="crudHelp">
+        Numeric.
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_number">
+
+
+
+
+
+
+
+        <label for="object_updated">
+            updated
+        </label>
+        <input id="object_updated" type="text" name="object.updated" value="0" size="5">
+
+
+
+
+
+
+    <span class="crudHelp">
+        Numeric.
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_text">
+
+
+
+        <label for="object_upname">
+            upname
+        </label>
+        <input id="object_upname" class="" type="text" name="object.upname" value="楚之小南" size="50">
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_text">
+
+
+
+        <label for="object_reason">
+            reason
+        </label>
+        <input id="object_reason" class="" type="text" name="object.reason" value="34412341" size="50">
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+
+
+
+    <div class="crudField crud_text">
+
+
+
+        <label for="object_assessor">
+            assessor
+        </label>
+        <input id="object_assessor" class="" type="text" name="object.assessor" value="" size="50">
+
+
+
+
+
+
+
+
+
+
+    <span class="crudHelp">
+
+                </span>
+
+
+    </div>
+
+    <p class="crudButtons">
+        <input type="submit" name="_save" value="Save">
+        <input type="submit" name="_saveAndContinue" value="Save and continue editing">
+    </p>
+
+    </form>
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+    #{form @delete(object._key())}
+        <p class="crudDelete">
+            <input type="submit" value="&{'crud.delete', type.modelName}" />
+        </p>
+    #{/form}
+
+</div>

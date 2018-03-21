@@ -1,0 +1,283 @@
+#{extends 'yangyang.html' /}
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=2">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=2">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+<![endif]-->
+<link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top nav-head">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse"
+                    data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="brand" style="color: #fff;" href="/wangke/keywords">找流量</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav head">
+                    <li><a href="/wangke/relation">找关联</a></li>
+                </ul>
+                <ul class="nav head">
+                    <li><a href="/wangke/keywords">找热词</a></li>
+                </ul>
+                <ul class="nav head">
+                    <li><a href="/wangke/mywords">我的词库</a></li>
+                </ul>
+                <ul class="nav head">
+                    <li><a href="/wangke/wordsexport">直通车热词导出</a></li>
+                </ul>
+
+                <p class="pull-right">
+                    <span class="userheadop" style="display: none;"></span>
+                    <a class="btn btn-success btn-vcenter" id='syncBtn' href="javascript:void(0)" >更新数据</a>
+                    <a class="btn btn-info btn-vcenter"  id="logout" href="javascript:void(0);">退出</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class='top-banner' style="background: url('/img/frame/header-bg.png');height: 48px; "> -->
+<!-- <div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; "> -->
+
+<div class="clear"></div>
+<!--<div id="help">
+        *{<li class="aside-hot-tag ">
+                <a class="clearfix" href="/KeyWords/toSerchKeyWords">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+                <span class="fold-icon fold"></span>
+            </li>}*
+
+
+        </ul>
+</div>-->
+<div id="yangyangContent">
+
+
+    <div class="aside left-nav">
+
+
+        <div class="blank0" style="height:1px;"></div>
+        <ul id="opnav" class="sidemenu sidebox side-tracked-tag " style="*margin-top: 0px; display:none;">
+        *{<li id="ordershengyeji" class="aside-hot-tag first">}*
+        *{<div id="left1" class="wrapper hidden">}*
+        *{<a href="http://to.taobao.com/aHZ5Mjy" style="width:190px;height:50px;padding-top:5px;padding-left:3px;">}*
+        *{<img class="" src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2RRfuXchXXXXXXXXX_!!22902351.gif" style="width:188px;height:48px">}*
+        *{</a>}*
+        *{</div>}*
+        *{</li>}*
+
+
+            <li class="aside-hot-tag">
+                <div class="wrapper">
+                    <a class="clearfix" href="javascript:void(0)">
+                        <span class="aside-icon"></span>
+                        <span>加入我们</span>
+                    </a>
+                    <span class="fold-icon unfold"></span>
+                    <div class="secondUl" style="">
+                        <div class="secondLi" tag="kits">
+                            <a href="javascript:void(0);" style="background: url('');border-bottom: 0px;font-weight: bold;color: blue;">
+                            *{QQ群(62230623)}*QQ群(185867410)
+
+                            </a>
+                            <!--
+                            <a href="javascript:void(0);" style="background: url('');border-bottom: 0px;font-weight: bold;color: blue;">
+                                QQ群(187074356)
+                            </a>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="aside-hot-tag ">
+                <div class="wrapper">
+                    <a class="clearfix" href="javascript:void(0)">
+                        <span class="aside-icon"></span>
+                        <!-- <div>老用户专享<span style="color:red;">49一年</span>(4元/月)</div> -->
+                        <div class="taozhanggui-feedback-img" style="color:blue;">觉得不满意？<span style="color:red;font-weight:bold;">猛击</span>联系我们</div>
+                        <div></div>
+                    </a>
+                *{<span class="fold-icon fold"></span>}*
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main">
+
+    #{doLayout /}
+    </div>
+</div>
+<div id="J_BackTop" class="taozhanggui-feedback-img" style="right: 90px;">
+    <a href="javascript:void(0)" class="to-top-link" id="J_BackTopBtn" style="display: none;"></a>
+    <a href="javascript:void(0)" class="suggest-link"></a>
+</div>
+
+<script type="text/javascript">
+// set #J_BackTop absolute position
+$('#J_BackTop').css('right',(($(window).width()-1000)/2 - 95)+'px');
+$(window).resize(function(){
+    $('#J_BackTop').css('right',(($(window).width()-1000)/2 - 95)+'px');
+});
+// taozhanggui feedback
+$('.taozhanggui-feedback-img').click(function(){
+    var html = '<div>';
+    html += '<p style="text-align: center;">亲，欢迎您给淘掌柜提宝贵的意见</p>';
+    html += '<textarea class="taozhanggui-feedback-content">如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果</textarea>';
+    html += '</div>';
+    var feedbakc_obj = $(html);
+    feedbakc_obj.find('.taozhanggui-feedback-content').click(function(){
+        if($(this).val() == "如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果"){
+            $(this).val('');
+        }
+    });
+    TM.Alert.loadDetail(feedbakc_obj, 600, 400, function(){
+        if(feedbakc_obj.find('.taozhanggui-feedback-content').val() == "如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果"
+                || feedbakc_obj.find('.taozhanggui-feedback-content').val() == ""){
+            TM.Alert.load("亲还没有输入您的意见哦", 400, 300, null, false, "提示", 5000);
+            return false;
+        }
+        $.post('/op/commitTaozhangguiFeedBack',{feed:feedbakc_obj.find('.taozhanggui-feedback-content').val()},function(data){
+            TM.Alert.load(data);
+        });
+    },"意见反馈");
+});
+
+
+
+var path = document.location.pathname.toLowerCase();
+var head = $('.head');
+head.find('a').each(function(){
+    var anchor = $(this);
+
+    if(anchor.attr('href').toLowerCase().indexOf(path) >= 0 && path.length > 2){
+
+        $('.head').find('li.selected').removeClass('selected');
+        anchor.parent().addClass('selected');
+
+//            hasPath = true;
+    }
+});
+
+TM.sync = function(){
+    $.get('/items/sync',function(){
+        TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+            window.location.reload();
+        });
+    });
+}
+
+TM.gcs('/js/tm.js',function(){
+    $('#syncBtn').click(function(){
+        TM.sync();
+    });
+});
+
+
+TM.gcs('/js/utils/jquery.cookie.js',function(){
+    $('#logout').click(function(){
+        $.ajax({
+            url : '/in/logout',
+            dataType : 'text',
+            success : function(text){
+                $.cookie('tm_SESSION',null);
+                $.cookie('_s',null);
+                $.cookie('_n',null);
+                $.cookie('_eu',null);
+                $.cookie('_v',null);
+                $.cookie('no',null);
+
+                window.location.href = text;
+            }
+        })
+    })
+});
+$('.itools').click(function(){
+    if($('.itools-detail').attr('unfold') == undefined || $('.itools-detail').attr('unfold') == '') {
+        $('.itools-detail').attr('unfold', 'fold');
+        $(".itools-detail").show();
+        $(".itools").addClass('asideselected');
+    } else {
+        $('.itools-detail').attr('unfold', '');
+        $(".itools-detail").hide();
+    }
+
+});
+$('.fold-icon').click(function(){
+//        if($('.unfold').length == 1 && $(this).hasClass('unfold')){
+//
+//        } else {
+//            $('.unfold').addClass('fold');
+//            $('.unfold').parent().find('.secondUl').hide();
+//            $('.unfold').removeClass('unfold');
+//        }
+    var t = 500;
+    if($(this).hasClass("fold")) {
+        $(this).removeClass("fold");
+        $(this).addClass("unfold");
+        if($(this).parent().find('.secondUl').length > 0) {
+            $(this).parent().find('.secondUl').slideDown(t);
+        }
+    } else if($(this).hasClass("unfold")) {
+        $(this).removeClass("unfold");
+        $(this).addClass("fold");
+        if($(this).parent().find('.secondUl').length > 0) {
+            $(this).parent().find('.secondUl').slideUp(t);
+        }
+    }
+});
+$('.fold-icon').each(function(){
+    if($(this).parent().find('.secondUl').length == 0){
+    }
+});
+$('.navContent').find('a').each(function(){
+    var anchor = $(this);
+    if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+        $('.navContent').find('div.navSelected').removeClass("navSelected");
+        anchor.parent().addClass("navSelected");
+        if(path.indexOf("/kits/") >= 0){
+            anchor.parent().parent().slideDown(500);
+        }
+    }
+});
+var aside = $('.aside');
+aside.find('a').each(function(){
+    var anchor = $(this);
+    if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+        $('.aside').find('a.asideselected').removeClass('asideselected');
+        anchor.addClass('asideselected');
+    }
+});
+
+var hideNav = 'true'== '${session.get("_hidenav")}'
+if(!hideNav){
+    $('#opnav').show();
+}
+
+$(document).ready(function(){
+    //$('#footer-content').find('p').hide();
+    $('#kefuhref').attr('href','http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8');
+
+    $('.dropdown').live('mouseenter',function(){
+        $(this).addClass('open');
+    }).live('mouseleave',function(){
+                $(this).removeClass('open');
+            });
+})
+
+</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f2c6f9dd92929062ea90b19d0b688ea' type='text/javascript'%3E%3C/script%3E"));
+</script>

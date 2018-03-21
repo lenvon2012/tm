@@ -1,0 +1,137 @@
+#{extends 'Wangkesouci/wangkebase.html' /}
+#{set title:'关联销售' /}
+
+<!-- 旺旺: kiko88988 -->
+<link rel="stylesheet" media="screen" href='/css/Relation/RelationOp.css'>
+<link rel="stylesheet" media="screen" href='/css/pagination.css'>
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+
+
+
+<div class="notification information png_bg" style="width:760px;margin: 0 auto;display:none;" id="warmNotice">
+    <img src="/public/images/tips/arrow_up.gif" title="关闭功能介绍" alt="close" id="closeImg" class="close">
+    <div >
+        功能介绍：
+
+        <ol style="list-style: lower-alpha;">
+            <li class="tips">
+                1).关联营销功能是在宝贝详情中展现多个相关的宝贝，从而引导买家点击店铺的其他宝贝，提高流量。
+            </li>
+            <li class="tips">
+                <br />
+                2).提供全店一键关联、批量关联和取消关联等功能，让您使用更方便，轻松完成关联操作。
+
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div style="text-align: center;width:100%;margin: 0 auto;">
+    <div class="blank0" style="height: 20px;"></div>
+    <div class="relationOpContainer">
+
+        <div class="searchBlock rowBorder">
+            <span class="relationTip">关联宝贝</span>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="itemSearchSpan">宝贝标题：</span>
+                    </td>
+                    <td style="">
+                        <input type="text" class="titleSearchText"/>
+                    </td>
+                    <td style="">
+                        <span class="titleSearchBtn btn btn-success">搜索</span>
+                    </td>
+                    <td style="text-align: center;">
+                        <select class="relationState">
+                            <option value="all" selected="selected">全部宝贝</option>
+
+                            <option value="unrelated">未关联的宝贝</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" class="selectAll" /><span class="selectAllSpan">全选</span>
+                    </td>
+                    <td>
+                        <span class=" btnBlank relateSelectItemBtn btn btn-success">设置选中关联</span>
+                        <span class="btnBlank deRelateSelectItemBtn btn btn-success">取消选中关联</span>
+                        <!--<span class="blueImgBtn btnBlank">设置所有关联</span>
+                      <span class="blueImgBtn btnBlank">取消所有关联</span>-->
+                        <div class="blank0"></div>
+                    </td>
+                    <td><span id="removeAllItemsRelationBtn" class="btn btn-success" style="margin: 0 auto;">全店取消关联</span></td>
+                    <td style="">
+                        <span id="relateAllItemsBtn" class="btn btn-success" style="margin: 0 auto;">全店一键关联</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="blank0" style="height: 20px;"></div>
+        <div class="separator"></div>
+        <div class="blank0" style="height: 20px;"></div>
+
+        <div class="itemListBlock rowBorder">
+            <div>
+                <span class="relationTip" style="float: left;">宝贝列表</span>
+                <div id="itemPaging" class="pagingDiv"></div>
+                <div class="blank0" style="height: 0px;"></div>
+            </div>
+            <div class="itemListDiv">
+
+            </div>
+        </div>
+
+        <!--模板 -->
+        <table id="tableTemplate" style="display: none;">
+            <tbody>
+            <tr class="unSelectedTr">
+                <td class="checkTd">
+                    <input type="checkbox" class="oneItemCheck" />
+                </td>
+                <td class="imgTd">
+                    <a class="goto-item-page" target="_blank" href="#"><img class="itemImg" /></a>
+                </td>
+                <td class="titleTd">
+                    <span class="itemTitle"></span>
+                    <div class="blank0" style="height: 10px;"></div>
+                    <div>
+                        <a class=" lookItem goto-item-page btn btn-success" href="#" target="_blank" style="color:white;" >进入宝贝页面</a>
+                    *{<a href="javascript:void(0);" class="lookItem">展开关联宝贝</a>}*
+                        <a href="javascript:void(0);" class="lookItem previewbtn btn btn-success" style="color:white;" >预览关联效果</a>
+                        <div class="blank0"></div>
+                    </div>
+                </td>
+                <td class="stateTd">
+                    <div class="relationNumDiv">已关联<span class="relationNum">6</span>件宝贝</div>
+                </td>
+                <td class="relationOpTd">
+                    <span class="btn btn-success relationOpBtn">取消关联</span>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="blank0" style="height: 30px;"></div>
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        TM.gcs('/js/jquery.pagination.js',function(){
+            TM.gcs('/js/utils/Paging.js',function(){
+                TM.gcs('/js/Relation/RelationOp.js', function(){
+                });
+            });
+        });
+    });
+</script>
+#{/set}
+
+

@@ -1,0 +1,122 @@
+[
+    {
+        "priceRange": "0元-10元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "10元-20元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "20元-50元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "50元-100元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "100元-150元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "150元-200元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "200元-300元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "300元-400元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "400元-500元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "500元-600元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "600元-700元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "700元-800元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "800元-1000元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "1000元-1500元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "1500元-2000元",
+        "totleTradeNum": 0,
+        "totlePrice": 0
+    },
+    {
+        "priceRange": "2000元-3000元",
+        "totleTradeNum": 126,
+        "totlePrice": 8800
+    },
+    {
+        "priceRange": "3000元-4000元",
+        "totleTradeNum": 69,
+        "totlePrice": 3600
+    },
+    {
+        "priceRange": "4000元-5000元",
+        "totleTradeNum": 251,
+        "totlePrice": 28800
+    },
+    {
+        "priceRange": "5000元-6000元",
+        "totleTradeNum": 892,
+        "totlePrice": 139990
+    },
+    {
+        "priceRange": "6000元-8000元",
+        "totleTradeNum": 534,
+        "totlePrice": 77843
+    },
+    {
+        "priceRange": "8000元-10000元",
+        "totleTradeNum": 519,
+        "totlePrice": 101522
+    },
+    {
+        "priceRange": "10000元-15000元",
+        "totleTradeNum": 570,
+        "totlePrice": 219100
+    },
+    {
+        "priceRange": "15000元-20000元",
+        "totleTradeNum": 1381,
+        "totlePrice": 577080
+    },
+    {
+        "priceRange": "20000元-元",
+        "totleTradeNum": 9955,
+        "totlePrice": 41618670
+    }
+]

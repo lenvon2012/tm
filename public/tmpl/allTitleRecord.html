@@ -1,0 +1,46 @@
+<script type="text/x-jquery-tmpl" id="record">
+    <div class="holder"></div>
+    <!--<div class="noteThead" style="background: #0095b1; line-height:60px; vertical-align: middle; font-size: 14px;width:608px; ">
+        <span style="width: 10%;">序号</span>
+        <span style="width: 20%;">操作时间</span>
+        <span style="width: 20%;">成功优化宝贝数</span>
+        <span style="width: 20%">查看详情</span>
+        <span style="width: 30%;">一键还原</span>
+    </div>-->
+    
+
+
+    <table class="noteTable" id="noteTable">
+    <thead style="background: #0095b1; line-height:60px;color:white; vertical-align: middle; font-size: 14px;width:608px;>
+    <tr>
+        <td style="width: 10%;font-size:18px;">序号</td>
+        <td style="width: 20%;font-size:18px;">操作时间</td>
+        <td style="width: 20%;font-size:18px;">成功优化宝贝数</td>
+        <td style="width: 20%;font-size:18px;">查看详情</td>
+        <td style="width: 30%;font-size:18px;">一键还原</td>
+    </tr>
+    </thead>
+    <tbody id="noteTbody">
+    <!-- 隔行变色 -->
+    {{each(i,myitem) res}}
+    {{if myitem.id%2==0}}
+        <tr class="bac-gray">
+    {{else}}
+        <tr>
+    {{/if}}
+
+    <td style="width: 10%;">{{= myitem.id}}</td>
+    <td style="width: 20%;">{{= myitem.ts}}</td>
+    <td style="width: 20%;">{{= myitem.successNum}}</td>
+    <td style="width: 20%;"><span class="detailBtn titleBtn sky-blue-btn" targetId='{{= myitem.id}}' succn='{{= myitem.successNum}}' > 查看详情</span> </td>
+    <td style="width: 30%;"><span class="recoverBtn titleBtn yellow-btn" itemNum="{{= count}}" targetId='{{= myitem.id}}' succn='{{= myitem.successNum}}'> 一键还原</span></td>
+    </tr>
+
+    {{/each}}
+
+
+    </tbody>
+    </table>
+
+    <div class="holder"></div>
+</script>

@@ -1,0 +1,21 @@
+#{extends 'tmSearch/searchbase.html' /}
+
+<style type="text/css">
+    .salecount-container {
+        font-family: "微软雅黑"; font-size: 14px; margin: 0 auto;
+    }
+</style>
+
+
+<div class="salecount-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tmSearch/searchsalecount.js', function () {
+            TM.SearchSaleCount.init.doInit($(".salecount-container"));
+        });
+
+    });
+</script>

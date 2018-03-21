@@ -1,0 +1,1097 @@
+
+#{extends 'Application/topcrud.html' /}
+#{set title:'内部管理系统' /}
+
+<p>
+    <div>
+        <a href="/tmadmin/sevenDaysFreeUser">进入查询 未付款旺旺</a>
+    </div>
+</p>
+
+
+<div style="margin:20px 0 20px 10px;">
+    <span class="" style="color:blue;font-size:20px;padding:10px;">菜单列表:</span>
+    <a href="/bkuseradmin/index" target="_blank">
+        <span class="btn btn-primary btn-large">
+        单个用户查询
+        </span>
+    </a>
+    <a href="/tmadmin/expire" target="_blank">
+        <span class="btn btn-primary btn-large">
+        过期用户列表
+        </span>
+    </a>
+    <a href="/local/tmhelparticles" target="_blank">
+        <span class="btn btn-primary btn-large">
+            帮助中心条目列表
+        </span>
+    </a>
+    <a href="/kits/adminTaskList" target="_blank">
+        <span class="btn btn-primary btn-large">
+            宝贝复制任务查询
+        </span>
+    </a>
+    <a href="/itemcarrier/itemFailLog" target="_blank">
+        <span class="btn btn-primary btn-large">
+            宝贝复制子任务查询
+        </span>
+    </a>
+
+</div>
+
+<h2>清除无线流量数据缓存</h2>
+<div style="margin:20px 0 20px 10px;">
+    旺旺:<input id='cleanwangwang' type='text' value='请输入旺旺'>
+    <span id='cleancache' class="btn btn-info btn-large">
+        清除流量数据缓存
+    </span>
+</div>
+
+<h2>奖励推广位</h2>
+<div style="margin:20px 0 20px 10px;">
+    旺旺:<input id='awardwangwang' type='text' value='请输入旺旺'>
+    <span id='setpopularaward' class="btn btn-info btn-large">
+        奖励推广位
+    </span>
+</div>
+
+<h2>生成5元一个月链接</h2>
+<div style="margin:20px 0 20px 10px;" id="5yuan-month-div">
+    旺旺:<input id='5yuan-month-wangwang' type='text' value='请输入旺旺'>
+    <span id='5yuan-month-span' tag='0.1元至尊版' class="btn btn-info btn-large">获取营销链接</span>
+    5元一个月链接：<input id="5yuan-month-link" style="width: 400px;">
+</div>
+
+<h2>生成好评送一个月链接</h2>
+<div style="margin:20px 0 20px 10px;" id="yingxiao-div">
+    旺旺:<input id='yingxiaowangwang' type='text' value='请输入旺旺'>
+    <span id='genyingxiao' tag='0.1元至尊版' class="btn btn-info btn-large">获取营销链接</span>
+    用户营销链接：<input id="userYingxiaoLink" style="width: 400px;">
+</div>
+
+<h1 class="chaping-h1" style="display: none;">差评防御师特有营销链接</h1>
+<div style="margin:20px 0 20px 10px;display: none;" class="chaping-div">
+    用户昵称:<input id='chaping-wangwang' type='text' value='旺旺号' style="width: 140px;margin-right: 7px;">
+    <span class='chaping' tag='month' style="margin-right: 30px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">
+        获取一个月
+    </span>
+    用户营销链接：<input tag='month' class='chaping-yingxiao-link' style='width: 600px;'>
+    <br>
+    <span class='chaping' tag='quarter' style="margin: 10px 30px 0px 210px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">
+        获取一季度
+    </span>
+    用户营销链接：<input tag='quarter' class='chaping-yingxiao-link' style='width: 600px;'>
+    <br>
+    <span class='chaping' tag='halfyear' style="margin: 10px 30px 0px 210px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">
+        获取半年
+    </span>
+    用户营销链接：<input tag='halfyear' class='chaping-yingxiao-link' style='width: 600px;'>
+    <br>
+    <span class='chaping' tag='year' style="margin: 10px 30px 0px 210px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">
+        获取一年
+    </span>
+    用户营销链接：<input tag='year' class='chaping-yingxiao-link' style='width: 600px;'>
+    <br>
+</div>
+
+<h2>订单评价弥补</h2>
+<div style="margin:20px 0 20px 10px;">
+    用户ID:<input id='commentwangwang' type='text' value='请输入用户ID'>
+    几天内的订单:<input id='date-area' type='text' value='单位为天'>
+    评价内容:<input id='comment-content' type='text' value=''>
+    <span id='commentNow' class="btn btn-info btn-large">
+        开始评价
+    </span>
+</div>
+
+<h2>好评助手取消授权</h2>
+<div style="margin:20px 0 20px 10px;">
+    用户ID:<input id='hpzswangwang' type='text' value='请输入用户旺旺'>
+    <span id='hpzsDeleteNow' class="btn btn-info btn-large">
+        取消授权
+    </span>
+</div>
+<h2>跳转到测试模式</h2>
+旺旺id<input id='user-id' type='text' value='1758965127'>
+    <span id='put-dev-user' class="btn btn-info btn-large">
+        跳转到测试用户模式
+    </span>
+<div>
+
+<div style="margin:20px 0 20px 10px;">
+    用户昵称:<input id='username' type='text' value='julepcouture旗舰店'>
+    <span id='put-dev-username' class="btn btn-info btn-large">
+        跳转到测试用户模式
+    </span>
+</div>
+
+
+<h2>拍拍用户跳转</h2>
+   <div style="margin:20px 0 20px 10px;">
+       用户昵称:<input id='ppid' type='text' value='301074800'>
+   <span id='put-dev-ppid' class="btn btn-info btn-large">
+       跳转到测试用户模式
+   </span>
+   </div>
+<h2>拍拍奖励推广位</h2>
+<div style="margin:20px 0 20px 10px;">
+    赠送卖家QQ:<input id='awardqq' type='text' value=''>
+    <span id='setpaipaipopularaward' class="btn btn-info btn-large">
+        奖励推广位
+    </span>
+</div>
+
+<h2>京东用户跳转</h2>
+   <div style="margin:20px 0 20px 10px;">
+    用户昵称:<input id='jd-username' type='text' value='jd_sunfashionmd'>
+    <span id='put-jd-username' class="btn btn-info btn-large">
+        跳转到测试用户模式
+    </span>
+</div>
+
+    <div class=tableContent style="width: 500px;">
+    <span id='select-hongbaouser' class="btn btn-info btn-large">
+       查询红包未转账用户
+    </span>
+    <span id='set-status' class="btn btn-info btn-large">
+       一键设置转账完成
+    </span>
+        <table class="hongbaoList">
+            <thead>
+            <tr>
+                <th style="text-align: center;width: 20px;" class="cattd1"><div>条目</div></th>
+                <th style="text-align: center;width: 100px;" class="cattd2"><div>使用者QQ</div></th>
+                <th style="text-align: center;width: 120px;" class="cattd3"><div>邀请人QQ</div></th>
+                <th style="text-align: center;width: 120px;" class="cattd4"><div>是否转账</div></th>
+            </tr>
+            </thead>
+            <tbody class="hongbaoList-tbody"></tbody>
+        </table>
+    </div>
+    <div style="height:25px;"></div>
+    <div class="hongbaoList-page" style="text-align: center;width: 500px;"></div>
+
+
+    <div>
+        <h2>订购关系查询</h2>
+        <div>
+            用户昵称:<input id='subQueryInput' type='text' value='' style="width:160px;" value='楚之小南'>
+            <span id="subQueryBtn" class="btn btn-info btn-large">点击查询</span>
+        </div>
+
+        <div style="border: 1px solid #ccc;">
+            <table id="subQueeryTable" style="text-align: center;">
+                <thead>
+                <tr >
+                    <th style="width: 250px;">截止日期</th>
+                    <th style="width: 150px;">旺旺</th>
+                    <th style="width: 250px;">版本</th>
+                    <th style="width: 150px;">是否过期</th>
+                    <th style="width: 150px;">是否到期提醒</th>
+                    <th style="width: 150px;">是否自动续费</th>
+                </tr>
+                </thead>
+                <tbody class="orderbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+<hr>
+<h2>查询用户订单 - VasOrder</h2>
+<div>
+用户昵称: <input id='vas-username' type='text' value='楚之小南'>
+    <span id='vas-order' class="btn btn-info btn-large">查询</span>
+</div>
+<div id="vas-order-div" style="display:none;">
+	<table id="vas-order-tbl" class="busSearch">
+		
+	</table>
+</div>
+
+<h1>订购查询</h1>
+<div style="margin:20px 0 20px 10px;">
+    
+    日期：<input id='ts' type='text' value='2013-01-21'>
+	
+	<span >
+	<a href="" id='export-subscribe' class="btn btn-info btn-large">导出订购记录</a>
+    </span>
+</div>
+
+<div style="margin:20px 0 20px 10px;">
+    
+    用户昵称:<input id='file' type='file' name="file" >
+	Tag: <input id='tag' type='text' value='第一批'>
+
+    <span id='import-usernicks' style="height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">
+        导入
+    </span>
+</div>
+
+<div style="margin:20px 0 20px 10px;">
+    
+    输入想要统计的tag:<input id='tag' type='text' value=''>
+
+    <span id='login-rate' style="height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">
+        统计
+    </span>
+
+</div>
+
+
+<div>
+           <p>一段日期内的 邀请收益：</p>
+        <p>
+          开始日期<input id='inviteStart' type='text' value='2013-03-01'>
+          结束日期<input id='inviteEnd' type='text' value='2013-04-01'>
+           <span id="inviteQuery" class="btn btn-info btn-large">点击查询</span>
+        </p>
+           <div id="inviteReult">
+           </div>
+</div>
+
+
+<div>
+       <p>tracelog 各个来源的统计：</p>
+        <p>
+          开始日期<input id='tracelogStart' type='text' value='2013-03-01'>
+          结束日期<input id='tracelogEnd' type='text' value='2013-04-01'>
+           <span id="tracelogQuery" class="btn btn-info btn-large">点击查询</span>
+        </p>
+           <div id="tracelogReult">
+           </div>
+</div>
+
+<br>
+
+<hr>
+<h2 style="color:red">转盘中奖查询</h2>
+<div style="display:inline-block">
+<div style="display:inline-block"><b>奖项查询：</b>
+<select id="lottery-prize">
+  <option value ="彩票1注">彩票1注</option>
+  <option value ="话费1元">话费1元</option>
+</select>
+中奖日期：<input type="text" id="lottery-date" value="2013-09-01" />
+<span id='lottery-prize-search' class="btn btn-info" style="margin-left:10px;">查询</span>
+</div>
+<div style="margin-left:20px;display:inline-block">
+<b>用户中奖查询:</b> <input id='lottery-nick' type='text' value='楚之小南'>
+    <span id='lottery-nick-search' class="btn btn-info">查询</span>
+</div>
+</div>
+<div id="lottery-div" style="display:none;">
+	<table id="lottery-tbl" class="busSearch">
+		
+	</table>
+</div>
+
+<hr>
+<h2>需要处理差评卖家：</h2>
+<div style="display:inline-block">
+提交日期：<input type="text" id="badcomment-date" value="2013-09-01" />
+<span id='badcomment-search' class="btn btn-info" style="margin-left:10px;">查询</span>
+</div>
+<div id="badcomment-div" style="display:none;">
+	<table id="badcomment-tbl" class="busSearch">
+		
+	</table>
+</div>
+
+<hr>
+<h2>短信充值：</h2>
+<div style="display:inline-block">
+充值用户名：<input type="text" id="chongzhi-name" value="楚之小南" />
+充值短信数：<input type="text" id="chongzhi-count" value="" />
+<span id='chongzhi-add' class="btn btn-info" style="margin-left:10px;">充值短信</span>
+</div>
+<div id="chongzhi-res" style="color:red"></div>
+
+<hr>
+<h2>查询拦截原因：</h2>
+<div style="display:inline-block">
+    卖家旺旺：<input type="text" id="block-wangwang" />
+    <span id='block-search' class="btn btn-info" style="margin-left:10px;">查询</span>
+</div>
+<div id="block-div" style="display:none;">
+    <table id="block-tbl" class="busSearch">
+
+    </table>
+</div>
+
+<hr>
+
+<h2>查询满就送模板不显示原因：</h2>
+<div style="display:inline-block">
+    卖家旺旺：<input type="text" id="mjs-tmpl-check-wangwang" />
+    宝贝ID：<input type="text" id="mjs-tmpl-check-numIid" />
+    <span id='mjs-tmpl-check' class="btn btn-info" style="margin-left:10px;">查询</span>
+
+</div>
+
+
+<div id="crudIndex">
+
+    <h2>&{'crud.index.title'}</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>&{'crud.index.objectType'}</th>
+            <th width="20%">&{'crud.index.action'}</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{crud.types}
+        <tr>
+            <td>
+                <a href="${type.listAction}">&{type.name}</a>
+            </td>
+            <td class="crudNew" >
+                <a href="${type.blankAction}">&{'crud.index.add', type}</a>
+            </td>
+        </tr>
+        #{/crud.types}
+        </tbody>
+    </table>
+
+</div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript"charset="utf-8">
+    $(document).ready(function(){
+    	// init Date
+    	var lastDay = new Date();
+    	lastDay.setDate(lastDay.getDate() - 1);
+		$("#lottery-date").val(lastDay.format("yyyy-MM-dd"));
+		$("#badcomment-date").val(lastDay.format("yyyy-MM-dd"));
+		
+    	$("#chongzhi-add").click(function(){
+    		$.get('/skindefender/addSmsCount', {userNick:$("#chongzhi-name").val(), addNum:$("#chongzhi-count").val()}, function(data){
+    			$("#chongzhi-res").text(data.info);
+    		});
+    	});
+
+        $('#mjs-tmpl-check').unbind('click').click(function(){
+            var userNick = $('#mjs-tmpl-check-wangwang').val();
+            if(userNick === undefined || userNick == null || userNick == "") {
+                alert("请输入卖家旺旺");
+            }
+            var numIid = $('#mjs-tmpl-check-numIid').val();
+            if(numIid === undefined || numIid == null || numIid == "" || isNaN(numIid)) {
+                alert("请输入正确的宝贝ID");
+            }
+            $.get("/UmpMjs/checkItemDesc", {userNick: userNick, numIid: numIid}, function(data){
+                if(data === undefined || data == null) {
+                   alert("查询出错，请重试或联系老何");
+                }
+                alert(data.message);
+            });
+        });
+
+        $("#subQueryBtn").click(function(){
+            var tbody = $("#subQueryTable").find('tbody');
+            var wangwang = $('#subQueryInput').val();
+            $.get('/op/artile',{wangwang: wangwang},function(list){
+                // TODO render the list. to  tbody.....
+                if(!list || list.length == 0){
+                    $('#subQueeryTable .orderbody').empty();
+                    alert("查询不到相关订购信息");
+                } else {
+                    var TRs = '<tbody class="orderbody">';
+                    $(list).each(function(i,sub){
+                        var status = (sub.status == 1)?"有效中":"已过期";
+                        var notice = "";
+                        var xufei = "";
+
+                        if(sub.expireNotice == true){
+                            notice = '到期提醒';
+                        } else {
+                            notice = '到期不提醒';
+                        }
+
+                        if(sub.autosub == true){
+                            xufei = '自动续费'
+                        } else {
+                            xufei = '不自动续费';
+                        }
+                        TRs +=  'tr>' +
+                                '<td>'+sub.deadline+'</td>'+
+                                '<td>'+sub.nick+'</td>'+
+                                '<td>'+sub.itemName+'</td>'+
+                                '<td>'+status+'</td>'+
+                                '<td>'+notice+'</td>'+
+                                '<td>'+xufei+'</td>'+
+                                '</tr>'+
+                                '';
+                    });
+                    TRs += '</tbody>';
+                    $('#subQueeryTable .orderbody').remove();
+                    $('#subQueeryTable').append($(TRs));
+                }
+            });
+        });
+
+        $('#put-dev-user').click(function(){
+            window.open('/tm/make?id='+$('#user-id').val());
+        });
+        $('#put-dev-username').click(function(){
+            window.open('/tm/name?name='+$('#username').val());
+        });
+        $('#put-dev-ppid').click(function(){
+            window.open('/PaiPaiAdmin/PPmakeDev?id='+$('#ppid').val());
+        });
+        $('#put-jd-username').click(function(){
+            window.open('/JDAdmin/makeDevName?nick='+$('#jd-username').val());
+        });
+        
+        $('#vas-order').click(function(){
+            //window.open('/op/make?id='+$('#vas-username').val());
+            var nick = $('#vas-username').val();
+            var tbodyObj = $("#vas-order-tbl");
+            tbodyObj.empty();
+            $.ajax({
+                type:'GET',
+                url :'/tmadmin/vasorder',
+                dataType:'json',
+                data :{nick:nick},
+                success :function(data){
+                	tbodyObj.append("<thead><tr><th>订单号</th><th>应用名称</th><th>应用代码</th><th>用户昵称</th><th>实付金额</th>><th>订购时间</th><th>订购周期</th><th>订购到期时间</th></tr><thead>");
+                	if (data == undefined || data == null || data.length == 0) {
+                    	tbodyObj.html('<tr><td colspan="8" height="40px">暂无该用户订购记录！</td></tr>');
+                    	$("#vas-order-div").show();
+                    	return;
+                    }
+                    $(data).each(function(index, jsonData) {
+                    	var trObj = createRow(index, jsonData);
+                    	tbodyObj.append(trObj);
+                    });
+                    $("#vas-order-div").show();
+                }
+            });
+            function createRow(index, data) {
+	            var html = '' +
+	                '<tr>' +
+	                '   <td>'+data.bizOrderId+'</td>' +
+	                '   <td>'+data.articleName+'</td>' +
+	                '   <td>'+data.articleCode+'</td>' +
+	                '   <td><b>'+data.nick+'</b></td>' +
+	                '   <td>'+data.totalPayFee/100+' 元</td>' +
+	                '   <td>'+parseLongToDate(data.createTime)+'</td>' +
+	                '   <td>'+data.orderCycle+'</td>' +
+	                '   <td>'+parseLongToDate(data.orderCycleEnd)+'</td>' +
+	                '</tr>' +
+	                '';
+	
+	            var trObj = $(html);
+	            return trObj;
+            }
+            
+        });
+        function parseLongToDate(ts) {
+        	var theDate = new Date();
+            theDate.setTime(ts);
+            var year = theDate.getFullYear();
+            var month = theDate.getMonth() + 1;//js从0开始取
+            var date = theDate.getDate();
+            var hour = theDate.getHours();
+            var minutes = theDate.getMinutes();
+            var second = theDate.getSeconds();
+
+            if (month < 10) {
+                month = "0" + month;
+            }
+            if (date < 10) {
+                date = "0" + date;
+            }
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (second < 10) {
+                second = "0" + second;
+            }
+            var timeStr = year + "-" + month+"-"+date+" "+hour+":"+minutes+ ":" + second;
+            return timeStr;
+        }
+        function createLotteryRow(index, data) {
+      	  if(data.wangwang == null || data.wangwang == undefined) {
+      		  data.wangwang = "/";
+      	  }
+      	  if(data.mobile == null || data.mobile == undefined) {
+      		  data.mobile = "/";
+      	  }
+	            var html = '' +
+	                '<tr>' +
+	                '   <td>'+data.prize+'</td>' +
+	                '   <td>'+data.userId+'</td>' +
+	                '   <td>'+data.nick+'</td>' +
+	                '   <td><b>'+data.wangwang+'</b></td>' +
+	                '   <td><b>'+data.mobile+'</b></td>' +
+	                '   <td>'+parseLongToDate(data.ts)+'</td>' +
+	                '   <td style="width:80px;">'+data.url+'</td>' +
+	                '</tr>' +
+	                '';
+	
+	            var trObj = $(html);
+	            return trObj;
+        }
+        
+        
+      $("#lottery-prize-search").click(function(){
+    	  var date = $('#lottery-date').val();
+    	  var prize = $('#lottery-prize').val();
+          var tbodyObj = $("#lottery-tbl");
+          tbodyObj.empty();
+          $.ajax({
+              type:'GET',
+              url :'/CRUDLotterys/getPrize',
+              dataType:'json',
+              data :{date:date, prize:prize},
+              success :function(data){
+              	tbodyObj.append("<thead><tr><th>中奖奖项</th><th>用户ID</th><th>用户昵称</th><th>旺旺</th><th>手机号码</th><th>中奖时间</th><th>奖励链接</th></tr><thead>");
+              	if (data == undefined || data == null || data.length == 0) {
+                  	tbodyObj.html('<tr><td colspan="7" height="40px">该时间段无该奖项中奖记录！</td></tr>');
+                  	$("#lottery-div").show();
+                  	return;
+                  }
+                  $(data).each(function(index, jsonData) {
+                  	var trObj = createLotteryRow(index, jsonData);
+                  	tbodyObj.append(trObj);
+                  });
+                  $("#lottery-div").show();
+              }
+          });
+      });
+      
+      $("#lottery-nick-search").click(function(){
+    	  var nick = $('#lottery-nick').val();
+          var tbodyObj = $("#lottery-tbl");
+          tbodyObj.empty();
+          $.ajax({
+              type:'GET',
+              url :'/CRUDLotterys/getUserPrize',
+              dataType:'json',
+              data :{nick:nick},
+              success :function(data){
+              	tbodyObj.append("<thead><tr><th>中奖奖项</th><th>用户ID</th><th>用户昵称</th><th>旺旺</th><th>手机号码</th><th>中奖时间</th><th>奖励链接</th></tr><thead>");
+              	if (data == undefined || data == null || data.length == 0) {
+                  	tbodyObj.html('<tr><td colspan="6" style="height:40px;margin:0 auto;">无中奖记录！</td></tr>');
+                  	$("#lottery-div").show();
+                  	return;
+                  }
+                  $(data).each(function(index, jsonData) {
+                  	var trObj = createLotteryRow(index, jsonData);
+                  	tbodyObj.append(trObj);
+                  });
+                  $("#lottery-div").show();
+              }
+          });
+      });
+      
+      $("#badcomment-search").click(function(){
+    	  var date = $('#badcomment-date').val();
+          var tbodyObj = $("#badcomment-tbl");
+          tbodyObj.empty();
+          $.ajax({
+              type:'GET',
+              url :'/TMAdmin/getCommentDeal',
+              dataType:'json',
+              data :{date:date},
+              success :function(data){
+                tbodyObj.append("<thead><tr><th>旺旺</th><th>QQ</th><th>差评数量</th><th>店铺地址</th><th>添加时间</th></tr><thead>");
+                if (data == undefined || data == null || data.length == 0) {
+                    tbodyObj.html('<tr><td colspan="5" style="height:40px;margin:0 auto;">好像没有记录哦~</td></tr>');
+                    $("#badcomment-div").show();
+                    return;
+                }
+                $(data).each(function(index, jsonData) {
+                var html = '' +
+                '<tr>' +
+                '   <td>'+jsonData.nick+'</td>' +
+                '   <td>'+jsonData.qq+'</td>' +
+                '   <td>'+jsonData.badCommentCount+'</td>' +
+                '   <td>'+jsonData.shopUrl+'</td>' +
+                '   <td>'+parseLongToDate(jsonData.created)+'</td>' +
+                '</tr>' +
+                '';
+                var trObj = $(html);
+                tbodyObj.append(trObj);
+                });
+                $("#badcomment-div").show();
+              }
+          });
+      });
+
+        $("#block-search").click(function(){
+            var wangwang = $('#block-wangwang').val();
+            var tbodyObj = $("#block-tbl");
+            tbodyObj.empty();
+            $.ajax({
+                type:'GET',
+                url :'/TMAdmin/queryDefenseLogs',
+                dataType:'json',
+                data :{wangwang:wangwang},
+                success :function(data){
+                    tbodyObj.append("<thead><tr><th>订单ID</th><th>买家旺旺</th><th>拦截原因</th><th>添加时间</th></tr><thead>");
+                    console.info(data);
+                    if (data == undefined || data == null || data.length == 0) {
+                        tbodyObj.html('<tr><td colspan="5" style="height:40px;margin:0 auto;">卖家旺旺是否填对？好像没有记录哦~</td></tr>');
+                        $("#block-div").show();
+                        return;
+                    }
+                    $(data).each(function(index, jsonData) {
+                        var html = '' +
+                                '<tr>' +
+                                '   <td>'+jsonData.tradeId+'</td>' +
+                                '   <td>'+jsonData.buyerName+'</td>' +
+                                '   <td>'+jsonData.opMsg+'</td>' +
+                                '   <td>'+parseLongToDate(jsonData.ts)+'</td>' +
+                                '</tr>' +
+                                '';
+                        var trObj = $(html);
+                        tbodyObj.append(trObj);
+                    });
+                    $("#block-div").show();
+                }
+            });
+        });
+
+	  $('#export-subscribe').click(function(){
+	  
+	  if ( confirm( "确定 "+$('#ts	').val() +"？")){
+	  
+		$(this).attr('href', '/SubscribeUI/export?date='+$('#ts	').val());
+							
+		}
+	  });
+
+        $('#5yuan-month-span').click(function(){
+            var wangwang = $('#5yuan-month-wangwang').val().replace(/[ ]/g,"");
+            $.post('/TmAdmin/fiveYuanCRUDLink',{wangwang:wangwang},function(data){
+                $('#5yuan-month-link').val(data);
+            });
+        });
+
+        $.get('/TMAdmin/appInfo',function(data){
+            // 差评防御师
+            if(data == "21404171"){
+                $('.chaping-h1').show();
+                $('.chaping-div').show();
+                $('.chaping').click(function(){
+                    var userNick = $('#chaping-wangwang').val().replace(/[ ]/g,"");
+                    var key = $(this).attr('tag').replace(/[ ]/g,"");
+                    if(userNick == ""){
+                        alert("亲，请先输入卖家旺旺");
+                    } else {
+                        $.ajax({
+                            type:'GET',
+                            url :'/TMAdmin/getChapingSpecialLink',
+                            dataType:'text',
+                            data :{userNick:userNick,interval:key},
+                            success :function(data){
+                                if(data == "获取营销链接出错"){
+                                    alert(data)
+                                } else {
+                                    $('.chaping-yingxiao-link[tag="'+key+'"]').val(data);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+            if(data == '21255586'){
+                $('#yingxiao-div').empty();
+                var html = [];
+                html.push("<span>旺旺:</span><input id='yingxiaowangwang' type='text' value='请输入旺旺'>");
+                html.push("<span class='genyingxiao btn btn-large btn-info' tag='0.1元至尊版' >");
+                html.push("0.1元至尊版营销链接");
+                html.push("</span> ");
+                html.push("用户营销链接：<input tag='0.1元至尊版' class='userYingxiaoLink' style='width: 400px;'>");
+                var yingxiao = $(html.join(''));
+                $('#yingxiao-div').append(yingxiao);
+                $('.genyingxiao').click(function(){
+                    var userNick = $('#yingxiaowangwang').val().replace(/[ ]/g,"");
+                    var key = $(this).attr('tag').replace(/[ ]/g,"");
+                    if(userNick == ""){
+                        alert("亲，请先输入卖家旺旺");
+                    } else {
+                        $.ajax({
+                            type:'GET',
+                            url :'/TMAdmin/getYingxiaoLink',
+                            dataType:'text',
+                            data :{userNick:userNick,key:key},
+                            success :function(data){
+                                if(data == "获取营销链接出错"){
+                                    alert(data)
+                                } else {
+                                    $('.userYingxiaoLink[tag="'+key+'"]').val(data);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else if(data == "21348761"){
+                $('#yingxiao-div').empty();
+                var html = [];
+                html.push("<span>旺旺:</span><input id='yingxiaowangwang' type='text' value='请输入旺旺' style='width: 163px;margin-right: 7px;'>");
+
+                html.push("<span class='genyingxiao' tag='25一个月' style='margin-right: 20px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;'>");
+                html.push("25一个月营销链接");
+                html.push("</span> ");
+                html.push("用户营销链接：<input tag='25一个月' class='userYingxiaoLink' style='width: 400px;'>");
+                html.push("<br>");
+
+                html.push("<span class='genyingxiao' tag='35一个月' style='margin:10px 20px 0px 203px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;'>");
+                html.push("35一个月营销链接");
+                html.push("</span> ");
+                html.push("用户营销链接：<input tag='35一个月' class='userYingxiaoLink' style='width: 400px;'>");
+                html.push("<br>");
+
+                var yingxiao = $(html.join(''));
+                $('#yingxiao-div').append(yingxiao);
+                $('.genyingxiao').click(function(){
+                    var userNick = $('#yingxiaowangwang').val().replace(/[ ]/g,"");
+                    var key = $(this).attr('tag').replace(/[ ]/g,"");
+                    if(userNick == ""){
+                        alert("亲，请先输入卖家旺旺");
+                    } else {
+                        $.ajax({
+                            type:'GET',
+                            url :'/TMAdmin/getYingxiaoLink',
+                            dataType:'text',
+                            data :{userNick:userNick,key:key},
+                            success :function(data){
+                                if(data == "获取营销链接出错"){
+                                    alert(data)
+                                } else {
+                                    $('.userYingxiaoLink[tag="'+key+'"]').val(data);
+                                }
+                            }
+                        });
+                    }
+                });
+            } else if(data == "21405608"){
+                $('#yingxiao-div').empty();
+                var html = [];
+                html.push("<span>旺旺:</span><input id='yingxiaowangwang' type='text' value='请输入旺旺'>");
+
+                html.push("<span class='genyingxiao' tag='350版本' style='margin-right: 20px;height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;'>");
+                html.push("350版本营销链接");
+                html.push("</span> ");
+                html.push("用户营销链接：<input tag='350版本' class='userYingxiaoLink' style='width: 400px;'>");
+                html.push("<br>");
+
+                var yingxiao = $(html.join(''));
+                $('#yingxiao-div').append(yingxiao);
+                $('.genyingxiao').click(function(){
+                    var userNick = $('#yingxiaowangwang').val().replace(/[ ]/g,"");
+                    var key = $(this).attr('tag').replace(/[ ]/g,"");
+                    if(userNick == ""){
+                        alert("亲，请先输入卖家旺旺");
+                    } else {
+                        $.ajax({
+                            type:'GET',
+                            url :'/TMAdmin/getYingxiaoLink',
+                            dataType:'text',
+                            data :{userNick:userNick,key:key},
+                            success :function(data){
+                                if(data == "获取营销链接出错"){
+                                    alert(data)
+                                } else {
+                                    $('.userYingxiaoLink[tag="'+key+'"]').val(data);
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        })
+	  $('#import-usernicks').click(function(){
+	  
+	      var file = $('#file').val();
+		  
+
+	   $.ajaxFileUpload({
+               url :'/OperationUI/importUserNicks?tag='+ $('#tag').val(),
+                secureuri:false,
+                fileElementId:'file',
+                dataType: 'json',
+                success:function(res) {
+				
+				
+					alert('['+res+']');
+					}
+		});
+	 
+	  });
+	  
+	  $('#login-rate').click(function(){
+	  
+		$.ajax({
+                type:'GET',
+				url :'/OperationUI/loginRate',
+				data :{tag:$('#tag	').val()},
+				success :function(data){
+					alert('['+data+']');
+					}
+		});
+	 
+	  });
+
+		$('#cleancache').click(function(){
+	        $.ajax({
+	                type:'GET',
+	                url :'/Diag/cleanCache',
+	                dataType:'text',
+	                data :{nick:$('#cleanwangwang').val().replace(/[ ]/g,"")},
+	                success :function(data){
+	                    alert(data);
+	                }
+	         });
+	    });
+	  
+        $('#setpopularaward').click(function(){
+            $.ajax({
+                    type:'GET',
+                    url :'/TMAdmin/setNickAward',
+                    dataType:'text',
+                    data :{wangwang:$('#awardwangwang').val().replace(/[ ]/g,"")},
+                    success :function(data){
+                        alert(data);
+                    }
+             });
+        });
+
+        $('#setpaipaipopularaward').click(function(){
+            $.ajax({
+                type:'GET',
+                url :'/TMAdmin/setPaiPaiAward',
+                dataType:'text',
+                data :{qq:$('#awardqq').val().replace(/[ ]/g,"")},
+                success :function(data){
+                    alert(data);
+                }
+            });
+        });
+
+        $('#commentNow').click(function(){
+            $.ajax({
+                type:'GET',
+                url :'/AutoComments/getOrdersByUser',
+                dataType:'text',
+                data :{userId:$('#commentwangwang').val().replace(/[ ]/g,""),interval:$('#date-area').val().replace(/[ ]/g,""),content:$('#comment-content').val().replace(/[ ]/g,"")},
+                success :function(data){
+                    alert(data);
+                }
+            });
+        });
+
+        $('#hpzsDeleteNow').click(function(){
+            $.ajax({
+                type:'GET',
+                url :'/TMAdmin/deleteHPZSWangwang',
+                dataType:'text',
+                data :{nick:$('#hpzswangwang').val().replace(/[ ]/g,"")},
+                success :function(data){
+                    alert(data);
+                }
+            });
+        });
+
+        (function(){
+            var container = $('#commjobs');
+            $.ajax({
+                url:'/CRUDJobExecutor/commJobs',
+                success : function(data){
+                    for(var i in data){
+                         var job =data[i];
+                        var li= $("<tr></tr>");
+                        li.append("<td class='name'>"+job+"</td>");
+                        li.append("<td style='height:40px;'><span class='run-btn btn btn-info' >点击运行</span></td>");
+                        container.append(li)
+                    }
+                    container.find('.run-btn').each(function(){
+                        var anchor = $(this);
+                        anchor.click(function(){
+						if ( confirm(anchor.parent().parent().find('.name').text()) ){
+                            $.ajax({
+                                type:'GET',
+                                url :'/CRUDJobExecutor/runJob',
+                                data :{job:anchor.parent().parent().find('.name').text()},
+                                success :function(data){
+                                    alert('job ['+data+'] runs');
+                                }
+                            });
+						}	
+                        });
+                    });
+                }
+            });
+        }());
+
+
+        (function(){
+            var container = $('#userJobs');
+            $.ajax({
+                url:'/CRUDJobExecutor/userJobs',
+                success : function(data){
+                    for(var i in data){
+                        var job =data[i];
+                        var li= $("<tr></tr>");
+                        li.append("<td class='name'>"+job+"</td>");
+                        li.append("<td>userId : <input name='userId' type='text' /></td>");
+                        li.append("<td><span class='run-btn'>点击运行</span></td>");
+                        container.append(li);
+                    }
+
+
+                    container.find('.run-btn').each(function(){
+                        var anchor = $(this);
+                        var li = anchor.parent().parent();
+                        anchor.click(function(){
+						if ( confirm(anchor.parent().parent().find('.name').text()) ){
+                            $.ajax({
+                                type:'GET',
+                                url :'/CRUDJobExecutor/runUserJob',
+                                data :{job:li.find('.name').text(),userId:li.find("input[name='userId']").val()},
+                                success :function(data){
+                                    alert('job ['+data+'] runs');
+                                }
+                            });
+						}	
+                        });
+                    });
+                }
+            });
+        }());
+
+        (function(){
+            var container = $('#userDailyJobs');
+            $.ajax({
+                url:'/CRUDJobExecutor/userDailyJobs',
+                success : function(data){
+                    for(var i in data){
+                        var job =data[i];
+                        var li= $("<tr></tr>");
+                        li.append("<td class='name'>"+job+"</td>");
+                        li.append("<td>userId : <input name='userId' type='text' /></td>");
+                        li.append("<td>ts : <input name='ts' type='text' /></td>");
+                        li.append("<td><span class='run-btn'>点击运行</span></td>");
+                        container.append(li);
+                    }
+
+
+                    container.find('.run-btn').each(function(){
+                        var anchor = $(this);
+                        var li = anchor.parent().parent();
+                        anchor.click(function(){
+						if ( confirm(anchor.parent().parent().find('.name').text()) ){
+						
+                            $.ajax({
+                                type:'GET',
+                                url :'/CRUDJobExecutor/runUserDailyJob',
+                                data :{job:li.find('.name').text(),userId:li.find("input[name='userId']").val(),
+                                    ts:li.find("input[name='ts']").val()},
+                                success :function(data){
+                                    alert('job ['+data+'] runs');
+                                }
+                            });
+						}	
+                        });
+                    });
+                }
+            });
+        }());
+
+        $('#inviteQuery').click(function(){
+            var start = $('#inviteStart').val();
+            var end = $('#inviteEnd').val();
+
+            var result = $('#inviteReult');
+            //$.get('/op/invitemoney',{start : start, end : end},function(data){
+                window.open('/op/invitemoney?start='+start+'&end='+end);
+            //}})
+        })
+            $('#tracelogQuery').click(function(){
+            var start = $('#tracelogStart').val();
+            var end = $('#tracelogEnd').val();
+
+            //var result = $('#tracelogReult');
+            //$.get('/op/invitemoney',{start : start, end : end},function(data){
+                window.open('/op/tracelogmoney?start='+start+'&end='+end);
+            //}})
+        }) ;
+        $('#select-hongbaouser').click(function(){
+            var status=0;
+            $('.hongbaoList-tbody').empty();
+            $(".hongbaoList-page").tmpage({
+                currPage: 1,
+                pageSize: 10,
+                pageCount: 1,
+                ajax:{
+                    on: true,
+                    param: {status:status},
+                    dataType: 'json',
+                    url: '/CRUDJobExecutor/selectPPhongbaoUsers',
+                    callback:function(dataJson){
+                        if(!dataJson || !dataJson.isOk){
+                            alert("数据获取发生错误，请重试或联系客服");
+                        } else{
+                            $('.hongbaoList-tbody').remove();
+                            if(dataJson.res.length > 0){
+                                $('.hongbaoList').append(CreateTbody(dataJson.res));
+                            } else {
+                                $('.hongbaoList').append('<tbody class="hongbaoList-tbody" ><tr><td colspan="8" style="height:40px;">亲，暂无数据哦</td></tr></tbody>');
+                            }
+                        }
+                    }
+                }
+            })
+        }) ;
+
+        function CreateTbody(results){
+            var tbody = $('<tbody class="hongbaoList-tbody' +
+                    '" ></tbody>');
+            $(results).each(function(i,result){
+                var rate = (result.pv == 0)?0:(result.click/result.pv);
+                var clickRate = new Number(rate).toPercent(2);
+                tbody.append($('<tr>'+
+                        '<td>'+result.id+'</td>'+
+                        '<td>'+result.userId+'</td>'+
+                        '<td>'+result.requestId+'</td>'+
+                        '<td>'+result.status+'</td>'+
+                        '</tr>'));
+
+            }) ;
+            return tbody;
+
+        };
+
+        $('#set-status').click(function(){
+            $.ajax({
+                type:'post',
+                url :'/CRUDJobExecutor/setPPhongbaoStatus',
+                data :{},
+                success :function(data){
+                    if(data==null||data.length==0){
+                        alert("设置成功");
+                    }
+                    else{
+                        alert(data.msg) ;
+                    }
+
+                }
+            });
+        })
+
+    });
+</script>
+
+#{/set}

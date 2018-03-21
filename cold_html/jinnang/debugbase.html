@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}" />
+        <link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/jinnang/wp.css'}" />
+		<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/jinnang/colors-fresh.css'}" />
+		<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/jinnang/netease_main.css'}" />
+		<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/jinnang/common_nav_mod.css'}" />
+		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="@{'/public/stylesheets/jinnang/jquery-ui-timepicker-addon.css'}" />
+		<link rel="stylesheet" media="all" type="text/css" href="@{'/public/stylesheets/jinnang/thickbox.css'}" />
+		<link rel="stylesheet" meida="all" type="text/css" href="@{'public/stylesheets/jinnang/wbox.css'}" />
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <!--
+		<script type="text/javascript" src="@{'/public/javascripts/jquery-ui-1.9.1.custom.min.js'}"></script>
+		-->
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+		<script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>	
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/jquery-ui-sliderAccess.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/jquery-ui-timepicker-addon.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/i18n/jquery-ui-timepicker-zh-CN.js'}"></script>
+		
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/wbox-min.js'}"></script>
+    </head>
+    <body>
+    <script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+    TM.tms = TM.tms || '-';
+</script>
+<script type="text/javascript" src="@{'/public/javascripts/tips/jquery.qtip-1.0.0-rc3.js'}"></script>
+<div class="mengban">
+</div>
+
+<!-- loading等待 -->
+<div class="LoadingMask" style="display: none; border: 0;"></div>
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;width:500px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+
+    //TM.gcs('/public/javascripts/tm.js');
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    TM.gcs('/js/tm.js');
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function(){
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_tms="+TM.tms;
+                }else{
+                    href += "?_tms="+TM.tms;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        $(document).ready(function(){
+            TM.setAnchorSids();
+        })
+
+    })(jQuery, window));
+</script>
+
+    	<div id="main">
+        	#{doLayout /}
+        </div>
+    </body>
+</html>

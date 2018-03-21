@@ -1,0 +1,109 @@
+#{extends 'copyskin.html' /}
+<style>
+    div#skinTitle {
+        width: 780px;
+        margin-left:200px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    div.main {
+        width: 780px;
+        /*float: right;*/
+        /*display: inline;*/
+        /*margin-left:200px;*/
+        /*border: 1px solid #aaa;*/
+        background: white;
+    }
+
+
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {
+        /*margin: 5px auto;*/
+        height: auto;
+    }
+    .kwcontainer {
+        background: transparent;
+        margin: 10px auto;
+        width: 100%;
+        overflow: auto;
+        zoom: 1;
+    }
+    .head ul li{margin: 13px 0 0 0;}
+    .skinfirst{height: 30px;line-height:30px;padding: 0 0 0 20px;background-color: #EFEFEF;}
+    .leftNav{width: 99%;border: 1px solid #d4d4d4;}
+    .detail{width: 20px;        height: 20px;          cursor: pointer;        display: inline-block;          vertical-align: top;
+        position: absolute;           right: 10px;          top: 5px;}
+    .detailup{background: url("/img/tab/rotate_up-s.png")}
+    .detaildown{background: url("/img/tab/rotate_left-s.png")}
+    .skinsecond{height: 30px;line-height:30px;padding: 0 0 0 30px;border-top: 1px solid #d4d4d4;}
+    .asideselected { background:none;}
+    .aside{z-index: 6000;}
+</style>
+<div class="aside">
+   <div class="leftNav">
+       <div class="skinfirst">
+           <div class="inlineblock" style="width: 150px;">智能推荐</div>
+           <div class="inlineblock detail detailup"></div>
+       </div>
+       <div class="skinsecondwrapper">
+           <div class="skinsecond">
+                <a href="/SkinTitles/index" style="text-decoration: none;font-size: 12px;color: #000000;">店铺诊断</a>
+           </div>
+           <div class="skinsecond">
+               <a href="/SkinTitles/skinTitle" style="text-decoration: none;font-size: 12px;color: #000000;">自动标题</a>
+           </div>
+           <div class="skinsecond">
+               <a href="/SkinTitles/dicHome" style="text-decoration: none;font-size: 12px;color: #000000;">热词查询</a>
+           </div>
+       </div>
+   </div>
+
+   <div class="blank0" style="height:1px;"></div>
+</div>
+
+<div id="skinTitle">
+    <div class="main">
+    #{doLayout /}
+    </div>
+</div>
+
+<script>
+    $('.detail').click(function(){
+        var t = 500;
+        if($(this).hasClass("detaildown")) {
+            $(this).removeClass("detaildown");
+            $(this).addClass("detailup");
+            if($(this).parent().parent().find('.skinsecondwrapper').length > 0) {
+                $(this).parent().parent().find('.skinsecondwrapper').slideDown(t);
+            }
+        } else if($(this).hasClass("detailup")) {
+            $(this).removeClass("detailup");
+            $(this).addClass("detaildown");
+            if($(this).parent().parent().find('.skinsecondwrapper').length > 0) {
+                $(this).parent().parent().find('.skinsecondwrapper').slideUp(t);
+            }
+        }
+    });
+    $('.skinsecondwrapper').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.skinsecondwrapper').find('div.navSelected').removeClass("navSelected");
+            anchor.parent().addClass("navSelected");
+        }
+    });
+
+    $('.head').append(            '<ul style="">' +
+            '   <li><a href="/SkinTitles/index">店铺诊断</a></li>' +
+            '   <li><a href="/SkinTitles/skinTitle">自动标题</a></li>' +
+            '   <li><a href="/SkinTitles/dicHome">热词查询</a></li>' +
+            '</ul>');
+    $(document).ready(function(){
+        $('.WaitingForLoadingDiv').attr("style","display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 10px 10px 10px 10px;z-index: 200001;width:500px;");
+        $('.WaitingForLoadingDiv').find('img').attr("src","/img/loading-red.gif");
+
+    });
+</script>

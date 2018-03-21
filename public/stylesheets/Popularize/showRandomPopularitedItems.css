@@ -1,0 +1,6 @@
+.showRandomPopularitedItemsDiv{width: 780px;min-height: 500px;margin: 0 auto;}
+.randomItemsDiv{border: 1px solid #D4D4D4;height:100%;padding-top: 3px;}
+.RandomItem{width: 150px;margin-left: 3px;height: 230px;border: 1px solid #D4D4D4;display: inline-block;*display: inline;zoom:1;}
+.randomItemTitleDiv{height: 20px;overflow: hidden;margin: 0 2px 0 2px;}
+.randomItemTitleSpan{font-size: 12px;height: 20px;}
+.randomItemBuyBtn{margin: 0 auto;width: 130px;height: 36px;background: url("/public/images/button/lijidingjgou.png")}

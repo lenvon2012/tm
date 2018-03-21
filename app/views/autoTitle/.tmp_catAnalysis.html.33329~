@@ -1,0 +1,394 @@
+#{extends 'keymain.html' /}
+#{set title:'行业分析' /}
+
+<link rel="stylesheet" media="screen" href="/css/taozhanggui.css?_v=4">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css?_v=4">
+<style>
+    .selectCat1, .selectCat2, .propselect {margin:10px 20px 10px 0;float: none;height: 25px;width: 180px;}
+    .selectYear {margin:10px 20px 10px 0;float: none; height: 25px;width: 60px}
+    .selectMonth {margin:10px 20px 10px 0;float: none; height: 25px;width: 50px}
+	.timeselect{margin:10px 20px 10px 0;float: none;height:25px;width: 50px}
+    .catanalysisoplogs tbody tr.propTr {
+        border-bottom: 1px solid #ccc;
+    }
+    /*.propTr{*/
+        /*height: 400px;*/
+    /*}*/
+    div.navmain {
+        width: 1040px;
+        border: 1px solid #aaa;
+        background: white;
+    }
+    .navmain-leftnav-td{
+        display: none;
+    }
+    .all_container{
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        min-height: 1000px;_height: 1000px;
+    }
+
+    #catanalysisoplogs{width: 1000px;min-height: 1000px;_height: 1000px;}
+    #tmcontainer{width:100%;min-height: 1000px;_height:1000px;}
+    .highcharts-axis-labels{min-width: 100px;}
+    .all_container{border:none;}
+    .recommendDiv{;}
+    .recommendDiv ul{background:#EBEBEB;clear:both;padding-left:100px;}
+    .recommendDiv .tabDiv li{margin:0;position:relative;}
+    table tr {cursor:default;}
+    .propname,.shopitemcatsapn{float:left;margin:3px;font-size:16px;padding: 5px;background:#54BBA6;color:white;cursor: pointer;margin-right:5px;;}
+    .shopitemcatsapn{background: #29a4c2;}
+
+    .busSearch td{text-align: center;}
+    .toptmpl{display:none;}
+    .pagenav{text-align: center;;}
+    .search-input {
+        height: 20px; border: 1px solid #999;
+    }
+
+    .search-table {
+        border-collapse: collapse;
+    }
+    .search-table td {
+        vertical-align: middle;
+    }
+
+
+    .list-table {
+        border-collapse: collapse; width: 100%;
+        border: 1px solid #ccc; border-collapse: collapse; text-align: center;
+    }
+    .list-table thead tr {
+        vertical-align: middle; background: left -102px url('/img/frame/bg.png');
+    }
+
+    .list-table thead td {
+        height: 26px; vertical-align: middle; border-bottom: 1px solid #ccc; font-weight: bold;
+    }
+
+    .delist-chart-table thead td {
+        border: 1px solid #ccc;
+    }
+    .delist-chart-table tbody td {
+        border: 1px solid #ccc; padding: 8px 3px;
+    }
+
+    .delist-search-table tbody td {
+        border-bottom: 1px solid #ccc; padding: 8px 3px;
+    }
+
+.recommendDiv .tabDiv li{display:inline-block;*display:inline;*zoom:1;}
+.recommendDiv .tabDiv li span{display:inline-block;*display:inline;*zoom:1;}
+div.propsale{background:white;}
+</style>
+
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>行业分析
+</div>
+<div class="clearfix"></div>
+<div class="shopCats">
+    <span style='float:left;padding:8px;margin:5px;margin-left:70px;'>本店铺宝贝类目: </span>
+    <span class="placeHolder">
+
+    </span>
+    <div class="tmpl hidden">
+            <span class="shopitemcatsapn" cid="{{= cid}}" cname="{{= name}}">
+                {{= name}}
+            </span>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="catAnalysisContainer">
+
+    <div class="catgory" style="text-align: center;">
+    <span style="margin: 0 20px;">选择时间:</span>
+     	<select name="selectYear" class="selectYear">
+		
+        </select>
+        <select name="selectMonth" class="selectMonth">
+        
+        </select>
+        
+        <span style="margin:0 20px;">请选择行业类目进行分析：</span>
+        <select name="selectCat1" class="selectCat1">
+
+        </select>
+        <select name="selectCat2" class="selectCat2">
+
+        </select>
+        
+        <!--  <select name="props" class="propselect">
+		
+        </select>-->
+       
+    </div>
+    <div class="recommendDiv" style="">
+        <div class="tabDiv">
+            <ul class="clearfix" style = "width: 800px;">
+                <li><span style="width: 100px;" targetdiv="propsale" class="select">属性成交分布</span></li>
+                <li><span style="width: 100px;" targetdiv="topitems" class="">热销宝贝</span></li>
+                <li id="hotprops"><span style="width: 100px;" targetdiv="topshops">热销店铺</span></li>
+
+                <li class=""><span style="width: 100px;" targetdiv="delist">上下架时间分布</span></li>
+                <li><span  style="width: 100px;" targetdiv="priceDuration" class="">成交价分布</span></li>
+                <li><span style="width: 100px;" targetdiv="hotwords">热门搜索词</span></li>
+            </ul>
+            <div class="blank0" style="height: 15px;"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="cnametext" style="padding-left:40px;font-size:18px;margin-bottom: 5px;"></div>
+<div id="tmphighchart" class="hidden" style="display:none;">
+
+</div>
+<div id="tmcontainer">
+
+
+<div id="alltmpls" class="">
+
+    <div class="nodatatip toptmpl">
+        <div class="tipmiddle">
+            亲，木有数据哦， 您可以先看看别的哟
+        </div>
+    </div>
+
+    <!--热门词-->
+    <div class="hotwords toptmpl">
+    	<div class="pagenav">
+        </div>
+    	<div class="placeHolder">
+    		<table class="busSearch" >
+                <thead>
+                <tr>
+                    <td><h5>关键词</h5></td>
+                    <td><h5>热度</h5></td>
+                </tr>
+                </thead>
+                <tbody ></tbody>
+            </table>
+    	</div>
+    	<div class="pagenav">
+        </div>
+    	<script class="tmpl hidden" type="jquery-template">
+            <tr>
+                    <td>
+           <h5> {{= word}} </h5>
+            </td>
+                    <td>
+            <h5>{{= count}}</h5>
+            </td>
+            </tr>
+        </script>
+    </div>
+    
+    <!--top宝贝相关模板-->
+    <div class="topitems toptmpl">
+        <div class="pagenav">
+        </div>
+        <div class="placeHolder">
+            <table class="busSearch" style="width:97%;margin: 0 auto;">
+                <thead>
+                <th>主图</th>
+                <th>标题</th>
+                <th>销量</th>
+                <th>价格</th>
+                <th>卖家</th>
+                *{<th>店铺</th>}*
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagenav">
+        </div>
+
+        <script class="tmpl hidden" type="jquery-template">
+            <tr>
+                    <td>
+            <img src="{{= picPath}}" style="width:80px;height:80px;margin:5px;">
+                    </td>
+                    <td>
+          <h5>  {{= title}}   </h5>  
+            </td>
+                    <td>
+          <h5>  {{= tradeNum}} </h5>
+            </td>
+                    <td>
+         <h5>   {{= price}}  </h5>
+            </td>
+                    <td>
+          <h5>  {{= wangwang}}  </h5>
+            </td>
+            </tr>
+        </script>
+    </div>
+
+    <!--店铺相关模板-->
+    <div class="topshops toptmpl">
+        <div class="pagenav"></div>
+        <div class="placeHolder">
+            <table class="busSearch" style="width:97%;margin: 0 auto;">
+                <thead>
+                <th>主图</th>
+                <th>店铺</th>
+                <th>销量</th>
+                <th>信誉</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagenav"></div>
+         <script class="tmpl hidden" type="jquery-template">
+            <tr>
+                    <td>
+            <a href= "http://store.taobao.com/shop/view_shop.htm?user_number_id={{= sellerId}}" target="_blank"><img src="{{= picPath}}" style="width:80px;height:80px;margin:5px;">
+</img></a>
+                    </td>
+                    <td>
+         <h5>   {{= nick}} </h5>
+            </td>
+                    <td>
+         <h5>   {{= sale}}  </h5>
+            </td>
+                    <td>
+             {{if isTM}}
+			 <img src="/public/images/tmlog.png" tyle="width:80px;height:80px;margin:5px;"/>
+			 </br>
+			 {{/if}}
+			{{if level < 1}}
+	<img src="/public/images/tmlog.png" tyle="width:80px;height:80px;margin:5px;"/>
+            {{else level < 6}}
+		<img src="http://pics.taobaocdn.com/newrank/s_red_{{= level}}.gif" tyle="width:80px;height:80px;margin:5px;"/>
+			{{else level < 11 }}
+<img src="http://pics.taobaocdn.com/newrank/s_blue_{{= level-5}}.gif" tyle="width:80px;height:80px;margin:5px;"/>
+			{{else level < 16 }}
+<img src="http://pics.taobaocdn.com/newrank/s_cap_{{= level-10}}.gif" tyle="width:80px;height:80px;margin:5px;"/>
+			{{else level < 21}}
+<img src="http://pics.taobaocdn.com/newrank/s_crown_{{= level-15}}.gif" tyle="width:80px;height:80px;margin:5px;"/>
+		{{/if}}
+
+            </td>
+            </tr>
+        </script>
+    </div>
+    <!--属性相关模板-->
+    <div class="propsale toptmpl">
+        <div class="propspans">
+        </div>
+        <div class="clearfix"></div>
+        <div class="placeHolder">
+        </div>
+        <div class="tmpl hidden"  >
+            <span style=""
+                  class="propname" pid="{{= pid}}">{{= pname}}</span>
+        </div>
+    </div>
+    <!--价格区间相关模板-->
+    <div class="priceDuration toptmpl">
+        <div class="placeHolder">
+           <!--   <div id="priceDuartionHolder" style="height:800px;"></div>-->
+        </div>
+    </div>
+
+    <!-- 上下架相关模板 -->
+    <div class="delist toptmpl">
+
+        <div class="delist-chart-div" style="display: none;margin-top: 10px;padding-bottom: 30px;">
+            <div style="text-align: left;padding-bottom: 10px;">
+                <table class="delist-tip-table" style="border-collapse: collapse;color: red;">
+                    <tbody>
+                    <tr>
+                        <td style="">注1：</td>
+                        <td>下表是搜索关键词下人气宝贝的下架时间分布，每个单元格的含义：<span style="font-weight: bold;">下架宝贝数</span>。 </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 5px;">注2：</td>
+                        <td style="padding-top: 5px;">可以选择下架宝贝比较少的日期，下架自己的宝贝，从而避开竞争。 </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <table class="list-table delist-chart-table busSearch" >
+                <thead>
+                <tr>
+                    <td>时间段</td>
+                    <td>周一</td>
+                    <td>周二</td>
+                    <td>周三</td>
+                    <td>周四</td>
+                    <td>周五</td>
+                    <td>周六</td>
+                    <td>周日</td>
+                    <td>7天总和</td>
+                </tr>
+                </thead>
+                <tbody class="delist-chart-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="delist-search-div"  style="display: none;margin-top: 10px;padding-bottom: 30px;">
+            <div style="text-align: left;padding-bottom: 10px;">
+                <table class="delist-tip-table" style="border-collapse: collapse;color: red;">
+                    <tbody>
+                    <tr>
+                        <td style="">注1：</td>
+                        <td>下表是在指定的搜索关键词下，淘宝人气宝贝的列表；您可以根据人气或下架时间排序，更好地掌握行业情报。 </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging-div" style="text-align: center;"></div>
+            <table class="list-table delist-search-table">
+                <thead>
+                <tr>
+                    <td style="width: 11%;">宝贝图片</td>
+                    <td style="width: 31%;">宝贝标题</td>
+                    <td style="width: 11%;"><div class="sort-td sort-up current-sort" orderBy="orderIndex">搜索排名</div></td>
+                    <td style="width: 17%;"><div class="sort-td sort-down" orderBy="relativeDelistTime">下架时间</div></td>
+                    <td style="width: 16%;"><div class="sort-td sort-down" orderBy="leftTime">下架剩余时间</div></td>
+                    <td style="width: 14%;"><div class="sort-td sort-up" orderBy="salesCount">宝贝成交量</div></td>
+                </tr>
+                </thead>
+                <tbody class="delist-search-tbody"></tbody>
+            </table>
+            <div class="paging-div" style="text-align: center;"></div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    var doForReady = function(){
+        $('.navmain-container-td').css("width", "1040px");
+        TM.autoTitle.CatAnalysis.init($('#catanalysisoplogs'));
+    }
+
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/jquery.tmpl.js', function () {
+                TM.gcs('/js/tm.js?_v=6', function () {
+//                TM.gcs('/js/autoTitle/catAnalysis.js?_v=3', function () {
+                    TM.gcs("/js/industry/industrybase.js?_v=7", function () {
+                    TM.gcs("/js/delistplan/delistsearch.js?_v=5", function () {
+                        TM.gcs('/js/autoTitle/propAnalysis.js?_v=3', function () {
+                            $(document).ready(function(){
+                                doForReady();
+                            })
+                        });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

@@ -1,0 +1,551 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'创建满就送活动' /}
+<style>
+    .mainFormForm {width: 100%;}
+    .mjsProDetail td {vertical-align: top;padding-left: 5px;}
+    .prmoteDetailLine {font-size: 18px;height: 48px;}
+    .mjsForm div {vertical-align: middle;}
+    .mjsForm .clicktoprev {height: 32px;vertical-align: middle;}
+    .mjsProDetail label {color: #868686;font-size: 20px;}
+    .mjsTypeUnCheck {color: #ddd;}
+    .setArea {cursor: pointer;}
+
+    .baoyouAreaSelector {
+        position: fixed;_position: absolute;top: 100px;width: 800px;height: 500px;
+        background-color: #f5f5f5;border: 1px solid #ccc;
+    }
+
+    .baoyouAreaSelector table {width: 90%;height: 90%;margin: 0 auto;margin-top: 20px;}
+    .exitAreaSelector {width: 24px;height: 25px;float: right;cursor: pointer;background: url("/img/dazhe/cross.png");}
+    .baoyouAreaSelector .selectAllAreas, .baoyouAreaSelector .selectNoArea, .baoyouAreaSelector .jzh, .baoyouAreaSelector .noRemoteAreas{
+        width: 70px;height: 30px;line-height: 30px;text-align: center;background-color: #E6F5FF;
+        cursor: pointer;margin: 0 auto;border: 2px solid #DBDBDB;
+    }
+    .baoyouAreaSelector .areaSelectOK{
+        font-size: 24px;border: 2px solid #DBDBDB;background-color: #E6F5FF;width: 150px;
+        height: 50px;line-height: 50px;cursor: pointer;
+    }
+    .baoyouAreaSelector .selectChild{font-size: 16px;font-weight: bold;}
+    #comment{color:#999;}
+
+    .uCheckbox{
+        padding-left: 30px;
+        _padding-left: 36px;
+    }
+    input {
+        line-height: inherit;
+    }
+    .nextStepBtn {
+        *margin-left: 0px;
+    }
+    .prmoteDetailLine .uCheckbox em.prmoteDetailLineEM {
+        *top: 20px;
+    }
+    #manMoney {
+        _width: 60px;
+    }
+    #itemcountinput {
+        _width: 60px;
+    }
+</style>
+
+<div id="content">
+*{<div class="breadcrumbs">
+    <span>创建限时打折活动</span>
+</div>
+<div id="stepBar">
+    <div class="text">
+        <div class="block active">
+            <h3>设置活动信息</h3>
+            <span class="arrow"></span>
+        </div>
+        <div class="block">
+            <h3>设置商品信息</h3>
+            <span class="arrow"></span>
+        </div>
+        <div class="block lastPercent">
+            <h3>完成</h3>
+            <span class="arrow"></span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>}*
+<h1>修改全店满就送活动</h1>
+
+<div class="mainForm mjsForm">
+<!-- .mainFormForm -->
+<div class="mainFormForm">
+<div class="tmLine ">
+    <label>活动名称：</label>
+    <input type="text" class="text" id="name">
+    <span class="append">请输入2到30个汉字(仅自己可见)</span>
+
+    <div class="clear"></div>
+</div>
+<div class="tmLine ">
+    <label>开始时间：</label>
+    <input type="text" class="text date" id="start_time">
+    <span class="append">自定义开始时间</span>
+
+    <div class="clear"></div>
+</div>
+<div class="tmLine ">
+    <label>结束时间：</label>
+    <input type="text" class="text date" id="end_time">
+    <span class="append">自定义结束时间</span>
+
+    <div class="clear"></div>
+</div>
+
+<div class="tmLine ">
+    <label>价格标签：</label>
+    <select type="text" class="promotion_title title-select" id="promotion_title"
+            style="font-size: 18px;width: 183px;line-height: 200px;position: relative;float: left;">
+        <option tag="manjiusong">满就送</option>
+        <option tag="manjiubaoyou">满就包邮</option>
+    </select>
+    <input type="text" class="title-input text" style="width: 183px;">
+    <a class="title-input-button self-put" href="javascript:void(0)">自定义标签</a>
+    <a class="title-input-button select-put" href="javascript:void(0)">选择标签</a>
+    <span class="append">优惠标题，显示在宝贝详情页</span>
+
+    <div class="clear"></div>
+</div>
+<div class="tmLine">
+    <label>优惠内容：</label>
+    <table class="mjsProDetail" style="background:#F8F8F8;width:600px;">
+        <tr>
+            <td style="width:30%;">
+                <p><label>满足优惠条件</label></p>
+            </td>
+            <td style="width:70%;">
+                <div><label>优惠内容</label></div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="prmoteDetailLine">
+                                <span class="uCheckbox selected" tag="amount" name="mjsType">
+                                    <em class="prmoteDetailLineEM"></em>
+                                    <span class="clicktosbling">满<input type="text"
+                                                                        class="bigMoneyInput doubleInput mjsTypeInput"
+                                                                        id="manMoney" value="100">元</span>
+                                </span>
+
+                </div>
+                <div class="prmoteDetailLine">
+                                <span class="uCheckbox unselected" tag="itemCount" name="mjsType">
+                                    <em class="prmoteDetailLineEM"></em>
+                                            <span class="clicktosbling">满<input type="text"
+                                                                                class="bigMoneyInput numberInput mjsTypeInput mjsTypeUnCheck"
+                                                                                id="itemcountinput" value="2">件</span>
+                                </span>
+
+
+                </div>
+            </td>
+            <td>
+                <div class="prmoteDetailLine decreaseOrDiscount">
+                                <span class="prmoteDetailLine manjian">
+                                    *{<input type="checkbox" tag="decrease" name="mjsDecreasOrDisCount" checked="checked">}*
+                                        <span class="uCheckbox unselected mjsContentMustChooseOne" tag="decrease" name="mjsDecreasOrDisCount">
+                                        <em class="prmoteDetailLineEM"></em>
+                                        <span class="clicktoprev">减<input type="text" class="bigMoneyInput doubleInput"
+                                                                          id="decreaseNum" value="5">元</span>
+                                        </span>
+
+                                </span>
+                                <span class="decreaseMultipleOrNot">
+                                    <span class="uCheckbox unselected" tag="decreaseMultiple">
+                                        <em class="prmoteDetailLineEM"></em>
+                                        上不封顶
+                                    </span>
+                                </span>
+                </div>
+                <div class="prmoteDetailLine decreaseOrDiscount">
+                                <span class="prmoteDetailLine manzhe">
+                                    <span class="uCheckbox unselected mjsContentMustChooseOne" tag="discount" name="mjsDecreasOrDisCount">
+                                        <em class="prmoteDetailLineEM"></em>
+                                    <span class="clicktoprev">打<input type="text"
+                                                                      class="bigMoneyInput doubleInput mjsTypeUnCheck"
+                                                                      id="disCountNum" value="9">折</span>
+                                        </span>
+                                </span>
+                </div>
+                <div class="prmoteDetailLine baoyou" style="padding-top: 7px;">
+                                <span class="uCheckbox unselected mjsContentMustChooseOne">
+                                    <em></em>
+                                    <span class="" style="" name="baoyou">包邮</span>
+                                    <span class="setArea hidden" style="color:blue;font-size:14px;">
+                                       设置包邮地区
+                                    </span>
+                                </span>
+                </div>
+                <div class="prmoteDetailLine gift">
+                                <span class="uCheckbox unselected" name="gift">
+                                    <em class="clicktarget"></em>
+                                <span class="clicktarget">礼物</span>
+                                <span class="">
+                                    <input class="little-gift-name" type="text" value="请输入小礼物名称" default="请输入小礼物名称"
+                                           style="width:160px;margin-left:10px;display: none;">
+                                </span>
+                                </span>
+                </div>
+            </td>
+        </tr>
+    </table>
+*{<input type="text" class="text"  id="hahahaha" >}*
+*{<span class="append">请输入2到30个汉字(仅自己可见)</span>}*
+*{<div class="clear"></div>}*
+</div>
+<div class="tmLine">
+    <label>活动备注：</label>
+    <input type="text" class="text" id="comment" value="备注: " default="备注: ">
+    <div class="clear"></div>
+</div>
+
+<div class="tmLine " style="margin-top:10px;">
+    <label style="height:100px;">促销展示：</label>
+    <div class="promoteTemplate" style="float:left;">
+        <div class="uCheckboxs">
+                    <span class="uCheckbox unselected" index="0">
+                        <em ></em>
+                        不使用模板
+                        <script class="" type="text/x-jquery-tmpl">
+                            <br/>
+                            优惠内容不会显示在详情页
+                        </script>
+                    </span>
+                    <span class="uCheckbox selected" index="1">
+                        <em ></em>
+                        满就送模板
+                        <script class="tmpl" type="text/x-jquery-tmpl">
+                            <div style="border:1px solid #ccc;padding:5px 2px;width:95%;overflow:hidden;background:#fff;margin-top:10px;">
+                                <img src="http://img03.taobaocdn.com/bao/uploaded/i3/T1kZWZXj4jXXbaMLs2_043749.jpg" style="float:left;display:inline;width:auto;">
+                                <div style="padding-left:80px;">
+                                    <p style="line-height:20px;padding:0;">
+                                        <strong> 满减促销</strong> <span style="color: #999">
+                                        活动日期：{{= startDateStr}} - {{= endDateStr}}
+                                        <span data-bind="text: time"></span></span>
+                                    </p>
+                                    <div data-bind="template: { name: 'previewTemplate1', foreach: settings }">
+                                        <p style="line-height:25px;padding:0;margin:0;overflow:hidden;font-family:Tahoma,'宋体'">
+                                            {{html toDisplay}}
+                                        </p>
+                                    </div>
+                                    <p style="line-height:20px;padding:0;">
+                                        <span data-bind="html: commentsShow" style="color: #999"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </script>
+                    </span>
+                    <span class="uCheckbox  unselected" index="2">
+                        <em ></em>
+                        满就减模板2
+
+                            <script class="tmpl" type="text/x-jquery-tmpl">
+                                <div style="border:1px solid #ccc;padding:5px 2px;width:95%;overflow:hidden;background:#fff;margin-top:10px;">
+                                    <img src="http://img02.taobaocdn.com/imgextra/i2/414224286/T2E8SAXstaXXXXXXXX-414224286.jpg" style="float:left;display:inline;width:auto;">
+                                    <div style="padding-left:80px;">
+                                        <p style="line-height:20px;padding:0;">
+                                            <strong> 满减促销</strong> <span style="color: #999">
+                                        活动日期：{{= startDateStr}} - {{= endDateStr}}
+                                        <span data-bind="text: time"></span></span>
+                                        </p>
+                                        <div data-bind="template: { name: 'previewTemplate1', foreach: settings }">
+                                            <p style="line-height:25px;padding:0;margin:0;overflow:hidden;font-family:Tahoma,'宋体'">
+                                                {{html toDisplay}}
+                                            </p>
+                                        </div>
+                                        <p style="line-height:20px;padding:0;">
+                                            <span data-bind="html: commentsShow" style="color: #999"></span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </script>
+                    </span>
+                   *{ <span class="uCheckbox unselected" index="3">
+                        <em ></em>
+                        包邮模板
+                        <div class="tmpl"></div>
+                    </span>}*
+        </div>
+        <div class="line" style="border-bottom:1px solid #9C0000;margin:15px 0 0 0;;"></div>
+        <div class="clear"></div>
+        <div id="mjsTmplHolderWrapper">
+            <div style="width:100%;overflow:hidden;background:#fff;" tag="HNMjsTmplHolder" class="HNMjsTmplHolder">
+
+                <div style="border:1px solid #ccc;padding:5px 2px;width:95%;overflow:hidden;background:#fff;margin-top:10px;">
+                    <img src="http://img03.taobaocdn.com/bao/uploaded/i3/T1kZWZXj4jXXbaMLs2_043749.jpg" style="float:left;display:inline;width:auto;">
+                    <div style="padding-left:80px;">
+                        <p style="line-height:20px;padding:0;">
+                            <strong> 满减促销</strong> <span style="color: #999">活动日期：2014-04-04 22:03:00 - 2014-05-24 22:03:00<span data-bind="text: time"></span></span>
+                        </p>
+                        <div data-bind="template: { name: 'previewTemplate1', foreach: settings }">
+                            <p style="line-height:25px;padding:0;margin:0;overflow:hidden;font-family:Tahoma,'宋体'">
+                                单笔订单满&nbsp;<strong style="color:#FF5400;font-size:15px;" data-bind="text: (conditionType() == 'Y' ? conditionYuan : conditionJian) ">100</strong>&nbsp;<span data-bind="text: (conditionType() == 'Y' ? '元' : '件')">元</span>: <span data-bind="visible: (detailType().length &gt; 0), html: showDetailValue(0)">减 <strong style="color:#FF5400;font-size:15px;">10</strong> 元&nbsp;上不封顶</span>
+                                <strong style="color:#FF5400;" data-bind="text: (isPostFree() ? '包邮&nbsp;&nbsp;':'')"></strong><span style="color: rgb(153, 153, 153); display: none;" data-bind="visible: isPostFree() &amp;&amp; notPostFreeLocation().length &gt; 0">(<span data-bind="text: postFreeLocToString">不包括</span>)</span>
+                                    <span data-bind="style: {display: isGiftName()&amp;&amp;theGiftName().length&gt;0?'inline':'none'}" style="display: none;">
+                                        <strong style="color:#FF5400;">送礼物:</strong>&nbsp;&nbsp;
+                                        <a target="_blank" data-bind="attr:{href:theGiftUrl()},style:{display:theGiftUrl()?'inline':'none'}" href="" style="display: none;"><span style="color:#999;" data-bind="text: theGiftName()">礼物名称</span></a>
+                                        <span style="color: rgb(153, 153, 153); display: inline;" data-bind="style: {display:theGiftUrl()?'none':'inline'},text: theGiftName()">礼物名称</span>
+                                    </span>
+                            </p>
+                        </div>
+                        <p style="line-height:20px;padding:0;">
+                            <span data-bind="html: commentsShow" style="color: #999"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</div>
+<div class="clear"></div>
+</div>
+<div class="buttonLine">
+    <input type="submit" value="下一步" class="nextStepBtn StepBtn1" style="color: #ffffff;
+    background-color: #c41b00;border: 1px solid #fff;">
+</div>
+</div>
+
+<div class="baoyouAreaSelector hidden">
+<table>
+<thead>
+<tr>
+    <td colspan="6" style="font-size: 24px;text-align: center;">
+        设置包邮地区
+    </td>
+    <td>
+    *{<span class="exitAreaSelector inlineblock">
+
+                </span>}*
+    </td>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td colspan="2">
+        <span class="selectAllAreas inlineblock">全选</span>
+    </td>
+    <td colspan="2">
+        <span class="selectNoArea inlineblock">全不选</span>
+    </td>
+    <td colspan="2">
+        <span class="jzh inlineblock">江浙沪</span>
+    </td>
+    <td>
+        <span class="noRemoteAreas inlineblock" style="width: 90px;">排除边缘地区</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="selectChild">
+        <input type="checkbox"  class="remoteArea">华北
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="beijing"><span
+            class="areatext" areaId="110000">北京</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="tianjing"><span
+            class="areatext" areaId="120000">天津</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="hebei"><span class="areatext" areaId="130000">河北</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="shandong"><span class="areatext" areaId="370000">山东</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="shanxi1"><span class="areatext" areaId="140000">山西</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="neimenggu" class="remoteArea"><span class="areatext" areaId="150000">内蒙古</span>
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox">东北
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="liaoning"><span class="areatext" areaId="210000">辽宁</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="jilin"><span class="areatext" areaId="220000">吉林</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="heilongjiang"><span class="areatext" areaId="230000">黑龙江</span>
+    </td>
+    <td colspan="3">
+
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox">华东
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="shanghai" class="areaName jiangzhehu"><span
+            class="areatext" areaId="310000">上海</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="jiangsu" class="areaName jiangzhehu"><span
+            class="areatext" areaId="320000">江苏</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="zhejiang" class="areaName jiangzhehu"><span
+            class="areatext" areaId="330000">浙江</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="anhui"><span class="areatext" areaId="340000">安徽</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="jiangxi"><span class="areatext" areaId="360000">江西</span>
+    </td>
+    <td colspan="1">
+
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox">华中
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="henan"><span class="areatext" areaId="410000">河南</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="hubei"><span class="areatext" areaId="420000">湖北</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="hunan"><span class="areatext" areaId="430000">湖南</span>
+    </td>
+
+    <td colspan="3">
+
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox"  class="remoteArea">华南
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="guangdong"><span class="areatext" areaId="440000">广东</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="guangxi"><span class="areatext" areaId="450000">广西</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="fujian"><span class="areatext" areaId="350000">福建</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="hainan" class="remoteArea"><span class="areatext" areaId="460000">海南</span>
+    </td>
+    <td colspan="2">
+
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox">西南
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="chongqing"><span class="areatext" areaId="500000">重庆</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="sichuan"><span class="areatext" areaId="510000">四川</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="guizhou"><span class="areatext" areaId="520000">贵州</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="yunan"><span class="areatext" areaId="530000">云南</span>
+    </td>
+    <td colspan="2">
+
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox"  class="remoteArea">西北
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="shanxi2"><span class="areatext" areaId="610000">陕西</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="gansu"><span class="areatext" areaId="620000">甘肃</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="qinghai"  class="remoteArea"><span class="areatext" areaId="630000">青海</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="ningxia"  class="remoteArea"><span class="areatext" areaId="640000">宁夏</span>
+    </td>
+    <td colspan="2">
+
+    </td>
+</tr>
+<tr>
+    <td class="selectChild">
+        <input type="checkbox"  class="remoteArea">其他
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="xizang"  class="remoteArea"><span class="areatext" areaId="540000">西藏</span></span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="xinjiang"  class="remoteArea"><span class="areatext" areaId="650000">新疆</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="hongkong"  class="remoteArea"><span class="areatext" areaId="810000">香港</span></span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="Macau"  class="remoteArea"><span class="areatext" areaId="820000">澳门</span>
+    </td>
+    <td class="areaName">
+        <input type="checkbox" tag="taiwan"  class="remoteArea"><span class="areatext" areaId="710000">台湾</span>
+    </td>
+    <td>
+
+    </td>
+</tr>
+<tr>
+    <td colspan="10" style="text-align: center;">
+                     <span class="areaSelectOK inlineblock">
+                         确认选择
+                     </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<script src="http://tianyun.b0.upaiyun.com/tm/jquery.tmpl.js" charset="utf-8"></script>
+
+<script src="http://tianyun.b0.upaiyun.com/tm/tm.js" charset="utf-8"></script>
+
+
+<script src="http://tianyun.b0.upaiyun.com/tm/umputil.js" charset="utf-8"></script>
+
+
+<script src="http://tianyun.b0.upaiyun.com/tm/activityadd.js" charset="utf-8"></script>
+<script>
+    //TM.gcs('/js/jquery.tmpl.js?_v=2', function () {
+        //TM.gcs('/js/tm.js?_v=2', function () {
+            //TM.gcs('/js/ump/umputil.js?_v=2', function () {
+                //TM.gcs('/js/tdazhe/activityadd.js?_v=12', function () {
+                    $(document).ready(function () {
+                        var activityId = ${activityId};
+                        TM.DaZhe.Init.initByMjsActivityId(3, true, activityId);
+                    });
+                //});
+            //});
+        //})
+    //});
+</script>
+

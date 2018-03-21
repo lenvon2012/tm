@@ -1,0 +1,620 @@
+.tabDiv ul {padding: 0px; margin: 0px 0px 0px 0px; list-style-image: none; list-style-type: none;}
+a {text-decoration: none;}
+li {padding: 0px; margin: 0px 0px 0px 0px; list-style-image: none; list-style-type: none;}
+.colorTest {color: #7876ff; color: #ff78aa; color: #70ff58; color: #ffef52;}
+.blank0 {display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;}
+.clearfix {clear: both; zoom: 1;}
+.clearfix:after {clear: both; display: block; visibility: hidden; height: 0px; content: '.';}
+.titleOpContainer {
+    width: 800px; font-size: 12px; text-align: left;
+
+}
+
+thead  tr{background: left -102px url('/public/images/frame/bg.png');height:24px;width:100%;}
+.titleOpContainer .linkBtn {line-height: 30px; width: 90px; height: 30px;display: block; float: left;text-align: center; cursor: pointer; margin-right: 10px;}
+.titleOpContainer .enableBtn {background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;}
+.titleOpContainer .disableBtn {background: url(/public/images/btns/whiteBtn.png) no-repeat 0px 0px;}
+.titleOpContainer .enableBtn a {font-family: "微软雅黑"; color: white; font-size: 13px;}
+.titleOpContainer .disableBtn a {font-family: "微软雅黑"; color: #333; font-size: 13px;}
+.titleOpContainer .rowDiv {width: 800px;padding: 0px 0px 15px 0px;
+    border-left: 1px solid #ccc;border-right: 1px solid #ccc;}
+.titleOpContainer .titleTipDiv {background:#269691;}
+.titleTipDiv .titleTip {background: url(/public/images/tips/info.png) no-repeat 0px 0px; padding-left: 25px;font-size: 18px; font-weight: bold;}
+.titleTipDiv .tipContent {font-size: 12px; margin-left: 20px; color: #333;}
+.titleTipDiv .tipItem {display: block; padding-top: 10px;}
+
+.titleOpContainer .modifyTitleDiv {
+    float: left;
+    border: #cccccc solid 1px; padding: 0px 0px 10px 5px; color: #3e3e3e;
+    min-height: 150px;_height: 150px; width: 530px; text-align: center;
+    font-size: 15px;
+    font-family: '微软雅黑';
+}
+
+.modifyTitleDiv .bottomMargin {margin-bottom: 5px;}
+.titleOpContainer .itemInfoBlock {float: left; text-align: center;width:110px;}
+.itemInfoBlock .itemImg {width: 100px; height: 100px;border: 1px solid #aaa;}
+
+.itemInfoBlock .lookItem {color: #3e3e3e; text-decoration: none; margin-top: 10px;font-family: '微软雅黑';}
+.itemInfoBlock .lookItem:hover {color: #a10000; text-decoration: none;}
+.titleOpContainer .modifyBlock {float: left; margin-left: 5px; text-align: left;}
+.modifyBlock .titleSpan {display: block; color: grey;}
+.modifyBlock .originTitle {display: block; color: blue;}
+.modifyBlock .shortTitleRecommend {display: block; color: blue;}
+.modifyBlock .newTitleDiv {}
+.modifyBlock .newTitle {width: 500px; border: #999999 solid 1px; height: 20px;overflow-y: hidden;font-size:15px;;}
+.modifyBlock .remainWord {display: inline; font-family: "tahoma, arial, 宋体b8b体";}
+.modifyBlock .remainWord .remainLength {font-size: 24px; color: blue;}
+.modifyBlock .titleBtn {
+    font-family: "微软雅黑"; text-align: center; cursor: pointer; color: white;
+    background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+    width: 90px; height: 30px; line-height: 30px; font-size: 13px;
+    display: block; float: left;
+}
+.modifyBlock .submitNewTitle {margin-right: 20px;}
+.modifyBlock .newRemainWord {font-family: "tahoma, arial, 宋体b8b体";}
+.modifyBlock .newRemainWord .newRemainLength {font-size: 24px; color: blue;}
+.modifyTitleDiv .modifyTip {color: red; font-weight: bold;}
+
+.titleOpContainer .diagResultDiv {
+    float: right; background: #fffee2; border: #e1db66 1px solid; ;
+    text-align: center; font-size: 15px; height: 300px; _height: 364px;width: 370px; line-height: 25px;
+}
+
+
+.diagResultDiv span {
+    font-weight: bold; color: #b00000;
+}
+
+.diagResultDiv .recalScore {
+    line-height: 30px; width: 90px; height: 30px; font-family: "微软雅黑"; color: white;
+    font-size: 13px; background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+    margin-bottom: 15px;
+}
+
+.diagResultDiv .resultScore {
+    float: left; width: 180px; margin-top: 10px;
+}
+
+.resultScore .diagScore {
+    font-weight: bold; font-size: 26px; color: #b00000;
+}
+
+.diagResultDiv .modifyEvaluate {
+    margin: 10px 40px 0px 40px; font-size: 14px; color: red; text-align: center;
+    font-weight: bold;
+}
+
+.titleOpContainer .recommendTipDiv {
+
+}
+
+.recommendTr:hover{
+    background-color: #F0F0F0;
+}
+
+.recommendTipDiv .recommendTip {
+    background: url(/public/images/tips/info.png) no-repeat 0px 0px; padding-left: 25px;
+    font-size: 15px; font-weight: bold;
+}
+
+.titleOpContainer .recommendDiv {
+
+}
+
+.recommendDiv .tabDiv {
+
+}
+
+.recommendDiv .liTargetDiv {
+    display: none;
+}
+
+.recommendDiv .recommendWordBlock {
+
+}
+
+.liTargetDiv .wordSearch {
+
+}
+
+.liTargetDiv .wordSearch .searchLabel {
+    font-size: 14px; margin-right: 7px; color: #666; font-weight: bold; margin-left: 15px;
+    float: left; margin-top: 10px;
+}
+
+.liTargetDiv .wordSearch .wordInput {
+    height: 20px; line-height: 20px; width: 200px; border: #2D8ABE 1px solid; margin-right: 20px;
+    float: left; margin-top: 4px;
+}
+
+.liTargetDiv .wordSearch .searchBtn {
+    line-height: 30px; width: 96px; height: 30px; font-family: "微软雅黑"; color: white;
+    font-size: 13px;
+    /*background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;*/
+    background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+    display: block; float: left;
+    text-align: center; cursor: pointer;
+}
+
+.search-more-btn{
+    line-height: 30px;
+    width: 96px;
+    height: 30px;
+    font-family: "微软雅黑";
+    color: white;
+    font-size: 13px;
+    background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+    background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+    display: block;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.tableRow{
+    border: 1px solid #ccc;
+}
+
+#ML_result{border: 1px solid #ccc;}
+
+#ML_result td{
+    border: none;
+    *border-bottom: 1px solid #ccc;
+}
+#ML_result .word-content{
+    *border-left: 1px solid #ccc;
+}
+#ML_result th{
+    *border-top: 1px solid #ccc;
+    *border-bottom: 1px solid #ccc;
+}
+#ML_result .delete-myword{
+    *border-right: 1px solid #ccc;
+}
+#ML_result tr{
+    border: 1px solid #ccc;
+}
+#bus-search-tbody td{
+    border: none;
+    font-size: 12px;
+    font-family: '微软雅黑';
+    *border-bottom: 1px solid #ccc;
+}
+#bus-search-tbody .word-content{
+    *border-left: 1px solid #ccc;
+}
+#bus-search-tbody th{
+    *border-top: 1px solid #ccc;
+    *border-bottom: 1px solid #ccc;
+}
+#bus-search-tbody tr{
+    border: 1px solid #ccc;
+}
+.opTd{width: 120px;}
+.recommendDiv .tableDiv table {
+    width: 100%; text-align: center; border-spacing: 0; border-collapse: collapse;
+    background-color: white;
+}
+
+.recommendDiv .tableDiv table thead {
+    font-weight: bold;
+}
+
+.renameHistoryTable{
+    font-family: '微软雅黑';
+}
+
+.renameHistoryTable tbody tr{height: 51px;}
+
+.recommendDiv .tableDiv table thead tr {
+
+}
+
+ table tr {
+    line-height: 20px; height: 20px; cursor: pointer;
+}
+
+
+.recommendDiv .oddTr {
+    background-color: rgb(249,249,249);
+}
+
+.recommendDiv .evenTr {
+    /*background-color: 	#F0F0F0;*/
+}
+
+.recommendDiv .tableDiv table tr:hover{background-color:#ffe;}
+
+.recommendDiv .tableDiv table td {
+    padding: 5px 0px;  font-size: 14px; color: #333;
+}
+
+.recommendDiv .tableDiv table a {
+    text-decoration: none; color: #333;
+}
+
+.recommendDiv .tableDiv table a:hover {
+    text-decoration: none; color: #a10000;
+}
+
+.recommendDiv .longTailSpan {
+    font-size: 16px; font-weight: bold; color: #333; display: block; margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.recommendWordBlock .pagingDiv {
+    float: right;  font-size: 14px; margin-top: 2px;
+}
+
+.liTargetDiv .warning {
+    display: none; font-size: 14px; color: red; text-align: center; font-weight: bold;
+}
+
+.propBlock .propKeyTd {
+    width: 20%;
+}
+
+.recommendDiv .promoteBlock {
+    border: #D4D4D4 1px solid; padding: 10px;
+}
+
+.recommendDiv .diagResultBlock {
+}
+
+.diagResultBlock .detailResult {
+    border: #333 1px solid; border-bottom:  0px;
+}
+
+.diagResultBlock .lzlDetailResult {
+    border-top: #b0b0b0 1px solid; border-bottom:  0px; width: 100%; font-size: 16px;
+}
+
+.diagResultBlock .resultRow {
+    border-bottom: #333 1px solid;
+}
+
+.diagResultBlock .resultRow span {
+    height: 50px; line-height: 50px; vertical-align: middle;
+    display:-moz-inline-box;  display: inline-block;
+}
+
+.diagResultBlock .resultImg {
+    margin-left: 10px; width: 80px;
+}
+
+.diagResultBlock .resultImg img {
+    width: 50px; height: 50px;
+}
+
+.diagResultBlock .diagItem {
+    width: 100px; font-size: 14px; font-weight: bold;
+}
+
+.diagResultBlock .diagInfo {
+    margin: 0px 10px;
+}
+.promoteWordsTable{margin: 0px auto;width:100%;text-align: center;}
+.promoteWordsTable tr{cursor: auto;}
+.promoteWordsTable tr:hover{background:transparent}
+.diagTable tr{margin-top: 10px;margin-bottom: 5px;}
+.diagTable td{padding-top: 5px;padding-bottom: 5px;}
+
+/*.addTextWrapperSmall{border:solid 2px #5CADAD;font-size: 12px;display:-moz-inline-box;  display: inline-block;cursor: pointer;padding:0 10px;margin:3px 4px 2px 4px;}*/
+/*.addTextWrapper{margin: 0 8px 0 0 ;}*/
+.nav-table-left-td{
+    display: none;
+}
+.nav-table-right-td .main{
+    width: 99%;
+
+}
+.titleOpContainer {
+    width: 1024px;
+}
+.titleOpContainer .rowDiv{
+    width: 100%;
+}
+.titleOpContainer .modifyTitleDiv{
+    width: 67%;
+}
+/*.titleOpContainer .diagResultDiv{*/
+    /*width: 30%;*/
+/*}*/
+.longTailTable tr {
+    border-bottom: #c0c0c0 1px solid;
+}
+.renameHistoryTable tr {
+    border-bottom: #c0c0c0 1px solid;
+}
+.word-diag-result-table{
+    width: 98%;
+    margin: 0 auto;
+}
+.word-diag-result-table tbody {
+    text-align: center;
+}
+.word-diag-result-table-th {
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.word-diag-result-table tr{
+    height: 30px;
+}
+.word-diag-result-table tbody td {
+    border: 1px solid #bbbdc6;
+}
+.interval-tr{
+    padding: 15px 10px 15px 10px;
+    margin: 0px 0px 20px 0px;
+    border: 1px solid #bebebe;
+    background: #fcfcfc;
+}
+.pvuvDiag-interval-tr{
+    padding: 15px 10px 15px 10px;
+    margin: 0px 0px 20px 0px;
+    border: 1px solid #bebebe;
+    background: #fcfcfc;
+}
+.selectCat1,.selectCat2,.selectCat3{font-family: '微软雅黑'}
+.myAllCats{
+    background: #eee;
+    width: 95%;
+    height: 30px;
+    border-left: 5px solid #30A3EB;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-left: 30px;
+    margin: 0 auto;
+}
+.catName{
+    width: 96%;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+.catName span{
+    height: 30px;
+    line-height: 30px;
+    margin: 4px;
+    background-color: #58a9e2;
+    font-weight: bold;
+    font-family: '微软雅黑';
+    cursor: pointer;
+    padding: 0 10px;
+    color: #ffffff;
+}
+.catName span:hover{
+    background-color: #1779b3;
+}
+table.busSearch {
+    width: 100%;
+    font-family: verdana,arial,sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+.busSearch thead tr {
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.firstRow {
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+    height: 24px;
+    width: 100%;
+    text-align: center;
+}
+.longTailTable thead tr {
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.renameHistoryTable thead tr {
+       background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+       background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+       background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+       background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+   }
+table.busSearch th {
+    padding: 4px;
+    height: 24px;
+}
+.busSearch-tbody tr {
+    height: 18px;
+    line-height: 18px;
+}
+.busSearch-tbody td {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.selectCat1, .selectCat2, .selectCat3{
+    width: 200px;
+}
+.comeInWordsWrapper .comeInWords{
+   text-align: left;
+    margin-top: 5px;
+}
+.comeInWordsWrapper .comeInWords .key{
+    margin: 3px 6px 0 0;
+}
+.comeInWordsWrapper .comeInWords .value{
+    color: red;
+    font-weight: bold;
+}
+
+.wordCatSearch .comeInWordsCat{
+    text-align: left;
+    margin-top: 5px;
+}
+.wordCatSearch .comeInWordsCat .key{
+    margin: 3px 6px 0 0;
+}
+.noClickWordCatSearch .noClickCatWords .key{
+    margin: 3px 6px 0 0;
+}
+.noClickWordCatSearch .noClickCatWords .value{
+    color: #56AD56;
+}
+.wordCatSearch .comeInWordsCat .value{
+    color: #56AD56;
+    font-weight: bold;
+}
+.clickWordsTitle{
+    text-align: left;
+    font-size: 14px;
+    font-family: '微软雅黑';
+}
+.noClickWordsWrapper .noClickWords{
+    text-align: left;
+    margin-top: 5px;
+}
+.noClickWordsWrapper .noClickWords .key{
+    margin: 3px 6px 0 0;
+}
+.no-click-title{
+    margin-top: 6px;
+}
+.clickword{
+    background: white;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    color: #1779b3;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background: left -102px url('/img/frame/bg.png');
+}
+.catclickword{
+    background: white;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    color: #F9A022;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background: left -102px url('/img/frame/bg.png');
+}
+.catnoclickword{
+    background: white;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    color: #F9A022;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background: left -102px url('/img/frame/bg.png');
+}
+.noclickword {
+    background: white;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    color: #1779b3;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background: left -102px url('/img/frame/bg.png');
+}
+.shop-pc-online-info .opTabWrapper{
+    margin: 10px 10px 0 10px;
+    border-bottom: 1px solid #93ddf8;
+    height: 30px;
+    line-height: 30px;
+}
+.shop-pc-online-info .opTab{
+    cursor: pointer;
+    padding: 0 7px;
+}
+.shop-pc-online-info .selected{
+    border-top: 1px solid #93ddf8;
+    border-left: 1px solid #93ddf8;
+    border-right: 1px solid #93ddf8;
+    border-bottom: 2px solid #fff;
+    margin-top: -1px;
+    _margin-top: 2px;
+    _margin-top: 2px;
+    font-weight: bold;
+}
+.shop-pc-online-info .targetDiv{
+    min-height: 200px;
+    _height: 200px;
+    margin: 0 10px 0 10px;
+}
+.shop-pc-online-info-table{
+    text-align: center;
+    width: 100%;
+}
+.shop-pc-online-info-table td{
+    height: 60px;
+    vertical-align: middle;
+    padding-right: 3px;
+    padding-bottom: 3px;
+}
+.shop-pc-online-info-table tr.tr-head td{
+    background-color: #C6E5F3;
+}
+.shop-pc-online-info-table tr.tr-value td{
+    background-color: #F5F0EF;
+}
+.shop-pc-online-info-table tr.tr-head td:hover{
+    background-color: #AED6EB;
+}
+.shop-pc-online-info-table tr.tr-value td:hover{
+    background-color: #DFC4BA;
+}
+.shop-pc-online-info-table .key-value-tr td{
+    border: 2px solid #ececec;
+    background-color: #fcfcfc;
+
+}
+.shop-pc-online-info-table .key-value-tr .value{
+    font-size: 40px;
+    color: rgb(57, 141, 248);
+    margin: 15px 0;
+}
+.shop-pc-online-info-table .key-value-tr .key{
+    font-size: 16px;
+    color: grey;
+}
+.title-head {
+    width: 100%;
+    border-bottom: 2px solid #15a7dc;
+    height: 30px;
+    color: #15a7dc;
+    font-size: 21px;
+    font-family: "微软雅黑";
+    margin: 15px 0;
+}
+.wordCatSearchTitle{
+    margin-top: 5px;
+}
+.itemWordCatSearchTitle {
+    margin-top: 5px;
+}
+.itemPromisePv {
+    margin-top: 5px;
+}
+.itemCatSeatchHotPv, .itemCatPromisePv {
+    color: red;
+    font-weight: bold;
+}
+.noClickWordCatSearchTitle{
+    margin-top: 6px;
+}
+.noClickCatWords{
+    text-align: left;
+}

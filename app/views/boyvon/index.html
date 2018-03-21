@@ -1,0 +1,207 @@
+#{extends 'boyvon.html' /}
+#{set title:'首页' /}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/main.css">
+<link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+<style>
+    .userDiv{width: 470px;height: 300px;margin: 10px;vertical-align: top;}
+    .verticleline{width: 2px;height: 300px;vertical-align: middle;}
+    .verticleline span{background: url("/img/bg6.jpg") repeat-y;height: 150px;width: 100%;}
+    .kefu{width: 470px;height: 300px;margin: 10px;vertical-align: top;}
+    .shopInf{width: 300px;margin-left: 70px;height: 55px;line-height: 55px;background: url("/img/promoteimages/user-info.gif") no-repeat}
+    .kefuInf{width: 300px;margin-left: 70px;height: 55px;line-height: 55px;background: url("/img/wangwang.png") no-repeat}
+    .infDiv, .onekefu{margin : 30px 20px 20px 70px;}
+    .username, .version,.totalNum,.popularizedNum{width: 130px;text-align: center;color: red;}
+    .goshowed:hover{background: url("/img/relation/img.png") -168px -210px;}
+    .goshowed{width: 62px;height: 27px;line-height: 27px;cursor: pointer;text-align: center;background: url("/img/relation/img.png") -98px -210px;}
+    .goshowed a{font-size: 12px;text-decoration: none;color: #ffffff;}
+    .userBg{background: url("/img/Nepal/T2SURsXh0NXXXXXXXX_!!62192401.png");width: 100px;height: 100px;position: absolute;top: -10px;left: 50px;;}
+    .kefuBg{background: url("/img/Nepal/T21U0sXk4MXXXXXXXX_!!62192401.png");width: 100px;height: 100px;position: absolute;top: -5px;left: 540px;}
+    .statusop{}
+    .tuiguangstatus{width: 100px;text-align: center;color: red;}
+    .statusop:hover{background: url("/img/relation/img.png") -168px -210px;}
+    .statusop{width: 62px;height: 27px;line-height: 27px;cursor: pointer;text-align: center;background: url("/img/relation/img.png") -98px -210px;color: #ffffff;}
+    .statusop a{font-size: 12px;text-decoration: none;}
+        .btn-ordernow {width: 120px;height: 42px;text-indent: -9999px;overflow: hidden;vertical-align: middle;background:url(http://img04.taobaocdn.com/tps/i4/T1iuYjXixoXXahTfPO-721-166.png) no-repeat -120px 0;}
+    .btn-ordernow:hover {background-position: -120px -42px;}
+    .borderimg{border:1px solid #ccc;}
+    .xufei{margin: 0 auto;
+        position: fixed;
+        bottom: 0;
+        right:0;
+        height:83px;
+        line-height: 83px;
+        z-index: 1000;
+        width: 100%;
+        text-align: center;
+        display: none;
+        background: url(/img/autoTitle/adv.png) repeat-x;}
+    .xufei{font-size: 24px;z-index: 10000;}
+    .xudingBtn{margin:0 20px 0 10px;background: url("/img/taoweigou/search-btn.png");width: 123px;height: 36px;line-height: 36px;font-size: 20px;color: #ffffff;}
+    .xudingBtn a{color: #ffffff;}
+    div.slideBox{  width:1020px;height: 202px;}
+</style>
+
+<div class="lunbo"></div>
+<div style="margin-top: 20px;background:url(/img/bg6.jpg) repeat-x; height:2px; width:100%; margin-bottom:18px; overflow:hidden"></div>
+<div class="" style="text-align:center;">
+    *{<a href="/aituiguang/award" ><img style="width: 1020px;height: 202px;" src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2HyjVXgJXXXXXXXXX_!!22902351.jpg"  style="border: 1px solid #ccc"></a>}*
+        <div  class="slideBox" id="lunbo-area">
+            <ul class="items">
+                <li><a href="/aituiguang/award" title="好评送推广" target="_blank"><img style="width: 1020px;height: 202px;" src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2HyjVXgJXXXXXXXXX_!!22902351.jpg"  style="border: 1px solid #ccc"></a></li>
+            </ul>
+        </div>
+</div>
+
+<div class="borderimg" style="text-align:center;">
+<!--
+    <a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1845420&tracelog=atg" >
+        <img style="width: 1020px;height: 149px;" src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2QexMXoldXXXXXXXX_!!1039626382.jpg"  style="border: 1px solid #ccc">
+    </a>
+ -->
+
+    <table style="margin: 0 auto;width:300px;margin-bottom:10px;margin-top:10px;display:none;">
+        <tr>
+            <td class="recommend"><a target="_blank"
+                href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=aituiguangheader1">
+                    <img class="borderimg"
+                    src="http://img01.taobaocdn.com/top/i1/T1OTJGXupcXXaCwpjX.png"
+                    style="margin-bottom: 15px;" />
+            </a> 
+                    <a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-1820059&tracelog=aituiguangheader1">
+                        <div class="btn-ordernow"></div>
+                    </a>
+            </td>
+            <!--
+            <td style="width:50px;">
+            </td>
+            <td class="recommend"><a target="_blank"
+                href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1845420&tracelog=aituiguangheader2">
+                    <img class="borderimg"
+                    src="http://img01.taobaocdn.com/top/i1/T1PTueXz0bXXaCwpjX.png"
+                    style="margin-bottom: 15px;" />
+            </a>
+            <a target="_blank"
+                href="http://fuwu.taobao.com/ser/detail.htm?service_code=FW_GOODS-1845420&tracelog=aituiguangheader2">
+                    <div class="btn-ordernow"></div>
+                    </a>
+            </td>
+             -->
+        </tr>
+    </table>
+</div>
+
+
+
+<div class="blank0" style="height:50px;"></div>
+<div  style="position:relative;margin-bottom: 30px;">
+<div class="inlineblock userDiv">
+    <div class=" shopInf">
+        <span style="margin-left: 80px;font-size: 16px;font-weight: bold;">店铺信息</span>
+    </div>
+    <div class="infDiv">
+        <span class="inlineblock" style="width: 100px;">掌柜:</span><span class="inlineblock username"></span>
+    </div>
+    <div class="infDiv">
+        <span class="inlineblock" style="width: 100px;">版本:</span><span class="inlineblock version"></span>
+    </div>
+    <div class="infDiv">
+        <span class="inlineblock" style="width: 100px;">可推广宝贝数:</span><span class="inlineblock totalNum"></span>
+    </div>
+    <div class="infDiv">
+        <span class="inlineblock" style="width: 100px;">已推广宝贝数:</span><span class="inlineblock popularizedNum"></span> <span class="inlineblock goshowed"><a target="_blank" href="/aituiguang/allItems">推广宝贝</a></span>
+    </div>
+    <div class="userBg">
+
+    </div>
+</div>
+<div class="inlineblock verticleline">
+    <span class="inlineblock"></span>
+</div>
+<div class="inlineblock kefu">
+     <div class="kefuInf">
+        <span style="margin-left: 80px;font-size: 16px;font-weight: bold;">客服中心</span>
+    </div>
+    <div class="onekefu">
+        <span class="inlineblock" style="width: 100px;">客服一号:</span>
+        <span class="kefulink">
+            <a id="kefuhref1" target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid=背包客的旅行0&amp;site=cntaobao&amp;s=1&amp;charset=utf-8">
+                <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后">
+            </a>
+        </span>
+    </div>
+    <div class="onekefu userstatus"  id="propstatus" style="display:none;">
+        <span class="inlineblock" style="width: 100px;">用户推广状态:</span>
+        <span class="tuiguangstatus inlineblock"></span>
+        <span class="statusop inlineblock"></span>
+    </div>
+    <div class="kefuBg">
+    </div>
+</div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.gcs("/js/lunbo/jquery.slideBox.min.js",function(){
+        $.post('/op/mixplans',{tag:""},function(data){
+            if(data.length > 0){
+                $(data).each(function(i,img){
+                    $('#lunbo-area .items').append($('<li><a target="_blank" href="'+img.src+'" title="'+img.tag+'"><img style="width: 1020px;height: 202px;" src="'+img.href+'"></a></li>'));
+                });
+            }
+            $('#lunbo-area').slideBox();
+        })
+
+    })
+    TM.gcs("/js/boyvon/boyvon.js",function(){
+        $.get("/Popularize/getUserInfo",function(data){
+            $('.username').text(data.username);
+            if(data.award == true){
+                $('.totalNum').text(data.totalNum+1);
+                $('.totalNum').append($('<span style="color: red;">(+1)</span>'));
+            } else {
+                $('.totalNum').text(data.totalNum);
+            }
+            $('.popularizedNum').text(data.popularizedNum);
+            $('.version').text(data.version);
+            if(data.isPopularOn) {
+                $('.tuiguangstatus').text("推广开启中");
+                $('.statusop').text("暂停推广");
+            } else {
+                $('.tuiguangstatus').text("推广关闭中");
+                $('.statusop').text("开启推广");
+            }
+            if(data.level <= -1) {
+                $('.userstatus').show();
+                $('#propstatus').show();
+            }
+
+            $.cookie("level",data.level);
+            TM.boyvon.xufei.showXufei($.cookie("level"));
+        })
+    })
+    $('.statusop').click(function(){
+        $this = $(this);
+        if($(this).text() == "暂停推广") {
+            $.get('/Popularize/setPopularOff',function(data){
+                if(data.res){
+                    $this.text("开启推广");
+                    $this.parent().find('.tuiguangstatus').text("推广关闭中");
+                } else {
+                    TM.Alert.load("暂停推广失败，请联系客服");
+                }
+
+            });
+        } else {
+            $.get('/Popularize/setPopularOn',function(data){
+                if(data.res) {
+                    $this.text("暂停推广");
+                    $this.parent().find('.tuiguangstatus').text("推广开启中");
+                } else {
+                    TM.Alert.load("开启推广失败，请联系客服");
+                }
+
+            });
+        }
+    });
+</script>
+#{/set}

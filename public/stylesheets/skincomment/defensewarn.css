@@ -1,0 +1,227 @@
+.defensewarn-container, .shop-score-container, .rate-admin-container {
+    padding: 10px; border: 1px solid #999; font-family: "微软雅黑"; font-size: 14px; color: #333;min-height:580px;_height:580px;
+}
+.defensewarn-container .warn-switch-div {
+    padding: 10px; border: 1px solid #999;
+}
+.defensewarn-container .warn-table-div {
+    margin-top: 10px;
+	border: 1px solid #999;
+	padding: 10px 0px;
+	background:white;
+}
+.defensewarn-container .paging-div {
+	text-align: center;
+}
+.modify-warn-div {
+    text-align: center; font-family: "微软雅黑"; font-size: 14px; margin-top: 30px;
+}
+
+.itemprotection-container {
+    padding: 10px; border: 1px solid #999; font-family: "微软雅黑"; font-size: 14px; color: #333;min-height:580px;_height:580px;
+}
+
+.itemprotection-container .log-table-div {
+	margin-top: 10px;
+	border: 1px solid #999;
+	padding: 10px 0px;
+}
+
+.itemprotection-container .paging-div {
+	text-align: center;
+}
+
+.skindefender-table thead tr {
+	width: 100%;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #1D5987;
+	font-weight: bold;
+	background: left -102px url('/img/frame/bg.png');
+	height: 32px;
+	text-align: center;
+}
+.skindefender-table tbody td {
+	padding: 5px;
+	border-bottom: #999 1px solid;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.status-label {
+	color:green;
+}
+
+
+#secondary {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    position: relative;
+    height: 30px;
+    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid #CCC;
+    background: #fafafa;
+    background: -moz-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fafafa),color-stop(100%,#f5f5f5));
+    background: -webkit-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+    background: -o-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+    background: -ms-linear-gradient(top,#fafafa 0,#f5f5f5 100%);
+    background: linear-gradient(to bottom,#fafafa 0,#f5f5f5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#f5f5f5',GradientType=0);
+}
+.gap {
+    margin: 0 20px;
+}
+#secondary .wrapper {
+    position: relative;
+    z-index: 8;
+    width: auto;
+    _width: 980px;
+    max-width: 1100px;
+    min-width: 980px;
+    margin: 0 auto;
+}
+#secondary .secnav {
+    float: left;
+    margin-left: 300px;
+    _margin-left: 150px;
+}
+.secnav a:hover, #secondary .secnav .current {
+    color: #fa7a19;
+}
+#secondary .secnav a {
+    margin-right: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 30px;
+    color: #333;
+}
+#secondary .secnav a:hover {color: #fa7a19;}
+
+.excludeAreaSelector {
+    position: fixed;_position: absolute;top: 100px;width: 800px;height: 500px;
+    background-color: #f5f5f5;border: 1px solid #ccc;
+}
+
+.excludeAreaSelector table {width: 96%;height: 90%;margin: 0 auto;margin-top: 20px;}
+.exitAreaSelector {width: 24px;height: 25px;float: right;cursor: pointer;background: url("/img/dazhe/cross.png");}
+.excludeAreaSelector .selectAllAreas, .excludeAreaSelector .selectNoArea, .excludeAreaSelector .jzh, .excludeAreaSelector .noRemoteAreas{
+    width: 70px;height: 30px;line-height: 30px;text-align: center;background-color: #E6F5FF;
+    cursor: pointer;margin: 0 auto;border: 2px solid #DBDBDB;
+}
+.excludeAreaSelector .areaSelectOK{
+    font-size: 24px;border: 2px solid #DBDBDB;background-color: #E6F5FF;width: 150px;
+    height: 50px;line-height: 50px;cursor: pointer;
+}
+.excludeAreaSelector .selectChild{font-size: 16px;font-weight: bold;}
+.excludeAreaSelector table tbody tr td .areatext{
+    cursor: pointer;
+}
+
+.shop-score-table .row-date {
+    font-weight: bold;
+    color: #000;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    width: 100px;
+}
+
+.shop-score-table td {
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    height: 22px;
+    text-align: center;
+}
+
+.shop-score-table th {
+    width: 78px;
+    background: #eee;
+    color: #000;
+    height: 30px;
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    height: 35px;
+    font-size: 14px;
+}
+
+.rate-admin-table {
+	width: 780px;
+	text-align: center;
+	font-size: 14px;
+	border-top: 1px solid #999;
+	margin-top: 20px;
+}
+
+.rate-admin-table thead tr {
+	line-height: 19px !important;
+}
+
+.rate-admin-table th {
+	width: 78px;
+	background: #eee;
+	color: #000;
+	height: 30px;
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	border-left: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+	height: 35px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.rate-admin-table td {
+	border-left: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	height: 22px;
+}
+
+.rate-admin-table .row-date {
+	font-weight: bold;
+	color: #000;
+	border-left: 1px solid #999999;
+	border-right: 1px solid #999999;
+	width: 130px;
+}
+
+.rate-admin-table .col-bold {
+	border-right: 1px solid #999999;
+}
+
+.rate-admin-table .even {
+	background: rgb(249, 249, 249);
+}
+
+.sellerAdminContainer {
+	width: 100%;
+}
+
+.sellerAdminPaging {
+	text-align: center;
+	margin: 10px 0;
+}
+
+.sellerAdminTable {
+	width: 100%;
+	font-family: '微软雅黑';
+}
+
+div.tmAlertDetail {
+	text-align: center;
+}
+
+.allocateKefuSelector {
+	width: 230px;
+	margin: 15px 0;
+}
+
+.kefuSearchSelector {
+	width: 150px;
+	margin: 0 10px;
+	height: 26px;
+	color: grey;
+}

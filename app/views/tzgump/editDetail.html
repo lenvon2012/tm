@@ -1,0 +1,386 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavump.html' /}
+#{set title:'促销活动管理' /}
+
+
+
+#{set 'moreStyles'}
+
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css?_v=2">
+<style type="text/css">
+
+    .ui-widget-header {height: 8px;left: 1px;top: 1px;position: absolute;}
+    .ui-state-default, .ui-widget-content .ui-state-default{border:none;}
+    .ui-widget-content {background: url(/img/btns/slider_fill_386.png) no-repeat left;}
+    .ui-slider {position: relative;text-align: left;}
+    .ui-slider .ui-slider-handle {position: absolute;cursor: default;width: 24px;height: 24px;position: absolute;
+        top: -7px;margin-left: -12px;z-index: 200;background: url(/img/btns/slider-button.png);border:none;
+    }
+    .ui-slider .ui-slider-range {
+        position: absolute;z-index: 1;font-size: .7em;display: block;border: 0;background-position: 0 0;
+    }
+    .ui-slider.ui-state-disabled .ui-slider-handle,.ui-slider.ui-state-disabled .ui-slider-range {filter: inherit;}
+    .ui-slider-horizontal {height: .8em;}
+    .ui-slider-horizontal .ui-slider-handle {top: -.3em;margin-left: -.6em;}
+    .ui-slider-horizontal .ui-slider-range {top: 0;height: 100%;}
+    .ui-slider-horizontal .ui-slider-range-min {left: 0;}
+    .ui-slider-horizontal .ui-slider-range-max {right: 0;}
+    .ui-slider-vertical {width: .8em;height: 100px;}
+    .ui-slider-vertical .ui-slider-handle {left: -.3em;
+        margin-left: 0;
+        margin-bottom: -.6em;
+    }
+    .ui-slider-vertical .ui-slider-range {
+        left: 0;
+        width: 100%;
+    }
+    .ui-slider-vertical .ui-slider-range-min {
+        bottom: 0;
+    }
+    .ui-slider-vertical .ui-slider-range-max {
+        top: 0;
+    }
+    .activity-list-container {font-family: "微软雅黑"; font-size: 14px;}
+    .sliderHolder{width:390px;margin: 0 auto;margin-left:0px;}
+    .tmsliders{max-width: 1280px;}
+    .tmsliders td{height:48px;font-size:18px;vertical-align: middle;text-align: center;}
+    .tmsliders input{text-align: center;}
+    table.busSearch{border:none;margin:0 auto;margin-left:10px;}
+    .page-hierarchy{border:none;}
+    .busSearch thead th{border:1px solid #ccc;}
+    .busSearch tbody{background-color: #fafafa;}
+    .busSearch tbody td{border:none;height:68px;color:#666464}
+    .busSearch tbody tr:hover{background: #fafafa;}
+    .busSearch tbody td.finalPrice{font-size:28px;border-left:1px solid #E2E2E2;}
+    td.finalPrice input{font-size:28px;}
+    .relative{position: relative;}
+    .rangeTip{position: absolute;top:12px;}
+    .rangeTipCurr{position: absolute;top:50px;}
+    .relative{text-align: left;}
+    .red{
+        color: red;
+    }
+    .borderTable td{
+        border: 1px solid #E2E2E2;
+    }
+    .priceTable td{
+        width: 80px;
+        height: 20px;
+    }
+    .priceTable{
+        text-align: center;
+    }
+    .optimiseTable td{
+        width: 80px;
+        height: 20px;
+    }
+    .optimiseTable {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .infotable{color:#646464;}
+    .infotable td{font-size:16px;padding-top:5px;padding-bottom: 5px;}
+</style>
+
+#{/set}
+
+<script type="text/javascript">
+
+</script>
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    设置分销折扣
+</div>
+
+<table class="infotable" style="max-width: 1280px;;width:100%;height: 150px;margin: 0 auto;font-family: '微软雅黑';font-size: 14px;margin-top: 50px;">
+    <tbody>
+    <tr style="height: 150px;">
+        <td style="vertical-align: middle;width:200px;padding-left:15px;">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width:97%;;">
+                        *{<div style="font-size:20px;">标题:</div>}*
+                        *{<div>}*
+                            *{网袜连裤美腿天鹅绒镂空中等特价促销条纹性感秋季塑形8202}*
+                        *{</div>}*
+                            <div style="text-align: center;">
+                                <a target="_blank" href="http://item.taobao.com/item.htm?id=16150274657">
+                                    <img src="http://img04.taobaocdn.com/bao/uploaded/i4/T17yZlFidbXXXXXXXX_!!0-item_pic.jpg"
+                                         style="width: 100px;height: 100px;border:1px solid #E2E2E2;">
+                                </a>
+                            </div>
+
+                        <table class="borderTable priceTable" style="margin-top: 8px;width:100%;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    供货价
+                                </td>
+                                <td>
+                                    零售价区间:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    105
+                                </td>
+                                <td>
+                                    110-218
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </td>
+        <td>
+            <table class="borderTable optimiseTable" style="width:98%;">
+                <thead>
+                <tr>
+                    <td style="background:#ffd;;width: 100px;">价格区间</td>
+                    <td style="width: 100px;">110-130</td>
+                    <td>130-150</td>
+                    <td>150-170</td>
+                    <td>170-190</td>
+                    <td>190-218</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="background:#ffd;">分销商占比</td>
+                    <td>25%</td>
+                    <td>21%</td>
+                    <td>24%</td>
+                    <td class="red">16%</td>
+                    <td>14%</td>
+                </tr>
+                <tr>
+                    <td style="background:#ffd;">平均销量</td>
+                    <td>252</td>
+                    <td>168</td>
+                    <td>148</td>
+                    <td class="red">150</td>
+                    <td>86</td>
+                </tr>
+                <tr>
+                    <td style="background:#ffd;">综合收益的分</td>
+                    <td>3780</td>
+                    <td>5880</td>
+                    <td>8140</td>
+                    <td class="red">11250</td>
+                    <td>8514</td>
+                </tr>
+                <tr>
+                    <td style="background:#ffd;">建议</td>
+                    <td>建议避开</td>
+                    <td>建议避开</td>
+                    <td>建议避开</td>
+                    <td class="red">最佳</td>
+                    <td>建议避开</td>
+                </tr>
+                <tr>
+                    <td style="background:#ffd;" class="red">最佳促销方式</td>
+                    <td colspan="1">打折+优惠券</td>
+                    <td colspan="1">包邮</td>
+
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="tmsliders " style="margin: 20px auto;">
+    <table style="width:100%;" class="busSearch">
+        <thead>
+            <tr>
+                <th style="width:180px;">优惠形式</th>
+                <th style="width:440px;">优惠幅度</th>
+                <th style="">最终优惠价</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td >按预期月底收益优惠:</td>
+            <td class="relative">
+                <div class="expectMonthProfit sliderHolder"></div>
+                <div class="rangeTip" style="left:10px;">￥3000</div>
+                <div class="rangeTip" style="right:30px;">￥10000</div>
+                <div class="rangeTipCurr" target="expectMonthProfit" style="left:46%;">￥6500</div>
+            </td>
+            <td rowspan="4" class="finalPrice">
+                <div>
+                    【淘掌柜模型】推荐最优折扣
+                </div>
+                <div class="blank0" style="height:20px;"></div>
+                <div>
+                    打&nbsp;
+                    <input id="finalDiscount" style="height:32px;width:72px;" class="priceInput" value="8.2">
+                    &nbsp;折
+                </div>
+                <div class="blank0" style="height:10px;"></div>
+                <div>
+                    最终价:
+                    <span id="finalPrice" style="color:#a10000">232</span>元
+                </div>
+                <div class="blank0" style="height:10px;"></div>
+                <div>
+                满<span style="color:#a10000">２</span>件包邮, 除新疆西藏台湾地区外
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>按单件利润进行优惠:</td>
+            <td class="relative">
+                <div class="expectSingleProfit sliderHolder"></div>
+                <div class="rangeTip" style="left:10px;">￥12</div>
+                <div class="rangeTip" style="right:30px;">￥144</div>
+                <div class="rangeTipCurr" target="expectSingleProfit" style="left:8%;">￥22</div>
+            </td>
+        </tr>
+        <tr>
+            <td>按竞争指数进行打折:</td>
+            <td class="relative">
+                <div class="expectCompetition sliderHolder"></div>
+                <div class="rangeTip" style="left:10px;">1%</div>
+                <div class="rangeTip" style="right:30px;">99%</div>
+                <div class="rangeTipCurr" target="expectCompetition" style="left:28%;">30%</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-top:1px solid #E2E2E2;height:150px;">
+            <img src="http://img02.taobaocdn.com/imgextra/i2/414224286/T2E8SAXstaXXXXXXXX-414224286.jpg" />
+            </td>
+            <td style="font-size:24px; border-top:1px solid #E2E2E2;">
+             满２件包邮,除新疆西藏台湾地区外
+            </td>
+        </tr>
+        <tr>
+          <td colspan="3" style="height:120px;text-align:center;border-top:1px solid #E2E2E2;">
+            <span class="btn" id="doCreate"
+                style="width:200px;font-size:32px;display:inline-block;*display:inline;*zoom:1;background:rgb(63, 161, 185);color:white;height: 24px;padding: 20px;font-size: 32px;display: inline-block;background: rgb(63, 161, 185);color: white;padding-top: 24px;">
+                创建活动
+            </span>
+          </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+<div class="activity-list-container" >
+
+</div>
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+    TM.Loading.init.show();
+    var doSliders = function(){
+        var sliders = $('.tmsliders');
+        var discount = $('#finalDiscount');
+        var finalPrice = $('#finalPrice');
+        var originPrice = 400;
+        var cost = 256;
+
+        var ranges = {
+            'expectMonthProfit':{
+                "min":3000,
+                "max": 10000,
+                "value":6500,
+                "step":250,
+                "change": function(event, ui){
+                   var leftPercent = $('.expectMonthProfit').find('a').css('left');
+                   var curr=  $(".rangeTipCurr[target='expectMonthProfit']");
+                    curr.css({'left':leftPercent});
+                    curr.val(ui.value);
+                    curr.text('￥'+ui.value);
+                    var currDiscount = 9 - (ui.value/2500);
+                    discount.val(currDiscount.toFixed(2));
+                    finalPrice.text((originPrice * currDiscount/10).toFixed(0));
+                }
+            },
+            'expectSingleProfit':{
+                "min":12,
+                "max": 144,
+                "value":22,
+                "change": function(event, ui){
+                    var leftPercent = $('.expectSingleProfit').find('a').css('left');
+                    var curr=  $(".rangeTipCurr[target='expectSingleProfit']");
+                    curr.css({'left':leftPercent});
+                    curr.val(ui.value);
+                    curr.text('￥'+ui.value);
+                    var currDiscount = (cost + ui.value) * 10/originPrice;
+                    discount.val(currDiscount.toFixed(2));
+                    finalPrice.text((originPrice * currDiscount/10).toFixed(0));
+                }
+            },
+            'expectCompetition':{
+                "min":1,
+                "max": 99,
+                "value":30,
+                "change": function(event, ui){
+                    var leftPercent = $('.expectCompetition').find('a').css('left');
+                    var curr=  $(".rangeTipCurr[target='expectCompetition']");
+                    curr.css({'left':leftPercent});
+                    curr.val(ui.value);
+                    curr.text(ui.value+'%');
+                    var currDiscount = 0;
+                    if(ui.value > 30){
+                        currDiscount = (99-ui.value)/99 * 3 + 5.2;
+                    }else{
+                        currDiscount = (ui.value / 33) * 2 + 5.2;
+                    }
+                    discount.val(currDiscount.toFixed(2));
+                    finalPrice.text((originPrice * currDiscount/10).toFixed(0));
+                }
+            }
+        }
+
+        for(var key in ranges){
+            var value  = ranges[key];
+            var o = value;
+            var slider = sliders.find('.'+key);
+            slider.slider(value);
+        }
+
+        $('#doCreate').click(function(){
+            alert('活动创建成功');
+            window.location.href="/tzgumpactivity/index";
+            return false;
+        })
+    }
+
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.url.js',function(){
+    TM.gcs('/js/ump/umputil.js', function () {
+        TM.gcs('/js/tzgump/tzgumputil.js', function () {
+
+        TM.gcs('/js/utils/jquery.dependClass.js', function () {
+//            TM.gcs('/js/utils/jquery.slider.js', function () {
+            TM.gcs('/js/utils/sinlgeslider.js', function () {
+            TM.gcs('/js/tzgump/activityadmin.js', function () {
+
+                $(document).ready(function () {
+//                    TM.ActivityAdmin.init.doInit($(".activity-list-container"));
+                    doSliders();
+                });
+//                });
+                });
+                });
+            })
+        })
+    })
+    })
+    })
+</script>

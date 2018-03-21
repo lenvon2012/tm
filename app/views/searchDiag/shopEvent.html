@@ -1,0 +1,68 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavdata.html' /}
+#{set title:'淘标题-全店转化率分析' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/searchDiag/shopEvent.css">
+#{/set}
+<style>
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>全店转化率分析
+</div>
+
+<div class="diag-container">
+    <div class="shop-diag-div">
+        <div class="searchDiagTip intro hidden" style="text-align: center;margin: 0 auto;margin-bottom: 10px;">
+            亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+        </div>
+
+        <div class="interval-wrapper">
+            <div class="interval-tr">
+
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="1">最近1天数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="3">最近3天数据&nbsp;&nbsp;&nbsp;
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" checked="checked" class="interval"
+                       value="7">最近7天数据&nbsp;&nbsp;&nbsp;
+                <span class="fourteen-day"><input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="14">最近14天数据&nbsp;&nbsp;&nbsp;</span>
+                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval" value="0">&nbsp;&nbsp;&nbsp;
+                <input type="text" style="width:100px;text-align: center;" id="startTimeInput">~
+                <input type="text" style="width:100px;text-align: center;" id="endTimeInput">的数据
+
+            </div>
+        </div>
+        <div class="shop-pc-online-info">
+
+            <div class="targetDiv">
+
+                <div id="shop-pv-uv-trade-trend-chart">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="pv-trend-chart-tmpl" style="display: none;">
+
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/tm.js', function () {
+                TM.gcs('/js/jquery.pagination.js', function () {
+                    TM.gcs('/js/searchDiag/multiOpByURL.js', function () {
+                        TM.gcs('/js/searchDiag/shopEvent.js?_v=1', function () {
+                            TM.shopEvent.init.doInit($('.diag-container'));
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}

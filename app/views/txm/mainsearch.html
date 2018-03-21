@@ -1,0 +1,112 @@
+
+#{extends 'keymain.html' /}
+#{set title:'标题搜索排名' /}
+
+<link rel="stylesheet" media="screen" href='/css/cornerDiv.css?_v=2'>
+<style type="text/css">
+.kwcontainer{min-height:300px;_height:300px;}
+.div-inline {
+    display:inline-block;
+    *display:inline;
+    position:relative;
+    zoom:1;
+}
+.pagenavi .gopage-submit{
+    width:45px;
+}
+#car-data-charts{padding-left: 50px;}
+    /* .query-text{font-size: 24px;width: 400px;} */
+.do-search-btn{margin-top:0px;width:80px;}
+.search-box {
+    padding: 12px 0;
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+.info-container{
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    /*border: 1px solid #d9d9d9;*/
+    margin: 0 auto;
+}
+.iteminfo-table td{
+    vertical-align: middle;
+}
+.selectItem{
+    width: 280px;
+    height:28px;
+}
+
+.itemwordsholder .ms-title {
+    display:block;
+    width:400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.itemwordsholder table tbody tr {
+    line-height: 30px;
+}
+.itemwordsholder table tr.odd {
+    background: #eee;
+}
+</style>
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>标题搜索排名
+</div>
+<div class="search_container" style="min-height:600px;_height:600px;margin: 0 auto;padding:0 5px;">
+	<div style="text-align: left;font-size: 20px;font-weight: bolder;">
+	*{<img class="mylexiconimg" src="http://img04.taobaocdn.com/imgextra/i4/759708778/T2vsdQXXVeXXXXXXXX_!!759708778.png">}*
+        标题搜索排名</div>
+	<br>
+    <div id="search-box" class="search-box">
+        <div class="div-inline">选择宝贝：<select class="selectItem"></select></div>
+        <div class="div-inline" style="margin:0 5px;">或</div>
+        <div class="div-inline">
+            <input type="text" class="input-large query-text" placeholder="请输入宝贝链接或宝贝ID" style="height: 28px;*height:20px;width: 230px;padding-left: 8px;">
+            <button type="submit" class="btn btn-primary do-search-btn">搜索</button>
+        </div>
+    </div>
+
+    <div class="info-container">
+        <div class="iteminfo" style="display:none;">
+            <table class="iteminfo-table">
+                <tbody class="iteminfo-tbody">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="itemwordsholder" style="display:none;">
+            <table class="adwordtable busSearch" style="margin: 3px auto;">
+                <thead>
+                <tr>
+                    <th style="width:400px;">宝贝标题</th>
+                    <th>关键词</th>
+                    <th>昨日排名</th>
+                    <th>昨日曝光指数</th>
+                </tr>
+                </thead>
+                <tbody class="detail-tbody"></tbody>
+                <tfoot><tr><td class="itemwordsfoot pagenavi" colspan="4"></td></tr></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+#{set 'moreScripts'}
+<Script type="text/javascript">
+	$.getScript("/js/tm.js",function(){
+		$.getScript("/js/txm/mainsearch.js",function(){
+			$(document).ready(function(){
+                TM.MainSearch.init($(".info-container"));
+				#{get 'moreAjaxScripts' /};
+		    })
+		});
+	});
+</Script>
+#{/set}
+

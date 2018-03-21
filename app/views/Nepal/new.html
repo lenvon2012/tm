@@ -1,0 +1,435 @@
+#{extends 'main.html' /}
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/Nepal/basic.css" />
+<link rel="stylesheet" type="text/css" href="http://localhost:9000/public/demo/Stylesheets/global.css" />
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/Nepal/index.css" />
+	<link rel="stylesheet" href="/public/stylesheets/Nepal/jquery-ui.css" type="text/css" media="all" />
+    <script type="text/javascript" src="/js/Nepal/jquery.js"></script>
+    <script type="text/javascript" src="/js/Nepal/farinspace/jquery.imgpreload.min.js"></script>
+    <script type="text/javascript" src="/js/Nepal/auth.js"></script>
+    <script type="text/javascript" src="/js/Nepal/task.js"></script>
+    <script type="text/javascript" src="/js/Nepal/common-plugin.js"></script>
+    <script type="text/javascript" src="/js/Nepal/DD_roundies_0.0.2a.js"></script>
+    <script type="text/javascript" src="/js/Nepal/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="/js/Nepal/display.js"></script>
+    <script type="text/javascript" src="/js/Nepal/button-hover.js"></script>
+
+	<script type="text/javascript" src="/js/Nepal/slides.jquery.js?ver=1.0"></script>
+	<script type="text/javascript" src="http://i.haodianpu.com/assets/8404f459/js/hdp.slides.js"></script>
+	<script type="text/javascript" src="http://i.haodianpu.com/assets/8404f459/js/articletrigger.jquery.js"></script>
+	<script type="text/javascript" src="http://i.haodianpu.com/assets/8404f459/js/txttip.jquery.js?ver=1.3"></script>
+	
+
+
+<!--site head begin-->
+<div id="header">
+<div id="nav-header">
+    <div id="nav-fast-menu">
+        <div class="entity">
+            <div id="nav-top">
+                <ul class="fast-menu" style="*background-color: #FFFFFF;*padding-left: 10px;*padding-right: 0;">
+                    <li class="menu-list my-hdp">
+                        亲，请先 <a href="http://i.haodianpu.com/auth/login.html?target=http%3A%2F%2Fi.haodianpu.com%2F">登录</a>                            </li>
+                    <li class="menu-list my-taobao">
+                        <a class="menu-panel" target="_blank" href="http://i.haodianpu.com/my/bill/buy" title="续费/升级">续费/升级</a>
+                        <a class="menu-panel" target="_blank" href="http://bangpai.taobao.com/group/thread/333293-277541084.htm?spm=0.0.0.40.45c512">指标解读</a>
+                        <a class="menu-panel" target="_blank" href="http://bangpai.taobao.com/group/thread/333293-277025356.htm?spm=0.0.0.40.b18764">使用帮助</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-top" style="*margin-top: -46px;">
+        <div class="logo"><h1><a href="/">好店铺软件</a></h1></div>
+    </div>
+</div>
+
+<div class="nav" id="hdp-nav">
+<div class="nav-list" id="nav_list">
+<ul>
+<li class="nav-panel">
+    <span><strong><a title="好店铺软件" href="http://i.haodianpu.com">首页</a></strong></span>
+</li>
+
+<li>
+                        <span>
+                            <strong><a target="_blank" title="赚钱联盟" style="color: #FFFF00;font-weight: 500;text-decoration: underline;" href="http://i.haodianpu.com/union/user/">推广赚钱</a></strong>
+                        </span>
+</li>
+<li>
+                        <span class="nav-app">
+                            <strong><img class="new-app" src="http://img01.taobaocdn.com/imgextra/i1/62192401/T25pa4XmtXXXXXXXXX_!!62192401.gif" alt="new" /><a class="nav-secret" target="_blank" href="http://i.haodianpu.com/site/secret.html">开店秘籍</a></strong>
+                        </span>
+</li>
+</ul>
+<input type='hidden' name='nav_current' id='nav_current' value='0' />
+<div class="additional" style="_padding-top: 10px;">
+    <span>客服旺旺:</span>
+    <a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E5%A5%BD%E5%BA%97%E9%93%BA%E7%BB%9F%E8%AE%A1&siteid=cntaobao&status=1&charset=utf-8" title="好店铺统计"><img style="margin-bottom: -5px;" border="0" src="http://amos.alicdn.com/realonline.aw?v=2&uid=%E5%A5%BD%E5%BA%97%E9%93%BA%E7%BB%9F%E8%AE%A1&site=cntaobao&s=1&charset=utf-8"/></a>
+    |
+    <span>客服电话:</span>
+    <a title="0755-27678161">0755-27678161</a>
+</div>
+</div>
+</div>
+</div>
+<!--site head end-->
+
+<div id="page">
+<div id="page-content">
+
+<div class="con-main">
+<div class="con-left">
+    <div class="con-top">
+        <div class="con-recom" id="con-recom">
+
+
+            <div class="item-con">
+                <h3>最新功能</h3>
+                <ul class="item-trigger">
+                    <li class="current">1</li>
+                    <li>2</li>
+
+                </ul>
+                <ul class="items">
+                    <li class="current">
+                        <div class="item-attr">
+                            <div class="item-img ui-icon-radius ui-icon-remove" style="background-image: url(http://img02.taobaocdn.com/imgextra/i2/62192401/T2k8u0Xf4aXXXXXXXX_!!62192401.jpg);">
+                                <a href="http://i.haodianpu.com/tools/cptx.html">
+                                    <img width="60" height="60" alt="差评提醒" src="http://img02.taobaocdn.com/imgextra/i2/62192401/T2k8u0Xf4aXXXXXXXX_!!62192401.jpg" />
+                                </a>
+                            </div>
+                            <h4>
+                                <a href="http://i.haodianpu.com/tools/cptx.html" target="_blank">差评提醒</a>
+                            </h4>
+                            <p class="price">
+                            </p>
+                        </div>
+                        <div class="des">收到差评,第一时间发短信通知卖家，让卖家及时处理差评。</div>
+                        <a class="btn-order-use" href="http://i.haodianpu.com/tools/cptx.html" target="_blank">立即使用</a>
+                    </li>
+                    <li class="current">
+                        <div class="item-attr">
+                            <div class="item-img ui-icon-radius ui-icon-remove" style="background-image: url(http://img04.taobaocdn.com/imgextra/i4/62192401/T2kEBCXmVNXXXXXXXX_!!62192401.jpg);">
+                                <a href="http://i.haodianpu.com/tools/cpzjz.html">
+                                    <img width="60" height="60" alt="差评终结者" src="http://img04.taobaocdn.com/imgextra/i4/62192401/T2kEBCXmVNXXXXXXXX_!!62192401.jpg" />
+                                </a>
+                            </div>
+                            <h4>
+                                <a href="http://i.haodianpu.com/tools/cpzjz.html" target="_blank">差评终结者</a>
+                            </h4>
+                            <p class="price">
+                            </p>
+                        </div>
+                        <div class="des">一键开启，自动识别差评时，并短信提醒卖家，遇到差评时，系统自动在付款前关闭订单，有效防御差评！</div>
+                        <a class="btn-order-use" href="http://i.haodianpu.com/tools/cpzjz.html" target="_blank">立即使用</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="main-slides">
+            <!--<img src="http://i.haodianpu.com/assets/8404f459/images/new-ribbon.png" width="112" height="112" alt="New Ribbon" id="ribbon">-->
+            <div id="slides">
+                <div class="slides_container">
+                    <div>
+                        <a href="http://i.haodianpu.com/site/secret.html" style="background: url( http://img02.taobaocdn.com/imgextra/i2/62192401/T2vQONXjFaXXXXXXXX-62192401.jpg ) no-repeat scroll 0 0 transparent;" title="" target=\"_blank\"><img src="http://img02.taobaocdn.com/imgextra/i2/62192401/T2vQONXjFaXXXXXXXX-62192401.jpg" width="520" height="220" alt="秘籍大放送"></a>
+                    </div>
+                    <div>
+                        <a href="http://fuwu.taobao.com/item/subsc.htm?items=ts-16226-4:12" style="background: url( http://img01.taobaocdn.com/imgextra/i4/62192401/T2rXOvXbNaXXXXXXXX_!!62192401.jpg ) no-repeat scroll 0 0 transparent;" title="" target=\"_blank\"><img src="http://img01.taobaocdn.com/imgextra/i4/62192401/T2rXOvXbNaXXXXXXXX_!!62192401.jpg" width="520" height="220" alt=""></a>
+                    </div>
+                    <div>
+                        <a href="http://i.haodianpu.com/union/user/" style="background: url( http://img03.taobaocdn.com/imgextra/i3/62192401/T2SMCnXc8cXXXXXXXX_!!62192401.png ) no-repeat scroll 0 0 transparent;" title="" target=\"_blank\"><img src="http://img03.taobaocdn.com/imgextra/i3/62192401/T2SMCnXc8cXXXXXXXX_!!62192401.png" width="520" height="220" alt=""></a>
+                    </div>
+                </div>
+                <!--<a href="#" class="prev"><img src="/images/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+                <a href="#" class="next"><img src="/images/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>-->
+            </div>
+            <!--<img src="/images/example-frame.png" width="739" height="341" alt="Example Frame" id="frame">-->
+        </div>
+    </div>
+
+</div>
+<div class="con-right">
+    <div class="user-info ui-radius-shadow">
+        <div class="entity">
+            <dl class="user">
+                <dt>我的账户</dt>
+                <dd>亲，您尚未登录，<a href='/auth/login'>请点这里</a>登录。<dd>                    <div class="buy-now" style="margin-top: 15px; margin-left: -2px;">
+                <a title="立即订购" target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?service_code=ts-15031&tracelog=UUP"><img src="http://img03.taobaocdn.com/imgextra/i3/62192401/T2X6e3XjtXXXXXXXXX_!!62192401.jpg" alt="立即订购" /></a>
+            </div>
+
+                <input type='hidden' id='logined' value='0' />
+
+                <input type='hidden' id='auth_mode' value='' />
+                <dd style="display:none;"><center><img id="grade_icon" src="http://img01.taobaocdn.com/imgextra/i1/62192401/T2_FRFXg8NXXXXXXXX_!!62192401.png" border="0" style="cursor:pointer;" title="点击获取最新版本信息" onclick="account_update(1)"></center></dd>
+            </dl>
+            <dl class="gonggao">
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="cl"></div>
+
+<div class="cl"></div>
+<div class="app-service-list ui-radius-shadow txt-tip">
+
+    <div class="entity" style="height: 400px;">
+
+        <div class="hd" style="padding-top: 80px">掌柜工具</div>
+            <div class="marquee_panels">
+        <ul>
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/lostorder.html"><div>
+                <img src="http://img02.taobaocdn.com/imgextra/i2/22902351/T2gDndXdlaXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img02.taobaocdn.com/imgextra/i2/22902351/T2Mte8XoxaXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img02.taobaocdn.com/imgextra/i2/22902351/T2gDndXdlaXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                    最近一周销量如何？店铺宝贝上下架时间分布如何？店铺橱窗使用情况如何？店铺宝贝标题如何？尽在店铺诊断，实时让你了解店铺情况。
+                    <button class="view-detail" >查看详情</button>
+                    <div  style='display:none'> <img  class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/店铺诊断.jpg" alt="" /></div></div>
+                </div>
+                </a></li>
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/delivery.html"><div>
+                    <img src="http://img04.taobaocdn.com/imgextra/i4/22902351/T2qnDdXllXXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img01.taobaocdn.com/imgextra/i1/22902351/T2INBQXXBfXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img04.taobaocdn.com/imgextra/i4/22902351/T2qnDdXllXXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                    我店铺好多宝贝，怎么来安排橱窗位呢？橱窗对我宝贝有什么影响呢？我怎么能让我的橱窗位实时的给到需要的宝贝呢？怎么能更好的利用我的橱窗呢？自动橱窗为你一键解忧！系统自动化全天候7*24小时为你实时监测服务，宝贝下架了我人不在？没关系，系统立马帮你把橱窗位给下一个快下架宝贝！
+                    <button class="view-detail" >查看详情</button>
+                    <div   style='display:none'><img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/自动橱窗.jpg" alt="" /></div> </div>
+                </div>
+            </a></li>
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/arrival.html"><div>
+                    <img src="http://img02.taobaocdn.com/imgextra/i2/22902351/T2D2TeXa8XXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img03.taobaocdn.com/imgextra/i3/22902351/T29IDXXXlbXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img02.taobaocdn.com/imgextra/i2/22902351/T2D2TeXa8XXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                    什么时候上架时间好啊？我该怎么把握呢？上下架时间对我宝贝有什么影响呢？不懂都没关系！自动上架为你一键解忧！只要一点，轻轻开启，系统帮你宝贝安排全高峰流量时段上下架，解放你的双手。
+                    <button class="view-detail" >查看详情</button>
+                    <div style='display:none'><img  class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/自动上架.jpg" alt="" /></div> </div>
+                </div>
+            </a></li>
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/shangjia"><div>
+                    <img src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2QGTbXn8aXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img03.taobaocdn.com/imgextra/i3/22902351/T2o8B5XchdXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img03.taobaocdn.com/imgextra/i3/22902351/T2QGTbXn8aXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                    又要新活动了，我想改标题，可是几千款宝贝，我要一一手动改吗？弱爆了！赶紧来批量修改，让你一键无忧！修改千款宝贝只要几十秒！
+                    <button class="view-detail" >查看详情</button>
+                    <div style='display:none'><img   class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/自动评价.jpg"></div> </div>
+                </div>
+             </a></li>
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/pingjia.html"><div>
+                    <img src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2.uS9Xm8aXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img04.taobaocdn.com/imgextra/i4/22902351/T2X8XWXXVeXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img01.taobaocdn.com/imgextra/i1/22902351/T2.uS9Xm8aXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                     你想知道当下谁在看你店铺宝贝吗？你想知道多少人在看你家什么宝贝吗？了解最新当下动态，实时监控让你掌握第一手信息！
+                    <button class="view-detail" >查看详情</button>
+                    <div  style='display:none'><img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/实时监控.jpg"></div> </div>
+                </div>
+            </a></li>
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/cptx.html"><div>
+                    <img src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2KBulXmdaXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img02.taobaocdn.com/imgextra/i2/22902351/T2Z9fdXb8aXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img03.taobaocdn.com/imgextra/i3/22902351/T2KBulXmdaXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                    最新一周淘宝官方数据提供，海量千万热词，热搜热词排名，上升最快，直通车选词，尽在top词库！数据化营销让您的宝贝更具竞争力。
+                    <button class="view-detail" >查看详情  </button>
+                    <div style='display:none'>
+                        <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/TOP搜词-1" alt="one">
+                        <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/TOP搜词-2" alt="two">
+                        <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/TOP搜词-3" alt="three"></div>
+                    </div>
+                </div>
+            </a></li>
+
+
+
+            <li class = 'funimg'>
+                <a target="_blank" href="http://i.haodianpu.com/tools/cpzjz.html"><div>
+                    <img src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2D6m.Xn4aXXXXXXXX_!!22902351.png" onmouseover="this.src='http://img02.taobaocdn.com/imgextra/i2/22902351/T2FJYdXllaXXXXXXXX_!!22902351.png'"  onmouseout="this.src ='http://img03.taobaocdn.com/imgextra/i3/22902351/T2D6m.Xn4aXXXXXXXX_!!22902351.png'" />
+                    <div style='display:none' class="preparecontent">
+                    专业化宝贝标题诊断，长尾词关键词推荐，关键词优化查询功能，引爆您的店铺自然流量。系统提供数百万与宝贝相关的热搜关键词。提供关键词的热销度，搜索热度，竞争指数，数据营销让您的宝贝更加具有竞争力。
+                     <button class="view-detail" >查看详情</button><div style='display:none'>
+                               <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/标题优化-1.jpg" alt="four">
+                               <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/标题优化-2.jpg" alt="five">
+                               <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/标题优化-3.jpg" alt="six">
+                               <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/标题优化-4.jpg" alt="seven">
+                               <img class = "ps_image_wrapper" src="http://localhost:9000/public/demo/Images/标题优化-5.jpg" alt="eight">
+                              </div>
+                        </div>
+                    </div>
+                </a></li>
+
+
+            </ul>
+            </div>
+         <div id='funcDesc' class='func-list' ></div>
+    </div>
+</div>
+
+
+
+<div class="cl"></div>
+<div class="con-app">
+    <ul class="app-list">
+        <li>
+            <div>
+                <h4>
+                    <a href="http://bangpai.taobao.com/group/thread/333293-271455988.htm" title="好评有奖">好评有奖</a>
+                </h4>
+                <p>
+                    凡付费用户使用7天后，给予全5分好评，可获赠一月！
+                    <a href="http://bangpai.taobao.com/group/thread/333293-271455988.htm" title="查看详情">[查看详情]</a>
+                </p>
+                <p class="app-img">
+                    <a title="好评有奖" href="http://bangpai.taobao.com/group/thread/333293-271455988.htm" target="_blank">
+                        <img alt="好评有奖" src="http://img04.taobaocdn.com/imgextra/i4/62192401/T2RrdbXolMXXXXXXXX_!!62192401.jpg" />
+                    </a>
+                </p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <h4>
+                    <a href="http://i.haodianpu.com/my/bill/buy" title="升级续费">升级续费</a>
+                </h4>
+                <p>
+                    软件到期续费或版本升级，各版本间的区别解析！
+                    <a href="http://i.haodianpu.com/my/bill/buy" title="查看详情">[查看详情]</a>
+                </p>
+                <p class="app-img">
+                    <a title="升级续费" href="http://i.haodianpu.com/my/bill/buy" target="_blank">
+                        <img alt="升级续费" src="http://img02.taobaocdn.com/imgextra/i2/62192401/T2Ua4PXXhdXXXXXXXX_!!62192401.jpg" />
+                    </a>
+                </p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <h4>
+                    <a href="http://bangpai.taobao.com/group/thread/333293-277025356.htm?spm=0.0.0.40.48a14" title="使用教程">使用教程</a>
+                </h4>
+                <p>
+                    查看各项功能的简介、功能解析及使用教程！
+                    <a href="http://bangpai.taobao.com/group/thread/333293-277025356.htm?spm=0.0.0.40.48a14" title="查看详情">[查看详情]</a>
+                </p>
+                <p class="app-img">
+                    <a title="使用教程" href="http://bangpai.taobao.com/group/thread/333293-277025356.htm?spm=0.0.0.40.48a14" target="_blank">
+                        <img alt="使用教程" src="http://img01.taobaocdn.com/imgextra/i1/62192401/T2SYdbXdFNXXXXXXXX_!!62192401.jpg" />
+                    </a>
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="app-list-other">
+                <h4>
+                    <a href="http://bangpai.taobao.com/user/accept_invite.htm?id=NDcxMzE3Mjk2JjYyMTkyNDAx" title="加入帮派">加入帮派</a>
+                </h4>
+                <p>
+                    更多卖家经验分享，尽在好店铺软件帮派！立即加入吧！
+                    <a href="http://bangpai.taobao.com/user/accept_invite.htm?id=NDcxMzE3Mjk2JjYyMTkyNDAx" title="查看详情">[查看详情]</a>
+                </p>
+                <p class="app-img">
+                    <a title="加入帮派" href="http://bangpai.taobao.com/user/accept_invite.htm?id=NDcxMzE3Mjk2JjYyMTkyNDAx" target="_blank">
+                        <img alt="加入帮派" src="http://img04.taobaocdn.com/imgextra/i4/62192401/T2i80LXi0dXXXXXXXX_!!62192401.png" />
+                    </a>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="marquee_container">
+
+    <div class="marquee_nav"></div>
+</div>.
+
+
+<div class="cl"></div>
+</div>
+
+
+<script type="text/javascript">
+  
+
+</script>
+</div>
+</div>
+
+<!--site foot begin-->
+<div id="footer">
+    <div class="footer-con">
+        <div class="site-map" style="display: none;">
+            <dl class="novice-road">
+                <dt>新手上路</dt>
+                <dd><a href="#">新手指南</a></dd>
+                <dd><a href="#">免费试用</a></dd>
+                <dd><a href="#">服务分类</a></dd>
+                <dd><a href="#">挑选服务</a></dd>
+            </dl>
+            <dl class="charge-order">
+                <dt>充值订购</dt>
+                <dd><a href="#">充值账户</a></dd>
+                <dd><a href="#">订购服务</a></dd>
+                <dd><a href="#">升级/续费</a></dd>
+                <dd><a href="#">订购记录</a></dd>
+            </dl>
+            <dl class="using-help">
+                <dt>使用帮助</dt>
+                <dd><a href="#">使用入口</a></dd>
+                <dd><a href="#">服务期限</a></dd>
+                <dd><a href="#">服务取消</a></dd>
+                <dd><a href="#">管理我的服务</a></dd>
+            </dl>
+            <dl class="customer-service">
+                <dt>售后管理</dt>
+                <dd><a href="#">线下服务售后</a></dd>
+                <dd><a href="#">服务商信息</a></dd>
+                <dd><a href="#">服务投诉</a></dd>
+            </dl>
+            <div class="cl"></div>
+        </div>
+        <div id="site-footer">
+            <div class="footer-nav">
+                <a href="#">关于我们</a>
+                <a href="#">资质证书</a>
+                <a href="#">诚征英才</a>
+                <a href="#">合作伙伴</a>
+                <a href="#">联系我们</a>
+            </div>
+            <div id="copyright">Copyright &copy; 2012 haodianpu.com 版权所有</div>
+            <div id="bottom-separator">www.haodianpu.com | 10.241.94.123</div>
+        </div>
+    </div>
+</div>
+<!--site foot end-->
+
+<!--Feedback start-->
+<script type="text/javascript">
+
+    
+</script>
+<div id="my_dialog"></div>
+<div class="fb-cont" id="fb_cont">
+    <a title="与产品经理联系" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E5%A5%BD%E5%BA%97%E9%93%BA%E6%B5%B7%E8%B6%85&siteid=cntaobao&status=2&charset=utf-8"><img border="0" src="http://amos.alicdn.com/realonline.aw?v=2&uid=%E5%A5%BD%E5%BA%97%E9%93%BA%E6%B5%B7%E8%B6%85&site=cntaobao&s=2&charset=utf-8" alt="与产品经理联系" /> 意见反馈</a>
+    <a style="display: none;" title="意见反馈" class="to-feedback">意见反馈</a></div>
+<div id="fb_shadow" class="fb-shadow">
+    <div class="fb-box">
+        <p class="opt-list">
+            <label for="fb_wangwang">旺旺: <input type="text" name="Feedback[wangwang]" value="" id="fb_wangwang" class="txt-long" /></label>
+            ( 非必填, 便于近一步沟通 ) <span class="txt-error"></span>
+        </p>
+        <p class="opt-list">
+            <label for="fb_phone">手机: <input type="text" name="Feedback[phone]" value="" id="fb_phone" class="txt-long" /></label>
+            ( 非必填 ) <span class="txt-error"></span>
+        </p>
+        <textarea name="Feedback[content]"></textarea>
+        <span class="txt-error"></span>
+        <input type="button" value="提交" class="btn-submit" id="fb_submit">
+    </div>
+</div>
+
+<div style="display:none;"><script type="text/javascript" src="http://js.users.51.la/15203493.js"></script></div>

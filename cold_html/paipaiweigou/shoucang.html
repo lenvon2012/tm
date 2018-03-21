@@ -1,0 +1,25 @@
+#{extends 'paipaiweigou/base.html' /}
+#{set title:'店铺推广 - 百度收藏' /}
+
+<style type="text/css">
+
+</style>
+
+<div class="item-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/PaiPaiItems/firstSync',function() {
+                TM.gcs('/js/paipaiweigou/dptghot.js', function () {
+                    TM.gcs('/js/paipaiweigou/shoucang.js', function () {
+                        var baidushoucang = true;
+                        TM.DptgHot.init.doInit($(".item-container"),baidushoucang);
+                    });
+                });
+            });
+        });
+    });
+</script>

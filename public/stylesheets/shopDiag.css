@@ -1,0 +1,78 @@
+.shopDiag{width: 780px;min-height: 500px;margin: 0 auto;}
+.shopDiagHead{height: 104px;width: 700px;
+    color: #464646;
+    border: 1px solid #DDD;
+    box-shadow: 0 1px 1px #444;
+    border-radius: 80px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-left: 40px;
+    position: relative;
+    background-color: #f8f8f8;
+    behavior:url(/css/ie-css3.htc);
+    /*background-color: whiteSmoke;*/
+    /*behavior:url(http://jstatic.b0.upaiyun.com/bus/ie-css3.htc);*/
+}
+.diagDiv{
+    border: 1px solid #DDD;
+    min-height: 50px;
+    box-shadow: 0 1px 1px #444;
+    border-radius: 4px;
+    margin-left: 50px;
+    margin-top: 10px;
+    display: none;
+    width: 650px;
+    background-color: #f8f8f8;
+    padding: 5px 5px 5px 5px;
+    /*behavior:url(/css/ie-css3.htc);*/
+}
+.topTradeCountDiv{
+    border: 1px solid #DDD;
+    min-height: 50px;
+    box-shadow: 0 1px 1px #444;
+    border-radius: 4px;
+    margin-left: 74px;
+    margin-top: 10px;
+    width: 650px;
+    background-color: #f8f8f8;
+    padding: 5px 5px 5px 5px;
+    font-size: 14px;font-weight: bold;color: #ffffff;
+}
+.tradebrief{margin: 5px 25px 0 25px;}
+.shopDiagBody{width: 700px;margin-bottom: 10px;margin-left: 25px;}
+.headLogo{position: absolute;top:0px; left:10px;}
+.headLogoNice{width: 86px;height: 86px;background: url("/public/images/check/saomiaox86.gif");float: left;margin-left: 8px;margin-top: 8px;}
+.headLogoSoso{width: 86px;height: 86px;background: url("/public/images/check/normcanvas.png");float: left;margin-left: 8px;margin-top: 8px;}
+.headLogoBad{width: 86px;height: 86px;background: url("/public/images/check/seriouscanvas.gif");float: left;margin-left: 8px;margin-top: 8px;}
+.headInfo{width: 580px;;margin-left: 120px;}
+.diagScore{padding-top: 10px;}
+.progressBar{width: 550px;height: 25px;border: 1px #c0c0c0 solid;margin-top: 10px;}
+.progressLine{margin-top:1px;height: 22px;width:0;background: url("/public/images/shopDiag/pbar-sta.gif") repeat-x;}
+.headBottom{}
+.scoreNum, .scoreComment{font-size: 2em;font-weight: bolder;color: red;margin: 0 0.1em;text-shadow: 1px 1px 1px #909090;}
+.diagBad, .diagSoso, .diagNice{width: 700px;}
+.diagBadInfo, .diagSosoInfo, .diagNiceInfo{margin-left: 20px;margin-top: 5px;height: 30px;display: none;}
+.badImg{display:inline-block;width:24px;height:26px;background: url("/public/images/check/de-icon.png") -23px no-repeat;margin-top: 4px;}
+.sosoImg{display:inline-block;width:24px;height:26px;background: url("/public/images/check/de-icon.png") 1px no-repeat;margin-top: 4px;}
+.niceImg{display:inline-block;width:24px;height:26px;background: url("/public/images/check/de-icon.png") -47px no-repeat;margin-top: 4px;}
+.briefDesc{display: inline-block;*display:inline;margin-left: 20px;font-size: 1em;font-weight: bolder;}
+.Desc{}
+.badDetail,.sosoDetail, .niceDetail{width: 700px;margin-top: 10px;}
+
+.percent{font-size: 1.5em;     font-weight: bold;         color: red;        margin: 0 0.2em;          text-shadow: 1px 1px 1px #909090;}
+.diagBrief{margin-left: 25px;margin-right: 25px;font-size: 12px;}
+.suggest{margin-left: 25px;margin-right: 25px;font-size: 10px;;color: grey;margin-top: 3px;}
+.blankBorder{font-size: 14px;font-weight: bolder;color: #000000;}
+.potentialItemLink, .burstItemLink{width:24px;height: 24px; }
+.potentialItemImg, .burstItemImg{width:24px;height: 24px; }
+.itemShow{position: absolute;width: 500px;top:200px;left: 200px;box-shadow: 0 1px 1px #444;
+    border-radius: 20px;background-color: #ffffff;display: none;}
+.itemImg{width: 50px;height: 50px;text-align: center;font-size: 10px;font-weight: bolder;color: #000000;}
+.itemTitle{width: 410px;height: 50px;text-align: center;font-size: 10px;font-weight: bolder;color: #000000;}
+.itemSalesCount{width: 40px;height: 50px;text-align: center;font-size: 10px;font-weight: bolder;color: #000000;}
+.exitBtn{margin-left: 420px;cursor: pointer;}
+.bottom{width: 700px;margin-bottom: 10px;margin-left: 25px;}
+.warnSpan{width: 600px;color: #ffffff;margin-left: 150px;font-weight: bolder;margin-top: 10px;}
+.red{color: red;}
+.goYouhuaBtn{margin: 0 auto;position: fixed;bottom: 0;z-index: 1000;
+    width: 100%;text-align: center;display: none;background: url(/img/autoTitle/adv.png)}

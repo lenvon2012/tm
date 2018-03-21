@@ -1,0 +1,16 @@
+alter table item_desc_0 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_1 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_2 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_3 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_4 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_5 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_6 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_7 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_8 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_9 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_10 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_11 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_12 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_13 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_14 add column `status` bigint(20) NOT NULL default 0;
+alter table item_desc_15 add column `status` bigint(20) NOT NULL default 0;

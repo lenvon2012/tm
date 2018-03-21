@@ -1,0 +1,34 @@
+alter table order_display_0 add column `title` varchar(63) NULL;
+alter table order_display_1 add column `title` varchar(63) NULL;
+alter table order_display_2 add column `title` varchar(63) NULL;
+alter table order_display_3 add column `title` varchar(63) NULL;
+alter table order_display_4 add column `title` varchar(63) NULL;
+alter table order_display_5 add column `title` varchar(63) NULL;
+alter table order_display_6 add column `title` varchar(63) NULL;
+alter table order_display_7 add column `title` varchar(63) NULL;
+alter table order_display_8 add column `title` varchar(63) NULL;
+alter table order_display_9 add column `title` varchar(63) NULL;
+alter table order_display_10 add column `title` varchar(63) NULL;
+alter table order_display_11 add column `title` varchar(63) NULL;
+alter table order_display_12 add column `title` varchar(63) NULL;
+alter table order_display_13 add column `title` varchar(63) NULL;
+alter table order_display_14 add column `title` varchar(63) NULL;
+alter table order_display_15 add column `title` varchar(63) NULL;
+
+
+alter table order_display_0 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_1 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_2 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_3 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_4 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_5 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_6 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_7 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_8 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_9 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_10 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_11 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_12 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_13 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_14 add column `receiverAddress` varchar(63) NULL;
+alter table order_display_15 add column `receiverAddress` varchar(63) NULL;

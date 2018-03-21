@@ -1,0 +1,252 @@
+#{extends '/Sales/salesBasic.html' /}
+#{set title:'添加商品信息' /}
+
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/activityadd.css?_v=2" />
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/mjsItemSelect.css?_v=2" />
+<style type="text/css">
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+*{
+<div id="content">
+    <div class="breadcrumbs">
+        <span>创建限时打折活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block">
+                <h3>设置活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block active">
+                <h3>设置商品信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block lastPercent">
+                <h3>完成</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>}*
+
+<h1>选择满就送活动宝贝</h1>
+
+<div class="item-container">
+    <div class="combobox-input">
+        <div style="width: 750px;margin: 0 auto;padding-top: 8px;position: relative;">
+            <label style="top:8px;" class="combobox-label-item" for="mq">搜索 商品 标题/关键字</label>
+            <input type="text" title="请输入搜索文字" class="guanjianci" id="mq" style="float: left;" />
+            <button type="submit" class="guanjianci-select">搜索</button>
+        </div>
+    </div>
+    <div class="filter" >
+        <div class="fRange" style="text-align: center;">
+            <b class="fR-text" order="df">默认排序</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fR-list">
+                <li>
+                    <a class="fRl-ico-pu" href="javascript:void(0);">↑ 价格从低到高</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-pd" href="javascript:void(0);">↓ 价格从高到低</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-su" href="javascript:void(0);">↑ 下架时间</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-sd" href="javascript:void(0);">↓ 下架时间</a>
+                </li>
+                <li>
+                    <a class="fRl-ico-df" href="javascript:void(0);">〓 恢复默认排序</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fSellercat">
+            <s class="fS-label">店铺类目：</s>
+            <b class="fS-text">所有类目</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fS-list" id="sellerCat" style="width: 160px;">
+            </ul>
+        </div>
+        <div class="fItemcat">
+            <s class="fI-label">淘宝类目：</s>
+            <b class="fI-text">所有类目</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fI-list" id="itemCat" style="width: 160px;">
+            </ul>
+        </div>
+        <div class="fOnsale">
+            <s class="fO-label">是否出售中：</s>
+            <b class="fO-text" isOnsale="onsale">出售中</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fO-list"  style="width: 200px;">
+                <li>
+                    <a class="fO-ico-dis" href="javascript:void(0);">出售中宝贝</a>
+                </li>
+                <li>
+                    <a class="fO-ico-undis" href="javascript:void(0);">仓库里宝贝</a>
+                </li>
+                <li>
+                    <a class="fO-ico-all" href="javascript:void(0);">所有宝贝</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fDiscount">
+            <s class="fD-label">是否参加活动：</s>
+            <b class="fD-text" isDis="all">所有宝贝</b>
+            <i class="f-ico-triangle-rb"></i>
+            <ul class="fD-list"  style="width: 200px;">
+                <li>
+                    <a class="fD-ico-dis" href="javascript:void(0);">已参加活动宝贝</a>
+                </li>
+                <li>
+                    <a class="fD-ico-undis" href="javascript:void(0);">未参加活动宝贝</a>
+                </li>
+                <li>
+                    <a class="fD-ico-all" href="javascript:void(0);">所有宝贝</a>
+                </li>
+            </ul>
+        </div>
+        <div class="fAllselect" style="position: relative;float: right;width: 80px;">
+            <a href="javascript:void(0);">
+                <b class="fA-text choose">本页全选</b>
+                <b class="fA-text unchoose">取消全选</b>
+            </a>
+        </div>
+    </div>
+    <div style="margin-top: 10px;">
+        <div class="paging-div" style="text-align: center;margin-bottom: 10px;margin-top: 40px; "></div>
+        <div class="tspy">
+            <div class="hover_tips_cont"><span class="tip-content" style="font-size: 16px;"></span></div>
+        </div>
+
+        <input type="hidden" class="activityString" value="${activityString}" />
+        <div class="item-table">
+            <table style="width: 100%;">
+                <tbody>
+                <tr class="no-data hidden" style="border: 1px solid #C0DAEC; height: 40px;">
+                    <td colspan="20" style="text-align: center;font-size: 16px;">
+                        查询条件下无对应宝贝
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="paging-div" style="text-align: center;margin-top: 5px;"></div>
+    </div>
+</div>
+<div class="buttonLine">
+    <input type="submit" value="提交到淘宝"  class="nextStepBtn StepBtn2" style="color: #ffffff;
+    background-color: #c41b00;border: 1px solid #fff;">
+</div>
+<div id="hraBox">
+    <a href="javascript:;" class="closeModal closeBtn" title="关闭"></a>
+    <div class="html">请点下面的按钮到新页面授权后再回来提交!</div>
+    <div class="buttons">
+        <a href="/TaoDiscount/reShouquan" class="orangeBtn" target="_blank">去淘宝授权</a>
+    </div>
+</div>
+<div class="modal standardModal" id="settingActModal">
+    <a href="javascript:;" class="closeModal closeBtn" title="关闭"><a class="closed-img closeModal" href="javascript:;" ></a></a>
+    <div class="title">
+        请修改店铺最低折扣
+    </div>
+    <div class="html">
+        <p style="font-size: 20px;">
+            您活动商品最低折扣是<span class="orange"></span>折，淘宝后台店铺最低折扣是<span class="orange"></span>折<br>
+            请<a href="http://smf.taobao.com/smf_tab.htm?module=rmgj" target="_blank" style="color: #c41b00;font-size: 20px;">点此到淘宝修改店铺最低折扣</a>至低于<span class="orange"></span>折后，才可继续提交。
+        </p>
+    </div>
+    <div class="buttonLine">
+        <a href="javascript:;" class="greenBtn nextStepBtn StepBtn2" style="color: #ffffff;
+    background-color: #c41b00;border: 1px solid #fff;display: block;">已经修改，重新提交</a>
+    </div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="mjsItemTd">
+    <td numIid="{{= numiid}}" class="itemTd">
+        <div class="product" style="">
+            <div class="imageWrapper">
+                <a target="_blank" href="http://item.taobao.com/item.htm?id={{= numiid}}" class="image">
+                    <img style="width: 60px;height: 60px;" src="{{= picURL}}" alt="{{= title}}">
+                </a>
+            </div>
+            <div class="info">
+                <a class="name" href="http://item.taobao.com/item.htm?id={{= numiid}}" target="_blank">{{= title}}</a>
+        <span class="price">
+            <i>{{= price}}</i> 元
+        </span>
+                <span class="status_red" style="display: none;">已参加满就送活动</span>
+                <span class="status_gray" style="display: none;">已下架</span>
+            </div>
+
+            {{if isthisActivity }}
+            <a href="javascript:;" class="inlineblock lightGrayBtn productBtn alreadyInThisActivity">当前活动宝贝</a>
+            {{else}}
+            {{if isAddedToActBtn }}
+            <a href="javascript:;" class="inlineblock GreyBtn addToActBtn productBtn" style="display: none;">加入活动</a>
+            <a href="javascript:;" class="inlineblock lightGrayBtn addedToActBtn productBtn">已添加</a>
+            {{else}}
+            <a href="javascript:;" class="inlineblock GreyBtn addToActBtn productBtn">加入活动</a>
+            <a href="javascript:;" class="inlineblock lightGrayBtn addedToActBtn productBtn" style="display: none;">已添加</a>
+            {{/if}}
+            {{/if}}
+
+
+        </div>
+    </td>
+
+</script>
+
+
+*{跟可恶的美哥不一样}*
+<script type="text/x-jquery-tmpl" id="mjsItemTrTmpl">
+    <tr numIid="{{= numiid}}" class="mjsitemTr" style="height: 100px;">
+        <td style="width: 100px;">
+            <a target="_blank" href="http://item.taobao.com/item.htm?id={{= numiid}}">
+                <img style="width: 90px;height: 90px;" src="{{= picURL}}" alt="{{= title}}">
+            </a>
+        </td>
+        <td style="width: 500px;text-align: center;">
+            <a class="name" href="http://item.taobao.com/item.htm?id={{= numiid}}" target="_blank">{{= title}}</a>
+        </td>
+        <td style="width: 150px;text-align: center;">
+            ￥<span style="color: #2E92D9;font-size: 16px;font-weight: bold;">{{= price}}</span>
+
+        </td>
+        <td style="width: 250px;text-align: center;">
+            {{if isthisActivity }}
+            <a href="javascript:;" class="inlineblock lightGrayBtn productBtn alreadyInThisActivity">当前活动宝贝</a>
+            {{else}}
+            {{if isAddedToActBtn }}
+            <a href="javascript:;" class="inlineblock GreyBtn addToActBtn productBtn" style="display: none;">加入活动</a>
+            <a href="javascript:;" class="inlineblock lightGrayBtn addedToActBtn productBtn">已添加</a>
+            {{else}}
+            <a href="javascript:;" class="inlineblock GreyBtn addToActBtn productBtn">加入活动</a>
+            <a href="javascript:;" class="inlineblock lightGrayBtn addedToActBtn productBtn" style="display: none;">已添加</a>
+            {{/if}}
+            {{/if}}
+
+        </td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.tmpl.js', function () {
+            TM.gcs('/js/utils/jquery.cookie.js', function () {
+                TM.gcs('/js/tm.js', function () {
+                    TM.gcs('/js/ump/umputil.js?_v=1', function () {
+                        TM.gcs('/js/sales/mjsItemSelect.js?_v=6', function () {
+                            var activityId = ${activityId};
+                            TM.mjsItem.init.doInit($(".item-container"), activityId, true);
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>

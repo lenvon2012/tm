@@ -1,0 +1,59 @@
+<script type="text/x-jquery-tmpl" id="maskTable">
+
+    <div id="maskTdTitle">
+            <span  class="titleText">标题还原中心</span>
+            <span class="titleClose"></span>
+
+
+    </div>
+    <div class="maskDiv">
+    <table class="maskTableTab" style="width: 100%;">
+        <thead>
+
+        <tr style=" background: #eeeeee; font-size:13px; ">
+            <td style="width: 20%; height:30px;border: 1px solid #cccccc;">宝贝图片</td>
+            <td style="width: 20%; height:30px;border: 1px solid #cccccc;">原标题</td>
+            <td style="width: 20%; height:30px;border: 1px solid #cccccc;">是否成功</td>
+            <td style="width: 20%; height:30px;border: 1px solid #cccccc;">执行结果</td>
+            <td style="width: 20%; height:30px;border: 1px solid #cccccc;">操作</td>
+        </tr>
+        </thead>
+
+
+            <tbody class="maskTbody">
+
+
+                  {{each(i,val) titleInfo}}
+                       <tr>
+                             <td>
+                                    <div id="imgDiv">
+                                       <a href="http://item.taobao.com/item.htm?id={{= numIid}}" target="_blank">
+                                       <img id="maskTableImg" src="{{= val.picPath}}" title="商品图片" alt="加载失败"/>
+                                       </a>
+                                     </div>
+
+                             </td>
+                             <td>{{= val.originTitle}}</td>
+                             <td>
+                                {{if val.ok}}
+                                     成功
+                                     {{else}}
+                                     失败
+                                {{/if}}
+
+
+                             </td>
+                             <td>{{= val.newTitle}}</td>
+                             <td>{{= val.msg}}</td>
+                       </tr>
+                  {{/each}}
+
+
+            </tbody>
+
+
+    </table>
+    </div>
+
+
+</script>

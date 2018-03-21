@@ -1,0 +1,128 @@
+#{extends 'main.html' /}
+#{set title:'实时入店访客监控' /}
+
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Monitor/monitor.css">
+
+    <div style="text-align: center;width:100%;margin-left: auto;margin-right: auto;">
+
+<div class="monitorContainer">
+    <div class="monitorLeftDiv">
+        <div class="onlineNumDiv">
+
+            <span class="monitorLabel">实时入店访客监控</span>
+            <div class="blank0" style="height: 10px;"></div>
+
+            <span class="monitorTime"></span>
+            <span class="onlineLabel">当前店铺访客人数为：</span><span class="onlineNum"></span>
+            <div class="blank0" style="height: 10px;"></div>
+            <span class="refreshBtn">刷新一下</span>
+
+        </div>
+        <div class="separator"></div>
+        <div class="visitorListDiv noScrollDiv">
+
+            <ul>
+
+            </ul>
+        </div>
+        <div class="blank0"></div>
+    </div>
+    <div class="monitorRightDiv">
+        <div class="rowBorder monitorTitleDiv">
+            <span class="monitorTip">实时监控小贴士</span>
+            <div class="tipContent">
+                <span class="tipItem">1.提供实时的访客监控，时刻掌握店铺访问情况。o(∩_∩)o</span>
+                <span class="tipItem">2.选择一个访客，可以查看其具体信息。o(∩_∩)o</span>
+
+            </div>
+            <div class="blank0" style="height: 10px;"></div>
+        </div>
+        <div class="blank0" ></div>
+        <div class="rowBorder visitorDiv">
+            <div class="noVisitor" style="display: none;">
+                <span>亲，暂时没有访客。T__T</span>
+            </div>
+            <div class="hasVisitor detailHeight" style="display: none;">
+            <div class="visitorName"></div>
+            <div class="visitorDetailDiv">
+                <div class="visitorBigImg">
+                    <img src="/public/images/default-user.png"/>
+                </div>
+                <div class="visitorDetail">
+                    <div class="detailItem">
+                        <span class="detailType">IP 地址：</span>
+                        <span class="detailValue ipValue"></span>
+                        <span class="detailType" style=" margin-left: 30px; width: 70px;">所在地：</span>
+                        <span class="detailValue locationValue"></span>
+                    </div>
+
+                    <div class="detailItem">
+                        <span class="detailType">最近访问：</span>
+                        <span class="detailValue lastTimeValue"></span>
+                    </div>
+                    <div class="detailItem">
+                    <span class="detailType">入店时间：</span>
+                    <span class="detailValue timeValue"></span>
+                    </div>
+                    <div class="detailItem">
+                    <span class="detailType">停留时长：</span>
+                    <span class="detailValue stayTime"></span>
+                    </div>
+                    <div>
+                        <span class="jumpBtn disableJumpBtn prevVisitor">上一个访客</span>
+                        <span class="jumpBtn enableJumpBtn nextVisitor">下一个访客</span>
+                        <div class="blank0"></div>
+                    </div>
+                </div>
+                <div class="blank0"></div>
+            </div>
+            <div class="blank0" style="height: 20px;"></div>
+            <div class="visitRecord">访问记录</div>
+            <table>
+                <thead>
+                    <tr>
+                        <td style="width: 25%">访问时间</td>
+                        <td style="width: 75%">访问的宝贝</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="blank0"></div>
+</div>
+</div>
+<!-- open dialog -->
+		<div id="dialog" style="width: 650px; height: 450; display:none;" class="ui-dialog-content ui-widget-content" >
+			<div id="user_version">
+				<span id="user_status">尊敬的用户:</span><br>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;您正在使用：<span id="user_version_status">免费诊断版</span></span><br>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;暂无权限使用该功能，为提高流量与销量，请您<span style="color:red;">立即升级</span>现在升级可尊享一折优惠，并且<span style="color:red;">立即返现</span>。</span>
+				<div id="version_buy">
+					<a href = "/home/buyVersion"><img alt="立即订购" src="/public/images/button/lijidingjgou.png" ></a>
+					</div>
+			</div>
+		</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+$(document).ready(function(){
+    $.getScript('/js/Monitor/VisitorMonitor.js',function(){
+    	$.getScript('/status/js',function(){
+    		$.getScript('/js/versioncontroller.js',function(){
+    			if(TM.ver<20){
+    				if(TM.ver<20){
+    					$("#user_version_status").html("优化引流版");	
+    				}
+    				$( ".monitorContainer" ).click(version_event);	
+    			}
+        	});
+    	});
+    });
+});
+</script>
+
+#{/set}

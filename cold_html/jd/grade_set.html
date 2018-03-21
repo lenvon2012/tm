@@ -1,0 +1,341 @@
+#{extends 'jd/jdmain.html' /}
+#{set title:'客户等级设置' /}
+
+<!--
+<form name="form1" method="post" action="CRank.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzODk2MjA3MzdkZJ838KOyjiRQ72YGpmKSx87A6KWP">
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDQLg6Zn7DwLE35CMCQLygYv/DAK8hOSdCQLX7NaZDwLygYf/DAK8hPj4AQLX7MK+BgLygYP/DAK8hNzADQLX7M68AwLdkpmPAQLm5IzJCMpeSR4AmVjupxdZMXoVRo0K+w/q">
+</div>
+    <div>
+    <div class="PageTitleArea">
+        <div class="PageTitle">
+            客户等级优惠
+        </div>
+        <div style="width: 80%;">
+            使用会员等级区分买家的级别，不同级别的买家可以享受不同的折扣率，注意最低折扣不能低于7折，填写折扣请注意，九八折，填写9.8而不是0.98
+        </div>
+    </div>
+    <div class="PageTitleArea">
+        
+        <div style="width: 80%;">
+        设置完成后，不同等级的会员只能看到自己对应的折扣价，非店铺会员只能看到原价，请大家放心使用<a href="http://help.taocrm.com/helpview.aspx?id=dbf3b7b2-6522-4519-9b14-af81f258a911"><font color="red">[查看等级折扣设置教程]</font></a>
+        </div>
+        
+    </div>
+    <fieldset class="AdminSearchform">
+                <legend>普通会员</legend>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="220" align="right">
+                                该等级需满足：
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有买过您宝贝的买家。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="220" align="right">
+                                享受折扣：
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="txtgeneralzhe" type="text" id="txtgeneralzhe" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(折)&nbsp;&nbsp;&nbsp;&nbsp;<font color="gray">普通会员如果不打折，请填写10</font>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+    <fieldset class="AdminSearchform">
+                <legend>高级会员</legend>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="220" align="right">
+                                该等级需满足：
+                            </td>
+                            <td>
+                                交易额&nbsp;&nbsp;<input name="txtAmount2" type="text" id="txtAmount2" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(元)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                或：
+                            </td>
+                            <td>
+                                交易量&nbsp;&nbsp;<input name="txtTime2" type="text" id="txtTime2" size="30" value="0" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onblur="CheckTime(this);">(笔)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="220" align="right">
+                                享受折扣：
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="txtDiscount2" type="text" id="txtDiscount2" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(折)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+     
+     <fieldset class="AdminSearchform">
+                <legend>VIP会员</legend>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="220" align="right">
+                                该等级需满足：
+                            </td>
+                            <td>
+                                交易额&nbsp;&nbsp;<input name="txtAmount3" type="text" id="txtAmount3" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(元)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                或：
+                            </td>
+                            <td>
+                                交易量&nbsp;&nbsp;<input name="txtTime3" type="text" id="txtTime3" size="30" value="0" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onblur="CheckTime(this);">(笔)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="220" align="right">
+                                享受折扣：
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="txtDiscount3" type="text" id="txtDiscount3" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(折)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            
+            <fieldset class="AdminSearchform">
+                <legend>至尊VIP会员</legend>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="220" align="right">
+                                该等级需满足：
+                            </td>
+                            <td>
+                                交易额&nbsp;&nbsp;<input name="txtAmount4" type="text" id="txtAmount4" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(元)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                或：
+                            </td>
+                            <td>
+                                交易量&nbsp;&nbsp;<input name="txtTime4" type="text" id="txtTime4" size="30" value="0" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onblur="CheckTime(this);">(笔)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="220" align="right">
+                                享受折扣：
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="txtDiscount4" type="text" id="txtDiscount4" size="30" value="0.00" onkeyup="CheckMoney(this);" onblur="CheckMoney2(this);">(折)
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </fieldset>
+            
+            <table width="90%"><tbody><tr><td align="center" style="width:50%">
+                <input type="submit" name="btnOK" value="保存店铺会员折扣设置" onclick=" return CheckInfo();" id="btnOK" class="inp_L1"></td><td>
+                        <input type="submit" name="btnCancl" value="取消所有店铺会员折扣" id="btnCancl" class="inp_L1"></td></tr></tbody></table>
+        
+    </div>
+    </form>
+    -->
+
+
+<style>
+    .buyer-grade-wrapper {
+        font-size: 14px; font-family: "微软雅黑"; padding: 0px 10px;
+    }
+    .grade-tip-div {
+        border: #cccccc 1px solid; padding: 10px; color: #333;
+        background: #F2F9FD;
+    }
+    .grade-title-div {
+        font-size: 16px; font-weight: bold; color: #1a6095;
+    }
+
+    .one-grade-table {
+        width: 100%; border-collapse: collapse;
+    }
+    .one-grade-table .grade-td {
+        border: 1px solid #cccccc; text-align: center; padding: 10px;
+    }
+    .one-grade-table .grade-type-td {
+        color: #333; background: #F2F9FD;
+    }
+    .grade-config-table {
+        margin: 0 auto; text-align: right;
+    }
+    .grade-config-table .config-td {
+        padding: 5px 0px;
+    }
+    .red {
+        color: #a10000;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .grade-config-text {
+        width: 200px; border: 1px solid #999999; padding-left: 3px;
+    }
+
+</style>
+
+<div class="buyer-grade-wrapper">
+    <div class="grade-title-div" style="padding-bottom: 10px; ">客户等级说明</div>
+    <div class="grade-tip-div">
+        通过交易额或交易量设置买家会员等级，包括普通会员、高级会员、VIP会员以及至尊VIP会员，让您的管理更为方便。
+    </div>
+    <div class="grade-title-div" style="padding-top: 20px; padding-bottom: 10px;">客户等级设置</div>
+
+    <!--普通会员-->
+    <table class="one-grade-table">
+        <tbody>
+        <tr>
+            <td class="grade-td grade-type-td" style="width: 25%;">普通会员：</td>
+            <td class="grade-td" style="width: 75%;">
+                <!--<table class="grade-config-table">
+                    <tbody>
+                    <tr>
+                        <td class="config-td">满足条件：</td>
+                        <td>
+                            交易额&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text normal-trade-amount trade-amount" />&nbsp;元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="red bold config-td">或者：</span>
+                        </td>
+                        <td>
+                            交易量&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text normal-trade-count trade-count" />&nbsp;笔
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>-->
+                <span>所有购买过您宝贝的买家。</span>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!--高级会员-->
+    <table class="one-grade-table" style="margin-top: 10px;">
+        <tbody>
+        <tr>
+            <td class="grade-td grade-type-td" style="width: 25%;">高级会员：</td>
+            <td class="grade-td" style="width: 75%;">
+                <table class="grade-config-table">
+                    <tbody>
+                    <tr>
+                        <td class="config-td">满足条件：</td>
+                        <td>
+                            交易额&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text advance-trade-amount trade-amount" />&nbsp;元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="red bold config-td">或者：</span>
+                        </td>
+                        <td>
+                            交易量&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text advance-trade-count trade-count" />&nbsp;笔
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!--vip会员-->
+    <table class="one-grade-table" style="margin-top: 10px;">
+        <tbody>
+        <tr>
+            <td class="grade-td grade-type-td" style="width: 25%;">VIP会员：</td>
+            <td class="grade-td" style="width: 75%;">
+                <table class="grade-config-table">
+                    <tbody>
+                    <tr>
+                        <td class="config-td">满足条件：</td>
+                        <td>
+                            交易额&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text vip-trade-amount trade-amount" />&nbsp;元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="red bold config-td">或者：</span>
+                        </td>
+                        <td>
+                            交易量&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text vip-trade-count trade-count" />&nbsp;笔
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!--至尊vip会员-->
+    <table class="one-grade-table" style="margin-top: 10px;">
+        <tbody>
+        <tr>
+            <td class="grade-td grade-type-td" style="width: 25%;">至尊VIP会员：</td>
+            <td class="grade-td" style="width: 75%;">
+                <table class="grade-config-table">
+                    <tbody>
+                    <tr>
+                        <td class="config-td">满足条件：</td>
+                        <td>
+                            交易额&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text god-trade-amount trade-amount" />&nbsp;元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="red bold config-td">或者：</span>
+                        </td>
+                        <td>
+                            交易量&nbsp;<span class="bold">大于</span>&nbsp;<input class="grade-config-text god-trade-count trade-count" />&nbsp;笔
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div style="padding-top: 20px; text-align: center;">
+        <span class="bluebutton modify-grade-config-btn">立即修改</span>
+    </div>
+
+    <div style="height: 50px;"></div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jd/membergrade.js',function(){
+            TM.MemberGrade.init.doInit($(".buyer-grade-wrapper"));
+        });
+    });
+</script>

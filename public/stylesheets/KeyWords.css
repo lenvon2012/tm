@@ -1,0 +1,15 @@
+
+#container{width:780px;margin: 0 auto;}
+#result{ clear: both;min-height:300px;_height:300px;}
+
+/*#result tr{ clear: both;height:30px;}*/
+.STYLE1 {font-size: 12px;height:30px;max-height: 30px}
+.STYLE3 {font-size: 12px; font-weight: bold; height:30px;max-height: 30px}
+.STYLE4 {color: #03515d;font-size: 12px;height:30px;max-height: 30px}
+#keywordsTable tr{height:30px;max-height: 30px;}
+#nonius{width: 20px;margin-left: 46%;}
+/*#rccx{background-image: url("/public/images/frame/btn3.png");}*/
+#searchBtn{ background:url("/public/images/button/add-button.png") ;background-repeat:no-repeat;background-position:0px 2px; width:120px;height:30px; color:white;font-weight:bold; border:0px; padding-top:7px;  float: left; text-align:center;}
+#searbutton{float:left; margin-top: 6px; margin-left: 10px;}
+#top{float: left; margin-top: 10px;}
+a{text-decoration: none;}

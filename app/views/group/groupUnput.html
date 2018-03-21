@@ -1,0 +1,35 @@
+#{extends '/group/tbtnavGroup.html' /}
+#{set title:'团购模板' /}
+<link rel="stylesheet" media="screen" type="text/css" href="/css/multiModify.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/group.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/group/groupInPut.css" />
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/group/group">团购模板&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>未投放模板
+</div>
+
+<div class="tmp_ip_area"></div>
+<div class="tmp_ip_bottom"></div>
+
+
+
+<script>
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery.tmpl.js',function(){
+        TM.gcs('/js/group/groupUnput.js',function(){
+            $(document).ready(function(){
+                $(document).ajaxStart(function(){
+                    TM.Loading.init.show();
+                    $("body").mask();
+                });
+                $(document).ajaxStop(function(){
+                    TM.Loading.init.hidden();
+                    $("body").unmask();
+                });
+                TM.groupUnput.showPlans.init();
+            });
+        });
+    });
+</script>

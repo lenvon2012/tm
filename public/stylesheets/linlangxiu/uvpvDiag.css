@@ -1,0 +1,202 @@
+.tabDiv ul {
+    border-bottom: #FFB78F 2px solid;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    list-style-image: none;
+    list-style-type: none;
+}
+.clearfix {
+    clear: both;
+    zoom: 1;
+}
+.tabDiv li {
+    margin: 0px 0px 0px 0px;
+    float: left;
+    padding: 0px;
+    list-style-image: none;
+    list-style-type: none;
+}
+.tabDiv li .select {
+    color: #000;
+    background: #FFF8DD;
+}
+.tabDiv li a {
+    width: 69px;
+}
+.tabDiv li a {
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    color: #000;
+    background: #FBFBFB;
+    font-family: "tahoma, arial, 宋体b8b体";
+    line-height: 25px;
+    height: 25px;
+    padding: 5px 0px 5px 0px;
+    font-weight: bold;
+    font-size: 12px;
+    width: 78px;
+    margin-left: 6px;
+    display: block;
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: 0px;
+}
+.interval-wrapper {
+    margin: 0 10px;
+    text-align: center;
+}
+.interval-tr {
+	padding: 10px;
+	margin: 20px 10px 10px 10px;
+	height: 35px;
+	border-bottom: 1px solid #ccc;
+}
+.diag-result-div, .app-diag-result-div {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.busSearch tbody tr:hover{background-color: #eff0f3;}
+
+.word-diag-result-tablem, .app-word-diag-result-table {
+    width: 98%;
+    margin: 0 auto;
+}
+.word-diag-result-table tbody, .app-word-diag-result-table tbody {
+    text-align: center;
+}
+.word-diag-result-table-th, .app-word-diag-result-table-th {
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.word-diag-result-table tr, .app-word-diag-result-table tr {
+    height: 30px;
+}
+.nav-table-left-td{
+    display: none;
+}
+.word-diag-result-table-th td, .app-word-diag-result-table-th td, .search-analysis-diag-result-table-th td{
+    border: 1px solid #bbbdc6;
+    background-color: #f7f9fe;
+}
+.word-diag-result-table-th:hover, .app-word-diag-result-table-th:hover{
+    background: none;
+    background-color: white;
+}
+.word-tr .word-td{
+    width: 200px;
+}
+
+.src-uvpv-result-table {
+    width: 98%;
+    margin: 0 auto;
+}
+.src-uvpv-result-table tbody {
+    text-align: center;
+}
+.src-uvpv-result-table-th {
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.src-uvpv-result-table tr {
+    height: 30px;
+}
+.src-uvpv-result-table-th td{
+    border: 1px solid #bbbdc6;
+}
+.src-uvpv-result-table-th:hover{
+    background: none;
+    background-color: white;
+}
+.isFirdtSrcLevel{
+    /*color: red;*/
+    /*font-weight: bold;*/
+    font-size: 14px;
+    background-color: rgb(236,244,254);
+}
+.toHide{
+    background-position: -120px -254px;
+}
+.toHide:hover{
+    background-position: -120px -304px;
+}
+.relativeAccess-table{
+    text-align: center;
+    width: 100%;
+}
+.relativeAccess-table td{
+    height: 60px;
+    vertical-align: middle;
+    padding-right: 3px;
+    padding-bottom: 3px;
+}
+.relativeAccess-table tr.tr-head td{
+    background-color: #C6E5F3;
+}
+.relativeAccess-table tr.tr-value td{
+    background-color: #F5F0EF;
+}
+.relativeAccess-table tr.tr-head td:hover{
+    background-color: #AED6EB;
+}
+.relativeAccess-table tr.tr-value td:hover{
+    background-color: #DFC4BA;
+}
+.relativeAccess-table .key-value-tr td{
+    border: 2px solid #E0EAEE;
+    background-color: #F8F8F8;
+    width: 25%;
+}
+.relativeAccess-table .key-value-tr .value{
+    font-size: 40px;
+    color: rgb(57, 141, 248);
+}
+.relativeAccess-table .key-value-tr .key{
+    font-size: 14px;
+    color: grey;
+}
+.fold-class{
+    width: 17px;
+    height: 17px;
+    padding-right: 6px;
+}
+.fold-class-wrapper{
+    cursor: pointer;
+}
+.shop-pc-online-info .opTabWrapper{
+    margin: 10px 10px 0 10px;
+    border-bottom: 1px solid #93ddf8;
+    height: 30px;
+    line-height: 30px;
+}
+.shop-pc-online-info .opTab{
+    cursor: pointer;
+    padding: 0 7px;
+}
+.shop-pc-online-info .selected{
+    border-top: 1px solid #93ddf8;
+    border-left: 1px solid #93ddf8;
+    border-right: 1px solid #93ddf8;
+    border-bottom: 2px solid #fff;
+    margin-top: -1px;
+    _margin-top: 2px;
+    _margin-top: 2px;
+    font-weight: bold;
+}
+.shop-pc-online-info .targetDiv{
+    min-height: 200px;
+    _height: 200px;
+    margin: 0 10px 0 10px;
+}
+.commodityDiag-analisis-table tbody td{
+    border: none;
+}
+.commodityDiag-analisis-table{
+    width: 180px;
+    margin: 0 auto;
+}

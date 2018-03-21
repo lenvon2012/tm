@@ -1,0 +1,38 @@
+#{extends 'free.html' /}
+#{set title:'立即诊断' /}
+#{set 'moreScripts'}
+<link rel="stylesheet" media="screen" href="/public/diagnoseshop/diagnoseshop.css" >
+#{/set}
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="/js/diagnoseshop/diagnoseshop.js"></script>
+<div class = "diagnose_container">
+	<table>
+		<thead>
+			<tr>
+				<th>流量加速</th>
+				<th>根据您店铺的数据您可以通过以下服务来提升店铺业绩</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class= "data">
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+		</tfoot>
+	</table>
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+	$(document).ready(function(){
+		 getdata();
+	 });
+</script>
+#{/set}

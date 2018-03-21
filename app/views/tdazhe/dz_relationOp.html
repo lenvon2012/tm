@@ -1,0 +1,269 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'关联销售' /}
+
+<!-- 旺旺: kiko88988 -->
+<link rel="stylesheet" media="screen" href='/css/Relation/RelationOp.css'>
+<link rel="stylesheet" media="screen" href="/css/paipaimanage/paipaimanage.css"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/tdazhe/dz_relation.js?_v=1" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css">
+    .batch-container .list-table tbody td{
+    }
+    .batch-container .list-table tbody td.commodity_number {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 28px;
+        padding-left: 30px;
+        background-color: #ebf3ff;
+        border-top: none;
+        text-align: left;
+    }
+    .body-createTime {
+        color: #333;
+        margin-right: 10px;
+        float: right;
+    }
+    .main-pic{
+        height:80px;
+        width: 80px;
+        display: inline-block;
+        border: 1px solid #CCCCCC;
+        font-size: 0;
+    }
+    .pic{
+        height: 60px;
+        width: 60px;
+        margin-left: 10px;
+        display: inline-block;
+        border: 1px solid #CCCCCC;
+        font-size: 0;
+    }
+    .hover-tips{
+        margin-top: 10px;
+        width: 250px;
+        z-index: 2;
+        display: none;
+        position: absolute;
+    }
+    .hover_tips_ztb {
+        left: auto;
+        top: auto;
+        right: 15px;
+        bottom: -6px;
+        _bottom: -14px;
+        background-position: -21px 0;
+        width: 11px;
+        height: 7px;
+        background: url(http://static.paipaiimg.com/module/tips_icon.png) no-repeat 0 0;
+        position: absolute;
+    }
+    .hover_tips_cont {
+        padding: 2px 5px;
+        border: 1px solid #F4CB48;
+        background-color: #FFF9CC;
+        text-align: left;
+    }
+    .td-base{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        background-color: #333;
+        opacity: 0.5;
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        visibility: hidden;
+        filter: alpha(opacity=50);
+    }
+    .td-mouseover{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        visibility: hidden;
+        top: 0px;
+        left: 0;
+        cursor: pointer;
+    }
+    .td-click{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        visibility: hidden;
+        top: 0px;
+        left: 0;
+    }
+    .td-mouseover .border{
+        width: 180px;
+        height: 100%;
+        border: #fb9857 solid 4px;
+    }
+    .td-text-ext{
+        text-align: center;
+        width: 100%;
+        height: 40px;
+        display: inline-block;
+        line-height: 40px;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .mouseover {
+        visibility: visible;
+    }
+    .base {
+        visibility: visible;
+    }
+    .checked {
+        visibility: visible;
+    }
+    .td-img-click{
+        display: inline-block;
+        width: 70px;
+        height: 48px;
+        margin: 26px 0 0;
+        background: url("/img/dazhe/select-treasure.png") no-repeat 0 -25px;
+    }
+    .li-modelList{
+        margin: 15px 8px 0px -1px;
+        float: left;
+        _display: inline;
+        text-align: center;
+        list-style: none;
+        background: #f2f2f2;
+        border: 1px solid #e4e4e4;
+        background-color: #fff;
+    }
+</style>
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="#">流量关联&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>关联营销
+</div>
+
+<div class='clearfix'></div>
+
+
+<div class="relationOpContainer" style="padding-bottom: 100px;padding-top: 10px;">
+    <div class="search-container" style="">
+    *{<span class="relationTip">关联宝贝</span>}*
+        <table style="margin: 10px auto;">
+            <tbody>
+            <tr>
+                <td style="padding-left: 15px;">
+                    <span >宝贝标题：</span>
+                    <input style="width: 173px" type="text" class="title"/>
+                </td>
+                <td style="padding-left: 15px;">
+                    <span> 店铺类目：</span>
+                    <select id="sellerCat">
+                    </select>
+                </td>
+                <td style="padding-left: 15px;">
+                    <span> 淘宝类目：</span>
+                    <select id="itemCat">
+                    </select>
+                </td>
+                <td style="padding-left: 20px;"><span class="tmbtn sky-blue-btn item-sync">同步宝贝</span></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 15px;" >
+                    <span >价格区间：</span>
+                    <input  style="width: 70px" type="text" class="itemPriceMin"/>
+                    <span>到</span>
+                    <input style="width: 70px" type="text" class="itemPriceMax"/>
+                </td>
+                <td style="padding-left: 15px;">
+                    <span> 宝贝状态：</span>
+                    <select class="itemState">
+                        <option value="2" selected="selected">全部宝贝</option>
+                        <option value="1">在架宝贝</option>
+                        <option value="0">下架宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 15px;">
+                    <span> 是否关联：</span>
+                    <select class="relateState">
+                        <option value="2" selected="selected">全部宝贝</option>
+                        <option value="1">已关联的宝贝</option>
+                        <option value="0">未关联的宝贝</option>
+                    </select>
+                </td>
+                <td style="padding-left: 20px;">
+                    <span class="search-btn tmbtn sky-blue-btn">搜索宝贝</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="margin: 10px auto;">
+            <tbody>
+            <tr>
+                <td>
+                    <span class="relateSelectItemBtn tmbtn long-flat-green-btn">设置选中关联</span>
+                </td>
+                <td>
+                    <span class="deRelateSelectItemBtn tmbtn long-flat-green-btn">取消选中关联</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <span class="relateSelectItemALLBtn tmbtn long-yellow-btn">列表一键关联</span>
+                </td>
+                <td>
+                    <span class="deRelateSelectItemALLBtn tmbtn long-yellow-btn">取消列表关联</span>
+                </td>
+                <td style="padding-left: 15px;">
+                    <span class="relateAllItemsBtn tmbtn long-red-btn">全店一键关联</span>
+                </td>
+                <td>
+                    <span class="removeAllItemsRelationBtn tmbtn long-red-btn">全店取消关联</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align: center;padding-top: 10px;">
+                    <span class="ModelSelect tmbtn wide-sky-blue-btn">自定义模板</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class='clearfix' ></div>
+
+    <div class="paging-div"></div>
+
+    <div class="thead-container">
+        <table class="thead-table list-table">
+            <thead>
+            <tr>
+                <td style="width: 5%;"><input type="checkbox" class="select-all-item" /></td>
+                <td style="width: 15%;">商品图片</td>
+                <td style="width: 25%;">商品名称</td>
+                <td style="width: 10%;">价格</td>
+                <td style="width: 10%;">宝贝状态</td>
+                <td style="width: 15%;">关联浏览</td>
+                <td style="width: 10%;">关联状态</td>
+                <td style="width: 10%;">操作</td>
+            </tr>
+            </thead>
+            <tbody style="display: none;"></tbody>
+        </table>
+    </div>
+
+    <div class="items-container"></div>
+
+    <div class="paging-div"></div>
+
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.RelationOp.init.doInit($(".relationOpContainer"));
+    });
+</script>
+#{/set}
+
+

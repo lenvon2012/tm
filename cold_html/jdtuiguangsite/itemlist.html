@@ -1,0 +1,47 @@
+#{extends 'jdtuiguangsite/base.html' /}
+#{set title:'京东精品，京东热卖宝贝 - 宝贝推广' /}
+
+<style type="text/css">
+    .item-container .item-link {
+        color: #333; cursor: pointer;
+    }
+    .item-container .item-link:hover {
+        color: #a10000;
+    }
+
+    .item-container .item-div {
+        border: 2px solid #fccea5; margin:8px 5px; padding: 0px; font-family: "宋体";
+    }
+    .item-container .item-img {
+        cursor: pointer;
+    }
+    .item-container .item-img:hover {
+        filter:alpha(opacity=70);
+        opacity: 0.7;
+    }
+
+    .item-container .next-page-btn {
+        font-size: 18px; color: blue; cursor: pointer;
+    }
+    .item-container .next-page-btn:hover {
+        text-decoration: underline; font-weight: bold; color: #a10000;
+    }
+</style>
+
+<div class="item-container">
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.masonry.js', function () {
+            TM.gcs('/js/jquery.url.js', function () {
+                TM.gcs('/js/jdtuiguangsite/weigoulist.js?_v=2', function () {
+                    TM.WeigouHot.init.doInit($(".hot-recommend-container"), true);
+                    TM.WeigouList.init.doInit($(".item-container"));
+                });
+            });
+        });
+    });
+</script>

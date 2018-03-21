@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.play</groupId>
+		<artifactId>play-parent</artifactId>
+		<version>1.1</version>
+	</parent>
+
+	<groupId>com.tobti</groupId>
+	<artifactId>pom.xml</artifactId>
+	<version>1.0</version>
+	<name>tobti</name>
+	<description>tobti</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers</artifactId>
+			<version>3.3.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>3.3.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>3.3.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queries</artifactId>
+			<version>3.3.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-memory</artifactId>
+			<version>3.3.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.elasticsearch</groupId>
+			<artifactId>elasticsearch-jar</artifactId>
+			<version>0.19.8</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/elasticsearch-0.19.8.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.paoding</groupId>
+			<artifactId>paoding-jar</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/paoding-analysis.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.fastjson</groupId>
+			<artifactId>fastjson-jar</artifactId>
+			<version>1.1.28</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/fastjson-1.1.28.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.7.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/jsoup-1.7.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.5.10.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>2.5.6</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>2.5.6</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+			</plugin>
+			<!-- Keeping this order is very important for packaging phase (copy-dependency 
+				must run before antrun) -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+			<!-- End -->
+		</plugins>
+	</build>
+
+</project>
+

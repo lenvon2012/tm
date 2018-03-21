@@ -1,0 +1,26 @@
+#{extends 'skincomment/skinautocommentsubbase.html' /}
+
+#{set title:'差评管理' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/blacklist.css"/>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+*{<script src="/js/skincomment/blacklist.js" type="text/javascript" charset="utf-8"></script>}*
+
+<div class="blacklist-container">
+差评管理
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+        $(document).ready(function() {
+            TM.Loading.init.show();
+        });
+    });
+
+
+</script>

@@ -1,0 +1,172 @@
+#{extends 'yangyang.html' /}
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css'>
+<style>
+    .navmain {
+        width: 1000px;
+        margin: 0 auto;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        position: relative;
+    }
+    .aside {
+        width: 173px;
+        /*float: left;*/
+        margin: 20px 0 0 0;
+        position: fixed;
+        z-index: 9999;
+    }
+    .aside .sidebox {
+        clear: both;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    .sidemenu {
+        border: 1px solid #C7CACC;font-size:13px;
+    }
+    .sidemenu li a {
+        display: block;
+        height: 36px;
+        line-height: 36px;
+        border-bottom: 1px solid #C6C8CB;
+        overflow: hidden;
+        text-align: left;
+        width:100%;
+        color:#444;
+    }
+    .sidemenuAnchor{background: url("http://s.libdd.com/img/bg/sidemenu-item.$5106.png") repeat;}
+    .sidemenu li a:hover{
+        text-align: left;
+        background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;
+        color:black;
+    }
+    .sidemenu li a:hover span{color:black;}
+    .asideselected{background-color: #3668A5;}
+    .asideselected span{color:white;}
+    .clearfix, #content {
+        zoom: 1;
+    }
+    .all_container {height: auto;width:1000px;}
+
+    .kwcontainer {background: transparent;margin: 10px auto;width: 100%;overflow: hidden;zoom: 1;min-height:400px;}
+    .sidemenu li.aside-hot-tag .aside-icon {cursor: move;}
+    .sidemenu li.aside-hot-tag .aside-icon {
+        background-position: -92px 10px;
+    }
+    .sidemenu li a{}
+    .sidemenu li a .aside-icon {
+        float: left;
+        width: 36px;
+        height: 36px;
+        background-image: url("http://s.libdd.com/img/icon/sidemenu.$6372.png");
+        background-repeat: no-repeat;
+    }
+    #kits{width: 780px;}
+
+    .ddSqureButton{padding: 5px 10px 0px 10px;height:28px;background: #134E97;}
+    .ddSqureButton:hover{background: #598BC7;}
+    .head ul{margin-top:0px;}
+    .head ul li.selected{background-image: none;background-color: #32547D;}
+    .userheadop{padding-top:15px;}
+
+    .recommendDiv .tabDiv li .select {color: white; background: #32547D;}
+    .recommendDiv .tabDiv li a:hover {color: white;background: #3668A5;}
+
+
+    .btntext4{background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px}
+    .btntext4:hover{background-position: 0 -34px;}
+    .btntext6{background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') -98px -4px  no-repeat}
+    .btntext6:hover{background-position: -98px -34px;}
+    .navSelected{background-color: #598BC7;}
+    .head a{font-size:20px;}
+    .head ul li{width:120px;}
+</style>
+
+
+*{<div class='top-banner' style="background: http://s.libdd.com/img/bg/header.$5752.pngheight: 48px; ">}*
+<div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; ">
+
+    <div class='top-nav head-nav' >
+            <span class = "head" ></span>
+                *{<ul style="margin: 0" class="headUl"></ul>}*
+             <span style='float:left;width:150px;;line-height: 41px;height: 41px;text-align: center;display: inline-block;*display:inline;' class="userheadop">
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+                 <a class="bluebutton"  id="logout" style='padding:0px;' href="javascript:void(0);">退出</a> <!-- |<a href="/Share/toShare">分享</a> -->
+             </span>
+        </span>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div class="navmain">
+    <div class="all_container">
+	    <div class="kwcontainer">
+            #{doLayout /}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var head = $('.head');
+    var path = document.location.pathname;
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+        }
+    });
+    var aside = $('.aside');
+    aside.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.aside').find('a.asideselected').removeClass('asideselected');
+            anchor.addClass('asideselected');
+        }
+    });
+    TM.gcs('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        orderAnchor.parent().hide();
+        var welcome = $("<div style='position:absolute;left:550px;top:30px;color:white;'>欢迎您,<b>"+TM.name+"</b></div>");
+        $('.top-nav').append(welcome);
+    });
+
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                    window.location.reload();
+                });
+            });
+        });
+        var wangwang = 'http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8';
+        //var wangwang = TM.wangwang || 'http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8';
+        $('#kefuhref').attr('href',wangwang);
+    });
+
+    $('#logout').click(function(){
+        $.ajax({
+            url : '/in/logout',
+            dataType : 'text',
+            success : function(text){
+                $.cookie('tm_SESSION',null);
+                window.location.href = text;
+            }
+        })
+    })
+
+    $(".app-nav").hide();
+    // TODO, this is for the preview temp...
+    $('#goHelp').hide();
+    var img = $('#tempLogoImg');
+    img.attr('src','/public/images/header/Glossy_Menus_05_blue.png');
+    img.css({width:'100px'});
+
+</script>
+

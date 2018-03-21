@@ -1,0 +1,109 @@
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'宝贝上下架查询' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+#{/set}
+
+<style>
+    #yangyangContent .nav-table-left-td .aside {display: none;}
+
+    .item-delist-container {
+        font-size: 14px; font-family: "微软雅黑";
+    }
+    .search-input {
+        height: 20px; border: 1px solid #999;
+    }
+
+    .search-table {
+        border-collapse: collapse;
+    }
+    .search-table td {
+        vertical-align: middle;
+    }
+
+</style>
+
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>宝贝上下架查询
+</div>
+
+
+<div class="item-delist-container" style="padding: 10px;">
+
+    <div style="text-align: center;">
+        <table class="search-table" style="margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td>宝贝链接：</td>
+                <td style="padding-left: 10px;"><input type="text" class="search-input" style="width: 350px;" /> </td>
+                <td style="padding-left: 20px;">
+                    <span class="tmbtn big-blue-btn delist-search-btn" style="font-size: 14px;">宝贝下架查询</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="item-tip-div" style="margin-top: 30px;padding-bottom: 100px;padding-left: 70px;">
+
+    </div>
+
+    <div class="item-delist-result" style="text-align: center;padding: 30px;display: none;">
+        <div style="background: #eee; border: 1px solid #999;padding: 20px 0px;margin: 0 auto; width: 700px;">
+            <table class="item-delist-table" style="margin: 0 auto;text-align: left;font-size: 16px;">
+                <tbody>
+                <!--  <tr>
+                    <td rowspan="2" style="padding-right: 30px;">
+                        <a class="item-href" target="_blank"><img class="item-img" style="width: 90px; height: 90px; " /> </a>
+                    </td>
+                    <td colspan="4">
+                        <a class="item-href" target="_blank"><span class="item-title" style="color: #000;font-size: 16px;"></span> </a>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td style="">下架时间：</td>
+                    <td style="padding-left: 10px;"><span class="delist-time-span" style="color: red;"></span> </td>
+                   <!-- <td style="padding-left: 30px;">下架剩余时间：</td>-->
+                    <td style="padding-left: 10px;"><span class="left-time-span" style="color: red;"></span> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div style="height: 200px;"></div>
+
+</div>
+
+
+#{set 'moreScripts'}
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/commstab/commstab.js', function () {
+                TM.gcs("/status/js", function () {
+                    TM.gcs('/js/jquery.url.js', function () {
+                        TM.gcs("/js/industry/industrybase.js?_v=7", function () {
+                            TM.gcs("/js/industry/itemsearch.js?_v=11", function () {
+                                $(document).ready(function () {
+                                    TM.ItemSearch.init.doInit($(".item-delist-container"));
+
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

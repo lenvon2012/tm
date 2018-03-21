@@ -1,0 +1,27 @@
+#{extends 'dianputuiguang/newbase.html' /}
+#{set title:'店铺推广 - 流量效果分析' /}
+
+<style type="text/css">
+
+</style>
+
+<div class="item-container">
+
+</div>
+<div id="analysisDivTmpl" style="width: 600px;height: 400px;display: none;" >
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/tm.js', function () {
+                TM.gcs('/home/firstSync',function() {
+                    TM.gcs('/js/dianputuiguang/analysis.js', function () {
+                        var baidushoucang = false;
+                        TM.Analysis.init.doInit($(".item-container"),baidushoucang);
+                    });
+                });
+            });
+        });
+    });
+</script>

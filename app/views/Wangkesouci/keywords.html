@@ -1,0 +1,249 @@
+#{extends 'Wangkesouci/wangkebase.html' /}
+<style>
+    #search_key{
+        background-color: #ffffff;
+    }
+    .titleOpContainer {
+        font-size: 12px;
+        text-align: left;
+    }
+    .nor_search{
+        margin-bottom: 20px;
+        margin-top: 24px;
+    }
+    .liTargetDiv .wordSearch .searchLabel {
+        font-size: 14px;
+        margin-right: 7px;
+        color: #666;
+        font-weight: bold;
+        margin-left: 15px;
+        float: left;
+        margin-top: 10px;
+    }
+    .liTargetDiv .wordSearch .wordInput {
+        height: 20px;
+        line-height: 20px;
+        width: 200px;
+        border: #2D8ABE 1px solid;
+        margin-right: 20px;
+        float: left;
+        margin-top: 4px;
+    }
+    .liTargetDiv .wordSearch .searchBtn {
+        line-height: 30px;
+        width: 96px;
+        height: 30px;
+        font-family: "微软雅黑";
+        color: white;
+        font-size: 13px;
+        background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+        display: block;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+    .recommendDiv .tableDiv table {
+        width: 100%;
+        text-align: center;
+        border-spacing: 0;
+        border-collapse: collapse;
+        background-color: white;
+    }
+    .recommendDiv .tableDiv table thead {
+        font-weight: bold;
+    }
+    .recommendDiv .tableDiv table thead tr {
+        background-color: #ffffff;
+        background-color: #f8f8f8;
+    }
+    .tableRow {
+        border: 1px solid #ccc;
+        height: 30px;
+        weigth: 100%;
+        text-align: center;
+    }
+    .firstRow {
+        background: left -102px url('/public/images/frame/bg.png');
+        height: 24px;
+        width: 100%;
+    }
+    #bus-search-tbody tr {
+        border: 1px solid #ccc;
+        height: 45px;
+    }
+    .recommendDiv .tableDiv table td {
+        padding: 5px 0px;
+        border: #c0c0c0 1px solid;
+        font-size: 14px;
+        color: #333;
+    }
+    #bus-search-tbody td {
+        border: none;
+        font-size: 12px;
+        font-family: '微软雅黑';
+    }
+    .shadowbase {
+        border: 2px solid #9c9c9c;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-box-shadow: 1px 1px 2px #000;
+        -webkit-box-shadow: 1px 1px 2px #000;
+        box-shadow: 1px 1px 1px #000;
+        background: white;
+        border-radius: 8px;
+        position: relative;
+        behavior: url(/css/ie.htc);
+    }
+    .addTextWrapperSmall {
+        border: solid 2px #9e9e9e;
+        font-size: 12px;
+        display: -moz-inline-box;
+        display: inline-block;
+        cursor: pointer;
+        padding: 0 10px;
+        margin: 3px 4px 2px 4px;
+        padding-left: 18px;
+    }
+    .addTextWrapperSmall img {
+        width: 16px;
+        position: absolute;
+        top: 2px;
+        left: 0px;
+    }
+    .even {
+        background: rgb(249, 249, 249);
+    }
+    .bussearch{
+        width: 100%;
+        text-align: center;
+    }
+    .Desc {
+        background: url("/img/sort-bg.png") 0px -17px;
+    }
+    .sort {
+        width: 20px;
+        height: 20px;
+    }
+    .Asc {
+        background: url("/img/sort-bg.png") 0px -40px;
+    }
+    .bussearch thead{
+        font-size: 12px;
+    }
+    .switchtext {position: absolute;top:30px;left:630px;}
+    .kwcontainer{min-height:700px;_height:700px;}
+</style>
+
+<div class ="search" style="position: relative;">
+    <!-- 普通查询 -->
+    <div class ="nor_search" >
+        <div>
+            <input type="text" id="search_key">
+            <a id= "serch_now">立即搜索</a>
+            <a id="tosupersearch" class='switchtext'>&gt;&gt;&gt;切换至高级搜索</a>
+        </div>
+    </div>
+    <!-- 高级查询 -->
+    <div class = "sup_search" style="display: none;position:relative">
+        <a id="tonorsearch" class='switchtext'>&lt;&lt;&lt;切换至普通搜索</a>
+        <div class="sup_condition" style="margin-left:5px;">
+            <table class="condition_table">
+                <tr>
+                    <td colspan="6">使用下列条件来搜索：</td>
+                </tr>
+                <tr>
+                    <td>包含以下所有词：</td>
+                    <td colspan="3">
+                        <!-- cd代表condition -->
+                        <input type="text" id="all_cd">
+                    </td>
+                    <td>
+                        示例：衣服
+                    </td>
+                </tr>
+                <tr>
+                    <td>包含以下任意词：</td>
+                    <td>
+                        <input type="text" id="baohan_cd1">
+                    </td>
+                    <td>
+                        <input type="text" id="baohan_cd2">
+                    </td>
+                    <td>
+                        <input type="text" id="baohan_cd3">
+                    </td>
+                    <td>
+                        示例：男&nbsp;休闲&nbsp;运动
+                    </td>
+                </tr>
+                <tr>
+                    <td>不含以下任意词：</td>
+                    <td>
+                        <input type="text" id="buhan_cd1">
+                    </td>
+                    <td>
+                        <input type="text" id="buhan_cd2">
+                    </td>
+                    <td>
+                        <input type="text" id="buhan_cd3">
+                    </td>
+                    <td>
+                        示例：红色 &nbsp;童装&nbsp;幼儿
+                    </td>
+                </tr>
+
+            </table>
+            <div class = "search_now_super">
+                <a id="search_now_super">立即搜索</a><a id="reset_input">重置输入框</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="bus-search-pagging" style="text-align: center;"></div>
+<table class="bussearch">
+    <thead>
+    <!--<tr>
+        <td colspan="7">
+            <div>
+                 <span >全选</span>&nbsp;<span>反选</span>&nbsp;<span>删除</span>&nbsp;<span>标记</span>
+            </div>
+        </td>
+    </tr>-->
+    <tr align="center" class="tableRow firstRow">
+        <th style="width: 200px;">关键词</th>
+        <th class="bus-search-sort-th" style="width: 80px;cursor: pointer;">搜索指数<span class="inlineblock sort Desc" sort="pv"></span></th>
+        <th class="bus-search-sort-th" style="width: 80px;cursor: pointer;">点击量<span class="inlineblock sort Desc" sort="click"></span></th>
+        <th class="bus-search-sort-th" style="width: 80px;cursor: pointer;">宝贝数<span class="inlineblock sort Desc" sort="scount"></span></th>
+        <th>转化率</th>
+        <th>性价比<span class="question" content="搜索量/宝贝数，搜索量除以宝贝数的指标,表示关键词的性价比"></span></th>
+        <th>平均出价</th>
+        <th>添加到我的词库</th>
+    </tr>
+    </thead>
+    <tbody id="bus-search-tbody">
+    <!-- here will show the result -->
+    </tbody>
+</table>
+<div class="bus-search-pagging" style="text-align: center;"></div>
+<div class="blank0" style="height: 15px;"></div>
+
+#{set 'moreScripts'}
+<Script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs("/js/tm.js",function(){
+                TM.gcs('/js/genKeywordSpan/genKeywordSpan.js',function(){
+                    TM.gcs("/js/wangkesouci/wankewords.js",function(){
+                        $('#search_key').focus();
+                        TM.Wangke.Init.init();
+                        TM.widget.bindQtips();
+                    });
+                });
+        });
+    });
+
+</Script>
+#{/set}

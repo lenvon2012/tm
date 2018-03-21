@@ -1,0 +1,15 @@
+.defenselog-container {
+    padding: 10px; border: 1px solid #999; font-family: "微软雅黑"; font-size: 14px; color: #333;
+    min-height:580px;_height:580px;
+}
+.defenselog-container .log-table-div {
+    margin-top: 10px;
+	padding: 10px 0px;
+    border: 1px solid #999;
+}
+.defenselog-container .paging-div {
+    text-align: center;
+}
+.defenselog-container .item-img {
+    width: 70px; height: 70px;
+}

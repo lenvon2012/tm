@@ -1,0 +1,731 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'自动标题-智能流量优化专家' /}
+
+<link media="screen" rel="stylesheet" href="/css/topKey/topKey.css?_v=2">
+
+
+
+
+<style>
+    ul {
+        padding: 0;
+    }
+    .batchOpBody {
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        margin: 20px 0 20px 0;
+    }
+    .batchOpBody span {
+        margin: 0 25px;
+    }
+    .batchOpBody span:hover{
+        background: #48c9b0;
+    }
+    .tmbtn:hover{
+        background: #48c9b0;
+
+    }
+    select{
+        padding: 1px 10px 0px 10px;
+    }
+    #searchWord{
+        font-family: '微软雅黑';
+        font-size: 13px;
+        color: #cccccc;
+    }
+
+</style>
+<div id="topNotice" class="top_notice"></div>
+
+<div id="content">
+
+    <div class="batchOpBody">
+        <span class="batchAllUseRecommend tmbtn too-wide-yellow-btn">全店一键推荐标题</span>
+        <span class="batchAllUseGuanfang tmbtn too-wide-yellow-btn">全店一键官方标题</span>
+        <span class="batchAllUseGuanfangRecomm tmbtn too-wide-yellow-btn">全店官方推荐标题</span>
+    </div>
+
+    <div id="itemsInfoSearch" class="data_search" style="">
+        <ul>
+            <li class="left">
+                <select id="itemsCat" class="input_border_radius">
+
+                </select>
+            </li>
+            <li class="left" style="margin-left:30px;">
+                <select id="taobaoCat" class="input_border_radius">
+
+                </select>
+            </li>
+            <li class="left">
+                <select id="itemStatus" class="input_border_radius s_w_4">
+                    <option value="all">所有宝贝</option>
+                    <option value="onsale" selected="selected">出售中的宝贝</option>
+                    <option value="instock">仓库中的宝贝</option>
+                </select>
+            </li>
+            <li class="left">
+                <select class="input_border_radius s_w_4" id="itemsSortBy">
+                    <option tag="sortBy">默认排序</option>
+                    <option tag="sortByScoreUp">得分升序</option>
+                    <option tag="sortByScoreDown">得分降序</option>
+                </select>
+            </li>
+            <li class="left">
+                得分:<input id="lowScore" value="0"> - <input id="highScore" value="100">
+            </li>
+            <li class="right" style="margin-right: 30px;">
+                <button type="button" class="search_btn" name="goSearchItems" id="goSearchItems"></button>
+            </li>
+            <li class="right" style="margin-right: 0"><input type="text" value="" class="input_border_radius" name="searchWord" id="searchWord" value=""
+                                     maxlength="30"></li>
+        </ul>
+    </div>
+    <div id="itemsInfo" style="">
+        <table class="datalist">
+
+            <tbody>
+
+            </tbody>
+        </table>
+        <div id="analyzeItems" style="display: none;"></div>
+        <!-- 宝贝列表 -->
+        <div class="newAutoTitleBottom" style="text-align: center"></div>
+
+
+    </div>
+
+    <iframe id="roleIframe" class="window_iframe w_size w_position" scrolling="no" frameborder="0"
+            style="display:none;"></iframe>
+</div>
+
+<script type="text/x-jquery-tmpl" id="busSearchTmpl">
+    <div class="liTargetDiv tableDiv busSearchBlock">
+        <div class="wordSearch">
+            <span class="searchLabel">关键词：</span>
+            <input type="text" class="busSearchText" class="wordInput"/>
+            <span class="busSearchBtn" class="tmbtn sky-blue-btn">搜索</span>
+        </div>
+        <div class="blank0" style="height: 10px;"></div>
+        <div class="parseWords titlesplits" style="">种子关键词:</div>
+        <div class="bus-search-pagging" style="text-align: center;"></div>
+        <table class="bussearch">
+            <thead>
+            <!--<tr>
+                <td colspan="7">
+                    <div>
+                         <span >全选</span>&nbsp;<span>反选</span>&nbsp;<span>删除</span>&nbsp;<span>标记</span>
+                    </div>
+                </td>
+            </tr>-->
+            <tr align="center" class="tableRow firstRow">
+                <th style="width: 20%;">关键词</th>
+                <th class="bus-search-sort-th" style="width: 10%;">搜索指数<span class="inlineblock sort Desc"
+                                                                             sort="pv"></span></th>
+                <th class="bus-search-sort-th" style="width: 10%;">点击量<span class="inlineblock sort Desc"
+                                                                            sort="click"></span></th>
+                <th class="bus-search-sort-th" style="width: 10%;">宝贝数<span class="inlineblock sort Desc"
+                                                                            sort="scount"></span></th>
+                <th style="width: 10%;">点击率</th>
+                <th style="width: 10%;">成交转化率</th>
+                <th class="bus-search-sort-th" style="width: 10%;">性价比<span class="inlineblock sort Desc"
+                                                                            sort="score"></span><span class="question"
+                                                                                                      content="搜索量/宝贝数，反应该关键词的性价比"></span>
+                </th>
+                <th style="width: 10%;">平均出价</th>
+                <th style="width: 10%;">添加到我的词库</th>
+            </tr>
+            </thead>
+            <tbody class="bus-search-tbody">
+            <!-- here will show the result -->
+            </tbody>
+        </table>
+        <div class="bus-search-pagging" style="text-align: center;margin-top: 12px;"></div>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="promoteWordsTmpl">
+    <div class="liTargetDiv promoteBlock" style="display: block;">
+        <table class="promoteWordsTable">
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="itemPropsTmpl">
+    <div class="liTargetDiv tableDiv propBlock" style="display: block;">
+        <div class="blank0" style="height: 5px;"></div>
+        <table class="propTable">
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="renameHistoryTmpl">
+    <div class="liTargetDiv tableDiv renameHistory" style="display: block;">
+        <div class="blank0" style="height: 5px;"></div>
+        <div class="rename-history-pagging" style="text-align: center"><div class="tm-paging-container"><span class="page-prev page-prev-disabled" title="上一页"></span>&nbsp;<span class="paging-nav paging-select current" title="1">1</span>&nbsp;<span class="page-next page-next-disabled" title="下一页"></span>&nbsp;&nbsp;&nbsp;共&nbsp;1&nbsp;页&nbsp;每页显示&nbsp;<span class="paging-size10 paging-size-span paging-nav paging-size-select" style="font-weight: bold;cursor: pointer;">10</span>|&nbsp;<span class="paging-size20 paging-size-span paging-nav paging-size-link" style="font-weight: bold;cursor: pointer;">20</span>|&nbsp;<span class="paging-size50 paging-size-span paging-nav paging-size-link" style="font-weight: bold;cursor: pointer;">50</span>条&nbsp;到&nbsp;<input type="text" class="jumpTo" value="1">&nbsp;页&nbsp;<input class="gopage-submit hand" title="跳转页面" type="button" value="确定"></div></div>
+        <table class="renameHistoryTable" style="border: #c0c0c0 1px solid;">
+            <thead>
+            <tr class="renameHistoryTr">
+                <td class="rename-history-oldtitle" style="width: 345px;">旧标题</td>
+                <td class="rename-history-newtitle" style="width: 345px;">新标题</td>
+                <td style="width: 110px;">还原为旧标题</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="rename-history-pagging" style="text-align: center"><div class="tm-paging-container"><span class="page-prev page-prev-disabled" title="上一页"></span>&nbsp;<span class="paging-nav paging-select current" title="1">1</span>&nbsp;<span class="page-next page-next-disabled" title="下一页"></span>&nbsp;&nbsp;&nbsp;共&nbsp;1&nbsp;页&nbsp;每页显示&nbsp;<span class="paging-size10 paging-size-span paging-nav paging-size-select" style="font-weight: bold;cursor: pointer;">10</span>|&nbsp;<span class="paging-size20 paging-size-span paging-nav paging-size-link" style="font-weight: bold;cursor: pointer;">20</span>|&nbsp;<span class="paging-size50 paging-size-span paging-nav paging-size-link" style="font-weight: bold;cursor: pointer;">50</span>条&nbsp;到&nbsp;<input type="text" class="jumpTo" value="1">&nbsp;页&nbsp;<input class="gopage-submit hand" title="跳转页面" type="button" value="确定"></div></div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="itemRow">
+    <tr class="itemRow" numIid="{{= numIid}}" cid="{{= cid}}">
+        <td style="width: 100px;" class="imgTd">
+            <a target="_blank" href="http://item.taobao.com/item.htm?id={{= numIid}}">
+                <img src="{{= picPath}}" alt="{{= title}}" style="width: 80px;height: 80px;">
+            </a>
+        </td>
+        <td style="width: 30%;" class="titleTd">
+            <a target="_blank" href="http://item.taobao.com/item.htm?id={{= numIid}}" name="{{= title}}">
+                {{= title}}
+            </a>
+        </td>
+        <td style="width: 10%;" class="optimiseDayTd">
+            {{= lastOptimiseDay}}
+        </td>
+        <td style="width: 20%;" class="scoreTd">
+            <a href="javascript:void(0);" style="color: rgb(51, 51, 51); margin-left: 40px;" class="itemScore"
+               numIid="{{= id}}">
+                <span style="font-size : 16px;margin-right: 8px;">{{= score}}</span>分&nbsp;&nbsp;
+
+            </a>
+            <i class="show_result itemScore" numIid="{{= numIid}}" title="得分详情"></i>
+        </td>
+        <td style="width: 20%;" numIid="{{= numIid}}" class="diagNowTd">
+            <a class="btn_strengthen" href="javascript:void(0);">
+                立即优化
+            </a>
+        </td>
+    </tr>
+    <tr class="detailRow hidden" numIid="{{= numIid}}">
+        <td colspan="10">
+            <div class="detailRowContainer">
+
+            </div>
+        </td>
+    </tr>
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="estimateWordsTbody">
+    <tr>
+        <td width="35px" style="text-align: right;"><i class="keyword_ico_brand"
+                                                       title="品牌词，请慎重使用，以免降权"></i>&nbsp;&nbsp;
+        </td>
+        <td width="165px" style="text-align: left;">{{= word}}</td>
+        <td width="150px">{{= pv}}</td>
+        <td width="130px">{{= scount}}</td>
+        <td width="130px">{{= newScore}}</td>
+
+    </tr>
+</script>
+
+<script type="text/x-jquery-tmpl" id="itemDiagInfo">
+    <div class="strengthen_windows" numIid="{{= id}}">
+        <div class="w_close_btn">
+            <a href="javascript:void(0);">
+
+            </a>
+        </div>
+        <div style="height: 310px; text-align: left;">
+            <div class="original_test_top">
+                <ul>
+                    <li><h5>{{= title}}</h5></li>
+                    <li><b>{{= score}}</b>分</li>
+                    <li style="float: right;">
+                        <a class="btn_strengthen" href="javascript:viod(0);" style="margin-top: 2px;" numIid="{{= numIid}}">
+                            立即优化
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="original_test_top_details">
+                <span>字数：{{= titleLength}}</span><span>关键词：{{= estimateWords.length}}</span>
+            </div>
+            <div class="original_test_key">
+                <div class="left">
+                    <div class="list_item_name2">
+                        <table class="datalist">
+                            <tbody>
+                            <tr>
+                                <th style="width: 200px;">关键字</th>
+                                <th style="width: 150px;">热搜索指数</th>
+                                <th style="width: 130px;">商品数量</th>
+                                <th style="width: 130px;">曝光率得分</th>
+                                <th style="width: 18px;"></th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="key_list2">
+                        <table>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="right" style="text-align: left;"><strong>优化建议</strong>
+
+                    <p>暂无</p></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="optimise">
+    <div class="strengthen_windows" numIid="{{= numIid}}" name="{{= title}}" cid="{{= cid}}">
+        <div class="w_close_btn">
+            <a href="javascript:void(0);">
+
+            </a>
+        </div>
+        <div style="height: 357px;">
+            <div class="sw_top">
+                <ul numIid="{{= numIid}}">
+
+                    <li class="title_input_li"><input type="text" maxlength="60"
+                                                      value="{{= title}}" class="title_input"></li>
+                    <li class="title_limit_li">14/30</li>
+                    <li><a class="title_test_btn" href="javascript:void(0);">查看标题得分</a></li>
+                    <li><a class="auto_create_btn" href="javascript:void(0);">自动生成标题</a></li>
+                    <li><a class="save_current_title" href="javascript:void(0);">保存当前标题</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="sw_details">
+                <div class="sw_l_tab">
+                    <ul>
+                        <li tag="recommend_title" class="opTab"><a href="javascript:void(0);">推荐宝贝</a></li>
+                        <li tag="cat_top" class="opTab"><a href="javascript:void(0);">买家热搜词</a></li>
+                        <li tag="promotion" class="opTab"><a href="javascript:void(0);">促销词推荐</a></li>
+                        <li tag="topkey" class="opTab"><a href="javascript:void(0);">黑马词</a></li>
+                        <li tag="bussearch" class="opTab"><a href="javascript:void(0);">关键词查找</a></li>
+                        <li tag="item_props" class="opTab"><a href="javascript:void(0);">宝贝属性查看</a></li>
+                        <li tag="history_rename" class="opTab"><a href="javascript:void(0);">宝贝历史标题</a></li>
+                    </ul>
+                </div>
+                <div class="tab_1_div">
+
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="recommendTitleTmpl">
+    <div class="recommendTitleDiv">
+        <table class="recommendTitleTable">
+             <tbody>
+                <tr>
+                    <td>推荐标题:</td>
+                    <td>
+                        <input type="text" class="recommendTitleContent">
+                    </td>
+                    <td>
+                        <span class="tmbtn long-flat-green-btn useRecommendTitle">使用推荐标题</span>
+                    </td>
+                </tr>
+                <tr class="hidden fenxiaoTitleTr">
+                    <td>分销标题:</td>
+                    <td>
+                        <input type="text" class="fenxiaoTitleContent">
+                    </td>
+                    <td>
+                        <span class="tmbtn long-flat-green-btn useFenxiaoTitle">使用分销标题</span>
+                    </td>
+                </tr>
+                <tr class="hidden fenxiaoRecommendTitleTr">
+                    <td>分销推荐标题:</td>
+                    <td>
+                        <input type="text" class="fenxiaoRecommendTitleContent">
+                    </td>
+                    <td>
+                        <span class="tmbtn long-flat-green-btn useFenxiaoRecommendTitle">使用分销推荐标题</span>
+                    </td>
+                </tr>
+             </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="blackHorseWords">
+    <div class="liTargetDiv tableDiv BlackHorseBlock" style="display: block;">
+        <div class="topKeyContent" style="">
+            <div class="topkeyNav">
+                <div class="inlineblock">
+                    <a class="sellup inlineblock uporhot" href="javascript:void(0)" target="_self">
+                        <span class=" current">销售上升</span></a>
+                    <a class="sellhot inlineblock uporhot" href="javascript:void(0)" target="_self">
+                        <span class="">销售热门</span></a>
+
+                </div>
+            </div>
+            <div class="rightContent">
+                <div class="catgory">
+                    <select name="topkeyselectCat2" class="topkeyselectCat2">
+                        <option value="9">时尚女装</option>
+                        <option value="10">靓丽女鞋码</option>
+                        <option value="11">帅气男装</option>
+                        <option value="12">流行男鞋</option>
+                        <option value="13">内衣/家居服</option>
+                        <option value="14">精品箱包</option>
+                        <option value="15">男人帮 配饰</option>
+                        <option value="16">闺蜜秀 配饰</option>
+                        <option value="17">璀璨珠宝</option>
+                        <option value="18">电脑/配件</option>
+                        <option value="19">手机/配件</option>
+                        <option value="20">摄影器材</option>
+                        <option value="21">影音产品</option>
+                        <option value="22">厨房家电</option>
+                        <option value="23">生活家电</option>
+                        <option value="24">办公数码</option>
+                        <option value="25">3c数码配件</option>
+                        <option value="26">美容护肤</option>
+                        <option value="27">香水/美丽彩妆</option>
+                        <option value="28">身体护理</option>
+                        <option value="29">功效</option>
+                        <option value="30">宝宝服饰</option>
+                        <option value="31">宝宝食品</option>
+                        <option value="32">宝宝用品</option>
+                        <option value="33">宝宝玩具</option>
+                        <option value="34">孕妇用品</option>
+                        <option value="35">孕妇服饰</option>
+                        <option value="36">休闲零食</option>
+                        <option value="37">冲饮品</option>
+                        <option value="38">民生食品</option>
+                        <option value="39">保健食品</option>
+                        <option value="40">茶叶饮品</option>
+                        <option value="41">活力户外</option>
+                        <option value="42">健康运动</option>
+                        <option value="43">热销图书</option>
+                        <option value="44">投资收藏</option>
+                        <option value="45">度假旅游</option>
+                        <option value="46">乐器/配件</option>
+                        <option value="47">日用/礼品</option>
+                        <option value="48">床品/布艺</option>
+                        <option value="49">厨房/餐饮</option>
+                        <option value="50">日化/清洁</option>
+                        <option value="51">折扣券</option>
+                        <option value="52">成人用品</option>
+                        <option value="53">商业/办公家具</option>
+                        <option value="54">布艺软饰</option>
+                        <option value="55">工艺饰品</option>
+                        <option value="56">家装主材</option>
+                        <option value="57">住宅家具</option>
+                        <option value="58">五金/工具</option>
+                        <option value="59">买房/租房</option>
+                        <option value="60">趣味玩具</option>
+                        <option value="61">游戏</option>
+                        <option value="62">汽车配件</option>
+                        <option value="63">骑行/配件</option>
+                        <option value="64">宠物宝贝</option>
+                        <option value="65">鲜花植物</option>
+
+                    </select>
+
+                    <select name="topkeyselectCat3" class="topkeyselectCat3"></select>
+                </div>
+                <div class="clear"></div>
+                <div class="tableContent">
+                    <table class="catSearch busSearch">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <!--   <div class="addNewCatDiv">
+                        <span id="addNewCat">添加新人气类目+</span>
+                    </div>
+                    -->
+                </div>
+
+                <div class="rightBottom">
+                    <p id="class" class="topkeyPagination">
+
+                    <div class="pagination"></div>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="shopRecTmpl">
+    <form >
+        <table>
+            <tbody >
+            <tr class="status">
+                <td>在架状态:</td>
+                <td>
+                    <select>
+                        <option value="2">所有宝贝</option>
+                        <option value="1">在售宝贝</option>
+                        <option value="0">下架宝贝</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="allsale">
+                <td>优化宝贝是否不限销量:</td>
+                <td><select>
+                    <option value="false">否.只优化没有销量的宝贝</option>
+                    <option name="sale" value="true">是,不限销量</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>是否保留标题中的品牌:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="brand" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="brand" value="false">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留货号:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="serialNum" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="serialNum" value="false">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留数字:</td>
+                <td><input class="smallinput" type="radio" name="noNumber" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noNumber" value="true">否
+                </td>
+            </tr>
+            <tr>
+                <td>是否保留颜色:</td>
+                <td><input class="smallinput" type="radio" name="noColor" value="false" checked="checked">是
+                    <input class="smallinput"  type="radio" name="noColor" value="true">否
+                </td>
+            </tr>
+            <tr>
+                <td>标题头部固定词:</td>
+                <td><input type="text" name="fixedStart" style="width:200px"></td>
+            </tr>
+            <tr>
+                <td>标题不包含以下词(以<span style="color: red;">空格</span>分割):</td>
+                <td><input type="text" name="mustExcluded" style="width:200px"></td>
+            </tr>
+            <tr>
+                <td>是否添加促销词:</td>
+                <td>
+                    <input class="smallinput" type="radio" name="promotewords" value="true" checked="checked">是
+                    <input class="smallinput" type="radio" name="promotewords" value="false">否
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="catTopWords">
+    <div class="liTargetDiv tableDiv BusCatPlayBlock" style="display: block;">
+        <div class="cat-top-word-container">
+            <div style="text-align: center; padding: 20px 0;">
+                <table class="cat-select-table" style="border-collapse: collapse; margin: 0 auto;width: auto;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <select class="first-cat-select" style="width: 190px;">
+                                <option value="26">汽车/用品/配件/改装/摩托</option>
+                                <option value="50020808">家居饰品</option>
+                                <option value="50020857">特色手工艺</option>
+                                <option value="50025707">景点门票/度假线路/旅游服务</option>
+                                <option value="30">男装</option>
+                                <option value="50008164">住宅家具</option>
+                                <option value="50020611">商业/办公家具</option>
+                                <option value="50023904">国货精品数码</option>
+                                <option value="50010788">彩妆/香水/美妆工具</option>
+                                <option value="1801">美容护肤/美体/精油</option>
+                                <option value="50023282">美发护发/假发</option>
+                                <option value="1512">手机</option>
+                                <option value="14">数码相机/单反相机/摄像机</option>
+                                <option value="1201">MP3/MP4/iPod/录音笔</option>
+                                <option value="1101">笔记本电脑</option>
+                                <option value="50019780">平板电脑/MID</option>
+                                <option value="50018222">台式机/一体机/服务器</option>
+                                <option value="11">电脑硬件/显示器/电脑周边</option>
+                                <option value="50018264">网络设备/网络相关</option>
+                                <option value="50008090">3C数码配件</option>
+                                <option value="50012164">闪存卡/U盘/存储/移动硬盘</option>
+                                <option value="50007218">办公设备/耗材/相关服务</option>
+                                <option value="50018004">电子词典/电纸书/文化用品</option>
+                                <option value="20">电玩/配件/游戏/攻略</option>
+                                <option value="50022703">大家电</option>
+                                <option value="50011972">影音电器</option>
+                                <option value="50012100">生活电器</option>
+                                <option value="50012082">厨房电器</option>
+                                <option value="50002768">个人护理/保健/按摩器材</option>
+                                <option value="27">家装主材</option>
+                                <option value="50020332">基础建材</option>
+                                <option value="50020485">五金/工具</option>
+                                <option value="50020579">电子/电工</option>
+                                <option value="50011949">特价酒店/特色客栈/公寓旅馆</option>
+                                <option value="21">居家日用/婚庆/创意礼品</option>
+                                <option value="50016349">厨房/餐饮用具</option>
+                                <option value="50016348">清洁/卫浴/收纳/整理用具</option>
+                                <option value="50008163">床上用品/布艺软饰</option>
+                                <option value="35">奶粉/辅食/营养品</option>
+                                <option value="50014812">尿片/洗护/喂哺/推车床</option>
+                                <option value="50022517">孕妇装/孕产妇用品/营养</option>
+                                <option value="50008165">童装/童鞋/亲子装</option>
+                                <option value="50020275">传统滋补营养品</option>
+                                <option value="50002766">零食/坚果/特产</option>
+                                <option value="50016422">粮油/蔬果/水产/速食</option>
+                                <option value="50008075">餐饮美食/面包券</option>
+                                <option value="40">腾讯QQ专区</option>
+                                <option value="50010728">运动/瑜伽/健身/球迷用品</option>
+                                <option value="50013886">户外/登山/野营/旅行用品</option>
+                                <option value="50011699">运动服/运动包/颈环配件</option>
+                                <option value="25">玩具/模型/动漫/早教/益智</option>
+                                <option value="50011665">网游装备/游戏币/帐号/代练</option>
+                                <option value="50008907">手机号码/套餐/增值业务</option>
+                                <option value="99">网络游戏点卡</option>
+                                <option value="23">古董/邮币/字画/收藏</option>
+                                <option value="50007216">鲜花速递/花卉仿真/绿植园艺</option>
+                                <option value="50004958">移动/联通/电信充值中心</option>
+                                <option value="50005700">品牌手表/流行手表</option>
+                                <option value="50011740">流行男鞋</option>
+                                <option value="16">女装/女士精品</option>
+                                <option value="50006843">女鞋</option>
+                                <option value="50006842">箱包皮具/热销女包/男包</option>
+                                <option value="1625" selected="selected">女士内衣/男士内衣/家居服</option>
+                                <option value="50010404">服饰配件/皮带/帽子/围巾</option>
+                                <option value="50011397">珠宝/钻石/翡翠/黄金</option>
+                                <option value="28">ZIPPO/瑞士军刀/眼镜</option>
+                                <option value="33">书籍/杂志/报纸</option>
+                                <option value="34">音乐/影视/明星/音像</option>
+                                <option value="50017300">乐器/吉他/钢琴/配件</option>
+                                <option value="29">宠物/宠物食品及用品</option>
+                                <option value="2813">成人用品/避孕/计生用品</option>
+                                <option value="50012029">运动鞋new</option>
+                                <option value="50013864">饰品/流行首饰/时尚饰品新</option>
+                                <option value="50018252">电子凭证</option>
+                                <option value="50014442">交通票</option>
+                                <option value="50014811">网店/网络服务/软件</option>
+                                <option value="50016891">网游垂直市场根类目</option>
+                                <option value="50023724">其他</option>
+                                <option value="50017908">彩票</option>
+                                <option value="50017652">TP服务商大类</option>
+                                <option value="50019379">合作商家</option>
+                                <option value="50023575">房产/租房/新房/二手房/委托服务</option>
+                                <option value="50023717">OTC药品/医疗器械/隐形眼镜/计生用品</option>
+                                <option value="50023878">自用闲置转让</option>
+                                <option value="50024186">保险</option>
+                                <option value="50024449">淘花娱乐</option>
+                                <option value="50024451">外卖/外送/订餐服务</option>
+                                <option value="50024612">外卖/外送/订餐服务（垂直市场）</option>
+                                <option value="50024971">新车/二手车</option>
+                                <option value="50025004">个性定制/设计服务/DIY</option>
+                                <option value="50025110">电影/演出/体育赛事</option>
+                                <option value="50025111">本地化生活服务</option>
+                                <option value="50025618">理财</option>
+                                <option value="50025705">洗护清洁剂/卫生巾/纸/香薰</option>
+                                <option value="50025706">贵金属</option>
+                                <option value="50025968">司法拍卖拍品专用</option>
+                                <option value="50026316">茶/酒/冲饮</option>
+                                <option value="50023804">装修设计</option>
+                                <option value="50026523">休闲娱乐/购物卡</option>
+                                <option value="50026800">保健品/膳食营养补充剂</option>
+                            </select>
+                        </td>
+                        <td style="padding-left: 50px;">
+                            <select class="second-cat-select" style="width: 190px;"></select>
+                        </td>
+                        <td style="padding-left: 50px;">
+                            <select class="third-cat-select" style="width: 190px;">
+                                <option value="0">暂无类目</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging-div" style="text-align: center;padding-bottom: 5px;">
+
+            </div>
+            <div style="padding: 0px 20px;">
+                <table class="busSearch catWordTable" style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <th style="width: 17%;">
+                            <div class="">关键词</div>
+                        </th>
+                        <th style="width: 12%;">
+                            <div class="sort-td sort-down current-sort" orderby="pv">搜索指数</div>
+                        </th>
+                        <th style="width: 11%;">
+                            <div class="sort-td sort-up" orderby="click">点击量</div>
+                        </th>
+                        <th style="width: 10%;">
+                            <div class="sort-td sort-up" orderby="ctrInt">点击率</div>
+                        </th>
+                        <th style="width: 11%;">
+                            <div class="sort-td sort-up" orderby="itemCount">宝贝数</div>
+                        </th>
+                        <th style="width: 12%;">
+                            <div><span class="inlineblock">性价比</span><span class="question"
+                                                                           content="搜索量/宝贝数，搜索量除以宝贝数的指标,表示关键词的性价比"></span>
+                            </div>
+                        </th>
+                        <th style="width: 13%;">
+                            <div class="sort-td sort-up" orderby="price">直通车均价</div>
+                        </th>
+                        <th style="width: 14%;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="cat-top-word-tbody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging-div" style="text-align: center;padding-top: 5px;">
+
+            </div>
+        </div>
+</script>
+
+<script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/jquery.url.js', function () {
+            TM.gcs('/js/jquery.tmpl.js', function () {
+                TM.gcs('/js/jquery.pagination.js', function () {
+                    TM.gcs('/js/jquery.inputlimitor.1.0.js', function () {
+                        TM.gcs("/js/tm.js", function () {
+                            TM.gcs("/js/newAutoTitle/newAutoTitleTopkey.js?_v=2", function () {
+                                $(document).ready(function () {
+                                    TM.gcs("/js/newAutoTitle/newAutoTitle.js?_v=1", function () {
+                                        TM.newAutoTitle.Init.init($('#content'));
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,107 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'创建活动' /}
+
+
+<style>
+#content{/*height:100px;min-height: 100px;*/}
+
+
+
+</style>
+
+<div id="content">
+    *{<div class="breadcrumbs">
+        <span>创建限时打折活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block active">
+                <h3>设置活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block">
+                <h3>设置商品信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block lastPercent">
+                <h3>完成</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>}*
+    <h1>1. 设置活动信息</h1>
+    <div class="mainForm">
+        <!-- .mainFormForm -->
+        <div class="mainFormForm">
+            <div class="tmLine ">
+                <label>活动名称：</label>
+                <input type="text" class="text"  id="name" >
+                <span class="append">请输入2到30个汉字(仅自己可见)</span>
+                <div class="clear"></div>
+            </div>
+            <div class="tmLine ">
+                <label>开始时间：</label>
+                <input type="text" class="text date"  id="start_time" >
+                <span class="append">促销活动开始时间</span>
+                <div class="clear"></div>
+            </div>
+            <div class="tmLine ">
+                <label>结束时间：</label>
+                <input type="text" class="text date"  id="end_time">
+                <span class="append">促销活动结束时间</span>
+                <div class="clear"></div>
+            </div>
+            <div class="tmLine ">
+                <label>价格标签：</label>
+                <select type="text" class="promotion_title title-select"  id="promotion_title" style="font-size: 18px;width: 183px;line-height: 200px;position: relative;color: #a700ff;float: left;">
+                    <option>限时促销</option>
+                    <option>新春特惠</option>
+                    <option>团购价</option>
+                    <option>亏本清仓</option>
+                    <option>新品上市</option>
+                </select>
+                <input type="text" class="title-input text" style="width: 183px;">
+                <a class="title-input-button self-put" href="javascript:void(0)">自定义标签</a>
+                <a class="title-input-button select-put" href="javascript:void(0)">选择标签</a>
+                <span class="append">促销标签，在淘宝详情页显示</span>
+                <div class="clear"></div>
+            </div>
+            *{<div class="tmLine ">}*
+                *{<label>促销类型：</label>}*
+                *{<select type="text" class="promotionType"  id="promotionType" style="font-size: 18px;width: 310px;line-height: 200px;position: relative;color: #a700ff;float: left;">}*
+                    *{<option value="0">折扣</option>}*
+                    *{<option value="1">减价</option>}*
+                *{</select>}*
+                *{<span class="append">商品打几折或者优惠多少元</span>}*
+                *{<div class="clear"></div>}*
+            *{</div>}*
+            <div class="tmLine xiangou">
+                <label>优惠限购：</label>
+                <select type="text" class="decrease_num"  id="decrease_num" style="font-size: 18px;width: 320px;line-height: 200px;position: relative;color: #a700ff;float: left;">
+                    <option value="0">不限购</option>
+                    <option value="1">仅第一件减价</option>
+                </select>
+                <span class="append">限制买家购买的件数(只对减价模式有效)</span>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="buttonLine">
+        <input type="submit" value="下一步" class="nextStepBtn StepBtn1" style="color: #ffffff;
+    background-color: #c41b00;border: 1px solid #fff;">
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/tdazhe/activityadd.js?_v=3',function(){
+                TM.DaZhe.Init.init() ;
+            });
+        });
+    });
+
+</script>
+

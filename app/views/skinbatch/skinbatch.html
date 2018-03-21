@@ -1,0 +1,40 @@
+*{#{extends 'main.html' /}             }*
+#{extends 'tbtnav/tbtnavitem.html' /}
+#{set title:'批量中心' /}
+
+<link rel="stylesheet" media="screen" href="/css/skinbatch/skinbatch.css?_v=3"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+
+    .red-bold {
+        font-weight: bold;color: #a10000;
+    }
+    .red {
+        color: #a10000;
+    }
+
+    .direct-price-table tbody td {padding: 5px 0px;}
+
+    .scale-price-table tbody td {padding: 5px 0px;}
+
+</style>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/skinbatch/skinbatch.js?_v=5" type="text/javascript" charset="utf-8"></script>
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>宝贝管理
+</div>
+<div class="batch-container" style="padding-bottom: 100px;"></div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.Loading.init.show();
+        TM.SkinBatch.init.doInit($(".batch-container"));
+    });
+
+</script>

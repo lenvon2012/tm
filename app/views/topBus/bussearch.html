@@ -1,0 +1,193 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavword.html' /}
+#{set title:'直通车搜词' /}
+<style>
+    .titleOpContainer {
+        font-size: 12px;
+        text-align: left;
+    }
+    .liTargetDiv .wordSearch .searchLabel {
+        font-size: 14px;
+        margin-right: 7px;
+        color: #666;
+        font-weight: bold;
+        margin-left: 15px;
+        float: left;
+        margin-top: 10px;
+    }
+    .liTargetDiv .wordSearch .wordInput {
+        height: 20px;
+        line-height: 20px;
+        width: 200px;
+        border: #2D8ABE 1px solid;
+        margin-right: 20px;
+        float: left;
+        margin-top: 4px;
+    }
+    .liTargetDiv .wordSearch .searchBtn {
+        line-height: 30px;
+        width: 96px;
+        height: 30px;
+        font-family: "微软雅黑";
+        color: white;
+        font-size: 13px;
+        background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+        background: url('http://img03.taobaocdn.com/imgextra/i3/22902351/T2KQDqXlJaXXXXXXXX_!!22902351.png') 0px -4px;
+        display: block;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+    .recommendDiv .tableDiv table {
+        width: 100%;
+        text-align: center;
+        border-spacing: 0;
+        border-collapse: collapse;
+        background-color: white;
+    }
+    .recommendDiv .tableDiv table thead {
+         font-weight: bold;
+    }
+    .recommendDiv .tableDiv table thead tr {
+        background-color: #ffffff;
+        background-color: #f8f8f8;
+    }
+    .tableRow {
+        border: 1px solid #ccc;
+        height: 30px;
+        weight: 100%;
+        text-align: center;
+    }
+    .firstRow {
+        background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+        background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+        height: 32px;
+        width: 100%;
+    }
+    #bus-search-tbody tr {
+        border: 1px solid #ccc;
+        height: 45px;
+    }
+    .recommendDiv .tableDiv table td {
+        padding: 5px 0px;
+        border: #c0c0c0 1px solid;
+        font-size: 14px;
+        color: #333;
+    }
+    #bus-search-tbody td {
+        border: none;
+        font-size: 12px;
+        font-family: '微软雅黑';
+    }
+    .shadowbase {
+        border: 2px solid #9c9c9c;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-box-shadow: 1px 1px 2px #000;
+        -webkit-box-shadow: 1px 1px 2px #000;
+        box-shadow: 1px 1px 1px #000;
+        background: white;
+        border-radius: 8px;
+        position: relative;
+        behavior: url(/css/ie.htc);
+    }
+    .addTextWrapperSmall {
+        border: solid 2px #9e9e9e;
+        font-size: 12px;
+        display: -moz-inline-box;
+        display: inline-block;
+        cursor: pointer;
+        padding: 0 10px;
+        margin: 3px 4px 2px 4px;
+        padding-left: 18px;
+    }
+    .addTextWrapperSmall img {
+        width: 16px;
+        position: absolute;
+        top: 2px;
+        left: 0px;
+    }
+    .even {
+        background: rgb(249, 249, 249);
+    }
+    .bussearch{
+        width: 100%;
+        text-align: center;
+    }
+    .Desc {
+        background: url("/img/sort-bg.png") 0px -17px;
+    }
+    .sort {
+        width: 20px;
+        height: 20px;
+    }
+    .Asc {
+        background: url("/img/sort-bg.png") 0px -40px;
+    }
+    .bussearch thead{
+        font-size: 12px;
+    }
+    .question{margin-left:0px;}
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>直通车搜词
+</div>
+<div id='bussearchkey' style="margin-top: 5px;min-height:600px;_height:600px;">
+
+
+    <div class="liTargetDiv tableDiv busSearchBlock">
+        <div class="wordSearch">
+            <span class="searchLabel">关键词：</span>
+            <input type="text" id="busSearchText" class="wordInput" />
+            <span id="busSearchBtn" class=" tmbtn sky-blue-btn">搜索</span>
+        </div>
+        <div class="blank0" style="height: 20px;"></div>
+        <div class="bus-search-pagging" style="text-align: center;"></div>
+        <table class="bussearch">
+            <thead>
+            <!--<tr>
+                <td colspan="7">
+                    <div>
+                         <span >全选</span>&nbsp;<span>反选</span>&nbsp;<span>删除</span>&nbsp;<span>标记</span>
+                    </div>
+                </td>
+            </tr>-->
+            <tr align="center" class="tableRow firstRow">
+                <th style="width: 15%;">关键词</th>
+                <th class="bus-search-sort-th" style="width: 10%;cursor: pointer;">搜索指数<span class="inlineblock sort Desc" sort="pv"></span></th>
+                <th class="bus-search-sort-th" style="width: 10%;cursor: pointer;">点击量<span class="inlineblock sort Asc" sort="click"></span></th>
+                <th class="bus-search-sort-th" style="width: 10%;cursor: pointer;">点击率<span class="inlineblock sort Asc" sort="strikeFocus"></span></th>
+                <th class="bus-search-sort-th" style="width: 10%;cursor: pointer;">转化率<span class="inlineblock sort Asc" sort="score"></span></th>
+                <th style="width: 10%">直通车平均出价</th>
+                <th style="width: 20%">推荐类目</th>
+                <th style="width: 15%">添加到我的词库</th>
+
+            </tr>
+            </thead>
+            <tbody id="bus-search-tbody">
+            <!-- here will show the result -->
+            </tbody>
+        </table>
+        <div class="bus-search-pagging" style="text-align: center;"></div>
+        <div class="blank0" style="height: 15px;"></div>
+    </div>
+
+
+</div>
+
+<script>
+    $(document).ready(function(){
+        TM.gcs('/js/tm.js',function(){
+            TM.gcs('/js/topKey/bussearchkey.js?v=13',function(){
+                TM.gcs('/js/genKeywordSpan/genKeywordSpan.js',function(){
+                    TM.widget.bindQtips();
+                    TM.BusSearchKey.Init.init('pv','desc','');
+                });
+            })
+        });
+    });
+
+</script>

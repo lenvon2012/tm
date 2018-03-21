@@ -1,0 +1,127 @@
+#{extends 'yangyang.html' /}
+<script type="text/javascript" src="/js/promotejs/prototype.js"></script>
+<script type="text/javascript" src="/js/promotejs/moo.js"></script>
+<script type="text/javascript" src="/js/promotejs/moopack.js"></script>
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/promote/promotemain.css'}">
+
+<div class='top-banner' style="background: url('/public/images/frame/header-bg.png');height: 48px; ">
+
+    <div class='top-nav head-nav' >
+            <span class = "head">
+                <ul style='margin:0px;'>
+                <!--
+                    <li class='selected'><a href="/home/promote">
+                        聚人气推广
+                    </a></li>
+                     -->
+                    <li class='selected'><a href="/home/promote">
+                        自动评价
+                    </a></li>
+                </ul>
+
+             <span style='float:left;width:150px;;line-height: 41px;height: 41px;text-align: center;display: inline-block;*display:inline;' class="userheadop">
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+                 <a class="bluebutton" style='padding:0px;' href="/in/退出">切换帐号</a> <!-- |<a href="/Share/toShare">分享</a> -->
+             </span>
+        </span>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="main">
+    <div class = "all_container">
+        <div class = "kwcontainer">
+        <table style="width:1000px;margin: 0px auto;">
+        	<tr>
+        		<td style="width:182px;" valign="top">
+        			<table class = "cebian_table" >
+					  <tr>
+					    <td>
+					    <div id="cbcontainer">
+					      <h1 class="type"><a href="javascript:void(0)">聚人气管理</a></h1>
+					      <div class="cbcontent" >
+					        <ul class="MM">
+					          <li><a href="/home/promote">宝贝推广管理</a></li>
+					          <!-- <li><a href="/home/promoteHelp">帮助说明</a></li> -->
+					        </ul>
+					      </div>
+					      <!-- <h1 class="type"><a href="javascript:void(0)">账号设置</a></h1>
+					      <div class="cbcontent">
+					        <ul class="MM">
+					          <li><a href="#">推广账号设置</a></li>
+					          <li><a href="#">手动分享</a></li>
+					          <li><a href="#">自动分享</a></li>
+					          <li><a href="#">宝贝模板</a></li>
+					        </ul>
+					      </div>
+					      <h1 class="type"><a href="javascript:void(0)">宝贝推广管理</a></h1>
+					      <div class="cbcontent">
+					        <ul class="MM">
+							  <li><a href="#">宝贝推广管理</a></li>
+					          <li><a href="#">VIP关键字定制</a></li>
+					          <li><a href="#">帮助</a></li>
+					        </ul>
+					      </div>-->
+					      </div>
+					       <script type="text/javascript">
+								var contents = document.getElementsByClassName('cbcontent');
+								var toggles = document.getElementsByClassName('type');
+							
+								var myAccordion = new fx.Accordion(
+									toggles, contents, {opacity: true, duration: 400}
+								);
+								myAccordion.showThisHideOpen(contents[0]);
+							</script>
+					       </td>
+					  </tr>
+					</table>
+        		</td>
+        		<td style="width:800px;">
+        		#{doLayout /}
+        		</td>
+        	</tr>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+((function ($, window) {
+    var head = $('.head');
+    head.find('a').each(function(){
+        var anchor = $(this);
+        var path = document.location.pathname;
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+        }
+    });
+
+    $('.app-nav').hide();
+
+    $.getScript('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        orderAnchor.parent().hide();
+    });
+
+    $.getScript('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功</p>',200,180);
+            });
+        });
+    });
+
+    // TODO, this is for the preview temp...
+    $('#goHelp').hide();
+    var img = $('#tempLogoImg');
+    img.attr('src','/public/images/header/Glossy_Menus_05_blue.png');
+    img.css({width:'100px'});
+    document.title="聚人气";
+
+})(jQuery, window));
+</script>

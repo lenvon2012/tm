@@ -1,0 +1,16 @@
+alter table trade_rate_0 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_1 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_2 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_3 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_4 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_5 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_6 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_7 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_8 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_9 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_10 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_11 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_12 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_13 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_14 add column `dispatchId` bigint(20) NOT NULL default 0;
+alter table trade_rate_15 add column `dispatchId` bigint(20) NOT NULL default 0;

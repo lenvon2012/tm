@@ -1,0 +1,34 @@
+<div  type='text/x-jquery-tmpl' class="itemDetailTmpl">
+    <div id="tmpl" style="font-size:12px;width:760px;margin:10px auto;display:block;">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <tr>
+                <td>
+                {{each(i,commodity) commoditys}}
+                <table cellpadding="0" cellspacing="0" border="0" style=" height:310px;width:186px; margin: 1px 1px 1px 1px; float: left; overflow: hidden; border: 1px solid #cccccc;">
+                    <tbody>
+                    <tr>
+                        <td background="{{= commodity.picture}} " style="background-repeat: no-repeat;
+background-position: 50% 50%; background-size: 310px 310px;">
+                            <a href="{{= commodity.clink}}" target="_blank"
+                               style="display:block;width:186px;height:310px;text-decoration:none;"><span
+                                    style="width:95px;height:27px;text-align:center;color:#fff;float:right;line-height:27px;margin-top:267px; background:{{= defaultColor}};" ><span
+                                    style="font-size:12px;font-family:'Microsoft Yahei';">¥</span><span
+                                    style="font-size:16px;font-weight:bold;font-family:'arial'">{{= commodity.sole}}</span></span></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                    {{/each}}
+
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

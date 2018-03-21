@@ -1,0 +1,717 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>手机详情页自动化安装插件(淘宝)</title>
+
+    <link type="text/css" rel="stylesheet" href="../css/promotion.css?_v=2" />
+    <link type="text/css" rel="stylesheet" href="../css/newTmPage.css?_v=2" />
+    <link type="text/css" rel="stylesheet" href="../css/sales-page.css?_v=2" />
+    <link type="text/css" rel="stylesheet" href="../css/umpselectitem.css" />
+    <link type="text/css" rel="stylesheet" href="../css/tbt_promotionCss.css" />
+
+
+    <style>
+        #start,
+        #stop,
+        #skip{
+            cursor: pointer;
+        }
+        .intro{
+            margin: 20px 0;
+            background: #f5f5f5;
+            border: 1px solid #e8e8e8;
+        }
+        .item-container {
+            width: 780px;
+            margin: 0 auto;
+            padding: 0 20px 150px 20px;
+            border: 1px solid #e8e8e8;
+            font-family: "微软雅黑";
+        }
+        .haoniu-submit-btn {
+            margin: 0 auto;
+            line-height: 38px;
+            font-size: 16px;
+            width: 250px;
+            height: 38px;
+            color: #ffffff;
+            background-color: #f43;
+            border: 1px solid #fff;
+            display: inline-block;
+            zoom: 1;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+        }
+        #mainfoot{
+            display: none;
+        }
+        .haoniu-submit-div,.combobox-input{
+            margin-top: 55px;
+        }
+        .hide{
+            display: none;
+        }
+        .handle-style{
+            background: #f43;
+            width: 80px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 12px;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            margin-left: 15px;
+            border-radius: 2px;
+        }
+        .mt25{
+            margin-top: 25px;
+        }
+        .filter-row{
+            height: 25px;
+            line-height: 25px;
+            vertical-align: middle;
+        }
+        .create-info{
+            border: 1px solid #FDA8A0;
+            display: none;
+        }
+        .cRed{
+            color:red;
+        }
+        .load-img{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: url("http://img01.taobaocdn.com/imgextra/i1/758262754/TB2S1FVbVXXXXbeXpXXXXXXXXXX_!!758262754.gif");
+            margin-right: 15px;
+            float: left;
+        }
+        .filter-column{
+            margin-right: 25px;
+        }
+        .cfont{
+            color: #f43;
+        }
+        .cGreen {
+            color: rgb(7, 202, 7);
+        }
+        .cBlue{
+            color: #0000ff;
+            font-size: 12px;
+        }
+        .modal{
+            z-index: 1043;
+        }
+        .modal.fade.in{
+            top:20%;
+            width: 700px;
+        }
+        .cj-buzou dd {
+            margin-left: 10px;
+            height: 62px;
+            line-height: 62px;
+            font-size: 15px;
+        }
+        .modal-header h3{
+            font-size: 15px;
+        }
+        .cj-buzou dt {
+            width: 70px;
+            height: 345px;
+            float: left;
+            background: url("http://img03.taobaocdn.com/imgextra/i3/763789825/TB22wt_bVXXXXXBXpXXXXXXXXXX_!!763789825.png") no-repeat;
+        }
+        .cj-dl-btn{
+            width: auto;
+            color: #fff;
+            background: #ff7f27;
+            border: 1px solid #ef6000;
+            border-radius: 2px;
+            padding: 0 20px;
+            height: 26px;
+            line-height: 26px;
+            display: inline-block;
+            margin-left: 25px;
+        }
+        .cj-dl-btn:hover{
+            background: #ffa82f;
+        }
+        .search-btn{
+            padding: 0 20px;
+        }
+        input[type="text"]:focus{
+            border-color: #f43;
+            outline: 0;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+        .combobox-input .guanjianci{
+            border-radius: 0;
+        }
+        .intro-span{
+            float: none;
+        }
+        .gopage-submit{
+            padding: 0 15px;
+        }
+        .tm-paging-container .jumpTo{
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+        .tm-paging-container .paging-nav{
+            float: none;
+        }
+        .item-paging-div{
+            margin-top: 50px;
+        }
+        .item-container,.filter{
+            width: 600px;
+        }
+        .combobox-input{
+            margin-top: 15px;
+        }
+        .guanjianci{
+            width: 506px;
+        }
+        .search-btn{
+            height: 41px;
+        }
+    </style>
+
+    <style>
+        body {
+            /*overflow: hidden;*/
+            margin: 0px;
+            padding: 0px;
+            background-color: #fafafa;
+            font-family:"Microsoft Yahei","\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+            min-width: 780px;
+            width:780px;
+        }
+        .item-container{
+            width: 90%;
+        }
+
+        .menu {
+            text-align:center;
+        }
+        .menu h3{
+            font-size:20px;
+            color:#ff6600;
+            line-height:30px;
+            height:30px;
+            padding:0;
+            margin:10px 0 0 0;
+            text-align:center;
+        }
+        .sellernick{
+            text-align:center;
+            line-height:30px;
+            height:30px;
+            font-size:12px;
+            color:#999;
+            padding:0;
+            margin:0;
+            text-align:center;
+        }
+        .sellernick a{
+            color:#2f75f1;
+            font-size:14px;
+        }
+        .workspace{
+            border:1px dashed #ddd;
+            margin:10px 20px;
+            padding:20px;
+            font-size:14px;
+        }
+        .workspace select{
+            width:120px;
+            height:24px;
+            line-height:24px;
+            border:1px solid #999;
+            margin-right:10px;
+            vertical-align:middle;
+        }
+        .workspace input,.workspace label,.workspace span{
+            vertical-align:middle;
+        }
+        .state-text{
+            background-color: #efefef;
+            color: #000;
+            font-size: 12px;
+            height: 35px;
+            line-height: 35px;
+            margin-bottom: 20px;
+            position: relative;
+            width: 420px;
+            border-radius: 5px;
+            border: 1px dashed #ccc;
+        }
+        .state-text-progress{
+            height:20px;
+            width:1%;
+        }
+        .state-text-num{
+            position:absolute;
+            width:420px;
+            height:20px;
+            top:0;
+            left:0;
+        }
+        .state-text label{
+            margin-right:10px;
+        }
+        .button-group input{
+            margin: 0 5px;
+            height: 24px;
+            border: 0;
+            background: #f43;
+            border-radius: 2px;
+            width: 100px;
+            height: 30px;
+            color: white;
+            font-family: "微软雅黑";
+        }
+        .warning{
+            text-align:center;
+            height:30px;
+            font-size:12px;
+            color:#999;
+            padding-top:10px;
+            padding-bottom:10px;
+            margin:0;
+            text-align:center;
+
+        }
+        .error{
+            font-size: 1.3em;
+            color: #DA4453;
+        }
+        .noitem{
+            border:1px dashed #ddd;
+            margin:10px 20px;
+            padding:20px;
+            height:110px;
+            line-height:110px;
+            display: none;
+        }
+        .noitem a{
+            color:#2f75f1;
+            font-size:14px;
+        }
+        #img-title{
+            text-align: center;
+            margin-top: 15px;
+        }
+        #login{
+            width: 420px;
+            height: 180px;
+            margin: 0 auto;
+        }
+        #login-dl{
+            text-align: left;
+        }
+        #login-dl dd{
+            height: 45px;
+            line-height: 45px;
+            vertical-align: middle;
+        }
+        .login-font{
+            font-size: 15px;
+            font-family: "微软雅黑";
+            color: #0000ff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .login-font:hover{
+            color: #f43;
+        }
+        #login-dt-p{
+            margin-top: 25px;
+            font-size: 15px;
+            margin-left: 20px;
+        }
+        #next-step{
+            height: 30px;
+            line-height: 30px;
+            vertical-align: middle;
+        }
+        .unchoose{
+            display: none;
+        }
+        .fItemcat,.fDiscount{
+            z-index:1;
+        }
+        .fItemcat{
+            margin-left:0;
+        }
+        .fRange,.item-status-select,.fSellercat{
+            z-index:2;
+        }
+        .fAllselect {
+            z-index: 0;
+        }
+        .filter-row-title{
+            width: 71px;
+        }
+        .load-bar{
+            width: 200px;
+            height: 25px;
+            margin: 0 auto;
+        }
+        .load-title{
+            height: 25px;
+            line-height: 25px;
+            vertical-align: middle;
+            display: inline-block;
+            float: left;
+            margin-left: 8px;
+        }
+        .load-img{
+            float: left;
+        }
+        .state-text{
+            width: 100%;
+        }
+        .state-text-num{
+            width: 100%;
+            height: 35px;
+            text-align: center;
+        }
+        .info-text{
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            margin-top: 20px;
+            text-align: center;
+            color: red;
+        }
+    .le35{
+        height: 35px;
+        line-height: 35px;
+    }
+    .text-left{
+        text-align: left;
+    }
+    </style>
+
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+
+    <script src="../js/tm/tm.js"></script>
+    <script src="../js/tm/aliutil.js"></script>
+    <script src="../js/tm/newTmpage.js"></script>
+    <script src="../js/tm/umputil.js"></script>
+    <script src="../js/tm/promotioncommon.js"></script>
+    <script src="../js/tm/promotionadd.js"></script>
+    <script src="../js/tm/umpselectitem.js"></script>
+    <script src="../js/tm/promotionselectitem.js"></script>
+    <script src="../js/tm/addpromotioncommon.js"></script>
+
+    <script src="../js/popup.js"></script>
+    <script src="../js/tm/tmplready.js"></script>
+
+</head>
+<body>
+<div class="menu">
+    <div id="img-title">
+        <img src="http://img03.taobaocdn.com/imgextra/i3/763789825/TB2VaVnbVXXXXcyXpXXXXXXXXXX_!!763789825.jpg" alt="" title="手机详情页自动安装插件(淘宝版)" />
+    </div>
+    <p class="sellernick">
+
+        <label id="sellerNick"></label>
+    <div id="login">
+    <dl id="login-dl">
+        <dt id="login-dt">
+            <p id="login-dt-p">手机详情页操作指南：（请按如下步骤操作）</p>
+        </dt>
+        <dd>
+            <p class="error" id="errorMsg"></p>
+        </dd>
+        <dd>
+            <a class="login-font" href="https://login.taobao.com/" target="_blank">1.请先登录淘宝  >></a>
+        </dd>
+        <dd>
+            <a class="login-font" href="http://fenxiao.youmiguang.com/" target="_blank">2.然后确保你登陆了系统，并且有权限编辑商品  >></a>
+        </dd>
+        <dd>
+            <span class="login-font" target="_blank">3.然后再打开当前插件  >></span>
+        </dd>
+    </dl>
+
+    </div>
+    </p>
+
+    <div class="workspace" id="workspace" style="display: none;">
+
+        <div style="height: 5px">
+        </div>
+
+        <label>网络延时：</label>
+        <select id="pageDelay">
+            <option value="1">
+                1秒(网速快的卖家推荐)
+            </option>
+            <option value="3" selected="selected">
+                3秒
+            </option>
+            <option value="5">
+                5秒
+            </option>
+            <option value="10">
+                10秒
+            </option>
+        </select>
+
+        <label>安装延时：</label>
+        <select id="installDelay">
+            <option value="1" selected="selected">
+                1秒
+            </option>
+            <option value="3">
+                3秒
+            </option>
+            <option value="5">
+                5秒
+            </option>
+        </select>
+
+        <p id="next-step">
+        <input type="checkbox" checked="checked" id="igroneError" /><label for="igroneError">自动跳过异常宝贝（推荐）</label>
+        </p>
+
+        <div id="info-text" class="info-text">
+             <p style="width: 200px;height: 35px;margin: 0 auto;line-height: 35px;color: red;">
+               <img class="load-img"
+                 src="http://img01.taobaocdn.com/imgextra/i1/758262754/TB2S1FVbVXXXXbeXpXXXXXXXXXX_!!758262754.gif"
+                 alt=""/> <span class="load-title">正在加载数据，请稍后....</span>
+             </p>
+        </div>
+        <div class="state-text">
+            <div class="state-text-progress"></div>
+            <div class="state-text-num">
+                <span>已完成：</span><label id="progress">0</label>
+                <span>已跳过：</span><label id="skiped">0</label>
+                <span>还剩余：</span><label id="total">0</label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <input id="start" type="button" value="开始安装">
+            <input id="stop" type="button" value="停止安装">
+            <input id="skip" type="button" value="跳过当前宝贝">
+            <input id="cancel" type="button" value="取消安装">
+            <input id="back" type="button" value="返回">
+        </div>
+        <div class="warning">
+            开始安装后，界面会自动跳转，这个过程中请不要关闭或刷新浏览器，不要切换淘宝账号，不要退出手机详情页
+        </div>
+    </div>
+    <div class="noitem" id="noitem" >
+        恭喜，全部已生成的都已经安装完毕&nbsp;
+        <a href="" id="reload">重新加载</a>
+    </div>
+
+    <!-- 数据提交开始-->
+    <div class="submit-data hide" id="submit-data">
+
+    <div class="item-container select-item-container">
+        <div class="intro" style="padding: 0px 20px;">
+            <span class="intro-span add-item-header" style="font-size: 16px;">请选择要生成手机详情页的宝贝： </span>
+        </div>
+        <div class="combobox-input">
+            <div style="width: 600px;margin: 0 auto;padding-top: 8px;position: relative;">
+                <label style="top:8px;" class="combobox-label-item" for="mq">搜索 商品 标题/关键字</label>
+                <input type="text" title="请输入搜索文字" class="guanjianci" id="mq" />
+                <input type="submit" class="guanjianci-select search-btn" value="搜&nbsp;索" />
+            </div>
+        </div>
+
+        <div class="filter" >
+            <div class="filter-row cond" style="border-bottom: 0">
+                <span class="filter-row-title">过滤条件:</span>
+                <div class="fRange" style="text-align: center;">
+                    <b class="fR-text" dispOrder="df">默认排序</b>
+                    <i class="f-ico-triangle-rb"></i>
+                    <ul class="fR-list">
+                        <li>
+                            <a class="fRl-ico-pu" href="javascript:void(0);">↑ 价格从低到高</a>
+                        </li>
+                        <li>
+                            <a class="fRl-ico-pd" href="javascript:void(0);">↓ 价格从高到低</a>
+                        </li>
+                        <li>
+                            <a class="fRl-ico-su" href="javascript:void(0);">↑ 下架时间</a>
+                        </li>
+                        <li>
+                            <a class="fRl-ico-sd" href="javascript:void(0);">↓ 下架时间</a>
+                        </li>
+                        <li>
+                            <a class="fRl-ico-df" href="javascript:void(0);">〓 恢复默认排序</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item-status-select" style="text-align: center;">
+                    <b class="item-status-text" itemStatus="1">已上架的宝贝</b>
+                    <i class="f-ico-triangle-rb"></i>
+                    <ul class="item-status-list">
+                        <li>
+                            <a class="item-status-option" itemStatus="1" href="javascript:void(0);">已上架的宝贝</a>
+                        </li>
+                        <li>
+                            <a class="item-status-option" itemStatus="0" href="javascript:void(0);">在仓库的宝贝</a>
+                        </li>
+                        <li>
+                            <a class="item-status-option" itemStatus="2" href="javascript:void(0);">全部的宝贝</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fSellercat">
+                    <s class="fS-label">店铺类目：</s>
+                    <b class="fS-text">所有类目</b>
+                    <i class="f-ico-triangle-rb"></i>
+                    <ul class="fS-list" id="sellerCat" style="width: 160px;">
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="filter-row cond2" >
+                <span class="filter-row-title"></span>
+                <div class="fItemcat">
+                    <s class="fI-label">淘宝类目：</s>
+                    <b class="fI-text">所有类目</b>
+                    <i class="f-ico-triangle-rb"></i>
+                    <ul class="fI-list" id="itemCat" style="width: 160px;">
+                    </ul>
+                </div>
+                <div class="fDiscount">
+                    <s class="fD-label">是否参加活动：</s>
+                    <b class="fD-text" isDis="all">所有宝贝</b>
+                    <i class="f-ico-triangle-rb"></i>
+                    <ul class="fD-list"  style="width: 200px;">
+                        <li>
+                            <a class="fD-ico-dis" href="javascript:void(0);">已参加活动宝贝</a>
+                        </li>
+                        <li>
+                            <a class="fD-ico-undis" href="javascript:void(0);">未参加活动宝贝</a>
+                        </li>
+                        <li>
+                            <a class="fD-ico-all" href="javascript:void(0);">所有宝贝</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter-row filter-sets text-left">
+                <span class="filter-row-title">默认设置:</span>
+                <p>
+                    <input id="isFilter" name="isFilter" type="checkbox" checked="true" />
+                    <label for="isFilter">过滤三天内生成过手机详情页的商品</label>
+                </p>
+            </div>
+
+            <div class="filter-row filter-tools">
+                <span class="filter-row-title">便捷工具:</span>
+                <div class="fAllselect" style="position: relative;width: 80px;">
+                    <a href="javascript:void(0);">
+                        <b class="fA-text choose">本页全选</b>
+                        <b class="fA-text unchoose">取消全选</b>
+                    </a>
+                </div>
+                <div class="item-list handle-js handle-style">
+                    批量生成
+                </div>
+                <div class="item-all handle-js handle-style">
+                    全店生成
+                </div>
+            </div>
+
+            <div class="filter-row tips last-row">
+                <span class="filter-row-title">提示:</span>
+                <span style="margin: 50px 0px 10px 0px;font-size: 14px;">注：一次最多可以生成&nbsp;<span class="red-bold-num total-item-num">150</span>&nbsp;个宝贝，当前已添加&nbsp;<span class="red-bold-num already-item-num"></span>&nbsp;个 </span>
+            </div>
+
+        </div>
+
+        <!-- 生成进度显示栏-->
+        <!--
+        <div class="filter mt25 create-info">
+            <div class="filter-row">
+                <span class="filter-row-title">当前状态:</span>
+            <span class="load-img">
+
+            </span>
+            <span class="cRed he25 load-txt">
+                            正在生成手机详情页，你可以泡杯咖啡，休息一下。
+            </span>
+            </div>
+            <div class="filter-row">
+                <span class="filter-row-title">生成进度:</span>
+            <span>
+                进度
+                <span class="proportion cfont">
+                </span>
+            </span>
+                <span>
+                    已用时
+                </span>
+                <span>
+                    预计还需要
+                </span>
+            </div>
+            <div class="filter-row last-row">
+                <span class="filter-row-title ">生成结果:</span>
+            <span class="filter-column">
+                总数量
+                <span class="count-num cfont"></span>
+            </span>
+            <span class="filter-column">
+                待生成
+                <span class="wait-num cfont"></span>
+            </span>
+            <span class="filter-column">
+                成功
+                <span class="successNum-num cfont"></span>
+            </span>
+            <span class="filter-column">
+                失败
+                <span class="failureNum-num cfont"></span>
+            </span>
+
+            </div>
+        </div>
+
+
+    -->
+
+        <div class="item-paging-div" style="text-align: center;margin-bottom: 20px; "></div>
+
+        <div style="padding: 0px 0px;">
+            <table class="item-select-table">
+                <tbody class="item-select-tbody">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="item-paging-div" style="text-align: center;margin-bottom: 10px;margin-top: 20px; "></div>
+
+        <div class="haoniu-submit-div promotionadd  text-center">
+            <span class=" haoniu-submit-btn goto-set-discount-btn">生成手机详情页</span>
+        </div>
+
+        <input type="hidden" class="activityId" value="68" />
+    </div>
+
+    </div>
+    <!-- 数据提交结束-->
+</div>
+
+</body>
+</html>

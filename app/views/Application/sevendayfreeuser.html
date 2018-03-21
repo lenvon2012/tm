@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .seven-day-free-user-table{width: 1000px;text-align: center;margin: 0 auto;}
+    </style>
+</head>
+<body>
+<p>7天免费（后续未升级）用户</p>
+<div class="seven-days-free-user-pagging" style="text-align: center;"></div>
+<table class="seven-day-free-user-table">
+    <thead>
+        <tr>
+            <td>买家</td>
+            <td>订单周期开始时间</td>
+            <td>订单周期结束时间</td>
+            <td>联系买家</td>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<div class="seven-days-free-user-pagging" style="text-align: center;"></div>
+<script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+<script src="/js/tm.js" charset="utf-8"></script>
+<script>
+    $(document).ready(function() {
+        $('.seven-days-free-user-pagging').tmpage({
+            currPage: 1,
+            pageSize: 10,
+            pageCount:1,
+            ajax: {
+                on: true,
+                dataType: 'json',
+                url: "/TMAdmin/getSevenFreeUserInfos",
+                param:{},
+                callback:function(data){
+                    if(data != null && data.res.length > 0){
+                        var tbody = $('<tbody></body>');
+                        $(data.res).each(function(i,order){
+                            tbody.append($('<tr><td>'+order.nick+'</td><td>'+new Date(order.orderCycleStart).format("yy-MM-dd hh-mm-ss")+'</td><td>'+new Date(order.orderCycleEnd).format("yy-MM-dd hh-mm-ss")+'</td><td><a id="kefuhref" target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid='+order.nick+'&amp;site=cntaobao&amp;s=1&amp;charset=utf-8">'+
+                                    '<img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后">' +
+                                    '</a></td></tr>'));
+                        })
+                        $('.seven-day-free-user-table tbody').remove();
+                        $('.seven-day-free-user-table').append(tbody);
+                    }
+
+                }
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

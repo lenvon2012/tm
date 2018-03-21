@@ -1,0 +1,208 @@
+#{extends 'carrier/carrierbase.html' /}
+#{set title:'一键生成手机详情页' /}
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+    .user-admin-wrapper {
+        font-family: "微软雅黑"; font-size: 14px; background: white;
+    }
+    .user-info-tip {
+        font-size: 20px; font-weight: bold;
+    }
+    .width950 {
+        width: 950px; margin: 0 auto;
+    }
+    .user-info-table {
+        border: 1px solid #999;border-collapse: collapse;
+    }
+    .user-info-table td {
+        border: 1px solid #999;
+    }
+    .user-info-table .attr-name-td {
+        background: #eee; text-align: right; padding: 10px 20px 10px 0px;
+    }
+    .user-info-table .attr-value-td {
+        text-align: left; padding: 10px 0px 10px 20px;
+    }
+    .leftintro p{padding:5px;font-size:24px;}
+    .leftintro a{font-size:24px;}
+
+</style>
+
+*{<div style="text-align: center">
+    <br>
+    <span style="font-size: 18px;margin-right: 8px;">有问题，请联系我: </span>
+    <a style="display: inline-block;*display: inline;*zoom:1;" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E7%BA%A2%E5%BF%83%E5%9B%A2%E9%98%9F&siteid=cntaobao&status=1&charset=utf-8" ><img border="0" src="http://amos.alicdn.com/online.aw?v=2&uid=%E7%BA%A2%E5%BF%83%E5%9B%A2%E9%98%9F&site=cntaobao&s=1&charset=utf-8" alt="点击这里给我发消息" /></a>
+    <br>
+    <br>
+</div>}*
+<div>
+    <table class="page-table busSearch">
+        <tbody>
+        <tr>
+            <td style="width:550px;text-align: center;">
+                <div class="leftintro">
+                      <p>直接用淘宝助理5.6以上导出csv文件</p>
+                      <p>5.5以下及5.5版本的卖家朋友
+                      <p>请打开
+                        <a href="http://zhuli.taobao.com" target="_blank">http://zhuli.taobao.com</a>
+                      </p>
+                      <p>下载最新的淘宝助理</p>
+                </div>
+            </td>
+            <td style="height:200px;text-align: left">
+                <span id="openUpCsvDiagBtn" class="btn" style="">
+                    一键上传CSV文件
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="blank0" style="height:20px;">
+</div>
+<div style="text-align: center;">
+    <img src="http://img03.taobaocdn.com/imgextra/i3/1039626382/T2qDrMXyhaXXXXXXXX-1039626382.jpg" />
+    <img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Z.zlXiVbXXXXXXXX-1039626382.jpg" />
+    <img src="http://img03.taobaocdn.com/imgextra/i3/1039626382/TB2fdvqaXXXXXXIXpXXXXXXXXXX-1039626382.jpg" />
+    <img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2Q45_XFdaXXXXXXXX-1039626382.jpg" />
+    <img src="http://img02.taobaocdn.com/imgextra/i2/1039626382/TB2jGToaXXXXXaeXpXXXXXXXXXX-1039626382.jpg" />
+    <img src="http://img04.taobaocdn.com/imgextra/i4/1039626382/T2s97RXwtaXXXXXXXX-1039626382.jpg" />
+
+</div>
+<div class="uploadOneKey hidden">
+    <form class="uploadCsvForm" action="/Wireless/submitCsv" method="post" accept-charset="UTF-8" ENCTYPE="multipart/form-data" >
+        <table  class="uploadCsvOptTable" style="width:100%;">
+            <thead>
+                   <tr>
+                       <td style="width:400px;"></td>
+                       <td></td>
+                   </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="width:400px;">自动切割长图片</td>
+                <td>
+                    <input  name="config.autoSplit" value="true" type="radio" checked="checked"><span class="clickprev">是&nbsp;&nbsp;</span>
+                    <input  name="config.autoSplit" value="false" type="radio"><span class="clickprev">否</span>
+                </td>
+            </tr>
+            <tr>
+                <td>自动生成文字介绍</td>
+                <td>
+                    <input  name="config.autoProp" value="true" type="radio" checked="checked"><span class="clickprev">是&nbsp;&nbsp;</span>
+                    <input  name="config.autoProp" value="false" type="radio"><span class="clickprev">否</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:400px;">跳过已有手机详情页宝贝</td>
+                <td>
+                    <input  name="config.skipExist" value="true" type="radio" checked="checked"><span class="clickprev">是&nbsp;&nbsp;</span>
+                    <input  name="config.skipExist" value="false" type="radio"><span class="clickprev">否</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:400px;">淘宝助理导出的CSV文件</td>
+                <td>
+                    <input  name="csvfile" type="file" value="上传" accept=".csv"/>
+                </td>
+            </tr>
+            *{<tr>}*
+                *{<td></td>}*
+                *{<td><input type="submit" value="提交"></td>}*
+            *{</tr>}*
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+<script type="text/x-jquery-tmpl" id="tplItem">
+    <tr numiid="{{= id}}">
+        <td><a href="http://item.taobao.com/item.htm?id={{= id}}" target="_blank" class="thumbnail"><img class="imgsnap" src="{{= picURL}}_80x80.jpg" /></a></td>
+        <td><a href="http://upload.taobao.com/auction/publish/edit.htm?item_num_id={{= id}}&auto=false" target="_blank">{{= title}}</a></td><td>{{= delistWeekDay}} {{= delistHHmmss}}</td>
+        <td><a href="/wireless/genAndZip?numIid={{= id}}" target="_blank" class="gen-mobile-page btn btn-info">生成手机详情页</a></td>
+    </tr>
+    <tr><td colspan="4" class="info-area"></td></tr>
+</script>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    var doInit = function(){
+        $('#openUpCsvDiagBtn').click(function(){
+            doDialog();
+        })
+        $('.clickprev').click(function(){
+            $(this).prev().trigger('click');
+        })
+    }
+    var doDialog = function(){
+        $('.uploadOneKey').dialog({
+            modal: true,
+            bgiframe: true,
+            height: 400,
+            width:  650,
+//            title : title || '提示',
+            autoOpen: false,
+            resizable: false,
+            zIndex: 399,
+            buttons:{
+                '确定':function(){
+                    var diag = $(this);
+                    diag.find(".uploadCsvForm").ajaxSubmit({
+                        contentType: "multipart/form-data; charset=utf-8",
+                        success : function(msg) {
+                            if(!msg){
+                                alert('亲,系统异常,请稍后重试或联系客服');
+                                diag.dialog('close');
+                                $("body").unmask();
+                            }
+                            if(msg.success){
+//                            alert('亲,上传成功,请稍后到任务中心查看结果');
+                                alert('亲,文件上传成功,请3分钟后稍后至任务中心进行下载');
+                                $("body").unmask();
+                                diag.dialog('close');
+
+
+                            }else{
+                                alert(msg.message);
+                            }
+                        }
+                    });
+                },
+                '取消':function(){
+                    $(this).dialog('close');
+                    $("body").unmask();
+                }
+            }
+        });
+        $("body").mask();
+        $('.uploadOneKey').dialog('open');
+
+//        TM.Alert.loadDetail($('.uploadOneKey'),400,400,function(){
+//
+//        });
+    }
+
+    TM.gcs('/js/jquery.url.js',function(){
+        TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+            TM.gcs('/js/jquery.tmpl.js',function(){
+                TM.gcs('/js/jquery.loadmask.min.js',function(){
+                TM.gcs('/js/utils/jquery.form.js',function(){
+                    TM.gcs('/js/tm.js',function(){
+                    $(document).ready(function(){
+                        TM.gcs('/js/carrier/mobiledesc.js?_v=3',function(){
+                            TM.MobileDesc.init.doInit($(".user-admin-wrapper"));
+                            doInit();
+                        });
+                        });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

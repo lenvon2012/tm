@@ -1,0 +1,155 @@
+
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.title') /}
+<script src="/js/jquery-1.6.4.min.js" type="text/javascript" charset="${_response_encoding}"></script>
+<script type="text/javascript" src="/js/utils/jquery.cookie.js"></script>
+<h1>Edit TMRefundName</h1>
+
+<div class="crudField crud_text">
+    <label for="object_app">
+        产品应用
+    </label>
+    <select name="select" class="object_app" id="object_app">
+        <option  #{if RefundTrade.app=="车道Refund"}selected="selected"#{/if}>车道Refund</option>
+        <option  #{if RefundTrade.app=="淘掌柜Refund"}selected="selected"#{/if}>淘掌柜Refund</option>
+        <option  #{if RefundTrade.app=="自动标题Refund"}selected="selected"#{/if}>自动标题Refund</option>
+        <option #{if RefundTrade.app=="差评防御师Refund"}selected="selected"#{/if}>差评防御师Refund</option>
+        <option #{if RefundTrade.app=="爱推广Refund"}selected="selected"#{/if}>爱推广Refund</option>
+        <option #{if RefundTrade.app=="促销打折"}selected="selected"#{/if}>促销打折</option>
+        <option #{if RefundTrade.app=="流量关联"}selected="selected"#{/if}>流量关联</option>
+        <option #{if RefundTrade.app=="找流量"}selected="selected"#{/if}>找流量</option>
+        <option #{if RefundTrade.app=="四轮车"}selected="selected"#{/if}>四轮车</option>
+        <option #{if RefundTrade.app=="淘掌柜客户"}selected="selected"#{/if}>淘掌柜客户</option>
+    </select>
+</div>
+<div class="crudField crud_text">
+    <label for="object_status">
+        处理结果
+    </label>
+    <select name="select" class="object_status" id="object_status">
+    <option  #{if RefundTrade.status=="已提交"}selected="selected"#{/if}>已提交</option>
+    <option  #{if RefundTrade.status=="正在处理"}selected="selected"#{/if}>正在处理</option>
+    <option  #{if RefundTrade.status=="退款中"}selected="selected"#{/if}>退款中</option>
+    <option #{if RefundTrade.status=="退款完成"}selected="selected"#{/if}>退款完成</option>
+    <option  #{if RefundTrade.status=="废弃删除"}selected="selected"#{/if}>废弃删除</option>
+</select>
+</div>
+<div class="crudField crud_text">
+    <label for="object_wangwang">
+
+        旺旺名称
+    </label>
+    <input id="object_wangwang" class="" type="text" name="object.wangwang" value="${RefundTrade.wangwang}" size="50">
+    <span class="crudHelp">
+                </span>
+</div>
+<div class="crudField crud_number">
+    <label for="object_amount">
+        退款金额
+    </label>
+    <input id="object_amount" type="text" name="object.amount" value="${RefundTrade.amount}" size="15">
+    <span class="crudHelp">
+        Numeric.
+                </span>
+</div>
+*{<div class="crudField crud_number">}*
+    *{<label for="object_created">}*
+        *{创建时间}*
+    *{</label>}*
+    <input  id="object_created" type="text" name="object.created" value="${RefundTrade.created}" size="15">
+    *{<span class="crudHelp">}*
+        *{Numeric.}*
+                *{</span>}*
+*{</div>}*
+*{<div class="crudField crud_number">}*
+    *{<label for="object_updated">}*
+        *{更新时间}*
+    *{</label>}*
+    <input id="object_updated" type="text" name="object.updated" value="${RefundTrade.updated}" size="15" >
+    *{<span class="crudHelp">}*
+        *{Numeric.}*
+                *{</span>}*
+*{</div>}*
+<div class="crudField crud_text">
+    <label for="object_upname">
+        发起人
+    </label>
+    <input id="object_upname" class="" type="text" name="object.upname" value="${RefundTrade.upname}" size="50">
+    <span class="crudHelp">
+                </span>
+</div>
+<div class="crudField crud_text">
+    <label for="object_reason">
+        退款原因
+    </label>
+    <input id="object_reason" class="" type="text" name="object.reason" value="${RefundTrade.reason}" size="50">
+    <span class="crudHelp">
+                </span>
+</div>
+<div class="crudField crud_text">
+    <label for="object_advice">
+       审核意见
+    </label>
+    <input id="object_advice" class="" type="text" name="object_advice" value="${RefundTrade.advice}" size="50">
+    <span class="crudHelp">
+                </span>
+</div>
+<div class="crudField crud_text">
+    <label for="object_assessor">
+        审核人
+    </label>
+    <select name="select" class="object_assessor" id="object_assessor" style="width: 100px">
+        <option  #{if RefundTrade.assessor=="小言"}selected="selected"#{/if}>小言</option>
+        <option  #{if RefundTrade.assessor=="包包"}selected="selected"#{/if}>包包</option>
+        <option  #{if RefundTrade.assessor=="林风"}selected="selected"#{/if}>林风</option>
+        <option #{if RefundTrade.assessor=="林错"}selected="selected"#{/if}>林错</option>
+        </select>
+    <span class="crudHelp">
+                </span>
+</div>
+
+<div class="buttonLine">
+    <input type="submit" name="save" value="保存更改" id="save" class="save">
+</div>
+
+<script type="text/javascript"charset="utf-8">
+    $(document).ready(function(){
+        $('#save').click(function(){
+            var wangwang = $('#object_wangwang').val();
+            var created = $('#object_created').val();
+            var updated = $('#object_updated').val();
+            var upname = $('#object_upname').val();
+            var reason=  $('#object_reason').val();
+            var assessor=  $('#object_assessor').val();
+            var app=  $('#object_app').val();
+            var status=  $('#object_status').val();
+            var amount=  $('#object_amount').val();
+            var advice= $('#object_advice').val();
+//            $.cookie("assessor",assessor);
+//            $.cookie("advice",advice);
+            $.ajax({
+                type:'post',
+                url :'/tmrefundadmin/update',
+                data :{wangwang:wangwang,created:created,updated:updated,upname:upname, reason:reason,assessor:assessor, app:app,status:status,amount:amount,advice:advice},
+                success :function(data){
+                    if (data == undefined || data == null || data.length == 0) {
+                        alert("编辑失败")
+                    }
+                    else{
+                        alert("编辑成功");
+                        window.close();
+                    }
+                }
+
+            });
+
+        });
+        window.onload=function()
+        {
+//            $('#object_assessor').val($.cookie("assessor"));
+//            $('#object_advice').val($.cookie("advice"));
+            $('#object_created').hide();
+            $('#object_updated').hide();
+        }
+    });
+</script>

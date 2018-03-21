@@ -1,0 +1,49 @@
+#{extends 'Popularize/skinPopularize.html' /}
+#{set title:'好评送推广' /}
+<style >
+    p{font-size: 30px;}
+    p a{font-size: 30px;}
+    .marginmillde{margin: 0 auto;}
+</style>
+<p style="text-align:center;margin-top:5px;">
+    <b class="red">订购七天后</b>
+    <a href="http://fuwu.taobao.com/ser/my_service.htm?spm=a1z13.1105289.216941.10.Q1UryP&scm=1012.2.6.0" target="_blank">点击</a>
+    <a href="http://fuwu.taobao.com/ser/my_service.htm?spm=a1z13.1105289.216941.10.Q1UryP&scm=1012.2.6.0" target="_blank">
+        <img style="width: 115px;height: 63px;" src="http://img02.taobaocdn.com/imgextra/i2/1039626382/T2gADUXbRXXXXXXXXX_!!1039626382.jpg">
+    </a>
+    ，找到我们的工具
+    <br>
+    <!-- <img src="http://img02.taobaocdn.com/imgextra/i2/1039626382/T28mTdXlpbXXXXXXXX_!!1039626382.png" style="width:718px ;height:276px ;border:1px solid #ccc;"> -->
+    <img src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2bhrrXn0aXXXXXXXX_!!22902351.jpg" style="width:718px ;height:276px ;border:1px solid #ccc;">
+
+    <br>
+    <div class="marginmillde" style="text-align:center;"><p>给我们<b style="color:red;">5分好评</b>，写上评语哦！<b class="red" style="font-size:18px;">(订购七天后方可评价)</b></p>
+        <img src="http://img02.taobaocdn.com/imgextra/i2/1039626382/T2QMbOXi8aXXXXXXXX_!!1039626382.jpg" style="width: 534px;height: 374px;border:1px solid #ccc;">
+    </div>
+
+    <!-- <h4 style="text-align:center;">最后把好评截图发给我们的客服(<span style="color: red;">我可不会告诉你页面底部可以找到滴</span>)即可领取礼物~</h4> -->
+    <h4 style="text-align:center;">最后把<b style="color:red">  好评截图</b>和您的<b class="red">旺旺</b>发给我们的客服即可领取<b class="red">一个推广位</b></h4>
+    <p style="text-align:center;">
+    <img src="http://img01.taobaocdn.com/imgextra/i1/1039626382/T2SV6vXaXbXXXXXXXX_!!1039626382.jpg" style="width: 721px;height:115px;border:1px solid #ccc;">
+    </p>
+</p>
+<script>
+    $.get("/Popularize/getUserInfo",function(data){
+        $.cookie("awarded",data.award);
+        if(data.award){
+            $.cookie("totalNum",data.totalNum+1);
+        } else {
+            $.cookie("totalNum",data.totalNum);
+        }
+        $.cookie("level",data.level);
+        $.cookie("popularizedNum",data.popularizedNum);
+
+        $('.userInfo').find('span[tag="version"]').html(data.version);
+        $('.userInfo').find('span[tag="totalNum"]').html($.cookie("totalNum"));
+        if(data.award){
+            $('.userInfo').find('span[tag="totalNum"]').parent().append($('<span class="userData" tag="awardNum">(+1)</span>'));
+        }
+        $('.userInfo').find('span[tag="popularizedNum"]').html($.cookie("popularizedNum"));
+        $('.userInfo').find('span[tag="remainNum"]').html($.cookie("totalNum") - $.cookie("popularizedNum"));
+    })
+</script>

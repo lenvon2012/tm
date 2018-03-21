@@ -1,0 +1,478 @@
+#{extends 'keymain.html' /}
+#{set title:'创建上架计划' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/jquery-ui-timepicker-addon.css"/>
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/pagination.css">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/autoDeList.css?_v=2">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/distributeRule.css?_v=1">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+#{/set}
+
+<link rel="stylesheet" media="screen" href="/css/autoDeList/delistPlans.css?_v=1">
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/autotitle">自动标题&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="/autotitle/delistPlans">上下架计划管理&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>创建计划
+</div>
+
+
+<div class="delistPlansWrapper" >
+<div id="globalData"></div>
+<div id="step1" class="step step1" style="display:block">
+    <div class="headspan" >新建上架计划(第1/5步)</div>
+    <div class="stepbody">
+        <p>&nbsp;</p>
+        <p>
+            计划名称:&nbsp;&nbsp;&nbsp;
+            <input id="titleInput" type="text" style="width:420px;;" value="">
+        </p>
+        <p>&nbsp;</p>
+        <p style="padding-left:100px;">
+
+            <a  href="/autotitle/delistPlans"  class="tmbtn yellow-btn back">返回</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="tmbtn sky-blue-btn next">下一步</span>
+        </p>
+    </div>
+</div>
+<div id="step2" class="step step2">
+    <div class="headspan" >新建上架计划(第2/5步)</div>
+    <div class="stepbody">
+
+        <p>
+            <input class="category" style="width:20px;" type="radio" name="itemtype" checked="checked"><span class="input-tip">根据店铺宝贝分类和宝贝状态进行调整</span>
+        </p>
+        <p>
+            <input class="manual" style="width:20px;" type="radio" name="itemtype"><span class="input-tip">手工选择要调整的宝贝</span>
+        </p>
+        <p>
+            <span  href=""  class="tmbtn yellow-btn back">上一步</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="tmbtn sky-blue-btn next" >下一步</span>
+        </p>
+    </div>
+</div>
+<div id="step3-category" class="step step3">
+    <div class="headspan" >新建上架计划(第3/5步)</div>
+    <div  id="planProp" class="stepbody">
+        <div class="intro">
+            选择您需要调整的宝贝的范围
+        </div>
+        <div class="stepOptLine itemStatus">
+            <p>
+                <b>1</b>.&nbsp;&nbsp; 排除销量前10的宝贝？
+                <input status="true" style="width:20px;" type="radio" name="first10sale" checked="true">是
+                <input status="false" style="width:20px;" type="radio" name="first10sale">否
+            </p>
+            <p>
+                <b>2</b>.&nbsp;&nbsp;  宝贝状态
+                <input status="4" style="width:20px;" type="radio" name="itemStatus">所有宝贝
+                <input status="1" style="width:20px;" type="radio" name="itemStatus" checked="true">出售中的宝贝
+                <input status="2" style="width:20px;" type="radio" name="itemStatus">仓库中的宝贝
+            </p>
+        </div>
+        <div class="stepOptLine itemCidInput">
+            <p>
+                <b>3</b>.&nbsp;&nbsp;  淘宝商品分类:
+            <p>
+            <div id="itemCatContainer" style="padding-left:30px;">
+
+            </div>
+        </div>
+        <div id="sellerCatContainer" class="stepOptLine sellerCidInput">
+
+            <p>
+                <b>4</b>.&nbsp;&nbsp; 店铺自定义分类:
+            </p>
+            <div id="sellerCatConainer" style="padding-left:30px;">
+
+            </div>
+
+        </div>
+        <p>
+        <div class="stepOptline">
+            <p>
+                <b class="no-delist-index-span">5</b>.&nbsp;&nbsp; 排除宝贝:
+            </p>
+            <p>
+                <span class="tmbtn long-sky-blue-btn category-add-exclude-items">点击排除宝贝</span>
+            </p>
+            <table class="busSearch">
+                <thead>
+                <tr>
+                    <th style="width: 100px;">主图</th>
+                    <th>标题</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="empty-row">
+                    <td style="text-align: center;" colspan="10">
+                        您尚未选中任何排除宝贝<span class="tmbtn long-sky-blue-btn category-add-exclude-items">点击排除宝贝</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </p>
+        <p>
+            <span  href=""  class="tmbtn yellow-btn back">上一步</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="tmbtn sky-blue-btn next" >下一步</span>
+        </p>
+    </div>
+</div>
+<div id="step3-manual" class="step step3">
+    <div class="headspan" >新建上架计划(第3/5步)</div>
+    <div class="stepbody">
+        <b>3</b>.&nbsp;&nbsp;  淘宝商品分类:
+        <p>
+            <span class="tmbtn long-sky-blue-btn manual-add-delist-items">点击添加宝贝</span>
+        </p>
+        <p>
+        <table class="busSearch">
+            <thead>
+            <tr>
+                <th style="width: 100px;">主图</th>
+                <th>标题</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="empty-row">
+                <td style="text-align: center;" colspan="10">
+                    您尚未选中任何宝贝<span class="tmbtn long-sky-blue-btn manual-add-delist-items">点击添加宝贝</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
+        <p>
+            <span  href=""  class="tmbtn yellow-btn back">上一步</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="tmbtn sky-blue-btn next" >下一步</span>
+        </p>
+    </div>
+</div>
+<div id="step4" class="step step4">
+<div class="headspan" >新建上架计划(第4/5步)</div>
+<div>
+    <div class="stepbody">
+        <p>
+            <span><input type="checkbox" tag='monday' class="advance-weekday-check" value="1" checked="checked">星期一</span>
+            <span><input type="checkbox" tag='tuesday' class="advance-weekday-check" value="2" checked="checked">星期二</span>
+            <span><input type="checkbox" tag='wednesday' class="advance-weekday-check" value="3" checked="checked">星期三</span>
+            <span><input type="checkbox" tag='thursday' class="advance-weekday-check" value="4" checked="checked">星期四</span>
+            <span><input type="checkbox" tag='friday' class="advance-weekday-check" value="5" checked="checked">星期五</span>
+            <span><input type="checkbox" tag='saturday' class="advance-weekday-check" value="6" checked="checked">星期六</span>
+            <span><input type="checkbox" tag='sunday' class="advance-weekday-check" value="7" checked="checked">星期日</span>
+        </p>
+        <p>
+        <table style="margin: 5px 0px 10px 0px; border-collapse: collapse;" class="layout-table">
+            <tbody>
+            <tr>
+                <td style="vertical-align: top;"><span class="distriTypeNameNoHeight">时间段：</span>
+
+                    <div style="margin-top: 40px; text-align: center;"><span
+                            class="select-all-hour-btn commontextcursor"
+                            style="margin: 0 auto;">选中全部时间</span>
+
+                        <div style="height: 10px;"></div>
+                                    <span class="commontextcursor cancel-all-hour-btn"
+                                          style="margin: 0 auto;">取消选中时间</span></div>
+                </td>
+                <td style="vertical-align: top;">
+                    <div class="advance-hour-setting-div" style="">
+                        <table class="advance-hour-setting-table layout-table">
+                            <tbody>
+                            <tr>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="0">
+                                        <span class="advance-hour-span ">00:00-01:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="1">
+                                        <span class="advance-hour-span ">01:00-02:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="2">
+                                        <span class="advance-hour-span ">02:00-03:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="3">
+                                        <span class="advance-hour-span ">03:00-04:00</span></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="4">
+                                        <span class="advance-hour-span ">04:00-05:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="5">
+                                        <span class="advance-hour-span ">05:00-06:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="6">
+                                        <span class="advance-hour-span ">06:00-07:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="7">
+                                        <span class="advance-hour-span ">07:00-08:00</span></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="8">
+                                        <span class="advance-hour-span ">08:00-09:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="9"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">09:00-10:00</span>
+                                    </div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="10"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">10:00-11:00</span>
+                                    </div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="11"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">11:00-12:00</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="12">
+                                        <span class="advance-hour-span ">12:00-13:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="13">
+                                        <span class="advance-hour-span ">13:00-14:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="14"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">14:00-15:00</span>
+                                    </div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="15"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">15:00-16:00</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="16"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">16:00-17:00</span>
+                                    </div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="17">
+                                        <span class="advance-hour-span ">17:00-18:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="18">
+                                        <span class="advance-hour-span ">18:00-19:00</span></div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="19"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">19:00-20:00</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="20"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">20:00-21:00</span>
+                                    </div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="21"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">21:00-22:00</span>
+                                    </div>
+                                </td>
+                                <td style="">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="22"
+                                                                   checked="checked"> <span
+                                            class="advance-hour-span  checked-hour ">22:00-23:00</span>
+                                    </div>
+                                </td>
+                                <td style="" colspan="1">
+                                    <div class="singleType"><input type="checkbox"
+                                                                   class="advance-hour-check" value="23">
+                                        <span class="advance-hour-span ">23:00-24:00</span></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
+    </div>
+
+    <div>
+        <p>
+            <span  href=""  class="tmbtn yellow-btn back">上一步</span>
+            <!--&nbsp;&nbsp;&nbsp;
+                <span class="tmbtn blue-btn skip" >跳过</span>-->
+            &nbsp;&nbsp;&nbsp;
+            <span class="tmbtn sky-blue-btn next" >下一步</span>
+        </p>
+    </div>
+</div>
+</div>
+
+<div id="step5" class="step step5">
+    <div class="headspan" >新建上架计划(第5/5步)</div>
+    <div class="stepbody">
+        <div class="auto-delist-distribute-table"></div>
+        <p>
+            <span  href=""  class="tmbtn yellow-btn back">上一步</span>
+            &nbsp;&nbsp;&nbsp;
+            <span class="tmbtn sky-blue-btn next" >完成</span>
+        </p>
+    </div>
+    <div class="distribution-area" style="display: none;">
+        <div class="conclusion">
+            该计划共有宝贝数: <span class="total"></span>，
+            现在已设置<span class="already-alocated" style="color: red;"></span>,
+            剩余可分配宝贝数 <span class="un-alocated" style="color: red;"></span>
+            <a href="javascript:;" class="roll-back tmbtn sky-blue-btn">还原到默认</a>
+            <a href="javascript:;" class="clear-all tmbtn sky-blue-btn">全部清零</a>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <table id="distributionTable" class="distributionTable">
+            <thead>
+            <tr>
+                <th>时间段</th>
+                <th index=0>星期一(<span class="monday-sum">3</span>)</th>
+                <th index=1>星期二(<span class="tuesday-sum">12</span>)</th>
+                <th index=2>星期三(<span class="wednesday-sum">2</span>)</th>
+                <th index=3>星期四(<span class="thursday-sum">0</span>)</th>
+                <th index=4>星期五(<span class="friday-sum">1</span>)</th>
+                <th index=5>星期六(<span class="saturday-sum">0</span>)</th>
+                <th index=6>星期日(<span class="sunday-sum">1</span>)</th>
+                <th class="operTh">按时间段批量</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="conclusion">
+            该计划共有宝贝数: <span class="total-bottom"></span>，
+            现在已设置<span class="already-alocated-bottom" style="color: red;"></span>,
+            剩余可分配宝贝数 <span class="un-alocated-bottom" style="color: red;"></span>
+            <a href="javascript:;" class="roll-back tmbtn sky-blue-btn">还原到默认</a>
+            <a href="javascript:;" class="clear-all tmbtn sky-blue-btn">全部清零</a>
+        </div>
+    </div>
+</div>
+
+<div id="step6" class="step step6">
+    <div class="headspan" >计划创建成功</div>
+    <div class="stepbody">
+        上架计划创建完成,<a href="" class="plan-detail-link">点击查看详情</a>, 您也可以<a href="/autotitle/delistplans">点击返回计划列表</a>
+    </div>
+</div>
+<div id='kits'>
+
+</div>
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/x-jquery-tmpl" id="catTmpl">
+    <p>
+        <input type="checkbox" cid="{{= id}}" name="itemCid" style="padding:0px;margin:0px;width:auto;"/> >>
+        <span class="inlineblock" style="width:300px;">{{= name}}</span>
+        (
+        出售中:&nbsp;<span class="inlineblock" style="width:120px;text-align:center;"><b style="color:green">{{= onSaleCount}}</b></span>|
+        仓库中:&nbsp;<span class="inlineblock" style="width:120px;text-align:center;"><b style="color:green">{{= inStockCount}}</b></span>
+        )
+    </p>
+</script>
+
+
+
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/multiOpByURL.js?_v=2', function () {
+            TM.gcs('/js/jquery.pagination.js', function () {
+                TM.gcs('/js/jquery.url.js', function () {
+                    TM.gcs('/js/tm.js', function () {
+                        TM.gcs('/js/switch.js', function () {
+                            TM.gcs('/js/commstab/commstab.js', function () {
+                                TM.gcs('/js/commChoose/commChoose.js', function () {
+                                    TM.gcs("/js/jquery-ui-timepicker-addon.js", function () {
+                                        TM.gcs("/status/js", function () {
+                                            $(document).ready(function () {
+                                                TM.gcs('/js/kits.js', function () {
+                                                    TM.gcs('/js/Kits/autodelist.js?_v=6',function(){
+                                                        TM.gcs('/js/delistplan/delistbase.js',function(){
+                                                            TM.gcs('/js/Kits/delistplan.js?_v=6',function(){
+                                                                var isTaozhanggui = false;
+                                                                TM.CreateDelist.init(true,isTaozhanggui);
+                                                            });
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+
+</script>
+#{/set}

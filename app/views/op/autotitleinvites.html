@@ -1,0 +1,87 @@
+#{extends 'keymain.html' /}
+#{set title:'赚钱联盟' /}
+
+
+
+<style type="text/css">
+    #invite{height:500px;padding: 10px 10px 10px 50px;}
+    .bigblock{font-size:18px;padding:20px 20px 20px 20px;}
+    .invitewrapper{position: relative;height:100px;}
+    .inviteintro{color:#777;margin:15px 0 15px 0;}
+    .inviteintro div{margin:5px 0 5px 0;}
+    #textinput{;border: 1px solid #ccc;float: none;
+        padding: 5px;display: inline-block;*display: inline;margin:0;height:80px;width:350px;
+        position: absolute;
+    }
+    #paste{position: absolute;top:20px;left:400px;}
+</style>
+
+<div id="poster">
+    <img style="width:800px;height:400px;" src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2j0e.XodaXXXXXXXX_!!22902351.png">
+</div>
+
+<div id="invite">
+
+    <div class="invitetitle " >
+        <div class="h2title basecolor">
+            邀请好使用生流量,赚分销提成,获生流量旗舰版
+        </div>
+        <div class="blank0 basebottomborder" style="height:2px; "></div>
+    </div>
+
+    <div class="inviteintro">
+        <div>每成功邀请一个卖家订购生流量</div>
+        <div>您可以直接赚取其首次订购金额的<b class="tipcolor">30%</b>作为您的佣金</div>
+        <div>邀请成功后,您可以联系客服来获取您的奖励</div>
+        <div>这是您的专属链接,请通过 QQ 或者 旺旺 发送给您的朋友</div>
+    </div>
+
+    <div class="invitewrapper">
+        <textarea id="textinput" style="" class='invite-content'>这是我见过最好的店铺运营神器,一键全店铺流量猛增加,全自动智能标题!</textarea>
+        <span id='paste' class="baseblock bigblock">复制</span>
+    </div>
+    <div class="inputbottom">
+        *{分享邀请链接到:}*
+    </div>
+    <div class="blank0 basebottomborder" style="height:1px; "></div>
+    <div class="blank0 " style="height:15px; "></div>
+    <div class="inviterecords">
+        <div class="h2title basecolor">
+            您的邀请记录:
+        </div>
+        <div class="blank0 " style="height:1px; "></div>
+
+        <table class="oplogs">
+            <thead>
+                <tr>
+                    <th>邀请用户</th><th>来源ip</th><th>更新日期</th>
+                </tr>
+            </thead>
+            <tbody class="invitebody"></tbody>
+        </table>
+        <div class="blank0 " style="height:10px; "></div>
+        <div class="pagination right" style="margin-right: 80px;"></div>
+        <div class="blank0 " style="height:1px; "></div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    *{<script src="/js/zeroclipboard.js" charset="utf-8"></script>}*
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.pagination.js',function(){
+            TM.gcs('/js/tm.js',function(){
+                TM.gcs('/js/utils/copy.js',function(){
+                    TM.gcs('/js/utils/jquery.cookie.js',function(){
+                        TM.gcs('/js/autoTitle/autotitleinvite.js',function(){
+                            $(document).ready(function(){
+                                TM.invite.init($('#invite'));
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

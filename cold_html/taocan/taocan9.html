@@ -1,0 +1,147 @@
+
+<html>
+<head>
+    <style type="text/css">
+        body{
+            margin: 0px;
+        }
+        .taocan{
+            margin: 0px;
+            width: 100%;
+            position: relative;
+            background: url("http://img02.taobaocdn.com/imgextra/i2/1132351118/T252hhXtRaXXXXXXXX_!!1132351118.jpg");
+        }
+        .time-lap{
+            width: 100%;
+            text-align: center;
+            top: 880px;
+            position: absolute;
+            font-weight: bold;
+        }
+        #time-minute{
+            display: inline-block;
+            *display: inline;
+            position: relative;
+            font-size: 45px;
+            color:#CC0000;
+            margin-right: 20px;
+        }
+        #time-second{
+            display: inline-block;
+            *display: inline;
+            position: relative;
+            font-size: 45px;
+            color:#CC0000;
+            margin-right: 20px;
+        }
+        #time-millis{
+            display: inline-block;
+            *display: inline;
+            position: relative;
+            font-size: 45px;
+            color:#CC0000;
+            margin-right: 15px;
+        }
+
+        .taocan div a img {
+            width:1000px;
+            margin: 0 auto;
+            border: 0px solid;
+            margin-top: -4px;
+        }
+        .taocan div img {
+            width:1000px;
+            margin: 0 auto;
+            border: 0px solid;
+            margin-top: -4px;
+        }
+        .taocan div {
+            text-align: center;
+        }
+
+        .subsider {
+            border: 0px solid;
+            float: right;
+            position: fixed;
+            top:200px;
+            right: 0;
+        }
+        .subsider img{
+            /*float: right;*/
+            top:200px;
+            *top:800px;
+            *border:0px solid #000;
+            *position: absolute;
+            right:0;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<div class="taocan">
+    <div class="time-lap">
+        <div id="time-minute">03</div>
+        <div id="time-second">03</div>
+        <div id="time-millis">22</div>
+    </div>
+    <div><a href="http://fuwu.taobao.com/ser/assembleParam.htm?spm=0.0.0.0.r8n2TK&planId=12618&tracelog=mixPlan.serDetail.FW_GOODS-1835721&subParams=cycleNum:1,cycleUnit:2,itemCode:FW_GOODS-1835721-1,extends:sp.link_article_code*FW_GOODS-1835721;cycleNum:1,cycleUnit:2,itemCode:ts-11477-1,extends:sp.link_article_code*FW_GOODS-1835721" target="_blank">
+        <img src="http://img04.taobaocdn.com/imgextra/i4/1132351118/T2S34iXsFaXXXXXXXX_!!1132351118.gif" /></a>
+    </div>
+    <div>
+        <a href="http://fuwu.taobao.com/ser/assembleParam.htm?spm=0.0.0.0.r8n2TK&planId=12618&tracelog=mixPlan.serDetail.FW_GOODS-1835721&subParams=cycleNum:1,cycleUnit:2,itemCode:FW_GOODS-1835721-1,extends:sp.link_article_code*FW_GOODS-1835721;cycleNum:1,cycleUnit:2,itemCode:ts-11477-1,extends:sp.link_article_code*FW_GOODS-1835721" target="_blank">
+            <img src="http://img02.taobaocdn.com/imgextra/i2/1132351118/T2V.HJXcdbXXXXXXXX_!!1132351118.gif" />
+        </a>
+    </div>
+    <div>
+        <a href="http://fuwu.taobao.com/ser/assembleParam.htm?spm=0.0.0.0.r8n2TK&planId=12618&tracelog=mixPlan.serDetail.FW_GOODS-1835721&subParams=cycleNum:1,cycleUnit:2,itemCode:FW_GOODS-1835721-1,extends:sp.link_article_code*FW_GOODS-1835721;cycleNum:1,cycleUnit:2,itemCode:ts-11477-1,extends:sp.link_article_code*FW_GOODS-1835721" target="_blank">
+            <img src="http://img03.taobaocdn.com/imgextra/i3/1132351118/T2fSrXXhXbXXXXXXXX_!!1132351118.gif" /></a>
+    </div>
+    <div>
+        <img src="http://img04.taobaocdn.com/imgextra/i4/1132351118/T2VNViXB0XXXXXXXXX_!!1132351118.gif" usemap="#spMap">
+        <map name="spMap">
+            <area shape="rect" coords="50,230,500,5" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.115.hnP0wr&service_code=FW_GOODS-1835721&tracelog=search" target="_blank">
+            <area shape="rect" coords="520,230,900,5" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.0.ZSHrvP&service_code=ts-11477&tracelog=s.plan.serDetail.ts-1820059" target="_blank">
+            <area shape="rect" coords="50,360,900,260" href="http://fuwu.taobao.com/ser/assembleParam.htm?spm=0.0.0.0.r8n2TK&planId=12618&tracelog=mixPlan.serDetail.FW_GOODS-1835721&subParams=cycleNum:1,cycleUnit:2,itemCode:FW_GOODS-1835721-1,extends:sp.link_article_code*FW_GOODS-1835721;cycleNum:1,cycleUnit:2,itemCode:ts-11477-1,extends:sp.link_article_code*FW_GOODS-1835721" target="_blank">
+        </map>
+    </div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+    var minTotal = 4;
+    var secondTotal = 59;
+    var millisTotal = 59;
+    var t;
+    function timeLap(){
+        var minute = document.getElementById("time-minute");
+        var second = document.getElementById("time-second");
+        var millis = document.getElementById("time-millis");
+
+        millisTotal--;
+        if (millisTotal <= 0) {
+            secondTotal--;
+            millisTotal = 60;
+            if (secondTotal <= 0) {
+                minTotal--;
+                secondTotal = 60;
+                if (minTotal < 0) {
+                    clearTimeout(t);
+                }
+            }
+        }
+
+        minute.innerHTML=minTotal<=0?"00":"0"+minTotal;
+        second.innerHTML=secondTotal>=10?secondTotal:"0"+secondTotal;
+        millis.innerHTML=millisTotal>=10?millisTotal:"0"+millisTotal;
+        t = setTimeout(timeLap, 10);
+    }
+    timeLap();
+</script>
+</body>
+
+</html>

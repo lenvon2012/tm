@@ -1,0 +1,76 @@
+#{extends 'fxmain.html' /}
+
+#{set title:'一键去外链' /}
+<style>
+
+       #autodiag{margin: 0 auto;position: relative;text-align: center;}
+       #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+       .diagbtn{background-position: left bottom;top:20px;left:0px;}
+       .diagbtnpos{text-align: center;margin: 0 auto;position: relative;border: 1px solid #ddd;}
+       .oknoproblem{width:400px;height:100px;margin:0 auto;text-align: center;vertical-align: middle;}
+       .errormsg{background-color: 	#FFF4C1}
+       .oplogs td {border: 1px solid #ccc;padding: 3px 0 3px 0;}
+
+       .resBody a:hover{color:#ff4500;}
+       .resBody p {text-align: left;margin:3px 0;}
+       .rmlinks {
+           text-align: center;
+           margin: 3px 0px;
+           border: 1px solid #DDDDDD;
+       }
+       .rmlinks a{
+           font-size:13px;
+       }
+       .checkLinkBtn, .doRemoveBtn, .doRemoveAllBtn {
+           margin:10px;
+       }
+       .remove-all-label {
+           vertical-align: middle;
+           margin-left: 3px;
+           font-weight: bold;
+       }
+       .loading-text {
+           margin-left: 10px;
+       }
+       table.busSearch td {
+           border: 1px solid #bebebe;
+       }
+       .paging-div {
+           margin: 5px 0;
+       }
+</style>
+
+
+*{<div class="page-hierarchy" style="margin-bottom: 10px;">}*
+    *{<span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/fenxiao">分销神器&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>一键去外链}*
+*{</div>}*
+<div class="bodyline">
+    <div class="autodiagIntro">
+        <b style="font-weight: bold;color:blue;">功能介绍：</b>批量去除宝贝描述中的外链
+        *{<p><b class="red">【注意：一次排查500个宝贝，修改到淘宝后请继续排查】</b></p>}*
+        *{<p style="font-weight: bold;padding-top:5px;">如果需要重新排查已去外链的宝贝，请点击&nbsp;<span class="btn" >清除历史记录</span></p>}*
+    </div>
+</div>
+
+<div id='autodiag' >
+    <div class="diagbtnpos">
+        <div class="">
+            <span class="checkLinkBtn btn btn-success btn-large"><b>立即查找外链</b></span>
+            <span class="doRemoveBtn btn btn-primary btn-large"><b>修改选中到淘宝</b></span>
+            <span class="doRemoveAllBtn btn btn-warning btn-large"><b>修改全部到淘宝</b></span>
+        </div>
+    </div>
+</div>
+<div class='clearfix'></div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.gcs('/js/fenxiao/rmlinks.js?v=2', function(){
+        $(document).ready(function () {
+            TM.RmLinks.init($('#autodiag'));
+        });
+    });
+
+</script>
+#{/set}

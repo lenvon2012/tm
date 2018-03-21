@@ -1,0 +1,260 @@
+#{extends 'yangyang.html' /}
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css'>
+<link rel="stylesheet" media="screen" href='/css/tbt.css'>
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css">
+<![endif]-->
+
+<style type="text/css">
+    .tm-paging-container {padding: 5px 0px;}
+    .tm-paging-container .paging-nav {display: inline-block; *display: inline; zoom: 1; height: 16px; width: 24px;text-decoration: none; margin: 0px 2px; font-weight: bold;text-align: center; padding: 4px 0px;}
+    .tm-paging-container .paging-link {background: url(/img/pagging-back2.png) no-repeat left top;color: #7f7f7f; cursor: pointer;}
+    .tm-paging-container .paging-link:hover {background: url(/img/pagging-back2.png) no-repeat left -24px;}
+    .tm-paging-container .paging-select {background: url(/img/pagging-back2.png) no-repeat left -72px;color: #fff; cursor: default;}
+    .tm-paging-container .paging-size-link {background: url(/img/pagging-back2.png) no-repeat left top;color: #7f7f7f; cursor: pointer;}
+    .tm-paging-container .paging-size-link:hover {background: url(/img/pagging-back2.png) no-repeat left -24px;}
+    .tm-paging-container .paging-size-select {background: url(/img/pagging-back2.png) no-repeat left -72px;color: #fff; cursor: default;}
+    .nav{padding: 5px 0px;}
+    .dropdown-menu {top: 30px;}
+    .dropdown-menu li {padding-top: 3px;}
+    li a:hover{background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;color:black;}
+    .nav-list .nav-header{margin-left:5px;}
+    .toggle-color {
+        color: #ffff00;
+    }
+    p.pull-right a.toggle-color {
+        color: #ffff00;
+    }
+    p.pull-right a {
+        color: white;
+    }
+    .xufeiheadop {
+        float: left;
+        width: 150px;
+        line-height: 41px;
+        height: 41px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        padding-top: 3px;
+        color: white;
+        font-weight: bold;
+    }
+    #right-award{
+        width: 95px;
+        height: 107px;
+        cursor: pointer;
+        background: url(http://img04.taobaocdn.com/imgextra/i4/1132351118/T2BQxiXBBXXXXXXXXX_!!1132351118.jpg);
+        bottom: 240px!important;
+        position: fixed;
+        _position: absolute;
+        _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-300));
+    }
+    #kefuhref {
+        float: none;
+    }
+</style>
+
+*{<div class='top-banner' style="background: http://s.libdd.com/img/bg/header.$5752.pngheight: 48px; ">}*
+*{
+<div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; ">
+
+    <div class='top-nav head-nav' >
+    	
+            <span class = "head" ></span>
+                <!-- <ul style="margin: 0" class="headUl"></ul> -->
+             <span style='float:left;width:150px;;line-height: 41px;height: 41px;text-align: center;display: inline-block;*display:inline;' class="userheadop">
+                 <a id='syncBtn' href="javascript:void(0)" class="bluebutton" style="padding: 0px;text-align: center;margin-top:4px;">更新数据</a>
+                 <a class="bluebutton"  id="logout" style='padding:0px;' href="javascript:void(0);">退出</a> <!-- |<a href="/Share/toShare">分享</a> -->
+             </span>
+
+        <div class="clear"></div>
+    </div>
+</div>
+}*
+
+<!-- fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top nav-head">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse"
+                    data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="brand" href="javascript:void(0)">好评助手</a>
+            <div class="nav-collapse collapse">
+
+                <p style="float: left;">
+                    <span class="userheadop"></span>
+                </p>
+                
+                <p style="float: left;">
+                    <span class="user_time_left"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div class="navmain">
+    <div class="all_container">
+        <div class="kwcontainer">
+        #{doLayout /}
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    // set #right-award absolute position
+    $('#right-award').css('right',(($(window).width()-1000)/2 - 120)+'px');
+    $(window).resize(function(){
+        $('#right-award').css('right',(($(window).width()-1000)/2 - 120)+'px');
+    });
+    $('#right-award').click(function(){
+        // 现在使用新版的3元弹窗，可选套餐
+        TM.loadMeal();
+    });
+
+    setInterval(function(){
+        $('#xufei-now').toggleClass("toggle-color");
+    }, 500)
+
+    var path = document.location.pathname.toLowerCase();
+    var aside = $('.aside');
+    aside.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').toLowerCase().indexOf(path) >= 0 && path.length > 2){
+            $('.aside').find('a.asideselected').removeClass('asideselected');
+            anchor.addClass('asideselected');
+        }
+    });
+    TM.gcs('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        orderAnchor.parent().hide();
+        //var welcome = $("<div style='position:absolute;left:550px;top:30px;color:white;'>欢迎您,<b>"+TM.name+"</b></div>");
+        //$('.top-nav').append(welcome);
+
+        if(TM.name != undefined) {
+            $(".userheadop").text(TM.name);
+            $(".user_time_left").text("剩余天数： " + TM.timeLeft);
+        }
+    });
+
+    TM.loadMeal = function(){
+        //http://fuwu.taobao.com/ser/plan/planSubDetail.htm?planId=12651&isHidden=true&cycle=1&itemIds=285831
+        var meal = $('#meal3');
+        var currDuration = null;
+        var payment = meal.find('.payment');
+        var recomputePrice= function(){
+            var price = meal.find('.durations').find(".mealselected").attr('value')* meal.find('.mealitems .mealselected').length  * 3;
+            payment.html(price);
+        }
+
+        meal.find('.durations').find('.duration').click(function(){
+            var clicked = $(this);
+            $('.durations').find('.mealselected').removeClass('mealselected');
+            clicked.addClass('mealselected');
+            recomputePrice();
+        });
+
+        meal.find('.mealitems').find('.mealitem').click(function(){
+            var clicked = $(this);
+            if(clicked.hasClass('mealselected')){
+                clicked.removeClass('mealselected');
+            }else{
+                clicked.addClass('mealselected');
+            }
+            recomputePrice();
+        });
+        meal.find('.btn-ordernow').click(function(){
+            var itemIds = [];
+            meal.find('.mealitems .mealselected').each(function(i, elem){
+                itemIds.push($(this).attr('itemId'));
+            });
+            if(itemIds.length == 0){
+                alert('亲,请至少选择一个服务哟');
+                return;
+            }
+            var cycle =     meal.find('.durations').find(".mealselected").attr('value');
+            var href = "http://fuwu.taobao.com/ser/plan/planSubDetail.htm?planId=12651&isHidden=true&cycle="
+                    +cycle+"&itemIds="+itemIds.join(',');
+            window.open(href);
+        });
+
+
+        meal.dialog({
+            modal: true,
+            bgiframe: true,
+            height:460,
+            width:960,
+            title: "套餐订购",
+            autoOpen: false,
+            resizable: false,
+            zIndex: 6003,
+            buttons:{'关闭':function(){
+                $(this).dialog('close');
+            }}
+        });
+        meal.dialog('open');
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            $.get('/items/sync',function(){
+                TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                    window.location.reload();
+                });
+            });
+        });
+        var wangwang = TM.wangwang ||'http://www.taobao.com/webww/ww.php?ver=3&touid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E%3A%E9%A3%98%E9%9B%AA&siteid=cntaobao&status=1&charset=utf-8';
+        $('#kefuhref').attr('href',"http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8");
+    });
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    $.cookie('_s',null);
+                    $.cookie('_n',null);
+                    $.cookie('_eu',null);
+                    $.cookie('_v',null);
+                    $.cookie('no',null);
+
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+
+    $(".app-nav").hide();
+    // TODO, this is for the preview temp...
+    $('#goHelp').hide();
+    var img = $('#tempLogoImg');
+    img.attr('src','/public/images/header/Glossy_Menus_05_blue.png');
+    img.css({width:'100px'});
+
+    $(document).ready(function(){
+        //$('#footer-content').find('p').hide();
+        //$('#kefuhref').attr('href','http://amos.im.alisoft.com/msg.aw?v=2&uid=%E9%AA%91%E7%9D%80%E7%BB%B5%E7%BE%8A%E9%A3%9E:%E9%A3%98%E9%9B%AA&site=cntaobao&s=1&charset=utf-8');
+        $('#kefuhref').attr('href',"http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8");
+        $('.dropdown').live('mouseenter',function(){
+            $(this).addClass('open');
+        }).live('mouseleave',function(){
+                    $(this).removeClass('open');
+                });
+    })
+</script>
+
+<script type="text/javascript" src="http://a.tbcdn.cn/apps/isvportal/securesdk/securesdk.js" id="J_secure_sdk_script" data-appkey="21404171"></script>

@@ -1,0 +1,205 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'智能上架计划管理' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/jquery-ui-timepicker-addon.css"/>
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/pagination.css">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/autoDeList.css?_v=2">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/distributeRule.css?_v=1">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+#{/set}
+<link rel="stylesheet" media="screen" href="/css/autoDeList/delistPlans.css?_v=1">
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>上下架计划管理
+</div>
+
+
+<div class="delistPlansWrapper" >
+    <div class="blank0" style="height:10px;display: none;"></div>
+    <div class="intro" style="">
+        <p>
+            新版智能上架最新上线, 亲爱的老用户们可以点击<b>默认计划的编辑按钮</b>，就会进入到原来的功能界面了
+        </p>
+    </div>
+    *{<div class="blank0" style="height:10px;"></div>}*
+    <div class="hidden">
+	    <div>
+	        <div class="headspan" >智能上架运行状态<span class="question" content="开启自动运行上下架功能"></span></div>
+	    </div>
+	
+	    <div class="blank0" style="height:10px;"></div>
+	    <div class="auto-delist-status-div" style="padding-left: 20px;display:none"></div>
+	    <div class="blank0" style="height:10px;"></div>
+    </div>
+
+    <div>
+
+        *{<div class="blank0" style="height:10px;"></div>}*
+        <div>
+        <div class="headspan" >计划操作<span class="question" content="操作计划"></span></div>
+
+            <div>
+                <a href="javascript:void(0);" class="tmbtn too-long-blue-btn simple-delist-btn" style="font-size:17px;margin-left:20px;"><b style=""></b>一键创建均匀上架计划</a>
+                <span>一键创建均匀上下架优化计划,<b style="color:green">适合新手卖家</b>,一键将您当前出售中的宝贝的上下架时间均匀分布到一周流量高峰时间段</span>
+            </div>
+            <div class="blank0" style="height:10px;"></div>
+            <div>
+            <a href="/kits/delistCreate" class="tmbtn too-long-blue-btn" style="font-size:17px;margin-left:20px;"><b style=""></b>创建自定义上下架计划</a>
+            <span>由亲<b style="color:green">自定义上下架调整计划</b>, 有针对性地不同时间段不同分类进行上下架时间调整的详细计划，手动优化</span>
+            </div>
+        </div>
+        <div class="blank0" style="height:10px;"></div>
+        <div class="headspan" >上架计划列表<span class="question" content="开启自动运行上下架功能"></span></div>
+        <table id="plansTable" class="busSearch" style="text-align: center;font-size:20px;font-family: '微软雅黑'">
+            <thead>
+            <tr>
+                <th>计划名</th>
+                <th>创建时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    *{<div id='kits'>
+        </div>}*
+
+    <div class="delist-distribute-div" style="display: none; padding: 20px 0px 30px 0px;">
+        <div class="week-distribute">
+            <table style="width: 100%;">
+                <tbody>
+                <tr>
+                    <td colspan="10">
+                        <div class="headspan" style="">当前上架时间<span class="question" title="当前宝贝上下架时间"></span></div>
+                    </td>
+                </tr>
+                <tr class="realRow weekRow"></tr>
+                <tr>
+                    <td colspan="10">
+                        <div class="headspan " style="">计划中预期上架时间 (一周生效)<span class="question" title="计划中的宝贝上架时间"></span></div>
+                    </td>
+                </tr>
+                <tr class="planRow weekRow"></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<div class='clearfix'></div>
+
+<div class="main-wrapper" style="display: none;">
+
+    <div class="distribution-wrapper">
+        <div class="summary">
+            该计划类目共有宝贝数: <span class="total">19</span>，现在已设置<span class="now-percent">19个</span>
+        </div>
+        <div class="clearfix">
+            <table id="distributionTable" class="normal-table">
+                <thead>
+                <tr>
+                    <th>时间段</th>
+                    <th>星期日(<span class="sunday-sum">1</span>)</th>
+                    <th>星期一(<span class="monday-sum">3</span>)</th>
+                    <th>星期二(<span class="tuesday-sum">12</span>)</th>
+                    <th>星期三(<span class="wednesday-sum">2</span>)</th>
+                    <th>星期四(<span class="thursday-sum">0</span>)</th>
+                    <th>星期五(<span class="friday-sum">1</span>)</th>
+                    <th>星期六(<span class="saturday-sum">0</span>)</th>
+                    <th>批量增减</th>
+                </tr>
+                </thead>
+                <tbody><tr><td>0:00-0:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="3"><span class="oldnum">12</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>1:00-1:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>2:00-2:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>3:00-3:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>4:00-4:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>5:00-5:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>6:00-6:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>7:00-7:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>8:00-8:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>9:00-9:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>10:00-10:59</td><td class="numTd hasData" num="1"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="2"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="4"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="6"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>11:00-11:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="4"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>12:00-12:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>13:00-13:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>14:00-14:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>15:00-15:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>16:00-16:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>17:00-17:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>18:00-18:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="2"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>19:00-19:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>20:00-20:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>21:00-21:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>22:00-22:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd hasData" num="2"><span class="oldnum">1</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr><td>23:00-23:59</td><td class="numTd " num="1"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="2"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="3"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="4"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="5"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="6"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="numTd " num="7"><span class="oldnum">0</span><input type="text" class="num" style="display:none;"></td><td class="operTd"><a href="javascript:;" class="add"></a><a href="javascript:;" class="minus"></a></td></tr><tr class="operTr"><td></td><td><a href="javascript:;" class="add" num="1"></a><a href="javascript:;" class="minus" num="1"></a></td><td><a href="javascript:;" class="add" num="2"></a><a href="javascript:;" class="minus" num="2"></a></td><td><a href="javascript:;" class="add" num="3"></a><a href="javascript:;" class="minus" num="3"></a></td><td><a href="javascript:;" class="add" num="4"></a><a href="javascript:;" class="minus" num="4"></a></td><td><a href="javascript:;" class="add" num="5"></a><a href="javascript:;" class="minus" num="5"></a></td><td><a href="javascript:;" class="add" num="6"></a><a href="javascript:;" class="minus" num="6"></a></td><td><a href="javascript:;" class="add" num="7"></a><a href="javascript:;" class="minus" num="7"></a></td><td></td></tr></tbody>
+            </table>
+
+        </div>
+
+        <a href="javascript:;" id="submit" class="btn-next">保存</a>
+    </div>
+</div>
+
+<div class="weekTimes" style="display:none;">
+    <table style="width:90%;">
+        <tbody>
+        <tr><td colspan="10">
+            <div class="headspan " style="width:600px;">计划中预期上架时间(一周生效)<span class="question" title="上下架计划中的宝贝上架时间"></span></div>
+        </td></tr>
+        <tr class="planRow weekRow"></tr>
+        <tr><td colspan="10">
+            <div class="headspan" style="width:600px;">当前上架时间<span class="question" title="当前宝贝上下架时间"></span></div>
+        </td></tr>
+        <tr class="realRow weekRow"></tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/x-jquery-tmpl" id="delistWeekDistribution">
+    <td class="delistWeekTd">
+        <div class="weekName">{{= weekName}}</div>
+        <div class="blank0" style="height:2px;"></div>
+        <div class="weekValue">{{= weekValue}}</div>
+    </td>
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="planRowTmpl">
+<tr status="{{= status}}">
+    <td>{{= title}}</td>
+    <td>{{= createTimeStr}}</td>
+    <td class="statusTxt"><span style="color:green">运行中</span></td>
+    <td>
+        <span planId="{{= id}}"  class="tmbtn short-green-btn startBtn">开启</span>
+        <span planId="{{= id}}" class="tmbtn yellow-btn pauseBtn">暂停</span>
+        <a  planId="{{= id}}" href="/kits/delistPlanDetail?planId={{= id}}" class="tmbtn sky-blue-btn">查看详情</a>
+        <a  planId="{{= id}}" href="/kits/delistPlanDetail?planId={{= id}}" class="tmbtn sky-blue-btn">编辑</a>
+        <span planId="{{= id}}" class="tmbtn red-short-btn  deleteBtn">删除</span>
+    </td>
+</tr>
+</script>
+
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/multiOpByURL.js?_v=2', function () {
+            TM.gcs('/js/jquery.pagination.js', function () {
+                TM.gcs('/js/jquery.url.js', function () {
+                    TM.gcs('/js/tm.js', function () {
+                        TM.gcs('/js/switch.js', function () {
+                            TM.gcs('/js/commstab/commstab.js', function () {
+                                TM.gcs("/js/jquery-ui-timepicker-addon.js", function () {
+                                    TM.gcs("/status/js", function () {
+                                        $(document).ready(function () {
+                                            TM.gcs('/js/kits.js', function () {
+                                                TM.gcs("/js/delistplan/delistbase.js", function () {
+                                                    TM.gcs('/js/Kits/delistplan.js?_v=7',function(){
+                                                        var isTaozhanggui = true;
+                                                        TM.DelistPlan.init(isTaozhanggui);
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

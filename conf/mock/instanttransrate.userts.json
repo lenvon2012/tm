@@ -1,0 +1,35 @@
+{
+    "isOk": true,
+    "count": 0,
+    "code": null,
+    "ps": 0,
+    "msg": "",
+    "ok": true,
+    "pn": 0,
+    "res": {
+        "pcTransRate": 100,
+        "tsMillis": 1400090953043,
+        "tsYMS": "2014-05-15 02:09:13",
+        "itemSales": [
+            {
+                "numIid": 37532643253,
+                "picPath": "http://img03.taobaocdn.com/bao/uploaded/i3/T1zgqRFBBbXXXXXXXX_!!0-item_pic.jpg",
+                "title": "时尚女包小包 链条包2014新款欧美复古包单肩斜挎包小流苏菱格包",
+                "transRate": 100,
+                "sale": 100,
+                "uv": 10000,
+                "pv": 20000
+            }
+        ],
+        "refSales": [
+            {
+                "refType": "淘宝搜索",
+                "transRate": 100,
+                "sale": 100,
+                "uv": 10000,
+                "pv": 20000
+            }
+        ]
+    },
+    "pnCount": 0
+}

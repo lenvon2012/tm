@@ -1,0 +1,79 @@
+#{extends 'tbtnav/tbtnavmain.html' /}
+*{#{extends 'yangyang.html' /}}*
+
+
+<link rel="stylesheet" type="text/css" href="/css/tbtnav.css?_v=1">
+<table class="nav-table" style="">
+<tbody>
+<tr>
+*{<td class="nav-table-left-td" >}*
+<td class="leftnavtd" style="">
+    <nav class="leftnav" style="">
+        <ul class="main-lists ">
+            <li class="menu-goods  ">
+                <a href="javascript:void(0)" class="menu" >
+                    <em>评价管理</em>
+                    <i class="icon-fold"></i>
+                </a>
+                <ul class="sub-lists hidden" >
+                    <li>
+                        <a href="/kits/comment"><em>自动评价</em></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-287826926.htm?spm=0.0.0.0.ZKo5tO" class="title-flow-map "><em>文字教程</em></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-goods  ">
+                <a href="javascript:void(0)" class="menu" >
+                    <em>批量管理</em>
+                    <i class="icon-fold"></i>
+                </a>
+                <ul class="sub-lists hidden" >
+                    <li>
+                        <a href="/home/multiModify"><em>批量改标题</em></a>
+                    </li>
+                    <li>
+                        <a href="/skinbatch/batchprice"><em>批量改价</em></a>
+                    </li>
+                    <li>
+                        <a href="/skinbatch/batchdelist"><em>批量下架</em></a>
+                    </li>
+                    
+                    <li>
+                        <a href="/skinbatch/batchposition"><em>批量图片换位</em></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-goods  ">
+                <a href="javascript:void(0)" class="menu" >
+                    <em>宝贝复制<span style="color: red;">(新)</span></em>
+                    <i class="icon-fold"></i>
+                </a>
+                <ul class="sub-lists carry-sub-lists hidden" >
+                    <li>
+                        <a href="/kits/itemCarrier"><em>淘宝天猫复制</em></a>
+                    </li>
+                    <li>
+                        <a href="/kits/alibabaCarrier"><em>1688复制<span style="color:red">(新)</span></em></a>
+                    </li>
+                    <li style="display: none;">
+                        <a href="/kits/pddCarrier"><em>拼多多复制<span style="color:red">(新)</span></em></a>
+                    </li>
+                    <li>
+                        <a href="/kits/taskList"><em>任务中心</em></a>
+                    </li>
+                    <li>
+                        <a href="/kits/carryLog"><em>复制记录</em></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</td>
+<td style="" class="nav-table-right-td" >
+    <div class="main">
+        #{doLayout /}
+    </div>
+</td></tr></tbody>
+</table>

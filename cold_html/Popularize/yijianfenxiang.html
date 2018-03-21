@@ -1,0 +1,72 @@
+#{extends 'dianputuiguang/newbase.html' /}
+#{set title:'一键分享' /}
+
+<style type="text/css">
+    .fenxiang-pingtai ul {
+        width: 100%;
+        overflow: hidden;
+        padding-left: 2px;
+        list-style: none;
+    }
+    .fenxiang-pingtai li {
+        display: inline-block;
+        width: 130px;
+        text-align: center;
+        float: left;
+        list-style: none;
+        margin-left: 10px;
+    }
+    .jtico{text-align:left;height:16px!important;line-height:16px!important;padding-left:20px!important;
+        background:url(http://v3.jiathis.com/code/images/jiathis_ico.png) no-repeat left;cursor:pointer;
+        margin: 0 5px 5px 0;}
+    .jtico_tsina{background-position:0px -96px}
+</style>
+
+<div style="margin: 20px 20px;">
+    <span style="color:#387dc9;font-weight: bold;font-size: 25px;">一键分享</span>
+</div>
+
+<div class="container" style="margin: 0 auto;width: 100%;height: 500px;">
+    <div style="width: 750px;height: 450px;margin: 0 auto;border: 1px solid #d2dfeb;background: #f7f7f7;">
+        <input type="hidden" class="numIid" value="${numIid}" />
+        <input type="hidden" class="title" value="${title}" />
+        <input type="hidden" class="picURL" value="${picURL}" />
+        <div style="width: 750px;height: 30px;margin: 0 auto;margin: 15px 0;">
+            <span style="font-size: 20px;float: left;text-align: center;">想分享点什么？</span><span style="float: right;text-align: center;">总共可以输入140个字！</span>
+        </div>
+        <div style="width: 700px;height: 150px;margin: 0 auto;text-align: center;">
+            <textarea class="statuses" rows="5" cols="100"></textarea>
+            <a class="tmbtn yellow-btn fenxiang" href="#" style="margin-top: 10px;float: right;">一键分享</a>
+        </div>
+
+        <div style="width: 700px;height: 200px;margin: 0 auto;">
+            <div>
+                <span style="font-weight: bold;">请选择要分享绑定的平台:</span>
+            </div>
+            <div style="margin: 10px 0;">
+                <ul class="fenxiang-pingtai" style="">
+                    <li><span style="color: red;">绑定账号：</span></li>
+                    <li>
+                        <div style="border: 1px solid #d2dfeb;width: 130px;height: 25px;">
+                            <a class="jtico jtico_tsina" style="display: inline-block;margin: 5px;float: left;color:#000000;">新浪微博</a>
+                            <a class="sweiboBD" style="float: right;color: #387dc9; " href="javascript:void(0);">绑定</a>
+                        </div>
+                    </li>
+                    <li><div style="border: 1px solid #d2dfeb;width: 130px;height: 25px;"></div></li>
+                    <li><div style="border: 1px solid #d2dfeb;width: 130px;height: 25px;"></div></li>
+                    <li><div style="border: 1px solid #d2dfeb;width: 130px;height: 25px;"></div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript" src="/js/tm.js"></script>
+<script type="text/javascript" src="/js/popularize/yijianfenxiang.js?_v=2"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        TM.FenXiang.init.doInit($(".container"));
+    });
+</script>
+#{/set}

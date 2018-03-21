@@ -1,0 +1,95 @@
+#{extends 'CPEctocyst/CPEctocystMain.html'/}
+
+#{set title:'用户详情' /}
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+
+<style>
+ table.busSearch td {
+ 	height: 20px !important;
+ }
+</style>
+
+<div class="rate-admin-container">
+	<input class="name hide" id="name" value=${name}>
+	<div class="rate-admin-div">
+		<table style="margin: 0 auto; margin-top: 10px;">
+			<tbody>
+				<tr>
+					<td>
+						<span class="staffSelectorSearchWrapper hidden">
+							<span style="font-weight: bold; font-size: 16px;">客服名称:</span>
+						</span>
+					</td>
+					<td>
+						<span style="font-weight: bold; font-size: 16px;">查询日期：</span>
+						<input type="text" class="start-time-text date-picker" style="width: 95px; padding-left: 20px;">
+						<span style="margin: 0 10px; font-weight: bold;">-</span>
+						<input type="text" class="end-time-text date-picker" style="width: 95px; padding-left: 20px;">
+					</td>
+					<td style="padding-left: 10px;">
+						<span class="search-btn btn btn-primary">查询</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<table class="rate-admin-table busSearch" style="margin-top: 20px;">
+		<thead>
+			<tr>
+				<th class="row-date">统计时间</th>
+                <th>未评价总数</th>
+				<th>评价总数</th>
+				<th>催评好评总数</th>
+				<th class="col-bold">好评总数</th>
+				<th>中差评总数</th>
+				<th>中评总数</th>
+				<th class="col-bold">差评总数</th>
+				<th>修改中差评用户数</th>
+				<th>修改中评用户数</th>
+				<th class="col-bold">修改差评用户数</th>
+				<th>修改中差评数</th>
+				<th>修改中评数</th>
+				<th class="col-bold">修改差评数</th>
+			</tr>
+		</thead>
+		<tbody class="rate-admin-tbody">
+		
+		</tbody>
+	</table>
+</div>
+
+<div class='clearfix'></div>
+
+
+<script type="text/x-jquery-tmpl" id="tplRow">
+	<tr {{if index % 2 == 1}}class="even"{{/if}}>
+		<td class="row-date">{{= date}}</td>
+		<td>{{= noCommentCount}}</td>
+		<td>{{= haveCommentCount}}</td>
+		<td>{{= urgeGoodCommentCount}}</td>
+		<td class="col-bold">{{= goodCommentCount}}</td>
+		<td>{{= count}}</td>
+		<td>{{= neutralCount}}</td>
+		<td class="col-bold">{{= badCount}}</td>
+		<td>{{= modifyUserCount}}</td>
+		<td>{{= modifyNeutralUserCount}}</td>
+		<td class="col-bold">{{= modifyBadUserCount}}</td>
+		<td>{{= modifyCount}}</td>
+		<td>{{= modifyNeutralCount}}</td>
+		<td class="col-bold">{{= modifyBadCount}}</td>
+	</tr>
+</script>
+
+<script type="text/javascript">
+TM.gcs('/js/CPEctocyst/rateAdmin.js?_v=0', function() {
+	TM.gcs('/js/ChineseDatePicker.js', function () {
+		TM.gcs('/js/jquery.tmpl.js',function(){
+			$(document).ready(function() {
+				TM.RateAdmin.init.doInit($(".rate-admin-container"));
+			});
+		});
+	});
+});
+</script>

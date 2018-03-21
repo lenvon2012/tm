@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>不服看评价</title>
+    <style>
+        body{padding:0;margin:0 auto;}
+        div.xyy_bg{background: url( 'http://img04.taobaocdn.com/imgextra/i4/60113414/T2CgVbXDhXXXXXXXXX-60113414.png' );padding-bottom:30px;}
+        div.xyy_top{
+            width:100%;
+            height:355px;
+            background: url( 'http://img03.taobaocdn.com/imgextra/i3/60113414/T2qedaXqBaXXXXXXXX-60113414.png' );
+        }
+        div.xyy_top_banner{
+            background: url( 'http://img02.taobaocdn.com/imgextra/i2/22902351/T22dpkXARXXXXXXXXX_!!22902351.jpg' ) top center;
+            max-width:1500px;
+            min-width:1000px;
+            height:120px;
+            padding-top:235px;
+            margin:0 auto;
+        }
+
+        div.xyy_tab_bar{
+            width:1000px;
+            height:163px;
+            margin:0 auto;
+        }
+        div.xyy_tab_bar ul{
+            width:1000px;
+            margin:0;
+            padding:0;
+        }
+
+        div.xyy_tab_bar ul li{
+            list-style:none;
+            float:left;
+            width:333px;
+            height:120px;
+        }
+        div.xyy_tab_bar ul li.tab_1{
+            background: url( 'http://img03.taobaocdn.com/imgextra/i3/22902351/T27BBjXwtaXXXXXXXX_!!22902351.jpg' ) 0 0 no-repeat;
+        }
+        div.xyy_tab_bar ul li.tab_2{
+            background: url( 'http://img03.taobaocdn.com/imgextra/i3/22902351/T27BBjXwtaXXXXXXXX_!!22902351.jpg' ) -333px 0 no-repeat;
+        }
+        div.xyy_tab_bar ul li.tab_3{
+            background: url( 'http://img03.taobaocdn.com/imgextra/i3/22902351/T27BBjXwtaXXXXXXXX_!!22902351.jpg' ) -666px 0 no-repeat;
+        }
+
+        div.xyy_tab_bar ul li.tab_1_selected{
+            background-color:red;
+            background: url( 'http://img01.taobaocdn.com/imgextra/i1/22902351/T2DYrMXfFbXXXXXXXX_!!22902351.jpg' ) 0 0px no-repeat;
+        }
+        div.xyy_tab_bar ul li.tab_2_selected{
+            background-color:red;
+            background: url( 'http://img01.taobaocdn.com/imgextra/i1/22902351/T2DYrMXfFbXXXXXXXX_!!22902351.jpg' ) -333px 0px no-repeat;
+        }
+        div.xyy_tab_bar ul li.tab_3_selected{
+            background-color:red;
+            background: url( 'http://img01.taobaocdn.com/imgextra/i1/22902351/T2DYrMXfFbXXXXXXXX_!!22902351.jpg' ) -666px 0px no-repeat;
+        }
+
+
+        div.xyy_tab_div{
+            width:1000px;
+            height:490px;
+            margin:0 auto;
+        }
+
+        #xyy_tab_1_div,#xyy_tab_2_div,#xyy_tab_3_div,#xyy_tab_4_div{
+            width:1000px;
+            height:490px;
+            margin:0 auto;
+            display:none;
+        }
+        #xyy_tab_1_div{
+            background: url( 'http://img03.taobaocdn.com/imgextra/i3/22902351/T2OiVkXxtXXXXXXXXX_!!22902351.jpg' ) 0 0 no-repeat;
+        }
+        #xyy_tab_2_div{
+            background: url( 'http://img02.taobaocdn.com/imgextra/i2/22902351/T2GS6AXdtbXXXXXXXX_!!22902351.jpg' ) 0 0 no-repeat;
+        }
+        #xyy_tab_3_div{
+            background: url( 'http://img02.taobaocdn.com/imgextra/i2/22902351/T26GlfXqlbXXXXXXXX_!!22902351.jpg' ) 0 0 no-repeat;
+        }
+
+
+        div.xyy_bottom_banner{
+            width:1000px;
+            height:263px;
+            margin:30px auto 0 auto;
+        }
+
+        a.yinliu{
+            width:250px;
+            height:130px;
+            display:block;
+            margin-left: 750px;
+        }
+        a.cuzhuanhua{
+            width:250px;
+            height:130px;
+            display:block;
+            margin-left: 750px;;
+        }
+        a.xyy_url_1{
+            margin-top:100px;
+            width:750px;
+            height:200px;
+            display:block;
+            float:left;
+        }
+        a.xyy_url_2{
+            margin-top:100px;
+            width:250px;
+            height:200px;
+            display:block;
+            float:left;
+        }
+        a.xyy_btn_1{
+            background: url( 'http://img04.taobaocdn.com/imgextra/i4/60113414/T2EThaXy4aXXXXXXXX-60113414.gif' ) no-repeat 20px 130px;
+        }
+        a.xyy_btn_2{
+            background: url( 'http://img04.taobaocdn.com/imgextra/i4/60113414/T2BALqXhpbXXXXXXXX-60113414.gif' ) no-repeat 20px 130px;
+        }
+        a.xyy_btn_3{
+            background: url( 'http://img04.taobaocdn.com/imgextra/i4/60113414/T2CNrxXgRbXXXXXXXX-60113414.gif' ) no-repeat 20px 130px;
+        }
+
+        a.xyy_url_3{
+            width:1000px;
+            height:180px;
+            display:block;
+            float:left;
+        }
+
+    </style>
+</head>
+<body>
+<div class="xyy_bg">
+
+    <div class="xyy_top">
+        <div class="xyy_top_banner">
+            <div class="xyy_tab_bar">
+                <ul>
+                    <li id="xyy_tab_1" class="tab_1" onmouseover="xyy_change_show(1);xyy_auto_stop();" onmouseout="xyy_auto_play();"></li>
+                    <li id="xyy_tab_2" class="tab_2" onmouseover="xyy_change_show(2);xyy_auto_stop();" onmouseout="xyy_auto_play();"></li>
+                    <li id="xyy_tab_3" class="tab_3" onmouseover="xyy_change_show(3);xyy_auto_stop();" onmouseout="xyy_auto_play();"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="xyy_tab_div">
+        <div id="xyy_tab_1_div" onmouseover="xyy_auto_stop();" onmouseout="xyy_auto_play();">
+            <a href="http://to.taobao.com/jjpSRgy" target="_blank" title="查看更多买家评语" class="xyy_url_1"></a>
+            <a href="http://to.taobao.com/jjpSRgy" target="_blank" class="xyy_url_2 xyy_btn_1"></a>
+            <a href="http://to.taobao.com/jjpSRgy" target="_blank" title="查看更多功能介绍" class="xyy_url_3"></a>
+        </div>
+        <div id="xyy_tab_2_div" onmouseover="xyy_auto_stop();" onmouseout="xyy_auto_play();">
+            <a href="http://to.taobao.com/yp7TRgy" target="_blank" title="查看更多买家评语" class="xyy_url_1"></a>
+            <a href="http://to.taobao.com/yp7TRgy" target="_blank" class="xyy_url_2 xyy_btn_2"></a>
+            <a href="http://to.taobao.com/yp7TRgy" target="_blank" title="查看更多功能介绍" class="xyy_url_3"></a>
+        </div>
+        <div id="xyy_tab_3_div" onmouseover="xyy_auto_stop();" onmouseout="xyy_auto_play();">
+            <a href="http://to.taobao.com/JaFURgy" target="_blank" title="查看更多买家评语" class="xyy_url_1"></a>
+            <a href="http://to.taobao.com/JaFURgy" target="_blank" class="xyy_url_2 xyy_btn_3"></a>
+            <a href="http://to.taobao.com/JaFURgy" target="_blank" title="查看更多功能介绍" class="xyy_url_3"></a>
+        </div>
+    </div>
+    <div class="xyy_bottom_banner" style="background: url(http://img02.taobaocdn.com/imgextra/i2/22902351/T2vMhjXuXaXXXXXXXX_!!22902351.jpg)">
+        <a href="http://to.taobao.com/DdFTRgy" target="_blank" class="yinliu"></a>
+        <a href="http://to.taobao.com/pLCTRgy" target="_blank" class="cuzhuanhua"></a>
+    </div>
+
+</div>
+
+<script>
+    var current_tab_num = 1;
+    var xyy_auto_flag = null;
+
+    function $(obj) {
+        if (typeof obj == "object") {
+            return obj;
+        }
+        return document.getElementById(obj);
+    }
+
+    function xyy_change_show(id_index){
+        xyy_init_show();
+        $("xyy_tab_"+id_index+"_div").style.display = "block";
+        $("xyy_tab_"+id_index).className = "tab_"+id_index+"_selected";
+        current_tab_num = id_index;
+    }
+
+    function xyy_init_show(){
+        for(var i=1;i<4;i++){
+            $("xyy_tab_"+i+"_div").style.display = "none";
+        }
+        for(var i=1;i<4;i++){
+            $("xyy_tab_"+i).className = "tab_"+i;
+        }
+    }
+
+    function xyy_random_show(){
+        current_tab_num = xyy_random(1,4);
+        xyy_change_show(current_tab_num);
+    }
+
+    function xyy_random(min,max){
+        return Math.floor(min+Math.random()*(max-min));
+    }
+
+    function xyy_auto_play(){
+        xyy_auto_flag = setInterval(xyy_auto,3000);
+    }
+    function xyy_auto_stop(){
+        if(xyy_auto != null){
+            clearInterval(xyy_auto_flag);
+        }
+    }
+    function xyy_auto(){
+        var next = current_tab_num + 1;
+        if (next > 3) {
+            next = 1;
+        }
+        xyy_change_show(next);
+    }
+
+    xyy_random_show();
+    xyy_auto_flag = setInterval(xyy_auto,30000);
+</script>
+<div style="display:none;"><img src="http://img.tongji.linezing.com/3313057/tongji.gif"/></div>
+</body>
+</html>

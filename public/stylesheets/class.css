@@ -1,0 +1,77 @@
+#star_0{
+height:25px;
+width:125px;
+position:relative;	
+background:url(/public/images/star.png) no-repeat;
+background-position:0px -253px;
+}
+#star_0.5 {
+height: 25px;
+width: 125px;
+position: relative;
+background: url(/public/images/star.png) no-repeat;
+background-position: 0px -225px;
+}
+#star_1{
+height:25px;
+width:125px;
+position:relative;	
+background:url(/public/images/star.png) no-repeat;
+background-position:0px -200px;
+}
+#star_1.5 {
+height: 25px;
+width: 125px;
+position: relative;
+background: url(/public/images/star.png) no-repeat;
+background-position: 0px -175px;
+}
+#star_2{
+height:25px;
+width:125px;
+position:relative;	
+background:url(/public/images/star.png) no-repeat;
+background-position:0px -150px;
+}
+#star_2.5 {
+height: 25px;
+width: 125px;
+position: relative;
+background: url(/public/images/star.png) no-repeat;
+background-position: 0px -127px;
+}
+#star_3{
+height:25px;
+width:125px;
+position:relative;	
+background:url(/public/images/star.png) no-repeat;
+background-position:0px -101px;
+}
+#star_3.5 {
+height: 25px;
+width: 125px;
+position: relative;
+background: url(/public/images/star.png) no-repeat;
+background-position: 0px -76px;
+}
+#star_4{
+height:25px;
+width:125px;
+position:relative;	
+background:url(/public/images/star.png) no-repeat;
+background-position:0px -50px;
+}
+#star_4.5 {
+height: 25px;
+width: 125px;
+position: relative;
+background: url(/public/images/star.png) no-repeat;
+background-position: 0px -25px;
+}
+#star_5{
+height:25px;
+width:125px;
+position:relative;	
+background:url(/public/images/star.png) no-repeat;
+background-position:0px 0px;
+}

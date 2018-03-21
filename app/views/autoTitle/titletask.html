@@ -1,0 +1,125 @@
+#{extends 'keymain.html' /}
+#{set title:'任务中心' /}
+
+
+<style type="text/css">
+    .task-admin-wrapper {
+        font-family: "微软雅黑"; font-size: 14px; padding: 10px;
+    }
+    .task-admin-div {
+        padding: 0px 10px;
+    }
+    .task-admin-wrapper .task-admin-tip {
+        font-size: 20px; font-weight: bold; color: #a10000;
+    }
+
+    .list-table {
+        border-collapse: collapse; width: 100%; font-size: 12px;
+        text-align: center;
+        border: 1px solid #ccc;
+        width: 100%; margin: 0 auto;
+    }
+
+    .list-table thead tr {
+        background: left -102px url('/img/frame/bg.png');
+
+    }
+
+    .list-table tr {
+        vertical-align: middle;
+    }
+
+    .list-table thead td {
+        height: 24px; vertical-align: middle; font-family: "微软雅黑"; font-weight: bold;
+        font-size: 14px; text-align: center;
+    }
+
+    .list-table thead .headtd {
+
+    }
+
+    .list-table tbody td {
+        vertical-align: middle; border-bottom: 1px solid #ccc; padding: 15px 0px;
+        font-size: 14px;
+    }
+
+
+
+
+
+</style>
+
+
+<div class='task-admin-wrapper'>
+
+    <div class="task-admin-div">
+
+        <table style="width: 100%">
+            <td style="width: 40%; text-align: left;">
+                <div class="task-admin-tip">
+                    当前任务管理：
+                </div>
+            </td>
+            <td style="width: 43%; text-align: right;">
+                <div style="font-weight: bold; font-size: 20px; padding-right: 40px;">
+                    <span class="refresh-second" style="color: #a10000;"></span>秒后刷新
+                </div>
+            </td>
+            <td style="width: 17%; text-align: left;">
+                <div class="commbutton btntext4 ctr-refresh-btn ison">停止刷新</div>
+            </td>
+        </table>
+
+        <table class="list-table current-task-table" style="margin-top: 10px;">
+            <thead>
+            <tr>
+                <td class="headtd" style="width: 20%;">任务创建时间</td>
+                <td class="headtd" style="width: 20%;">任务类型</td>
+                <td class="headtd" style="width: 20%;">任务状态</td>
+                <!--<td style="width: 20%;">操作</td>-->
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="task-admin-div" style="margin-top: 60px; padding-bottom: 150px;">
+
+        <div class="task-admin-tip">
+            历史任务日志：
+        </div>
+
+        <div class="paging-div" style="text-align: center;margin-top: 10px; margin-bottom: 5px;"></div>
+        <table class="list-table history-task-table" style="">
+            <thead>
+            <tr>
+                <td class="headtd" style="width: 80px;">任务创建时间</td>
+                <td class="headtd" style="width: 20%;">任务类型</td>
+                <td class="headtd" style="width: 20%;">任务状态</td>
+                <td class="headtd" style="width: 20%;">任务消息</td>
+                <td style="width: 80px;">任务完成时间</td>
+                <td style="width:80px;">查看详情</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="paging-div" style="text-align: center;margin-top: 5px;"></div>
+    </div>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.gcs('/js/tm.js',function(){
+        $(document).ready(function(){
+            TM.gcs('/js/autoTitle/taskadmin.js?_v=3',function(){
+                TM.TaskAdmin.init.doInit($(".task-admin-wrapper"));
+            });
+        });
+    })
+</script>
+#{/set}

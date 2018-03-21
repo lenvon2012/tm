@@ -1,0 +1,199 @@
+ul {
+    padding: 0px; margin: 0px 0px 0px 0px; list-style-image: none; list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    padding: 0px; margin: 0px 0px 0px 0px; list-style-image: none; list-style-type: none;
+}
+
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+
+.clearfix {
+    clear: both; zoom: 1;
+}
+
+.clearfix:after {
+    clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+}
+
+
+.watermarker-container {
+    margin: 0 auto; width: 760px;
+}
+
+.watermarker-container .watermarker-top-table {
+    font-family: "微软雅黑"; font-size: 14px; width: 100%;
+}
+
+.watermarker-container .watermarker-top-table td {
+    vertical-align: middle; text-align: left;
+}
+
+.watermarker-container .blueImgBtn {
+    line-height: 30px; width: 90px; height: 30px; font-family: "微软雅黑"; color: white;
+    font-size: 13px; background: url(/public/images/btns/blueBtn.png) no-repeat 0px 0px;
+    display: inline-block;*display:inline;zoom:1;
+    text-align: center; cursor: pointer;
+}
+
+.watermarker-container .item-back-select {
+    width: 200px;
+}
+
+.watermarker-container .watermarker-title {
+    background: url(/public/images/tips/info.png) no-repeat 0px 5px; padding-left: 25px;
+    font-family: "微软雅黑"; font-size: 18px; display: inline-block;*display:inline;zoom:1;
+}
+
+.watermarker-container .add-item-btn {
+    cursor: pointer;
+}
+
+.watermarker-container .watermarker-body {
+    border: #999 1px solid; padding: 1px 0px;
+}
+
+.watermarker-container .item-img-div {
+    float: left;
+
+}
+
+
+.watermarker-container .show-with-no-item {
+    padding: 120px 0px 0px 0px; width: 350px; text-align: center; font-family: "微软雅黑"; font-size: 22px;
+    color: #a10000;
+}
+
+.watermarker-container .item-big-img {
+    width: 350px; height: 300px; border: 0px;
+}
+
+.watermarker-container .hover-marker-icon {
+    position: absolute; display: none; border: 0px solid #a10000;
+    width: 80px; height: 80px; cursor: pointer;
+}
+
+.watermarker-container .hover-marker-icon:hover {
+    border: 2px solid #a10000;
+}
+
+.watermarker-container .item-op-div {
+    text-align: center; padding: 5px 0px;
+}
+
+.watermarker-container .marker-img-div {
+    float: right; padding-top: 3px;
+}
+
+.watermarker-container .marker-tab_bak {
+    background: #0E79BF;padding: 3px 0px; margin-left: 20px; width: 50px;
+    font-family: "微软雅黑"; color: white; font-size: 12px; text-align: center;
+}
+
+.watermarker-container .marker-tab {
+    background: #0E79BF;padding: 3px 0px; height: 10px;
+    font-family: "微软雅黑"; color: white; font-size: 12px; text-align: center;
+}
+
+.watermarker-container .marker-separator {
+    background: #0E79BF; height: 10px; width: 400px;
+}
+
+.watermarker-container .marker-type-div {
+    float: left; width: 50px; border: none; background: #0E79BF; height: 308px; padding: 0 5px;
+}
+
+.watermarker-container .marker-type {
+    text-align: center; font-family: "微软雅黑"; font-size: 14px;
+    padding: 3px 0px; margin-bottom: 2px; cursor: pointer;
+}
+
+.watermarker-container .unselect-marker-type {
+    color: white;
+}
+
+.watermarker-container .select-marker-type {
+    color: #0E79BF; background: white;
+}
+
+.watermarker-container .marker-type:hover {
+
+}
+
+.watermarker-container .marker-img-list {
+    float: left; border: none;
+}
+
+.watermarker-container .marker-img-container {
+    height: 270px; width: 340px;
+}
+
+.watermarker-container .pagingDiv {
+    float: right; font-size: 14px;
+}
+
+.watermarker-container .marker-img-div {
+    float: left; margin-left: 7px; margin-bottom: 4px;
+}
+
+.watermarker-container .marker-img {
+    width: 73px; height: 73px; border: #999 1px solid; cursor: pointer;
+}
+
+.watermarker-container .select-marker-img {
+    width: 73px; height: 73px; border: #a10000 2px solid; cursor: pointer;
+}
+
+.watermarker-container .item-list-div {
+    background: white; border-top: #999 1px solid;
+}
+
+.watermarker-container .item-desc-div {
+    padding: 5px; float: left; margin-top: 5px;
+}
+
+.watermarker-container .item-small-img {
+    width: 80px; height: 80px; border: #666 2px solid; cursor: pointer;
+}
+
+.watermarker-container .item-small-img:hover {
+    border: #a10000 2px solid;
+}
+
+.watermarker-container .small-hover-icon {
+    display: none; position: absolute;
+}
+
+.watermarker-container .select-item {
+    border: #a10000 2px solid;
+}
+
+.watermarker-container .item-check-div {
+    text-align: center;
+}
+
+.watermarker-container .item-check-span {
+    font-family: "微软雅黑"; font-size: 12px; cursor: pointer;
+}
+
+.watermarker-container .item-check-span:hover {
+    color: #a10000;
+}
+
+.watermarker-container .delete-item-btn {
+    cursor: pointer;
+}
+
+.watermarker-record-div {
+     font-family: "微软雅黑"; font-size: 14px; color: #333; text-align: center; margin-top: 20px;
+ }
+
+.watermarker-record-div .record-name {
+    width: 200px;
+}

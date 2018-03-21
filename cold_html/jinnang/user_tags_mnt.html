@@ -1,0 +1,199 @@
+#{extends 'jinnang/base.html' /}
+#{set title:'用户标签管理' /}
+<div id="wpbody-content" style="overflow: hidden;">
+	<style>
+		.wrap * {
+			letter-spacing: 1px;
+		}
+
+		input[type=text], textarea {
+
+		}
+
+		input {
+			padding: 4px 7px;
+		}
+
+		.cfile {
+			margin: 2px;
+			border: 1px solid #008000;
+			background: #F3FFF2;
+			overflow: hidden;
+			padding: 5px;
+		}
+
+		.dfile {
+			margin: 2px;
+			border: 1px solid #800;
+			background: #ffdfdf;
+			overflow: hidden;
+			padding: 5px;
+		}
+
+		.cfile img, .dfile img {
+			cursor: pointer;
+		}
+
+		.inside {
+			padding: 10px !important;
+		}
+
+		#editorcontainer textarea {
+			border: 0px;
+			width: 99.9%;
+		}
+
+		#file_uploadUploader {
+			background: transparenturl('http://localhost:10088/nutrica/wp-content/plugins/ims/images/browse.png')left top no-repeat;
+		}
+
+		#file_uploadUploader:hover {
+			background-position: left bottom;
+		}
+
+		.frm td {
+			line-height: 30px;
+			border-bottom: 1px solid #EEEEEE;
+			padding: 5px;
+			font-size: 9pt;
+			font-family: Tahoma;
+		}
+	</style>
+
+	<!-- 页面内容 -->
+	<div class="wrap metabox-holder has-right-sidebar">
+		<div id="icon-add-new-file" class="icon32">
+		</div>
+		<br/>
+		<h2>用户标签信息</h2>
+
+		<form enctype="multipart/form-data" method="post" action="">
+			<input type="hidden" value="" name="id">
+			<input
+			type="hidden" value="2013-05-23" name="position[last_update]">
+			<input type="hidden" value="1" name="position[status]">
+			<input
+			type="hidden" value="" name="position[position_id]">
+			<div style="width: 75%; float: left;">
+				<table width="100%" cellspacing="5" cellpadding="5">
+					<tbody>
+						<tr>
+							<td valign="top">
+							<div class="postbox ">
+								<h3><span>标签信息</span></h3>
+								<div class="inside">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+												<table cellpadding="15" class="frm">
+													<tbody>
+														<tr>
+															<td width="110px">名称:</td>
+															<td>
+															<input type="hidden" id="tag_id"
+															name="tag_id" value="${userTag?userTag.id:''}">
+															
+															<input type="text" id="tag_name"
+															name="tag_name" value="${userTag?userTag.tagName:''}" style="width: 200px"
+															size="10">
+															</td>
+														</tr>
+														<tr>
+															<td width="110px">描述:</td>
+															<td>
+															<input type="text" id="tag_desp"
+															name="tag_desp" value="${userTag?userTag.description:''}"
+															style="width: 200px" size="10">
+															</td>
+														</tr>
+														<tr>
+															<td width="110px">用户列表</td>
+															<td>
+															<input type="text" value="" ${userTag?"":"readonly=\"readonly\""}" id="user_list" style="width:200px">
+															</td>
+															<td style="padding-left:20px;">
+																<input type="button" id="add_user_btn" class="wbox button-secondary" tabindex="9" value="添加用户" />
+															</td>
+														</tr>
+													</tbody>
+												</table></td>
+												<td><table cellpadding="5" class="frm" id="position_	info">
+
+												</table></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div></td>
+						</tr>
+						<tr>
+							<td>
+							<br>
+							</td>
+						</tr>
+						<tr>
+							<td align="right"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 右边栏 -->
+			<div style="float: right; width: 23%">
+				<!-- 动作 -->
+				<div id="action" class="postbox  closed">
+					<div class="handlediv" title="Click to toggle">
+						<br>
+					</div>
+					<h3 class="hndle"><span>动作</span></h3>
+					<div class="inside">
+						<input
+						type="reset" id="addmetasub" name="addmeta"
+						class="button-secondary" tabindex="9" value="重置">
+						<input
+						type="button" name="publish" class="button-primary" id="create_or_update"
+						tabindex="5" accesskey="p" value="创建">
+						<div class="clear"></div>
+					</div>
+				</div>
+				<!--关联信息 -->
+				<div id="doctor_assoc_info" class="postbox">
+					<div class="handlediv" title="Click to toggle">
+						<br>
+					</div>
+					<h3 class="hndle"><span>关联信息</span></h3>
+					<div class="inside" style="width: 100%; height: 100px; overflow-y: scroll;">
+						<table id="side_user_list" width="100%" cellspacing="0" cellpadding="5" class="frm">
+						#{if userTag!=null}
+							#{list items:userTag.getUsers(),as:'user'}
+								<tr class="user_list"><td>${user}</td><td><a href="#">删</a></td></tr>
+							#{/list}
+						#{/if}
+						</table>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+		</form>
+
+	</div>
+
+	<div class="clear"></div>
+</div>
+#{set 'moreScripts'}
+<script type="text/javascript">
+	TM.gcs('/public/javascripts/tm.js', function() {
+		TM.gcs('/public/javascripts/utils/jquery.cookie.js', function() {
+			TM.gcs('/public/javascripts/jinnang/i18n/jquery-ui-timepicker-zh-CN.js', function() {
+				TM.gcs('/home/firstSync', function() {
+					TM.gcs('/public/javascripts/jinnang/jinnang.js', function() {
+						TM.boyvon.allItems.init();
+						TM.jinnang.UserTagCnt.init();
+					})
+				})
+			})
+		})
+	})
+</script>
+#{/set}

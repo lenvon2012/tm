@@ -1,0 +1,70 @@
+#{extends 'seoway.html' /}
+
+#{set title:'seoway' /}
+<style>
+    #autodiag{width: 760px;height:600px;margin: 0 auto;padding: 0 6px;position: relative;text-align: center;}
+       #autodiag td,th{font-size:12px;border: 1px solid #bebebe;}
+    .diagbtnpos{text-align: center;height:100px;width:200px;;margin: 0 auto;padding-top:40px;position: relative;}
+    .autodiagIntro{font-size:15px;height:50px;margin: 10px 10px 10px 10px;background: #ffd;border:1px solid #BEBEBE;padding: 10px 0 10px 0;}
+    .oknoproblem{width:400px;height:100px;margin:0 auto;text-align: center;vertical-align: middle;}
+    .errormsg{background-color: 	#FFF4C1}
+
+    #seowaycontent{height:400px;border: 1px solid #ccc;background: white;font-size: 13px;}
+    a{text-decoration: none;}
+
+        /* 搜索工具栏 */
+    /*.searchBar { width:760px; margin:12px auto 12px auto; overflow:hidden; padding:8px 10px; background:#EEE;}*/
+    .searchBar { width:760px; margin:12px auto 20px auto; overflow:hidden; padding:8px 10px; background:#EEE;height:24px;}
+    .searchBar input { float:left;}
+    .searchBar span { display:block; float:left; padding-left:5px; margin-bottom:-10px;}
+    .searchBar a { float:left; margin-left:4px; display:block;line-height: 22px;
+        width:50px; height:22px; background:#F60; color:#FFF; font-size:12px; font-weight:bold; text-align:center;}
+    .searchBar a:hover { color:#EEE; background:#C00;}
+</style>
+
+<div id='seowaycontent' >
+    <div class="searchBar">
+        <table width="100%">
+            <tr>
+                <td>
+                    搜索宝贝
+                </td>
+
+        <td>
+            <select id="approvalstatus">
+                <option status="onsale">出售中</option><option status="instock">仓库中</option><option status="all">所有宝贝</option>
+            </select>
+        </td>
+        <td>
+            <select id="sellercat">
+                <option>--自定义类目--</option>
+            </select>
+        </td>
+                <td>
+
+            <select id="itemcat">
+                <option>--淘宝类目--</option>
+            </select>
+
+                </td>
+                <td>
+                    关键词:
+                </td>
+                <td>
+            <input class="input_text" type="text" style="width:80px;" id="searchKey">
+                </td>
+                <td>
+            <a href="javascript:void(0)" id="searchBtn">搜 索</a>
+                </td>
+            </tr>
+        </table>
+    <div>
+</div>
+<div class='clearfix'>
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+</script>
+#{/set}

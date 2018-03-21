@@ -1,0 +1,134 @@
+#{extends 'jinnang/base.html' /}
+#{set title:'系统信息' /}
+<style>
+	.wrap * {
+		letter-spacing: 1px;
+	}
+
+	input[type=text], textarea {
+
+	}
+
+	input {
+		padding: 4px 7px;
+	}
+
+	.cfile {
+		margin: 2px;
+		border: 1px solid #008000;
+		background: #F3FFF2;
+		overflow: hidden;
+		padding: 5px;
+	}
+
+	.dfile {
+		margin: 2px;
+		border: 1px solid #800;
+		background: #ffdfdf;
+		overflow: hidden;
+		padding: 5px;
+	}
+
+	.cfile img, .dfile img {
+		cursor: pointer;
+	}
+
+	.inside {
+		padding: 10px !important;
+	}
+
+	#editorcontainer textarea {
+		border: 0px;
+		width: 99.9%;
+	}
+
+	#file_uploadUploader {
+		background: transparenturl('http://localhost:10088/nutrica/wp-content/plugins/ims/images/browse.png')left top no-repeat;
+	}
+
+	#file_uploadUploader:hover {
+		background-position: left bottom;
+	}
+
+	.frm td {
+		line-height: 30px;
+		border-bottom: 1px solid #EEEEEE;
+		padding: 5px;
+		font-size: 9pt;
+		font-family: Tahoma;
+	}
+</style>
+
+<!-- 页面内容 -->
+	<!-- 会员等有设置 -->
+<div class="wrap metabox-holder has-right-sidebar">
+<div id="icon-add-new-file" class="icon32">
+</div>
+<br/>
+<h2>VIP用户优惠信息管理</h2>
+	<table width="100%" cellspacing="5" cellpadding="5">
+		<tbody>
+			<tr>
+				<td valign="top">
+				<div class="postbox ">
+					<h3><span>会员分组信息</span></h3>
+					<div class="inside">
+						<table>
+							<tbody>
+								<tr>
+									<td>
+									<table cellpadding="15" class="frm">
+										<tbody>
+											<tr>
+												<td width="110px">VIP分级策略:</td>
+												<td>
+													
+													<b>高级会员(VIP2):</b><br/>
+													折扣率:<span class="discount_rate">9.9</span>&nbsp;累计消费xx元后自动升级
+													<br/>
+													<b>VIP会员(VIP3):</b><br/>
+													折扣率:<span class="discount_rate">9.0</span>&nbsp;累计消费xx元后自动升级
+													<br/>
+													<b>至尊VIP会员(VIP3):</b><br/>
+													折扣率:<span class="discount_rate">8.5</span>&nbsp;累计消费xx元后自动升级
+													<br/>
+													<input type="reset" name="addmeta" class="button-secondary" tabindex="9" value="设置">
+												</td>
+											</tr>
+										</tbody>
+									</table></td>
+								</tr>
+								<tr>
+									<td>
+									<table cellpadding="15" class="frm">
+										<tbody>
+											<tr>
+												<td width="110px">设置提示标语:</td>
+												<td>
+													<div id="preview_tip">
+														<span style="font-size:20px;color:red"><b>本店累计消费一定金额，可以升级为本店VIP会员，会员等级越高折扣越高哦!</b><span>
+													</div>
+													<textarea rows="5" cols="120">&lt;span style=&quot;font-size:20px;color:red"&gt;&lt;b&gt;本店累计消费一定金额，可以升级为本店VIP会员，会员等级越高折扣越高哦!&lt;/b&gt;&lt;span/&gt;
+													</textarea>
+												</td>
+											</tr>
+										</tbody>
+									</table></td>	
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<br>
+				</td>
+			</tr>
+			<tr>
+				<td align="right"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>	

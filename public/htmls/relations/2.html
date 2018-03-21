@@ -1,0 +1,59 @@
+<div type='text/x-jquery-tmpl' class="itemDetailTmpl">
+    <div id="tmpl"
+         style="font-size:12px;width:748px;margin:10px auto 0 auto;display:block;">
+        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; border: 1px solid #cccccc;">
+            <tbody>
+            <tr>
+                <td style="background:{{= defaultColor}}">
+                    <img  src="/public/images/ralations/2title.png">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{each(i,commodity) commoditys}}
+                            <table cellpadding="0" cellspacing="0"
+                                   style="margin:9px;height:303px;width:230px; float: left; border: 1px solid #cccccc;;">
+                                <tbody>
+                                <tr>
+                                    <td style="width:230px;height:230px;background-color:#fff;text-align:center;vertical-align:middle;">
+                                        <a href="http://tb-v2.huanleguang.com/material/list/index/mt/3/mode/share/?zid=1579508#2"
+                                           target="_blank" style="display:block;"><img border="0"
+                                                                                       src="{{= commodity.picture}}"
+                                                                                       style="vertical-align:middle;"
+                                                                                       title="{{= commodity.ctitle}}"></a></td>
+                                </tr>
+                                <tr>
+                                    <td style="height:36px;padding:5px;background-color:#f2fafc;">
+                                        <div style="width:220px;height:36px;word-wrap:break-word;word-break:break-all;overflow:hidden;">
+                                            <a href="http://tb-v2.huanleguang.com/material/list/index/mt/3/mode/share/?zid=1579508#2"
+                                               target="_blank"
+                                               style="line-height:18px;text-decoration:none;color:#7a7a7a;"><span>{{= commodity.ctitle}}</span></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:240px;height:30px;font-size:14px;font-family:'Microsoft Yahei';color:#fff;line-height:30px;padding-top:5px;background:{{= defaultColor}};text-align:center;">
+                                        <a href="http://item.taobao.com/item.htm?id=36347551842" target="_blank"
+                                           style="color:#fff;text-decoration:none;">¥ <span
+                                                style="font-size:20px;font-family:'corbel';font-weight:bold;">{{= commodity.sole}}</span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="7"
+                                        background="http://img02.taobaocdn.com/imgextra/i2/60113414/T2Ge8XXfJPXXXXXXXX-60113414.png"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    {{/each}}
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

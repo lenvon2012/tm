@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>#{get 'title' /}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=2">
+    <link rel="stylesheet" media="screen" href='/css/dajie/bootstrap-responsive.min.css'>
+    <link rel="stylesheet" media="screen" href='/css/dajie/font-awesome.min.css'>
+    <link rel="stylesheet" media="screen" href="/css/main.css"/>
+    <link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+    table.hongbaoList {width:100%;font-family: verdana,arial,sans-serif;font-size:11px;color:#333333;border-width: 1px;border-color: #999999;border-collapse: collapse;}
+    .hongbaoList thead tr{background: url('/public/images/frame/bg.png');}
+    table.hongbaoList th {border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;}
+    table.hongbaoList td {border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;word-wrap: break-word;word-break: break-all;}
+    .hongbaoList-tbody tr{height: 23px;line-height: 23px;}
+    .paging-size-span{float: none;}
+    #crud #crudContent #nav a {color: white;}
+    .navbar a{color:white;}
+    #crud #crudContent #crudIndex a{color:#777;}
+    table.busSearch{text-align: center;font-size:18px;}
+    table.busSearch td{padding:5px;color:#333;font-size:16px;}
+    .navheadspan{float:none;margin-bottom:10px;}
+    .anchors p{margin:10px;}
+    .ahchors{color:#333;}
+    body{background-color:#fefefe}
+    .navbar .nav >li a:hover{text-align: left;background: url("http://s.libdd.com/img/bg/sidemenu-sub-item.$5106.png") repeat;color:black;}
+    .navbar .nav >li a:hover{color:#fff;}
+    .nav-title{height:80px; background:#1A1313;}
+    .head-logo{position: absolute;left:50px;top:20px;color:white;font-size:24px;font-weight: bolder;}
+    .navheadspan{background:#eee;width:96%;height:30px;border-left:5px solid #30A3EB;font-size:22px;padding-top:10px;padding-left:30px;}
+    .busSearch thead tr {
+        font-weight: bold;
+        background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+        background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+        height: 36px;
+        line-height: 36px;
+        font-size: 16px;
+    }
+</style>
+
+#{get 'moreStyles' /}
+
+    <script src="http://tianyun.b0.upaiyun.com/tm/jquery-1.7.2.min.js" charset="utf-8"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="/js/jquery-1.7.2.min.js?v=23"><\/script>');
+        }
+    </script>
+
+    <script src="http://tianyun.b0.upaiyun.com/tm/jquery.ui.js" charset="utf-8"></script>
+    <script type="text/javascript" src='/js/utils/jquery.cookie.js' charset="utf-8"></script>
+    <script type="text/javascript" src='/js/tm.js' charset="utf-8"></script>
+    <script type="text/javascript" src='/js/jquery.tmpl.js' charset="utf-8"></script>
+    <script src="http://tianyun.b0.upaiyun.com/tm/jquery-ui-1.9.1.custom.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/jquery.url.js" ></script>
+
+    <script>
+        Date.prototype.format = function(format) //author: meizz
+        {
+            var o = {
+                "M+" : this.getMonth()+1, //month
+                "d+" : this.getDate(),    //day
+                "h+" : this.getHours(),   //hour
+                "m+" : this.getMinutes(), //minute
+                "s+" : this.getSeconds(), //second
+                "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+                "S" : this.getMilliseconds() //millisecond
+            }
+            if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+                    (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)if(new RegExp("("+ k +")").test(format))
+                format = format.replace(RegExp.$1,
+                        RegExp.$1.length==1 ? o[k] :
+                                ("00"+ o[k]).substr((""+ o[k]).length));
+            return format;
+        }
+        Date.prototype.formatYMSH = function(){
+            return this.format('yyyyMMddhh');
+        }
+
+        Date.prototype.formatYMS = function(){
+            return this.format('yyyy-MM-dd');
+        }
+
+        Date.prototype.formatYMSHMS = function(){
+            return this.format('yyyy-MM-dd hh:mm:ss');
+        }
+    </script>
+</head>
+
+
+<div id="nav" class="navbar navbar-inverse nav-head">
+    <div class="navbar-inner">
+        <div class="container" style="width:1000px;margin: 0 auto;position:relative;">
+            <div class="nav-collapse collapse">
+                <ul class="nav head" style="*font-size:16px;">
+                    <li><a href="/local" style="color:white;font-size:18px;">内部管理系统</a></li>
+                    <li><a href="/tmadmin/userlist">用户列表</a></li>
+                    <li><a href="/tmadmin/index">操作中心</a></li>
+                    <li><a href="/tmadmin/links">常用链接</a></li>
+                    <li><a href="/tmadmin/tasks">任务中心</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+#{doLayout /}
+
+
+#{get 'moreScripts' /}
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<div type='text/x-jquery-tmpl' class='frameworkTmpl'>
+    <div class="tmplMain">
+        <div class='makeAndBookmark'>
+            <div class="makeAndBookmarkIn">
+                <div class='make'>
+                    <a class='makePac' href='{{= make}}'></a>
+                </div>
+
+
+                <div class='bookMark'>
+                    <a class='bookMarka' href='{{= bookmark}}'></a>
+                    <a class='bookMarktex' href='{{= bookmark}}'>收藏</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class='tmpl1Info'>
+            支持规格：{{each(i,With) Withs}}  {{= With}}像素,{{/each}}&nbsp;&nbsp;&nbsp;最大宝贝数量：{{= numForEachRow}}
+
+        </div>
+        <div class='{{= tmplName}}'>
+
+            <img src="{{= tmplPac}}" alt="图片无法显示" style="display: block; margin: 0 auto;" />
+
+
+        </div>
+    </div>
+
+</div>

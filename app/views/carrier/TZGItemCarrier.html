@@ -1,0 +1,987 @@
+#{extends 'tbtnav/tbtnavitem.html' /}
+#{set title:'一键宝贝复制' /}
+
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+    .user-admin-wrapper {
+        font-size: 14px;
+        background: white; /*font-family: "微软雅黑";*/
+    }
+
+    .user-info-tip {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .width950 {
+        width: 950px;
+        margin: 0 auto;
+    }
+
+    .user-info-table {
+        border: 1px solid #999;
+        border-collapse: collapse;
+    }
+
+    .user-info-table td {
+        border: 1px solid #999;
+    }
+
+    .user-info-table .attr-name-td {
+        background: #eee;
+        text-align: right;
+        padding: 10px 20px 10px 0px;
+    }
+
+    .user-info-table .attr-value-td {
+        text-align: left;
+        padding: 10px 0px 10px 20px;
+    }
+
+    .busSearch tr th {
+        background: #CC0000;
+        font-size: 24px;
+        padding: 10px;
+        font-weight: bolder;
+        color: #fff;
+    }
+
+    .search-table .search-btn {
+        margin-left: 20px;
+    }
+
+    .search-table tr td {
+        font-size: 16px;
+        padding: 8px;
+        font-weight: bold;
+    }
+
+    .item-carry-custom td {
+        width: 25%;
+        text-align: left;
+        font-size: 16px;
+        padding: 8px;
+        font-weight: bold;
+    }
+
+    .item-carry-custom select, .item-carry-custom input {
+        height: 25px;
+    }
+
+    #title-keyword-input {
+        top: 30%;
+        left: 50%;
+        position: fixed;
+        z-index: 1000;
+        opacity: 1;
+        background-color: #fff;
+        border: 5px solid rgba(178, 178, 178, 0.3);
+        margin-left: -300px;
+        width: 600px;
+    }
+    select{
+        max-width: 270px;
+    }
+
+</style>
+
+<div class="user-admin-wrapper" style="padding: 0px 0px 100px">
+    <table class="search-table busSearch" style="margin: 0 auto;width:100%;">
+        <thead>
+        <tr>
+            <th colspan="3">一键复制任何宝贝</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="width:40%;text-align: right;color:#FF0000;">温馨提示：</td>
+            <td colspan="2">由于产能限制，每人最多同时复制&nbsp;&nbsp;<span style="color: red;font-size: 30px;">100</span>&nbsp;&nbsp;个宝贝
+            </td> <!-- （宝贝图片自动上传到您的<a href="http://tu.taobao.com" target="_blank">图片空间</a>） -->
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="item-carry-custom" style="width: -webkit-fill-available;">
+                    <tr>
+                        <td>
+                            宝贝所在地：
+                            <select id="locationState" style="width: 100px">
+                                <option value="-1">请选择省份</option>
+                            </select>
+                            <select id="locationCity" style="width: 100px">
+                                <option value="-1">请选择城市</option>
+                            </select>
+                        </td>
+                        <td>
+                            运费模板：
+                            <select id="postageId">
+                                <option value="-1">请选择运费模板</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            宝贝分类：
+                            <select id="sellerCids">
+                                <option value="-1">请选择宝贝分类</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            主图设置：
+                            <select id="mainPicIndex">
+                                <option value="1">原宝贝主图</option>
+                                <option value="2">原宝贝第二张图</option>
+                                <option value="3">原宝贝第三张图</option>
+                                <option value="4">原宝贝第四张图</option>
+                                <option value="5">原宝贝第五张图</option>
+                                <option value="6">随机</option>
+                            </select>
+                        </td>
+                        <td>
+                            新旧程度：
+                            <select id="stuffStatus">
+                                <option value="新品">新品</option>
+                                <option value="二手">二手</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            图片分类：
+                            <select id="pictureCategoryId">
+                                <option value="-1">默认分类(淘掌柜复制宝贝素材)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            价格：
+                            <select id="calPriceBaseNumType">
+                                <option value="原价">原价</option>
+                                <option value="折扣价">折扣价</option>
+                            </select>
+                            乘
+                            <input id="multiplyNum" style="width: 60px;" type="text">
+                            加
+                            <input id="addNum" style="width: 60px;" type="text">
+                        </td>
+                        <td>
+                            标题关键字过滤：
+                            <a class="tmbtn sky-blue-btn title-keyword-mapper">关键字编辑</a>
+                            <input id="titleKeywordMapper" type="hidden" value="{}">
+                        </td>
+                        <td>
+                            标题前缀增加：
+                            <input id="prefixTitleString" type="text">
+                        </td>
+                        <td>
+                            标题后缀增加：
+                            <input id="suffixTitleString" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            上架设置：
+                            <select id="approveStatus">
+                                <option value="instock">复制到仓库中</option>
+                                <option value="onsale">直接上架</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label class="checkbox" style="">
+                                <input id="whetherSaveOldNumiid" type="checkbox" style="">把原宝贝ID设置为商家编码
+                            </label>
+                        </td>
+                        <td colspan="2">
+                            <label class="checkbox" style="">
+                                <input id="whetherSaveOldUrl" type="checkbox" style="">把原宝贝链接放到描述顶部，鼠标滑过可见！
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            吊牌图设置（天猫）：
+                            <input id="diaopaiPic" type="text" placeholder="请填写图片地址或点击按钮上传本地图片" style="width: 255px;">
+                            <a class="tmbtn sky-blue-btn save-diaopai-pic">上传图片</a>
+                        </td>
+                        <td colspan="2" style="text-align: left">
+                            <a class="tmbtn short-green-btn save-item-carry-custom">保存设置</a>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:center;">
+                <div class="f-itm">
+                    <label class="f-label" style="color:#FF9900;">注：ID为纯数字：</label>
+                    <img src="http://img02.taobaocdn.com/imgextra/i2/292391495/T2p2e3XCxXXXXXXXXX-292391495.png" style="width:430px;height:31px;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:center;">
+                <div class="f-itm">
+                    注：宝贝复制速度和宝贝图片的数量有关，一般张图片上传需要1-2秒，对于图片较多的宝贝还请掌柜耐心等候！
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <!-- <td style="padding-right: 10px;font-size: 18px;">拷贝卖家旺旺：</td>
+            <td style="padding-right: 10px;"><input type="text" class="wangwang-input" style="width: 180px; padding-left: 5px;" /></td> -->
+            <td colspan="3" style="padding:20px;font-size: 18px;text-align:center;">
+                <span style="font-weight:bold;font-size:22px;">要复制的[宝贝ID]或[宝贝地址]：</span>
+                <input type="text" class="numIid-input" style="width: 280px; padding-left: 5px;height: 30px;line-height: 30px;" />
+                <span class="btn btn-primary btn-large search-btn">立即拷贝</span>
+            </td>
+        </tr>
+        <tr style="">
+            <!-- <td style="padding-right: 10px;font-size: 18px;">拷贝卖家旺旺：</td>
+            <td style="padding-right: 10px;"><input type="text" class="wangwang-input" style="width: 180px; padding-left: 5px;" /></td> -->
+            <td colspan="3" style="padding:20px;font-size: 18px;text-align:center;">
+                <span style="font-weight:bold;font-size:22px;">要复制的[店铺旺旺]：</span>
+                <input type="text" id="ww-input" class="ww-input" style="width: 280px; padding-left: 5px;height: 30px;line-height: 30px;" />
+                <span class="btn btn-primary btn-large shop-copy-btn">立即拷贝</span>
+            </td>
+        </tr>
+        <tr style="">
+            <!-- <td style="padding-right: 10px;font-size: 18px;">拷贝卖家旺旺：</td>
+            <td style="padding-right: 10px;"><input type="text" class="wangwang-input" style="width: 180px; padding-left: 5px;" /></td> -->
+            <td colspan="3" style="padding:20px;font-size: 18px;text-align:center;">
+                <span style="font-weight:bold;font-size:22px;white-space:nowrap; overflow:scroll;">批量复制宝贝[回车分隔宝贝]：</span>
+                <textarea id="batch-numIid-input" style="width: 580px; padding-left: 5px;height: 300px;" ></textarea>
+                <span class="btn btn-primary btn-large batch-copy-btn">立即拷贝</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close myModal-close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    标题关键字过滤
+                </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th><input placeholder="请输入关键字" style="border: none"></th>
+                        <th>替换成</th>
+                        <th><input placeholder="请输入替换文字" style="border: none"></th>
+                        <th>
+                            <button class="btn btn-primary btn-middle btn-add-title-keyword">添加</button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div class="alert alert-danger hidden myModal-alert" style="text-align: center">错误！请进行一些更改。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default myModal-close">关闭
+                </button>
+                <button type="button" class="btn btn-primary myModal-save">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+        TM.gcs('/js/jquery.url.js',function(){ //
+            TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+                TM.gcs('/js/jquery.loadmask.min.js',function(){
+                    TM.gcs('/js/tm.js',function(){
+
+                        $(".numIid-input").unbind().keydown(function(event) {
+                            if (event.keyCode == 13) {
+                                copy()
+                            }
+                        });
+
+                        $(".search-btn").click(function() {
+                            copy();
+                        });
+
+                        $(".shop-copy-btn").click(function() {
+                            doShopCarry();
+                        });
+
+                        $(".batch-copy-btn").click(function() {
+                            doBatchCarry();
+                        });
+
+                        function doBatchCarry() {
+                            var content = $("#batch-numIid-input").val();
+                            if (content == "") {
+                                alert("请输入要复制的宝贝");
+                                return;
+                            }
+                            $.post("/ItemCarrier/doBatchCarry", {"content": content}, function(data){
+                                if(data) {
+                                    //                				alert(data.msg);
+                                    TM.Alert.load('<br><p style="font-size:15px">'+data.msg+'</p>',400,230,function(){
+                                        //window.location.reload();
+                                        if (data.isOk == true) {
+                                            window.location.href="/kits/taskList";
+                                        }
+
+                                    });
+                                }
+
+                            }).error(function() {
+                                //                            alert("宝贝复制错误，请重试，或者联系客服反馈。");
+                                TM.Alert.load('<br><p style="font-size:15px">宝贝复制错误，请重试，或者联系客服反馈。</p>',400,230);
+                            });
+                        }
+
+                        function doShopCarry() {
+                            var ww = $("#ww-input").val();
+                            if (ww == "") {
+                                alert("请输入要复制的旺旺");
+                                return;
+                            }
+
+                            var pageSize = 95;
+                            var url = "https://list.taobao.com/itemlist/default.htm?_input_charset=utf-8&json=on&cat=0&as=0&viewIndex=1&spm=a2106.ad1.1000572.d2&commend=all&atype=b&style=list&same_info=1&isnew=2&tid=0&pSize="+pageSize+"&data-key=s&data-action&module=page&s=0&_ksTS=1516606693453_732&callback=jsonpCallBack";
+                            var itemIdsArray = new Array();
+                            var shopCarryNick = ww.trim();
+                            var offset = 0;
+                            jsonp();
+
+                            function jsonp() {
+                                var currentUrl = url;
+                                currentUrl += "&nick=" + shopCarryNick;
+                                currentUrl += "&data-value=" + offset;
+                                $.ajax({
+                                    url: currentUrl,
+                                    type: 'GET',
+                                    dataType: 'JSONP',
+                                });
+                            }
+
+                            jsonpCallBack = function (data) {
+                                var itemList = data.itemList;
+                                var itemListSize = data.itemListSize;
+
+                                // 没数据了
+                                if (itemList == null) {
+                                    // 上传数据
+                                    doShopCarryTask();
+                                    return;
+                                }
+
+                                // push数据到Array中
+                                for (var i = 0; i < itemListSize; i++) {
+                                    var item = itemList[i];
+                                    var itemId = item.itemId;
+                                    var image = item.image;
+                                    var title = item.title;
+                                    itemIdsArray.push({itemId: itemId, image: image, title: title});
+                                }
+                                offset += 95;
+
+                                // 继续请求下一页数据
+                                jsonp();
+                            }
+
+                            function doShopCarryTask() {
+                                $.ajax({
+                                    url: '/ItemCarrier/doShopCarry',
+                                    contentType: "application/json; charset=utf-8",
+                                    data: JSON.stringify({ww: shopCarryNick, items: itemIdsArray}),
+                                    dataType: "json",
+                                    type: "POST",
+                                    traditional: true,//这里设为true就可以了
+                                    success: function(data){
+                                        if(data) {
+                                            TM.Alert.load('<br><p style="font-size:15px">'+data.msg+'</p>',400,230,function(){
+                                                if (data.isOk == true) {
+                                                    window.location.href="/kits/taskList";
+                                                }
+
+                                            });
+                                        }
+                                    },
+                                    error: function() {
+                                        TM.Alert.load('<br><p style="font-size:15px">宝贝复制错误，请重试，或者联系客服反馈。</p>',400,230);
+                                    }
+                                });
+
+                            }
+                        }
+
+                        function copy(){
+                        	var numIid = $(".numIid-input").val().trim();
+                        	if(numIid == null || numIid == "") {
+                        		alert("请输入要复制的宝贝ID或者地址!");
+                        		return;
+                        	}
+                        	
+                        	if(!/^\d+$/.test(numIid)) {
+                        		var matchResult = /[\\?&]id=(\d+)/.exec(numIid);
+                        		if (!matchResult) {
+                        			alert("请检查ID或者地址是否正确！")
+                        			return;
+                        		}
+                        		numIid = matchResult[1]
+                        	}
+                        		
+                            var currentUrl = "http://hws.m.taobao.com/cache/wdetail/5.0/?callback=itemInfoCallback&id=" + numIid;
+                            $.ajax({
+                                url: currentUrl,
+                                type: 'GET',
+                                dataType: 'JSONP'
+                            });
+
+                            itemInfoCallback = function (data) {
+                                $.ajax({
+                                    url: '/ItemCarrier/doCopyItem',
+                                    data: {input: numIid, wapData: JSON.stringify(data)},
+                                    dataType: "json",
+                                    type: "POST",
+                                    traditional: true,//这里设为true就可以了
+                                    success: function(data){
+                                        if(data) {
+                                            TM.Alert.load('<br><p style="font-size:15px">'+data.msg+'</p>',400,230,function(){
+                                                //window.location.reload();
+                                            });
+                                        }
+                                    },
+                                    error: function() {
+                                        TM.Alert.load('<br><p style="font-size:15px">宝贝复制错误，请重试，或者联系客服反馈。</p>',400,230);
+                                    }
+                                });
+
+                            }
+
+                        }
+
+                        $.get('/OPUserInterFace/show5XingHaoPing',function(res){
+                            if(res == 'show'){
+                                $.get('/OPUserInterFace/haopingshowed',function(data){
+                                    if(data == "unshowed") {
+                                        $.get('/status/user',function(data){
+                                            var firstlogintime = TM.firstLoginTime;
+                                            var now = new Date().getTime();
+                                            var interval = now - firstlogintime;
+                                            if(interval > 7*24*3600*1000){
+                                                var html = ''+
+                                                        '<table style="z-index: 1001;width: 750px;height: 350px;background: url(http://img02.taobaocdn.com/imgextra/i2/1039626382/T2mzqCXcXdXXXXXXXX-1039626382.png);position: fixed;_position:absolute;">' +
+                                                        '<tbody>' +
+                                                        '<tr style="height: 270px;width: 750px;">' +
+                                                        '<td style="width: 550px;">' +
+                                                        '<a target="_blank" href="http://fuwu.taobao.com/serv/manage_service.htm?service_code=FW_GOODS-1854059">' +
+                                                        '<div style="cursor: pointer;width: 550px;height: 270px;"></div>'+
+                                                        '</a>'+
+                                                        '</td>'+
+                                                        '<td style="width: 200px;">' +
+                                                        '<a target="_blank" href="http://fuwu.taobao.com/serv/manage_service.htm?service_code=FW_GOODS-1854059">' +
+                                                        '<div style="cursor: pointer;width: 200px;height: 270px;"></div>'+
+                                                        '</a>'+
+                                                        '</td>'+
+                                                        '</tr>' +
+                                                        '<tr style="height: 80px;width: 750px;">' +
+                                                        '<td style="width: 550px">' +
+                                                        '<a target="_blank" href="http://fuwu.taobao.com/serv/manage_service.htm?service_code=FW_GOODS-1854059">' +
+                                                        '<div style="cursor: pointer;width: 200px;height: 80px;"></div>'+
+                                                        '</a>'+
+                                                        '</td>'+
+                                                        '<td class="" style="width: 200px;cursor: pointer;">' +
+                                                        '<a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E7%BA%A2%E5%BF%83%E5%9B%A2%E9%98%9F&siteid=cntaobao&status=1&charset=utf-8"><img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后"></a>' +
+                                                        '</td>'+
+                                                        '</tr>' +
+                                                        '</tbody>'+
+                                                        '</table>'+
+                                                        '';
+                                                var left = ($(document).width() - 750)/2;
+                                                var top = 130;
+                                                var content = $(html);
+                                                content.css('top',top+"px");
+                                                content.css('left',left+"px");
+                                                content.unbind('click').click(function(){
+                                                    content.remove();
+                                                    $('body').unmask();
+                                                });
+                                                $('body').mask();
+                                                $('body').append(content);
+                                                $.post('/OPUserInterFace/setHaoPingShowed',function(data){
+
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+
+                            }
+                        });
+
+                        /////// 宝贝复制自定义设置 ///////
+
+                        $(".title-keyword-mapper").click(function () {
+                            resetMyModel();
+                            var map = {};
+                            try {
+                                map = JSON.parse($("#titleKeywordMapper").val());
+                            } catch (e) {}
+                            var table = $("#myModal table");
+                            var tbody = table.find("tbody");
+
+                            var html_trs = "";
+                            for (var keyword in map) {
+                                var replacement = map[keyword];
+                                html_trs += '<tr> ' +
+                                        '<td>' + keyword + '</td> ' +
+                                        '<td>替换成</td> ' +
+                                        '<td>' + replacement + '</td> ' +
+                                        '<td><button class="btn btn-danger btn-middle btn-delete-title-keyword">删除</button></td> ' +
+                                        '</tr>';
+                            }
+                            tbody.append(html_trs);
+
+                            // bind event
+                            btnDeleteEvent();
+
+                            $("#myModal").toggleClass("in");
+                        });
+
+                        $(".btn-add-title-keyword").click(function () {
+                            var tr = $(this).parent().parent();
+                            var word = tr.find("input").eq(0);
+                            var replace = tr.find("input").eq(1);
+
+                            if (!word.val().trim()) {
+                                alertErrorMsg("请输入关键字！");
+                                return;
+                            }
+
+                            var tbody = tr.parent().siblings("tbody");
+
+                            var html_tr = '<tr> ' +
+                                    '<td>' + word.val() + '</td> ' +
+                                    '<td>替换成</td> ' +
+                                    '<td>' + replace.val() + '</td> ' +
+                                    '<td><button class="btn btn-danger btn-middle btn-delete-title-keyword">删除</button></td> ' +
+                                    '</tr>';
+
+                            tbody.prepend(html_tr);
+
+                            // reset input
+                            word.val("");
+                            replace.val("");
+                            // bind event
+                            btnDeleteEvent();
+                        });
+
+                        function btnDeleteEvent() {
+                            $(".btn-delete-title-keyword").click(function () {
+                                $(this).parent().parent().remove();
+                            });
+                        }
+
+                        $(".myModal-close").click(function () {
+                            $("#myModal").toggleClass("in");
+                        });
+
+                        function resetMyModel() {
+                            var table = $("#myModal table");
+                            var thead = table.find("thead");
+                            var tbody = table.find("tbody");
+                            // clear input in thead
+                            thead.find("input").val("");
+                            // clear tbody
+                            tbody.html("");
+                        }
+
+                        $(".myModal-save").click(function () {
+                            var table = $("#myModal table");
+                            var tbody = table.find("tbody");
+                            var trs = tbody.find("tr");
+
+                            var map = {};
+                            var whetherReturn = false;
+                            trs.each(function (index) {
+                                var tr = $(this);
+                                var tds = tr.find("td");
+                                var word = tds.eq(0).text();
+                                var replace = tds.eq(2).text();
+                                if (!word) {
+                                    alertErrorMsg("第【"+(index+1)+"】行关键字未填写！");
+                                    whetherReturn = true;
+                                    return false;
+                                }
+                                if (map[word] != undefined) {
+                                    alertErrorMsg("出现重复的关键字【"+word+"】！");
+                                    whetherReturn = true;
+                                    return false;
+                                }
+
+                                map[word] = replace;
+                            });
+                            if(whetherReturn) return;
+
+
+                            $("#titleKeywordMapper").val(JSON.stringify(map));
+
+                            $("#myModal").toggleClass("in");
+                        });
+
+                        var alertErrorMsgTimeOut;
+                        function alertErrorMsg(msg) {
+                            $(".myModal-alert").text(msg);
+                            $(".myModal-alert").toggleClass("hidden", false);
+                            clearTimeout(alertErrorMsgTimeOut);
+                            alertErrorMsgTimeOut = setTimeout(function () {
+                                $(".myModal-alert").toggleClass("hidden", true);
+                            }, 3000);
+                        }
+                        
+						// 保存吊牌图地址
+						$(".save-diaopai-pic").click(function() {
+							var html = '<div style="margin: 30px 0 20px 40px">' +
+											'<input type="file" id="file" value="提交图片" />' +
+										'</div>';
+							TM.Alert.loadDetail(html, 400, 200, function() {
+								if (!$('#file').val()) {
+									alert("您还没有添加任何图片！");
+									return false;
+								}
+								var formData = new FormData();
+								formData.append('file', $("#file")[0].files[0]);
+								$.ajax({
+									url : '/ItemCarrier/saveDiaoPaiPic',
+									type : 'post',
+									data: formData,
+									cache: false,
+									contentType: false,
+									processData: false,
+									dataType: "json",
+									success : function(data){
+										alert(data.message);
+										if(data.success) {
+											$("#diaopaiPic").val(data.res.picturePath);
+										}
+									}
+								});
+							},'吊牌图本地上传');
+						})
+
+                        // 保存设置
+                        $(".save-item-carry-custom").click(function () {
+                            if ($(this).text() == "保存设置") $(this).text("保存中...");
+                            else return;
+
+                            var data = {};
+                            if ($("#sellerCids").val() != -1) {
+                                var sellerCidsSelect = $("select[id^=sellerCids]");
+                                var sellerCids = new Array();
+                                for (var index = 0; index < sellerCidsSelect.length; index++) {
+                                    var item = sellerCidsSelect[index];
+                                    var value = $(item).val();
+                                    if(value != -1) sellerCids.push(value);
+                                }
+                                data.sellerCids = sellerCids.join();
+                            }
+                            if ($("#pictureCategoryId").val() != -1) {
+                                var selects = $("select[id^=pictureCategoryId]");
+                                var pictureCategoryId = new Array();
+                                for (var index = 0; index < selects.length; index++) {
+                                    var item = selects[index];
+                                    var value = $(item).val();
+                                    if(value != -1) pictureCategoryId.push(value);
+                                }
+                                data.pictureCategoryId = pictureCategoryId.join();
+                            }
+                            if ($("#postageId").val() != -1) data.postageId = $("#postageId").val();
+
+                            data.locationState = $("#locationState").val();
+                            data.locationCity = $("#locationCity").val();
+                            data.stuffStatus = $("#stuffStatus").val();
+                            data.mainPicIndex = $("#mainPicIndex").val();
+                            data.whetherSaveOldNumiid = $("#whetherSaveOldNumiid").prop("checked") ? true : false;
+                            data.whetherSaveOldUrl = $("#whetherSaveOldUrl").prop("checked") ? true : false;
+                            data.calPriceBaseNumType = $("#calPriceBaseNumType").val();
+                            data.multiplyNum = $("#multiplyNum").val();
+                            data.addNum = $("#addNum").val();
+                            data.titleKeywordMapper = $("#titleKeywordMapper").val();
+                            data.prefixTitleString = $("#prefixTitleString").val();
+                            data.suffixTitleString = $("#suffixTitleString").val();
+                            data.approveStatus = $("#approveStatus").val();
+                            data.diaopaiPic = $("#diaopaiPic").val();
+
+
+                            $.ajax({
+                                url: "/itemcarrier/saveItemCarryCustom",
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify(data),
+                                type: "POST",
+                                dataType: "JSON",
+                                success: function (response) {
+                                    if (response.success) {
+                                        alert("保存成功");
+                                        location.reload();
+                                    } else {
+                                        alert("保存失败");
+                                        $(".save-item-carry-custom").text("保存设置");
+                                    }
+                                },
+                                error: function () {
+                                    alert("保存失败");
+                                    $(".save-item-carry-custom").text("保存设置");
+                                }
+                            });
+
+                        });
+
+                        // 请求宝贝分类
+                        var initSellerCat = new Promise(function (resolve, reject) {
+                            $.get("/itemcarrier/sellerCatsList", function (response) {
+                                if(!response.success) {
+                                    alert(response.message);
+                                    reject(response);
+                                    return;
+                                }
+
+                                var res = JSON.parse(response.res);
+
+                                var sellerCatsParent = res.sellerCatsParent;
+                                var sellerCatsChild = res.sellerCatsChild;
+
+                                var html_sellerCatsParent = "";
+
+                                for (var index in sellerCatsParent) {
+                                    var item = sellerCatsParent[index];
+                                    html_sellerCatsParent += '<option value="'+item.cid+'">'+item.name+'</option>';
+                                }
+                                $("#sellerCids").append(html_sellerCatsParent);
+
+
+                                $("#sellerCids").unbind().change({sellerCatsChild: sellerCatsChild}, sellerCatsChangeEvent);
+
+                                resolve(response);
+                            });
+                        });
+
+                        function sellerCatsChangeEvent(event) {
+                            var td = $("#sellerCids").parent("td");
+                            var selector = $(event.target);
+                            var sellerCatsChild = event.data.sellerCatsChild;
+                            var selectorId = selector.attr("id");
+                            var newSelectorId = selectorId + '_';
+                            var parentId = selector.find("option:selected").val();
+                            if (parentId == -1) {
+                                td.find("#"+newSelectorId).remove();
+                                return;
+                            }
+                            if (!sellerCatsChild) {
+                                td.find("#"+newSelectorId).remove();
+                                return;
+                            }
+                            var childList = sellerCatsChild[parentId];
+                            if (!childList) {
+                                td.find("#"+newSelectorId).remove();
+                                return;
+                            }
+                            var html_sellerCatsChild = '<option value="-1">请选择类目</option>';
+                            for (var index in childList) {
+                                var item = childList[index];
+                                html_sellerCatsChild += '<option value="'+item.cid+'">'+item.name+'</option>';
+                            }
+
+                            html_sellerCatsChild = '<select id="'+newSelectorId+'">' + html_sellerCatsChild + '</select>';
+
+
+                            td.find("#"+newSelectorId).remove();
+                            td.append(html_sellerCatsChild);
+
+                            $("#"+newSelectorId).unbind().change({sellerCatsChild: sellerCatsChild}, sellerCatsChangeEvent);
+                        }
+
+                        // 请求图片分类
+                        var initPicCat = new Promise(function (resolve, reject) {
+                            $.get("/itemcarrier/getPicCats", function (response) {
+                                if (!response.success) {
+                                    alert("请求图片分类失败！请重试");
+                                    reject(response);
+                                    return;
+                                }
+
+                                var res = JSON.parse(response.res);
+                                var pictureCategoryParent = res.pictureCategoryParent;
+                                var pictureCategoryChild = res.pictureCategoryChild;
+
+                                var html_pictureCategoryId = "";
+                                for (var index in pictureCategoryParent) {
+                                    var item = pictureCategoryParent[index];
+                                    html_pictureCategoryId += '<option value="'+item.pictureCategoryId+'">'+item.pictureCategoryName+'</option>';
+                                }
+
+                                $("#pictureCategoryId").append(html_pictureCategoryId);
+
+                                $("#pictureCategoryId").unbind().change({pictureCategoryChild: pictureCategoryChild}, picCatChangeEvent);
+
+                                resolve(response);
+                            });
+                        });
+
+                        function picCatChangeEvent(event) {
+                            var parentId = $(event.target).val();
+                            var selectId = $(event.target).attr("id");
+                            var td = $(event.target).parent("td");
+                            var pictureCategoryChild = event.data.pictureCategoryChild;
+                            var newSelectId = selectId + "_";
+                            if (parentId == -1) {
+                                td.find("#"+newSelectId).remove();
+                                return;
+                            }
+                            if (!pictureCategoryChild) {
+                                td.find("#"+newSelectId).remove();
+                                return;
+                            }
+                            var childList = pictureCategoryChild[parentId];
+                            if (!childList) {
+                                td.find("#"+newSelectId).remove();
+                                return;
+                            }
+                            var html = '<option value="-1">选择子目录</option>';
+                            for (var index in childList) {
+                                var item = childList[index];
+                                html += '<option value="'+item.pictureCategoryId+'">'+item.pictureCategoryName.trim()+'</option>';
+                            }
+
+                            html = '<select id="'+newSelectId+'">' + html + '</select>';
+
+
+                            td.find("#"+newSelectId).remove();
+                            td.append(html);
+
+                            $("#"+newSelectId).unbind().change({pictureCategoryChild: pictureCategoryChild}, sellerCatsChangeEvent);
+                        }
+
+                        // 请求地区数据
+                        var initLocation = new Promise(function (resolve, reject) {
+
+                            $.get("/itemcarrier/itemArea", function (response) {
+                                var province = response.province;
+                                var city = response.city;
+
+                                var html_locationState = "";
+
+                                for(var index in province) {
+                                    var item = province[index];
+                                    html_locationState += '<option proId="'+item.id+'" value="'+item.name+'">'+item.name+'</option>';
+                                }
+
+                                $("#locationState").append(html_locationState);
+
+                                $("#locationState").unbind().change(function () {
+                                    $("#locationCity").html('<option value="-1">请选择城市</option>');
+
+                                    var pro = $(this).find("option:selected").attr("proId");
+
+                                    var cities = city[pro];
+
+                                    var html_locationCity = "";
+
+                                    for(var index in cities) {
+                                        var item = cities[index];
+                                        html_locationCity += '<option cityId="'+item.id+'" value="'+item.name+'">'+item.name+'</option>';
+                                    }
+
+                                    $("#locationCity").append(html_locationCity);
+
+                                });
+
+                                resolve(response);
+                            });
+
+                        });
+
+                        var initDeliveryTemplates = new Promise(function (resolve, reject) {
+
+                            $.get("/itemcarrier/deliveryTemplates", function (response) {
+                                var deliveryTemplates = response;
+
+                                var html_postageId = "";
+                                for(var index in deliveryTemplates) {
+                                    var deliveryTemplate = deliveryTemplates[index];
+                                    html_postageId += '<option value="'+deliveryTemplate.templateId+'">'+deliveryTemplate.name+'</option>';
+                                }
+
+                                $("#postageId").append(html_postageId);
+
+                                resolve(response);
+                            });
+
+
+                        });
+
+                        // 初始化自定义设置
+                        Promise.all([initSellerCat, initPicCat, initLocation, initDeliveryTemplates]).then(function (results) {
+                            $.get("/itemcarrier/userItemCarryCustom", function (response) {
+                                var item = response;
+                                if (!item) return;
+                                if (item.sellerCids) {
+                                    var sellerCids = item.sellerCids.split(",");
+                                    var sellerCidsSelectId = "sellerCids";
+                                    for (var i = 0; i < sellerCids.length; i++) {
+                                        var sellerCid = sellerCids[i];
+                                        $("#" + sellerCidsSelectId).val(sellerCid);
+                                        $("#" + sellerCidsSelectId).trigger("change");
+                                        sellerCidsSelectId += '_';
+                                    }
+                                }
+                                if (item.locationState && item.locationCity) {
+                                    $("#locationState").val(item.locationState);
+                                    $("#locationState").trigger("change");
+                                    $("#locationCity").val(item.locationCity);
+                                }
+                                if (item.pictureCategoryId) {
+                                    var pictureCategoryId = item.pictureCategoryId.split(",");
+                                    var pictureCategorySelectId = "pictureCategoryId";
+                                    for (var i = 0; i < pictureCategoryId.length; i++) {
+                                        var pcid = pictureCategoryId[i];
+                                        $("#" + pictureCategorySelectId).val(pcid);
+                                        $("#" + pictureCategorySelectId).trigger("change");
+                                        pictureCategorySelectId += '_';
+                                    }
+                                }
+
+                                $("#postageId").val(item.postageId);
+                                $("#stuffStatus").val(item.stuffStatus);
+                                $("#mainPicIndex").val(item.mainPicIndex);
+                                $("#whetherSaveOldNumiid").prop("checked", item.whetherSaveOldNumiid);
+                                $("#whetherSaveOldUrl").prop("checked", item.whetherSaveOldUrl);
+                                $("#calPriceBaseNumType").val(item.calPriceBaseNumType);
+                                $("#multiplyNum").val(item.multiplyNum);
+                                $("#addNum").val(item.addNum);
+                                $("#titleKeywordMapper").val(item.titleKeywordMapper);
+                                $("#prefixTitleString").val(item.prefixTitleString);
+                                $("#suffixTitleString").val(item.suffixTitleString);
+                                $("#approveStatus").val(item.approveStatus);
+                                $("#diaopaiPic").val(item.diaopaiPic);
+                            });
+                        });
+
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

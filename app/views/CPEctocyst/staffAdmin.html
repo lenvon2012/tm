@@ -1,0 +1,194 @@
+
+#{extends 'CPEctocyst/CPEctocystMain.html'/}
+#{set title:'用户管理' /}
+
+<style>
+   .CPEctocystSubStaffs {
+       width: 100%;
+   }
+    .subStaffList {
+        width: 100%;
+    }
+    .subStaffListTable {
+        width: 100%;
+    }
+
+   .addSubStaffTable, .editJoinTable {
+       width: 100%;
+       text-align: center;
+       vertical-align: middle;
+   }
+   .addSubStaffTable tr, .editSubStaffTable tr {
+       height: 40px;
+   }
+   .addSubStaffTable input, .editSubStaffTable input{
+       text-align: center;
+   }
+   .subStaffPaging {
+       text-align: center;
+       margin: 8px 0;
+   }
+    .addSubStaffDiv {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+</style>
+
+<script type="text/x-jquery-tmpl" id="addSubStaffTable">
+    <table class="addSubStaffTable">
+        <thead>
+        <tr>
+            <td colspan="20" style="font-size: 20px;">
+                新增用户
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                用户名称:
+            </td>
+            <td>
+                <input type="text" class="name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                权限:
+            </td>
+            <td>
+                <select class="role">
+                    <option value="0">客服</option>
+                    <option value="2">财务</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码:
+            </td>
+            <td>
+                <input type="text" class="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                确认密码:
+            </td>
+            <td>
+                <input type="text" class="password-confirm">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                手机号:
+            </td>
+            <td>
+                <input type="text" class="phone">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</script>
+
+<script type="text/x-jquery-tmpl" id="subStaffTableTr">
+    <tr class="subStaffTableTr" subStaffId="{{= id}}" substaffname="{{= name}}">
+        <td>
+            {{= name}}
+        </td>
+        <td>
+            {{= phone}}
+        </td>
+        <td>
+           *** <span class="changePswByParent green-span showOnlySuperAdmin">修改</span>
+        </td>
+        <td>
+            {{= acceptNum}}
+        </td>
+        <td>
+            {{= createStr}}
+        </td>
+        <td>
+            {{= parentName}}
+        </td>
+        <td>
+           <span class="deleteByParent green-span showOnlySuperAdmin">删除</span>
+           {{if role != "ADMIN"}}
+           <span class="checkByParent green-span">查看</span>
+           {{/if}}
+        </td>
+
+
+    </tr>
+</script>
+
+<div class="CPEctocystSubStaffs">
+
+    <div class="addSubStaffDiv showOnlySuperAdmin">
+         <span class="tmbtn  long-green-btn addSubStaff">
+             添加用户
+         </span>
+    </div>
+
+
+    <div class="subStaffSearchDiv">
+        <input style="width: 200px;color: grey;" id="subStaffSearchText" class="" value="请输入用户名进行搜索"
+               onfocus='if(this.value=="请输入用户名进行搜索"){this.value="";}; '
+               onblur='if(this.value==""){this.value="请输入用户名进行搜索";};'>
+        <span style="margin-left: 20px;" class="tmbtn sky-blue-btn subStaffSearchBtn">立即搜索</span>
+    </div>
+
+    <div class="subStaffPaging"></div>
+
+    <div class="subStaffList">
+        <table class="subStaffListTable cpectocyst-table">
+            <thead>
+                <tr>
+                    <td>
+                        姓名
+                    </td>
+                    <td>
+                        手机号码
+                    </td>
+                    <td>
+                        登陆密码
+                    </td>
+                    <td>
+                        已接卖家数
+                    </td>
+                    <td>
+                        登记时间
+                    </td>
+                    <td>
+                        登记人
+                    </td>
+                    <td>
+                        操作
+                    </td>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="no-staff-tr">
+                    <td colspan="20">
+                        暂无用户信息
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="subStaffPaging"></div>
+</div>
+
+<script>
+    //TM.gcs('/js/jquery-1.6.4.min.js', function(){
+        TM.gcs('/js/jquery.tmpl.js', function(){
+            TM.gcs('/js/CPEctocyst/subStaff.js?_v=4', function(){
+                TM.SubStaff.init.doInit($('.CPEctocystSubStaffs'));
+            });
+        });
+    //});
+</script>

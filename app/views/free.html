@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="screen" href='/public/stylesheets/main.css'>
+    <link rel="stylesheet" media="screen" href='/public/stylesheets/jquery-ui-1.9.1.custom.css'>
+    *{<link rel="stylesheet" media="screen" href='/public/stylesheets/prize/prize.css'>}*
+    <style>
+        a{text-decoration:none;}
+        img{border:0px;}
+        #dpzd{background: none;}
+        .top-banner{}
+        .head-nav{margin: 0 auto;width:1000px;}
+        .head{}
+        .head ul{width:840px;display: inline-block;float: left;padding-left:0px;}
+        .head ul li{zoom:1;float:none;display: inline-block;*display:inline;background: none;width:96px;height:44px;line-height: 44px;background-image: none;text-align: center;}
+        .head ul li.selected{background-image: url('/public/images/frame/selected-bg.png');border:none;}
+        .head ul li:hover{color:#FCFC98}
+        .head ul li a{color:white;padding: 0px;background: none;margin: 0px;padding: 0px;display:inline-block;*display:inline;}
+            /*head ul li a:hover{margin-left:5px;text-decoration:none;font-size:17px;font-weight:bold;background: none;width: 120px;height: 31px;display: inline-block;*display:inline; }*/
+
+        .app-nav{height:66px;}
+        .app-nav a{}
+        .app-nav a{display: inline-block;*display: inline;height:66px;text-align:center;}
+        .app-nav a img{height: 66px;}
+        .userheadop{color:white; font-weight: bold;}
+        .userheadop a{color:white; text-decoration: none;padding: 0 5px 0 5px;}
+
+        .logo{position: absolute;
+                   background: url(http://img02.taobaocdn.com/imgextra/i2/22902351/T2GDHlXaNXXXXXXXXX_!!22902351.png) no-repeat scroll ;
+                   /*background: url(http://img02.taobaocdn.com/imgextra/i2/22902351/T2fYxqXgFOXXXXXXXX_!!22902351.png) no-repeat scroll ;*/
+                   width: 130px;
+                   height: 60px;
+                   left: 0;
+                   top: 0px;
+                   cursor: pointer;
+                   display: block;
+         }
+
+        .detectioncanvas{
+            width: 528;
+            height: 528px;
+            background: url(http://img03.taobaocdn.com/imgextra/i3/679214160/T2pUPkXmFaXXXXXXXX_!!679214160.png) no-repeat;
+            position: relative;
+            display: block;
+            left: 100px;
+            top: 10px;
+        }
+        .diagbtn{
+            background: url(http://img01.taobaocdn.com/imgextra/i1/22902351/T2Av6lXoxXXXXXXXXX_!!22902351.gif) no-repeat;
+            width: 179px;
+            height: 60px;
+            cursor: pointer;
+            position: absolute;
+            left: 175px;
+            top: 235px;
+            display: block;
+        }
+        .diagbtn{
+            background-position: left top;
+        }
+        .diagbtn:hover{
+            background-position: left bottom;
+        }
+
+
+
+        #content{margin: 0 auto;min-height: 520px;}
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href='/public/images/favicon.png'>
+    <script type="text/javascript">
+        var TM = TM || {};
+    </script>
+</head>
+<body>
+    <div class="head" style="height:60px;_height:60px;background-color:	#2E92D9;">
+        <div class="head-nav" style="width:800px;margin: auto;position: relative;">
+            *{<div style="position: absolute;top:-2px;left:200px;">}*
+            <div style="margin: 0px auto;padding-top:3px;text-align: center;">
+                <p style="text-align: center;position: relative;width:600px;margin: 0 auto">
+                    <span  class="logo"  style="color:white;">
+                    </span>
+                    <span style="color:white;font-size:14px;position: absolute;left:140px;top:25px;">
+                        &nbsp;&nbsp;&nbsp;&nbsp; 一键赚钱工具
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div id="content">
+            #{doLayout /}
+        </div>
+    </div>
+#{get 'moreScripts' /}
+</body>
+</html>

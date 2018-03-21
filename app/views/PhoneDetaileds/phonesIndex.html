@@ -1,0 +1,217 @@
+#{extends 'carrier/carrierbase.html' /}
+#{set title:'生成手机详情页' /}
+
+<style>
+    .intro{
+        margin: 20px 0;
+        background: #f5f5f5;
+        border: 1px solid #e8e8e8;
+    }
+    .item-container {
+        width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px 150px 20px;
+        border: 1px solid #e8e8e8;
+        font-family: "微软雅黑";
+    }
+    .haoniu-submit-btn {
+        margin: 0 auto;
+        line-height: 38px;
+        font-size: 16px;
+        width: 250px;
+        height: 38px;
+        color: #ffffff;
+        background-color: #f43;
+        border: 1px solid #fff;
+        display: inline-block;
+        zoom: 1;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 4px;
+    }
+    #mainfoot{
+        display: none;
+    }
+    .haoniu-submit-div,.combobox-input{
+        margin-top: 55px;
+    }
+    .hide{
+        display: none;
+    }
+    .handle-style{
+        background: #f43;
+        width: 80px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+        color: white;
+        margin-left: 15px;
+        border-radius: 2px;
+    }
+    .mt25{
+        margin-top: 25px;
+    }
+    .filter-row{
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+    }
+    .create-info{
+        border: 1px solid #FDA8A0;
+        display: none;
+    }
+    .cRed{
+        color:red;
+    }
+    .load-img{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: url("http://img01.taobaocdn.com/imgextra/i1/758262754/TB2S1FVbVXXXXbeXpXXXXXXXXXX_!!758262754.gif");
+        margin-right: 15px;
+        float: left;
+    }
+    .filter-column{
+        margin-right: 25px;
+    }
+    .cfont{
+        color: #f43;
+    }
+    .cGreen {
+        color: rgb(7, 202, 7);
+    }
+    .cBlue{
+        color: #0000ff;
+        font-size: 12px;
+    }
+    .modal{
+        z-index: 1043;
+    }
+    .modal.fade.in{
+        top:20%;
+        width: 700px;
+    }
+    .cj-buzou dd {
+        margin-left: 10px;
+        height: 62px;
+        line-height: 62px;
+        font-size: 15px;
+    }
+    .modal-header h3{
+        font-size: 15px;
+    }
+    .cj-buzou dt {
+        width: 70px;
+        height: 345px;
+        float: left;
+        background: url("http://img03.taobaocdn.com/imgextra/i3/763789825/TB22wt_bVXXXXXBXpXXXXXXXXXX_!!763789825.png") no-repeat;
+    }
+    b{
+        font-weight: 100;
+    }
+    .cj-dl-btn{
+        width: auto;
+        color: #fff;
+        background: #ff7f27;
+        border: 1px solid #ef6000;
+        border-radius: 2px;
+        padding: 0 20px;
+        height: 26px;
+        line-height: 26px;
+        display: inline-block;
+        margin-left: 25px;
+    }
+    .cj-dl-btn:hover{
+        background: #ffa82f;
+    }
+    .search-btn{
+        padding: 0 20px;
+    }
+    input[type="text"]:focus{
+        border-color: #f43;
+        outline: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    .combobox-input .guanjianci{
+        border-radius: 0;
+    }
+    .intro-span{
+        float: none;
+    }
+    .gopage-submit{
+        padding: 0 15px;
+    }
+    .tm-paging-container .jumpTo{
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+    .tm-paging-container .paging-nav{
+        float: none;
+    }
+    .item-paging-div{
+        margin-top: 50px;
+    }
+    .help{
+        font-size: 16px;
+        font-family: "微软雅黑";
+        width: 1000px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .modal-header{
+        border-bottom: 0;
+    }
+    .help-head{
+        font-size: 18px;
+        color: red;
+    }
+    .help-subhead{
+        font-size: 14px;
+        color: #888;
+        margin-top: 8px;
+    }
+    .gc-cj{
+        margin-top: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: 100%;
+    }
+    body{
+        background: white;
+    }
+</style>
+
+<div class="content">
+    <div id="myModal" class="help">
+        <div class="modal-header">
+            <p class="help-head">手机详情页自动安装教程:</p>
+            <p class="help-subhead">提示：目前该插件只支持谷歌浏览器，其他浏览器暂未测试，本教程以谷歌浏览器为例。
+            </p>
+        </div>
+        <div class="modal-body">
+            <div id="installHelpWindow" style=" height: 400px;" class="boxy-content">
+                <p style="font-size:16px;">在 <b class="color-orange">谷歌浏览器</b> 中安装 <b class="color-orange">淘掌柜插件</b>，即可自动安装所有已生成的宝贝详情页</p>
+                <div class="gc-cj">
+                    <dl class="cj-buzou">
+                        <dt></dt>
+                        <dd style="margin-top:10px;"><b>下载并安装谷歌浏览器(或其他谷歌内核浏览器)</b></dd>
+                        <dd><b>下载手机详情页插件</b><a href="@{PhoneDetaileds.pluginDownload()}" target="_self" class="cj-dl-btn" style="width:auto;"> 淘宝卖家：点击下载</a><a href="http://img3.xyy001.com/sjxq/plug/xyywapdescinstaller4tmallv1.crx" target="_blank" class="xui-btn btn-primary btn-s" style="width:auto;display: none;"> 天猫卖家：点击下载</a></dd>
+                        <dd><span>解压文件, 打开"设置-扩展程序", 拖拽扩展包至扩展程序列表完成安装</span></dd>
+                        <dd><span>在谷歌浏览器右上角看到 “<b class="color-orange">淘</b>” 字，就已安装成功</span></dd>
+                        <dd><span>在谷歌浏览器中登录淘掌柜，点击 “<b class="color-orange">淘</b>” 字，在弹出窗口中点击“<b class="color-orange">开始安装</b>”</span></dd>
+                    </dl>
+                    <div class="clear"></div>
+                    <!--
+                    <p><a href="http://home.xyy001.com/html/help/help.jsp?qid=165" target="_blank">还不了解？去看更详细教程</a></p>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

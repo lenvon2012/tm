@@ -1,0 +1,26 @@
+#{extends 'autoTitle/head.html' /}
+
+#{set title:'店铺秘钥' /}
+
+<input type="hidden" class="user_id" value="${user.id}">
+<input type="hidden" class="session_key" value="${user.sessionKey}">
+<input type="hidden" class="user_nick" value="${user.userNick}">
+
+<div>
+	<div>
+		用户Id：<span class="user_id_value"></span>
+	</div>
+	<div>
+		用户秘钥：<span class="session_key_value"></span>
+	</div>
+	<div>
+		用户昵称：<span class="user_nick_value"></span>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(".user_id_value").html($(".user_id").val());
+	$(".session_key_value").html($(".session_key").val());
+	$(".user_nick_value").html($(".user_nick").val());
+</script>

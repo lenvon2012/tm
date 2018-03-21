@@ -1,0 +1,39 @@
+#u {
+    filter: alpha(opacity=70) \9;
+    height: 20px\9;
+    border-bottom: none;
+    padding-bottom: 6px;
+    color: #999;
+    padding: 4px 30px 5px 0;
+    text-align: right;
+}
+#u a{
+    color: #000000;
+    text-decoration: none;;
+    margin: 0 5px;
+}
+.user-name-top {
+    cursor: pointer;
+    line-height: 20px;
+    color: #00C;
+    font-weight: bold;
+    padding-right: 11px;
+    background: url('/img/kefusweety/skin_dark_7e34cf2a.png') no-repeat right -571px;
+    _background: url('../img/kefusweety/user_top_05c8a039.png') no-repeat right 7px;
+}
+#s_user_center {
+    font-weight: normal;
+    background-position: right -223px\9;
+    background: url('/img/kefusweety/skin_dark_7e34cf2a.png') no-repeat right -573px\9;
+    _background: url('/img/kefusweety/user_top_05c8a039.png') no-repeat right 5px\9;
+}
+#u a.last {
+    margin-right: 0;
+}
+
+.hidden{
+    display: none;
+}
+.sweety-name{
+    font-size: 24px;color: rgb(0, 20, 252);
+}

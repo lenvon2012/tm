@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Multiple Modification of Titles' /}
+
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/correlativeRecom.css'}">
+
+<div id="itemListDiv">
+    <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
+    <div class="b d1 k">
+        <div id="itemListContent">
+            <div id="itemListSearch">
+                <span class="bbbt">&nbsp;宝贝标题:</span><input type="text" id="ItemSearchText" />
+                <img src="/public/images/btns/search1.png" class="ItemSearchBtn">
+
+                <p  id="PaginationItem" class="paginationItem">
+                </p>
+            </div>
+            <div class="clear"></div>
+            <div id="allItemTableDiv">
+                <table id="allItemTable">
+                    <tr class="tableHead">
+                        <td class="td1">
+                            <input  type="checkbox" value="1" name="checkAll" id="CheckAll"  style="vertical-align: middle;">
+                        </td>
+                        <td class="td2">
+                            <span>宝贝图片</span>
+                        </td>
+                        <td class="td3">
+                            价格
+                        </td>
+                        <td class="td4">
+                            宝贝标题
+                        </td>
+                        <td class="td5">
+                            导出
+                        </td>
+                    </tr >
+                </table>
+            </div>
+            <div id="itemListBottom">
+
+                &nbsp;&nbsp; <a id="outAll"><img id="selectItemsOK" src="/public/images/button/outAll.png"/></a>
+
+                &nbsp;&nbsp;<span class="selected">已选中宝贝数:</span><span id="selectedNum">0</span>
+            </div>
+        </div>
+
+    </div>
+    <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b"></b>
+
+</div>
+
+#{set 'moreScripts'}
+<script src="@{'/js/itemList.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/js/jquery.pagination.js'}" type="text/javascript" charset="utf-8"></script>
+#{/set }

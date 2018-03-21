@@ -1,0 +1,31 @@
+.popuparize{width: 780px;;margin: 0 auto;overflow:hidden}
+
+#itemsStatus{width: 100px;}
+#itemsCat{width: 100px;}
+#itemsSortBy{width: 100px;}
+#searchWord{width: 213px;}
+.searchArea{margin-top: 5px;margin-left: 7px;}
+#lowScore{width: 40px;}
+#highScore{width: 40px;}
+#goSearchtems{}
+.lookupPopularized{background: url("/img/btns/blueBtn.png");display: inline-block;color: #ffffff;    width: 90px;      height: 30px;     line-height: 30px;}
+.lookupPopularized:hover{background: url("/img/btns/btn-yellow-bg90.png");}
+.gotoSeePopularited{margin: 5px 0 0 0;}
+.singleItem{height: 100px;width: 778px;border-bottom: 1px solid #ccc;margin-bottom: 5px;}
+.singleDiagULObj{list-style: none;padding: 0px; margin: 0px 0px 0px 0px;     list-style-image: none;    list-style-type: none;}
+.diagHeadUL{list-style: none;padding: 0px;margin: 0px 0px 0px 0px;     list-style-image: none;     list-style-type: none;}
+.itemTitle{}
+.xufei{margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    right:0;
+    height:83px;
+    line-height: 83px;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    display: none;
+    background: url(/img/autoTitle/adv.png) repeat-x;}
+.xufei{font-size: 24px;z-index: 10000;}
+.xudingBtn{margin:0 20px 0 10px;background: url("/img/taoweigou/search-btn.png");width: 123px;height: 36px;line-height: 36px;font-size: 20px;color: #ffffff;}
+.xudingBtn a{color: #ffffff;}

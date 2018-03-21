@@ -1,0 +1,29 @@
+#{extends 'free.html' /}
+#{set title:'店铺诊断' /}
+
+<link rel="stylesheet" media="screen" href='/css/shopDiag.css'>
+<div id="diagloading" style="width:200px;margin: 100px auto;">
+    <img src="/img/tips/loading" style="width:80px;height:80px;">
+</div>
+<div class="shopDiag">
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getScript('/js/utils/jquery.cookie.js',function(){
+            $.getScript('/js/tm.js',function(){
+                $.getScript('/js/shopDiag.js',function(){
+
+                    var container = $('.shopDiag');
+                    $.get('/home/firstSync',function(){
+                        $('#diagloading').hide();
+                        TM.ShopDiag.genShopDiagDiv(container,'/in/goOptimise');
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

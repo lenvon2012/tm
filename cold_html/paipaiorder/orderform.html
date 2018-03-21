@@ -1,0 +1,72 @@
+#{extends '/dazhe/base.html' /}
+#{set title:'订单管理' /}
+
+<link rel="stylesheet" media="screen" href="/css/paipaimanage/paipaimanage.css"/>
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css"/>
+
+<style type="text/css">
+    .batch-container .list-table tbody td{
+    }
+    .batch-container .list-table tbody td.commodity_number {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 28px;
+        padding-left: 30px;
+        background-color: #ebf3ff;
+        border-top: none;
+        text-align: left;
+    }
+    .body-createTime {
+        color: #333;
+        margin-right: 10px;
+        float: right;
+    }
+    .pic{
+        height: 60px;
+        width: 60px;
+        display: inline-block;
+        border: 1px solid #CCCCCC;
+        font-size: 0;
+    }
+    .hover-tips{
+        margin-top: 20px;
+        width: 250px;
+        z-index: 2;
+        display: none;
+        position: absolute;
+    }
+    .hover_tips_ztb {
+        left: auto;
+        top: auto;
+        right: 15px;
+        bottom: -6px;
+        _bottom: -14px;
+        background-position: -21px 0;
+        width: 11px;
+        height: 7px;
+        background: url(http://static.paipaiimg.com/module/tips_icon.png) no-repeat 0 0;
+        position: absolute;
+    }
+    .hover_tips_cont {
+        padding: 2px 5px;
+        border: 1px solid #F4CB48;
+        background-color: #FFF9CC;
+        text-align: left;
+    }
+</style>
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/paipaiorder/orderform.js?_v=1" type="text/javascript" charset="utf-8"></script>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/paipaidiscount/base_index">拍拍店长&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>订单管理
+</div>
+<div class="batch-container" style="padding-bottom: 100px;"></div>
+
+<div class='clearfix'></div>
+
+<div class="hover-tips"><span class="hover_tips_ztb"></span></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+       TM.SkinBatch.init.doInit($(".batch-container"));
+    });
+</script>

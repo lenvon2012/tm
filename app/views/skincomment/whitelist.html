@@ -1,0 +1,25 @@
+#{extends 'skincomment/skinautodefendersubbase.html' /}
+
+#{set title:'白名单管理' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/blacklist.css"/>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/skincomment/whitelist.js" type="text/javascript" charset="utf-8"></script>
+
+<div class="blacklist-container"></div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+        $(document).ready(function() {
+            TM.Loading.init.show();
+            TM.WhiteList.init.doInit($(".blacklist-container"));
+        });
+    });
+
+
+</script>

@@ -1,0 +1,247 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:'上下架分布管理' /}
+
+<style>
+    .distributeDelistContainer {
+        padding: 10px;
+    }
+
+    .planConfig {
+        width: 100%;
+    }
+
+    .planConfig tr {
+        height: 40px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .planConfigItemTd {
+        width: 150px;
+    }
+
+    .planConfigItemTd span {
+        font-size: 22px;
+    }
+
+    .planDistributeTable {
+        width: 100%;
+        border: 1px dotted #ccc;
+    }
+    .planDistributeTable thead tr{
+        border-bottom: 1px dotted #ccc;
+        height: 80px;
+    }
+    .planDistributeTable tbody tr{
+        border-bottom: 1px dotted #ccc;
+        height: 60px;
+    }
+    .planDistributeTable thead tr td {
+        text-align: center;
+        vertical-align: top;
+        padding-top: 6px;
+    }
+    .planDistributeTable td{
+        text-align: center;
+    }
+    .inDistribute {
+        cursor: pointer;
+        padding: 5px;
+        border: 1px solid #ccc;
+        background-color: rgb(196,224,228);
+        width:90px;
+        margin: 5px auto;
+    }
+    .batchOpSpan {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        width: 25px;
+    }
+    .batchOperation {
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    .toforbiden {
+        background-color: #a5a3a3;
+        color: #ffffff;
+    }
+    .timeSlotForbidden {
+
+    }
+    input[type="text"].editManualInput {
+        width: 60px;
+        text-align: center;
+        height: 35px;
+        color: red;
+        font-size: 20px;
+        border: 1px dotted red;
+    }
+    .weekDayCount, .hourCount {
+        margin: 0 8px;
+        font-size: 16px;
+    }
+</style>
+
+<script type="text/x-jquery-tmpl" id="planDistributeTableTr">
+    <tr>
+        <td>{{= text}}<br>(<span class="hourCount red-bold">{{= hourCount}}</span>)</td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}" value=1>
+            <span class="numSpan">{{= week_1}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}" value=2>
+            <span class="numSpan">{{= week_2}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}" value=3>
+            <span class="numSpan">{{= week_3}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}" value=4>
+            <span class="numSpan">{{= week_4}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}" value=5>
+            <span class="numSpan">{{= week_5}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}" value=6>
+            <span class="numSpan">{{= week_6}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td class="timeSlotTd {{= timeSlotForbidden}}"  value=7>
+            <span class="numSpan">{{= week_7}}</span>
+            <div class="editManual hidden">
+                <input type="text" class="editManualInput">
+            </div>
+        </td>
+        <td timeText="{{= text}}">
+            {{if toforbiden}}
+            <div class="inDistribute toforbiden" isWeekBatch=true>点我禁止分配</div>
+            <div class="batchOperation">
+                <span class="batchAdd batchOpSpan" isWeekBatch=true>++</span>
+                <span class="batchMinus batchOpSpan" isWeekBatch=true>--</span></div>
+            {{else}}
+            <div class="inDistribute" isWeekBatch=true>点我开启分配</div>
+            <div class="batchOperation hidden">
+                <span class="batchAdd batchOpSpan" isWeekBatch=true>++</span>
+                <span class="batchMinus batchOpSpan" isWeekBatch=true>--</span>
+            </div>
+            {{/if}}
+        </td>
+    </tr>
+</script>
+<script type="text/x-jquery-tmpl" id="planDistributeTable">
+    <table class="planDistributeTable">
+        <thead>
+        <tr>
+            <td style="width: 80px;">
+
+            </td>
+            <td timeText="周一">
+                周一(<span class="weekDayCount red-bold" value=1>{{= week_1}}</span>)
+                <div class="inDistribute toforbiden" value=1>点我禁止分配</div>
+                <div class="batchOperation" value=1><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td timeText="周二">
+                周二(<span class="weekDayCount red-bold" value=2>{{= week_2}}</span>)
+                <div class="inDistribute toforbiden" value=2>点我禁止分配</div>
+                <div class="batchOperation" value=2><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td timeText="周三">
+                周三(<span class="weekDayCount red-bold" value=3>{{= week_3}}</span>)
+                <div class="inDistribute toforbiden" value=3>点我禁止分配</div>
+                <div class="batchOperation" value=3><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td timeText="周四">
+                周四(<span class="weekDayCount red-bold" value=4>{{= week_4}}</span>)
+                <div class="inDistribute toforbiden" value=4>点我禁止分配</div>
+                <div class="batchOperation" value=4><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td timeText="周五">
+                周五(<span class="weekDayCount red-bold" value=5>{{= week_5}}</span>)
+                <div class="inDistribute toforbiden" value=5>点我禁止分配</div>
+                <div class="batchOperation" value=5><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td timeText="周六">
+                周六(<span class="weekDayCount red-bold" value=6>{{= week_6}}</span>)
+                <div class="inDistribute toforbiden" value=6>点我禁止分配</div>
+                <div class="batchOperation" value=6><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td timeText="周日">
+                周日(<span class="weekDayCount red-bold" value=7>{{= week_7}}</span>)
+                <div class="inDistribute toforbiden" value=7>点我禁止分配</div>
+                <div class="batchOperation" value=7><span class="batchAdd batchOpSpan">++</span><span
+                        class="batchMinus batchOpSpan">--</span></div>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+</script>
+<div class="distributeDelistContainer">
+    <div style="padding: 10px;text-align: center;"><span class="tmbtn big-blue-btn finishDelistPlan">完成</span></div>
+    <table class="planConfig">
+        <tbody>
+
+        <tr>
+            <td>计划总宝贝数:</td>
+            <td class="planConfigItemTd"><span class="planTotalItems red-bold">0</span></td>
+            <td>已分布宝贝数</td>
+            <td class="planConfigItemTd"><span class="planDistributedItems red-bold">0</span></td>
+            <td>未分布宝贝数</td>
+            <td class="planConfigItemTd"><span class="planUnDistributedItems red-bold">0</span></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div style="height: 30px;"></div>
+
+    <div class="planDistributeTableWrapper">
+
+    </div>
+    <div style="padding: 10px;text-align: center;"><span class="tmbtn big-blue-btn finishDelistPlan">完成</span></div>
+</div>
+
+
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery.tmpl.js', function () {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/newAutoTitle/distributeDelist.js', function () {
+                $(document).ready(function () {
+                    var planId = ${planId};
+                    var isEdit = ${isEdit};
+                    TM.DistributeDelist.init.doInit($('.distributeDelistContainer'), planId, isEdit);
+                });
+            });
+        });
+    });
+</script>

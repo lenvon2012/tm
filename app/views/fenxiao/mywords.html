@@ -1,0 +1,64 @@
+*{淘掌柜的版本}*
+#{extends 'fxmain.html' /}
+#{set title:'我的词库' /}
+
+<link rel="stylesheet" media="screen" href='/css/keywords/mylexicon.css'>
+<link rel="stylesheet" href="/css/cornerDiv.css">
+
+<style type="text/css">
+    .kwcontainer{min-height:600px;_height:600px;}
+    #ML_result tr{height: 30px;line-height: 30px;border-bottom: 1px solid #ccc;font-family: '微软雅黑'}
+
+</style>
+<div class="page-hierarchy" style="margin-bottom: 10px;">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/fenxiao">分销神器&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>我的词库
+</div>
+<div class = "mylexicon_container" style="min-height:600px;_height:600px;width:95%;margin: 0 auto;margin-top: 10px;">
+*{    <h3 style="text-align: left;">我的词库</h3>}*
+
+    <div class="hidden">
+        <span id="mylexicon_top_name">
+	        <img class="mylexiconimg" src="http://img04.taobaocdn.com/imgextra/i4/759708778/T2vsdQXXVeXXXXXXXX_!!759708778.png">
+	        我的词库
+        </span>
+        <span id="mylexicon_top_back">
+	        <img class="backimg" src="http://img02.taobaocdn.com/imgextra/i2/759708778/T2CvbeXk8XXXXXXXXX_!!759708778.png">
+            返回继续添加
+        </span>
+    </div>
+
+    <table class="wordsearch busSearch">
+        <thead>
+        <tr align="center" class="tableRow firstRow">
+            <th>关键词<span class="question myword-word" tag="myword-word"></span></th>
+            <th>展现量<span class="question myword-pv" tag="myword-pv"></span></th>
+        *{<th>点击量<span class="question myword-click" tag="myword-click"></span></th>}*
+            <th>直通车竞争度<span class="question myword-competition" tag="myword-competition"></span></th>
+            <th>平均出价<span class="question myword-price" tag="myword-price"></span></th>
+            <th>操作<span class="question myword-option" tag="myword-option"></span></th>
+        </tr>
+        </thead>
+        <tbody id="ML_result">
+        <!-- here will show the result -->
+        </tbody>
+    </table>
+    <div class="paging" style="text-align: center;"></div>
+
+</div>
+
+#{set 'moreScripts'}
+<Script type="text/javascript">
+    $.getScript("/js/tm.js",function(){
+        $.getScript("/js/KeyWords/mylexicon.js",function(){
+            $.getScript("/js/mywords/mywords.js",function(){
+                $(document).ready(function(){
+                    //$.getScript("/js/KeyWords/mylexicon.js",function(){
+                    TM.MyWords.Init.show();
+                        #{get 'moreAjaxScripts' /};
+                })
+            });
+        });
+    });
+</Script>
+#{/set}
+

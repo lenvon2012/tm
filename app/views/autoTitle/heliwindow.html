@@ -1,0 +1,218 @@
+#{extends 'keymain.html' /}
+#{set title:'智能橱窗' /}
+
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/jquery-ui-timepicker-addon.css"/>
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/pagination.css">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/autoDeList.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/showwindow.css">
+#{/set}
+
+<style>
+    .oplogs tbody tr:hover{background-color: #ffe;}
+    .oplogs tbody tr{border-bottom: 1px solid #ccc;}
+    .selected a{color: white;}
+    #swItemBase{border:1px solid #BEBEBE;padding: 10px 0 10px 0;background:none;border:none;margin: 0 0 0 0;padding:0;}
+    .windowName{}
+    .windowValue{}
+    .windowName, .windowValue{font-size:18px;padding:15px;text-align: center;color:white;background-color:#58C7E6}
+    .windowValue{font-weight:bold;font-size:40px;}
+    .windowName:hover, .windowValue:hover{background-color:#1CBBE7}
+    .swOpArea{background:none;border:none;margin: 15px 0 0 0;padding:0;padding-left:30px;}
+    .kitListArea{border:none;margin:0;}
+    .tzCheckBox .tzCBContent{font-size:21px;}
+    .tip-label{font-size:24px;}
+    #how-many-salesCount, .oldCount, input.old-num,input.new-num{margin: 0 5px 0 5px;color: #1CBBE7;font-size: 24px;width: 100px;text-align: center;}
+    #new-how-many-salesCount{margin: 0 5px 0 5px;color: red;font-size: 24px;width: 100px;text-align: center;}
+    input.new-num{width:120px;}
+    .statustext{font-size:20px;}
+    span.statusopentext{color:green;}
+    span.statusclosetext{color:red;}
+    input.enable-advance-window-setting{width:17px;}
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>自动橱窗
+
+</div>
+<div id='kits'>
+   *{ <div class="headspan " style="width:97%">
+        双12活动自动橱窗默认关闭提示 }**{<span class="tmbtn sky-blue-btn is-double-twelve-window-open">关闭中</span>}**{
+    </div>
+
+    <div id="double-twelve-tip" style="font-size: 16px;padding: 10px;font-family: '微软雅黑';">
+        据淘宝消息：为配合双12活动，<span style="color: red;font-size: 20px;">11月14日0点至12月12日24点期间，
+        淘宝将默认关闭第三方自动橱窗功能</span>。如果卖家希望在此期间继续使用第三方工具自动橱窗功能的，
+        可以在<span style="color: red;">“卖家中心”-“宝贝管理”-“橱窗管理”</span>界面右上角<span style="color: red;">“是否允许第三方软件自动取消橱窗推荐”</span>处打勾即可。
+        <a href="http://sell.taobao.com/auction/goods/goods_recommend_item.htm" target="_blank"><span class="tmbtn sky-blue-btn to-open">点此开启</span></a>
+        <div class="blank0" style="height:15px;"></div>
+    }**{亲，双12期间手动<span style="color: red;font-size: 20px;">开启或关闭</span>自动橱窗后，请务必<span class="tmbtn red-short-btn double-twelve-manual-open" style="margin: 0 10px;">点我</span>通知淘掌柜，告诉我们亲已经手动开启或关闭了哦~~~
+        <div class="blank0" style="height:15px;"></div>}**{
+        特别提醒：<span style="color: red;">亲，一旦开启后，会影响双12商品报名哦</span>
+    </div>
+
+    <div class="blank0" style="height:15px;"></div>}*
+
+
+    <div class="headspan " style="width:97%">
+        自动橱窗设置
+    </div>
+    <div id="windowSwitch" class="swOpArea"></div>
+    <div id="window-advance-setting" class="swOpArea " style="border:1px solid #ccc;padding: 20px;position: relative;">
+        <div  class="saleConfig" style="margin-bottom: 10px;position: relative;z-index:1;">
+            <input type="checkbox" checked="checked" class="enable-advance-window-setting" style="margin-right: 10px;">
+            <span class="statustext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            <span style="cursor: pointer;font-size: 24px;" class="enable-advance-window-setting-word">优先推荐30天内销量前
+                <input type="text" class="old-num" id="how-many-salesCount" disabled="true" readonly="true">
+                <div class="newPriorSale newNumWrapper" style="position: absolute;width:140px;height:90px;left:350px;top:-48px;display:none;border:1px solid #ccc;background:white;z-index:9999;">
+                    <div>
+                        <input type="text" class="new-num" style="margin-top:8px;">
+                    </div>
+                    <div style="font-size:14px;text-align: center;margin-top:8px;">
+                        <span class="spanbtn spangreen submit-how-many-salesCount" >确定</span>
+                        <span class="spanbtn spanred cancel-how-many-salesCount" >取消</span>
+                    </div>
+                </div>
+            </span>
+            <span class="modify-new-input modify-how-many-salesCount" style="color:blue;cursor:pointer;position: absolute;left:470px;top:18px;">修改</span>
+            *{<span class=" modify-how-many-salesCount" style="color:blue;cursor:pointer;">修改</span>}*
+            <span style="font-size:24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的宝贝</span>
+
+        </div>
+
+        <div class="stockNumConfig" style="position: relative;z-index:1;">
+            <input type="checkbox" class="enable-advance-window-setting" style="margin-right: 10px;">
+            <span class="statustext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            <span style="cursor: pointer;font-size: 24px;" class="enable-advance-window-setting-word">不推荐库存件数小于或等于
+                <input type="text" class="old-num" disabled="true" readonly="true">
+                <div class="newPriorSale newNumWrapper" style="position: absolute;width:140px;height:90px;left:400px;top:-15px;display:none;border:1px solid #ccc;background:white;z-index:9999;">
+                    <div>
+                        <input type="text" class="new-num" style="margin-top:8px;">
+                    </div>
+                    <div style="font-size:14px;text-align: center;margin-top:8px;">
+                        <span class="spanbtn spangreen submit-how-many-salesCount" >确定</span>
+                        <span class="spanbtn spanred cancel-how-many-salesCount" >取消</span>
+                    </div>
+                </div>
+            </span>
+            <span class="modify-new-input modify-how-many-salesCount" style="color:blue;cursor:pointer;position: absolute;left:515px;top:18px;">修改</span>
+            <span style="font-size:24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的宝贝</span>
+        </div>
+
+        <div style="font-size:24px;margin-top:10px;">
+            <input type="checkbox" class="enable-advance-window-setting" style="margin-right: 10px;" checked="checked" readonly="true" disabled="true">
+            <span class="statustext" style="color:blue">[&nbsp;&nbsp;默认&nbsp;&nbsp;]</span>
+            自动推荐最近要下架的宝贝
+        </div>
+
+    </div>
+    </div>
+
+    <div class="headspan" style="width:94%;margin: 0 auto;">
+    橱窗状态
+    </div>
+
+
+    <div id='swItemBase' class=''>
+    </div>
+
+    <div class="blank0" style="height:15px;"></div>
+
+    <div class="headspan" style="width:94%;margin: 0 auto;">
+        橱窗操作
+    </div>
+    <div id="buttonArea" class="swOpArea" style="border:1px solid #ccc;padding: 20px;">
+        <span class="tmbtn too-wide-yellow-btn allReRecommend" style="font-size:20px;">立即重新推荐</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="blank0" style="height:15px;"></div>
+    <div class='clearfix kitNav'>
+        <div class='tmNav'>
+            <span class='selected'><a tag='onitems'>当前橱窗推荐宝贝</a></span>
+            <span><a tag='must'>设置必推宝贝&nbsp;|&nbsp;固定橱窗</a></span>
+            <span><a tag='exclude'>设置排除宝贝</a></span>
+            <span><a tag='oplogs'> 操作日志</a></span>
+        </div>
+    </div>
+    <div class='kitListArea clearfix'></div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="windowStatusTmpl">
+
+    <table style="width:95%;margin: 10px auto;">
+        <tbody>
+        <tr>
+            <td>
+                <div class="windowName">橱窗总数</div>
+                <div class="blank0" style="height:3px;"></div>
+                <div class="windowValue">{{= totalWindowCount}}</div>
+            </td>
+
+            <td>
+                <div class="windowName">剩余橱窗</div>
+                <div class="blank0" style="height:3px;"></div>
+                <div class="windowValue">{{= remainWindowCount}}</div>
+            </td>
+
+            <td>
+                <div class="windowName">已利用橱窗数</div>
+                <div class="blank0" style="height:3px;"></div>
+                <div class="windowValue">{{= onShowItemCount}}</div>
+            </td>
+
+            <td>
+                <div class="windowName">在售商品数</div>
+                <div class="blank0" style="height:3px;"></div>
+                <div class="windowValue">{{= onSaleCount}}</div>
+            </td>
+
+            <td>
+                <div class="windowName">库存商品数</div>
+                <div class="blank0" style="height:3px;"></div>
+                <div class="windowValue">{{= inventoryCount}}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</script>
+
+<div class='clearfix'></div>
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/multiOpByURL.js?_v=2', function () {
+            TM.gcs('/js/jquery.pagination.js', function () {
+                TM.gcs('/js/jquery.url.js', function () {
+                    TM.gcs('/js/tm.js', function () {
+                        TM.gcs('/js/switch.js', function () {
+                            TM.gcs('/js/commstab/commstab.js', function () {
+                                TM.gcs('/js/Kits/autodelist.js', function () {
+                                    TM.gcs("/js/jquery-ui-timepicker-addon.js", function () {
+                                        TM.gcs("/status/js", function () {
+                                            $(document).ready(function () {
+                                                TM.gcs('/js/kits.js', function () {
+                                                    TM.gcs('/js/Kits/showwindow.js?_v=3',function(){
+                                                        TM.ShowWindow.init($('#kits'));
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+
+</script>
+#{/set}

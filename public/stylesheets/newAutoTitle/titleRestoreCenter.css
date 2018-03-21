@@ -1,0 +1,391 @@
+.titleRestoreMain{
+    width: 100%;
+    min-height:800px;
+    min-height:800px;
+    height: auto;
+}
+.backCenterMain{
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    color: #000000;
+    display: block;
+    margin-top: 10px;
+    border: 1px solid #cccccc;
+    min-height: 800px;
+}
+.backCenterNav{
+    width: 1000px;
+    height: 40px;
+
+}
+.backCenterSpan{
+    display: inline-block;
+    width: 150px;
+
+    float: left;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+    color: #000000;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+    border-top: 2px solid white;
+
+}
+
+.NavSpan{
+    width: 547px;
+    display: inline-block;
+    float: left;
+    height: 42px;
+    border-bottom: 1px solid #cccccc;
+}
+
+
+.mainPanel{
+    width: 900px;
+    height: auto;
+    display: block;
+    margin: auto;
+
+}
+.noteTable{
+    border: 3px solid #cccccc;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    font-family: '微软雅黑';
+}
+
+.noteTable tr{
+    height: 60px;
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+}
+.noteTable td{
+    border: 1px solid none;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+.titleBtn{
+    display: inline-block;
+    font-family: '微软雅黑';
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #000000;
+}
+.titleBtn:hover{
+    color: red;
+
+}
+
+.holder{
+   width: 100%;
+    line-height: 40px;
+    margin: 20px auto;
+    vertical-align: middle;
+
+}
+.holder {
+    margin: 15px 0;
+}
+.holder a {
+    font-size: 12px;
+    cursor: pointer;
+    padding: 2px 8px;
+    margin: 0 5px;
+    border: 1px solid #cccccc;
+    color: #333;
+}
+.holder a:hover {
+    color: orange;
+
+}
+
+.holder a.jp-previous { margin-right: 15px; }
+.holder a.jp-next { margin-left: 15px; }
+.holder a.jp-current, a.jp-current:hover {
+    color: #FF4242;
+    font-weight: bold;
+
+}
+.holder a.jp-disabled, a.jp-disabled:hover {
+    color: #bbb;
+}
+.holder a.jp-current, a.jp-current:hover,
+.holder a.jp-disabled, a.jp-disabled:hover {
+    cursor: default;
+    background:none;
+
+}
+.holder span { margin: 0 5px; }
+
+.loadmask {
+    z-index: 1000;
+    position: fixed;
+    _position: absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity: .50;
+    filter: alpha(opacity=50);
+    background-color: #CCC;
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+.loadmask-msg {
+    z-index: 20001;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    border: 0;
+    background: #000000;
+    padding:10px;
+}
+.loadmask-msg div {
+    padding:0;
+    border: 0;
+    line-height: 16px;
+    color:#222;
+    font:normal 12px tahoma, arial, helvetica, sans-serif;
+    cursor: auto;
+}
+.masked {
+    /*overflow: hidden !important;*/
+}
+.masked-relative {
+    /*position: relative !important;*/
+}
+.masked-hidden {
+    /*visibility: hidden !important;*/
+}
+.mymask{
+    display: block;
+    width: 1000px;
+    height: 700px;
+    background: white;
+
+}
+
+.maskDiv{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 630px;
+    overflow: auto;
+}
+.maskTableTab{
+    width: 100%;
+    height: auto;
+    max-height: 630px;
+    border-collapse: collapse;
+    border: 0px;
+    text-align: center;
+    font-family: '微软雅黑';
+    border-bottom: 1px solid #EFEFEF;
+
+}
+.maskTableTab tr{
+    border-collapse: collapse;
+}
+.maskTableTab td{
+    border-collapse: collapse;
+    border: 1px solid none;
+    font-family: '微软雅黑';
+}
+
+#maskTdTitle{
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    background:#0095b1;
+    text-align: left;
+    vertical-align: middle;
+    font-family: '微软雅黑';
+    font-size: 12px;
+    position: relative;
+    top:0px;
+    left: 0px;
+
+}
+.titleClose{
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url("/public/images/newAutoTitle/8.32-jan140416130302.png");
+    background-position:-916px -68px;
+    cursor: pointer;
+
+    
+}
+#imgDiv{
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+
+    border: 1px solid #e1e1e1;
+}
+#maskTableImg{
+    width:80px; height:80px; display:inline-block;
+}
+.titleText{
+    font-size: 16px;
+    margin-left: 25px;
+}
+
+.sleceteDate{
+    margin:40px 0 40px 0;
+    width: 100%;
+    height: 35px;
+    display: block;
+}
+.sleceteDateDiv{
+    width: 350px;
+    height: 35px;
+    display: inline;
+    float: left;
+    font-size: 14px;
+}
+.sleceteDateLine{
+    width: 50px;
+    height: 35px;
+    display: inline;
+    float: left;
+    line-height: 35px;
+    vertical-align: middle;
+    text-align: left;
+}
+.startText{
+    width: 270px;
+    height: 33px;
+    border: 1px solid #ccc;
+}
+.searchDiv{
+    width: 100%;
+    height: 35px;
+    display: block;
+    margin:40px 0 40px 0;
+}
+.searchDivIn{
+    width: 370px;
+    height: 35px;
+    display: inline;
+    float: left;
+}
+.searchText{
+    color: #999;
+    padding-left:20px ;
+
+    border: 1px solid #0095b1;
+    font-family: '微软雅黑' ;
+    float: left;
+    width: 280px;
+    height: 33px;
+
+}
+.startBtn{
+    width: 64px;
+    height: 35px;
+    display: inline;
+    float: left;
+    border: 0;
+    background: url("/public/images/newAutoTitle/searchBtn.jpg");
+}
+
+.rebntSpan,.explain,.myalert{
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 15px;
+    display: block;
+    float: right;
+    color: #000000;
+}
+.myalert{
+    margin-top: 40px;
+    display: block;
+    float: none;
+    width: 100%;
+
+}
+.alertText{
+    display: inline-block;
+    width: auto;
+    float: right;
+}
+.rebntSpan{
+    width: 200px;
+    line-height: 40px;
+
+    display: none;
+    float: left;
+
+}
+.rebnt{
+    border:0;
+    width: 40px;
+    height: 40px;
+    background: url("/public/images/newAutoTitle/refresh_318-8378.png");
+    display: inline-block;
+    float: left;
+}
+.retex{
+    width: 80px;
+    height: 40px;
+    vertical-align: middle;
+    display: inline-block;
+    float: left;
+}
+.infoTable{
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    min-height: 800px;
+}
+.columnName{
+    display: block;
+    background: #eeeeee;
+    font-size:13px;
+    width:1000px;
+    height:30px;
+    border: 1px solid #cccccc;
+
+}
+.columnNameSpan{
+    display:inline-table;
+    float: left;
+    border-collapse: collapse;
+    height:30px;
+    border-right: 1px solid #cccccc;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: middle;
+    font-family: "微软雅黑";
+}
+.noteThead{
+    width: 100%;
+    line-height: 60px;
+    height: 60px;
+
+}
+.noteThead span{
+    width: 20%;
+    line-height: 60px;
+    height: 60px;
+    display: inline-block;
+    float: left;
+    color: #FFFFFF;
+    vertical-align: middle;
+    font-family: '微软雅黑';
+    font-size: 20px;
+    text-align: center;
+}

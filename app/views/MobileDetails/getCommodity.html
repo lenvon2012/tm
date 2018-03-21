@@ -1,0 +1,53 @@
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'智能上架计划管理' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/jquery-ui-timepicker-addon.css"/>
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/pagination.css">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/autoDeList.css?_v=2">
+<link rel="stylesheet" media="screen" href="/css/autoDeList/distributeRule.css?_v=1">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+#{/set}
+<link rel="stylesheet" media="screen" href="/css/MobileDetails/getCommodity.css">
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>生成手机详情页
+</div>
+
+<div class="content-main">
+    <div class="com-div">
+        <div id="topControl" class="nav-tabs">
+            <ul>
+                <li id="topControl1" class="">出售中<b id="onsaleCount">0</b></li>
+
+                <li class="y-line">|</li>
+                <li id="topControl3" class="current">已生成未安装<b id="buildCount">1</b></li>
+                <li style="padding-left:0px;"><a class="xui-btn btn-s btn-blue" style="width:100px;"
+                                                 href="javascript:void(0)">下载插件批量安装</a></li>
+            </ul>
+        </div>
+        <div id="dataSearch" class="search-bar" style="">
+            <ul class="horizontal">
+                <li>
+                    <div class="left"><i class="xui-checkbox" id="thisPageAdd"></i></div>
+                    <div class="left" style="margin-left:10px;">
+                        <a class="short-green-btn"  href="javascript:void(0)">批量生成</a><a
+                            class="short-green-btn"  href="javascript:void(0)">全店生成</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <table class="com-div">
+            <tbody class="com-tbody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

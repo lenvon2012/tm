@@ -1,0 +1,138 @@
+
+#{extends 'Application/topcrud.html' /}
+#{set title:'用户列表' /}
+
+<div id="main" style="background:white;width:100%;">
+    <div>
+        <p>
+            <span>开始时间:</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" style="width:200px;" id="startTimeInput">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>结束时间:</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" style="width:200px;" id="endTimeInput">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>用户昵称:</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="nickinput" type="text" style="width:100px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="tmbtn big-blue-btn reqListUser">点击查询</span>
+        </p>
+    </div>
+    <div>
+        <div class="pagenav"></div>
+        <table id="articleTable" class="busSearch">
+            <thead>
+            <tr>
+                <th style="width:250px;">旺旺名</th>
+                <th>订购版本</th>
+                <th>等级</th>
+                <th>订购类型</th>
+                <th>实付金额</th>
+                <th>创建时间</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th style="width:50px;">是否愿意好评</th>
+                <th style="width:50px;">是不是林风朋友</th>
+                <th>所属专员</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="10">暂无记录</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagenav"></div>
+    </div>
+</div>
+
+
+
+#{set 'moreScripts'}
+
+<script type="text/x-jquery-tmpl" id="articleRowTmpl">
+    <tr>
+        <td>
+            <a target="_blank" href="{{= wwHref}}"><img src="{{= wwImg}}"></a>{{= nick}}
+            <a href="#" class="rank seller-rank-{{= level}}"></a>
+        </td>
+        <td>{{= articleName}}</td>
+        <td>{{= level}}</td>
+        <td>{{= bizTypeStr}}</td>
+        <td>{{= payed}}</td>
+        <td>{{= createdStr}}</td>
+        <td>{{= cycleStart}}</td>
+        <td>{{= cycleEnd}}</td>
+
+        <td>
+            {{if willGoodRate }}
+            <span class="green">是</span>
+            {{else}}
+            <span class="red">否</span>
+            {{/if}}
+        </td>
+
+        <td>
+            {{if inner }}
+            <span class="green">是</span>
+            {{else}}
+            <span class="red">否</span>
+            {{/if}}
+        </td>
+
+        <td>林错</td>
+    *{<td>{{= options}}}*
+    *{<a href="/buscrm/optionsedit?orderId={{= orderId}}&options={{= encodeURI(options)}}" target="_blank" class="tmbtn red-short-btn" >编辑</a>}*
+    *{</td>}*
+
+        <td>
+            <div class="showcontent">
+                <p>
+                <div class="content">
+                    {{= options}}
+                </div>
+                </p>
+                <p>
+                    <a class="editcontentbtn" href="#" orderId="{{= orderId}}">
+                        <img src="/img/pencil.png">
+                    </a>
+                </p>
+            </div>
+
+
+            <div class="editcontent hidden" style="">
+                <p>
+                    <textarea rows="5" cols="50" class="content">
+                        {{= options}}
+                    </textarea>
+                </p>
+                <p>
+                    <a class="savecontentbtn" href="#" orderId="{{= orderId}}">
+                        <img src="/img/price_save.gif" />
+                    </a>
+                    <a class="cancelcontentbtn" href="#">
+                        <img src="/img/price_cancel.gif" />
+                    </a>
+                </p>
+            </div>
+        </td>
+        <td >
+            <a target="_blank" href="/tm/name?name={{= nick}}" class="tmbtn sky-blue-btn">查看详情</a>
+        *{</td>}*
+        *{<td>}*
+            <a href="/buscrm/useredit?orderId={{= orderId}}" class="tmbtn red-short-btn" >编辑</a>
+        </td>
+    </tr>
+</script>
+
+
+
+
+<script type="text/javascript" src='/js/tmadmin/userlist.js' charset="utf-8">
+</script>
+
+#{/set}

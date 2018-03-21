@@ -1,0 +1,37 @@
+*{#{extends 'skintitles/skinTitle.html' /}}*
+#{extends 'skintitles/thirdautotitle.html' /}
+#{set title:'店铺诊断' /}
+<link rel="stylesheet" media="screen" href='/public/stylesheets/shopDiag.css'>
+   <style>
+       .skinTitleYouhuaBtn{background: url("/img/check/de-button.png") no-repeat;margin: 20px 0 0 260px;}
+       .skinTitleYouhuaBtn:hover{background: url("/img/check/de-button.png") 0 -75px no-repeat;margin: 20px 0 0 260px;}
+       div.main{background-color: #f8f8f8;}
+   </style>
+<div class="shopDiag">
+    <div id="chartContainer" style="width: 580px;margin-left: 100px;"> </div>
+    <div id="skinTitleDiag"></div>
+
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getScript('/js/utils/jquery.cookie.js',function(){
+            $.getScript('/js/highcharts.js',function(){
+                $.getScript('/js/tm.js',function(){
+                    $.getScript('/js/skinTitle/skinTitle.js',function(){
+                        $.getScript('/js/shopDiag.js',function(){
+                            TM.gcs('/home/firstSync',function(){
+                            var container = $('#skinTitleDiag');
+                            TM.skinTitle.genSkinShopDiagDiv(container);
+                           // $('.shopDiagHead').empty();
+                        });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

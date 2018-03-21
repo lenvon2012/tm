@@ -1,0 +1,646 @@
+@charset "utf-8";
+/* CSS Document */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    font-size:12px;
+}
+ul, ol {
+    list-style: none;
+}
+fieldset, img {
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+a {
+    text-decoration: none;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ".";
+    clear: both;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.fl {
+    float: left;
+    display: block;
+    _display: inline;
+}
+.fr {
+    float: right;
+    display: block;
+    _display: inline;
+}
+.dn {
+    display: none;
+}
+body {
+    position:relative;
+}
+#wrap {
+    width: 100%;
+    height: 100%;
+}
+#content {
+    min-height: 500px;
+    _height: 500px;
+}
+/*顶部样式*/
+#header {
+    width: 100%;
+    height: auto;
+    background-color: #900004;
+}
+#nav {
+    margin: 0 auto;
+    width: 960px;
+    height: 35px;
+}
+#nav h1 {
+    margin-left: 20px;
+    width: 85px;
+    height: 35px;
+    background: url(../images/transNew.png) no-repeat -820px 0;
+}
+#nav ul {
+    margin-left: 25px;
+}
+#nav ul li {
+    float: left;
+}
+.navLi {
+    width: auto;
+    height: 35px;
+}
+.navLi a {
+    display: block;
+    padding: 0 30px;
+    font-size: 14px;
+    line-height: 35px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+}
+.navLi a:hover, .navCurrent {
+    background-color: #d50b1e;
+}
+.divide {
+    width: 2px;
+    height: 35px;
+}
+.noBack {
+    background-color: #900004;
+}
+.yesBack {
+    background: url(../images/transNew.png) no-repeat -600px 0;
+}
+#nav h2 {
+    margin:7px 20px;
+    width: auto;
+    height: 21px;
+}
+#nav h2 span {
+    font-weight: normal;
+    font-size:12px;
+    line-height: 21px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+}
+#nav h2 a {
+    margin-left:25px;
+    cursor:pointer;
+}
+#nav h2 a strong {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 21px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+}
+#nav h2 a em {
+    margin-left: 5px;
+    width: 20px;
+    height: 21px;
+    background: url(../images/transNew.png) no-repeat -65px -60px;
+}
+/*底部样式*/
+#footer {
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    border-top: 1px dashed #626262;
+}
+#contact {
+    margin: 0 auto;
+    width: 960px;
+    height: auto;
+}
+#contact ul {
+    margin-left: 20px;
+    width: 780px;
+    height: auto;
+}
+#contact ul li {
+    float: left;
+    _display: inline;
+    margin-right: 130px;
+    margin-bottom: 10px;
+}
+#contact ul li span {
+    float: left;
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #626262;
+}
+#contact ul li a {
+    float: left;
+    display: block;
+    margin-left: 5px;
+}
+#contact h6 {
+    margin-right: 20px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #626262;
+}
+#line {
+    margin: 30px auto 20px auto;
+    width: 1008px;
+    height: 1px;
+    background: url(../images/transNew.png) no-repeat 0 -120px;
+}
+#declare {
+    margin: 10px auto;
+    padding-left: 270px;
+    width: 690px;
+    height: 18px;
+    text-align: center;
+}
+#declare p {
+    width:150px;
+    height:18px;
+    margin-right: 10px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #626262;
+}
+/*子页通用样式*/
+#main {
+    position:relative;
+    margin:30px auto 20px auto;
+    width:960px;
+    height:auto;
+}
+#pageNav {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:10;
+    width:139px;
+    height:auto;
+    border:1px solid #cccccc;
+}
+#pageNav h2 {
+    margin:1px;
+    width:136px;
+    height:36px;
+    background:url(../images/bg01.png) repeat-x -1005px 0;
+}
+#pageNav h2 strong {
+    margin:12px;
+    width:12px;
+    height:12px;
+    background:url(../images/transNew.png) no-repeat -910px 0;
+}
+#pageNav h2 span {
+    font-weight:bold;
+    font-size:14px;
+    line-height:36px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+}
+#pageNav ul {
+    width:138px;
+    height:auto;
+    border-top:1px solid #cccccc;
+}
+#pageNav ul li {
+    margin:0 10px;
+    padding:10px 0;
+    width:118px;
+    height:16px;
+}
+.bt {
+    border-bottom:1px solid #eeeeee;
+}
+#pageNav ul li span {
+    margin:2px 10px;
+    width:15px;
+    height:12px;
+}
+.create {
+    background:url(../images/transNew.png) no-repeat -925px 0;
+}
+.manage {
+    background:url(../images/transNew.png) no-repeat -940px 0;
+}
+.area{
+    background:url(../images/transNew.png) no-repeat -955px 0;
+}
+.clientList {
+    background:url(../images/transNew.png) no-repeat -955px 0;
+}
+.sendEmail {
+    background:url(../images/transNew.png) no-repeat -975px 0;
+}
+.emailHistory {
+    background:url(../images/transNew.png) no-repeat -990px 0;
+}
+#pageNav ul li span.indexLogo{
+    width:14px;
+    height:15px;
+    margin-top:1px;
+    background:url(../images/transNew.png) no-repeat -956px -16px;
+}
+#pageNav ul li span.addLogo{
+    width:13px;
+    height:13px;
+    margin-top:1px;
+    background:url(../images/transNew.png) no-repeat -990px -15px;
+}
+#pageNav ul li span.listLogo{
+    width:15px;
+    height:16px;
+    margin-top:1px;
+    background:url(../images/transNew.png) no-repeat -972px -15px;
+}
+#pageNav ul li span.autoLogo{
+    width:15px;
+    height:13px;
+    margin-top:1px;
+    background:url(../images/transNew.png) no-repeat -915px -92px;
+}
+#pageNav ul li span.carLogo{
+    width:15px;
+    height:13px;
+    margin-top:2px;
+    background:url(../images/transNew.png) no-repeat -928px -92px;
+}
+#pageNav ul li span.handLogo{
+    width:15px;
+    height:16px;
+    background:url(../images/transNew.png) no-repeat -925px -14px;
+}
+#pageNav ul li span.dollarLogo{
+    width:15px;
+    height:16px;
+    background:url(../images/transNew.png) no-repeat -944px -93px;
+}
+
+#pageNav ul li a {
+    font-weight:normal;
+    font-size:12px;
+    line-height:16px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+}
+#pageNav ul li a:hover, #pageNav ul li .pageNavCurrent {
+    color:#009bdb;
+}
+#content {
+    padding-left:160px;
+}
+/*分页*/
+.page {
+    float:right;
+    display:block;
+    _display:inline;
+    margin: 5px 0;
+    margin-right: 20px;
+}
+.splitPage a {
+    float:left;
+    display:block;
+    _display:inline;
+    padding:2px 5px;
+    margin-left:4px;
+    font-weight:normal;
+    font-size:12px;
+    line-height:14px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    border:1px solid #cccccc;
+    background-color:#fff;
+}
+.splitPage a:hover, .splitPage span {
+    float:left;
+    display:block;
+    _display:inline;
+    padding:2px 5px;
+    margin-left:4px;
+    font-weight:normal;
+    font-size:12px;
+    line-height:14px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:red;
+    border:1px solid red;
+    background-color:#fff;
+}
+/*搜索样式*/
+.search {
+    width:auto;
+    height:25px;
+}
+.search span {
+    font-size:12px;
+    line-height:25px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+}
+.search .textarea {
+    padding:0 4px;
+    width:260px;
+    height:23px;
+    font-size:12px;
+    line-height:23px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    border:1px solid #cccccc;
+}
+.search .submit {
+    margin-left:10px;
+    width:60px;
+    height:25px;
+    font-size:12px;
+    line-height:25px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    text-align:center;
+    background:transparent url(../images/transNew.png) no-repeat -820px -65px;
+    border:none;
+    cursor:pointer;
+}
+/*按钮样式*/
+a.theBtn {
+    display:block;
+    width:80px;
+    height:26px;
+    font-weight:bold;
+    font-size:14px;
+    line-height:26px;
+    font-family:Tahoma, Geneva, sans-serif;
+    text-align:center;
+    color:#626262;
+    background:url(../images/transNew.png) no-repeat -904px -35px;
+}
+a.theBtn:hover {
+    background:url(../images/transNew.png) no-repeat -820px -35px;
+}
+/*title css*/
+h3.title {
+    margin-bottom:20px;
+    font-size:14px;
+    line-height:24px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    border-bottom:1px solid #cccccc;
+}
+h3.titles{
+    margin-bottom:20px;
+    font-size:14px;
+    line-height:24px;
+    font-family:Tahoma,Geneva,sans-serif;
+    color:#626262;
+    border-bottom:1px solid #cccccc;
+}
+/*table css*/
+.topNav {
+    padding-left:35px;
+    margin-bottom:-1px;
+}
+.topNav ul {
+    width:100%;
+    height:32px;
+}
+.topNav ul li {
+    float:left;
+    margin-right:5px;
+}
+.topNav ul li a {
+    display:block;
+    margin-top:4px;
+    padding:4px 15px;
+    font-weight:normal;
+    font-size:12px;
+    line-height:18px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    background-color:#eef3f6;
+    border:1px solid #afe1ff;
+}
+.topNav ul li .topNavCurrent, .topNav ul li a:hover {
+    margin:0;
+    padding:6px 15px;
+    background-color:#fff;
+    border-bottom:1px solid #fff;
+}
+.topTitle {
+    background:url(../images/bg02.png) repeat-x 0 0;
+    border:1px solid #afe1ff;
+}
+.topTitle ul {
+    width:auto;
+    height:29px;
+}
+.topTitle ul li {
+    float:left;
+    font-weight:normal;
+    font-size:12px;
+    line-height:29px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    text-align:center;
+}
+.theTable {
+    border-collapse:collapse;
+    border-spacing:0;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+}
+.theTable tr td {
+    padding-top:20px;
+    padding-bottom:20px;
+    font-weight:normal;
+    font-size:12px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    text-align:center;
+    border:none;
+    border-bottom:1px solid #cccccc;
+}
+.bottomPage {
+    padding-left:19px;
+    width:779px;
+    height:30px;
+    border:1px solid #cccccc;
+    border-top:none;
+    background-color:#f5f5f5;
+}
+/*box css*/
+.tableTop {
+    padding-left:100px;
+    width:auto;
+    height:29px;
+    background:url(../images/bg02.png) repeat-x 0 0;
+    border:1px solid #afe1ff;
+}
+.tableTop ul {
+    margin-left:30px;
+}
+.tableTop ul li {
+    float:left;
+    font-weight:normal;
+    font-size:12px;
+    line-height:29px;
+    font-family:Tahoma, Geneva, sans-serif;
+    text-align:center;
+    color:#626262;
+}
+.topBottom {
+    padding-left:19px;
+    width:779px;
+    height:30px;
+    border:1px solid #cccccc;
+    border-top:none;
+    background-color:#f5f5f5;
+}
+.topBottom h4 {
+    margin:5px 0;
+    width:auto;
+    height:20px;
+}
+.topBottom h4 input {
+    width:13px;
+    height:13px;
+    margin:4px 0 3px 0;
+    border:1px solid #cccccc;
+}
+.topBottom h4 span {
+    margin-left:15px;
+    font-weight:normal;
+    font-size:12px;
+    line-height:20px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+}
+.topBottom h4 a {
+    margin:0 20px;
+    padding:1px 8px;
+    font-weight:normal;
+    font-size:12px;
+    line-height:16px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    border:1px solid #898989;
+}
+.proCon {
+    padding:10px 0;
+    border:1px solid #cccccc;
+    border-top:none;
+}
+.proCon ul {
+    width:798px;
+    height:50px;
+}
+.proCon ul li {
+    float:left;
+    font-weight:normal;
+    font-size:12px;
+    font-family:Tahoma, Geneva, sans-serif;
+    color:#626262;
+    text-align:center;
+}
+li.checkbox {
+    padding-left:19px;
+    width:13px;
+}
+.checkbox input {
+    width:13px;
+    height:13px;
+    margin:18px 0 17px 0;
+    border:1px solid #cccccc;
+}
+.proImg {
+    padding-left:18px;
+    padding-right:30px;
+    width:50px;
+}
+.proImg a {
+    display:block;
+    width:50px;
+    height:50px;
+    overflow:hidden;
+}
+/*font color*/
+.cb {
+    color:#626262;
+}
+.cr {
+    color:red;
+    margin-right:3px;
+}
+.cg {
+    color:#c9c9c9;
+}
+.secondNav {
+    display:none;
+}
+.message {
+    margin-left:8px;
+    font-size:12px;
+    line-height:26px;
+    color:red;
+}
+/*popUp Css*/
+#layout {
+    display:none;
+    position:fixed;
+    _position:absolute;
+    z-index:100;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    min-height:100%;
+    background-color:#000;
+    filter:alpha(opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+}
+.theRadio, .theCheckbox {
+    width:13px;
+    height:13px;
+}

@@ -1,0 +1,28 @@
+#{extends 'dianputuiguang/newbase.html' /}
+#{set title:'店铺推广 - 热销推荐' /}
+
+<style type="text/css">
+
+</style>
+
+<div class="item-container">
+
+</div>
+
+<div id="analysisDivTmpl" style="width: 600px;height: 400px;display: none;" >
+
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript" src="/js/highcharts.js"></script>
+<script type="text/javascript" src="/js/dianputuiguang/dptghot.js"></script>
+<script type="text/javascript" src="/js/Shoucang/shoucang.js"></script>
+<script type="text/javascript">
+$.get('/home/firstSync',function(){
+	$(document).ready(function() {
+	    var baidushoucang = false;
+	    TM.DptgHot.init.doInit($(".item-container"),baidushoucang);
+	});
+});
+</script>
+#{/set}

@@ -1,0 +1,175 @@
+#{extends 'fxmain.html' /}
+#{set title:'自动标题' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/fenxiao/fenxiao.css">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css">
+#{/set}
+
+*{<div class="page-hierarchy" style="margin-bottom: 10px;">}*
+    *{<span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/fenxiao">分销神器&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>首页}*
+*{</div>}*
+<div class="" style="text-align:center;">
+    <div  class="slideBox hidden" id="lunbo-area">
+        <ul class="items">
+            <li><a href="/autotitle/award" title="好评有礼" target="_blank"><img style="width: 805px;height: 202px;" src="http://img03.taobaocdn.com/imgextra/i3/1039626382/T25xosXdxaXXXXXXXX_!!1039626382.jpg"  style="border: 1px solid #ccc"></a></li>
+        </ul>
+    </div>
+</div>
+<div class="fenxiaoDiv">
+    <div style="height:500px;">
+        <table class="applist" style="width:100%;margin: 0 auto;">
+            <tbody><tr>
+                <td colspan="2" class="func-td-li clearfix" style="width:50%;padding-top: 20px;">
+                    <div class="headspan" style="">分销利器<span class="question" content="淘掌柜词库中心 类目热词查询 关键词排行榜查询"></span>
+                    </div>
+                    <ul class="unstyled">
+                        <li>
+                            <a href="/fenxiao/propdiag">
+                                <div class="appicon app-seo" style="background-position:-455px -170px"></div>
+                                <div>宝贝检测</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fenxiao/rmlinks">
+                                <div class="appicon app-seo" style="background-position:-340px  -170px"></div>
+                                <div>一键去外链</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fenxiao/autocat">
+                                <div class="appicon app-seo" style="background-position:-212px  -170px"></div>
+                                <div>自动分类</div>
+                            </a>
+                        </li>
+
+                        *{<li>}*
+                            *{<a href="/home/topKey">}*
+                                *{<div class="appicon app-seo" style="background-position:-90px -165px"></div>}*
+                                *{<div>关键词榜单</div>}*
+                            *{</a>}*
+                        *{</li>}*
+                    </ul>
+                </td>
+                *{<td class="func-td-li clearfix" style="width:50%;padding-top: 20px;">}*
+                    *{<div class="headspan" style="">标题工具<span class="question" content="淘掌柜店铺引流工具，提升店铺流量"></span></div>}*
+                    *{<ul class="unstyled">}*
+                        *{<li>}*
+                            *{<a href="/home/autoTitle">}*
+                                *{<div class="appicon app-seo" style="background-position:-86px -65px"></div>}*
+                                *{<div>自动标题</div>}*
+                            *{</a>}*
+                        *{</li>}*
+                        *{<li>}*
+                            *{<a href="/fenxiao/batchmulti">}*
+                                *{<div class="appicon app-seo" style="background-position:-455px -65px"></div>}*
+                                *{<div>批量改标题</div>}*
+                            *{</a>}*
+                        *{</li>}*
+                        *{<li>}*
+                            *{<a href="/fenxiao/recover">}*
+                                *{<div class="appicon app-seo" style="background-position: -212px -65px"></div>}*
+                                *{<div>标题还原</div>}*
+                            *{</a>}*
+                        *{</li>}*
+                    *{</ul>}*
+                *{</td>}*
+
+            </tr>
+            <tr>
+                <td colspan="2" class="func-td-li clearfix" style="width:50%;padding-top: 20px;">
+                    <div class="headspan" style="">批量中心<span class="question" content="淘掌柜批量中心，自动评价，批量标题管理，宝贝管理"></span>
+                    </div>
+                    <ul class="unstyled">
+                        <li>
+                            <a href="/fenxiao/batchDelist">
+                                <div class="appicon app-seo" style="background-position:-215px -285px"></div>
+                                <div>批量上下架</div>
+                            </a>
+                        </li>
+                        *{<li>}*
+                            *{<a href="/fenxiao/window">}*
+                                *{<div class="appicon app-seo" style="background-position:-340px -285px"></div>}*
+                                *{<div>智能橱窗</div>}*
+                            *{</a>}*
+                        *{</li>}*
+                        <li>
+                            <a href="/fenxiao/batchDelist">
+                                <div class="appicon app-seo" style="background-position:-455px -285px"></div>
+                                <div>批量改价格</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fenxiao/batchTitle">
+                                <div class="appicon app-seo" style="background-position:-90px -285px"></div>
+                                <div>批量改标题</div>
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+                *{<td class="func-td-li clearfix" style="width:50%;padding-top: 20px;">}*
+                    *{<div class="headspan" style="">活动中心<span class="question" content="淘掌柜活动中心，转盘抽奖，好评有礼，一起赚钱"></span>}*
+                    *{</div>}*
+                    *{<ul class="unstyled">}*
+                        *{<li>}*
+
+                            *{<a href="/taozhanggui/award">}*
+                                *{<div class="appicon app-seo" style="background-position:-213px -395px"></div>}*
+                                *{<div>好评有礼</div>}*
+                            *{</a>}*
+
+                        *{</li>}*
+                        *{<li>}*
+                            *{<a href="/taozhanggui/award">}*
+                                *{<div class="appicon app-seo" style="background-position:-90px -395px"></div>}*
+                                *{<div>一起赚钱</div>}*
+                            *{</a>}*
+                        *{</li>}*
+                    *{</ul>}*
+
+                *{</td>}*
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left;padding-top: 40px;">
+                    <div class="headspan" style="width:700px;">
+                        如有问题，请联系我们客服，谢谢！
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left;padding-top: 0px;">
+                    <div class="headspan" style="width:700px;">
+                        我们正在努力完成新的工具，<span class="red">敬请期待！</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody></table>
+    </div>
+</div>
+
+
+
+
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+            TM.gcs('/js/jquery.pagination.js',function(){
+                TM.gcs('/js/tm.js',function(){
+                    TM.gcs('/js/fenxiao/fenxiao.js?_v=22',function(){
+                        TM.gcs('/js/QueryCommodity.js',function(){
+                            $(document).ready(function(){
+                                TM.gcs('/js/multiModify.js',function(){
+                                    TM.autoTitle.Init.init();
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

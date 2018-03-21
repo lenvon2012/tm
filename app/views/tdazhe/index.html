@@ -1,0 +1,413 @@
+#{extends 'tdazhe/base.html' /}
+#{set title:'活动列表' /}
+
+<style type="text/css">
+
+
+
+    .item-table td div {
+        font-size: 15px;
+    }
+    .item-table .bold {
+        font-weight: bold;
+    }
+
+
+    .new-more-op-btns-div {
+        position: absolute; width: 95px; border: 1px solid #ba0000; z-index: 999999; background: white;
+        display: none;
+    }
+
+    .more-base-btn {
+        width: 95px; display: block; border-bottom: 1px solid #ba0000;
+        text-align: center;
+        line-height: 37px;
+        height: 37px;
+    }
+    .QQDependOnUserLevel {
+        margin: 0 5px;
+    }
+
+</style>
+
+<div class="item-container" style="">
+    <div class="clear_height"></div>
+
+   *{ <div class="kuang">
+        <div class="title_list">
+            <div class="title_left">
+                <span style="color: #133f9a;text-decoration: none;">好牛回馈客户</span>
+
+                <span style="margin-left: 70px;">现在续费只需<a style="font-size: 18px;color: red;margin: 0 10px;" target="_blank" href="http://tb.cn/ZNblScy">60一年</a>了哦</span>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+    </div>}*
+ <!--   <div class="intro old-dazhe-div" style="margin:0px;margin-top:8px;margin-bottom: 8px;display: none;">
+        <div style="font-size:14px;">
+            <span style="color: #133f9a;text-decoration: none;">好牛4.18</span>
+            全新升级,支持&nbsp;<a style="font-weight: bold;color: red;" href="/umpactivity/addDiscount">新版限时打折</a>
+            <a style="font-weight: bold;color: red;" href="/taodiscount/mjsAddActivity">满减包邮功能</a>, 如需创建原版150个以上宝贝且支持首件限购的打折活动,
+            <a style="font-weight: bold;;color: red;text-decoration: none;" href="/taodiscount/activity_add">点击创建旧版活动</a>
+        </div>
+    </div>-->
+    <div class="intro shop-discount-div"></div>
+
+    *{<div class="clear_height"></div>}*
+
+    *{<div class="kuang">}*
+        *{<div class="title_list">}*
+            *{<div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">消息通知</a></div>}*
+            *{<div class="title_right"> <a style="color:red;" href="#">针对双十二期间活动的通知</a>}*
+            *{</div>}*
+            *{<p style="clear:both;"></p>}*
+        *{</div>}*
+        *{<div class="contents">}*
+            *{<span style="color: #8C8C8C;">双12期间淘宝会限制营销工具使用：</span>}*
+            *{<br>}*
+            *{<span style="color: #8C8C8C;font-size:15px;font-weight:bold; ">12月11日18:00前后~12月13日18:00（具体关闭时间视淘宝控制而定），不能创建、修改营销活动。</span>}*
+            *{<br>}*
+            *{<span style="color: #c40000;font-size:15px;font-weight:bold; ">提前设置好已经开始的活动仍会照常进行，建议大家提前创建大促期间的活动。</span>}*
+            *{<br>}*
+            *{<span style="color: #8C8C8C;">由此给大家带来的影响我们深表歉意，祝愿每位亲今年大促大丰收！</span>}*
+        *{</div>}*
+    *{</div>}*
+    <div class="kuang">
+		<div class="title_list">
+			<div class="title_left" style="float: none;">
+				<a href="#" style="color: #133f9a; text-decoration: none;">双十一打折活动通知</a></br>
+			</div>
+		</div>
+		<div class="contents">
+			<span style="color: #c40000; font-size: 15px; font-weight: bold;">1、天猫商家，在双11当天（11.11 0:00-11.11 24:00），仅使用“天猫官方营销工具”创建的优惠活动会正常生效，其他所有优惠工具都不生效</span><br>
+			<span style="color: #c40000; font-size: 15px; font-weight: bold;">2、所有优惠在双11零点前后两小时内不可增加、删除或修改（包括天猫和淘宝卖家）</span>
+		</div>
+	</div>
+
+    <div class="clear_height"></div>
+
+    <div class="kuang" style="min-height:500px;_height:500px">
+        <div class="title_list">
+            *{<div class="title_left"><a href="/taodiscount/index" style="color: #133f9a;text-decoration: none;">活动列表:</a></div>}*
+            <div class="activity-selevt" style="margin-left: 40px;float: left;">
+                <input class="isactive" type="hidden">
+                <a class="going activity index_hover activity-type-btn active" href="#" targetDiv="on-activity-div" activityType="1">进行中活动 </a>
+                <a class="ended activity index_hover activity-type-btn" href="#" targetDiv="end-activity-div" activityType="2">已结束活动</a>
+
+            </div>
+            <div class="title_right" style="padding: 0;margin-right: 10px;">
+
+                <span class="tabBtn" style="float: right;">
+                    <a class="addDiscount index_hover" href="javascript:void(0);"  >+全店活动</a>
+                    <ul class="subtypes" >
+                        <li class="subtypeline">
+                            <a href="/UmpMjs/mjsShopActivity" target="_blank"><span>全店满减/包邮</span></a>
+                            <div class="subtypesintro">
+                                <div class="arrow"></div>
+                                <p>
+                            <span class="introtitle">
+                                全店满就优惠/满就包邮
+                            </span>
+                                </p>
+                                <p>
+                                    店铺里面所有的宝贝都参加同一个<br />
+                                    满就包邮或者满就送的优惠活动<br />
+                                    对那些新上架的宝贝也是有效果的哟
+                                </p>
+
+                            </div>
+                        </li>
+                        <li class="subtypeline">
+                            <a href="/umpactivity/addshopDiscount">
+                                <span>全店打折</span></a>
+                            <div class="subtypesintro" >
+                                <div class="arrow"></div>
+                                <p>
+                                <span class="introtitle">
+                                    全店打折
+                                </span>
+                                </p>
+                                <p>
+                                    全店打同一个折扣活动<br />
+                                    对那些新上架的宝贝也是有效果的哟<br />
+                                </p>
+
+                            </div>
+                        </li>
+                    </ul>
+                </span>
+                <span class="tabBtn" style="float: right;">
+
+                    <a class="addDiscount index_hover" href="/taodiscount/mjsAddActivity"  >+满就送/包邮</a>
+                    <div class="subtypesintro" style="top:35px;left:-190px;">
+                        <div class="arrow"></div>
+                        <p>
+                            <span class="introtitle">
+                                    满就送/满就包邮
+                                </span>
+                        </p>
+                        <p>
+                            订单满XX元/件,则拍下自动优惠<br />
+                            支持打折、减钱、包邮、送礼物等多种形式<br />
+                            成交记录显示原价！<br />
+                        </p>
+                        <p>
+                        <div class="imageWrapper">
+                            <img src="/img/dazhe/manjiusong_preview.png" style="width:300px;">
+                        </div>
+                        </p>
+                    </div>
+                </span>
+
+                <span class="tabBtn" style="float: right;">
+                    <a class="addDiscount index_hover" href="/umpactivity/addDiscount"  >+限时打折</a>
+                    <div class="subtypesintro" >
+                        <div class="arrow"></div>
+                        <p>
+                            <span class="introtitle">
+                                限时打折
+                            </span>
+                        </p>
+                        <p> 单品优惠，开店必备的打折方式<br>
+                            不限折扣幅度(0-9.9折)<br>
+                        </p>
+                        <div class="imageWrapper">
+                            *{<img src="/img/dazhe/discount_preview.png">}*
+                            <img src="/img/dazhe/dazhe-effect.png" style="width: 330px;height: 124px;"/>
+                        </div>
+                    </div>
+
+                    *{<ul class="subtypes" >}*
+                        *{<li class="subtypeline">}*
+                            *{<a href="/umpactivity/adddiscount"><span>打折/减钱</span></a>}*
+                            *{<div class="subtypesintro" >}*
+                                *{<div class="arrow"></div>}*
+                                *{<h5>介绍：</h5>}*
+                                *{<p>  不限活动时间：打折十年都可以。<br>}*
+                                    *{不限活动折扣：零到十折任您选。}*
+                                *{</p>}*
+                                *{<h5>效果图：</h5>}*
+                                *{<div class="imageWrapper">}*
+                                    *{<img src="http://statics.goodtp.com/i/dazhe_demo.png">}*
+                                *{</div>}*
+                            *{</div>}*
+                        *{</li>}*
+                    *{</ul>}*
+                </span>
+
+
+                *{<a class="addDiscount tabBtn index_hover" href="javascript:void(0);" style="float: right;" ></a>}*
+                *{<a class="deleteApiBtn tabBtn index_hover" href="javascript:void(0);" style="float: right;" >一键删除所有活动</a>}*
+                *{<a class="tabBtn index_hover" href="/taodiscount/activity_add" style="float: right;margin-right:30px;" >创建新的活动</a>}*
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+        <div class="contents">
+
+            <div class="f-chuangjian activity-list-div on-activity-div" style="margin-top: 30px;">
+                *{没数据的时候显示这个}*
+                <div class="new-activity" style="text-align: center;margin: 20px auto 20px auto;display: none;"><span class="f-ziti">亲，您还没有创建活动哦！</span></div>
+                <div class="new-activity" style="margin: 0 auto;font-size:20px;text-align: center;display: none;">
+                    <span>请选择右上角的活动方式进行添加哦</span>
+                </div>
+                *{<div><a class="f-huodong index_hover" href="/TaoDiscount/activity_add">点击创建活动</a></div>}*
+                *{有数据的时候显示这个}*
+                <table class="on-activity-table item-table result-table " style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <td style="width: 13%;">活动标签</td>
+                        <td style="width: 10%;">活动类型</td>
+                        <td style="width: 18%;">活动描述</td>
+                        <td style="width: 16%;">活动开始时间</td>
+                        <td style="width: 16%;">活动结束时间</td>
+                        <td style="width: 27%;">相关操作</td>
+                    </tr>
+                    </thead>
+                    <tbody class="on-activity-tbody">
+                    </tbody>
+                </table>
+                *{<div class="on-paging-div" style="text-align: center;margin-top: 5px;line-height: normal;"></div>}*
+            </div>
+
+            <div class="f-chuangjian activity-list-div end-activity-div" style="margin-top: 30px; display: none;">
+
+                <table class="end-activity-table item-table result-table " style="text-align: center;">
+                    <thead>
+                    <tr>
+
+                        <td style="width: 13%;">活动标签</td>
+                        <td style="width: 10%;">活动类型</td>
+                        <td style="width: 18%;">活动描述</td>
+                        <td style="width: 16%;">活动开始时间</td>
+                        <td style="width: 16%;">活动结束时间</td>
+                        <td style="width: 27%;">相关操作</td>
+                    </tr>
+                    </thead>
+                    <tbody class="end-activity-tbody">
+                    </tbody>
+                </table>
+                *{<div class="end-paging-div" style="text-align: center;margin-top: 5px;line-height: normal;"></div>}*
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 100px;"></div>
+
+
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+<script type="text/x-jquery-tmpl" id="onActivityRow">
+
+
+    <tr item-id="{{= id}}" >
+        <td class="result-td">{{= activityTitle}}</td>
+        <td class="result-td" style="color:#a10000;">{{= activityTypeStr}}</td>
+        <td class="result-td">{{= activityDescription}}</td>
+        <td class="result-td">
+            <div class="item-beginTime" style="">{{= startTimeStr}}</div>
+            <div class="execute-time-div" style="padding-top: 5px;font-size: 14px;color: rgb(214, 92, 53);"></div>
+        </td>
+        <td class="result-td">
+            <div class="item-endTime" style="">{{= endTimeStr}}</div>
+            <div class="left-time-div" style="padding-top: 5px;font-size: 14px;color: rgb(214, 92, 53);"></div>
+        </td>
+        <td class="result-td op-td" style="padding: 12px 3px;">
+            <div style="padding: 5px;" class="item-op-btn-div">
+                <a href="javascript:;" class="haoniu-base-btn reviseItem">编辑宝贝</a>
+                <a href="javascript:;" class="haoniu-base-btn addItem">+&nbsp;添加宝贝</a>
+            </div>
+            <div style="padding: 5px;" class="activity-op-btn-div">
+                <a href="javascript:void(0);" class="haoniu-base-btn reviseAct">修改活动</a>
+                <a href="javascript:void(0);" class="haoniu-base-btn deleteAct" style="background-color: #B1260D;">结束活动</a>
+            </div>
+            <div style="padding: 5px;" class="more-op-btn-div">
+                <a href="javascript:void(0);" class="haoniu-base-btn reviseAct">修改活动</a>
+                <a href="javascript:void(0);" class="haoniu-base-btn activity-more-op-btn" style="background: #B1260D;">其他操作>></a>
+            </div>
+            <div style="padding: 5px;" class="tmpl-btn-div">
+                <a href="javascript:void(0);" class="haoniu-base-btn reload-tmpl-btn">重导模板</a>
+                <a href="javascript:void(0);" class="haoniu-base-btn remove-tmpl-btn" style="background: #B1260D;">删除模板</a>
+            </div>
+        </td>
+    </tr>
+
+</script>
+
+
+<script type="text/x-jquery-tmpl" id="endActivityRow">
+
+    <tr item-id="{{= id}}">
+       <td class="result-td">{{= activityTitle}}</td>
+       <td class="result-td" style="color: #a10000;">{{= activityTypeStr}}</td>
+       <td class="result-td"><span class="item-href item-link item-name">{{= activityDescription}}</span></td>
+       <td class="result-td"><span class="item-beginTime" style="">{{= startTimeStr}}</span></td>
+       <td class="result-td"><span class="item-endTime" style="">{{= endTimeStr}}</span></td>
+       <td class="result-td op-td">
+           <a  href="javascript:;" class="haoniu-base-btn restart-activity-btn" style="margin-right: 10px;">重启活动</a>
+           <a  href="javascript:;" class="haoniu-base-btn deleteUnAct">删除记录</a>
+       </td>
+    </tr>
+
+
+</script>
+
+
+#{set 'moreScripts'}
+
+<script src="http://tianyun.b0.upaiyun.com/tm/tm.js" charset="utf-8"></script>
+
+<script src="http://tianyun.b0.upaiyun.com/tm/umputil.js" charset="utf-8"></script>
+
+<script src="http://tianyun.b0.upaiyun.com/tm/activitylist.js?_v=1" charset="utf-8"></script>
+<script src="http://tianyun.b0.upaiyun.com/tm/activityadmin.js?_v=1" charset="utf-8"></script>
+
+<script src="http://tianyun.b0.upaiyun.com/tm/activityadd.js" charset="utf-8"></script>
+
+<script src="http://tianyun.b0.upaiyun.com/tm/shopmindiscount.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+var refix = function(){
+    var tabs = $('.kuang').find('.tabBtn');
+    tabs.mouseenter(function(){
+        var oThis = $(this);
+
+        var subTypes = oThis.find('.subtypes');
+        if(subTypes.length > 0){
+            subTypes.show();
+            oThis.find('a').addClass('active');
+        }else{
+            oThis.find('.subtypesintro').show();
+        }
+    })
+    tabs.mouseleave(function(){
+        var oThis = $(this);
+        var subTypes = oThis.find('.subtypes');
+        if(subTypes.length > 0){
+            subTypes.hide();
+            oThis.find('a').removeClass('active');
+        }else{
+            oThis.find('.subtypesintro').hide();
+        }
+    })
+
+    var sublines = tabs.find('.subtypeline');
+    sublines.mouseenter(function(){
+        $(this).find('.subtypesintro').show();
+    })
+
+    sublines.mouseleave(function(){
+        $(this).find('.subtypesintro').hide();
+    })
+}
+
+TM.Loading.init.show();
+
+
+//TM.gcs('/js/tm.js', function () {
+
+//    TM.gcs('/js/ump/umputil.js?_v=4', function () {
+//        TM.gcs('/js/ump/activitylist.js?_v=5', function () {
+//            TM.gcs('/js/ump/activityadmin.js?_v=4', function () {
+//                TM.gcs('/js/tdazhe/activityadd.js?_v=10', function () {
+//                    TM.gcs('/js/ump/shopmindiscount.js?_v=4', function () {
+                        $(document).ready(function() {
+                            refix();
+                            TM.DisAct.init.doInit($(".item-container"));
+
+                            TM.ShopMinDiscount.init.doInit($(".shop-discount-div"));
+
+                            var now = new Date().getTime();
+                            if(now%3 == 0) {
+                                $('.QQDependOnUserLevel').text(343724189);   // 2团15班
+                            } else if(now%3 == 1) {
+                                $('.QQDependOnUserLevel').text(106738356);   // 2团16班
+                            } else {
+                                $('.QQDependOnUserLevel').text(303749095);   // 2团17班
+                            }
+
+                            $.ajax({
+                                url : '/TaoDiscount/findUser',
+                                data : {},
+                                type : 'post',
+                                success : function(data) {
+                                    var userJson = data;
+
+                                    if (userJson.firstLoginTime < 1397888648194 || userJson.showOldDiscount == true) {
+                                        $('.old-dazhe-div').show();
+                                    } else {
+
+                                    }
+                                }
+                            });
+                        });
+//                    });
+//                });
+//            });
+//        });
+//    });
+
+//});
+</script>
+#{/set}

@@ -1,0 +1,33 @@
+#{extends 'skincomment/skinautodefendersubbase.html' /}
+#{set title:'拦截日志' /}
+
+<link rel="stylesheet" media="screen" href="/css/skincomment/defenselog.css"/>
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/skincomment/defenselog.js?_v=5" type="text/javascript" charset="utf-8"></script>
+<!-- 
+<div style="display:block;">
+<div class="intro">
+    <p>
+        <a target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-283090080.htm?spm=0.0.0.0.saLxLB" style="color:red">如何辨别差评师以及查询旺旺小号</a>
+    </p>
+</div>
+</div> -->
+
+<div class="defenselog-container" style="">
+
+</div>
+<div class='clearfix' style="">
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+            TM.gcs('/js/ChineseDatePicker.js', function () {
+                TM.Loading.init.show();
+                TM.DefenseLog.init.doInit($(".defenselog-container"));
+            });
+        });
+
+    });
+</script>

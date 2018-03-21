@@ -1,0 +1,30 @@
+.diagnose{
+	margin-top: 40px;
+	text-align: center;
+}
+.buyxuanci_img{
+	width: 100px;
+	height: 100px;
+}
+.diagnose table{
+	width: 1000px;
+	border: inset;
+	font-family: "黑体";
+}
+.diagnose table thead tr{
+	height: 30px;
+	/*background-color:#F9B42B;*/
+    color:#FFF5E6;
+    background: left -102px url('/public/images/frame/bg.png');height:36px;width:100%;color:#1D5987;
+}
+.diagnose table tbody tr{
+	background-color:#AEF9E2; 
+}
+.diagnose table tbody tr:HOVER{
+	background-color:#4DF0F9; 
+}
+.buyxuanci_span{
+	font-family: "黑体";
+	font-size: 14px;
+	font-weight: bolder;
+}

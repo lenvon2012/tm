@@ -1,0 +1,32 @@
+#{extends 'keymain.html' /}
+#{set title:'keywords' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/keywords/keywords.css'}">
+#{/set}
+<div class = "all_container">
+
+<div class = "control_container" style="display: none">
+	<div class="tool_box">
+		<ul class = "tools">
+			<li class = "tolls_li">
+				<a id="hailiang">海量淘词</a>
+			</li>
+			<li class = "tolls_li">
+				<a id="leimu">类目热词</a>
+			</li>
+			<li class = "tolls_li">
+				<a id = "youhua">搜索优化</a>
+			</li>
+			<li class = "tolls_li">
+				<a id = "jiankong">搜索监控</a>
+			</li>
+			<li class = "tolls_li">
+				<a id ="ciku">我的词库</a>
+			</li>
+		</ul>
+	</div>
+</div>
+	<div class = "kwcontainer">
+	#{doLayout /}
+	</div>
+</div>

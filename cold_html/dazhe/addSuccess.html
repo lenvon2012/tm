@@ -1,0 +1,63 @@
+#{extends 'dazhe/base.html' /}
+#{set title:'添加完成' /}
+
+<style type="text/css">
+    .success{
+        margin: 0 auto;
+        text-align: center;
+        padding: 80px;
+    }
+    .tiaozhuan{
+        font-size: 15px;
+        text-align: center;
+    }
+</style>
+<link type="text/css" rel="stylesheet" href="/css/tdazhe/activityadd.css" />
+<div id="content">
+    <div class="breadcrumbs">
+        <span>创建限时打折活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block">
+                <h3>设置活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block">
+                <h3>设置商品信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block active">
+                <h3>完成</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="success">
+    <img src="/public/images/keywords/success.jpg" alt="">
+</div>
+<div class="tiaozhuan">
+    <span id="totalSecond">3</span>秒后自动跳转到活动列表
+</div>
+
+<script type="text/javascript">
+
+    //        setTimeout("location='/taodiscount/index'",3000)
+    var second = document.getElementById('totalSecond').innerText;
+
+    setInterval(" abc()", 1000); //每1秒钟调用redirect()方法一次
+    function abc()
+    {
+        if (second < 0)
+        {
+            location.href = '/paipaidiscount/index';
+        } else
+        {
+            document.getElementById('totalSecond').innerText = second--;
+
+        }
+    }
+
+</script>

@@ -1,0 +1,71 @@
+#{extends 'linlangxiu/tbtnavmain.html' /}
+
+<link rel="stylesheet" type="text/css" href="/css/tbtnav.css?_v=1">
+<table class="nav-table" style="max-width: 1200px;">
+<tbody>
+<tr>
+*{<td class="nav-table-left-td" >}*
+<td class="leftnavtd" style="display: none;">
+    <nav class="leftnav" style="">
+        <ul class="main-lists ">
+            <li class="menu-goods  ">
+                <a href="javascript:void(0)" class="menu" >
+                    <em>店铺数据分析</em>
+                    <i class="icon-fold"></i>
+                </a>
+                <ul class="sub-lists hidden" >
+                    <li>
+                        <a href="/Diag/shopViewTrade"><em>经营数据分析</em></a>
+                    </li>
+                    <li>
+                        <a href="/Diag/shopSrcDiag"><em>PC流量来源</em></a>
+                    </li>
+                    <li>
+                        <a href="/Diag/shopSearchWords"><em>PC入店关键词</em></a>
+                    </li>
+                    <li>
+                        <a href="/Diag/appShopSearchWords"><em>无线入店关键词</em></a>
+                    </li>
+                    <li>
+                        <a href="/Diag/areaDiag"><em>地域分析</em></a>
+                    </li>
+                    <li>
+                        <a href="/Diag/viewItemShow"><em>成交数据详情</em></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-goods  ">
+                <a href="javascript:void(0)" class="menu" >
+                    <em>宝贝数据分析</em>
+                    <i class="icon-fold"></i>
+                </a>
+                <ul class="sub-lists hidden" >
+                    <li>
+                        <a href="/Diag/commodityDiag"><em>流量分析</em></a>
+                    </li>
+                    <li class="">
+                        <a href="/Diag/searchDiag"><em>PC搜索分析</em></a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="menu-goods  ">
+                <a href="javascript:void(0)" class="menu" >
+                    <em>行业数据分析</em>
+                    <i class="icon-fold"></i>
+                </a>
+                <ul class="sub-lists hidden" >
+                    <li class="">
+                        <a href="/home/catAnalysis"><em>行业数据分析</em></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</td>
+<td style="" class="nav-table-right-td" >
+    <div class="main" style="min-height: 100px;">
+        #{doLayout /}
+    </div>
+</td></tr></tbody>
+</table>

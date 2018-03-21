@@ -1,0 +1,44 @@
+
+.notification .close {
+color: #900;
+font-size: 9px;
+position: absolute;
+right: 5px;
+top: 5px;
+}
+#closeImg{
+    opacity: 1;
+}
+.information {
+background: #D1E0F0 url('http://k1.taodianzhang.net/images/icons/information.gif');
+border-color: #A2B4EE;
+color: #585B66;
+}
+
+.notification {
+position: relative;
+margin: 0 0 10px 0;
+padding: 0;
+border: 1px solid;
+background-position: 10px 11px !important;
+background-repeat: no-repeat !important;
+font-size: 13px;
+width: 95%;
+    margin: 0 auto;
+}
+
+.notification div {
+display: block;
+font-style: normal;
+padding: 10px 10px 10px 36px;
+line-height: 1.5em;
+    width:95%;
+}
+
+.tips{
+float:none;
+}
+
+ul, ol {
+list-style: none;
+}

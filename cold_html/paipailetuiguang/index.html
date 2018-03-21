@@ -1,0 +1,47 @@
+#{extends 'paipailetuiguang/base.html' /}
+#{set title:'店铺推广 - 首页' /}
+
+<style type="text/css">
+
+    .first-page-container .shop-info-table td {padding-top: 10px; padding-bottom: 10px;}
+    .first-page-container .shop-info-table .tip-dot {
+        font-weight: bold;
+    }
+    .first-page-container .attend-award-link {color: blue;}
+    .first-page-container .attend-award-link:hover {color: #a10000;}
+    .first-page-container .big-op-btn {
+        /*width: 200px; height: 80px; line-height: 80px;*/
+        width: 160px; height: 65px; line-height: 65px; display: block; border-radius: 10px;
+        /*border: #D84600 1px solid;*/
+        color: white; font-weight: bold; text-align: center;
+        /*background: #F37406;*/
+        font-size: 22px; cursor: pointer;
+        background: #ddd;
+        border: #aaa 1px solid;
+        color: #555;
+    }
+    .first-page-container .big-op-btn:hover {
+        background: #bbb;
+    }
+    td.recommend{text-align:center;padding: 10px 10px 10px 10px;}
+    td{vertical-align:top}
+    .btn-ordernow {width: 120px;height: 42px;text-indent: -9999px;overflow: hidden;vertical-align: middle;background:url(http://img04.taobaocdn.com/tps/i4/T1iuYjXixoXXahTfPO-721-166.png) no-repeat -120px 0;}
+    .btn-ordernow:hover {background-position: -120px -42px;}
+    .borderimg{border:1px solid #ccc;}
+
+</style>
+
+<div class="first-page-container">
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/paipailetuiguang/dptgindex.js', function () {
+            TM.gcs('/PaiPaiItems/firstSync',function() {
+                TM.DptgIndex.init.doInit($(".first-page-container"));
+            });
+        });
+    });
+
+
+</script>

@@ -1,0 +1,202 @@
+div.aside{
+    display:none;
+}
+
+.delistPlansWrapper{
+    width:99%;
+    padding:5px;
+    min-height:600px;
+}
+
+.step{
+    font-size:15px;
+    display:none;
+}
+
+
+#yangyangContent .nav-table-left-td{
+    width: 0px;
+    display:none;
+}
+
+.hide{
+    display:none;
+}
+.spacing{
+    padding:20px 30px;
+}
+
+.page-head{
+    height:40px;
+    padding:10px 0;
+    border-bottom:1px #eaedf2 solid;
+    position:relative;
+}
+ul, li, ol{
+    list-style:none;
+
+}
+
+.step-head{
+    margin-left:18px;
+    display:none;
+    font-size: 16px;
+}
+
+.current{
+    display:block;
+}
+
+.min-height-40{
+    min-height:40px;
+}
+
+div.main{
+    width:100%;
+    max-width:1680px;
+    min-width:1000px;
+    margin: 0 auto;
+}
+
+.w-120{
+    width:120px;
+}
+
+
+
+.w-420{
+    width:420px;
+}
+
+.w-60{
+    width:60px;
+}
+
+.delist-container{
+    padding:10px;
+    font-family:"微软雅黑";
+    font-size:14px;
+    min-height:500px;
+}
+
+.planname{
+    border:1px solid #ccc;
+    margin:0px 0px 20px 0px;
+    padding:20px 0px 20px 10px;
+    background:#efefef;
+}
+.seperate-category{
+    margin:0px 50px 0px 50px;
+    height:30px;
+    width:140px;
+    border-radius:5px;
+}
+
+.delist-choose-container{
+    display:none;
+}
+
+.current{
+    display:block;
+}
+
+.listTable{
+    width: 99%;
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background: white;
+}
+
+.tree-row{
+    white-space:nowrap;
+    font:icon;
+    line-height:26px;
+    height:26px;
+}
+
+.head-row{
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    vertical-align:middle;
+    height:26px;
+    cursor:default;
+    display:inline-block;
+    width:19px;
+    background-position:-72px 0;
+}
+
+.head-row-changed{
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    vertical-align:middle;
+    height:26px;
+    cursor:default;
+    display:inline-block;
+    width:19px;
+    background-position:-48px 0;
+}
+
+.head-row-second{
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    vertical-align:middle;
+    height:26px;
+    cursor:default;
+    display:inline-block;
+    width:19px;
+    background-position:-120px 0;
+}
+
+.head-row-second-changed{
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    vertical-align:middle;
+    height:26px;
+    cursor:default;
+    display:inline-block;
+    width:19px;
+    background-position:-96px 0;
+}
+.left-row{
+    display:inline-block;
+    vertical-align:middle;
+    height:26px;
+    cursor:default;
+    width:10px;
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    background-position:-144px 0;
+}
+
+
+.child-row{
+    display:inline-block;
+    vertical-align:middle;
+    height:26px;
+    cursor:default;
+    margin-left:10px;
+    width:19px;
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    background-position:-144px 0;
+}
+
+.last-row{
+    display:inline-block;
+    vertical-align:middle;
+    height:26px;
+    margin-left:10px;
+    cursor:default;
+    width:19px;
+    background-image:url("/public/images/newAutoTitle/tree.png");
+    background-position:-168px 0;
+}
+
+.manualPaging{
+    margin:10px;
+}
+
+p{
+    margin:15px;
+}
+
+.search-container{
+    border-bottom: 1px solid #eaedf2;
+    padding: 20px 10px;
+    background: #f6f7fb;
+}

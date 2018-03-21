@@ -1,0 +1,91 @@
+#{extends 'Wangkesouci/wangkebase.html' /}
+#{set title:'热词导出' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/autoTitle/autoTitle.css">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css">
+#{/set}
+
+<style>
+    .recommendDiv .liTargetDiv {
+        display: block;
+    }
+    .diagBriefInf{
+        height: 70px;
+        border-top: 1px solid #ccc;
+    }
+    .diagDetailInf{
+        background: none;
+        border-top: 1px dashed #ccc;
+    }
+</style>
+<div class="autoTitleDiv">
+    <div class='autotTitleBody'>
+        <div class="searchArea">
+            <select name="itemsStatus" id="itemsStatus">
+            *{<option tag="itemsStatus">宝贝状态</option>}*
+                <option tag="onsale">在架宝贝</option>
+                <option tag="instock">待上架</option>
+                <option tag="allItems">全部宝贝</option>
+            </select>
+            <select name="itemsCat" id="itemsCat">
+                <option>卖家分类</option>
+            </select>
+            <select name="taobaoCat" id="taobaoCat">
+                <option>淘宝分类</option>
+            </select>
+            <select name="itemsSortBy" id="itemsSortBy">
+                <option tag="sortBy">默认排序</option>
+                <option tag="sortByScoreUp">得分升序</option>
+                <option tag="sortByScoreDown">得分降序</option>
+                <option tag="sortBySaleCountUp">销量升序</option>
+                <option tag="sortBySaleCountDown">销量降序</option>
+            </select>
+            <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">得分</span>
+            <input id="lowScore" value="0">
+            <span>-</span>
+            <input id="highScore" value="100">
+            <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+            <input id="searchWord" value="">
+            <a id="goSearchItems" href="javascript:void(0);" class="commbutton btntext4" style="display: inline-block;">
+                <span style="display: inline-block;*display: inline;"> 搜索宝贝</span>
+            </a>
+        </div>
+        <div class="multiOPArea">
+        </div>
+        <div class="diagResultArea">
+
+        </div>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+            TM.gcs('/js/jquery.pagination.js',function(){
+                TM.gcs('/js/tm.js',function(){
+                    TM.gcs('/js/utils/jquery.cookie.js',function(){
+                        TM.gcs('/js/wangkesouci/wordsexport.js?_v=7',function(){
+                            TM.gcs('/js/QueryCommodity.js',function(){
+                                TM.gcs('/js/genKeywordSpan/genKeywordSpan.js',function(){
+                                    $(document).ready(function(){
+                                        TM.gcs('/js/multiModify.js',function(){
+                                            TM.wordexport.Init.init();
+                                        });
+
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

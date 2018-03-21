@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+    <meta http-equiv=”X-UA-Compatible” content=”IE=EmulateIE7″ >
+    <link rel="shortcut icon" type="image/png" href='/img/favicon.png'>
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=8'>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=3">
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=3">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+    <![endif]-->
+    <link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=4'>
+    <link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+    <link rel="stylesheet" type="text/css" href="/css/tbtnav.css?_v=1">
+    <style>
+        #top-header .search{
+            /*float: right;*/
+            margin-top: 20px;
+            width:520px;
+            border:none;
+            background:transparent;
+            margin-left:75px;
+        }
+
+        #top-header .search .submit .searchBtn {
+            display: block;
+            width: 86px;
+            height: 32px;
+            background-position: -2px -2px;
+            border: none;
+            vertical-align: top;
+            text-indent: -9999px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        #top-header .search label, #top-header .search .submit .searchBtn, .my-hd .hd-ico, .my-hd .triangle, #top-header .logo h2 a {
+            background: url(http://gtms01.alicdn.com/tps/i1/T15ONJFp8cXXcT8H2A-149-160.png) no-repeat;
+        }
+        #top-header .search-entity {
+             width: 500px;
+             height: 32px;
+             background-color: #fff;
+             border: 2px solid #009fe2;
+             overflow: hidden;
+         }
+        #top-header .search .keyword {
+            float: left;
+            position: relative;
+            padding: 5px 0 5px 10px;
+            background-color: #fff;
+        }
+        #top-header .search input {
+            width: 404px;
+            height: 22px;
+            line-height: 22px;
+            border: 0 none;
+            background-color: transparent;
+            vertical-align: top;
+            outline: none;
+            border:none;
+            box-shadow: none;
+        }
+        #top-header .search label {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            padding-left: 24px;
+            height: 32px;
+            line-height: 32px;
+            color: #9c9c9c;
+            background-position: 0 -44px;
+        }
+        #top-header{width:600px;margin-bottom: 25px;}
+        #top-header .search .submit {
+            float: right;
+        }
+  	.main p{padding-top:5px;padding-bottom:5px;line-height:28px;}
+  	.main div{padding-top:10px;padding-bottom:10px;}
+        .nav-table{width:auto;}
+        nav .main-lists li a{width:130px;}
+        nav .main-lists li a:hover{width:130px;}
+        .leftnavtd{width:150px;}
+        .leftnavtd a{cursor: pointer}
+        .main{margin-left:60px;position: relative;}
+        .main .pagenav {padding-left:100px;padding-top:10px;height:40px;}
+        .head-title{color:#354B5F;font-size: 16px;font-weight: bold
+        /*;position: absolute;top:22px;left:10px;*/
+        .nav-table-right-td{width:1024px;}
+        .container{width:100%;padding-left:10px;margin-top:15px;min-width:900px;max-width:1280px;}
+        .container .article{border-bottom:1px solid #edf2f7;max-width: 800px;}
+        .container .article:hover{background: #ffffe8;}
+        .container .article a{color: #354B5F;;display:block;padding:15px;; text-decoration: none;}
+        .container div{margin-top:5px;margin-bottom:5px;}
+  	.container p{padding-top:5px;padding-bottom:5px;}
+    </style>
+</head>
+<body>
+
+<script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+        document.body.appendChild(script);
+    }
+    var path = document.location.pathname;
+    var TM = TM || {};
+    TM.path = path;
+    TM.tms = $.cookie('_s');
+    TM.userNick = $.cookie('_n');
+    TM.encodeUid = $.cookie('_eu');
+    TM.sessionUid = '${session.get("_eu")}';
+    TM.ver = $.cookie('_v');
+    TM.hasCookie = $.cookie('tm_SESSION') && $.cookie('tm_SESSION').length > 0;
+
+</script>
+
+<script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+
+
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;_color:black;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: black;padding: 20px 10px 10px 10px;z-index: 200001;position:relative;">
+    <iframe class="loading-mask-iframe" style="display:none;_display:block;position:absolute;top:0;left:0px;z-index:-1;background:black;width:550px;height:120px;">
+    </iframe>
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+<div class="navbar navbar-inverse nav-head " style="position: relative;">
+    <div class="navbar-inner">
+        <div class="container" style="width: 1060px;">
+
+            <div class="nav-collapse collapse">
+                <ul class="nav head">
+                    <li class="selected"><a href="/home/newTbtIndex?isFirst=false">首页</a></li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/home/commodityDiag" class="dropdown-toggle" data-toggle="dropdown">站内引流 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home/commodityDiag">标题优化</a></li>
+                            <li><a href="/kits/delistPlans">智能上架</a></li>
+                            <li><a href="/kits/window">智能橱窗</a></li>
+
+                            <li><a href="/delistsearch/index">行业上下架分析</a></li>
+                            <li><a href="/home/instantSearch">查排名</a></li>
+                            <li><a href="/CatAnalysis/catPayHour">买家什么时候来</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/Diag/shopViewTrade" class="dropdown-toggle" data-toggle="dropdown">数据中心<span style="color:red">(新)</span>
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Diag/shopViewTrade">店铺经营数据</a></li>
+                            <li><a href="/Diag/shopSrcDiag">流量来源分析</a></li>
+                            <li><a href="/Diag/searchDiag">宝贝搜索分析</a></li>
+                            <li><a href="/Diag/shopSearchWords">入店关键词分析</a></li>
+                            <li><a href="/Diag/areaDiag">地域分析</a></li>
+                            <li><a href="/Diag/commodityDiag">宝贝分析</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/kits/comment" class="dropdown-toggle" data-toggle="dropdown">批量中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/kits/comment">自动评价</a></li>
+                            <li><a href="/home/multiModify">批量标题</a></li>
+
+                            <li><a href="/skinbatch/batchprice">批量改价</a></li>
+                            <li><a href="/skinbatch/batchdelist">批量下架</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/home/bussearchkey" class="dropdown-toggle" data-toggle="dropdown">词库中心<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home/mywords">我的词库</a></li>
+                            <li><a href="/home/bussearchkey">淘词</a></li>
+                            <li><a href="/home/bustopkey">类目热搜词</a></li>
+                            <li class=""><a href="/home/topKey">关键词榜单</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">活动中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/taozhanggui/lottery">转盘抽奖</a></li>
+                            <li><a href="/taozhanggui/award">好评有礼</a></li>
+                            <li><a href="/taozhanggui/invite">一起赚钱</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle xufei-center" data-toggle="dropdown">续费中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="height: 35px;">
+                            <li style="width: 470px;" class="zhizunban-xufei">
+                                <span style="color: red;font-weight: bold;margin-left: 10px;">至尊版</span>
+                                <a target="_blank" href="http://to.taobao.com/FV9tzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">8元一月</span></a>
+                                <a target="_blank" href="http://to.taobao.com/nIbfzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">24一季</span></a>
+                                <a target="_blank" href="http://to.taobao.com/uRbfzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">39半年</span></a>
+                                <a target="_blank" href="http://to.taobao.com/1Abfzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">69一年</span></a>
+                            </li>
+                            <li style="width: 470px;display: none;" class="peixunban-xufei">
+                                <span style="color: red;font-weight: bold;margin-left: 10px;">培训版</span>
+                                <a target="_blank" href="http://to.taobao.com/ihCDzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">20一月</span></a>
+                                <a target="_blank" href="http://to.taobao.com/rjBDzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">39一季</span></a>
+                                <a target="_blank" href="http://to.taobao.com/ZJ2Pzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">59半年</span></a>
+                                <a target="_blank" href="http://to.taobao.com/vwADzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">79一年</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav head">
+                    <li><a href="/home/classes">培训中心</a></li>
+                </ul>
+                <ul class="nav head tzg-auto-relation" style="display: none;">
+                    <li><a href="/home/auto_relation">描述模板
+                        <!-- <span style="color: red;">(新)</span> -->
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="nav-table" style="margin-top:0px;">
+<tbody>
+<tr>
+*{<td class="nav-table-left-td" >}*
+<td class="leftnavtd" style="">
+    <nav class="leftnav" style="">
+        <ul class="main-lists">
+            #{list items:navs, as:'nav1' }
+                <li>
+                    <a class="menu" >
+                        <em>${nav1.name}</em>
+                        <i class="icon-fold"></i>
+                    </a>
+                    <ul class="sub-lists hidden" >
+                        #{list items:nav1.level2s, as:'nav2' }
+                            <li>
+                                <a level2Id="${nav2.id}" href="javascript:void(0)" class="level2"><em>${nav2.name}</em></a>
+                            </li>
+                        #{/list}
+                    </ul>
+                </li>
+            #{/list}
+        </ul>
+    </nav>
+</td>
+<td style="" class="nav-table-right-td" >
+    <div id="top-header">
+        <div class="search">
+            <div class="search-entity">
+                        <span class="keyword">
+                            <input type="text" id="searchInput" name="key" value="" autocomplete="off">
+                            <label id="inputTip"  for="searchInput">请输入您的问题</label>
+                        </span>
+                <span class="submit"><div class="searchBtn" type="submit">搜索</div></span>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+            <div class="head-title">
+
+            </div>
+
+            <div class="container">
+            </div>
+            <div class="pagenav">
+            </div>
+    </div>
+
+</td></tr></tbody>
+</table>
+
+<div id="mainfoot">
+    <div id="footer-content" style="margin: 0 auto;width:200px;">
+        <p style="font-size:14px;padding-top:15px;color:white;">
+            在线客服：
+            <a id="kefuhref" target="_blank" >
+                <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后" />
+            </a>
+        </p>
+        <!--  <a href="/home/buyVersion">版本控制</a> -->
+    </div>
+</div>
+
+
+<!-- tips style -->
+<div class="qtip qtip-stylename">
+    <div class="qtip-tip" rel="cornerValue"></div>
+    <div class="qtip-wrapper">
+        <div class="qtip-borderTop"></div>
+        <div class="qtip-contentWrapper">
+            <div class="qtip-title">
+                <div class="qtip-button"></div>
+            </div>
+            <div class="qtip-content"></div>
+        </div>
+        <div class="qtip-borderBottom"></div>
+    </div>
+</div>
+<link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>
+*{#{set 'moreScripts'}}*
+<script type="text/x-jquery-tmpl" id="articleTmpl">
+    <div class="article">
+        <a href="/helpcenter/article/{{= id}}.html">{{= name}}</a>
+    </div>
+</script>
+<script type="text/javascript" src="/js/jquery.url.js" ></script>
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+*{<script src="/js/jquery.tmpl.js" type="text/javascript"></script>}*
+<script type="text/javascript">
+    var TM  = TM || {};
+    var getCacheScript = function(url, callback){
+        if(TM.hasCookie){
+        }else if(url.indexOf('?')>=0){
+            url += "&_eu="+TM.sessionUid;
+        }else{
+            url+="?_eu="+TM.sessionUid;
+        }
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+
+    ((function ($, window) {
+
+        TM.helpCenter = TM.helpCenter || {};
+        var me = TM.HC = TM.helpCenter;
+        TM.HC.init = function(){
+            me.page = $('.main .pagenav');
+            me.container = $('.main .container');
+            me.headTitle = $('.main .head-title');
+            me.level2s = $('.main-lists .level2');
+            me.tmpl = $('#articleTmpl');
+            me.searchBtn = $('#top-header .searchBtn');
+            me.inputEditor = $('#top-header #searchInput');
+            me.inputTip = $('#top-header #inputTip');
+
+
+            me.bindListeners();
+            var articleId = null;
+            var page_url = window.location.href;
+            var start = page_url.indexOf('/helpcenter/article/');
+            console.info('start:'+start);
+            if(start>=0){
+                articleId =  page_url.substring(start+'/helpcenter/article/'.length,page_url.indexOf('.htm'));
+            }else{
+
+            }
+
+            if(articleId && articleId > 0){
+                me.loadOneArticle(articleId);
+            }else{
+                $('.leftnav .menu:eq(0)').trigger('click');
+                me.level2s.eq(0).trigger('click');
+            }
+
+
+        }
+        me.loadOneArticle = function(id){
+            $.get('/helpcenter/article?id='+id,function(data){
+                if(!data){
+                    me.container.html('<div style="margin:25px;margin-bottom:15px;">暂无相关记录</div>');
+                    return;
+                }
+                me.headTitle.text(data.name);
+                me.container.html(data.body);
+            })
+
+        }
+         me.bindListeners = function(){
+            me.level2s.click(function(){
+                var oThis = $(this);
+                var level2Id = oThis.attr('level2Id');
+                var actCls = 'rigth-small-icon';
+                me.headTitle.text(oThis.text());
+                me.loadArticles('/HelpCenter/listLevel2Articles',{level2Id:level2Id});
+                me.level2s.find('.'+actCls).removeClass(actCls);
+                oThis.find('em').addClass(actCls);
+            })
+
+            me.searchBtn.click(function(){
+                me.doSearch();
+            });
+//            document.onkeydown = function(e){
+//                var ev = document.all ? window.event : e;
+//                if(ev.keyCode==13) {
+//                }
+//            }
+            me.inputEditor.keydown(function(e){
+                if(e.keyCode==13){
+                    me.doSearch();
+                }
+            })
+
+            me.inputEditor.focus(function(){
+                me.inputTip.hide();
+            })
+
+            me.inputEditor.blur(function(){
+                if(me.inputEditor.val().isBlank()){
+                    me.inputTip.show();
+                }else{
+                }
+            });
+        }
+        me.doSearch = function(){
+            var word = me.inputEditor.val().trim();
+//            if(word.isBlank()){
+//                // TODO make no input tip..
+//                return;
+//            }
+            me.loadArticles('/HelpCenter/listSearchArticles',{'word':word});
+            me.headTitle.text('"'+word+'"的搜索结果');
+        }
+
+        me.loadArticles = function(url, params){
+            TM.HC.page.tmpage({
+                currPage: 1,
+                pageSize: 10,
+                pageCount:1,
+                selfPageSizeArray:[10],
+                ajax: {
+                    param : params,
+                    on: true,
+                    dataType: 'json',
+                    url: url,
+                    callback:function(data){
+                        me.renderTable(data);
+                    }
+                }
+            });
+        }
+
+        TM.HC.renderTable = function(tmres){
+            var container = me.container;
+            if(!tmres || !tmres.isOk ||tmres.res.length == 0){
+                me.container.html('<div style="margin:25px;margin-bottom:15px;">暂无相关记录</div>');
+                return;
+            }
+            ;
+            me.container.empty();
+            me.container.append(me.tmpl.tmpl(tmres.res));
+
+        }
+    })(jQuery, window));
+
+
+
+    TM.gcs('/js/jquery.pagination.js',function(){
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/tm.js',function(){
+                TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+                    $(document).ready(function(){
+                        TM.widget.buildLeft150Nav();
+                        TM.HC.init();
+                    });
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavump.html' /}
+#{set title:'创建促销活动' /}
+
+<link type="text/css" href="/css/zhdatecss/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+<link type="text/css" href="/css/zhdatecss/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+
+<link type="text/css" rel="stylesheet" href="/css/tzgump/activity.css" />
+
+<script type="text/javascript" src="/js/zhdatejs/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src='/js/jinnang/jquery-ui-sliderAccess.js'></script>
+<script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-zh-CN.js"></script>
+
+<style type="text/css">
+
+    .activity-wrapper {
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+
+
+</style>
+
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/tzgumpactivity/index">促销活动管理</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;创建促销活动
+</div>
+
+<div style="text-align: center;">
+    <div class="activity-wrapper" style="margin: 0 auto; text-align: left;">
+
+        <div class="head-tip">创建促销活动</div>
+        <div class="activity-out-div">
+            <div class="activity-inner-div" style="">
+                <div class="activity-row ">
+                    <span class="row-span">活动描述：</span>
+                    <input type="text" class="row-text activity-description" >
+                    <span class="row-tip">请输入2到30个字(仅自己可见)</span>
+                </div>
+                <div class="activity-row ">
+                    <span class="row-span">开始时间：</span>
+                    <input type="text" class="row-text start-date" >
+                    <span class="row-tip">促销活动开始时间</span>
+                </div>
+                <div class="activity-row ">
+                    <span class="row-span">结束时间：</span>
+                    <input type="text" class="row-text end-date" >
+                    <span class="row-tip">促销活动结束时间</span>
+                </div>
+                <div class="activity-row ">
+                    <span class="row-span">促销标签：</span>
+                    <select type="text" class="activity-title-select target-activity-title"  style="">
+                        <option selected="selected" value="限时促销">限时促销</option>
+                        <option value="新春特惠">新春特惠</option>
+                        <option value="团购价">团购价</option>
+                        <option value="亏本清仓">亏本清仓</option>
+                        <option value="新品上市">新品上市</option>
+                    </select>
+                    <input type="text" class="row-text activity-title-input" style="width: 183px;">
+                    <span class="title-type-btn self-put">自定义标签</span>
+                    <span class="title-type-btn select-put">选择标签</span>
+                    <span class="row-tip">促销标签，在淘宝详情页显示</span>
+                </div>
+
+            </div>
+        </div>
+        <div style="padding-left: 320px; padding-top: 30px;">
+            <span class="tmbtn long-blue-btn submit-add-activity-btn" style="">下一步选择宝贝</span>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/tzgump/tzgumputil.js', function () {
+        TM.gcs('/js/tzgump/discountadd.js', function () {
+            TM.gcs('/js/tzgump/discountcommon.js', function () {
+                $(document).ready(function () {
+                    TM.AddDiscount.init.doInit($(".activity-wrapper"));
+                });
+            })
+        })
+    })
+</script>

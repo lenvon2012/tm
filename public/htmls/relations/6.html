@@ -1,0 +1,45 @@
+<div type='text/x-jquery-tmpl' class="itemDetailTmpl">
+    <table width="950" cellpadding="0" cellspacing="0" border="0" style="background-color:white;margin: 0 auto; padding-left: 3px;">
+        <tbody>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--  内部的table开始-->
+                {{each(i,commodity) commoditys}}
+                <table width="230" cellpadding="0" cellspacing="0" border="0"
+                       style="border:1px solid #cccccc;font-size:12px; line-height:18px; margin: 2px; float: left;background:{{= defaultColor}}">
+                    <tbody>
+                    <tr>
+                        <td background="{{= commodity.picture}}"
+                            style="width:186px; height:310px; background-repeat:no-repeat; background-position:50% 50%;">
+                            <a style="display:block;width:230px; height:310px;"
+                               href="http://item.taobao.com/item.htm?id=17887187527" target="_blank"
+                               title="夏娜 斗篷大衣外套 女 新款 秋冬 毛领双排扣斗篷呢子"></a></td>
+                    </tr>
+                    <tr>
+                        <td width="100%" height="60px;" align="left" style=" color:#fff; border-bottom: 1px dashed #cccccc">
+                            <span style="height:auto; width: 186px;; display: block; padding:10px 20px;">{{= commodity.ctitle}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" align="right" style="color:#fff;padding:5px 10px;">
+                            {{= saleName}}：<span style="font-family:Arial; font-size:25px; color:#ff0000;">¥{{= commodity.sole}}</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                {{/each}}
+                <!-- 每部table结束-->
+
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+

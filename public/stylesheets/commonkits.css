@@ -1,0 +1,20 @@
+
+
+/*this is all  for  logs*/
+/*
+ * This starts for the show window................
+ *
+ */
+
+
+.opbtn{}
+
+.oplogs{}
+.oplogs thead{text-align: center;}
+.oplogs thead tr{background: left -102px url('/public/images/frame/bg.png');height:24px;width:100%;}
+.oplogs tbody{}
+
+
+.showwindowNav{}
+.showwindowNav ul li{}
+.showwindowNav ul li.selected{}

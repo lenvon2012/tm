@@ -1,0 +1,773 @@
+#{extends 'yangyang.html' /}
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=3">
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=3">
+  <![endif]-->
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+  <![endif]-->
+<link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=5'>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+*{<link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />}*
+
+<div class="navbar nav-title-wrapper navbar-inverse" style="background-color:#1b1b1b;margin-bottom:0px;">
+    <div class="nav-title navbar-inner" style="width:1000px;margin: 0 auto;position:relative;">
+        <a class="brand" style="color: #fff;" href="/home/newTbtIndex?isFirst=false">
+            <img src="http://img01.taobaocdn.com/top/i1/T10jtLFathXXaCwpjX.png"
+                 style="width:48px;height:48px;padding-right:10px;margin-top: -4px;margin-bottom: -3px;"/>淘掌柜
+        </a>
+
+        <p class="pull-right">
+            <span class="inlineblock top-kefu" style="overflow:hidden;">在线客服:</span>
+            <a id="kefuhref" target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8">
+                <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系售后">
+            </a>
+            <span class="userheadop" style="display: none;width:200px;overflow:hidden;"></span>
+            <span class="xufeiheadop" style="width:120px;overflow:hidden;"><a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.15.lyLEow&service_code=ts-1820059&tracelog=xufei" style="font-size: 20px;" id="xufei-now">我要续费</a></span>
+            <a class="tmbtn sky-blue-btn" id='syncBtn' href="javascript:void(0)" >更新数据</a>
+            <a class="tmbtn red-short-btn"  id="logout" href="javascript:void(0);">退出</a>
+        </p>
+
+    </div>
+</div>
+
+<div class="navbar navbar-inverse nav-head " style="position: relative;">
+	<div class="navbar-inner">
+		<div class="container" style="width: 1060px;">
+
+			<div class="nav-collapse collapse">
+				<ul class="nav head">
+					<li><a href="/home/newTbtIndex?isFirst=false">首页</a></li>
+				</ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/Sales/index" class="dropdown-toggle" data-toggle="dropdown">促销中心<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Sales/index">包邮打折</a></li>
+                            <li><a href="/associate/associate">关联模板</a></li>
+                            <li><a href="/group/groupall">团购模板</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            *{<ul class="nav head">}*
+                    *{<li><a href="/tzgumpactivity/index">促销活动</a></li>}*
+                *{</ul>}*
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/home/commodityDiag" class="dropdown-toggle" data-toggle="dropdown">站内引流 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home/commodityDiag">标题优化</a></li>
+                            <li><a href="/kits/delistPlans">智能上架</a></li>
+                            <li><a href="/kits/window">智能橱窗</a></li>
+                            <li><a href="/home/instantsearch">查排名</a></li>
+                            <!-- <li><a href="/CatAnalysis/catPayHour">买家什么时候来</a></li> -->
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/Diag/shopViewTrade" class="dropdown-toggle" data-toggle="dropdown">数据中心
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Diag/shopViewTrade">店铺数据分析</a></li>
+                            <li><a href="/Diag/commodityDiag">宝贝数据分析<span style="color: red;">&nbsp;(热)</span></a></li>
+                            <!-- <li><a href="/TradeQuery/hotsales">行业爆款<span style="color:red">(新)</span> </a></li> -->
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/kits/comment" class="dropdown-toggle" data-toggle="dropdown">批量中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/kits/comment">评价管理</a></li>
+                            <li><a href="/home/multiModify">批量管理</a></li>
+                            <li><a href="/kits/itemCarrier">淘宝天猫复制</a></li>
+                            <li><a href="/kits/alibabaCarrier">1688复制<span style="color:red">(新)</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--<ul class="nav">-->
+                    <!--<li class="dropdown">-->
+                        <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">模板中心 <b class="caret"></b></a>-->
+                        <!--<ul class="dropdown-menu">-->
+                            <!--<li><a href="/associate/associate">关联模板</a></li>-->
+                            <!--<li><a href="javascript:void(0);">超级团购</a></li>-->
+                            <!--<li><a href="javascript:void(0);">活动海报</a></li>-->
+                            <!--<li><a href="javascript:void(0);">客服模板</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="/home/bussearchkey" class="dropdown-toggle" data-toggle="dropdown">词库中心<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home/mywords">收藏夹</a></li>
+                            <li><a href="/home/bussearchkey">各种词库</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+                *{<ul class="nav hidden">}*
+                    *{<li class="dropdown">}*
+                     *{<a href="" class="dropdown-toggle" data-toggle="dropdown">数据化开车<b class="caret"></b></a>}*
+                     *{<ul class="dropdown-menu">}*
+                       *{<li><a href="/buscampaign/index">直通车报表</a></li>}*
+                       *{<li><a href="/buscampaign/busprekey">直通车选词</a></li>}*
+                     *{</ul>}*
+                   *{</li>}*
+                *{</ul>}*
+
+				*{<ul class="nav">}*
+					*{<li class="dropdown">}*
+		             *{<a href="" class="dropdown-toggle" data-toggle="dropdown">活动中心 <b class="caret"></b></a>}*
+		             *{<ul class="dropdown-menu">}*
+		               *{<li><a target="_blank" href="/taozhanggui/lottery">转盘抽奖</a></li>}*
+		               *{<li><a href="/taozhanggui/award">好评有礼</a></li>}*
+		               *{<li><a href="/taozhanggui/invite">一起赚钱</a></li>}*
+		             *{</ul>}*
+		           *{</li>}*
+				*{</ul>}*
+                *{<ul class="nav guanlianceshi" style="display: none;">}*
+                    *{<li class="dropdown">}*
+                        *{<a href="" class="dropdown-toggle" data-toggle="dropdown">描述模板 <b class="caret"></b></a>}*
+                        *{<ul class="dropdown-menu">}*
+                            *{<li><a href="/home/auto_relation">自动关联</a></li>}*
+                            *{<li><a href="/home/waterMarker">宝贝水印</a></li>}*
+                        *{</ul>}*
+                    *{</li>}*
+                *{</ul>}*
+                *{<ul class="nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle xufei-center" data-toggle="dropdown">续费中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="height: 35px;">
+                            <li style="width: 470px;display: none;" class="zhizunban-xufei">
+                                <span style="color: red;font-weight: bold;margin-left: 10px;">至尊版</span>
+                                <a target="_blank" href="http://to.taobao.com/FV9tzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">8元一月</span></a>
+                                <a target="_blank" href="http://to.taobao.com/nIbfzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">21一季</span></a>
+                                <a target="_blank" href="http://to.taobao.com/uRbfzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">39半年</span></a>
+                                <a target="_blank" href="http://to.taobao.com/1Abfzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">69一年</span></a>
+                            </li>
+                            <li style="width: 470px;display: none;" class="peixunban-xufei">
+                                <span style="color: red;font-weight: bold;margin-left: 10px;">培训版</span>
+                                <a target="_blank" href="http://to.taobao.com/ihCDzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">20一月</span></a>
+                                <a target="_blank" href="http://to.taobao.com/rjBDzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">39一季</span></a>
+                                <a target="_blank" href="http://to.taobao.com/ZJ2Pzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">59半年</span></a>
+                                <a target="_blank" href="http://to.taobao.com/vwADzgy" style="display: inline-block;*display: inline;zoom:1;padding: 3px 10px;"><span class="btn xufei-btn" style="margin-top: 0px;">79一年</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>}*
+                <ul class="nav head">
+                    <li><a href="/home/classes">培训中心</a></li>
+                </ul>
+                *{<ul class="nav head tzg-auto-relation" style="display: none;">}*
+                    *{<li><a href="/home/auto_relation">描述模板}*
+                    *{<!-- <span style="color: red;">(新)</span> -->}*
+                    *{</a></li>}*
+                *{</ul>}*
+			</div>
+		</div>
+	</div>
+</div>
+*{<a target="_blank" href="http://to.taobao.com/sBgUIgy">
+    <div class="taozhanggui-top-image" style="width: 1024px;height: 100px;background: url(http://img03.taobaocdn.com/imgextra/i3/22902351/T2qTNpXA8aXXXXXXXX_!!22902351.gif);margin: 0 auto;">
+    </div>
+</a>}*
+*{<div class="slideBox" id="lunbo-area" style="margin: 0 auto;display: none;">
+    <ul class="items">
+        <li><a target="_blank" href="http://to.taobao.com/sBgUIgy" title="半年特价"><img
+                style="width: 1024px;height: 100px;"
+                src="http://img03.taobaocdn.com/imgextra/i3/22902351/T2qTNpXA8aXXXXXXXX_!!22902351.gif"></a>
+        </li>
+        <li><a target="_blank" href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.23.N7MaCf&service_code=ts-12990&tracelog=taozhanggui" title="批量打印"><img
+                style="width: 1024px;height: 100px;"
+                src="http://img04.taobaocdn.com/imgextra/i4/384652432/T27ihUXCBaXXXXXXXX-384652432.gif"></a>
+        </li>
+    </ul>
+</div>}*
+<style>
+
+</style>
+<div id="meal3" class="meal" style="display:none;">
+    <div>
+        <div style="text-align: center;font-weight:bold;;color:red;font-size:24px;">现在续费,只要3元/月！</div>
+        <table>
+            <tr class="meta-price">
+                <td style="width:70px;">原价组合</td>
+                <td style="width:800px" ><span style="font-size:16px;" data-bind="" class="price invalid">10 - 360</span></td>
+            </tr>
+            <tr class="meta-price">
+                <td>套餐价</td>
+                <td><span style="font-size:20px;" data-bind="" class="">9-108</span></td>
+            </tr>
+            <tr class="mealitems">
+                <td>套餐价</td>
+                <td>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="mealitem mealselected" itemId="285831">
+                    <span >
+                        <img class="mealitemimg" src="http://img01.taobaocdn.com/top/i1/T10jtLFathXXaCwpjX.png">
+                        <div class="mealitemdetail">
+                            <p>
+                                <span class="mealitemhead">淘掌柜_全店一键引流</span>
+                            </p>
+                            <p>
+                            <div title="4.8" class="ui-no-rate">评分:&nbsp;&nbsp;&nbsp;<i style=""></i></div></p>
+                            <p>
+                                原&nbsp;&nbsp;价:&nbsp;10.0元/月
+                            </p>
+                            <p>
+                                套餐价:&nbsp;<b style="color:#f80">3.0</b> 元/月
+                            </p>
+                        </div>
+                    </span>
+                            </td>
+                            <td class="mealitem" itemId="2971">
+
+                    <span >
+                        <img class="mealitemimg" src="http://img01.taobaocdn.com/top/i1/T19YGiFdFhXXaCwpjX.png">
+                        <div class="mealitemdetail">
+                            <p>
+                                <span class="mealitemhead">促销打折_活动必备</span>
+                            </p>
+                            <p>
+                            <div title="4.8" class="ui-no-rate">评分:&nbsp;&nbsp;&nbsp;<i style=""></i></div></p>
+                            <p>
+                                原&nbsp;&nbsp;价:&nbsp;10.0元/月
+                            </p>
+                            <p>
+                                套餐价:&nbsp;<b style="color:#f80">3.0</b> 元/月
+                            </p>
+                        </div>
+                    </span>
+                            </td>
+                            <td class="mealitem" itemId="335746">
+                                      <span >
+                        <img class="mealitemimg" src="http://img01.taobaocdn.com/top/i1/T1x0GZXCxaXXaCwpjX.png">
+                        <div class="mealitemdetail">
+                            <p>
+                                <span class="mealitemhead">中差评修改防御神器</span>
+                            </p>
+                            <p>
+                            <div title="4.8" class="ui-no-rate">评分:&nbsp;&nbsp;&nbsp;<i style=""></i></div></p>
+                            <p>
+                                原&nbsp;&nbsp;价:&nbsp;10.0元/月
+                            </p>
+                            <p>
+                                套餐价:&nbsp;<b style="color:#f80">3.0</b> 元/月
+                            </p>
+                        </div>
+                    </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </td>
+            </tr>
+            <tr class="durations" style="height:50px;">
+                <td>套餐组合</td>
+                <td>
+                    <span value="1" class="duration mealselected">一个月</span>
+                    <span value="3" class="duration">三个月</span>
+                    <span value="6" class="duration">半年</span>
+                    <span value="12" class="duration">一年(<b style="color:red;font-size:16px;">热门</b>)</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" >
+                    <div style="position: relative;">
+                    <a style="margin-left:85px;" class="btn-ordernow" href="#"></a>
+                    <span style="position: absolute;top:3px;left:230px;">
+                        <span>应付金额:&nbsp;&nbsp;</span><span class="payment">3</span>&nbsp;&nbsp;元
+                        <br>
+                        <span>该套餐必须购买 1个及以上服务</span>
+                    </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- <div class='top-banner' style="background: url('/img/frame/header-bg.png');height: 48px; "> -->
+<!-- <div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; "> -->
+
+<div class="clear"></div>
+<!--<div id="help">
+        *{<li class="aside-hot-tag ">
+                <a class="clearfix" href="/KeyWords/toSerchKeyWords">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+                <span class="fold-icon fold"></span>
+            </li>}*
+
+
+        </ul>
+</div>-->
+<div id="yangyangContent" style="min-width:1024px;width:100%">
+#{doLayout /}
+</div>
+
+*{<table class="nav-table" style="width: 100%;">}*
+*{<tbody>}*
+*{<tr>}*
+*{<td class="nav-table-left-td" >}*
+    *{</td><td style="" class="nav-table-right-td">}*
+    *{<div class="main">}*
+    *{</div>}*
+*{</td></tr></tbody>}*
+*{</table>}*
+
+
+
+<div id="J_BackTop" class="taozhanggui-feedback-img" style="right: 90px;">
+    <a href="javascript:void(0)" class="to-top-link" id="J_BackTopBtn" style="display: none;"></a>
+    <a href="javascript:void(0)" class="suggest-link"></a>
+</div>
+*{<div id="right-award" class="hidden">
+</div>}*
+
+<script type="text/javascript">
+/*    TM.gcs("/js/lunbo/jquery.slideBox.min.js",function(){
+        $('#lunbo-area').slideBox({hideBottomBar:true});
+        $('#lunbo-area').show();
+    });*/
+    // set #J_BackTop absolute position
+    $('#J_BackTop').css('right',(($(window).width()-1000)/2 - 95)+'px');
+    $(window).resize(function(){
+        $('#J_BackTop').css('right',(($(window).width()-1000)/2 - 95)+'px');
+    });
+    // set #right-award absolute position
+    $('#right-award').css('right',(($(window).width()-1000)/2 - 120)+'px');
+    $(window).resize(function(){
+        $('#right-award').css('right',(($(window).width()-1000)/2 - 120)+'px');
+    });
+    $('#right-award').click(function(){
+        // 这是原始3元弹窗，图片形式
+        /*var link = "http://fuwu.taobao.com/ser/plan/planSubDetail.htm?planId=12651&isHidden=true&cycle=1&itemIds=285831";
+        var left = ($(document).width() - 500)/2;
+        var top = 130;
+        var html = '<table class="three-yuan-xufei-img-dialog" style="position: absolute;z-index: 19000;width: 500px;height: 330px;background: url(http://img04.taobaocdn.com/imgextra/i4/1132351118/T2cB4hXrlaXXXXXXXX_!!1132351118.gif)"><tbody>' +
+                '<tr style="height: 40px;"><td style="width: 460px;"></td><td style="width: 40px;"><span class="inlineblock close-three-yuan-dialog" style="width: 40px;height: 40px;position: absolute;top:0px;right: 0px;z-index: 19100;"></td></tr>' +
+                '<tr style="height: 290px;"><td style="width: 460px;vertical-align: top;"><a class="inlineblock" style="position: absolute;width: 460px;height: 290px;" target="_blank" href="'+link+'"></a></td><td style="width: 40px;"></td></tr>'+
+                '</tbody></table>';
+        $('.three-yuan-xufei-img-dialog').remove();
+        var three_yuan = $(html);
+        if($.browser.msie) {
+            three_yuan.find('.close-five-yuan-dialog').css('filter',"alpha(opacity=10)");
+            three_yuan.find('.close-five-yuan-dialog').css('background-color',"#D53A04");
+        }
+        three_yuan.css('top',top+"px");
+        three_yuan.css('left',left+"px");
+        three_yuan.find('.close-three-yuan-dialog').click(function(){
+            three_yuan.remove();
+            $('body').unmask();
+        });
+        three_yuan.appendTo($('body'));
+        $('body').mask();*/
+
+        // 现在使用新版的3元弹窗，可选套餐
+        TM.loadMeal();
+    });
+    $('.three-yuan-tanchuang-left-li').click(function(){
+        TM.loadMeal();
+    });
+    // taozhanggui feedback
+    $('.taozhanggui-feedback-img').click(function(){
+        var html = '<div>';
+        html += '<p style="text-align: center;">亲，欢迎您给淘掌柜提宝贵的意见</p>';
+        html += '<textarea class="taozhanggui-feedback-content">如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果</textarea>';
+        html += '</div>';
+        var feedbakc_obj = $(html);
+        feedbakc_obj.find('.taozhanggui-feedback-content').click(function(){
+            if($(this).val() == "如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果"){
+                $(this).val('');
+            }
+        });
+        TM.Alert.loadDetail(feedbakc_obj, 600, 400, function(){
+            if(feedbakc_obj.find('.taozhanggui-feedback-content').val() == "如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果"
+                    || feedbakc_obj.find('.taozhanggui-feedback-content').val() == ""){
+                TM.Alert.load("亲还没有输入您的意见哦", 400, 300, null, false, "提示", 5000);
+                return false;
+            }
+            $.post('/op/commitTaozhangguiFeedBack',{feed:feedbakc_obj.find('.taozhanggui-feedback-content').val()},function(data){
+                TM.Alert.load(data);
+            });
+        },"意见反馈");
+    });
+    $('.badcomment-img').click(function(){
+        var html = '<div>';
+        html += '<p style="text-align: center;padding:20px 0;">亲，如果您需要处理中差评，请留下您的QQ号码<br>我们会有客服联系你哦~~O(∩_∩)O~~~</p>';
+        html += '<table style="margin:0 auto;padding:10px;"><tr><td style="text-align: right;">您的QQ号码：</td><td><input type="text" id="seller-qq" value="" /></td></tr>';
+        //html += '<tr><td>您的店铺地址：</td><td><input type="text" id="seller-shop-addr" value="" /></td></tr></table>';
+        html += '</table></div>';
+        var feedbakc_obj = $(html);
+        TM.Alert.loadDetail(feedbakc_obj, 500, 300, function(){
+            if(feedbakc_obj.find('#seller-qq').val().length < 5){
+                TM.Alert.load("亲，请核对填写的QQ号码！", 300, 200, null, false, "提示", 5000);
+                return false;
+            }
+
+            $.post('/op/fillQQ',{qq:feedbakc_obj.find('#seller-qq').val()},function(data){
+                TM.Alert.load(data);
+            });
+        },"");
+    });
+
+    setInterval(function(){
+        $('#xufei-now').toggleClass("toggle-color");
+    }, 500)
+
+    TM.gcs('/status/js',function(){
+        var orderAnchor = $('#orderpage');
+        if(TM.ver >= 20){
+            orderAnchor.parent().hide();
+        }else if(TM.ver >= 10){
+            orderAnchor.attr('href','/home/buyzhizun');
+        }else{
+            orderAnchor.attr('href','/home/buyVersion');
+        }
+        if(TM.ver < 20){
+            $('.xufei-center').html('升级中心 <b class="caret"></b>');
+            $('.zhizunban-xufei').show();
+        } else if(TM.ver < 30){
+            $('.zhizunban-xufei').show();
+        } else {
+            $('.peixunban-xufei').show();
+        }
+
+        *{TM.isOp = true");}*
+        var target = "left1";
+        $.get('/op/adbanner',{name:target},function(r){
+
+
+            if(!r || !r.enable){
+                return;
+            }
+
+            var div = $('#'+target);
+            div.html('<a href="'+r.href+'" style="'+r.anchorStyle+'" target="_blank"><img src="'+r.imgPath+'" style="'+r.imgStyle+'"></a>');
+            div.show();
+        })
+
+    });
+
+    setInterval(function(){
+        $('.autotitle-recommend').toggleClass("red");
+    }, 200);
+
+    var path = document.location.pathname.toLowerCase();
+    var head = $('.head');
+    head.find('a').each(function(){
+        var anchor = $(this);
+
+        if(anchor.attr('href').toLowerCase().indexOf(path) >= 0 && path.length > 2){
+
+            $('.head').find('li.selected').removeClass('selected');
+            anchor.parent().addClass('selected');
+
+//            hasPath = true;
+        }
+    });
+
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面~</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+
+    TM.gcs('/js/tm.js',function(){
+        TM.widget.buildLeft150Nav();
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+    });
+
+    TM.gcs('/status/user',function(){
+        //if(TM.lastUpdateTime > 1371988495000) {
+            $('.real-time-monitor').hide();
+        //}
+        if(TM.version < 20){
+            // 体验版和优化版
+            $('.depend-on-version').html("升级半年至尊版");
+            $('.tiyan-version-li').show();
+
+        } else if(TM.version < 40){
+            // 至尊版
+        } else {
+            // 培训版
+            $('.depend-on-version').parent().parent().attr('href','http://to.taobao.com/ZJ2Pzgy');
+            $('.depend-on-version').parent().find('span').eq(0).html("猛击59");
+        }
+    });
+
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/in/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    $.cookie('_s',null);
+                    $.cookie('_n',null);
+                    $.cookie('_eu',null);
+                    $.cookie('_v',null);
+                    $.cookie('no',null);
+
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+    $('.itools').click(function(){
+    	if($('.itools-detail').attr('unfold') == undefined || $('.itools-detail').attr('unfold') == '') {
+	    	$('.itools-detail').attr('unfold', 'fold');
+    		$(".itools-detail").show();
+    		$(".itools").addClass('asideselected');
+    	} else {
+    		$('.itools-detail').attr('unfold', '');
+    		$(".itools-detail").hide();
+    	}
+
+    });
+    $('.fold-icon').click(function(){
+//        if($('.unfold').length == 1 && $(this).hasClass('unfold')){
+//
+//        } else {
+//            $('.unfold').addClass('fold');
+//            $('.unfold').parent().find('.secondUl').hide();
+//            $('.unfold').removeClass('unfold');
+//        }
+        var t = 500;
+        if($(this).hasClass("fold")) {
+            $(this).removeClass("fold");
+            $(this).addClass("unfold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideDown(t);
+            }
+        } else if($(this).hasClass("unfold")) {
+            $(this).removeClass("unfold");
+            $(this).addClass("fold");
+            if($(this).parent().find('.secondUl').length > 0) {
+                $(this).parent().find('.secondUl').slideUp(t);
+            }
+        }
+    });
+    $('.fold-icon').each(function(){
+        if($(this).parent().find('.secondUl').length == 0){
+        }
+    });
+    $('.navContent').find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.navContent').find('div.navSelected').removeClass("navSelected");
+            anchor.parent().addClass("navSelected");
+            if(path.indexOf("/kits/") >= 0){
+                anchor.parent().parent().slideDown(500);
+            }
+        }
+    });
+    var aside = $('.aside');
+    aside.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            $('.aside').find('a.asideselected').removeClass('asideselected');
+            anchor.addClass('asideselected');
+        }
+    });
+    var random = (new Date().getTime()) % 2;
+    if(random == 0) {
+        $('.QQDependOnUserLevel').text(344397901);
+    } else {
+        $('.QQDependOnUserLevel').text(338366020);
+    }
+    TM.gcs('/status/js',function(){
+        //var welcome = $("<div style='position:absolute;left:460px;top:26px;color:white;font-size:17px;'><b>淘掌柜</b>&nbsp;&nbsp;欢迎您,&nbsp;&nbsp;<b>"+TM.name+"</b></div>");
+        //$('.top-nav').append(welcome);
+        if(TM.name) {
+            var nick =  TM.name;
+   			$(".userheadop").text(TM.name);
+   			$(".userheadop").show();
+//            if(nick.indexOf("测试") >= 0 || nick.indexOf("淘宝")>=0 || nick.indexOf("开放平台")>=0 || nick.indexOf("support")>=0|| nick.indexOf("包u吧 ")>=0|| nick.indexOf("包邮吧")>=0|| nick.indexOf("楚之小南")>=0){
+//                $('.guanlianceshi').show();
+//            }
+   		}
+
+        if(parseInt(TM.ver) >= 30) {
+            $('.QQDependOnUserLevel').text(245162747);
+        }
+        TM.setAnchorSids();
+    });
+
+    var hideNav = 'true'== '${session.get("_hidenav")}'
+    if(!hideNav){
+        $('#opnav').show();
+    }
+
+    $(document).ready(function(){
+        //$('#footer-content').find('p').hide();
+        $('#kefuhref').attr('href','http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8');
+        $('.kefu-link').attr('href','http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8');
+
+        $('.dropdown').live('mouseenter',function(){
+        	$(this).addClass('open');
+        }).live('mouseleave',function(){
+        	$(this).removeClass('open');
+        });
+        setInterval(function(){
+            $('.last-ten-day').toggleClass('red')
+        },200);
+    })
+
+    if(!TM.util.isNotTaobaoCeshi()) {
+        $('.tzg-auto-relation').show();
+    }
+
+    $(".put-mobile").click(function(){
+		var dialogObj = $(".dialog-div");
+
+		if (dialogObj.length == 0) {
+			var html = '' +
+            '<div class="dialog-div" style="background:#fff;">' +
+            '   <table style="margin: 0 auto; margin-top: 20px;">' +
+            '       <tbody>' +
+            '       <tr>' +
+            '           <td style="height:40px;">手机号码：</td>' +
+            '           <td><input type="text" class="warn-telephone-text" style="width: 200px;"/><span style="color:red" id="put-mobile-alert"></span></td>' +
+            '       </tr>' +
+            '       <tr>' +
+            '           <td>备注(可不填)：</td>' +
+            '           <td><input type="text" class="warn-remark-text"  style="width: 200px;"/> </td>' +
+            '       </tr>' +
+            '       </tbody>' +
+            '   </table>' +
+            '</div> ' +
+            '';
+
+	        dialogObj = $(html);
+	        $("body").append(dialogObj);
+
+	        dialogObj.dialog({
+	            modal: true,
+	            bgiframe: true,
+	            height:280,
+	            width:480,
+	            title: "设置消息提醒手机号码",
+	            autoOpen: false,
+	            resizable: false,
+	            buttons:{'确认提交':function() {
+	                var telephone = $(".warn-telephone-text").val();
+	                if (telephone.length != 11){
+	                	$("#put-mobile-alert").text("请检查为11位手机号");
+	                	return;
+	                } else {
+	                	$("#put-mobile-alert").text("");
+	                }
+	                var remark = $(".warn-remark-text").val();
+	                $.post("/SkinComment/addOrModifyWarn", {telephone:telephone, remark:remark}, function(data){refreshMobile();});
+	                $(this).dialog('close');
+	            },'取消':function(){
+	                $(this).dialog('close');
+	            }}
+	        });
+	    }
+	    dialogObj.dialog('open');
+	    return false;
+	});
+
+	function refreshMobile() {
+		$.get("/skincomment/queryDefenseWarns", function(data){
+			var mobiles = $(".show-mobile");
+	        mobiles.html("");
+			$(data.res).each(function(index, one) {
+				mobiles.append('<li><div class="wrapper"><a class="clearfix"><span class="inlineblock" style="width:70%">'+one.telephone+'</span><span class="close-icon" tag="'+one.id+'"></span></a></div></li>');
+			});
+			$(".close-icon").click(function(){
+				var warnId = $(this).attr('tag');
+				$.post("/SkinComment/deleteWarn", {warnId:warnId}, function(data){refreshMobile();});
+			});
+		});
+	}
+
+
+
+	refreshMobile();
+
+    TM.loadMeal = function(){
+        //http://fuwu.taobao.com/ser/plan/planSubDetail.htm?planId=12651&isHidden=true&cycle=1&itemIds=285831
+        var meal = $('#meal3');
+        var currDuration = null;
+        var payment = meal.find('.payment');
+        var recomputePrice= function(){
+            var price = meal.find('.durations').find(".mealselected").attr('value')* meal.find('.mealitems .mealselected').length  * 3;
+            payment.html(price);
+        }
+
+        meal.find('.durations').find('.duration').click(function(){
+            var clicked = $(this);
+            $('.durations').find('.mealselected').removeClass('mealselected');
+            clicked.addClass('mealselected');
+            recomputePrice();
+        });
+
+        meal.find('.mealitems').find('.mealitem').click(function(){
+            var clicked = $(this);
+            if(clicked.hasClass('mealselected')){
+                clicked.removeClass('mealselected');
+            }else{
+                clicked.addClass('mealselected');
+            }
+            recomputePrice();
+        });
+        meal.find('.btn-ordernow').click(function(){
+            var itemIds = [];
+            meal.find('.mealitems .mealselected').each(function(i, elem){
+                itemIds.push($(this).attr('itemId'));
+            });
+            if(itemIds.length == 0){
+                alert('亲,请至少选择一个服务哟');
+                return;
+            }
+            var cycle =     meal.find('.durations').find(".mealselected").attr('value');
+            var href = "http://fuwu.taobao.com/ser/plan/planSubDetail.htm?planId=12651&isHidden=true&cycle="
+                    +cycle+"&itemIds="+itemIds.join("%2C");
+            window.open(href);
+        });
+
+
+        meal.dialog({
+            modal: true,
+            bgiframe: true,
+            height:480,
+            width:980,
+            title: "套餐订购",
+            autoOpen: false,
+            resizable: false,
+            zIndex: 6003,
+            buttons:{'关闭':function(){
+                $(this).dialog('close');
+            }}
+        });
+        meal.dialog('open');
+    }
+
+
+
+</script>
+<script type="text/javascript" src="http://a.tbcdn.cn/apps/isvportal/securesdk/securesdk.js" id="J_secure_sdk_script" data-appkey="21255586"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f2c6f9dd92929062ea90b19d0b688ea' type='text/javascript'%3E%3C/script%3E"));
+</script>
+

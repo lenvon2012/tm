@@ -1,0 +1,159 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavump.html' /}
+#{set title:'促销活动管理' /}
+
+<style type="text/css">
+
+    .activity-list-container {
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+
+    .activity-type-tab span {
+        height: 35px; line-height: 35px; padding: 5px 10px;
+    }
+
+    .activity-type-tab span a {
+        font-size: 14px;
+    }
+
+    .red-bold-link {
+        font-weight: bold; color: #a10000; cursor: pointer;
+    }
+
+    .activity-table tbody td {
+        padding: 8px 10px;
+    }
+
+</style>
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>促销活动管理
+</div>
+
+
+<div class="activity-list-container" style="padding: 20px 20px 100px 20px">
+
+    <div class="clearfix kitNav" style="">
+        <table style="border-collapse: collapse;width: 100%;">
+            <tbody>
+            <tr>
+                <td style="vertical-align: bottom;width: 50%;">
+                    <div class="tmNav activity-type-tab" style="">
+                        <span class="activity-tab-btn selected" tag="Active"><a>进行中的活动</a></span>
+                        <span class="activity-tab-btn" tag="UnActive"><a>已结束的活动</a></span>
+                    </div>
+                </td>
+                <td style="width: 50%; text-align: right; padding-right: 200px;">
+                    <span class="tmbtn long-green-btn create-activity-btn" style="font-weight: bold;font-size: 16px;">创建促销活动</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div style="text-align: center; padding-top: 20px;">
+        <div class="active-activity-div">
+            <table class="activity-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 15%;">活动标签</td>
+                    <td style="width: 20%;">活动描述</td>
+                    <td style="width: 15%;">开始时间</td>
+                    <td style="width: 15%;">结束时间</td>
+                    <td style="width: 35%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="activity-tbody">
+                <tr class="no-activity-tr" style="display: none;">
+                    <td colspan="5" style="padding: 20px 0px; font-size: 16px;">
+                        您尚未创建促销活动，请&nbsp;<span class="red-bold-link create-activity-btn">点击这里立即创建</span>&nbsp;吧
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="unactive-activity-div" style="display: none;">
+            <table class="activity-table list-table">
+                <thead>
+                <tr>
+                    <td style="width: 15%;">活动标签</td>
+                    <td style="width: 20%;">活动描述</td>
+                    <td style="width: 15%;">开始时间</td>
+                    <td style="width: 15%;">结束时间</td>
+                    <td style="width: 35%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="activity-tbody">
+                <tr class="no-activity-tr" style="display: none;">
+                    <td colspan="5" style="padding: 20px 0px; font-size: 16px;">
+                        当前您没有已结束的活动！
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+
+
+<script type="text/x-jquery-tmpl" id="activeActivityRow">
+
+    <tr class="activity-row" activityId="{{= id}}">
+        <td>{{= activityTitle}}</td>
+        <td>{{= activityDescription}}</td>
+        <td>
+            <p>{{= activityStartTimeString}}</p>
+        </td>
+        <td>
+            <p>{{= activityEndTimeString}}</p>
+        </td>
+        <td>
+            *{<span class="tmbtn short-green-btn add-item-btn">添加宝贝</span>}*
+            <span class="tmbtn blue-btn modify-activity-btn" style="">修改活动</span>
+            <span class="tmbtn yellow-btn cancel-activity-btn" style="margin-left: 10px;">结束活动</span>
+        </td>
+    </tr>
+
+</script>
+
+<script type="text/x-jquery-tmpl" id="unActiveActivityRow">
+
+    <tr class="activity-row" activityId="{{= id}}">
+        <td>{{= activityTitle}}</td>
+        <td>{{= activityDescription}}</td>
+        <td>
+            <p>{{= activityStartTimeString}}</p>
+        </td>
+        <td>
+            <p>{{= activityEndTimeString}}</p>
+        </td>
+        <td>
+            <span class="tmbtn yellow-btn delete-activity-btn" style="">删除记录</span>
+        </td>
+    </tr>
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/tzgump/tzgumputil.js', function () {
+        TM.gcs('/js/tzgump/activityadmin.js', function () {
+            $(document).ready(function () {
+                TM.ActivityAdmin.init.doInit($(".activity-list-container"));
+            });
+        })
+    })
+</script>

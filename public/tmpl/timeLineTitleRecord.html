@@ -1,0 +1,30 @@
+<script type="text/x-jquery-tmpl" id="record">
+
+
+    <table cellpadding="0" cellspadding="0" class="noteTable" id="noteTable">
+            <thead id="noteThead">
+            <tr style="background: #0095b1; line-height:60px; vertical-align: middle; font-size: 14px ">
+            <td style="width: 13%; font-size: 14px">序号</td>
+    <td style="width: 30%; font-size: 14px">旧标题</td>
+    <td style="width: 27%; font-size: 14px">操作时间</td>
+    <td style="width: 30%; font-size: 14px">新标题</td>
+    </tr>
+
+    </thead>
+    <tbody id="noteTbody">
+    {{each(i,myitem) res}}
+    <tr>
+    <td >{{= i+1}}</td>
+    <td style="padding-left:20px; padding-right:20px;">{{= myitem.title}}</td>
+    <td>{{= myitem.lastOptimiseTs}}</td>
+    <td style="padding-left:20px; padding-right:20px;">{{= myitem.toBackTitle}}</td>
+
+    </tr>
+    {{/each}}
+
+
+    </tbody>
+    </table>
+
+
+</script>

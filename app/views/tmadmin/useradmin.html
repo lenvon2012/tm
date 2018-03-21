@@ -1,0 +1,113 @@
+#{extends 'tmadmin/adminbase.html' /}
+#{set title:'卖家信息' /}
+
+<style type="text/css">
+    .user-admin-wrapper {
+        font-family: "微软雅黑"; font-size: 14px; background: white;
+    }
+    .user-info-tip {
+        font-size: 20px; font-weight: bold;
+    }
+    .width950 {
+        width: 950px; margin: 0 auto;
+    }
+    .user-info-table {
+        border: 1px solid #999;border-collapse: collapse;
+    }
+    .user-info-table td {
+        border: 1px solid #999;
+    }
+    .user-info-table .attr-name-td {
+        background: #eee; text-align: right; padding: 10px 20px 10px 0px;
+    }
+    .user-info-table .attr-value-td {
+        text-align: left; padding: 10px 0px 10px 20px;
+    }
+</style>
+
+<div class="user-admin-wrapper" style="padding: 50px 0px;">
+
+    <div class="search-div" style="text-align: center;">
+        <table class="search-table" style="margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td style="padding-right: 10px;font-size: 18px;">卖家旺旺：</td>
+                <td style="padding-right: 10px;"><input type="text" class="search-input" style="width: 400px; padding-left: 5px;" /></td>
+                <td><span class="tmbtn big-blue-btn search-btn">立即搜索</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="user-info-div width950" style="padding-top: 20px; display: none;" >
+        <div class="user-info-tip">卖家信息：</div>
+        <table class="user-info-table" style="margin-top: 10px;width: 100%;">
+            <tbody>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">卖家ID：</td>
+                <td class="attr-value-td"><span class="user-id-span"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">卖家昵称：</td>
+                <td class="attr-value-td"><span class="user-nick-span"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">sessionKey：</td>
+                <td class="attr-value-td"><span class="session-key-span"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">refreshToken：</td>
+                <td class="attr-value-td"><span class="refresh-token"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">firstLoginTime：</td>
+                <td class="attr-value-td"><span class="first-login-time"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">lastUpdateTime：</td>
+                <td class="attr-value-td"><span class="last-update-time"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">version：</td>
+                <td class="attr-value-td"><span class="version-span"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">cid：</td>
+                <td class="attr-value-td"><span class="cid-span"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">level：</td>
+                <td class="attr-value-td"><span class="level-span"></span> </td>
+            </tr>
+            <tr>
+                <td class="attr-name-td" style="width: 30%;">type：</td>
+                <td class="attr-value-td"><span class="type-span"></span> </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="" style="margin-top: 20px;text-align: center; display: none;">
+            <span class="tmbtn long-flat-green-btn do-save-user-btn">修改用户</span>
+        </div>
+    </div>
+
+</div>
+
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        TM.gcs('/js/jquery.url.js',function(){
+            TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+                TM.gcs('/js/tm.js',function(){
+                    TM.gcs('/js/tmadmin/useradmin.js?_v=1',function(){
+                        TM.UserAdmin.init.doInit($(".user-admin-wrapper"));
+                    });
+                });
+
+            });
+        });
+    })
+</script>
+#{/set}

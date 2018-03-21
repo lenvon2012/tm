@@ -1,0 +1,105 @@
+#{extends 'jd/jdsubsms.html' /}
+#{set title:'手工短信记录' /}
+<style>
+    .jd-container{width: 100%;font-family: '微软雅黑'}
+    .container-tip{background: none repeat scroll 0 0 #F2F9FD;
+        border: 1px solid #CDE6FF;
+        color: #404040;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: normal;
+        margin: 5px;
+        padding: 8px;
+    }
+    .PageTitle {
+        color: #2E6CD2;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    DIV.listzone {
+        BORDER-RIGHT: #cde6ff 1px solid;
+        BORDER-TOP: #cde6ff 1px solid;
+        MARGIN: 5px;
+        BORDER-LEFT: #cde6ff 1px solid;
+        BORDER-BOTTOM: #cde6ff 1px solid;
+    }
+    .list {
+        FONT-SIZE: 12px;
+        BACKGROUND-COLOR: expression((this.sectionRowIndex%2==0) ? "#fbfbfb":"ffffff");
+    }
+    .Wdate {
+        border: #cde6ff 1px solid;
+        height: 20px;
+        background: #fff url(/img/jdserver/datePicker.gif) no-repeat right;
+    }
+    TD.biaoti {
+        BORDER-BOTTOM: #cde6ff 1px solid;
+        BACKGROUND-COLOR: #f2f9fd;
+        TEXT-DECORATION: none;
+    }
+</style>
+
+<div class="jd-container">
+    <div class="container-tip">
+        <div class="PageTitle">
+            手工发送短信
+        </div>
+        <div style="width: 80%;">
+            批量录入手机号码，发送短信。为了不影响买家休息，21点至早晨9点的短信都延迟到9点后发出。<a href="javascript:void(0)" target="_blank">[<font color="red">查看使用帮助</font>]</a>
+        </div>
+    </div>
+
+    <div class="tabbar">
+        <ul class="tab">
+            <li><a href="/jdserver/smsmanual">手工发送短信</a></li>
+            <li class="on"><a href="/jdserver/manualLog">查看发送记录</a></li>
+        </ul>
+    </div>
+
+    <div class="listzone">
+        <table cellspacing="0" cellpadding="3" width="100%" align="center" border="0">
+            <thead>
+            <tr style="height:40px;">
+                <td colspan="8">
+                    发送时间：<input name="txtLeftTime" type="text" id="txtLeftTime" class="Wdate">--<input name="txtRightTime" type="text" id="txtRightTime" class="Wdate">
+                    <input type="submit" name="search-log" value="查    询" id="search-log" class="button">
+                    <div style="color: red;margin: 5px 0 5px 0;">默认起始时间为当前时间前退7天.若查询截止时间为空，则默认为当前时间.</div>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr bgcolor="#FFFFFF" class="">
+                <td colspan="7" height="28" style="text-align: center;" class="sms-manual-log-paging">
+                </td>
+            </tr>
+            <tr class="list">
+
+                <td width="80px" height="28px" align="left" class="biaoti"><span class="searchzone">发送客户总数</span></td>
+                <td width="100px" align="center" class="biaoti"><span class="searchzone">发送成功客户数</span></td>
+                <td width="67px" align="center" class="biaoti"><span class="searchzone">发送短信量</span></td>
+                <td width="118px" align="center" class="biaoti"><span class="searchzone">发送时间</span></td>
+                <td width="232px" align="center" class="biaoti"><span class="searchzone">短信内容</span></td>
+                <td width="114px" align="center" class="biaoti"><span class="searchzone">任务状态</span></td>
+                <td width="115" align="center" class="biaoti"><span class="searchzone">操作</span></td>
+            </tr>
+
+            <tr bgcolor="#FFFFFF" class="">
+                <td colspan="7" height="28" style="text-align: center;" class="sms-manual-log-paging">
+                </td>
+            </tr>
+
+            </tbody></table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/ChineseDatePicker.js', function () {
+            TM.gcs('/js/jd/smsmanuallog.js', function () {
+                $(document).ready(function() {
+                    TM.JDSmsManualLog.Init.init();
+                });
+            });
+        });
+    });
+</script>

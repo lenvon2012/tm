@@ -1,0 +1,171 @@
+.out-wrapper{
+    margin: 10px 10px 10px 10px;
+}
+.distribution-area {
+    text-align: center;
+}
+.distribution-area .conclusion {
+    background: #ffd;
+    padding: 5px;
+    text-align: center;
+    font-family: '微软雅黑';
+    border-bottom: 1px solid #ccc;
+}
+.distribution-area .conclusion span.total, .distribution-area .conclusion span.already-alocated, .distribution-area .conclusion span.un-alocated {
+    font-weight: bold;
+    color: green;
+    padding-left: 10px;
+}
+.distribution-area .conclusion span.total-bottom, .distribution-area .conclusion span.already-alocated-bottom, .distribution-area .conclusion span.un-alocated-bottom {
+    font-weight: bold;
+    color: green;
+    padding-left: 10px;
+}
+.distribution-area .conclusion .already-alocated-bottom, .distribution-area .conclusion .un-alocated-bottom {
+    font-size: 20px;
+}
+.distribution-area .conclusion .already-alocated, .distribution-area .conclusion .un-alocated {
+    font-size: 20px;
+}
+#distributionTable {
+    font-family: verdana,arial,sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: '微软雅黑';
+}
+#distributionTable thead tr {
+    background: left -153px url('/img/frame/largebg.png');
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+#distributionTable thead th {
+    background: url(/img/th_line.gif) no-repeat right 50%;
+}
+.distributionTable {
+    width: 100%;
+}
+.distributionTable th {
+    padding: 10px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+    background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+    background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+}
+.distributionTable th, .distributionTable td {
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    line-height: 20px;
+}
+.distributionTable td{
+    height: 53px;
+}
+.distribution-area th span {
+    font-weight: normal;
+    color: #1C4ADB;
+    padding-left: 2px;
+    font-size: 16px;
+}
+td.ruleTd {
+    cursor: pointer;
+    position: relative;
+}
+input.num {
+    width: 50px;
+    border: 1px solid #dadada;
+    height: 20px;
+    background-color: #FFA;
+    text-align: center;
+}
+td.overOne {
+    background-color: #C6F2F6;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.add, .verticle-add {
+    width: 28px;
+    height: 28px;
+    background: url(/img/btns/plus_minus.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.minus, .verticle-minus {
+    width: 28px;
+    height: 28px;
+    background: url(/img/btns/plus_minus.png) no-repeat 0px -29px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.submit{
+    margin: 20px 0 20px 0;
+}
+.roll-back{
+    margin: 20px 15px 20px 80px;
+    _margin-left: 10px;
+}
+.clear-all{
+    margin: 20px 15px 20px 0;
+}
+.edit-plan{
+    margin: 20px 15px 20px 60px;
+}
+.addSingle{
+    width: 18px;
+    height: 18px;
+    background: url(/img/btns/plus_minus.png) no-repeat -32px 0;
+}
+.minusSingle{
+    width: 18px;
+    height: 18px;
+    background: url(/img/btns/plus_minus.png) no-repeat -32px -19px;
+}
+.weekday-index0{
+    background-color: #ffc;
+    border-left: 1px solid #ccc;
+}
+.first-row{
+
+}
+.weekday-index1{
+    border-left: 1px solid #ccc;
+}
+.weekday-index2{
+    background-color: #ffc;
+    border-left: 1px solid #ccc;
+}
+.weekday-index3{
+    border-left: 1px solid #ccc;
+}
+.weekday-index4{
+    background-color: #ffc;
+    border-left: 1px solid #ccc;
+}
+.weekday-index5{
+    border-left: 1px solid #ccc;
+}
+.weekday-index6{
+    background-color: #ffc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.oldnum{
+    width: 60px;
+    height: 20px;
+}
+#yangyangContent input[type="text"] {
+    padding: 0px;
+    margin: 0px;
+}
+#yangyangContent input[type="checkbox"] {
+    padding: 0px;
+    margin: 0px;
+}
+#yangyangContent input[type="radio"] {
+    padding: 0px;
+    margin: 0px;
+}

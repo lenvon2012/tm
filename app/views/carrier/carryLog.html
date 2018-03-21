@@ -1,0 +1,152 @@
+#{extends 'tbtnav/tbtnavitem.html' /}
+#{set title:'宝贝复制记录' /}
+
+<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://g.alicdn.com/sj/qnui/1.5.1/js/sui.min.js"></script>
+<link href="http://g.alicdn.com/sj/qnui/1.5.1/css/sui.min.css" rel="stylesheet">
+<link href="http://g.alicdn.com/sj/qnui/1.5.1/css/sui-append.min.css" rel="stylesheet">
+
+<style type="text/css">
+	.sui-table td {
+		font-size: 12px;
+		text-align: center;
+	}
+	
+	.carry_log_container input {
+		display: inline-block !important;
+		height: 18px !important;
+		padding: 2px 4px !important;
+		font-size: 12px !important;
+		line-height: 18px !important;
+		color: #555 !important;
+		-webkit-border-radius: 2px !important;
+		-moz-border-radius: 2px !important;
+		border-radius: 2px !important;
+		vertical-align: middle !important;
+		background-color: #fff !important;
+		border: 1px solid #ccc !important;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+		-webkit-transition: border linear .2s, box-shadow linear .2s !important;
+		-moz-transition: border linear .2s, box-shadow linear .2s !important;
+		-o-transition: border linear .2s, box-shadow linear .2s !important;
+		transition: border linear .2s, box-shadow linear .2s !important;
+		padding-top: 2px !important;
+		padding-bottom: 2px !important;
+	}
+	
+	.sui-form .caret {
+		border-top: 0 solid #000000;
+		border-right: 14px solid transparent !important;
+	}
+</style>
+
+<div class="carry_log_container" style="width: 98%; margin: 0 auto;">
+	<div style="height:35px; padding: 20px 0px 20px 0px; margin: 20px 0px 20px 0px; background:#f9f9f9; border:1px solid #ccc;">
+		<div class="header">
+			<div class="sui-form">
+				<span data-toggle="datepicker" data-date-timepicker="true" class="input-daterange" style="margin-left: 20px;">
+					时间选择：
+					<input type="text" class="input-default input-medium input-date start_time"><span> -- </span>
+					<input type="text" class="input-default input-medium input-date end_time">
+				</span>
+				
+				<span style="margin-left: 20px;">
+					原宝贝：
+					<input type="text" class="input-default search_input origin_item" placeholder="请输入原宝贝id或者链接">
+				</span>
+				
+				<span style="margin-left: 20px;">
+					复制结果：
+					<input type="text" class="input-default search_input result_msg" placeholder="请输入宝贝id或者错误信息">
+				</span>
+				
+				<span class="sui-dropdown dropdown-bordered select" style="margin-left: 20px;">
+					<span class="dropdown-inner">
+						<a role="button" data-toggle="dropdown" href="javascript:void(0);" class="dropdown-toggle">
+							<input value="-1" class="task_type_select" type="hidden"><i class="caret"></i><span>所有类型</span>
+						</a>
+						<ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="0">淘宝复制</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="2">天猫复制</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">1688复制</a></li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="-1">所有记录</a></li>
+						</ul>
+					</span>
+				</span>
+				
+				<span class="sui-dropdown dropdown-bordered select" style="margin-left: 20px;">
+					<span class="dropdown-inner">
+						<a role="button" data-toggle="dropdown" href="javascript:void(0);" class="dropdown-toggle">
+							<input value="-1" class="task_status_select" type="hidden"><i class="caret"></i><span>所有状态</span>
+						</a>
+						<ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="2">复制失败</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="0">等待复制 </a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">复制成功</a></li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="-1">所有状态</a></li>
+						</ul>
+					</span>
+				</span>
+				
+				<span style="margin-left: 20px;">
+					<button type="submit" class="sui-btn btn-primary to_search_btn">搜索</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<table class="carry_log_table sui-table table-bordered-simple">
+		<thead>
+			<tr>
+				<th class="center" width="10%;">目标宝贝</th>
+				<th class="center" width="20%;">宝贝标题</th>
+				<th class="center" width="10%;">任务类型</th>
+				<th class="center" width="30%;">复制结果</th>
+				<th class="center" width="10%;">创建时间</th>
+				<th class="center" width="10%;">操作</th>
+			</tr>
+		</thead>
+		<tbody class="carry_log_tbody">
+		
+		</tbody>
+	</table>
+	
+	<!-- 分页开始 -->
+	<div class="sui-pagination pagination-centered">
+		<ul>
+			<li class="prev disabled"><a href="#">«上一页</a></li>
+			<li class="next"><a href="#">下一页»</a></li>
+		</ul>
+		<div>
+			<span> 到 <input type="text" class="page-num">
+				<button class="page-confirm">确定</button> 页
+			</span>
+		</div>
+	</div>
+	<!-- 分页结束 -->
+</div>
+
+
+<script type="text/x-jquery-tmpl" id="logRow">
+	<tr>
+		<td>
+			<a href="{{if subTaskType == "1688复制"}}{{= url}}{{else}}http://item.taobao.com/item.htm?id={{= url}}{{/if}}" target="_blank" style="width: 60px; height: 60px;">
+				<img style="width: 60px; height: 60px; margin-right: 0px;" src="{{= imgStr}}"/>
+			</a>
+		</td>
+		<td>{{= babyTitle}}</td>
+		<td>{{= subTaskType}}</td>
+		<td>{{= errorMsg}}</td>
+		<td>{{= createTsStr}}</td>
+		<td>
+			<a href="javascript:;" id="{{= id}}" class="sui-btn btn-primary re_start_btn" {{if subTaskType == "1688复制"}}disabled{{/if}}>重新复制</a>
+		</td>
+	</tr>
+</script>
+
+<script type="text/javascript" src="/js/jquery.tmpl.js?_v=0" ></script>
+<script src="/js/carrier/carryLog.js?_v=0"></script>

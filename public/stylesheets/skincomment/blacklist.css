@@ -1,0 +1,75 @@
+.blacklist-container {
+    padding: 10px 0; border: 1px solid #999; font-family: "微软雅黑"; font-size: 14px; color: #333;min-height: 580px;_height:580px;background:white;
+}
+.blacklist-container .blacklist-tip-div {
+    color: #a10000; margin-bottom: 10px;
+}
+.blacklist-container .blacklist-op-div {
+    padding: 10px; border: 1px solid #999; margin-bottom: 10px; /*margin-top: 10px;*/
+}
+
+.blacklist-op-div tr{height: 30px;verticle-align:center;}
+.blacklist-container .explain-text {    width: 200px;}
+.blacklist-container .add-black-remark-text {    width: 200px;}
+.blacklist-container .search-text {
+    width: 200px;
+}
+.blacklist-container .blacklist-tab {
+    font-family: "微软雅黑"; font-size: 22px;
+}
+.blacklist-container .blacklist-table-div {
+    border: 1px solid #999; margin-top: 10px; padding: 10px;
+}
+.blacklist-container .paging-div {
+    text-align: center;
+}
+
+.blacklist-container .blacklist-check-span {
+    cursor: pointer;
+}
+.modify-remark-dialog {
+    font-family: "微软雅黑"; font-size: 14px; text-align: center; margin-top: 20px;
+}
+.modify-remark-dialog .new-remark-text {
+    width: 200px;
+}
+
+.good-rate {
+	width: 40px;
+	height: 20px;
+	background: url(/public/images/comments.gif) no-repeat -220px -100px
+}
+.netural-rate {
+	width: 40px;
+	height: 20px;
+	background: url(/public/images/comments.gif) no-repeat scroll -220px -240px;
+}
+.bad-rate {
+	width: 40px;
+	height: 20px;
+	background: url(/public/images/comments.gif) no-repeat scroll -220px -170px;
+}
+.rate-flower-img{width: 20px;height: 20px;}
+.buyer-good-rate{background: url(/img/comments.gif) no-repeat -239px -102px}
+.buyer-netural-rate{background: url(/img/comments.gif) no-repeat -239px -242px}
+.buyer-bad-rate{background: url(/img/comments.gif) no-repeat -239px -172px}
+
+.log-search-div{
+	text-align:center;
+}
+
+.log-table-div {
+	margin-top: 10px;
+	padding: 10px;
+}
+
+a:hover {
+    color: #CC0000;
+}
+
+.div-inline {
+    display: inline-block;
+    *display: inline;
+    position: relative;
+    *zoom: 1;
+}

@@ -1,0 +1,84 @@
+.shop-pc-online-info-table-div{
+    margin: 10px 0 25px 0;
+}
+.shop-pc-online-info-table{
+    text-align: center;
+    width: 100%;
+}
+.shop-pc-online-info-table td{
+    height: 60px;
+    vertical-align: middle;
+    padding-right: 3px;
+    padding-bottom: 3px;
+}
+.shop-pc-online-info-table tr.tr-head td{
+    background-color: #C6E5F3;
+}
+.shop-pc-online-info-table tr.tr-value td{
+    background-color: #F5F0EF;
+}
+.shop-pc-online-info-table tr.tr-head td:hover{
+    background-color: #AED6EB;
+}
+.shop-pc-online-info-table tr.tr-value td:hover{
+    background-color: #DFC4BA;
+}
+.shop-pc-online-info-table .key-value-tr td{
+    border: 2px solid #F8F8F8;
+    background-color: #F8F8F8;
+}
+.shop-pc-online-info-table .key-value-tr .IntTd{
+    width: 17%;
+}
+.shop-pc-online-info-table .key-value-tr .PercentTd{
+    width: 16%;
+}
+.shop-pc-online-info-table .key-value-tr .value{
+    font-size: 40px;
+    color: rgb(57, 141, 248);
+}
+.shop-pc-online-info-table .key-value-tr .key{
+    font-size: 14px;
+    color: grey;
+}
+.title-head {
+    width: 100%;
+    border-bottom: 2px solid #15a7dc;
+    height: 30px;
+    color: #15a7dc;
+    font-size: 21px;
+    font-family: "微软雅黑";
+    margin: 15px 0;
+}
+.ShopDiagnoseAreaTbodyTdText{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+    color: #000000;
+}
+.ShopDiagnoseArea table tbody td{
+    border: 1px solid #ccc;
+    width: 165px;
+}
+.ShopDiagnoseAreaTablePic {
+    margin-top:  8px;
+}
+.detailFun{
+    text-align: center;
+    margin: 10px 0;
+    color: grey;
+}
+.detailFun span{
+    font-size: 16px;
+    text-decoration: none;
+    color: grey;
+}
+.detailFunTR td{
+    vertical-align: top;
+}
+.cBlue{
+    color:#0000ff;
+}
+.t-center{
+    text-align: center;
+}

@@ -1,0 +1,74 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+<script src="/public/javascripts/Nepal/jquery-1.8.3.min.js"></script>
+<script>
+    var TM=TM||{};
+        TM.gcs("/public/javascripts/zhdatejs/jquery-ui-1.8.17.custom.min.js",function(){
+            TM.gcs("/public/javascripts/jquery.loadmask.min.js",function(){
+                TM.gcs("/public/javascripts/jquery.tmpl.js",function(){
+                    TM.gcs("/public/javascripts/utils/jquery.cookie.js",function(){
+                        TM.gcs("/public/javascripts/tm.js",function(){
+                            TM.gcs("/public/javascripts/newAutoTitle/allTitleRestore.js",function(){
+                                TM.gcs("/public/javascripts/newAutoTitle/titleRestoreCenter.js",function(){
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+
+</script>
+<div class="titleRestoreMain" id="titleRestoreMain">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/newAutoTitle/titleRestoreCenter.css"/>
+
+
+
+
+
+
+
+
+    <div class="backCenterMain">
+
+        <div class="backCenterNav">
+            <span class="backCenterSpan" id="backA2"style="border-bottom: 0px; border-top: 2px solid #0095B1;">全店标题还原</span>
+            <span class="backCenterSpan" id="backA1">单标题还原</span>
+
+            <span class="backCenterSpan" id="backA3" >按时间点标题还原</span>
+            <span class="NavSpan"></span>
+        </div>
+
+        <!-- 数据展示表格开始 -->
+
+
+        <div class="mainPanel" id="mainPanel">
+
+            <div class="myalert">
+            *{说明：本操作会将数据还原到指定时间之前的状态！}*
+
+                <span class="alertText">
+
+                </span>
+            </div>
+            <div id="holder"></div>
+            <div class="infoTable" id="infoTable">
+
+            </div>
+
+
+
+
+        </div>
+        <!-- 数据展示表格结束 -->
+        <!-- 占位符开始 -->
+        <div id="desk" class="desk">
+
+
+        </div>
+
+        <!-- 占位符结束 -->
+
+
+
+    </div>
+</div>

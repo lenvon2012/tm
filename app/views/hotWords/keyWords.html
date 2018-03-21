@@ -1,0 +1,90 @@
+#{extends 'main.html' /}
+#{set title:'海量词库' /}
+ <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/KeyWords.css'}">
+ <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/class.css'}">
+
+#{set 'moreScripts'}
+<script src="@{'/js/KeyWords/KeyWords.js'}" type="text/javascript" charset="utf-8"></script>
+#{/set}
+
+<div id="container">
+	<div id="top" style="margin-top: 30px;">
+		<span>请输入宝贝核心关键词:</span>
+		<input type="text" id="key">
+	</div>
+	<div id="searbutton" style="margin-top: 24px;"><a id="searchBtn" href="javascript:void(0)">获取相关关联词
+		</a><span id = "Warnings"></span></div>
+	<div id="result">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <td height="30" background="/public/images/tab/tab_05.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+		        <td width="12" height="30"><img src="/public/images/tab/tab_03.gif" width="12" height="30" /></td>
+		        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		          <tr>
+		            <td width="46%" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		              <tr>
+		                <td width="5%"><div align="center"><img src="/public/images/tab/tb.gif" width="16" height="16" /></div></td>
+		                <td width="95%" class="STYLE1"><span class="STYLE3">热词搜索</span> </td>
+		              </tr>
+		            </table></td>
+		          </tr>
+		        </table></td>
+		        <td width="16"><img src="/public/images/tab/tab_07.gif" width="16" height="30" /></td>
+		      </tr>
+		    </table></td>
+		  </tr>
+		  <tr>
+		    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+		        <td style="width:8px;" background="/public/images/tab/tab_12.gif">&nbsp;</td>
+		        <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"  onmouseout="changeback()" id="keywordsTable"></a>
+		         <thead>
+			          <tr>
+			            <td width="20%" background="/public/images/tab/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">关键词</span></div></td>
+			            <td width="12%" background="/public/images/tab/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">热销指数</span></div></td>
+			            <td width="14%" background="/public/images/tab/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">搜索指数</span></div></td>
+			            <td width="18%" background="/public/images/tab/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">竞争指数</span></div></td>
+			            <td width="15%" background="/public/images/tab/bg.gif" bgcolor="#FFFFFF" class="STYLE1"><div align="center">基本操作</div></td>
+			          </tr>
+		          </thead>
+		          <!-- 显示数据 -->
+		          <tbody >
+			          
+		          </tbody>
+		        </table></td>
+		        <!-- 分页操作 -->
+		        <td background="/public/images/tab/tab_15.gif">&nbsp;</td>
+		      </tr>
+		    </table></td>
+		  </tr>
+		  <tr>
+		    <td height="35" background="/public/images/tab/tab_19.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+		        <td width="12" height="35"><img src="/public/images/tab/tab_18.gif" width="12" height="35" /></td>
+		        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		          <tr>
+		            <td class="STYLE4">&nbsp;&nbsp;共有 <span id = "totalCount"></span> 条记录，当前第 <span id="nowPage">1</span>/<span id ="totalPage" ></span> 页</td>
+		            <td><table border="0" align="right" cellpadding="0" cellspacing="0">
+		                <tr>
+		                  <td width="40"><img id= "first" onclick= "javascript:firstPage()" src="/public/images/tab/first.gif" width="37" height="15" /></td>
+		                  <td width="45"><img id="before" onclick="javascript:forward()" src="/public/images/tab/back.gif" width="43" height="15" /></td>
+		                  <td width="45"><img id="after" onclick= "javascript:next()" src="/public/images/tab/next.gif" width="43" height="15" /></td>
+		                  <td width="40"><img id="last" onclick = "javascript:lastPage()"src="/public/images/tab/last.gif" width="37" height="15" /></td>
+		                  <td width="100"><div align="center"><span class="STYLE1">转到第
+		                    <input name="textfield" id = "toPage" type="text" size="4" style="height:12px; width:20px; border:1px solid #999999;" /> 
+		                    页 </span></div></td>
+		                  <td width="40"><img onclick="javascript:toPage()" src="/public/images/tab/go.gif" width="37" height="15" /></td>
+		                </tr>
+		            </table></td>
+		          </tr>
+		        </table></td>
+		        <td width="16"><img src="/public/images/tab/tab_20.gif" width="16" height="35" /></td>
+		      </tr>
+		    </table></td>
+		  </tr>
+		</table>
+	</div>
+	<div id="foot"></div>
+
+</div>

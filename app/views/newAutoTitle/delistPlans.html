@@ -1,0 +1,94 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:"计划列表" /}
+
+<style>
+    .simple-delist-btn{
+        margin-rignt:100px;
+    }
+
+    .graybtn{
+        width:82px;
+        height:30px;
+        font-size:14px;
+        line-height:30px;
+        display:inline-block;
+        font-family:'微软雅黑';
+        text-align:center;
+        vertical-align: middle;
+        cursor:pointer;
+        background-color: #ccc;
+        border:1px solid #ccc;
+        border-radius:5px;
+    }
+</style>
+
+<div style="min-height: 500px;margin-top:20px;">
+    <div class="delistCreate">
+        <div style="display:inline-block;margin-left:20px;font-size:20px;line-height:48px;">
+            <span><b>自动上下架</b></span>
+        </div>
+        <div style="text-align:right;display:inline-block;width:850px;">
+        <a href="javascript:void(0)" class="tmbtn too-long-blue-btn simple-delist-btn" style="font-weight:bold;">一键创建均匀上架计划</a>
+        <a href="/newAutoTitle/delistCreate" class="tmbtn too-long-blue-btn" style="font-weight:bold;">创建自定义上下架计划</a>
+        </div>
+    </div>
+
+    <div id="delistDiff" style="margin-top:60px;">
+
+    </div>
+
+    <div class="delistPlans" style="margin-top:60px;">
+        <table class="list-table">
+            <thead>
+            <tr>
+                <td style="width:20%;">计划名</td>
+                <td style="width:10%;">宝贝数</td>
+                <td style="width:15%;">创建时间</td>
+                <td style="width:10%;">状态</td>
+                <td style="width:45%;">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="planRowTmpl">
+    <tr status="{{= status}}" style="height:50px;">
+        <td>{{= title}}</td>
+        <td>{{= itemNums}}</td>
+        <td>{{= createTimeStr}}</td>
+        <td class="statusTxt">
+        <span style="color:green">运行中</span>
+        </td>
+        <td>
+            <span planId="{{= id}}"  class="tmbtn short-green-btn startBtn">开启</span>
+            <span planId="{{= id}}" class="tmbtn yellow-btn pauseBtn">暂停</span>
+            <a  planId="{{= id}}" href="/newAutoTitle/delistExclude?planId={{= id}}&isEdit=true" class="tmbtn sky-blue-btn">排除宝贝</a>
+            <a  planId="{{= id}}" href="/newAutoTitle/distributeDelist?planId={{= id}}&isEdit=true" class="tmbtn sky-blue-btn">查看分布</a>
+            <a  planId="{{= id}}" href="/newAutoTitle/editPlan?planId={{= id}}" class="tmbtn sky-blue-btn">编辑计划</a>
+            <span planId="{{= id}}" class="tmbtn red-short-btn  deleteBtn">删除</span>
+        </td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/highcharts.js', function () {
+                TM.gcs('/js/delistplan/delistbase.js', function () {
+                    TM.gcs('/js/jquery.tmpl.js', function () {
+                        TM.gcs('/js/newAutoTitle/delistPlans.js', function () {
+                            $(document).ready(function () {
+                                TM.delistPlans.init.doInit();
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>

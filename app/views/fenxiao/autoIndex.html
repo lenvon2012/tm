@@ -1,0 +1,51 @@
+#{extends 'yangyang.html' /}
+#{set title:'正在进入 淘掌柜之自动标题' /}
+
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/fenxiao/fenxiao.css">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css">
+#{/set}
+
+<div style="margin: 100px auto;width:400px;">
+<div style="width:82px;height:100px;margin: 0 auto;">
+    <img src="http://img01.taobaocdn.com/top/i1/T1u0B1FaBcXXaCwpjX.png">
+</div>
+<p class=""  style="font-size:32px;">
+    正在进入自动标题...
+</p>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $('#mainfoot').hide();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.inputlimitor.1.0.js',function(){
+            TM.gcs('/js/jquery.pagination.js',function(){
+                TM.gcs('/js/jquery.url.js',function(){
+                TM.gcs('/js/tm.js',function(){
+                        TM.gcs('/js/fenxiao/fenxiao.js?_v=8',function(){
+                            TM.gcs('/js/QueryCommodity.js',function(){
+                                TM.gcs('/js/genKeywordSpan/genKeywordSpan.js',function(){
+
+                                	var href = "/home/fenxiao";
+                                    if(TM.encodeUid && TM.encodeUid.length > 2){
+                                    }else {
+                                        href += "?_eu="+TM.sessionUid;
+                                    }
+                                    setTimeout(function(){
+                                        window.location.href = href;
+                                    },2000);
+
+                                });
+                            });
+                        });
+                        });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

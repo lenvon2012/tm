@@ -1,0 +1,144 @@
+#{extends 'skintitles/thirdautotitle.html' /}
+#{set title:'自动标题' /}
+<link rel="stylesheet" media="screen" href="/css/tips.css">
+<link rel="stylesheet" media="screen" href="/css/autoTitle/autoTitle.css">
+<link rel="stylesheet" media="screen" href="/css/Titles/titleOp.css">
+<style>
+    .diagBody{text-align: center;font-size: 12px;}
+    .twelve{font-size: 12px;}
+    .skinRecommendTitle{color: red;width: 230px;font-size: 12px;margin: 0 0 0 4px;}
+    .heigththirty{height: 35px;line-height: 35px;overflow-y: hidden;}
+    .oldskintitlediv{vertical-align: middle;}
+    .skinrecommendtitlediv{vertical-align: middle;}
+    .skinTitle{vertical-align: top;}
+    .guard,.dorecommend,.dosave{background: url("/img/relation/img.png") -168px -210px;text-align: center;width: 62px;height: 27px;line-height: 27px;color: #ffffff;}
+    .dosave:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .dorecommend:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .guard:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .operate{vertical-align: top;}
+    .skinopnavdiv{width: 100%;height: 27px;line-height:27px;text-align: left;}
+    .skinopnav{width: 55px;margin: 0 5px 0 0;text-align: center;}
+    .skinopnav:hover{background: url("/img/relation/img.png") -168px -250px;}
+    .opselected{background: url("/img/relation/img.png") -98px -250px;}
+    .wordarea{width: 100%;}
+    .baseblock{padding: 1px;}
+    .titlesplits{padding: 0px;margin: 0px;text-align: left;}
+    .clicksearchbtn{background: url("/img/relation/img.png") -166px -300px;cursor: pointer;text-align: center;width: 62px;height: 27px;line-height: 27px; font-size: 12px;}
+    .clicksearchbtn:hover{background: url("/img/relation/img.png") -98px -210px;}
+    .skinstatus,.skinsort, .skincat{padding: 5px;border: 1px solid #d4d4d4;margin-left: 10px;}
+    .skinsellercat, .skintaobaocat{margin: 10px;padding: 5px;border: 1px solid #d4d4d4;}
+    .clicksearchcatbtn{font-size: 12px;padding: 5px;cursor: pointer;background-color: #D8F7F5;margin:0 10px 0 0;border-radius: 5px;}
+    .clicksearchcatbtn:hover{background-color: #39B2F8;}
+    .searchArea{margin-left: 10px;}
+    .diagBody td{border-bottom: 1px solid #d4d4d4;padding: 5px 0 5px 0;}
+    .diagBody thead td{background: url(/img/th_line.gif) no-repeat right 50%;}
+    .searchArea{padding: 5px;border: 1px solid #d4d4d4;margin: 10px;}
+    #searchWord{width: 180px;}
+</style>
+
+<div class="autoTitleDiv">
+    <div class="notification information png_bg" style="width:760px;margin: 0 auto;display: none;" id="warmNotice">
+        <img src="/public/images/tips/arrow_up.gif" title="Close this notification" alt="close" id="closeImg" class="close">
+        <div >
+            功能介绍：
+
+            <ol style="list-style: lower-alpha;">
+                <li class="tips">
+                    1).该功能诊断现有宝贝标题存在的问题，包括标题字数、属性词、热搜词、重复关键字等。
+                </li>
+                <li class="tips">
+                    2).标题优化原则：
+                    <ol style="list-style: lower-alpha;">
+                        <li class="tips">
+                            a).标题优化不要过于频繁，一般一周优化一次比较适合
+                        </li>
+                        <li class="tips">
+                            b).尽量填满30个关键字并适当使用少量空格作分隔，加强标题的可读性
+                        </li>
+                        <li class="tips">
+                            c).尽量多使用与宝贝相关的同类目热搜关键字
+                        </li>
+                        <li class="tips">
+                            d).同类的宝贝标题不可完全相同
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class='autotTitleBody'>
+        <div class="searchArea">
+            *{<select name="itemsStatus" id="itemsStatus">
+            }**{<option tag="itemsStatus">宝贝状态</option>}**{
+                <option tag="onsale">在架宝贝</option>
+                <option tag="instock">待上架</option>
+                <option tag="allItems">全部宝贝</option>
+            </select>
+            <select name="itemsCat" id="itemsCat">
+                <option>所有分类</option>
+                <option>女袜</option>
+                <option>男袜</option>
+            </select>
+            <select name="itemsSortBy" id="itemsSortBy">
+                <option tag="sortBy">默认排序</option>
+                <option tag="sortByScoreUp">得分升序</option>
+                <option tag="sortByScoreDown">得分降序</option>
+                <option tag="sortBySaleCountUp">销量升序</option>
+                <option tag="sortBySaleCountDown">销量降序</option>
+            </select>
+            <input id="lowScore" value="0">
+            <span>-</span>
+            <input id="highScore" value="100">}*
+            <span style="font-family: 'Helvetica', 'Arial', 'Sans';font-size: 12px;">关键词</span>
+            <input id="searchWord" value="">
+            <a id="goSearchItems" href="javascript:void(0);" class="commbutton btntext4" style="display: inline-block;">
+                <span style="display: inline-block;*display: inline;"> 获取宝贝</span>
+            </a>
+        </div>
+        <div class="clicksearch">
+            <div class="inlineblock skinstatus">
+                <span class="inlineblock clicksearchbtn" tag="statusall">全部宝贝</span>
+                <span class="inlineblock clicksearchbtn" tag="statusonsale">出售中</span>
+                <span class="inlineblock clicksearchbtn" tag="statusinstock">仓库中</span>
+            </div>
+            <div class="inlineblock skinsort">
+                <span class="inlineblock clicksearchbtn" tag="sortsaleup">销量升序</span>
+                <span class="inlineblock clicksearchbtn" tag="sortsaledown">销量降序</span>
+            </div>
+            <div class="skinsellercat"></div>
+            <div class="skintaobaocat"></div>
+        </div>
+        <div class="multiOPArea">
+        </div>
+        <div class="diagResultArea">
+
+        </div>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getScript('/js/jquery.inputlimitor.1.0.js',function(){
+            $.getScript('/js/jquery.pagination.js',function(){
+                $.getScript('/js/tm.js',function(){
+                    $.getScript('/js/utils/jquery.cookie.js',function(){
+                        $.getScript('/js/skintitle/newskintitle.js',function(){
+                            $.getScript('/js/QueryCommodity.js',function(){
+                                $.getScript('/js/genKeywordSpan/genKeywordSpan.js',function(){
+                                    $.getScript('/js/multiModify.js',function(){
+                                        TM.gcs('/home/firstSync',function(){
+                                            TM.newskintitle.Init.init();
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

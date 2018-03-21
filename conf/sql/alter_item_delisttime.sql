@@ -1,0 +1,2 @@
+--alter table item0 drop key `ts`;
+--alter table item0 add key `deListTime`(`deListTime`);

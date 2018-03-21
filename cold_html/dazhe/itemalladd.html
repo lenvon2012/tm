@@ -1,0 +1,261 @@
+#{extends 'dazhe/base.html' /}
+#{set title:'全店打折' /}
+
+
+<style>
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+        margin: 0;
+        /*padding: 0;*/
+        font-size:12px;
+        font-family: 'Microsoft YaHei', Arial;
+    }
+
+    ul, ol {
+        list-style: none;
+    }
+    fieldset, img {
+        border: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 100%;
+    }
+
+    h1 {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px 0 10px 0;
+        font-size: 28px;
+        color: #666;
+        position: relative;
+    }
+
+    h2 {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px 0 10px 0;
+        font-size: 24px;
+        color: #666;
+    }
+
+    #logo {
+        float: left;
+        display: inline;
+        padding: 3px 0 0 20px;
+        width: 76px;
+        margin-top: 2px;
+    }
+
+    .breadcrumbs {
+        font-family: "宋体";
+        font-size: 14px;
+        color: #999;
+        margin: 5px auto 5px auto;
+        width: 960px;
+    }
+    .breadcrumbs span {
+        padding: 0 5px 0 0;
+    }
+
+    #stepBar {
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    #stepBar .block {
+        float: left;
+        display: inline;
+        width: 212px;
+        margin: 0 5px 0 0;
+        font-size: 17px;
+        padding: 0 14px 0 0;
+        background: #fefefe;
+        border: 1px solid #f9f9f9;
+        height: 43px;
+        line-height: 43px;
+        text-align: center;
+        position: relative;
+    }
+    #stepBar h3 {
+        color: #d9d9d9;
+        font-weight: normal;
+    }
+
+    h1 {
+        width: 960px;
+        margin:auto ;
+        padding: 60px 0 10px 0;
+        font-size: 28px;
+        color: #666;
+        position: relative;
+    }
+
+    .mainFormForm {
+        float: left;
+        dispplay: inline;
+        width: 780px;
+        padding-top: 5px;
+        padding-left: 100px;
+    }
+    .mainForm .tmLine {
+        padding: 0 10px 10px 29px;
+        width: 755px;
+    }
+    .mainForm label {
+
+        float: left;
+        display: inline;
+        width: 130px;
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .mainForm .tmLine .append {
+        float: left;
+        display: inline;
+        line-height: 40px;
+        height: 40px;
+        margin: 0 0 0 15px;
+        padding: 0 10px;
+        color: #999;
+        background: #F2FDEC;
+    }
+
+    .mainForm input.text {
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 310px;
+        color: #a700ff;
+        height: 38px;
+    }
+
+    #start_time{
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 310px;
+        color: #a700ff;
+        height: 38px;
+    }
+    #end_time{
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 310px;
+        color: #a700ff;
+        height: 38px;
+    }
+    .buttonLine {
+        margin: 0 auto;
+        width: 300px;
+        text-align: center;
+        padding: 40px 0 10px 0;
+    }
+    .nextStepBtn{
+        margin: 0 auto;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 250px;
+        height: 38px;
+        *margin-left: 350px;
+    }
+    #stepBar .active {
+        border: 1px solid rgb(228, 199, 179);
+        background: #fcfcfc;
+    }
+    #stepBar .active h3 {
+        color: #999;
+    }
+    #content {
+        width: 960px;
+        margin: 0 auto;
+        padding: 15px 0;
+        border-bottom: 1px solid #C0DAEC;
+        min-height: 400px;
+    }
+
+    input.text.error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+    .mainForm .tmLine span.error {
+        background: #FEEDF0;
+    }
+</style>
+
+<div id="content">
+    <div class="breadcrumbs">
+        <span>创建限时打折活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block active">
+                <h3>设置活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block active">
+                <h3>设置全店折扣信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block active">
+                <h3>点击完成并提交</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <h1> 设置全店打折活动信息</h1>
+    <div class="mainForm">
+        <!-- .mainFormForm -->
+        <input type="hidden" class="activityId" value="${activityId}" />
+        <div class="mainFormForm">
+            <div class="tmLine ">
+                <label>活动名称：</label>
+                <input type="text" class="text"  id="name">
+                <span class="append">请输入2到30个汉字(仅自己可见)</span>
+                <div class="clear"></div>
+            </div>
+            <div class="tmLine ">
+                <label>开始时间：</label>
+                <input type="text" class="text date"  id="start_time" >
+                <span class="append">自定义开始时间</span>
+                <div class="clear"></div>
+            </div>
+            <div class="tmLine ">
+                <label>结束时间：</label>
+                <input type="text" class="text date"  id="end_time">
+                <span class="append">自定义结束时间</span>
+                <div class="clear"></div>
+            </div>
+            <div class="tmLine ">
+                <label>全店折扣：</label>
+                <input type="text" class="text date"  id="discount">
+                <span class="append">全店打几折</span>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="buttonLine">
+        <input type="submit" value="下一步" class="nextStepBtn StepBtn1" style="color: #ffffff;
+    background-color: #EF6400;">
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/dazhe/itemalladd.js',function(){
+                TM.DaZhe.Init.init() ;
+            });
+        });
+    });
+
+</script>
+

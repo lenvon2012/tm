@@ -1,0 +1,124 @@
+#{extends 'newAutoTitle/newAutoTitleBase.html' /}
+#{set title:"排除宝贝" /}
+
+<style>
+.search-container{
+    border:1px solid #ccc;
+    margin:0px 0px 20px 0px;
+    padding:20px 0px 20px 20px;
+    background-color: #efefef;
+}
+</style>
+
+<div class="delistexclude">
+    <div class="search-container">
+        <table style="width:100%;">
+            <tbody>
+            <tr>
+
+                <td>
+                    <span>宝贝标题:</span>
+                    <input type="text" class="searchText" style="width:160px;height:35px;">
+                </td>
+                <td>
+                    <select style="width:130px;height:35px;" class="taobaocat">
+                    <option>所有淘宝类目</option>
+                    </select>
+                </td>
+                <td>
+                    <select style="width:130px;height:35px;" class="sellercat">
+                    <option>所有店铺分类</option>
+                    </select>
+                </td>
+                <td>
+                    <span class="tmbtn sky-blue-btn searchBtn">搜索宝贝</span>
+                </td>
+
+                <td>
+                    <span class="tmbtn long-sky-blue-btn selectPageAll">
+                    <span>
+                    排除本页宝贝
+                    </span>
+                    </span>
+                </td>
+                <td>
+                    <span class="tmbtn long-sky-blue-btn unselectPageAll">
+                    <span>
+                    恢复本页宝贝
+                    </span>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top:30px;"></div>
+    <div class="excludepaging" style="text-align:center;"></div>
+    <table class="exclude-table list-table">
+         <thead>
+         <tr class="tableHead">
+             <td width="40%">宝贝标题</td>
+             <td width="40%">上架时间</td>
+             <td width="20%">操作</td>
+         </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="excludepaging" style="text-align:center;"></div>
+
+    <p style="text-align:center;margin:40px 0;">
+        <span class="tmbtn wide-sky-blue-btn next">下一步，配置</span>
+    </p>
+</div>
+
+<script type="text/x-jquery-tmpl" id="excludeitem-tmpl">
+    <tr class="tableHead" numIid="{{= item.id}}">
+        <td width="40%" style="text-align:left; padding:5px;">
+            <a target="_blank" style="width:80px;height:80px; margin:5px;" style="position:absolute;" href="http://item.taobao.com/item.htm?id={{= item.id}}">
+             <img style="width:80px;height:80px;" src="{{= item.picURL}}">
+            </a>
+            <span style="position:absolute; width:250px;margin:20px 0 0 10px;text-align:center;">
+            <a target="_blank" style="width:80px;height:80px; color:#5694e1;" style="position:absolute;" href="http://item.taobao.com/item.htm?id={{= item.id}}">
+            {{= item.name}}</a>
+            </span>
+        </td>
+        <td width="40%">{{= item.listTime}}</td>
+        <td width="20%">
+        {{if isAutoList==false}}
+        <div class="exclude-sign hide" style="color:#5694e1;cursor:pointer;">排除</div>
+        <div class="">
+        已排除&nbsp;|&nbsp;
+        <span class="back-sign-span back-sign" style="color:#5694e1;cursor:pointer;">恢复</span>
+        {{else}}
+        <div class="exclude-sign" style="color:#5694e1;cursor:pointer;">排除</div>
+        <div class="hide">
+        已排除&nbsp;|&nbsp;
+        <span class="back-sign-span back-sign" style="color:#5694e1;cursor:pointer;">恢复</span>
+        {{/if}}
+        </div>
+        </td>
+    </tr>
+</script>
+
+
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+
+        TM.gcs('/js/tm.js',function() {
+            TM.gcs('/js/delistplan/delistbase.js', function () {
+                TM.gcs('/js/jquery.tmpl.js', function() {
+                    TM.gcs('/js/newAutoTitle/excludeItem.js?_v=4', function () {
+                        $(document).ready(function () {
+                            var planId = ${planId};
+                            var isEdit = ${isEdit};
+                            TM.delistExclude.init.doInit($('.delistexclude'),planId, isEdit);
+                        });
+                    });
+                });
+            });
+        });
+
+</script>

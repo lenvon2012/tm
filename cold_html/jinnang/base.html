@@ -1,0 +1,364 @@
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}" />
+        <link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/jinnang/wp.css'}" />
+		<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/jinnang/colors-fresh.css'}" />
+		<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/jinnang/netease_main.css'}" />
+		<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/jinnang/common_nav_mod.css'}" />
+		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="@{'/public/stylesheets/jinnang/jquery-ui-timepicker-addon.css'}" />
+		<link rel="stylesheet" media="all" type="text/css" href="@{'/public/stylesheets/jinnang/thickbox.css'}" />
+		<link rel="stylesheet" meida="all" type="text/css" href="@{'public/stylesheets/jinnang/wbox.css'}" />
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <!--
+		<script type="text/javascript" src="@{'/public/javascripts/jquery-ui-1.9.1.custom.min.js'}"></script>
+		-->
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+		<script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>	
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/jquery-ui-sliderAccess.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/jquery-ui-timepicker-addon.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/i18n/jquery-ui-timepicker-zh-CN.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/json2.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jinnang/wbox-min.js'}"></script>
+    </head>
+ <body>
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+    TM.tms = TM.tms || '-';
+</script>
+<script type="text/javascript" src="@{'/public/javascripts/tips/jquery.qtip-1.0.0-rc3.js'}"></script>
+<div class="mengban">
+</div>
+
+<!-- loading等待 -->
+<div class="LoadingMask" style="display: none; border: 0;"></div>
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;width:500px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+
+    //TM.gcs('/public/javascripts/tm.js');
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    //TM.gcs('/js/tm.js');
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+        TM.setAnchorSids = function(){
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_tms="+TM.tms;
+                }else{
+                    href += "?_tms="+TM.tms;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        $(document).ready(function(){
+            TM.setAnchorSids();
+        })
+
+    })(jQuery, window));
+</script>
+		<div class="ntes-nav" id="js_N_nav">
+		<!-- 顶部导航 -->
+		<div class="ntes-nav-main clearfix">
+			<!-- 左部导航 -->
+			<div class="c-fl" >
+				<div
+					class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"
+					tabindex="0" style="display: none">
+					<a href="#"
+						class="ntes-nav-select-title ntes-nav-entry-bgblack">工具列表<em
+						class="ntes-nav-select-arr"></em></a>
+					<div class="ntes-nav-select-pop">
+						<ul class="ntes-nav-select-list clearfix">
+							<li><a href="@{JinNangZheKou.user_tag_mnt()}"><span><em
+										class="ntes-nav-app-newsapp">添加用户群标签</em></span></a></li>
+							<li><a href="@{JinNangZheKou.user_tag_list()}"><span><em
+										class="ntes-nav-app-msc">管理用户群标签</em></span></a></li>
+							<li><a href="@{JinNangZheKou.items_list()}"><span><em
+										class="ntes-nav-app-yuedu">宝贝营销状态</em></span></a></li>
+							<li><a href="@{JinNangZheKou.vip_mnt()}"><span><em
+										class="ntes-nav-app-note">会员级别管理</em></span></a></li>
+							<li><a href="@{JinNangZheKou.vip_edit()}"><span><em
+										class="ntes-nav-app-ht">会员管理</em></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div
+					class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"
+					tabindex="0">
+					<a href="#"
+						class="ntes-nav-select-title ntes-nav-entry-bgblack">活动管理<em
+						class="ntes-nav-select-arr"></em></a>
+					<div class="ntes-nav-select-pop">
+						<ul class="ntes-nav-select-list clearfix">
+							<li><a href="@{JinNangZheKou.activity_mnt()}"><span><em
+										class="ntes-nav-app-act-mnt">活动列表</em></span></a></li>
+							<li><a href="@{JinNangZheKou.activity_add()}"><span><em
+										class="ntes-nav-app-act-add">添加活动</em></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<a class="ntes-nav-entry-wide c-fl" href="@{JinNangZheKou.vip_mnt()}"
+					title="会员管理">会员管理</a> <a class="ntes-nav-entry-wide c-fl"
+					href="@{JinNangZheKou.report()}" title="报表">报表</a>
+			</div>
+			<!-- 右部导航 -->
+			<div class="c-fr">
+				<div class="c-fl">
+					<div class="c-fl" id="js_N_NavLoginAfter" style="display: block;">
+						<span class="left mr6">您好，</span>
+						<div id="js_N_logined_warp"
+							class="js_N_navSelect ntes-nav-logined ntes-nav-logined-scroll"
+							tabindex="0">
+							<span class="ntes-nav-select-title ntes-nav-logined-userinfo"><span
+								id="js_N_navUsername">你妹你妹</span><em
+								class="ntes-nav-select-arr"></em></span>
+							<div id="js_login_suggest_wrap" class="ntes-nav-select-pop">
+								<ul id="js_logined_suggest"
+									class="ntes-nav-select-list clearfix">
+									<li><a
+										href="#"><span>重新授权</span></a></li>
+									<li><a
+										href="#"><span>应用页</span></a></li>
+									<li><a href="#"><span>我的记录</span></a></li>
+									<li><a href="#" id="sync_data"><span>同步数据</span></a></li>
+									
+								</ul>
+							</div>
+						</div>
+						<!-- 连接导航 -->
+						<a class="ntes-nav-entry-wide c-fl" target="_self"
+							href="#"
+							id="js_N_navLogout">个人中心</a>
+					</div>
+				</div>
+				<ul class="ntes-nav-inside">
+					<li><a href="@{JinNangZheKou.help()}"
+						class="c-fl ntes-nav-entry ntes-nav-entry-bgblack"><em
+							class="ntes-nav-entry-help">帮助</em><span class="ntes-nav-msg"
+							id="js_N_navWbMsg" style="display: block;"></span></a></li>
+					<li>
+						<div
+							class="ntes-nav-select js_N_navSelect c-fl"
+							tabindex="0">
+							<a id="js_mail_url"
+								href="@{JinNangZheKou.notice()}"
+								class="ntes-nav-select-title ntes-nav-entry-bgblack"><em
+								class="ntes-nav-entry-mail">通知</em><em
+								class="ntes-nav-select-arr"></em><span class="ntes-nav-msg"
+								id="js_N_navMailMsg" style="display: block;"></span></a>
+							<div class="ntes-nav-select-pop ntes-nav-select-pop-mail">
+								<ul class="ntes-nav-select-list clearfix">
+									<li><a href="@{JinNangZheKou.notice()}"><span>系统消息</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="ntes-nav-select js_N_navSelect c-fl" tabindex="0">
+							<a href="#"
+								class="ntes-nav-select-title ntes-nav-entry-bgblack"><em
+								class="ntes-nav-entry-money">支付</em><em
+								class="ntes-nav-select-arr"></em></a>
+							<div class="ntes-nav-select-pop ntes-nav-select-pop-temp" style="display: none;">
+								<ul class="ntes-nav-select-list clearfix">
+									<li><a href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.51048019.74.rJubps&service_code=ts-1820059&tracelog=category&scm=1215.1.1.51048019&ppath=">
+									<em class="ntes-nav-app-push1">淘掌柜</em></a></li>
+									<li><a href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.50047508.16.UexSmj&service_code=ts-13126&tracelog=category&scm=1215.1.1.50047508&ppath=">
+									<em class="ntes-nav-app-push2">淘折扣</em></a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<!-- 推广 -->
+					<li>
+						<div class="ntes-nav-select js_N_navSelect c-fl" tabindex="0">
+							<a href="@{JinNangZheKou.recommend()}"
+								class="ntes-nav-select-title ntes-nav-entry-bgblack"><em
+								class="ntes-nav-entry-recommend">推广</em><em
+								class="ntes-nav-select-arr"></em></a>
+							<div class="ntes-nav-select-pop ntes-nav-select-pop-temp" style="display: none;">
+								<ul class="ntes-nav-select-list clearfix">
+									<li><a href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.51048019.74.rJubps&service_code=ts-1820059&tracelog=category&scm=1215.1.1.51048019&ppath=">
+									<em class="ntes-nav-app-push1">淘掌柜</em></a></li>
+									<li><a href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.50047508.16.UexSmj&service_code=ts-13126&tracelog=category&scm=1215.1.1.50047508&ppath=">
+									<em class="ntes-nav-app-push2">淘折扣</em></a></li>
+									<li><a href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.51052018.22.nBAkYW&service_code=FW_GOODS-1841777&tracelog=category&scm=1215.1.1.51052018&ppath=">
+									<em class="ntes-nav-app-push3">车道</em></a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<!--RSS连接-->
+					<!--
+					<li><a class="ntes-nav-entry ntes-nav-entry-bgblack c-fl"
+						href="#"><em
+							class="ntes-nav-entry-rss">rss</em></a>
+					</li>
+					-->
+				</ul>
+			</div>
+		</div>
+	</div>
+		<div id="thickbox_container" style="display:none"></div>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $(".ntes-nav-select").mouseover(function() {
+			$(this).addClass("ntes-nav-select-unfold");
+		});
+		$(".ntes-nav-select").mouseout(function() {
+			$(this).removeClass("ntes-nav-select-unfold");
+		});
+		$("#js_N_logined_warp").mouseover(function() {
+			$(this).addClass("ntes-nav-select-unfold");
+		});
+		$("#js_N_logined_warp").mouseout(function() {
+			$(this).removeClass("ntes-nav-select-unfold");
+		});
+	}); 
+</script>
+		<div id="main">
+        	#{doLayout /}
+        </div>
+        
+        <div class="qtip qtip-stylename">
+    <div class="qtip-tip" rel="cornerValue"></div>
+    <div class="qtip-wrapper">
+        <div class="qtip-borderTop"></div>
+        <div class="qtip-contentWrapper">
+            <div class="qtip-title">
+                <div class="qtip-button"></div>
+            </div>
+            <div class="qtip-content"></div>
+        </div>
+        <div class="qtip-borderBottom"></div>
+    </div>
+</div>
+
+
+ <script>
+     var navbox = $('.navbox');
+     navbox.find('a').each(function(){
+         var anchor = $(this);
+         if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+             navbox.find('a.navselected').removeClass('navselected');
+             anchor.addClass('navselected');
+
+//            hasPath = true;
+         }
+     });
+     $(document).ready(function(){
+         $('#mainfoot').hide();
+     })
+     TM.sync = function(){
+         $.get('/items/sync',function(){
+             TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                 window.location.reload();
+             });
+         });
+     }
+     $.get('/popularize/getUserInfo',function(data){
+         if(data && data.level <= -1){
+             $('#commhelp').hide();
+             $('#tryhelp').show();
+         }
+     });
+//     TM.gcs('/js/tm.js',function(){
+     TM.gcs('/js/tm.js',function(){
+         $('#syncBtn').click(function(){
+             TM.sync();
+         });
+     });
+//     TM.gcs('/js/utils/jquery.cookie.js',function(){
+     TM.gcs('/js/utils/jquery.cookie.js',function(){
+         $('#logout').click(function(){
+             $.ajax({
+                 url : '/in/logout',
+                 dataType : 'text',
+                 success : function(text){
+                     $.cookie('tm_SESSION',null);
+                     $.cookie('_s',null);
+                     window.location.href = text;
+                 }
+             })
+         })
+     });
+     </script>
+<style>
+
+/*body{ font-size:12px; color:#454545;background: url(http://icon.zol-img.com.cn/sj/images/bodyback.jpg) repeat;}*/
+
+body{ font-size:12px; color:#454545;}
+
+h1,h2,h3,h4,h5,h6{ font-size:12px;}
+a{ text-decoration:none; color:#454545;}
+a:hover{ text-decoration:underline; color:#ff0000;}
+ul{ list-style:none;}
+li{ list-style:none;}
+    .wrapper, .header, .navbox {width: 1020px;margin: 0 auto;}
+    .allbg{background: url(http://icon.zol-img.com.cn/sj/images/desk_bg.png) no-repeat;}
+    .navbox {height: 42px;line-height: 42px;background-position: 0 -36px;background-repeat: repeat-x;-webkit-border-radius: 3px;border-radius: 3px;position: relative;}
+    .navbox ul{float:left;margin: 0; padding:0;}
+    .nav li.first {padding: 0;background: none;}
+    .nav li {float: left;height: 42px;line-height: 42px;font-size: 16px;background-position: -128px -264px;width: 120px;}
+    .nav li a{display: block;color: white;padding: 0 13px 0 17px;outline: none;text-decoration: none;}
+    .nav li a:hover{color: white;text-decoration: underline}
+    .navselected{background-color: #ccc;         color: blueviolet;          font-weight: bold;}
+    .c-fl {
+        height: 43px;line-height: 43px;
+    }
+</style>
+
+     
+    *{<script>}*
+        *{#{get 'moreScripts' /}}*
+    *{</script>}*
+    </body>
+</html>

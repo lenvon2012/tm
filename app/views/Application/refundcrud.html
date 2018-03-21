@@ -1,0 +1,440 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.title') /}
+
+<script src="/js/jquery-1.6.4.min.js" type="text/javascript" charset="${_response_encoding}"></script>
+<script type="text/javascript" src="/js/tm.js"></script>
+<script type="text/javascript" src="/js/utils/jquery.cookie.js"></script>
+<link rel="stylesheet" media="screen" href='/css/dajie/bootstrap.min.css'>
+<link rel="stylesheet" media="screen" href='/css/dajie/bootstrap-responsive.min.css'>
+<link rel="stylesheet" media="screen" href='/css/dajie/buttons.css'>
+<link rel="stylesheet" media="screen" href='/css/dajie/font-awesome.min.css'>
+
+<style>
+    table.refundList {
+        width:100%;
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:#333333;
+        border-width: 1px;
+        border-color: #999999;
+        border-collapse: collapse;
+    }
+
+    .refundList thead tr{
+        background: url('/public/images/frame/bg.png');
+    }
+    table.refundList th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #999999;
+    }
+
+    table.refundList td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #999999;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    .refundList-tbody tr{
+        height: 23px;
+        line-height: 23px;
+    }
+
+</style>
+
+<div id="crudIndex">
+
+    <h2>&{'crud.index.title'}</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>&{'crud.index.objectType'}</th>
+                <th width="20%">&{'crud.index.action'}</th>
+            </tr>
+        </thead>
+        <tbody>
+#{crud.types}
+            <tr>
+                <td>
+                    <a href="${type.listAction}">&{type.name}</a>
+                </td>
+                <td class="crudNew" >
+                    <a href="${type.blankAction}">&{'crud.index.add', type}</a>
+                </td>
+            </tr>
+#{/crud.types}
+        </tbody>
+    </table>
+
+</div>
+<br>
+<hr>
+<h2>查询用户订单</h2>
+<div>
+    用户昵称: <input id='vas-username' type='text' value='楚之小南'>
+    <span id='vas-order' class="btn btn-primary btn-large">
+        查询
+    </span>
+</div>
+<div id="vas-order-div" style="display:none;">
+    <table id="vas-order-tbl">
+
+    </table>
+</div>
+
+<h3>提交退款申请</h3>
+<div>
+    用户旺旺: <input id='wangwang1' type='text' value='楚之小南'>退款原因：<input id='reason' type='text' value='飞翔的大伟哥' style="width: 120px">
+    发起人：<select name="select" class="selectApp" id="upname" style="width: 100px">
+    <option value="小言">小言</option>
+    <option value="阿风">阿风</option>
+    <option value="包包">包包</option>
+    <option value="珠珠">珠珠</option>
+    <option value="益肤">益肤</option>
+    <option value="黄倩倩">黄倩倩</option>
+    <option value="老邢">老邢</option>
+    <option value="老胡">老胡</option>
+    <option value="老谋">老谋</option>
+    <option value="晓莲">晓莲</option>
+    <option value="玺如">玺如</option>
+    <option value="雅南">雅南</option>
+    <option value="江生">江生</option>
+</select>
+    退款金额：<input id='refundamount' type='text' value='99' style="width: 40px">
+    退款应用：<select name="select" class="selectApp" id="selectApp" style="width: 130px">
+    <option value="车道">车道</option>
+    <option value="淘掌柜">淘掌柜</option>
+    <option value="自动标题">自动标题</option>
+    <option value="好评助手">好评助手</option>
+    <option value="爱推广">爱推广</option>
+    <option value="好牛">好牛</option>
+    <option value="流量宝">流量宝</option>
+    <option value="名店">名店</option>
+    <option value="四轮车">四轮车</option>
+    <option value="手机详情页">手机详情页</option>
+    <option value="天小猫">天小猫</option>
+    <option value="淘掌柜客户">淘掌柜客户</option>
+</select>
+    <span id='refund-submit' class="btn btn-primary btn-large">
+        提交
+    </span>
+</div>
+
+*{<h4>退款请求审核</h4>}*
+*{<div>}*
+    *{退款条目ID: <input id='refund-id' type='text' value="1">}*
+    *{审核人： <input id='assessor' type='text' value="骑在阿风头上的小言">}*
+        *{<span id='refund-assess' style="height: 40px;line-height: 40px;width:150px;border-radius: 5px;background-color: #F27B03;cursor:pointer;display:inline-block;text-align:center;">}*
+        *{点击完成审核}*
+    *{</span>}*
+*{</div>}*
+
+<h5>查询退款记录</h5>
+<div>
+    用户旺旺: <input id='wangwang2' type='text'>
+    产品应用：<select name="select" class="selectApp" id="selectApp2">
+    <option></option>
+    <option value="车道">车道</option>
+    <option value="淘掌柜">淘掌柜</option>
+    <option value="自动标题">自动标题</option>
+    <option value="差评防御师">差评防御师</option>
+    <option value="爱推广">爱推广</option>
+    <option value="好牛">好牛</option>
+    <option value="流量宝">流量宝</option>
+    <option value="名店">名店</option>
+    <option value="四轮车">四轮车</option>
+    <option value="手机详情页">手机详情页</option>
+    <option value="天小猫">天小猫</option>
+    <option value="淘掌柜客户">淘掌柜客户</option>
+    </select>
+    处理结果:
+    <select name="select" class="selectstatus" id="selectstatus">
+    <option></option>
+    <option >已提交</option>
+    <option>正在处理</option>
+    <option>退款中</option>
+    <option>退款完成</option>
+    <option >废弃删除</option>
+    </select>
+    <span id='refund-order' class="btn btn-primary btn-large">
+        查询
+    </span>
+</div>
+
+<div class=tableContent>
+    <table class="refundList">
+        <thead>
+        <tr>
+            <th style="text-align: center;width: 20px;" class="cattd1"><div>条目</div></th>
+            <th style="text-align: center;width: 100px;" class="cattd2"><div>旺旺名称</div></th>
+            <th style="text-align: center;width: 120px;" class="cattd3"><div>创建时间</div></th>
+            <th style="text-align: center;width: 120px;" class="cattd4"><div>处理时间</div></th>
+            <th style="text-align: center;width: 100px;" class="cattd5"><div>申请人</div></th>
+            <th style="text-align: center;width: 100px;" class="cattd6"><div>申请原因</div></th>
+            <th style="text-align: center;width: 100px;" class="cattd7"><div>审核人</div></th>
+            <th style="text-align: center;width: 100px;" class="cattd8"><div>产品应用</div></th>
+            <th style="text-align: center;width: 60px;" class="cattd9"><div>处理结果</div></th>
+            <th style="text-align: center;width: 40px;" class="cattd9"><div>退款金额</div></th>
+            <th style="text-align: center;width: 40px;" class="cattd9"><div>退款意见</div></th>
+            <th style="text-align: center;width: 40px;" class="cattd9"><div>审核操作</div></th>
+        </tr>
+        </thead>
+        <tbody class="refundList-tbody"></tbody>
+    </table>
+</div>
+<div style="height:25px;"></div>
+<div class="refundList-page" style="text-align: center;width: 100%;"></div>
+
+
+
+<script type="text/javascript"charset="utf-8">
+$(document).ready(function(){
+    $('#vas-order').click(function(){
+        //window.open('/op/make?id='+$('#vas-username').val());
+        var nick = $('#vas-username').val();
+        var tbodyObj = $("#vas-order-tbl");
+        tbodyObj.empty();
+        $.ajax({
+            type:'GET',
+            url :'/tmadmin/vasorder',
+            dataType:'json',
+            data :{nick:nick},
+            success :function(data){
+                tbodyObj.append("<thead><tr><th>订单号</th><th>应用名称</th><th>应用代码</th><th>用户昵称</th><th>实付金额</th>><th>订购时间</th><th>订购周期</th><th>订购到期时间</th></tr><thead>");
+                if (data == undefined || data == null || data.length == 0) {
+                    tbodyObj.html('<tr><td colspan="8" height="40px">暂无该用户订购记录！</td></tr>');
+                    $("#vas-order-div").show();
+                    return;
+                }
+                $(data).each(function(index, jsonData) {
+                    var trObj = createRow(index, jsonData);
+                    tbodyObj.append(trObj);
+                });
+                console.info(tbodyObj);
+                $("#vas-order-div").show();
+            }
+        });
+        function createRow(index, data) {
+            var html = '' +
+                    '<tr>' +
+                    '   <td>'+data.bizOrderId+'</td>' +
+                    '   <td>'+data.articleName+'</td>' +
+                    '   <td>'+data.articleCode+'</td>' +
+                    '   <td><b>'+data.nick+'</b></td>' +
+                    '   <td>'+data.totalPayFee/100+' 元</td>' +
+                    '   <td>'+parseLongToDate(data.createTime)+'</td>' +
+                    '   <td>'+data.orderCycle+'</td>' +
+                    '   <td>'+parseLongToDate(data.orderCycleEnd)+'</td>' +
+                    '</tr>' +
+                    '';
+
+            var trObj = $(html);
+            return trObj;
+        }  ;
+        function parseLongToDate(ts) {
+            var theDate = new Date();
+            theDate.setTime(ts);
+            var year = theDate.getFullYear();
+            var month = theDate.getMonth() + 1;//js从0开始取
+            var date = theDate.getDate();
+            var hour = theDate.getHours();
+            var minutes = theDate.getMinutes();
+            var second = theDate.getSeconds();
+
+            if (month < 10) {
+                month = "0" + month;
+            }
+            if (date < 10) {
+                date = "0" + date;
+            }
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (second < 10) {
+                second = "0" + second;
+            }
+            var timeStr = year + "-" + month+"-"+date+" "+hour+":"+minutes+ ":" + second;
+            return timeStr;
+        }
+
+    });
+    $('#refund-submit').click(function(){
+        var wangwang = $('#wangwang1').val();
+        var reason = $('#reason').val();
+        var upname = $('#upname').val();
+        var app = $('#selectApp').val();
+        var amount=  $('#refundamount').val();
+        if(!wangwang){
+            alert("请填写旺旺名称")  ;
+            return;
+        }
+        if(!reason){
+            alert("请填写退款原因")  ;
+            return;
+        }
+        if(!upname){
+            alert("请填写发起人")  ;
+            return;
+        }
+        if(!app){
+            alert("请填写产品应用")  ;
+            return;
+        }
+        if(!amount){
+            alert("请填写退款金额")  ;
+            return;
+        }
+        $.cookie("faqiren",upname);
+        $.cookie("reason",reason);
+        $.cookie("amount",amount);
+        $.ajax({
+            type:'GET',
+            url :'/tmrefundadmin/submitrefund',
+            data :{wangwang:wangwang, upname:upname, reason:reason, app:app,amount:amount},
+            success :function(data){
+                if (data == undefined || data == null || data.length == 0) {
+                    alert("提交失败")
+                }
+                else{
+                    alert("提交成功");
+                    $('#refund-order').trigger("click");
+                }
+            }
+
+        });
+
+    });
+    $('#refund-assess').click(function(){
+        var id= $('#refund-id').val();
+        var assessor=$('#assessor').val();
+
+        /* $.get('/tmrefundadmin/updatebyid',{id:id, assessor:assessor},function(data){
+           if (data == undefined || data == null || data.length == 0) {
+               alert("审核失败")
+           }
+           else{
+               alert("审核完成");
+           }
+       }) */
+        $.ajax({
+            type:'get',
+            url :'/tmrefundadmin/updatebyid',
+            data :{id:id, assessor:assessor},
+            success :function(data){
+                if (data == undefined || data == null || data.length == 0) {
+                    alert("审核失败")
+                }
+                else{
+                    alert("审核完成");
+                }
+
+            }
+        });
+
+    });
+
+
+    $('#refund-order').click(function(){
+        var wangwang = $('#wangwang2').val();
+        var app=$('#selectApp2').val();
+        var status=$('#selectstatus').val();
+
+        $('.refundList-tbody').empty();
+        $(".refundList-page").tmpage({
+            currPage: 1,
+            pageSize: 10,
+            pageCount: 1,
+            ajax:{
+                on: true,
+                param: {wangwang:wangwang,app:app,status:status},
+                dataType: 'json',
+                url: '/TMRefundAdmin/findRefundTrade',
+                callback:function(dataJson){
+                    if(!dataJson || !dataJson.isOk){
+                        alert("数据获取发生错误，请重试或联系客服");
+                    } else{
+                        $('.refundList-tbody').remove();
+                        if(dataJson.res.length > 0){
+                            $('.refundList').append(CreateTbody(dataJson.res));
+                        } else {
+                            $('.refundList').append('<tbody class="refundList-tbody" ><tr><td colspan="8" style="height:40px;">亲，暂无数据哦</td></tr></tbody>');
+                        }
+                    }
+                }
+            }
+        })
+    }) ;
+
+    function CreateTbody(results){
+        var tbody = $('<tbody class="refundList-tbody' +
+                '" ></tbody>');
+        $(results).each(function(i,result){
+            var rate = (result.pv == 0)?0:(result.click/result.pv);
+            var clickRate = new Number(rate).toPercent(2);
+            tbody.append($('<tr>'+
+                    '<td>'+result.id+'</td>'+
+                    '<td>'+result.wangwang+'</td>'+
+                    '<td>'+parseLongToDate(result.created)+'</td>'+
+                    '<td>'+parseLongToDate(result.updated)+'</td>'+
+                    '<td>'+result.upname+'</td>'+
+                    '<td>'+result.reason+'</td>'+
+                    '<td>'+result.assessor+'</td>'+
+                    '<td>'+result.app+'</td>'+
+                    '<td>'+result.status+'</td>'+
+                    '<td>'+result.amount+'</td>'+
+                    '<td>'+result.advice+'</td>'+
+                    '<td>'+'<a target="_blank" href="/TMRefundAdmin/edit?id='+result.id+'">编辑</a>'+'</td>'+
+                    '</tr>'));
+
+        }) ;
+        return tbody;
+
+    }
+
+    function parseLongToDate(ts) {
+        var theDate = new Date();
+        theDate.setTime(ts);
+        var year = theDate.getFullYear();
+        var month = theDate.getMonth() + 1;//js从0开始取
+        var date = theDate.getDate();
+        var hour = theDate.getHours();
+        var minutes = theDate.getMinutes();
+        var second = theDate.getSeconds();
+
+        if (month < 10) {
+            month = "0" + month;
+        }
+        if (date < 10) {
+            date = "0" + date;
+        }
+        if (hour < 10) {
+            hour = "0" + hour;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (second < 10) {
+            second = "0" + second;
+        }
+        var timeStr = year + "-" + month+"-"+date+" "+hour+":"+minutes+ ":" + second;
+        return timeStr;
+    }
+    window.onload=function()
+    {
+        $('#refund-order').trigger("click");
+        $('#upname').val($.cookie('faqiren'));
+        $('#reason').val($.cookie('reason'));
+        $('#refundamount').val($.cookie('amount'));
+        $('#crudIndex').hide();
+    }
+
+});
+</script>
+<h6>FIRST BLOOD</h6>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" media="screen" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jinnang/wp.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jinnang/colors-fresh.css" />
+    <link type="text/css" rel="stylesheet" href="/css/jinnang/netease_main.css" />
+    <link type="text/css" rel="stylesheet" href="/css/jinnang/common_nav_mod.css" />
+    <link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="/css/zhdatecss/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+    <link type="text/css" href="/css/zhdatecss/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+
+    <script src="/js/jquery-1.7.2.min.js?v=1" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        if (!window.jQuery) {
+            var script = document.createElement('script');
+            script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+            document.body.appendChild(script);
+        }
+        var path = document.location.pathname;
+        var TM = TM || {};
+        TM.path = path;
+        TM.tms = $.cookie('_s');
+        TM.userNick = $.cookie('_n');
+        TM.encodeUid = $.cookie('_eu');
+        TM.sessionUid = '${session.get("_eu")}';
+        TM.ver = $.cookie('_v');
+        TM.hasCookie = $.cookie('tm_SESSION') && $.cookie('tm_SESSION').length > 0;
+    </script>
+    <script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=2" type="text/javascript" charset="utf-8"></script>
+    <link rel="shortcut icon" type="image/png" href='/img/favicon.png'>
+    <script src="/js/jquery.tools-1.2.5.toolbox.expose.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src='/js/jinnang/jquery-ui-sliderAccess.js'></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>
+</head>
+<style>
+    body{ font-size:12px; color:#454545;width:100%;min-width:960px;background:#efefef;}
+    h1,h2,h3,h4,h5,h6{ font-size:12px;}
+    a{ text-decoration:none; color:#454545;}
+    a:hover{ text-decoration:underline; color:#ff0000;}
+    ul{ list-style:none;}
+    li{ list-style:none;}
+    .navbox {width: 1020px;margin: 0 auto;}
+    .allbg{background: url(http://icon.zol-img.com.cn/sj/images/desk_bg.png) no-repeat;}
+    .navbox {height: 42px;line-height: 42px;background-position: 0 -36px;background-repeat: repeat-x;-webkit-border-radius: 3px;border-radius: 3px;position: relative;}
+    .navbox ul{float:left;margin: 0; padding:0;}
+    .nav li.first {padding: 0;background: none;}
+    .nav li {float: left;height: 42px;line-height: 42px;font-size: 16px;background-position: -128px -264px;width: 120px;}
+    .nav li a{display: block;color: white;padding: 0 13px 0 17px;outline: none;text-decoration: none;}
+    .nav li a:hover{color: white;text-decoration: underline}
+    .navselected{background-color: #ccc;         color: blueviolet;          font-weight: bold;}
+    .c-fl {height: 43px;line-height: 43px;}
+    #exposeMask{position: static;}
+</style>
+
+<body>
+<script type="text/javascript">
+    var TM = TM || {};
+    var path = document.location.pathname;
+    TM.tms = TM.tms || '${session.get("_s")}';
+    TM.tms = TM.tms || '-';
+</script>
+<script type="text/javascript" src="@{'/public/javascripts/tips/jquery.qtip-1.0.0-rc3.js'}"></script>
+<div class="mengban">
+</div>
+
+<!-- loading等待 -->
+<div class="LoadingMask" style="display: none; border: 0;"></div>
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;width:500px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(url.indexOf('?')>=0){url += "&_tms="+TM.tms;}else{url += "?_tms="+TM.tms;}
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+
+    //TM.gcs('/public/javascripts/tm.js');
+    //TM.gcs('/js/jquery-ui-1.9.1.custom.min.js');
+    //TM.gcs('/js/tm.js');
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+//        $("body").ajaxSend(function(evt, request, settings){
+//            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+//                if(settings.url.indexOf('?')>=0){
+//                    settings.url += "&_tms="+TM.tms;
+//                }else{
+//                    settings.url += "?_tms="+TM.tms;
+//                }
+//            }
+//        });
+//
+//        TM.setAnchorSids = function(){
+//            $('body a').each(function(){
+//                var a = $(this);
+//                var href = a.attr('href');
+//                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+//                    return;
+//                }
+//                if(href.indexOf('?')>=0){
+//                    href += "&_tms="+TM.tms;
+//                }else{
+//                    href += "?_tms="+TM.tms;
+//                }
+//                a.attr('href',href);
+//            });
+//        }
+//
+//        $(document).ready(function(){
+////            TM.setAnchorSids();
+//        })
+
+    })(jQuery, window));
+</script>
+<div class="ntes-nav" id="js_N_nav" style="background: url('/img/dazhe/paipailogo.png') no-repeat #EF6400;background-position: 80px;">
+    <!-- 顶部导航 -->
+    <div class="ntes-nav-main clearfix">
+        <!-- 左部导航 -->
+        <div class="c-fl" >
+
+            <a class="ntes-nav-entry-wide c-fl" href="/paipaidiscount/base_index"
+               title="活动管理" >活动管理:</a>
+            <div
+                    class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl cuxiao-manage"
+                    tabindex="0">
+                <a href="#"
+                   class="ntes-nav-select-title ntes-nav-entry-bgblack">促销管理<em
+                        class="ntes-nav-select-arr"></em></a>
+                <div class="ntes-nav-select-pop">
+                    <ul class="ntes-nav-select-list clearfix">
+                        <li><a href="/paipaidiscount/index"><span><em
+                                class="ntes-nav-app-msc">活动列表</em></span></a></li>
+                        <li><a href="/paipaidiscount/zhekou_1"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/zhekou.jpg') no-repeat;">创建打折活动</em></span></a></li>
+                        <li><a href="/paipaidiscount/item_alladd"><span><em
+                                class="ntes-nav-app-act-mnt" style="background:  url('/public/images/dazhe/zhekou.jpg') no-repeat;">全店打折</em></span></a></li>
+                        <li><a href="/paipaidiscount/creatmanjiansong"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/xiaoman.jpg') no-repeat;">创建满减送活动</em></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                    class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"
+                    tabindex="0">
+                <a href="javascript:void(0);"
+                   class="ntes-nav-select-title ntes-nav-entry-bgblack">商品管理<em
+                        class="ntes-nav-select-arr"></em></a>
+                <div class="ntes-nav-select-pop">
+                    <ul class="ntes-nav-select-list clearfix">
+                        *{<li><a href="/paipaimanage/diagnose"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/biaoti.jpg') no-repeat;">标题优化</em></span></a></li>}*
+                        <li><a href="/paipaimanage/batch"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/piliang.png') no-repeat;">批量中心</em></span></a></li>
+                        <li><a href="/paipaimanage/stockcenter" class="kucun"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/kucang.png') no-repeat;">库存中心</em></span></a></li>
+                        <li><a href="/paipaiskincomment/index" class="skincomment"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/pinjia.png') no-repeat;">自动评价</em></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                    class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl biaotiyouhua"
+                    tabindex="0">
+                <a href="#"
+                   class="ntes-nav-select-title ntes-nav-entry-bgblack dingdan">标题优化<em
+                        class="ntes-nav-select-arr"></em></a>
+                <div class="ntes-nav-select-pop">
+                    <ul class="ntes-nav-select-list clearfix">
+                        <li><a href="/paipaimanage/diagnose"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/biaoti.jpg') no-repeat;">标题优化</em></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                    class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"
+                    tabindex="0">
+                <a href="#"
+                   class="ntes-nav-select-title ntes-nav-entry-bgblack dingdan">订单管理<em
+                        class="ntes-nav-select-arr"></em></a>
+                <div class="ntes-nav-select-pop">
+                    <ul class="ntes-nav-select-list clearfix">
+                        <li><a href="/paipaiorderform/index"><span><em
+                                class="ntes-nav-app-act-add" style="background:  url('/public/images/dazhe/dd.png') no-repeat;">订单打印</em></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="ntes-nav-entry-wide c-fl" href="/paipaidiscount/base_index"
+               title="返回首页" > 返回首页</a>
+        </div>
+        <!-- 右部导航 -->
+        <div class="c-fr">
+            <div class="c-fl">
+                <div class="c-fl" id="js_N_NavLoginAfter" style="display: block;">
+                    <span class="left mr6">您好，</span>
+                    <div id="js_N_logined_warp"
+                         class="js_N_navSelect ntes-nav-logined ntes-nav-logined-scroll"
+                         tabindex="0">
+							<span class="ntes-nav-select-title ntes-nav-logined-userinfo"><span
+                                    id="js_N_navUsername"></span><em
+                                    class="ntes-nav-select-arr"></em></span>
+                        <div id="js_login_suggest_wrap" class="ntes-nav-select-pop">
+                            <ul id="js_logined_suggest"
+                                class="ntes-nav-select-list clearfix">
+                                <li><a
+                                        href="/in/ppdazhe"><span>重新授权</span></a></li>
+                                <li><a href="#" id="sync_data"><span>同步数据</span></a></li>
+                                <li><a href="#" id="login_out"><span>退出</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 连接导航 -->
+                    <a class="ntes-nav-entry-wide c-fl" target="_self"
+                       href="#"
+                       id="syncBtn">更新宝贝数据</a>
+                </div>
+            </div>
+            *{<ul class="ntes-nav-inside hidden">}*
+                *{<li><a href="#"}*
+                       *{class="c-fl ntes-nav-entry ntes-nav-entry-bgblack"><em}*
+                        *{class="ntes-nav-entry-help">帮助</em><span class="ntes-nav-msg"}*
+                                                                 *{id="js_N_navWbMsg" style="display: block;"></span></a></li>}*
+                *{<li>}*
+                    *{<div}*
+                            *{class="ntes-nav-select js_N_navSelect c-fl"}*
+                            *{tabindex="0">}*
+                        *{<a id="js_mail_url"}*
+                           *{href="#"}*
+                           *{class="ntes-nav-select-title ntes-nav-entry-bgblack"><em}*
+                                *{class="ntes-nav-entry-mail">通知</em><em}*
+                                *{class="ntes-nav-select-arr"></em><span class="ntes-nav-msg"}*
+                                                                       *{id="js_N_navMailMsg" style="display: block;"></span></a>}*
+                        *{<div class="ntes-nav-select-pop ntes-nav-select-pop-mail">}*
+                            *{<ul class="ntes-nav-select-list clearfix">}*
+                                *{<li><a href="#"><span>系统消息</span></a></li>}*
+                            *{</ul>}*
+                        *{</div>}*
+                    *{</div>}*
+                *{</li>}*
+                *{<li>}*
+                    *{<div class="ntes-nav-select js_N_navSelect c-fl" tabindex="0">}*
+                        *{<a href="#"}*
+                           *{class="ntes-nav-select-title ntes-nav-entry-bgblack"><em}*
+                                *{class="ntes-nav-entry-money">支付</em><em}*
+                                *{class="ntes-nav-select-arr"></em></a>}*
+                    *{</div>}*
+                *{</li>}*
+
+            *{</ul>}*
+        </div>
+    </div>
+</div>
+<div id="thickbox_container" style="display:none"></div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".ntes-nav-select").mouseover(function() {
+            $(this).addClass("ntes-nav-select-unfold");
+        });
+        $(".ntes-nav-select").mouseout(function() {
+            $(this).removeClass("ntes-nav-select-unfold");
+        });
+        $("#js_N_logined_warp").mouseover(function() {
+            $(this).addClass("ntes-nav-select-unfold");
+        });
+        $("#js_N_logined_warp").mouseout(function() {
+            $(this).removeClass("ntes-nav-select-unfold");
+        });
+    });
+    var navbox = $('.navbox');
+    navbox.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            navbox.find('a.navselected').removeClass('navselected');
+            anchor.addClass('navselected');
+
+//            hasPath = true;
+        }
+    });
+    $('#main').css('margin-left',($(document).width()-960)/2+"px");
+    $('.ntes-nav-main').css('margin-left',($(document).width()-960)/2+"px");
+    $('#footer-content').css('margin-left',($(document).width()-200)/2+"px");
+
+    TM.sync = function(){
+        $.get('/paipaiitems/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+        $('#sync_data').click(function(){
+            TM.sync();
+        });
+    });
+    $.get("/paipaidiscount/queryUserNick", function(data) {
+        $("#js_N_navUsername").html(data);
+    });
+
+    //     TM.gcs('/js/utils/jquery.cookie.js',function(){
+    TM.gcs('/js/utils/jquery.cookie.js',function(){
+        $('#logout').click(function(){
+            $.ajax({
+                url : '/PaiPaiIn/logout',
+                dataType : 'text',
+                success : function(text){
+                    $.cookie('tm_SESSION',null);
+                    window.location.href = text;
+                }
+            })
+        })
+    });
+    $.get('/PaiPaiManage/appInfo',function(data){
+        if(data == "700132314") {
+            $('.cuxiao-manage').show();
+            $('.biaotiyouhua').hide();
+        } else if(data == "700156441"){
+            $('.cuxiao-manage').hide();
+            $('.biaotiyouhua').show();
+        }
+    });
+</script>
+<div  style="height:1px;clear:both;" class="blank0" ></div>
+
+<div id="main" style="width:1000px;float:none;margin: 0 auto;">
+#{doLayout /}
+</div>
+
+<div id="mainfoot" style="position: relative;background-color: #EF6400;margin-top: 30px;">
+    <div id="footer-content" style="margin: 0 auto;width:200px;text-align: center;">
+        <p style="font-size:14px;padding-top:15px;color:white;">
+            在线客服：
+            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2950407153&site=qq&menu=yes">
+                <img border="0" src="http://wpa.qq.com/pa?p=2:2950407153:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+        </p>
+        <!--  <a href="/home/buyVersion">版本控制</a> -->
+    </div>
+</div>
+
+#{get 'moreScripts' /}
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+#{extends 'xiaoqingxin/xiaoqingxin.html' /}
+#{set title:'小清新 - 宝贝推广' /}
+
+<style type="text/css">
+    div{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+    img {
+        border: 0 none;
+        margin: 0;
+        padding: 0;
+    }
+    .category{margin-bottom: 20px;width: 960px;position: relative;}
+    .category-head{
+        background: url('/img/xiaoqingxin/piece_bg.png') 0 0 no-repeat;
+        height: 10px;
+        font-size: 0;
+        _background-image: none;
+        _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/xiaoqingxin/r_hd_w_960x10.png', sizingMethod='scale');
+    }
+    .category-body{
+        padding: 5px 25px;
+        overflow: hidden;
+        zoom: 1;
+        background: url('/img/xiaoqingxin/r_bd_w_960x1.png') 0 0 repeat-y #fff;
+    }
+    .category-body-title{
+        width: 100%;
+    }
+    .category-foot{
+        background: url('/img/xiaoqingxin/piece_bg.png') 0 -10px no-repeat;
+        height: 10px;
+        font-size: 0;
+        _background-image: none;
+        _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/xiaoqingxin/r_ft_w_960x10.png', sizingMethod='scale');
+    }
+    .share_title {
+        padding-bottom: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: '微软雅黑E\8F6F\96C5\9ED1', '黑体ED1\4f53', Arial, '宋体b8b\4f53';
+    }
+    .share_title em {
+        font-size: 20px;
+        color: #e54444;
+        font-style: normal;
+    }
+    .share_title em a {
+        font-size: 20px;
+        color: #63C6B2;
+    }
+    .share_title em a span {
+        color: #666;
+    }
+    .share_title .st_key {
+        margin-left: 30px;
+    }
+    .share_title .st_key a {
+        font-size: 12px;
+        color: #5a5a5a;
+        font-weight: normal;
+        margin-right: 10px;
+    }
+    .share_title .st_key span {
+        color: #ccc;
+        margin-right: 10px;
+        font-weight: normal;
+    }
+    .share_title .more {
+        margin-top: 10px;
+    }
+    .fr{
+         float: right;
+         display: inline;
+    }
+    .fl {
+        float: left;
+        display: inline;
+    }
+    .share_title .more a {
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+        font-family: "宋体B8B\4F53";
+    }
+    .category-body-content{width: 100%;}
+    .category-body-content-img{width: 185px;height: 336px;}
+    .category-body-content-items{width: 710px;height: 336px;}
+    .normal-item{width: 150px;height: 160px;margin-right: 3px;}
+    .long-item{width: 235px;height: 160px;margin-right: 3px;}
+    .w150 {
+        width: 100%px;
+        padding: 0 10px;
+    }
+    .trsp_bg {
+        position: relative;
+        top: -49px;
+        *top:-29px;
+        background: #fff;
+        display: block;
+        filter: alpha(opacity=80);
+        opacity: 0.8;
+        -moz-opacity: 0.8;
+    }
+    .trsp_bg h4 {
+        height: 30px;
+        line-height: 30px;
+        *margin: 0;
+        *padding:0;
+    }
+    .trsp_bg h4 span.likeit {
+        background: url(/img/xiaoqingxin/likebg.gif) no-repeat 0 center;
+        padding-left: 18px;
+    }
+    .trsp_bg h4 span.f12 {
+        font-weight: normal;
+        color: #666;
+    }
+</style>
+
+<div class="xiaoqingxin-wrapper">
+    <div class="all-category">
+        <div class="clothes category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>清新服饰
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+                            <div class="inlineblock normal-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:150px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_160x160.jpg"  style="display: block; margin-top: 0px; margin-left: -5px; width: 160px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl inlineblock">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr inlineblock" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock normal-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:150px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_160x160.jpg" style="display: block; margin-top: 0px; margin-left: -5px; width: 160px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock normal-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:150px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_160x160.jpg" style="display: block; margin-top: 0px; margin-left: -5px; width: 160px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock long-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:235px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_480x480.jpg" scaletype="3" scalewidth="235" scaleheight="160" style="display: block; margin-top: 0px; margin-left: -5px; width: 235px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock long-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:235px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_480x480.jpg" scaletype="3" scalewidth="235" scaleheight="160" style="display: block; margin-top: 0px; margin-left: -5px; width: 235px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock normal-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:150px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_160x160.jpg" style="display: block; margin-top: 0px; margin-left: -5px; width: 160px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock normal-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:150px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_160x160.jpg" style="display: block; margin-top: 0px; margin-left: -5px; width: 160px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div class="inlineblock normal-item">
+                                <a href="javascript:void(0)" target="_blank" style="display:block;width:150px;height:160px;overflow:hidden;">
+                                    <img class="img lazyload" src="http://img02.taobaocdn.com/imgextra/i2/79742176/T2js9UXlRXXXXXXXXX_!!79742176.jpg_160x160.jpg" style="display: block; margin-top: 0px; margin-left: -5px; width: 160px; height: 160px;">
+                                </a>
+                                <a class="trsp_bg w150" href="javascript:void(0)" target="_blank" style="height: 30px;">
+                                    <h4>
+                                        <span class="likeit fl">
+                                        <b class="nums red">0</b>
+                                        </span>
+                                        <span class="f12 fr" style="font-size: 12px;">栀子花</span>
+                                    </h4>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="clothes-female category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>女装
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="clothes-male category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>男装
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="shoes category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>鞋子
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="bags category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>包包
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="beauty category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>美容
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="house category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>家居
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="mother-baby category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>母婴
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="digit category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>数码
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="food category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>美食
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="clothes category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>服饰
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+        <div class="clothes category">
+            <div class="category-head"></div>
+            <div class="category-body">
+                <table class="category-body-title">
+                    <tr class="share_title">
+                        <td style="width: 150px;">
+                            <em class="inlineblock">
+                                <a target="_blank" href="javascript:void(0)">
+                                    <span>分享</span>服饰
+                                </a>
+                            </em>
+                        </td>
+                        <td style="width: 150px;">
+                            <span class="st_key inlineblock">
+                                <a target="_blank" href="javascript:void(0)">热门</a>
+                                <a target="_blank" href="javascript:void(0)">最新</a>
+                                 <span>|</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="more fr inlineblock">
+                                <a href="javascript:void(0)">更多&gt;&gt;</a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="category-body-content">
+                    <tr>
+                        <td class="category-body-content-img">
+                            <a href="javascript:void(0)" target="_blank">
+                                <img src="/img/xiaoqingxin/4f79caf7d7c44.jpg" width="185" height="330">
+                            </a>
+                        </td>
+                        <td class="category-body-content-items">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="category-foot"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs("/js/xiaoqingxin/xiaoqx.js",function(){
+            TM.Xiaoqingxin.Init.doInit($('.xiaoqingxin-wrapper'));
+        })
+    });
+</script>

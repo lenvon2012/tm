@@ -1,0 +1,116 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavdata.html' /}
+#{set title:'淘标题-PC入店关键词' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/searchDiag/shopSearchWords.css">
+<link rel="stylesheet" media="screen" href="/css/daterangepicker/bootstrap.daterangepicker.css">
+<link rel="stylesheet" media="screen" href="/css/daterangepicker/daterangepicker.css" />
+#{/set}
+<style>
+</style>
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>PC入店关键词
+</div>
+
+<div class="diag-container">
+    <div class="shop-diag-div">
+        <div class="searchDiagTip intro hidden" style="text-align: center;margin: 0 auto;margin-bottom: 10px;">
+            亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+        </div>
+
+        <div class="interval-wrapper">
+            <div class="interval-tr">
+
+                *{<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 1-day" value="1">最近1天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 3-day" value="3">最近3天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 7-day" value="7">最近7天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 14-day" value="14">最近14天数据&nbsp;&nbsp;&nbsp;
+				<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 0-day" value="0">&nbsp;&nbsp;&nbsp;
+                <input type="text" style="width:100px;text-align: center;" id="startTimeInput">~
+                <input type="text" style="width:100px;text-align: center;" id="endTimeInput">的数据}*
+                <div class="date-range-picker" style="position: relative;width:300px;text-align: center;margin: 0 auto;">
+                    <div class="">
+                        <input type="text" id="date-range-picker" class="form-control" style="padding-left: 10px" placeholder="日期选择">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar" style="position: absolute;bottom: 10px;right: 10px;top: auto;cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title-head">
+            &nbsp;&nbsp;PC入店关键词
+        </div>
+        <div class="word-diag-paging" style="text-align: center;"></div>
+        <div class="diag-result-div">
+            <table class="word-diag-result-table busSearch">
+                <tbody>
+                <tr class="word-diag-result-table-th">
+                    <td rowspan="2">关键词</td>
+                    <td colspan="3">展现数据</td>
+                    <td colspan="4">引流数据</td>
+                    <td colspan="1">转化数据(直接成交)</td>
+                    <td colspan="1">数据趋势</td>
+                </tr>
+                <tr class="word-diag-result-table-th">
+                    <td class="orderTd">展现量<span class="inlineblock sort Desc" sort="impression"></span></td>
+                    <td class="orderTd desc">点击量<span class="inlineblock sort Desc" sort="click"></span></td>
+                    <td>点击率</td>
+                    <td class="orderTd desc">访客数<span class="inlineblock sort Desc" sort="uv"></span></td>
+                    <td class="orderTd desc">成交人数<span class="inlineblock sort Desc" sort="alipay_winner_num"></span></td>
+                    <td class="orderTd desc">成交件数<span class="inlineblock sort Desc" sort="alipay_auction_num"></span></td>
+                    <td class="orderTd desc">成交金额<span class="inlineblock sort Desc" sort="alipay_trade_amt"></span></td>
+                    <td>成交转化率</td>
+                    <td>展现量</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="word-diag-paging" style="text-align: center;border-bottom: 1px solid #93ddf8;"></div>
+    </div>
+</div>
+
+<div id="pv-trend-chart-tmpl" style="display: none;">
+
+</div>
+
+#{set 'moreScripts'}
+<script type="text/javascript" src="/js/daterangepicker/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/daterangepicker/moment.js"></script>
+<script type="text/javascript" src="/js/daterangepicker/daterangepicker.js"></script>
+*{<script type="text/javascript">
+    TM.gcs('/js/daterangepicker/jquery-1.11.3.min.js', function () {
+        TM.gcs('/js/daterangepicker/bootstrap.min.js', function () {
+            TM.gcs('/js/daterangepicker/moment.js', function () {
+                TM.gcs('/js/daterangepicker/daterangepicker.js', function () {});
+            });
+        });
+    });
+</script>}*
+
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/highcharts.js', function () {
+            TM.gcs('/js/tm.js', function () {
+                TM.gcs('/js/jquery.pagination.js', function () {
+                    if(typeof(TM.firstLoginTime) == "undefined") {
+                    	TM.gcs("/status/js", function () {
+                    		TM.gcs('/js/searchDiag/shopSearchWords.js?_v=24', function () {
+                                TM.shopSearchWords.init.doInit($('.diag-container'));
+                            });
+                    	});
+                    } else {
+                    	TM.gcs('/js/searchDiag/shopSearchWords.js?_v=24', function () {
+                            TM.shopSearchWords.init.doInit($('.diag-container'));
+                        });
+                    };
+
+                });
+            });
+        });
+    });
+</script>
+#{/set}

@@ -1,0 +1,86 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+
+<style type="text/css">
+
+    .crud_longtext textarea{width:900px;height:500px;}
+    .crud_number input[type="text"]{width:900px;}
+
+
+</style>
+<style type="text/css">
+
+
+
+    #demo-page{display:inline-block;*display:inline;width:900px;heigth:600px;;}
+
+    #demo-page h1,
+    #demo-page h2,
+    #demo-page h3 {
+        margin: 1em 0 0.3em;
+    }
+    #demo-page .section ol {
+        margin: 5px 20px;
+    }
+    #demo-page .section ol li {
+        list-style: decimal inside;
+        margin: 5px 0;
+    }
+    #demo-page #submit-btn {
+        padding: 4px 20px;
+        margin: 10px 5px;
+    }
+    #ks-editor{
+        width: 800px;
+        height: 400px;
+    }
+
+</style>
+<!-- 1. 页头引入 editor css -->
+<link rel="stylesheet" href="/public/javascripts/TMHelpArticles/kissy_editor_1.0.0_build263/themes/default/editor-min.css" type="text/css"/>
+
+
+<div id="crudShow" class="${type.name}">
+    <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
+    <a href="/helpcenter/article/${object._key()}" style="color:blue;font-size: 16px;">预览</a>
+    <div class="objectForm">
+    #{form action:@save(object._key()), enctype:'multipart/form-data'}
+        #{crud.form /}
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+    #{form @delete(object._key())}
+        <p class="crudDelete">
+            <input type="submit" value="&{'crud.delete', type.modelName}" />
+        </p>
+    #{/form}
+</div>
+
+
+
+<div>
+
+</div>
+
+<!-- 2. 页尾引入 editor js and init code -->
+<script src="/public/javascripts/Nepal/jquery-1.8.3.min.js"></script>
+<script>
+    //加载完成后执行
+    $(document).ready(function(){
+
+        var container = $('#object_body').parent();
+        container.find('.crudHelp').remove();
+        var demopage=  $("<div id='demo-page''></div>");
+        $("#object_body").appendTo(demopage);
+        demopage.appendTo(container);
+            $.getScript("/public/javascripts/TMHelpArticles/kissy_editor_1.0.0_build263/editor-aio.js",function(){
+                KISSY.Editor("object_body");
+            })
+    })
+</script>
+
+

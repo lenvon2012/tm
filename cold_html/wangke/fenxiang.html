@@ -1,0 +1,16 @@
+#{extends 'wangke/wangkemain.html' /}
+#{set title:'旺客分享' /}
+
+<div class="wangke-container">
+    <h2 style="text-align: center;margin-top:100px;font-size: 48px;">旺客分享，欢迎你</h2>
+    <h4 style="text-align: center;">有问题请联系我们: 0571-88959735</h4>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.wangkename').text("旺客分享");
+        $('.top-nav ul').append($('<li class="selected"><a href="/in/wangkehaoping" id="dpzd">旺客分享</a></li>'));
+        $('.userheadop').empty();
+        $('#mainfoot p').empty();
+    })
+</script>

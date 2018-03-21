@@ -1,0 +1,213 @@
+#{extends 'skincomment/skinautocommentsubbase.html' /}
+
+#{set title:'手动评价' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/blacklist.css?_v=20131206"/>
+<style type="text/css">
+    .singleModel{
+        margin-left: 10px;
+    }
+    .singleModel p {
+        margin-right: 110px;
+        margin-bottom: 20px;
+    }
+    .comment-model-option{margin-left: 30px;*padding-left: 0px;*margin-left: -630px;}
+    .model-selected{background: url("/img/relation/choosed-1.gif") no-repeat 644px 0px;background-color: #fffff0;}
+    .model-unselected{background: url("/img/relation/chooseing.gif") no-repeat 644px 0px}
+    .good-rate{width: 40px;height: 20px;background: url(/public/images/comments.gif) no-repeat -220px -100px}
+    .netural-rate{width: 40px;height: 20px;background: url(/public/images/comments.gif) no-repeat scroll -220px -240px;}
+    .bad-rate{width: 40px;height: 20px;background: url(/public/images/comments.gif) no-repeat scroll -220px -170px;}
+    .comment-model-option-selected{color: red;}
+    .skincomment-trade-search-table{width: 100%;
+        font-family: "微软雅黑";
+        font-size: 13px;
+        color: #333;
+        margin: 10px 0px;
+        border: 1px solid #d9d9d9;}
+    .skincomment-trade-search-table thead {
+        border: 1px solid #d9d9d9;
+    }
+    .skincomment-trade-search-table thead tr {
+        width: 100%;
+        font-family: "微软雅黑";
+        font-size: 14px;
+        color: #1D5987;
+        font-weight: bold;
+        background-color: #ECECEC;
+        height: 32px;
+        text-align: center;
+    }
+    .skincomment-trade-search-table tbody tr{margin-bottom:10px;}
+
+    .skincomment-trade-search-table th{word-wrap: break-word;
+        word-break: break-all;*font-size: 13px;background: url(/img/th_line.gif) no-repeat right 50%;}
+    .skincomment-trade-search-table td{word-wrap: break-word;
+        word-break: break-all;text-align: center;border-bottom: 1px solid #ECECEC;*font-size: 12px;}
+        
+    .skincomment-trade-search-table td{font-size:13px;}
+    .skincomment-trade-search-table td a{font-size:13px;}
+    .rate-flower-img{width: 30px;height: 20px;}
+    .buyer-good-rate{background: url(/img/comments.gif) no-repeat -235px -102px}
+    .buyer-netural-rate{background: url(/img/comments.gif) no-repeat -235px -242px}
+    .buyer-bad-rate{background: url(/img/comments.gif) no-repeat -235px -172px}
+    .batch-rate-btn{display: block}
+    .search-trade-btn{display: inline-block;*display: inline;zoom:1;}
+    .rateResultTable{font-family: "微软雅黑";border: 1px solid #d9d9d9;}
+    .rateResultTable thead{border: 1px solid #d9d9d9;}
+    .rateResultTable thead tr{width: 100%;font-family: "微软雅黑";font-weight: bold;background-color: #ECECEC;}
+    .rateResultTable th{word-wrap: break-word;
+        word-break: break-all;*font-size: 13px;background: url(/img/th_line.gif) no-repeat right 50%;}
+    .rateResultTable td{word-wrap: break-word;
+        word-break: break-all;text-align: center;border-bottom: 1px solid #ECECEC;*font-size: 12px;}
+    .tmNav span {margin: 5px 5px 0 5px;}
+    .skincomment-table-tbody td.detail {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    #skincomment {
+        width: 798px;
+    }
+    .blacklist-container {
+        border: 1px solid #bbb;
+    }
+</style>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+*{<script src="/js/skincomment/blacklist.js" type="text/javascript" charset="utf-8"></script>}*
+
+<div class="blacklist-container">
+    <div class="clearfix kitNav">
+        <div class="tmNav trade-type"  style="color:white;padding-bottom:1px;">
+            <span class="">
+                <label tag="oplogs" type="4"  href="javascript:void(0)">卖家未评</label>
+            </span>
+            <span >
+                <label tag="oplogs" type="6" href="javascript:void(0)">卖家未评，买家已评</label>
+            </span>
+            <span >
+                <label tag="oplogs" type="1" href="javascript:void(0)">买家未评</label>
+            </span>
+            <span >
+                <label tag="oplogs" type="9" href="javascript:void(0)">买家未评，卖家已评</label>
+            </span>
+            <span >
+                <label tag="oplogs" type="0" href="javascript:void(0)">全部</label>
+            </span>
+        </div>
+    </div>
+    <div class="log-search-div" style="padding:5px;border: 1px solid #ccc;background: #fcfcfc;">
+        <table style="margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td>
+                    <span>交易编号:</span>
+                    <input type="text" class="trade-id-text" style="width: 100px;">
+                </td>
+                <td style="padding-left: 10px;">
+                    <span>买家昵称:</span>
+                    <input type="text" class="buyer-name-text" style="width: 100px;"></td>
+                <td style="padding-left: 10px;">
+                    <span>订单日期:</span>
+                    <input type="text" class="start-time-text date-picker" style="width: 85px;">
+                    <span>-</span>
+                    <input type="text" class="end-time-text date-picker" style="width: 85px;">
+                </td>
+                <td style="padding-left: 10px;">
+                    <span class="search-trade-btn btn btn-primary">搜索评价</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="trade-search-pagging" style="text-align: center"></div>
+    <table class="skincomment-trade-search-table">
+        <thead>
+            <th style="width:5%;"><input type="checkbox" tag="checkAll" class="checkAll" style=""></th>
+            <th style="width:10%">宝贝主图</th>
+            <th style="width:25%;">宝贝标题</th>
+            <th style="width:25%;">订单号/评价时间</th>
+            <th style="width:10%;">买家评价</th>
+            <th style="width:25%;">联系方式</th>
+        </thead>
+        <tbody class="skincomment-table-tbody" >
+
+        </tbody>
+    </table>
+    <div class="trade-search-pagging" style="text-align: center"></div>
+    <div class="clearfix" style="height:10px;border-bottom: 1px solid #9c9c9c;"></div>
+    <div>
+        <table class="add-black-table skincomment-table" style="width: 100%;">
+            <thead>
+            <tr>
+                <td style="width: 150px; text-align: center;">好/中/差评</td>
+                <td style="width: 490px;">评价内容</td>
+                <td style="width: 120px;">评价订单范围</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <p><input type="radio" name="ratetype" value="good" checked="checked" />好评<span class="inlineblock good-rate"></span></p>
+                    <p><input type="radio" name="ratetype" value="neutral" />中评<span class="inlineblock netural-rate"></span></p>
+                    <p><input type="radio" name="ratetype" value="bad" />差评<span class="inlineblock bad-rate"></span></p>
+                </td>
+                <td>
+                    <textarea style="width: 480px;height: 100px;overflow-y: hidden;" class="comment-content"></textarea>
+                </td>
+                *{<td>
+                    <textarea rows="6" cols="20" class="add-black-text">评价模板何在</textarea>
+                </td>}*
+                <td>
+                    <span class="batch-rate-btn batch-selected-rate-btn commbutton btntext4 ">评价选中评价</span>
+                    <span class="batch-rate-btn batch-page-rate-btn commbutton btntext4 ">评价本页订单</span>
+                    <span class="batch-rate-btn batch-all-rate-btn commbutton btntext4 ">评价所有订单</span>
+                   *{ <div style="color: #a10000;width: 180px;margin: 0 auto;">记录设置黑名单的原因，如：该卖家给过我差评</div>}*
+                    *{<input type="text" class="add-black-remark-text">}*
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="3" >
+                    <div class="modelTip">
+                        <span style="margin-right: 30px;">您可以使用一下<span style="color: red">模板</span>作为评价内容</span>
+                        <span class="toOpenModel modelStatus" >隐藏模板>></span>
+                    </div>
+                    *{<div class="commentModelsArea">
+                        <div class="singleModel model-selected">
+                            <p>特别棒的买家，感谢您一直的陪伴，分享我们的美丽！我们用心经营自己，让品味与价值与日俱增！超多震撼折扣，期待您的再次光临咚咚咚！</p>
+                            <div class="comment-model-option comment-model-option-selected">已选择</div>
+                        </div>
+                        <div class="singleModel model-unselected">
+                            <p>非常棒的买家，收到宝贝有任何问题请立即与小店售后联系，我们尽力给您处理，也别忘给小店一个好评，互相鼓励下哦。常来看看，让我们有幸为您提供更多的惊喜！</p>
+                            <div class="comment-model-option">未选择</div>
+                        </div>
+                        <div class="singleModel model-unselected">
+                            <p>very nice</p>
+                            <div class="comment-model-option">未选择</div>
+                        </div>
+                    </div>}*
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class='clearfix'></div>
+
+    <script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+        TM.gcs('/js/skincomment/manualcomment.js?_v=20131206', function () {
+        	TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+	        	TM.gcs('/js/ChineseDatePicker.js', function () {
+		            $(document).ready(function() {
+		                TM.Loading.init.show();
+		                TM.ManualComment.Init.init($(".blacklist-container"));
+		            });
+	            });
+            });
+        });
+    });
+</script>

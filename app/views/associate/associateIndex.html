@@ -1,0 +1,79 @@
+#{extends 'tbtnav/tbtnavword.html' /}
+
+<link rel="stylesheet" media="screen" type="text/css" href="/css/associate/associateIndex.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="/css/associate/listItemsWindow.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=3">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=3">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+<![endif]-->
+
+*{<link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />}*
+
+<script src="/js/utils/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<!--<div class="navbar-inner">-->
+    <!--<div class="container" style="width: 1000px;">-->
+        <!--<div class="nav-collapse collapse">-->
+            <!--<p class="pull-right">-->
+                <!--<span class="userheadop" style="margin-right: 10px;vertical-align: middle;">楚之小南</span>-->
+                <!--<a style="margin-top: 5px;" class="tmbtn sky-blue-btn" id="syncBtn" href="javascript:void(0)">更新数据</a>-->
+                <!--<a style="margin-top: 5px;" class="tmbtn red-short-btn" id="logout" href="javascript:void(0);">退出</a>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<body>
+    <!--<div class="associate-menu" >-->
+        <!--<table>-->
+            <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<a class="current" href="/associate/associate" type-data="1">关联模板</a>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<a  href="" type-data="2">超级团购</a>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<a  href="" type-data="3">活动海报</a>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<a  href="" type-data="4">客服模板</a>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+
+    <div style="background-color:#fff;border-left:1px solid #efefef">
+        #{doLayout/}
+    </div>
+</body>
+
+<script>
+    $(document).ready(function(){
+        $(".associate_menu a").click(function(){
+            $(".associate_menu a").removeClass("current");
+            $(this).addClass("current");
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $(".menu td").hover(function(){
+            if(!$(this).hasClass("current")){
+                $(this).addClass("current-mouse-in");
+            }
+        },function(){
+            $(this).removeClass("current-mouse-in");
+        });
+    });
+</script>
+
+
+
+

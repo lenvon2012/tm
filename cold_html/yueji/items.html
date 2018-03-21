@@ -1,0 +1,24 @@
+#{extends 'yueji/base.html' /}
+#{set title:'店铺推广 - 我要推广' /}
+
+<style type="text/css">
+    .op-td{text-align: right;}
+</style>
+
+<div class="item-container">
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/home/firstSync',function() {
+                TM.gcs('/js/dianputuiguang/dptgitem.js', function () {
+                    TM.gcs('/js/Shoucang/shoucang.js', function () {
+                        TM.DptgItem.init.doInit($(".item-container"));
+                    });
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,36 @@
+#{extends 'skincomment/skincommentbase.html' /}
+#{set title:'短信通知设置' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+
+<div id="secondary">
+    <div class="gap">
+        <div class="wrapper">
+            <div class="secnav">
+                <a href="/SkinComment/warn" class="current">短信通知设置</a>
+                <a href="/SkinComment/noticeLog">短信提醒日志</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="defensewarn-container">
+    短信通知设置
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    TM.gcs('/js/switch.js', function () {
+        TM.gcs('/js/skincomment/defensewarn.js?_v=20170710', function () {
+            $(document).ready(function() {
+                TM.Loading.init.show();
+                TM.DefenseWarn.init.doInit($(".defensewarn-container"));
+            });
+        });
+    });
+
+
+</script>

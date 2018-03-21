@@ -1,0 +1,545 @@
+#{extends 'yangyang.html' /}
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=2">
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=2">
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+<![endif]-->
+<link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/main.css?_ts=6'>
+<link href="/css/jquery.slideBox.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/jquery-ui-1.9.1.custom.min.js"></script>
+<script type="text/javascript" src="/js/tm.js"></script>
+
+<style>
+.new-tip-bar {
+    color: white; height: 36px;
+    line-height: 36px;
+    font-size: 16px; font-weight: bold; padding-left: 30px;
+    background: url('/img/dianputuiguang/new-tip-bar.png') no-repeat;
+    margin-left: 17px;
+    margin-top: 15px;
+    text-align: left;
+}
+.recommend-fuwus{
+    margin-left: 20px;
+}
+.WaitingForLoadingDiv {
+    display: none; z-index: 10002;
+    color: blue;
+    font-weight: bold;
+    font-size: 18px;
+    text-align:center;
+    background-color:#fff;
+    width:520px; height: 90px;
+    padding:40px 30px;
+    font-family:'微软雅黑','宋体';
+    border: 2px solid #bebebe;
+    /*border: 3px solid transparent;*/
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    /*-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+    /*-moz-box-shadow: 0 0 10px rgba(0,0,0,0.4);*/
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/
+
+}
+.WaitingForLoadingDiv img{
+    /*margin-bottom:15px;*/
+}
+
+
+a {
+    text-decoration: none;
+}
+.inlineblock {
+    display: inline-block; *display: inline; zoom: 1;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.blank0 {
+    display: block; height: 0px; clear: both; font-size: 1px; overflow: hidden;
+}
+.clearfix {
+    clear: both; zoom: 1;
+}
+
+.clearfix:after {
+    clear: both; display: block; visibility: hidden; height: 0px; content: '.';
+}
+img {
+    border: none;
+}
+.shadowbase{behavior:none;}
+
+body {
+    font-family: "微软雅黑"; font-size: 14px; background: #F1EFF0;
+    padding: 0px; margin: 0px;
+}
+.title-wrapper {
+    border-bottom: 3px solid #f27b03; padding: 10px 0px; text-align: center;
+    background: white;
+}
+.title-wrapper .title-container {
+    width: 1000px; margin: 0 auto; text-align: left;
+}
+.title-wrapper .logo-div {
+    font-size: 26px; color: #FF4400; font-weight: bold;
+}
+.title-wrapper .top-user-nick {
+    color: #FF4400; font-weight: bold;
+}
+.user-op-btn {
+    /*background: url('/img/button/bluebutton.png');*/ background: #F37406;
+    border: #D84600 1px solid; margin-left: 7px; border-radius: 4px;
+    width:68px;height: 32px;line-height: 32px;
+    display: inline-block;*display: inline; zoom:1;
+    color: white;text-align: center;font-weight: bold;font-size: 14px;cursor: pointer;font-size:13px;
+}
+.user-op-btn:hover {
+    background: #E26101;
+}
+.basebtn {
+    width: 90px; height: 28px; line-height: 28px; border: #D84600 1px solid;
+    color: white; text-align: center; background: #F37406;
+    font-size: 14px; cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+}
+.basebtn:hover {
+    background: #E26101;
+}
+.long-basebtn {
+    width: 110px;
+}
+.content-wrapper {
+    width: 1000px; margin: 0 auto; text-align: left; background: white;
+    border-bottom: 1px solid #f27b03; border-left: 1px solid #f27b03;
+    border-right: 1px solid #f27b03;
+}
+.nav-box-container {
+    padding: 0px 0px; font-size: 14px;
+}
+.nav-box-container .nav-item-block {
+    border-bottom: 1px solid #fccea5; padding: 10px 0px; display: block;
+    color: #000; cursor: pointer;
+}
+.nav-box-container .nav-item-block:hover {
+    color: #FF4400; background: #ffd6c3; font-weight: bold; background: #fff8ed; background: white;
+}
+.nav-box-container .selected-nav {
+    color: #FF4400; background: #ffd6c3; font-weight: bold; background: #fff8ed; background: white;
+}
+.kefu-container {
+    border: 1px solid #fccea5; background: white; padding: 10px;
+}
+
+.tip-bar-table {
+    width: 100%; border-collapse: collapse;
+}
+.tip-bar-table .bar-left {
+    background: url('/img/dianputuiguang/tip-bar-left.gif') no-repeat; height: 34px;
+    width: 10px;
+}
+.tip-bar-table .bar-middle {
+    background: url('/img/dianputuiguang/tip-bar-middle.gif') repeat-x; height: 34px;
+    font-size: 15px; font-weight: bold; padding-left: 20px; color: #1D5987;
+}
+.tip-bar-table .bar-right {
+    background: url('/img/dianputuiguang/tip-bar-right.gif') no-repeat; height: 34px;
+    width: 10px;
+}
+
+.new-tip-bar {
+    color: white; height: 36px;
+    line-height: 36px;
+    font-size: 16px; font-weight: bold; padding-left: 30px;
+    background: url('/img/dianputuiguang/new-tip-bar.png') no-repeat;
+}
+
+.base-info-table {
+    border-collapse: collapse;
+}
+.base-info-table td {
+    text-align: left; padding: 3px 0px; font-size: 14px;
+}
+.base-info-table .tip-dot {
+    background: url(/img/dianputuiguang/tip-dot.png) no-repeat left 51%; padding-left: 12px;
+}
+.base-info-table .result-info {
+    color: #FF4400;
+}
+.item-container {
+}
+.item-container .tip-div {
+    background: url(/img/dianputuiguang/tip-bar.png) no-repeat; height: 34px;
+    font-size: 15px; font-weight: bold; padding-left: 20px; color: #1D5987; line-height: 34px;
+}
+.item-container .border-div {
+    border: #F1CA94 1px solid; padding: 10px;
+}
+.item-container .result-table {
+    width: 100%; background: url(/img/dianputuiguang/new-tip-bar.png) no-repeat;
+    border-collapse: collapse;
+}
+.item-container .result-table thead tr {
+
+}
+.item-container .result-table thead td {
+    color: white; font-weight: bold; height: 36px;
+}
+.item-container .result-table td {
+    text-align: center; vertical-align: middle;
+}
+.item-container .result-table tbody .result-td {
+    padding: 5px 5px; border-bottom: #F1CA94 1px solid;
+}
+
+.item-container .item-link {
+    color: blue;
+}
+.item-container .item-link:hover {
+    color: #FF4400;
+}
+
+.item-container .link-btn {
+    color: #FF4400;
+}
+.item-container .link-btn:hover {
+    color: #FF4400; font-weight: bold; text-decoration: underline;
+}
+.xufei{margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    right:0;
+    height:83px;
+    line-height: 83px;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    display: none;
+    background: url(/img/autoTitle/adv.png) repeat-x;}
+.xufei{font-size: 24px;z-index: 10000;}
+.xudingBtn{margin:0 20px 0 10px;background: url("/img/taoweigou/search-btn.png");width: 123px;height: 36px;line-height: 36px;font-size: 20px;color: #ffffff;}
+.xudingBtn a{color: #ffffff;}
+div.aside{boirder:1px solid #ccc;width:195px;}
+.aside-content{
+    color: blue;
+}
+.asideselected .aside-content{
+    color: #ffffff;
+}
+div.main{min-height:700px;_height:700px;}
+.tm-paging-container .paging-size-select {
+    background: url(/img/pagging-back2.png) no-repeat left -72px;
+    color: #fff;
+    cursor: default;
+}
+.tm-paging-container .paging-nav {
+    display: inline-block;
+    zoom: 1;
+    height: 16px;
+    width: 24px;
+    text-decoration: none;
+    margin: 0px 2px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px 0px;
+}
+.tm-paging-container .paging-size-link {
+    background: url(/img/pagging-back2.png) no-repeat left top;
+    color: #7f7f7f;
+    cursor: pointer;
+}
+.navbar-fixed-top .container{width: 1100px;padding-left: 0px;}
+</style>
+
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top nav-head">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse"
+                    data-target=".nav-collapse">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="brand" style="color: #fff;" href="/dianputuiguang/index">乐收藏</a>
+            <div class="nav-collapse collapse">
+
+                <ul class="nav head" >
+                    <li><a href="/LeShouCang/baidushoucang">百度收藏</a></li>
+                </ul>
+
+
+                <p class="pull-right">
+                    <span class="userheadop" style="display: none;"></span>
+                    <a class="btn btn-success btn-vcenter" id='syncBtn' href="javascript:void(0)" >更新数据</a>
+                    <a class="btn btn-info btn-vcenter"  id="logout" href="javascript:void(0);">退出</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class='top-banner' style="background: url('/img/frame/header-bg.png');height: 48px; "> -->
+<!-- <div class='top-banner' style=" height: 72px;background: url(http://s.libdd.com/img/bg/header.$5752.png) repeat-x 0 -20px; "> -->
+
+<div class="clear"></div>
+<!--<div id="help">
+        *{<li class="aside-hot-tag ">
+                <a class="clearfix" href="/KeyWords/toSerchKeyWords">
+                    <span class="aside-icon"></span>
+                    <span>热词查询</span>
+                </a>
+                <span class="fold-icon fold"></span>
+            </li>}*
+
+
+        </ul>
+</div>-->
+<div id="yangyangContent">
+
+    <table class="nav-table" style="width: 100%;margin-top: 60px;">
+        <tbody>
+        <tr>
+            <td style="" class="nav-table-left-td">
+                <div class="aside left-nav">
+
+
+                    <div class="blank0" style="height:1px;"></div>
+                    <ul id="opnav" class="sidemenu sidebox side-tracked-tag " style="*margin-top: 0px; display:none;">
+                    *{<li id="ordershengyeji" class="aside-hot-tag first">}*
+                    *{<div id="left1" class="wrapper hidden">}*
+                    *{<a href="http://to.taobao.com/aHZ5Mjy" style="width:190px;height:50px;padding-top:5px;padding-left:3px;">}*
+                    *{<img class="" src="http://img01.taobaocdn.com/imgextra/i1/22902351/T2RRfuXchXXXXXXXXX_!!22902351.gif" style="width:188px;height:48px">}*
+                    *{</a>}*
+                    *{</div>}*
+                    *{</li>}*
+
+
+
+                        <li class="aside-hot-tag">
+                            <div class="wrapper">
+                                <a class="clearfix" href="/LeShouCang/baidushoucang">
+                                    <span class="aside-icon"></span>
+                                    <!-- <div>老用户专享<span style="color:red;">49一年</span>(4元/月)</div> -->
+                                    <div class="aside-content">百度收藏</div>
+                                    <div></div>
+                                </a>
+                            *{<span class="fold-icon fold"></span>}*
+                            </div>
+                        </li>
+
+
+                        <li class="aside-hot-tag hidden">
+                            <div class="wrapper">
+                                <a class="clearfix" href="javascript:void(0)">
+                                    <span class="aside-icon"></span>
+                                    <!-- <div>老用户专享<span style="color:red;">49一年</span>(4元/月)</div> -->
+                                    <div class="aside-content">觉得不满意？<span style="color:red;font-weight:bold;">猛击</span>联系我们
+                                    </div>
+                                    <div></div>
+                                </a>
+                            *{<span class="fold-icon fold"></span>}*
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            <td style="" class="nav-table-right-td">
+                <div class="main">
+                #{doLayout /}
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<style>
+    .item-container .result-table{
+        background: url(/img/dianputuiguang/new-tip-bar.png) no-repeat 17px 0px;
+    }
+</style>
+<div id="J_BackTop" class="taozhanggui-feedback-img" style="right: 90px;">
+    <a href="javascript:void(0)" class="to-top-link" id="J_BackTopBtn" style="display: none;"></a>
+    <a href="javascript:void(0)" class="suggest-link"></a>
+</div>
+<script src="/js/dianputuiguang/dptgbase.js"></script>
+<script type="text/javascript">
+// set #J_BackTop absolute position
+$(document).ajaxStart(function(){
+    TM.Loading.init.show();
+});
+$(document).ajaxStop(function(){
+    TM.Loading.init.hidden();
+});
+$('#J_BackTop').css('right',(($(window).width()-1000)/2 - 95)+'px');
+$(window).resize(function(){
+    $('#J_BackTop').css('right',(($(window).width()-1000)/2 - 95)+'px');
+});
+if(!TM.util.isNotTaobaoCeshi()) {
+    $('.analysisLi').show();
+    $('.shortlinkLi').show();
+    $('.shortlinkUL').show();
+    $('.analysisUL').show();
+}
+// taozhanggui feedback
+$('.taozhanggui-feedback-img').click(function(){
+    var html = '<div>';
+    html += '<p style="text-align: center;">亲，欢迎您给淘掌柜提宝贵的意见</p>';
+    html += '<textarea class="taozhanggui-feedback-content">如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果</textarea>';
+    html += '</div>';
+    var feedbakc_obj = $(html);
+    feedbakc_obj.find('.taozhanggui-feedback-content').click(function(){
+        if($(this).val() == "如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果"){
+            $(this).val('');
+        }
+    });
+    TM.Alert.loadDetail(feedbakc_obj, 600, 400, function(){
+        if(feedbakc_obj.find('.taozhanggui-feedback-content').val() == "如果您对我们的推荐结果不够满意,请给我们留下您最宝贵的建议,我们一定努力改进,尽快让您看到最好的推荐效果"
+                || feedbakc_obj.find('.taozhanggui-feedback-content').val() == ""){
+            TM.Alert.load("亲还没有输入您的意见哦", 400, 300, null, false, "提示", 5000);
+            return false;
+        }
+        $.post('/op/commitTaozhangguiFeedBack',{feed:feedbakc_obj.find('.taozhanggui-feedback-content').val()},function(data){
+            TM.Alert.load(data);
+        });
+    },"意见反馈");
+});
+
+
+
+var path = document.location.pathname.toLowerCase();
+var head = $('.head');
+head.find('a').each(function(){
+    var anchor = $(this);
+
+    if(anchor.attr('href').toLowerCase().indexOf(path) >= 0 && path.length > 2){
+
+        $('.head').find('li.selected').removeClass('selected');
+        anchor.parent().addClass('selected');
+
+//            hasPath = true;
+    }
+});
+
+TM.sync = function(){
+    $.get('/items/sync',function(){
+        TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+            window.location.reload();
+        });
+    });
+}
+
+TM.gcs('/js/tm.js',function(){
+    $('#syncBtn').click(function(){
+        TM.sync();
+    });
+});
+
+
+
+$('#logout').click(function(){
+    $.ajax({
+        url : '/in/logout',
+        dataType : 'text',
+        success : function(text){
+            $.cookie('tm_SESSION',null);
+            $.cookie('_s',null);
+            $.cookie('_n',null);
+            $.cookie('_eu',null);
+            $.cookie('_v',null);
+            $.cookie('no',null);
+
+            window.location.href = text;
+        }
+    })
+})
+
+$('.itools').click(function(){
+    if($('.itools-detail').attr('unfold') == undefined || $('.itools-detail').attr('unfold') == '') {
+        $('.itools-detail').attr('unfold', 'fold');
+        $(".itools-detail").show();
+        $(".itools").addClass('asideselected');
+    } else {
+        $('.itools-detail').attr('unfold', '');
+        $(".itools-detail").hide();
+    }
+
+});
+$('.fold-icon').click(function(){
+//        if($('.unfold').length == 1 && $(this).hasClass('unfold')){
+//
+//        } else {
+//            $('.unfold').addClass('fold');
+//            $('.unfold').parent().find('.secondUl').hide();
+//            $('.unfold').removeClass('unfold');
+//        }
+    var t = 500;
+    if($(this).hasClass("fold")) {
+        $(this).removeClass("fold");
+        $(this).addClass("unfold");
+        if($(this).parent().find('.secondUl').length > 0) {
+            $(this).parent().find('.secondUl').slideDown(t);
+        }
+    } else if($(this).hasClass("unfold")) {
+        $(this).removeClass("unfold");
+        $(this).addClass("fold");
+        if($(this).parent().find('.secondUl').length > 0) {
+            $(this).parent().find('.secondUl').slideUp(t);
+        }
+    }
+});
+$('.fold-icon').each(function(){
+    if($(this).parent().find('.secondUl').length == 0){
+    }
+});
+$('.navContent').find('a').each(function(){
+    var anchor = $(this);
+    if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+        $('.navContent').find('div.navSelected').removeClass("navSelected");
+        anchor.parent().addClass("navSelected");
+        if(path.indexOf("/kits/") >= 0){
+            anchor.parent().parent().slideDown(500);
+        }
+    }
+});
+var aside = $('.aside');
+aside.find('a').each(function(){
+    var anchor = $(this);
+    if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+        $('.aside').find('a.asideselected').removeClass('asideselected');
+        anchor.addClass('asideselected');
+    }
+});
+
+var hideNav = 'true'== '${session.get("_hidenav")}'
+if(!hideNav){
+    $('#opnav').show();
+}
+
+$(document).ready(function(){
+    //$('#footer-content').find('p').hide();
+    $('#kefuhref').attr('href','http://www.taobao.com/webww/ww.php?ver=3&touid=%E6%99%AF%E5%AE%8F%E5%A6%B9%E5%AD%90&siteid=cntaobao&status=1&charset=utf-8');
+
+    $('.dropdown').live('mouseenter',function(){
+        $(this).addClass('open');
+    }).live('mouseleave',function(){
+                $(this).removeClass('open');
+            });
+})
+
+</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f2c6f9dd92929062ea90b19d0b688ea' type='text/javascript'%3E%3C/script%3E"));
+</script>

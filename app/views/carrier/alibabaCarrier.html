@@ -1,0 +1,453 @@
+#{extends 'tbtnav/tbtnavitem.html' /} #{set title:'1688复制' /}
+
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css" />
+
+<style type="text/css">
+.user-admin-wrapper {
+	font-size: 14px;
+	background: white; /*font-family: "微软雅黑";*/
+}
+
+.user-info-tip {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.width950 {
+	width: 950px;
+	margin: 0 auto;
+}
+
+.user-info-table {
+	border: 1px solid #999;
+	border-collapse: collapse;
+}
+
+.user-info-table td {
+	border: 1px solid #999;
+}
+
+.user-info-table .attr-name-td {
+	background: #eee;
+	text-align: right;
+	padding: 10px 20px 10px 0px;
+}
+
+.user-info-table .attr-value-td {
+	text-align: left;
+	padding: 10px 0px 10px 20px;
+}
+
+.search-table tr th {
+	background: #CC0000;
+	font-size: 24px;
+	padding: 10px;
+	font-weight: bolder;
+	color: #fff;
+}
+
+.search-table .search-btn {
+	margin-left: 20px;
+}
+
+.search-table tr td {
+	font-size: 16px;
+	padding: 8px;
+	font-weight: bold;
+}
+
+select {
+	height: 30px;
+}
+
+.condition{
+	margin-left: 10%;
+}
+</style>
+
+<div class="user-admin-wrapper" style="padding: 0px 0px 100px;">
+	<table class="search-table busSearch"
+		style="margin: 0 auto; width: 100%;">
+		<thead>
+			<tr>
+				<th colspan="3">一键复制1688任何宝贝</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="width: 40%; text-align: right; color: #FF0000;">温馨提示：</td>
+				<td colspan="2">由于产能限制，每人最多同时复制&nbsp;&nbsp;<span
+					style="color: red; font-size: 30px;">100</span>&nbsp;&nbsp;个宝贝
+				</td>
+				<!-- （宝贝图片自动上传到您的<a href="http://tu.taobao.com" target="_blank">图片空间</a>） -->
+			</tr>
+			
+			<tr>
+				<td colspan="3" style="text-align: center;">
+					<div class="f-itm">
+						注：宝贝复制速度和宝贝图片的数量有关，一般张图片上传需要1-2秒，对于图片较多的宝贝还请掌柜耐心等候！<br/>
+						软件会自动复制标题、详情、主图子图、颜色、尺码及颜色尺码图片<br/>但由于阿里的商品属性与淘宝不同,类目的Sku信息不一致，复制后最好编辑一下宝贝属性再上架</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: center;">
+					<div class="f-itm">
+						<label class="f-label" style="color: #FF9900;">宝贝地址如图：</label> <img
+							src="https://img.alicdn.com/imgextra/i1/79742176/TB2evUwlHVkpuFjSspcXXbSMVXa_!!79742176.png"
+							style="width: 430px; height: 31px;">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"
+					style="padding: 20px; font-size: 18px;"><span
+					style="font-weight: bold; font-size: 22px;">要复制的宝贝地址[回车分隔宝贝]：</span>
+					<textarea  class="numIid-input" id="itemUrl" onblur="checkUrl(this.value);"
+					style="width: 480px; padding-left: 5px; height: 180px; " ></textarea>
+					<span id="urlMsg">（批量复制优先使用配置项）</span>
+				</td>
+			</tr>
+			<tr class="condition">
+				<td colspan="3" >
+				&nbsp;宝贝分类： 
+				<select id="cmbSellerCat">
+						<option value="0" selected="selected">&nbsp;---不选择分类---&nbsp;</option>
+				</select> 
+				&nbsp;运费模板： 
+				<select id="cmbDt">
+						<option value="0" selected="selected">&nbsp;---不选择模板---&nbsp;</option>
+				</select> 
+				&nbsp;发货地址：
+				 <select id="address">
+						<option value="1">源宝贝地址</option>
+						<option value="2">默认发货地址</option>
+				</select>
+				<!-- <input type="checkbox" name="isGenWirelessDesc"/> 生成手机详情 -->
+				<!--<input type="checkbox"/>去除描述中的外链&nbsp;<input type="checkbox"/>去除描述中的关联商品<input type="checkbox"/>-->
+				</td>
+			</tr>
+			<tr class="condition">
+				<td colspan="3" >标题关键字修改:
+				<input id="oldTitle" name="oldTitle" />
+				<font color="blue">替换为</font>
+				<input id="newTitle" name="newTitle" />
+				价格设置：宝贝原最高价
+				<select id="priceWay">
+					<option value="1">加上</option>
+					<option value="2">乘以</option>
+				</select>
+				<input id="priceVal" type="number" />
+			</tr>
+			
+			<tr class="condition">
+				<td colspan="3" >
+				#{if isTmall == false}<input id="isAutoMatch" type="checkbox" /><span title="自动匹配类目处于内测阶段，如有错误，还请亲手动搜索类目。">是否自动匹配类目</span>#{/if}
+				
+				&nbsp; 淘宝分类： <input
+					id="itemCatKey" />
+					<button id="btnSearch">搜索</button> 
+					<select id="cmbItemCat">
+						<option value="0">
+							&nbsp;输入分类名点搜索进行选择</option>
+					</select>
+					<span id="searchMsg"></span>
+				</td>
+			</tr>
+		<!-- 	<tr class="condition">
+				<td colspan="3" >
+				
+				</td>
+			</tr> -->
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" style="text-align: center"><span
+					class="btn btn-primary btn-large search-btn" id="doCopy" onclick="copyItem()">立即拷贝</span></td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+#{set 'moreScripts'}
+<script>
+	$(function() {
+		$(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+		bindSellerCats();
+		bindDt();
+		bindAddress();
+		addBrand();
+		$("#btnSearch").click(function () {
+			var key=$("#itemCatKey").val().trim();
+			if(isUfOrNullOrEmpty(key)){
+				$("#searchMsg").html("<font color='red'>请先输入淘宝分类信息！</font>");
+				return;
+			}
+			bindItemCats(key);
+	 	})
+	 	
+	 	$("#itemCatKey").keyup(function(e){
+            if(e.keyCode == 13)
+             $("#btnSearch").click();
+        });
+		
+		
+		$("#isAutoMatch").click(function(){
+			//自动匹配类目 被选中的时候禁用搜索
+			var isCheck=$('#isAutoMatch').is(':checked');
+			
+			if(isCheck){
+				$("#btnSearch").attr("disabled","true");
+			}else{
+				$("#btnSearch").removeAttr("disabled");
+			}
+			console.log(isCheck);
+		})
+       /*  $("body").keyup(function(e){
+            if(e.keyCode == 13)
+             copyItem();
+        }); */
+		
+	})
+	
+	
+	//进行拷贝操作
+	function copyItem(){
+		//获取宝贝的url
+		var linkUrl=$("#itemUrl").val().trim();
+		
+		if(!checkUrl(linkUrl)) return;
+		//卖家定义的宝贝分类
+		var sellerCat=$("#cmbSellerCat").val();
+		//运费模板
+		var dtId=$("#cmbDt").val();
+		//要修改的标题关键字
+		var oldTitle=$("#oldTitle").val().trim();
+		//替换后的标题关键字
+		var newTitle=$("#newTitle").val().trim();
+		//价格变更方式
+		var priceWay=$("#priceWay").val();
+		//价格变更值
+		var priceVal=$("#priceVal").val();
+		//发货地址
+		var addressWay=$("#address").val();
+		//是否自动匹配类目
+		var isAutoMatch=$('#isAutoMatch').is(':checked');
+		//淘宝分类
+		var itemCat=$("#cmbItemCat").val();
+		//授权品牌
+		var brand=$("#brand").val();
+		var data=null;
+		//执行复制
+		if($("#brand").html()!=null&&brand==0){
+			$("#brandMsg").html("<font color='red'>请先选择品牌信息！</font>");
+			return;
+		}
+		if(brand>0){
+			$("#brandMsg").html("");
+		}
+		if(isAutoMatch==false||isAutoMatch==undefined){
+			if(itemCat==0||$("#cmbItemCat").children().length<1){
+				$("#searchMsg").html("<font color='red'>请先选择分类信息！</font>");
+				return;
+			}
+			if(itemCat==0||$("#cmbItemCat").children().length<1){
+				$("#searchMsg").html("<font color='red'>请先选择分类信息！</font>");
+				return;
+			}
+		}else{
+			$("#searchMsg").html("");
+		}
+		
+		
+		var sendUrl="/StoreData/copyItem";
+		
+		if(linkUrl.indexOf("\n")>-1){
+			sendUrl="/StoreData/doBatchCarry";
+		}
+		
+		
+		$.ajax({
+			type : "get",
+			url : sendUrl,
+			data:{
+				'url':linkUrl,
+				'sellerCat':sellerCat,
+				'dtId':dtId,
+				'oldTitle':oldTitle,
+				'newTitle':newTitle,
+				'priceWay':priceWay,
+				'priceVal':priceVal,
+				'itemCat':itemCat,
+				'addressWay':addressWay,
+				'isAutoMatch':isAutoMatch,
+				'brand':brand
+			},
+			dataType : "json",
+			success : function(data) {
+		        var content="宝贝复制错误，请重试，多次重试仍失败请联系客服反馈。";
+                if(!isUfOrNullOrEmpty(data)){
+                    content=data.msg;
+                }
+                TM.Alert.load('<br><p style="font-size:15px">'+content+'</p>',400,230,function(){
+                });
+                //alert(JSON.stringify(data));
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				  TM.Alert.load('<br><p style="font-size:15px">宝贝复制错误，请重试，多次重试仍失败请联系客服反馈。</p>',400,230);
+			}
+		});
+	}
+	
+	//加载用户品牌信息
+	function addBrand(){
+		var url="/StoreData/getBrands";
+		$.ajax({
+			type : "get",
+			url : url,
+			dataType : "json",
+			success : function(data) {
+				//console.log(JSON.stringify(data));
+				if(isUfOrNullOrEmpty(data)){
+					return;
+				}
+				$(data).each(
+						function(index, obj) {
+							if(index==0){
+								var html = "&nbsp;授权品牌：<select id='brand'><span id='brandMsg'></span>";
+								$("#searchMsg").after(html);
+							}
+							var option = "<option value='"+obj.vid+"'>"+obj.name+"</option>";
+							$("#brand").append(option);
+						});
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				console.info('系统出错，请重试！');
+			}
+		});
+	}
+	//加载店铺分类信息
+	function bindSellerCats() {
+		var url = "/StoreData/getSellerCats";
+		$.ajax({
+			type : "get",
+			url : url,
+			dataType : "json",
+			success : function(data) {
+//				console.log(JSON.stringify(data));
+				//$("#cmbSellerCat").empty();
+				//$("#cmbSellerCat").append("<option value='0'>---不选择类目---</option>";);
+				$(data).each(
+						function(index, obj) {
+							var html = "<option value='"+obj.cid+"'>"
+									+ obj.name + "</option>";
+							$("#cmbSellerCat").append(html);
+						});
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				console.info('系统出错，请重试！');
+			}
+		});
+	}
+	
+	//加载店铺运费模板
+	function bindDt(){
+		var url = "/StoreData/getDeliveryTemplates";
+		$.ajax({
+			type : "get",
+			url : url,
+			dataType : "json",
+			success : function(data) {
+//				console.log(JSON.stringify(data));
+				//$("#cmbDt").empty();
+				$(data).each(
+						function(index, obj) {
+							var html = "<option value='"+obj.templateId+"'>"
+									+ obj.name + "</option>";
+							$("#cmbDt").append(html);
+						});
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				console.info('系统出错，请重试！');
+			}
+		});
+	}
+	
+	
+	//加载发货地址
+	function bindAddress(){
+		var url = "/StoreData/getDefAddress";
+		$.ajax({
+			type : "get",
+			url : url,
+			dataType : "json",
+			success : function(obj) {
+				if(!isUfOrNullOrEmpty(obj)){
+					var html = "<option>"+obj.province+"-"+obj.city+ "</option>";
+					$("#address").children().get(1).innerText+="("+obj.province+"-"+obj.city+")";
+				}else{
+					$("#address").children().get(1).remove();
+				}
+			
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				console.info('系统出错，请重试！');
+			}
+		});
+	}
+	
+
+	//根据类目名加载淘宝分类信息
+	function bindItemCats(key) {
+		var url = "/StoreData/getItemCats?key="+key;
+		$.ajax({
+			type : "get",
+			url : url,
+			dataType : "json",
+			success : function(data) {
+/* 				console.log(JSON.stringify(data));
+ */				if(JSON.stringify(data)=="[]"){
+					$("#searchMsg").html("<font color='red'>未找到对应的分类！请检查是否有误。</font>");
+					return;
+				}else{
+					$("#cmbItemCat").empty();
+					$(data).each(
+						function(index, obj) {
+							var html = "<option value='"+obj.cid+"'>"
+									+ obj.name + "</option>";
+							$("#cmbItemCat").append(html);
+					});
+					$("#searchMsg").html("");
+				}
+				
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				console.info('系统出错，请重试！');
+			}
+		});
+	}
+	
+	//判断值是否为undefined或者null或者为空
+	function isUfOrNullOrEmpty(val){
+		return val==null||val=='undefined'||val=="";
+	}
+	//检验宝贝地址是否正确
+	function checkUrl(url){
+		return true;
+//		var pattern=/^https?:\/\/detail.1688.com\/offer\/(\d+).html.*$/;
+//		if(pattern.test(url)){
+//			$("#urlMsg").html("<font color='blue'>填写正确。</font>");
+//			return true;
+//		}else{
+//			$("#urlMsg").html("<font color='red'>宝贝地址填写错误！</font>");
+//			return false;
+//		}
+	}
+	
+	
+</script>
+#{/set}

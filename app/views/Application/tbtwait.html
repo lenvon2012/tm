@@ -1,0 +1,69 @@
+#{extends 'yangyang.html' /}
+#{set title:'正在进入 淘掌柜' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-fixed.css?_v=2">
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-ie6.css?_v=2">
+  <![endif]-->
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap/ie.css?_v=2">
+  <![endif]-->
+<link rel="stylesheet" media="screen" href='/css/taozhanggui.css?_v=2'>
+<link rel="stylesheet" media="screen" href='/css/keywords/keywords.css?_v=2'>
+<link rel="stylesheet" media="screen" href="/public/stylesheets/score.css">
+<link rel="stylesheet" media="screen" href="/public/stylesheets/Switch/switch.css"/>
+<link rel="stylesheet" media="screen" href="/public/stylesheets/commsTab/commsTab.css">
+#{/set}
+
+<div style="margin: 100px auto;width:400px;">
+<div style="width:82px;height:100px;margin: 0 auto;">
+    <img src="http://img01.taobaocdn.com/top/i1/T10jtLFathXXaCwpjX.png">
+</div>
+<p class=""  style="font-size:32px;">
+    正在进入 淘掌柜.......
+</p>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    //TM.Loading.init.show();
+    $("#mainfoot").hide();
+
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/jquery.url.js',function(){
+            TM.gcs("/js/tm.js", function () {
+                TM.gcs("/status/js", function () {
+                    TM.gcs('/js/switch.js', function () {
+                        TM.gcs('/js/commstab/commstab.js', function () {
+                                $(document).ready(function () {
+                                    //TM.gcs("/js/index.js?_v=3", function () {
+                                        TM.gcs("/js/newindex.js?_v=3", function () {
+                                            var page_url = window.location.href;
+                                            var uri = $.url(page_url,true);
+                                            var first = uri.data.param.query.isFirst;
+                                            var isFirst = (first == "true")?true:false;
+                                            var sid = uri.data.param.query.sid;
+
+
+                                            var href = "/home/newTbtIndex?isFirst="+isFirst;
+                                            if(TM.encodeUid && TM.encodeUid.length > 2 ){
+                                            }else {
+                                            	//if(TM.sessionUid )
+                                                href += "&_eu="+TM.sessionUid;
+                                            }
+                                            window.location.href = href;
+                                        });
+                                    //});
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+</script>
+#{/set}
+
+#{get 'moreAjaxScripts' /};

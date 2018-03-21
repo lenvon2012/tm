@@ -1,0 +1,422 @@
+#{extends 'jd/jdmain.html' /}
+#{set title:'客户列表' /}
+<form name="form1" method="post" action="CList.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY0MjQzMzc1OQ9kFgICAw9kFgoCAQ8PFgIeBFRleHQFDOaJgOacieWuouaIt2RkAgMPDxYCHwAFOeaJgOacieWcqOaCqOW6l+mTuumHjOaIkOS6pOeahOWuouaIt+WSjOacquaIkOS6pOeahOWuouaIt2RkAhgPFgIeC18hSXRlbUNvdW50AhQWKGYPZBYCZg8VDQAJdGJfNjc2NzAwCXRiXzY3NjcwMAl0Yl82NzY3MDAJdGJfNjc2NzAwAAkyMDEzLzMvMTQBMAQwLjAwAjExAA/mnKrmiJDkuqTlrqLmiLcJdGJfNjc2NzAwZAIBD2QWAmYPFQ1KPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLonbbmvKtrZWxseSIgIGNsYXNzPSJjaGVja2JveCIgLz4L6J225ryra2VsbHkL6J225ryra2VsbHkL6J225ryra2VsbHkL6J225ryra2VsbHkM5pmu6YCa5Lya5ZGYCTIwMTIvMTEvNAEyBTU2LjUwATAJ5p2t5bee5biCDOaIkOS6pOWuouaItwvonbbmvKtrZWxseWQCAg9kFgJmDxUNAAwxMzQ4NjU1NzI1M3EMMTM0ODY1NTcyNTNxDDEzNDg2NTU3MjUzcQwxMzQ4NjU1NzI1M3EACjIwMTIvMTAvMzABMAQwLjAwATEAD+acquaIkOS6pOWuouaItwwxMzQ4NjU1NzI1M3FkAgMPZBYCZg8VDU48aW5wdXQgdHlwZT0iY2hlY2tib3giIG5hbWU9ImJpZCIgdmFsdWU9IuWwpOeJqeW4g+Wog+WogyIgIGNsYXNzPSJjaGVja2JveCIgLz4P5bCk54mp5biD5aiD5aiDD+WwpOeJqeW4g+Wog+Wogw/lsKTnianluIPlqIPlqIMP5bCk54mp5biD5aiD5aiDDOaZrumAmuS8muWRmAkyMDEyLzExLzQBMQUzMS4yMAEwCea8r+ays+W4ggzmiJDkuqTlrqLmiLcP5bCk54mp5biD5aiD5aiDZAIED2QWAmYPFQ1IPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLpn6bmlq/pu44iICBjbGFzcz0iY2hlY2tib3giIC8+CemfpuaWr+m7jgnpn6bmlq/pu44J6Z+m5pav6buOCemfpuaWr+m7jgzmma7pgJrkvJrlkZgKMjAxMi8xMS8yNAEyBjIwMC4xNgEwCeiLj+W3nuW4ggzmiJDkuqTlrqLmiLcJ6Z+m5pav6buOZAIFD2QWAmYPFQ1JPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLosYbnsbPlhL82IiAgY2xhc3M9ImNoZWNrYm94IiAvPgrosYbnsbPlhL82Cuixhuexs+WEvzYK6LGG57Gz5YS/NgrosYbnsbPlhL82DOaZrumAmuS8muWRmAkyMDEyLzExLzYBMQUzMS4yMAEwCemHkeWNjuW4ggzmiJDkuqTlrqLmiLcK6LGG57Gz5YS/NmQCBg9kFgJmDxUNRjxpbnB1dCB0eXBlPSJjaGVja2JveCIgbmFtZT0iYmlkIiB2YWx1ZT0ienoxMDIzNiIgIGNsYXNzPSJjaGVja2JveCIgLz4HenoxMDIzNgd6ejEwMjM2B3p6MTAyMzYHenoxMDIzNgzmma7pgJrkvJrlkZgKMjAxMi8xMC8zMAExBTIzLjQwATEJ5Y2X5Lqs5biCDOaIkOS6pOWuouaItwd6ejEwMjM2ZAIHD2QWAmYPFQ1OPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLnsbPlqJznmoTlv6fmhIEiICBjbGFzcz0iY2hlY2tib3giIC8+D+exs+WonOeahOW/p+aEgQ/nsbPlqJznmoTlv6fmhIEP57Gz5aic55qE5b+n5oSBD+exs+WonOeahOW/p+aEgQzmma7pgJrkvJrlkZgKMjAxMi8xMi8xNwExBTIzLjQwATAJ5LiK5rW35biCDOaIkOS6pOWuouaItw/nsbPlqJznmoTlv6fmhIFkAggPZBYCZg8VDQAO5LiJ5qOx6ZWc5a2QMTUO5LiJ5qOx6ZWc5a2QMTUO5LiJ5qOx6ZWc5a2QMTUO5LiJ5qOx6ZWc5a2QMTUACjIwMTIvMTEvMjIBMAQwLjAwATEAD+acquaIkOS6pOWuouaItw7kuInmo7HplZzlrZAxNWQCCQ9kFgJmDxUNRzxpbnB1dCB0eXBlPSJjaGVja2JveCIgbmFtZT0iYmlkIiB2YWx1ZT0id2p4endqeHoiICBjbGFzcz0iY2hlY2tib3giIC8+CHdqeHp3anh6CHdqeHp3anh6CHdqeHp3anh6CHdqeHp3anh6DOaZrumAmuS8muWRmAoyMDEyLzEwLzIyATIFNzkuNjABMAnmna3lt57luIIM5oiQ5Lqk5a6i5oi3CHdqeHp3anh6ZAIKD2QWAmYPFQ1UPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLml7bov4flooPov4HnmoTku4rkuJYiICBjbGFzcz0iY2hlY2tib3giIC8+FeaXtui/h+Wig+i/geeahOS7iuS4lhXml7bov4flooPov4HnmoTku4rkuJYV5pe26L+H5aKD6L+B55qE5LuK5LiWFeaXtui/h+Wig+i/geeahOS7iuS4lgzmma7pgJrkvJrlkZgKMjAxMi8xMi8xNwExBTIzLjQwATAJ5peg6ZSh5biCDOaIkOS6pOWuouaItxXml7bov4flooPov4HnmoTku4rkuJZkAgsPZBYCZg8VDUk8aW5wdXQgdHlwZT0iY2hlY2tib3giIG5hbWU9ImJpZCIgdmFsdWU9IuS4ueS4uTU5ODgiICBjbGFzcz0iY2hlY2tib3giIC8+CuS4ueS4uTU5ODgK5Li55Li5NTk4OArkuLnkuLk1OTg4CuS4ueS4uTU5ODgM5pmu6YCa5Lya5ZGYCTIwMTIvMTEvNgExBTI1LjIwATAJ5aSp5rC05biCDOaIkOS6pOWuouaItwrkuLnkuLk1OTg4ZAIMD2QWAmYPFQ1JPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLlvpDmlowxOTg2IiAgY2xhc3M9ImNoZWNrYm94IiAvPgrlvpDmlowxOTg2CuW+kOaWjDE5ODYK5b6Q5paMMTk4NgrlvpDmlowxOTg2DOaZrumAmuS8muWRmAkyMDEzLzQvMjcBMQU1Ny4yOAEwCeaeo+W6hOW4ggzmiJDkuqTlrqLmiLcK5b6Q5paMMTk4NmQCDQ9kFgJmDxUNRzxpbnB1dCB0eXBlPSJjaGVja2JveCIgbmFtZT0iYmlkIiB2YWx1ZT0ibXlnaXJsc2giICBjbGFzcz0iY2hlY2tib3giIC8+CG15Z2lybHNoCG15Z2lybHNoCG15Z2lybHNoCG15Z2lybHNoDOaZrumAmuS8muWRmAoyMDEyLzEwLzIzATEFMjMuNDABMAnkuL3msLTluIIM5oiQ5Lqk5a6i5oi3CG15Z2lybHNoZAIOD2QWAmYPFQ1MPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSJzbWlsZTE5ODgwNzI2IiAgY2xhc3M9ImNoZWNrYm94IiAvPg1zbWlsZTE5ODgwNzI2DXNtaWxlMTk4ODA3MjYNc21pbGUxOTg4MDcyNg1zbWlsZTE5ODgwNzI2DOaZrumAmuS8muWRmAkyMDEyLzExLzQBMQUxNi4wMAEwCeWFsOW3nuW4ggzmiJDkuqTlrqLmiLcNc21pbGUxOTg4MDcyNmQCDw9kFgJmDxUNSzxpbnB1dCB0eXBlPSJjaGVja2JveCIgbmFtZT0iYmlkIiB2YWx1ZT0i5ZGi6IKh5ZGi6IKhIiAgY2xhc3M9ImNoZWNrYm94IiAvPgzlkaLogqHlkaLogqEM5ZGi6IKh5ZGi6IKhDOWRouiCoeWRouiCoQzlkaLogqHlkaLogqEM5pmu6YCa5Lya5ZGYCjIwMTIvMTIvMTgBMQUzMS4yMAEwCeS4reWxseW4ggzmiJDkuqTlrqLmiLcM5ZGi6IKh5ZGi6IKhZAIQD2QWAmYPFQ0ADOeni+S5i+i9rOinkgznp4vkuYvovazop5IM56eL5LmL6L2s6KeSDOeni+S5i+i9rOinkgAJMjAxMy80LzE2ATAEMC4wMAExAA/mnKrmiJDkuqTlrqLmiLcM56eL5LmL6L2s6KeSZAIRD2QWAmYPFQ1IPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLnkLPnkLM1NDEiICBjbGFzcz0iY2hlY2tib3giIC8+CeeQs+eQszU0MQnnkLPnkLM1NDEJ55Cz55CzNTQxCeeQs+eQszU0MQzmma7pgJrkvJrlkZgKMjAxMi8xMC8zMQExBTIzLjQwATAJ57uN5YW05biCDOaIkOS6pOWuouaItwnnkLPnkLM1NDFkAhIPZBYCZg8VDUw8aW5wdXQgdHlwZT0iY2hlY2tib3giIG5hbWU9ImJpZCIgdmFsdWU9ImppbmdsaW4wMTA3MjMiICBjbGFzcz0iY2hlY2tib3giIC8+DWppbmdsaW4wMTA3MjMNamluZ2xpbjAxMDcyMw1qaW5nbGluMDEwNzIzDWppbmdsaW4wMTA3MjMM5pmu6YCa5Lya5ZGYCTIwMTIvMTEvNAExBTMxLjIwATAJ5Y2X5a6B5biCDOaIkOS6pOWuouaItw1qaW5nbGluMDEwNzIzZAITD2QWAmYPFQ1KPGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJiaWQiIHZhbHVlPSLljp/mnaUxMjM0NyIgIGNsYXNzPSJjaGVja2JveCIgLz4L5Y6f5p2lMTIzNDcL5Y6f5p2lMTIzNDcL5Y6f5p2lMTIzNDcL5Y6f5p2lMTIzNDcM5pmu6YCa5Lya5ZGYCjIwMTIvMTIvMTcBMQUxOC42MAEwCea5luW3nuW4ggzmiJDkuqTlrqLmiLcL5Y6f5p2lMTIzNDdkAhoPDxYCHgtSZWNvcmRjb3VudAIWZGQCHA8QZA8WBmYCAQICAgMCBAIFFgYQBSrmjInnhafmnIDlkI7otK3kubDml7bpl7TnlLHov5HliLDov5zmjpLluo8FATBnEAUq5oyJ54Wn5pyA5ZCO6LSt5Lmw5pe26Ze055Sx6L+c5Yiw6L+R5o6S5bqPBQExZxAFIeaMieeFp+S6pOaYk+mHj+S7juWkp+WIsOWwj+aOkuW6jwUBMmcQBSHmjInnhafkuqTmmJPph4/ku47lsI/liLDlpKfmjpLluo8FATNnEAUh5oyJ54Wn5Lqk5piT6aKd5LuO5aSn5Yiw5bCP5o6S5bqPBQE0ZxAFIeaMieeFp+S6pOaYk+mineS7juWwj+WIsOWkp+aOkuW6jwUBNWcWAWZkZPY+0S7HOGUD2qWamU0iJerOKwCk">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEgLSk77lBQL347mPCgKh6ZvFAQKZtdtCArG3szUCt7vPtQsCn733qAsCwvOZ2AUC16/SoAIC3ZKZjwECqKzzjwQCoNnWwAECsLb8rg0Cr7b8rg0Crrb8rg0Crbb8rg0CrLb8rg0Cq7b8rg0C70Y7nca6EABHr7AZTKME0Ardmw==">
+</div>
+    <div>
+    <div class="PageTitleArea">
+        <div class="PageTitle">
+         
+        <span id="lblCateName">所有客户</span>   
+        </div>
+        <div style="width: 80%;">
+            
+            <span id="lblCateNote">所有在您店铺里成交的客户和未成交的客户</span>
+        </div>
+    </div>
+    <div class="searchzone">
+
+<table height="30" cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tbody>
+  <tr>
+    <td height="30">客户等级：<select name="selectrank" id="selectrank">
+	<option selected="selected" value="0">所有等级</option>
+	<option value="1">普通客户</option>
+	<option value="2">高级会员</option>
+	<option value="3">VIP会员</option>
+	<option value="4">至尊VIP会员</option>
+</select>
+
+      &nbsp;&nbsp;客户昵称：<input name="txtBuyerNick" type="text" id="txtBuyerNick" class="input" size="16">
+      &nbsp;&nbsp;交 易 额：<input name="txtMinAmount" type="text" id="txtMinAmount" class="input" size="16">至<input name="txtMaxAmount" type="text" id="txtMaxAmount" class="input" size="16"></td>
+      
+   </tr>
+    <tr>
+    <td height="30">
+    交易量：<input name="txtMinCount" type="text" id="txtMinCount" class="input" size="16">至<input name="txtMaxCount" type="text" id="txtMaxCount" class="input" size="16">
+    &nbsp;&nbsp;最后交易时间：<input name="txtMinLastTime" type="text" id="txtMinLastTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate" maxlength="16">至<input name="txtMaxLastTime" type="text" id="txtMaxLastTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate" maxlength="16"><input type="submit" name="btnOK" value="  查   询  " id="btnOK" class="inp_L1">
+        <input type="submit" name="btnHidSel" value="查询" id="btnHidSel" style="display:none;">
+    </td>
+    </tr>
+   </tbody></table></div>
+   
+<div class="listzone">
+<table cellspacing="0" cellpadding="3" width="100%" align="center" border="0">
+<tbody>
+    <tr class="list">
+        <td width="47" align="center" class="biaoti"><input type="checkbox" id="allCheck" class="checkbox" onclick="CheckAll(this)"></td>
+        <td width="280" height="28" align="left" class="biaoti"><span class="searchzone">客户昵称</span></td>
+        <td width="83" align="center" class="biaoti"><span class="searchzone">客户等级</span></td>
+        <td width="185" align="center" class="biaoti"><span class="searchzone">最后交易时间</span></td>
+        <td width="50" align="center" class="biaoti"><span class="searchzone">交易量</span></td>
+        <td width="44" align="center" class="biaoti"><span class="searchzone">交易额</span></td>
+        <td width="134" align="center" class="biaoti"><span class="searchzone">关闭交易数</span></td>
+         <td width="134" align="center" class="biaoti"><span class="searchzone">所在地区</span></td>
+        <td width="134" align="center" class="biaoti"><span class="searchzone">关系来源</span></td>
+        <td width="134" align="center" class="biaoti"><span class="searchzone">查看</span></td>
+    </tr>
+   
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('tb_676700')" class="menulink">tb_676700</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=tb_676700&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=tb_676700&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td></td>
+        <td>2013/3/14</td>
+        <td>0</td>
+        <td>￥0.00</td>
+        <td>11</td>
+         <td></td>
+        <td>未成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('tb_676700')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="蝶漫kelly" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('蝶漫kelly')" class="menulink">蝶漫kelly</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=蝶漫kelly&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=蝶漫kelly&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/4</td>
+        <td>2</td>
+        <td>￥56.50</td>
+        <td>0</td>
+         <td>杭州市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('蝶漫kelly')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#CDE6FF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('13486557253q')" class="menulink">13486557253q</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=13486557253q&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=13486557253q&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td></td>
+        <td>2012/10/30</td>
+        <td>0</td>
+        <td>￥0.00</td>
+        <td>1</td>
+         <td></td>
+        <td>未成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('13486557253q')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="尤物布娃娃" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('尤物布娃娃')" class="menulink">尤物布娃娃</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=尤物布娃娃&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=尤物布娃娃&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/4</td>
+        <td>1</td>
+        <td>￥31.20</td>
+        <td>0</td>
+         <td>漯河市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('尤物布娃娃')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="韦斯黎" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('韦斯黎')" class="menulink">韦斯黎</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=韦斯黎&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=韦斯黎&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/24</td>
+        <td>2</td>
+        <td>￥200.16</td>
+        <td>0</td>
+         <td>苏州市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('韦斯黎')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="豆米儿6" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('豆米儿6')" class="menulink">豆米儿6</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=豆米儿6&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=豆米儿6&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/6</td>
+        <td>1</td>
+        <td>￥31.20</td>
+        <td>0</td>
+         <td>金华市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('豆米儿6')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="zz10236" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('zz10236')" class="menulink">zz10236</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=zz10236&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=zz10236&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/10/30</td>
+        <td>1</td>
+        <td>￥23.40</td>
+        <td>1</td>
+         <td>南京市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('zz10236')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="米娜的忧愁" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('米娜的忧愁')" class="menulink">米娜的忧愁</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=米娜的忧愁&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=米娜的忧愁&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/12/17</td>
+        <td>1</td>
+        <td>￥23.40</td>
+        <td>0</td>
+         <td>上海市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('米娜的忧愁')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('三棱镜子15')" class="menulink">三棱镜子15</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=三棱镜子15&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=三棱镜子15&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td></td>
+        <td>2012/11/22</td>
+        <td>0</td>
+        <td>￥0.00</td>
+        <td>1</td>
+         <td></td>
+        <td>未成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('三棱镜子15')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="wjxzwjxz" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('wjxzwjxz')" class="menulink">wjxzwjxz</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=wjxzwjxz&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=wjxzwjxz&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/10/22</td>
+        <td>2</td>
+        <td>￥79.60</td>
+        <td>0</td>
+         <td>杭州市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('wjxzwjxz')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="时过境迁的今世" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('时过境迁的今世')" class="menulink">时过境迁的今世</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=时过境迁的今世&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=时过境迁的今世&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/12/17</td>
+        <td>1</td>
+        <td>￥23.40</td>
+        <td>0</td>
+         <td>无锡市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('时过境迁的今世')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="丹丹5988" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('丹丹5988')" class="menulink">丹丹5988</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=丹丹5988&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=丹丹5988&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/6</td>
+        <td>1</td>
+        <td>￥25.20</td>
+        <td>0</td>
+         <td>天水市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('丹丹5988')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="徐斌1986" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('徐斌1986')" class="menulink">徐斌1986</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=徐斌1986&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=徐斌1986&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2013/4/27</td>
+        <td>1</td>
+        <td>￥57.28</td>
+        <td>0</td>
+         <td>枣庄市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('徐斌1986')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#ffffff" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="mygirlsh" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('mygirlsh')" class="menulink">mygirlsh</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=mygirlsh&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=mygirlsh&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/10/23</td>
+        <td>1</td>
+        <td>￥23.40</td>
+        <td>0</td>
+         <td>丽水市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('mygirlsh')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="smile19880726" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('smile19880726')" class="menulink">smile19880726</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=smile19880726&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=smile19880726&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/4</td>
+        <td>1</td>
+        <td>￥16.00</td>
+        <td>0</td>
+         <td>兰州市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('smile19880726')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="呢股呢股" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('呢股呢股')" class="menulink">呢股呢股</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=呢股呢股&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=呢股呢股&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/12/18</td>
+        <td>1</td>
+        <td>￥31.20</td>
+        <td>0</td>
+         <td>中山市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('呢股呢股')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('秋之转角')" class="menulink">秋之转角</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=秋之转角&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=秋之转角&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td></td>
+        <td>2013/4/16</td>
+        <td>0</td>
+        <td>￥0.00</td>
+        <td>1</td>
+         <td></td>
+        <td>未成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('秋之转角')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="琳琳541" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('琳琳541')" class="menulink">琳琳541</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=琳琳541&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=琳琳541&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/10/31</td>
+        <td>1</td>
+        <td>￥23.40</td>
+        <td>0</td>
+         <td>绍兴市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('琳琳541')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="jinglin010723" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('jinglin010723')" class="menulink">jinglin010723</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=jinglin010723&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=jinglin010723&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/11/4</td>
+        <td>1</td>
+        <td>￥31.20</td>
+        <td>0</td>
+         <td>南宁市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('jinglin010723')" class="menulink">查看详情</a></td>
+     </tr>
+     
+	<tr bgcolor="#FFFFFF" align="center" onmouseover="this.bgColor='#CDE6FF'" onmouseout="this.bgColor='#FFFFFF'">
+        <td>
+        <input type="checkbox" name="bid" value="原来12347" class="checkbox">
+        
+        </td><td align="left" height="35"><a href="javascript:void(0);" onclick="AddProduct('原来12347')" class="menulink">原来12347</a><a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid=原来12347&amp;s=2"><img border="0" src="http://amos1.taobao.com/online.ww?v=2&amp;uid=原来12347&amp;s=2" alt="点击这里给TA发消息"></a></td>
+        <td>普通会员</td>
+        <td>2012/12/17</td>
+        <td>1</td>
+        <td>￥18.60</td>
+        <td>0</td>
+         <td>湖州市</td>
+        <td>成交客户</td>
+        <td align="center"><a href="javascript:void(0);" onclick="AddProduct('原来12347')" class="menulink">查看详情</a></td>
+     </tr>
+     
+    <tr bgcolor="#FFFFFF" class="pagenavi">
+        <td colspan="10" height="28" style="padding-left:20px;">
+             
+<!-- AspNetPager V7.2 for VS2005 & VS2008  Copyright:2003-2008 Webdiyer (www.webdiyer.com) -->
+<div id="AspNetPager1" class="cpb" pageindeboxtype="DropDownList" dir="ltr" style="text-align:right;">
+<div class="cpb" align="left" style="width:30%;float:left;">
+	共22条记录，共2页，当前为第1页
+</div><div align="right" class="cpb" style="width:70%;float:left;">
+	<span><a disabled="disabled" style="margin-right:5px;">首页</a></span><span><a disabled="disabled" style="margin-right:5px;">上一页</a></span><span class="cpb" style="margin-right:5px;">1</span><span><a href="javascript:__doPostBack('AspNetPager1','2')" style="margin-right:5px;">2</a></span><span><a href="javascript:__doPostBack('AspNetPager1','2')" style="margin-right:5px;">下一页</a></span><span><a href="javascript:__doPostBack('AspNetPager1','2')" style="margin-right:5px;">尾页</a></span>
+</div>
+</div>
+<!-- AspNetPager V7.2 for VS2005 & VS2008 End -->
+
+
+        </td>
+    </tr>
+
+    </tbody></table>
+</div>
+<div class="piliang">
+
+    <input id="Button1" type="button" value="批 量 修 改" class="inp_L1" onclick="PiLiangEdit()">
+
+
+<span style="float:right; display:none;">
+选择列表排序:<select name="ddlistOrder" onchange="javascript:setTimeout('__doPostBack(\'ddlistOrder\',\'\')', 0)" id="ddlistOrder">
+	<option selected="selected" value="0">按照最后购买时间由近到远排序</option>
+	<option value="1">按照最后购买时间由远到近排序</option>
+	<option value="2">按照交易量从大到小排序</option>
+	<option value="3">按照交易量从小到大排序</option>
+	<option value="4">按照交易额从大到小排序</option>
+	<option value="5">按照交易额从小到大排序</option>
+
+</select></span>
+   
+</div>
+    </div>
+    </form>

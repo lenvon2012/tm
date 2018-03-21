@@ -1,0 +1,277 @@
+#{extends 'dianputuiguang/newbase.html' /}
+#{set title:'推广 - 微博粉丝互换' /}
+
+<style type="text/css">
+
+    .binding-container {
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+
+    .head-tip {
+        font-size: 22px; font-weight: bold; text-align: left; padding: 20px 20px 10px 20px;
+    }
+
+    .bind-account-table tbody td {
+        padding: 10px 0px 10px 0px; border-bottom: #F1CA94 1px solid;
+    }
+    .account-detail-table tbody td {
+        border-bottom: none; padding: 5px 0px;
+    }
+
+    .span-blue-btn {
+        color: blue; cursor: pointer;
+    }
+    .span-blue-btn:hover {
+        text-decoration: underline;
+    }
+
+    .value-span {
+        color: #FF4400;
+    }
+
+    .red {
+        color: #a10000;
+    }
+
+    .account-img {
+        width: 80px; height: 80px;
+    }
+
+    .weibo-name-span {
+        color: #333;
+    }
+
+    .weibo-name-span:hover {
+        color: #a10000;
+    }
+
+    .weibo-list-table tbody td {
+        padding: 20px 0px 20px 0px; border-bottom: #F1CA94 1px solid;
+    }
+    .weibo-detail-table tbody td {
+        border-bottom: none; padding: 0px;
+    }
+    .weibo-content-link:hover {
+        text-decoration: underline;
+    }
+
+    .forward-msg-div {
+        padding: 10px 20px;
+    }
+    .forward-msg-table tbody td {
+        border-bottom: none; padding: 0px;
+    }
+
+    .show-more-btn {
+        color: #FF4400;cursor: pointer; font-size: 18px;font-weight: bold;
+    }
+    .show-more-btn:hover {
+        text-decoration: underline;
+    }
+
+</style>
+
+<div class="item-container binding-container">
+
+    *{<div class="head-tip">新浪微博帐号绑定：</div>
+
+    <div style="margin: 0px 17px;">
+        <table class="result-table" style="background-position: 0px 0px;">
+            <thead>
+            <tr>
+                <td style="width: 10%;">序号</td>
+                <td style="width: 35%;">微博帐号</td>
+                <td style="width: 15%;">是否主帐号</td>
+                <td style="width: 20%;">设为主帐号</td>
+                <td style="width: 20%;">删除</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>}*
+
+    <div class="head-tip">微博粉丝互换：</div>
+
+    <div style="padding: 0px 20px;">
+        <div style="padding: 3px;">1. 微博粉丝互换，是通过你对别人的关注，换取别人对你的关注。</div>
+        <div style="padding: 3px;">2. 当你<span class="red">关注</span>一个微博帐号，或<span class="red">转发</span>一条微博，可以获取一定的积分，然后<span class="red">1个积分可以换取一个粉丝或转发</span>。</div>
+        <div style="padding: 3px;">3. 每个卖家（不是微博帐号）一天可以转发10条微博；可以关注300个帐号。</div>
+    </div>
+
+    <div class="head-tip">新浪微博帐号绑定：</div>
+    <div style="padding: 0px 20px;">
+        <div style="padding: 3px;">1. 积分换来的粉丝将会加到<span class="red">微博大号</span>上，也会转发<span class="red">微博大号</span>的微博。</div>
+        <div style="padding: 3px;">2. <span class="red">微博小号</span>用来关注或转发其他人的微博，当关注达到帐号上限后，可以<span class="red">切换小号</span>，继续关注。</div>
+        <div style="padding: 3px;">3. 绑定的帐号过段时间会过期，需要重新授权一下。</div>
+    </div>
+
+    <div style="margin: 0px 17px; padding-top: 10px;">
+        <table class="result-table bind-account-table" style="background-position: 0px 0px;">
+            <thead>
+            <tr>
+                <td style="width: 15%;">帐号类型</td>
+                <td style="width: 52%;">帐号详情</td>
+                <td style="width: 18%;">授权过期时间</td>
+                <td style="width: 15%;">操作</td>
+            </tr>
+            </thead>
+            <tbody class="bind-account-tbody">
+            <tr class="no-binding-tr" style="display: none;">
+                <td colspan="4">
+                    <div><span class="binding-all-btn span-blue-btn">您尚未绑定微博帐号，请点击绑定>></span></div>
+                </td>
+            </tr>
+            <tr class="main-no-account-tr" style="display: none;">
+                <td>
+                    <div style="font-weight: bold;">微博大号</div>
+                </td>
+                <td colspan="3">
+                    <div><span class="binding-main-account-btn span-blue-btn">您尚未绑定微博帐号，请点击绑定>></span></div>
+                </td>
+            </tr>
+            <tr class="main-account-tr" style="display: none;">
+                <td>
+                    <div style="padding-bottom: 5px;">
+                        <a class="account-main-page" target="_blank"><img class="account-img" /></a>
+                    </div>
+                    <div style="font-weight: bold;">微博大号</div>
+                </td>
+                <td>
+                    <table class="account-detail-table" style="border-collapse: collapse;margin: 0 auto;">
+                        <tbody>
+                        <tr>
+                            <td>帐号名：</td>
+                            <td style="padding-left: 10px;"><span class="account-name value-span"></span> </td>
+                            <td style="padding-left: 50px;">粉丝数目：</td>
+                            <td style="padding-left: 10px;"><span class="fans-num value-span"></span> </td>
+                        </tr>
+                        <tr>
+                            <td>积分数：</td>
+                            <td style="padding-left: 10px;"><span class="contribution-span value-span"></span> </td>
+                            <td style="padding-left: 50px;">新增粉丝：</td>
+                            <td style="padding-left: 10px;"><span class="new-fans-num value-span"></span> </td>
+                        </tr>
+                        <tr>
+                            <td>新增转发：</td>
+                            <td style="padding-left: 10px;"><span class="new-forward-num value-span"></span> </td>
+                            <td style="padding-left: 50px;"></td>
+                            <td style="padding-left: 10px;"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <span class="red main-expire-span"></span>
+                    <div style="padding-top: 10px;display: none;" class="re-bind-div">
+                        <span class="re-bind-btn span-blue-btn">重新授权>></span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <span class="change-bind-btn span-blue-btn">切换帐号</span>
+                    </div>
+                    <div style="padding-top: 10px;">
+                        <span class="cancel-bind-btn span-blue-btn">取消绑定</span>
+                    </div>
+                </td>
+            </tr>
+            <tr class="slave-no-account-tr" style="display: none;">
+                <td>
+                    <div style="font-weight: bold;">微博小号</div>
+                </td>
+                <td colspan="3">
+                    <div><span class="binding-slave-account-btn span-blue-btn">您尚未绑定微博帐号，请点击绑定>></span></div>
+                </td>
+            </tr>
+            <tr class="slave-account-tr" style="display: none;">
+                <td>
+                    <div style="padding-bottom: 5px;">
+                        <a class="account-main-page" target="_blank"><img class="account-img" /></a>
+                    </div>
+                    <div style="font-weight: bold;">微博小号</div>
+                </td>
+                <td>
+                    <table class="account-detail-table" style="border-collapse: collapse;margin: 0 auto;">
+                        <tbody>
+                        <tr>
+                            <td>帐号名：</td>
+                            <td style="padding-left: 10px;"><span class="account-name value-span"></span> </td>
+                            <td style="padding-left: 50px;">关注数目：</td>
+                            <td style="padding-left: 10px;"><span class="attention-num value-span"></span> </td>
+                        </tr>
+                        <tr>
+                            <td>今日关注：</td>
+                            <td style="padding-left: 10px;"><span class="today-attention-num value-span"></span> </td>
+                            <td style="padding-left: 50px;">最近关注：</td>
+                            <td style="padding-left: 10px;"><span class="new-attention-num value-span"></span> </td>
+                        </tr>
+                        <tr>
+                            <td>今日转发：</td>
+                            <td style="padding-left: 10px;"><span class="today-forward-num value-span"></span> </td>
+                            <td style="padding-left: 50px;">最近转发：</td>
+                            <td style="padding-left: 10px;"><span class="new-forward-num value-span"></span> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <span class="red slave-expire-span"></span>
+                    <div style="padding-top: 10px;display: none;" class="re-bind-div">
+                        <span class="re-bind-btn span-blue-btn">重新授权>></span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <span class="change-bind-btn span-blue-btn">切换帐号</span>
+                    </div>
+                    <div style="padding-top: 10px;">
+                        <span class="cancel-bind-btn span-blue-btn">取消绑定</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="height: 10px;"></div>
+
+    <div class="weibo-list-div" style="">
+        <div class="head-tip">微博推荐列表：</div>
+        <div style="margin: 0px 17px;">
+            <table class="result-table weibo-list-table" style="background-position: 0px 0px;">
+                <thead>
+                <tr>
+                    <td style="width: 10%;"><input type="checkbox" class="all-weibo-check" /> </td>
+                    <td style="width: 70%;">微博详情</td>
+                    <td style="width: 20%;">操作</td>
+                </tr>
+                </thead>
+                <tbody class="weibo-list-tbody">
+
+                </tbody>
+            </table>
+            <div style="padding-top: 10px;text-align: center;" class="show-more-div">
+                <span class="show-more-btn">查看更多微博>></span>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+</div>
+
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/tm.js', function () {
+        TM.gcs("/status/js", function () {
+            TM.gcs("/js/dianputuiguang/accountadmin.js?_v=2", function () {
+                $(document).ready(function () {
+                    TM.AccountAdmin.init.doInit($(".binding-container"));
+
+                });
+            });
+        });
+    });
+</script>

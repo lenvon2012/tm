@@ -1,0 +1,230 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavdata.html' /}
+#{set title:'淘标题-搜索流量诊断' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/public/stylesheets/searchDiag/searchDiag.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/daterangepicker/bootstrap.daterangepicker.css">
+<link rel="stylesheet" media="screen" href="/css/daterangepicker/daterangepicker.css" />
+#{/set}
+*{<style>}*
+    *{div.main {}*
+        *{width: 1040px;}*
+        *{border: 1px solid #aaa;}*
+        *{background: white;}*
+    *{}}*
+    *{.nav-table-left-td{}*
+        *{display: none;}*
+    *{}}*
+*{</style>}*
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>搜索流量诊断
+</div>
+
+<div class="diag-container">
+    <div class="shop-diag-div">
+        <div class="searchDiagTip intro hidden" style="text-align: center;margin: 0 auto;margin-bottom: 10px;">
+            亲，这里的数据要订购后 <span style='color: red;font-size: 24px;'>第2天</span> 才能够开通的哦,请明天再来哦O(∩_∩)O
+        </div>
+        <table style="width: 100%;">
+            <tbody>
+
+                <tr style="border-bottom: 2px solid #15a7dc;height: 50px;">
+                    <td style="width: 100%;">
+                        <div class="shop-diag-title">店铺流量诊断</div>
+                    </td>
+                </tr>
+                <tr style="">
+                    <td style="width: 100%;">
+                        <div class="shop-diag">
+                            <div class="diag-date"></div>
+                        </div>
+                        <div class="shop-diag-info">
+                            <div class="uv-info">
+                                本店昨日搜索UV<span class="shop-diag-uv digit">10</span>
+                                ,比前一天<span class="uv-up-or-down up"></span><span class="uv-up-down-percent digit">2.5%</span>
+                                *{,占全店UV<span class="uv-percent digit">54%</span>}*
+                            </div>
+                            <div class="tranrate-info">
+                                本店昨日搜索成交转化率<span class="shop-diag-tranrate digit">1.23%</span>
+                                ,比前一天<span class="tranrate-up-or-down up"></span><span class="tranrate-up-down-percent digit">2.5%</span>
+                            </div>
+                            <div class="similar-shops hidden">
+                                同层商家昨日搜索成交转化率为<span class="similar-shop-diag-tranrate digit">1.23%</span>
+                                ,本店<span class="win-or-lose">打败</span><span class="similar-shops-percent digit">1.23%</span>
+                            </div>
+                        </div>
+                        <div class="shop-diag-charts-div hidden">
+                            <table class="shop-diag-charts-table">
+                                <tbody>
+
+                                    <tr>
+                                        <td class="uv-chart-td">
+                                            <div id="uv-chart"></div>
+                                        </td>
+                                        <td class="tranrate-chart-td">
+                                            <div id="tranrate-chart"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align: right">
+                                            <div>
+                                                <span style="color: #d80808;font-weight: bold;">*</span>
+                                                <span style="color: #828181;font-weight: bold;">图表数据为0的原因有：</span>
+                                                <span style="color: #828181;font-weight: normal;">①所选时段没有任何流量数据 ②所选时段未订购淘掌柜</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="border-bottom: 2px solid #15a7dc;">
+                    <td style="width: 100%;">
+                        <div class="item-diag-title">
+                            宝贝搜索流量诊断
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width:100%">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 67%">
+                                        <div class="item-diag-div">
+                                            1.<span style="margin-left: 40px;color: red;">输入宝贝链接</span><input title="请输入宝贝链接" type="text" id="to-diag-item-href"> <span class="tmbtn sky-blue-btn diag-by-href">诊断宝贝</span>
+                                        </div>
+                                        <div style="padding-left: 16px;">2.<span style="margin-left: 37px;" class="tmbtn long-sky-blue-btn select-item-to-diag">选择诊断宝贝</span></div>
+                                    </td>
+                                    <td style="width: 35%;">
+                                        <div class="recently-diaged-item">
+                                            <div class="recently-diaged-item-title">最近诊断过的宝贝</div>
+                                            <div class="recently-diaged-item-images">
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <div class="diaging-item">
+                            <div class="diaging-item-title">当前诊断宝贝</div>
+                            <div>
+                                <table class="diaging-item-table">
+                                    <tbody>
+                                        <tr style="height: 120px;">
+                                            <td style="width: 150px;">
+                                                <a href="#" target="_blank" class="diaging-item-href">
+                                                    <img class="diaging-item-image" src="" alt="宝贝图片">
+                                                </a>
+                                            </td>
+                                            <td style="width: 650px;vertical-align: middle;">
+                                                <div>当前标题：<span class="item-title-content">小象大熊卡通儿童羽绒服男孩 新款白鸭绒正品中长款 小猪吧拉正品</span></div>
+                                                <div class="seprate-line"></div>
+                                                <div class="hidden">平均搜索排名:<span class="average-search-rank digit">165</span>
+                                                    ,比前一天<span class="average-search-rank-up-or-down up"></span><span class="average-search-rank-up-down-percent digit">12.5%</span>
+                                                </div>
+                                                <div class="">搜索成交转化率:<span class="search-trade-tranrate digit">14.6%</span>
+                                                    *{,比前一天<span class="search-trade-tranrate-up-or-down down"></span><span class="search-trade-tranrate-up-down-percent digit">35.5%</span>}*
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="opTabWrapper">
+                            <span class="inlineblock opTab" target="item">该宝贝关键词效果</span>
+                            *{<span class="inlineblock opTab" target="shop">全店关键词效果</span>}*
+                        </div>
+                        <div class="tab-space">
+
+                        </div>
+                        <div class="interval-wrapper">
+                            <div class="interval-tr">
+
+                                *{<input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 1-day" value="1">最近1天数据&nbsp;&nbsp;&nbsp;
+                                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 3-day" value="3">最近3天数据&nbsp;&nbsp;&nbsp;
+                                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 7-day" value="7">最近7天数据&nbsp;&nbsp;&nbsp;
+                                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 14-day" value="14">最近14天数据&nbsp;&nbsp;&nbsp;
+                                <input style="width: 18px;height: 18px;" type="radio" name="interval" class="interval 0-day" value="0">&nbsp;&nbsp;&nbsp;
+                                <input type="text" style="width:100px;text-align: center;" id="startTimeInput">~
+                                <input type="text" style="width:100px;text-align: center;" id="endTimeInput">的数据}*
+                                <div class="date-range-picker" style="position: relative;width:300px;text-align: center; margin: 0 auto;">
+                                    <div class="">
+                                        <input type="text" id="date-range-picker" class="form-control" style="padding-left: 10px" placeholder="日期选择">
+                                        <i class="glyphicon glyphicon-calendar fa fa-calendar" style="position: absolute;bottom: 10px;right: 10px;top: auto;cursor: pointer;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="word-diag-paging" style="text-align: center;"></div>
+                        <div class="diag-result-div">
+                            <table class="word-diag-result-table busSearch">
+                                <tbody>
+                                <tr class="word-diag-result-table-th">
+                                    <td rowspan="2">关键词</td>
+                                    <td colspan="3">展现数据</td>
+                                    <td colspan="4">引流数据</td>
+                                    <td colspan="4">转化数据(直接成交)</td>
+                                </tr>
+                                <tr class="word-diag-result-table-th">
+                                    <td class="orderTd">展现量<span class="inlineblock sort Desc" sort="impression"></span></td>
+                                    <td class="orderTd">点击量<span class="inlineblock sort Desc" sort="click"></span></td>
+                                    <td>点击率</td>
+                                    <td class="orderTd">访客数<span class="inlineblock sort Desc" sort="uv"></span></td>
+                                    <td class="orderTd">成交人数<span class="inlineblock sort Desc" sort="alipay_winner_num"></span></td>
+                                    <td class="orderTd">成交件数<span class="inlineblock sort Desc" sort="alipay_trade_num"></span></td>
+                                    <td class="orderTd">成交金额<span class="inlineblock sort Desc" sort="alipay_trade_amt"></span></td>
+                                    <td>成交转化率</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="word-diag-paging" style="text-align: center;border-bottom: 1px solid #93ddf8;"></div>
+                    </td>
+                </tr>
+                <tr style="height: 20px;">
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+#{set 'moreScripts'}
+<script type="text/javascript" src="/js/daterangepicker/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/daterangepicker/moment.js"></script>
+<script type="text/javascript" src="/js/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js',function(){
+        TM.gcs('/js/highcharts.js',function(){
+            TM.gcs('/js/tm.js',function(){
+                TM.gcs('/js/jquery.pagination.js', function () {
+                	TM.gcs('/js/searchDiag/multiOpByURL.js', function () {
+                    	if(typeof(TM.firstLoginTime) == "undefined") {
+                    		TM.gcs("/status/js", function () {
+                    			TM.gcs('/js/searchDiag/searchDiag.js?_v=21',function(){
+                                	TM.searchDiag.init.doInit($('.diag-container'));
+                            	});
+                    		});
+                    	} else {
+                    		TM.gcs('/js/searchDiag/searchDiag.js?_v=21',function(){
+                            	TM.searchDiag.init.doInit($('.diag-container'));
+                        	});
+                    	};
+               		 });
+                });
+            });
+        });
+    });
+</script>
+#{/set}

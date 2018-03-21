@@ -1,0 +1,80 @@
+#{extends 'skincomment/skincommentbase.html' /}
+
+#{set title:'动态评分' /}
+
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+
+<div id="secondary">
+	<div class="gap">
+		<div class="wrapper">
+			<div class="secnav">
+				<a href="/SkinComment/commentNormal">中差评管理</a>
+				<a href="/SkinComment/commentStatus">评价统计</a>
+				<a href="/SkinComment/shopScore" class="current">动态评分</a>
+                <a href="/SkinComment/commentUrge">催评管理</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="shop-score-container">
+	<div class="charts-container">
+		<div id="shop-score-charts" style="width: 978px; height: 300px; margin: 0 auto;"></div>
+	</div>
+	<div class="score-search-div">
+		<table style="margin: 0 auto; margin-top: 10px;">
+			<tbody>
+				<tr>
+					<td>
+						<span style="font-weight: bold; font-size: 16px;">查询日期：</span>
+						<input type="text" class="start-time-text date-picker" style="width: 95px; padding-left: 20px;">
+						<span style="margin: 0 10px; font-weight: bold;">-</span>
+						<input type="text" class="end-time-text date-picker" style="width: 95px; padding-left: 20px;">
+					</td>
+					<td style="padding-left: 10px;">
+						<span class="search-btn btn btn-primary">查询</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<table class="shop-score-table busSearch" style="margin-top: 20px;">
+		<thead>
+			<tr>
+				<th class="row-date">统计时间</th>
+				<th class="col-bold">商品描述评分</th>
+				<th class="col-bold">服务态度评分</th>
+				<th class="col-bold">发货速度评分</th>
+			</tr>
+		</thead>
+		<tbody class="shop-score-tbody">
+		
+		</tbody>
+	</table>
+</div>
+
+<div class='clearfix'></div>
+
+
+<script type="text/x-jquery-tmpl" id="tplRow">
+	<tr score_id="{{= id}}" {{if index % 2 == 1}}class="even"{{/if}}>
+		<td class="row-date">{{= timeStr}}</td>
+		<td>{{= itemScore}}</td>
+		<td>{{= serviceScore}}</td>
+		<td>{{= deliveryScore}}</td>
+	</tr>
+</script>
+
+<script type="text/javascript">
+TM.gcs('/js/skincomment/shopScore.js?_v=0', function() {
+	TM.gcs('/js/ChineseDatePicker.js', function () {
+		TM.gcs('/js/jquery.tmpl.js',function(){
+			TM.gcs('/js/highcharts.js',function(){
+				$(document).ready(function() {
+					TM.ShopScore.init.doInit($(".shop-score-container"));
+				});
+			});
+		});
+	});
+});
+</script>

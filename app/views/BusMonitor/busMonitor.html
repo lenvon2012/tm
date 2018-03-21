@@ -1,0 +1,114 @@
+#{extends 'main.html' /}
+#{set title:'直通车监控' /}
+
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/BusMonitor/busMonitor.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/BusMonitor/BusMonitor1.css'}">
+
+
+<script src="/js/BusMonitor/BusMonitor.js" type="text/javascript" charset="${_response_encoding}"></script>
+
+<div style=" width: 800px;" class="testDiv">
+    <div class="BusMonitorBlock">
+        <div class="RealTimeDiv">
+            <div class="OperationDiv">
+                <span class="chartTitle">
+                    直通车实时点击量监控
+                </span>
+                <div style="float: right;">
+                    <span class="blueImgBtn realTimeBtn">直通车监控</span>
+                    <span class="whiteImgBtn countBtn">直通车统计</span>
+                </div>
+                <div class="blank0" style="height: 10px;"></div>
+                <span class="itemTitle">
+                    5双包邮新品打折晨尔薄款天鹅绒镂空条纹美腿瘦腿塑形性感连裤袜
+                </span>
+                <select class="monitorSelect realTimeSelect">
+                    <option value="today" selected="selected">今日</option>
+                    <option value="yesterday">昨日</option>
+                    <option value="twoday">2天前</option>
+                    <option value="threeday">3天前</option>
+                </select>
+
+                <div class="blank0"></div>
+            </div>
+            <div class="HourChartDiv">
+
+            </div>
+        </div>
+        <div class="ClickCountDiv">
+            <div class="OperationDiv">
+                <span class="chartTitle">
+                    直通车点击量统计
+                </span>
+                <div style="float: right;">
+                    <span class="blueImgBtn realTimeBtn">直通车监控</span>
+                    <span class="whiteImgBtn countBtn">直通车统计</span>
+                </div>
+                <div class="blank0" style="height: 10px;"></div>
+                <a href="javascript:void(0);"><span class="itemTitle">
+                    5双包邮新品打折晨尔薄款天鹅绒镂空条纹美腿瘦腿塑形性感连裤袜
+                </span></a>
+                <select class="monitorSelect countSelect">
+                    <option value="tenDay" selected="selected">10天</option>
+                    <option value="twentyDay">20天</option>
+                    <option value="thirtyDay">30天</option>
+                    <option value="fortyDay">40天</option>
+                </select>
+                <div class="blank0"></div>
+            </div>
+            <div class="DayChartDiv">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align: center;width:100%;margin-left: auto;margin-right: auto;">
+    <div class="blank0"></div>
+    <div class="busMonitorContainer">
+        <span class="busMonitorTip">直通车监控</span>
+        <div class="separator"></div>
+        <div class="blank0" style="height: 10px;"></div>
+        <div class="busMonitorBlock rowBorder">
+            <div class="monitorSearch">
+
+                <input type="text" class="startTimeText" />
+                <span class="searchTimeSpan">-</span>
+                <input type="text" class="endTimeText" />
+                <span class="blueImgBtn monitorSearchBtn">日期查询</span>
+                <span class="blueImgBtn btnBlank currentDay">当日统计</span>
+                <span class="blueImgBtn btnBlank currentDay">7天统计</span>
+                <span class="blueImgBtn btnBlank currentDay">30天统计</span>
+
+                <div class="blank0" style="height: 10px;"></div>
+                <select class="monitorSelect">
+
+                </select>
+                <div class="blank0" style="height: 10px;"></div>
+
+            </div>
+            <div class="chartDiv"></div>
+
+        </div>
+        <div class="blank0" style="height: 20px;"></div>
+        <span class="busMonitorTip">统计表格</span>
+        <div class="separator"></div>
+        <div class="blank0" style="height: 10px;"></div>
+        <div class="monitorTableBlock rowBorder">
+            <table>
+                <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="blank0" style="height: 30px;"></div>
+</div>

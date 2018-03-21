@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#{get 'title' /}</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" media="screen" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jinnang/wp.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jinnang/colors-fresh.css" />
+    <link type="text/css" rel="stylesheet" href="/css/jinnang/netease_main.css" />
+    <link type="text/css" rel="stylesheet" href="/css/jinnang/common_nav_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/tdazhe/dazhebase.css?_v=4" />
+    <link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="/css/zhdatecss/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+    <link type="text/css" href="/css/zhdatecss/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+
+
+    <script src="http://tianyun.b0.upaiyun.com/tm/jquery-1.7.2.min.js" charset="utf-8"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="/js/jquery-1.7.2.min.js?v=23"><\/script>');
+        }
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        if (!window.jQuery) {
+            var script = document.createElement('script');
+            script.src = "http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js";
+            document.body.appendChild(script);
+        }
+        var path = document.location.pathname;
+        var TM = TM || {};
+        TM.path = path;
+        TM.tms = $.cookie('_s');
+        TM.userNick = $.cookie('_n');
+        TM.encodeUid = $.cookie('_eu');
+        TM.sessionUid = '${session.get("_eu")}';
+        TM.ver = $.cookie('_v');
+        TM.hasCookie = $.cookie('tm_SESSION') && $.cookie('tm_SESSION').length > 0;
+    </script>
+    <script src="/js/tips/jquery.qtip-1.0.0-rc3.js?_ts=3" type="text/javascript" charset="utf-8"></script>
+    <link rel="shortcut icon" type="image/png" href='/img/favicon.png'>
+    <script src="/js/jquery.tools-1.2.5.toolbox.expose.min.js?_v=2" type="text/javascript" charset="utf-8"></script>
+    <script src="http://tianyun.b0.upaiyun.com/tm/jquery-ui-1.8.17.custom.min.js" charset="utf-8"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="/js/zhdatejs/jquery-ui-1.8.17.custom.min.js?v=23"><\/script>');
+        }
+    </script>
+
+    <script type="text/javascript" src='/js/jinnang/jquery-ui-sliderAccess.js?_v=2'></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-addon.js?_v=2"></script>
+    <script type="text/javascript" src="/js/zhdatejs/jquery-ui-timepicker-zh-CN.js?_v=2"></script>
+    <script type="text/javascript" src="/js/jquery.loadmask.min.js?_v=2"></script>
+    <script type="text/javascript" charset="utf-8">
+    ${controllers.Status.statusJsCaller.ensureForUser(request.args.get("_user_"))}
+    </script>
+</head>
+<style>
+    body{ font-size:12px; color:#454545;width:100%;min-width:1000px;}
+    h1,h2,h3,h4,h5,h6{ font-size:12px;}
+    a{ text-decoration:underline; color:#454545;text-decoration: none;}
+    /*a:hover{ text-decoration:underline; color:#ff0000;}*/
+    ul{ list-style:none;}
+    li{ list-style:none;}
+    .navbox {width: 1020px;margin: 0 auto;}
+    .allbg{background: url(http://icon.zol-img.com.cn/sj/images/desk_bg.png) no-repeat;}
+    .navbox {height: 42px;line-height: 42px;background-position: 0 -36px;background-repeat: repeat-x;-webkit-border-radius: 3px;border-radius: 3px;position: relative;}
+    .navbox ul{float:left;margin: 0; padding:0;}
+    .nav li.first {padding: 0;background: none;}
+    .nav li {float: left;height: 42px;line-height: 42px;font-size: 16px;background-position: -128px -264px;width: 120px;}
+    .nav li a{display: block;color: white;padding: 0 13px 0 17px;outline: none;text-decoration: none;}
+    .nav li a:hover{color: white;text-decoration: underline}
+    .navselected{background-color: #ccc;         color: blueviolet;          font-weight: bold;}
+    .c-fl {height: 43px;line-height: 43px;}
+    #exposeMask{position: static;}
+    .ntes-nav a.toggle-color {
+        color:   yellow;
+    }
+    #right-award{
+        width: 95px;
+        height: 107px;
+        cursor: pointer;
+        background: url(http://img04.taobaocdn.com/imgextra/i4/1132351118/T2BQxiXBBXXXXXXXXX_!!1132351118.jpg);
+        bottom: 400px!important;
+        position: fixed;
+        _position: absolute;
+        _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-300));
+    }
+    .bottom {
+        position:fixed;
+        left:0px;
+        bottom:0;
+        _position:absolute;
+        _top:expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);
+    }
+    a.ntes-nav-entry-wide:hover{
+        text-decoration: none;
+        color: #fff;
+        background-color: #635555;
+    }
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+        margin: 0;
+        /*padding: 0;*/
+        font-size:12px;
+        font-family: 'Microsoft YaHei', Arial;
+    }
+
+    ul, ol {
+        list-style: none;
+    }
+    fieldset, img {
+        border: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 100%;
+    }
+
+    h1 {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px 0 10px 0;
+        font-size: 28px;
+        color: #666;
+        position: relative;
+    }
+
+    h2 {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px 0 10px 0;
+        font-size: 24px;
+        color: #666;
+    }
+    h5{color:#05417F;padding:5px;font-size:16px;line-height: 24px;}
+
+    .breadcrumbs {
+        font-family: "宋体";
+        font-size: 14px;
+        color: #999;
+        margin: 5px auto 5px auto;
+        width: 960px;
+    }
+    .breadcrumbs span {
+        padding: 0 5px 0 0;
+    }
+
+    #stepBar {
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    #stepBar .block {
+        float: left;
+        display: inline;
+        width: 212px;
+        margin: 0 5px 0 0;
+        font-size: 17px;
+        padding: 0 14px 0 0;
+        background: #fefefe;
+        border: 1px solid #f9f9f9;
+        height: 43px;
+        line-height: 43px;
+        text-align: center;
+        position: relative;
+    }
+    #stepBar h3 {
+        color: #d9d9d9;
+        font-weight: normal;
+    }
+
+    h1 {
+        width: 960px;
+        margin:auto ;
+        padding: 60px 0 10px 0;
+        font-size: 28px;
+        color: #666;
+        position: relative;
+    }
+
+    .mainFormForm {
+        float: left;
+        dispplay: inline;
+        /*width: 780px;*/
+        /*padding-left: 100px;*/
+        padding-top: 5px;
+    }
+
+    .mainForm label {
+
+        float: left;
+        display: inline;
+        width: 130px;
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .mainForm .tmLine .append {
+        float: left;
+        display: inline;
+        line-height: 40px;
+        height: 40px;
+        margin: 0 0 0 15px;
+        padding: 0 10px;
+        color: #999;
+        font-size: 14px;
+        /*background: #F2FDEC;*/
+    }
+
+    .title-input-button{
+        float: left;
+        width: 90px;
+        display: inline;
+        line-height: 40px;
+        height: 40px;
+        margin: 0 0 0 15px;
+        padding: 0 10px;
+        color: #999;
+        background: #FEEDF0;
+        text-align: center;
+    }
+    .mainForm input,.mainForm option,.mainForm select{color:#888;}
+    .mainForm input.text {
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 310px;
+        /*color: #a700ff;*/
+        height: 38px;
+    }
+    .title-input{
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 183px;
+        /*color: #a700ff;*/
+        height: 38px;
+    }
+
+    #start_time{
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 310px;
+        /*color: #a700ff;*/
+        height: 38px;
+    }
+    #end_time{
+        float: left;
+        display: inline;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 310px;
+        /*color: #a700ff;*/
+        height: 38px;
+    }
+    .buttonLine {
+        margin: 0 auto;
+        width: 300px;
+        text-align: center;
+        padding: 40px 0 10px 0;
+    }
+    .nextStepBtn{
+        margin: 0 auto;
+        line-height: 38px;
+        font-size: 16px;
+        padding: 0 0 0 10px;
+        width: 250px;
+        height: 38px;
+        *margin-left: 350px;
+    }
+    #stepBar .active {
+        border: 1px solid rgb(228, 199, 179);
+        background: #fcfcfc;
+    }
+    #stepBar .active h3 {
+        color: #999;
+    }
+    #content {
+        width: 960px;
+        margin: 0 auto;
+        padding: 15px 0;
+        border-bottom: 1px solid #C0DAEC;
+        /*min-height: 400px;*/
+    }
+
+    input.text.error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+    .mainForm .tmLine span.error {
+        background: #FEEDF0;
+    }
+    input[type="text"].bigMoneyInput{
+        height: 32px;
+        font-size:27px;
+        padding: 0;
+        text-align: center;
+        width: 76px;
+        font-family: Arial;
+        margin: 2px 5px 2px 2px;;
+    }
+    .mjsForm div{font-size:18px;}
+    .mainForm .tmLine {
+        padding: 0 10px 10px 29px;
+        margin: 0 auto;
+    }
+
+    .user-auth-link {
+        cursor: pointer;
+    }
+    .user-auth-link:hover {
+        text-decoration: underline;
+    }
+
+    .promotion-errors-dialog .error-item-div {
+        font-family: "微软雅黑";display: none;
+    }
+    .promotion-errors-dialog .error-tip-span {
+        font-size: 22px; display: block;
+    }
+    .promotion-errors-dialog .error-item-table .item-img {
+        width: 80px; height: 80px; cursor: pointer;
+    }
+    .promotion-errors-dialog .list-table {
+        width: 100%;
+        font-family: "微软雅黑"; font-size: 14px; color: #333;
+        margin: 10px 0px;
+    }
+    .promotion-errors-dialog .list-table thead tr {
+        width: 100%; font-family: "微软雅黑"; font-size: 14px; color: #1D5987; font-weight: bold;
+        background: left -102px url('/public/images/frame/bg.png'); height: 32px;
+        text-align: center;
+        border: #ccc 1px solid;
+    }
+    .promotion-errors-dialog .list-table tbody td {
+        text-align: center; padding: 5px; border-bottom: #ccc 1px solid;
+        font-family: "微软雅黑"; font-size: 14px;
+    }
+    .promotion-errors-dialog .list-table .item-title {
+        cursor: pointer;
+    }
+    .promoteTemplate{
+        width: 600px;
+    }
+
+</style>
+
+<body>
+
+
+<div class="mengban">
+</div>
+
+<!-- loading等待 -->
+<div class="LoadingMask" style="display: none; border: 0;"></div>
+<div id="right-award" class="hidden">
+
+</div>
+<div class="WaitingForLoadingDiv" style="display: none;font-size: 16px;width:500px;font-weight: bolder;color: #ffffff;box-shadow: 0 1px 1px #444;    border-radius: 10px;background-color: #262626;padding: 20px 10px 10px 10px;z-index: 200001">
+    亲~系统正在为您努力加载数据...请您稍等片刻...<br />     <br />
+    <img src='/img/catunion/loading.gif' alt='正在加载' />
+</div>
+
+
+<script type="text/javascript">
+    var getCacheScript = function(url, callback){
+        if(TM.hasCookie){
+        }else if(url.indexOf('?')>=0){
+            url += "&_eu="+TM.sessionUid;
+        }else{
+            url+="?_eu="+TM.sessionUid;
+        }
+        callback = callback || function(){}
+        $.ajax({url:url,dataType:"script",cache:true, success : callback});
+    }
+    TM.gcs = getCacheScript;
+    jQuery.getScript =TM.gcs;
+    $.getScript = TM.gcs;
+    ///js/jquery-ui-1.9.1.custom.min.js
+    TM.gcs('/js/tm.js');
+
+    var path = document.location.pathname;
+    TM.path = path;
+    var Loading = TM.Loading;
+    var CenterAlert = TM.CenterAlert;
+    var BackMask = TM.BackMask;
+
+    ((function ($, window) {
+
+        $(document).ajaxStart(function(){
+            TM.Loading.init.show();
+        });
+        $(document).ajaxStop(function(){
+            TM.Loading.init.hidden();
+        });
+
+        $("body").ajaxSend(function(evt, request, settings){
+            if(TM.tms && TM.tms.length > 0 && !settings.cache){
+                if(settings.url.indexOf('?')>=0){
+                    settings.url += "&_tms="+TM.tms;
+                }else{
+                    settings.url += "?_tms="+TM.tms;
+                }
+            }
+        });
+
+
+        TM.setAnchorSids = function(){
+            if(TM.hasCookie){
+                return;
+            }
+
+            $('body a').each(function(){
+                var a = $(this);
+                var href = a.attr('href');
+                if( (!href) || (href.indexOf('/')>0) || (href.indexOf("void")>=0)){
+                    return;
+                }
+                if(href.indexOf('?')>=0){
+                    href += "&_tms="+TM.tms;
+                }else{
+                    href += "?_tms="+TM.tms;
+                }
+                a.attr('href',href);
+            });
+        }
+
+        $(document).ready(function(){
+            TM.setAnchorSids();
+        })
+    })(jQuery, window));
+</script>
+
+
+<div class="ntes-nav" id="js_N_nav">
+
+    <!-- 顶部导航 -->
+    <div class="ntes-nav-main clearfix">
+        <div style="margin-right: 20px;float: left;">
+            <a class="c-fl" href="/taodiscount/index"
+               title="好牛" > <img src="/img/dazhe/new_hnLG.png" style="height: 40px;" ></a>
+        </div>
+        <!-- 左部导航 -->
+        <div class="c-fl" style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;float: left;">
+
+            *{<div}*
+                    *{class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl"}*
+                    *{tabindex="0">}*
+                *{<a href="#"}*
+                   *{class="ntes-nav-select-title ntes-nav-entry-bgblack">活动管理<em}*
+                        *{class="ntes-nav-select-arr"></em></a>}*
+                *{<div class="ntes-nav-select-pop">}*
+                    *{<ul class="ntes-nav-select-list clearfix">}*
+                        *{<li><a href="/taodiscount/index"><span><em}*
+                                *{class="ntes-nav-app-act-mnt">活动列表</em></span></a></li>}*
+                        *{<li><a href="@{TaoDiscount.activity_add()}"><span><em}*
+                                *{class="ntes-nav-app-act-add">创建活动</em></span></a></li>}*
+                        *{<li><a href="@{TaoDiscount.item_alladd()}"><span><em}*
+                                *{class="ntes-nav-app-act-mnt">全店打折</em></span></a></li>}*
+                    *{</ul>}*
+                *{</div>}*
+            *{</div>}*
+            *{<a class="ntes-nav-entry-wide c-fl" href="/taodiscount/index"}*
+               *{title="LOGO" > <img src="/img/dazhe/new_hnLG.png" style="height: 40px;" ></a>}*
+            <a class="ntes-nav-entry-wide c-fl" href="/taodiscount/index"
+               title="活动列表" style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;" >活动列表</a>
+            *{<a class="ntes-nav-entry-wide c-fl"  style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;"}*
+                                        *{href="@{TaoDiscount.activity_add()}" title="创建活动" >创建活动</a>}*
+            *{<a class="ntes-nav-entry-wide c-fl" href="@{TaoDiscount.item_alladd()}" style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;"}*
+               *{title="全店打折" >全店打折</a>}*
+            *{<a class="ntes-nav-entry-wide c-fl taobaoceshi" href="/TaoDiscount/cuxiaofenxi" style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;display: none;"}*
+               *{title="促销分析" >促销分析</a>}*
+            *{<a class="ntes-nav-entry-wide c-fl haoping" href="@{TaoDiscount.award()}"  style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;"
+               title="好评有礼" >好评有礼</a>}*
+                <div
+                        class="ntes-nav-select ntes-nav-select-wide ntes-nav-app js_N_navSelect c-fl taobaoceshi"  style="display: none;"
+                        tabindex="0">
+                    <a href="#"
+                       class="ntes-nav-select-title ntes-nav-entry-bgblack" style="font-size: 18px;font-family: 'Microsoft YaHei', Arial;">图标<em
+                            class="ntes-nav-select-arr"></em></a>
+                    <div class="ntes-nav-select-pop">
+                        <ul class="ntes-nav-select-list clearfix">
+                            <li><a href="/taodiscount/auto_relation"><span><em
+                                    class="ntes-nav-app-act-mnt">自动关联</em></span></a></li>
+                            <li><a href="/taodiscount/waterMarker"><span><em
+                                    class="ntes-nav-app-act-add">宝贝水印</em></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <!-- 右部导航 -->
+        <div class="c-fr">
+            <div class="c-fl">
+                <div class="c-fl" id="js_N_NavLoginAfter" style="display: block;">
+                    *{<span class="left mr6">您好，</span>}*
+                    <div id="js_N_logined_warp"
+                         class="js_N_navSelect ntes-nav-logined ntes-nav-logined-scroll"
+                         tabindex="0">
+							<span class="ntes-nav-select-title ntes-nav-logined-userinfo"><span
+                                    id="js_N_navUsername" ></span><em
+                                    class="ntes-nav-select-arr"></em></span>
+                        <div id="js_login_suggest_wrap" class="ntes-nav-select-pop">
+                            <ul id="js_logined_suggest"
+                                class="ntes-nav-select-list clearfix">
+                                <li><a
+                                        href="@{TaoDiscount.reShouquan()}" target="_blank"><span>重新授权</span></a></li>
+                                <li><a href="#" id="sync_data"><span>同步数据</span></a></li>
+                                <li><a href="#" class="login_out"><span>退出</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 连接导航 -->
+                    <a class="ntes-nav-entry-wide c-fl" target="_self"
+                       href="#"
+                       id="syncBtn">更新数据</a>
+                        <a class="ntes-nav-entry-wide c-fl toggle-color" target="_blank"
+                           href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.27.c2L1hT&service_code=ts-11477&tracelog=xufei"
+                           id="xufei-now" style="font-size: 20px;margin-right: 17px;">我要续订</a>
+                    *{<a class="ntes-nav-entry-wide c-fl" target="_self"}*
+                       *{href="#"}*
+                       *{class="login_out">退出</a>}*
+
+                <span style="font-size:14px;;color:#ffd0c0;font-size: 16px;">
+                    在线客服：
+                    <a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&siteid=cntaobao&status=1&charset=utf-8">
+                        <img style="padding-top: 10px;" border="0" src="http://amos.alicdn.com/realonline.aw?v=2&uid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&site=cntaobao&s=1&charset=utf-8" alt="点击这里给我发消息" />
+                    </a>
+                </span>
+
+                </div>
+            </div>
+
+            *{<ul class="ntes-nav-inside ">}*
+                *{<li><a href="#"}*
+                       *{class="c-fl ntes-nav-entry ntes-nav-entry-bgblack"><em}*
+                        *{class="ntes-nav-entry-help">帮助</em><span class="ntes-nav-msg"}*
+                                                                 *{id="js_N_navWbMsg" style="display: block;"></span></a></li>}*
+                *{<li>}*
+                    *{<div}*
+                            *{class="ntes-nav-select js_N_navSelect c-fl"}*
+                            *{tabindex="0">}*
+                        *{<a id="js_mail_url"}*
+                           *{href="#"}*
+                           *{class="ntes-nav-select-title ntes-nav-entry-bgblack"><em}*
+                                *{class="ntes-nav-entry-mail">通知</em><em}*
+                                *{class="ntes-nav-select-arr"></em><span class="ntes-nav-msg"}*
+                                                                       *{id="js_N_navMailMsg" style="display: block;"></span></a>}*
+                        *{<div class="ntes-nav-select-pop ntes-nav-select-pop-mail">}*
+                            *{<ul class="ntes-nav-select-list clearfix">}*
+                                *{<li><a href="#"><span>系统消息</span></a></li>}*
+                            *{</ul>}*
+                        *{</div>}*
+                    *{</div>}*
+                *{</li>}*
+                *{<li>}*
+                    *{<div class="ntes-nav-select js_N_navSelect c-fl" tabindex="0">}*
+                        *{<a href="#"}*
+                           *{class="ntes-nav-select-title ntes-nav-entry-bgblack"><em}*
+                                *{class="ntes-nav-entry-money">支付</em><em}*
+                                *{class="ntes-nav-select-arr"></em></a>}*
+                    *{</div>}*
+                *{</li>}*
+
+            *{</ul>}*
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".ntes-nav-select").mouseover(function() {
+            $(this).addClass("ntes-nav-select-unfold");
+        });
+        $(".ntes-nav-select").mouseout(function() {
+            $(this).removeClass("ntes-nav-select-unfold");
+        });
+        $("#js_N_logined_warp").mouseover(function() {
+            $(this).addClass("ntes-nav-select-unfold");
+        });
+        $("#js_N_logined_warp").mouseout(function() {
+            $(this).removeClass("ntes-nav-select-unfold");
+        });
+    });
+    var navbox = $('.navbox');
+    navbox.find('a').each(function(){
+        var anchor = $(this);
+        if(anchor.attr('href').indexOf(path) >= 0 && path.length > 2){
+            navbox.find('a.navselected').removeClass('navselected');
+            anchor.addClass('navselected');
+
+//            hasPath = true;
+        }
+    });
+//    $('#main').css('margin-left',($(document).width()-960)/2+"px");
+//    $('.ntes-nav-main').css('margin-left',($(document).width()-960)/2+"px");
+//    $('#footer-content').css('margin-left',($(document).width()-200)/2+"px");
+
+    // set #right-award absolute position
+    $('#right-award').css('right',(($(window).width()-960)/2 - 120)+'px');
+    $(window).resize(function(){
+        $('#right-award').css('right',(($(window).width()-960)/2 - 120)+'px');
+    });
+    $('#right-award').click(function(){
+        var link = "http://fuwu.taobao.com/ser/plan/planSubDetail.htm?planId=12651&isHidden=true&cycle=1&itemIds=2971";
+        var left = ($(document).width() - 500)/2;
+        var top = 130;
+        var html = '<table class="three-yuan-xufei-img-dialog" style="position: absolute;z-index: 19000;width: 500px;height: 330px;background: url(http://img04.taobaocdn.com/imgextra/i4/1132351118/T2cB4hXrlaXXXXXXXX_!!1132351118.gif)"><tbody>' +
+                '<tr style="height: 40px;"><td style="width: 460px;"></td><td style="width: 40px;"><span class="inlineblock close-three-yuan-dialog" style="width: 40px;height: 40px;position: absolute;top:0px;right: 0px;z-index: 19100;"></td></tr>' +
+                '<tr style="height: 290px;"><td style="width: 460px;vertical-align: top;"><a class="inlineblock" style="position: absolute;width: 460px;height: 290px;" target="_blank" href="'+link+'"></a></td><td style="width: 40px;"></td></tr>'+
+                '</tbody></table>';
+        $('.three-yuan-xufei-img-dialog').remove();
+        var three_yuan = $(html);
+        if($.browser.msie) {
+            three_yuan.find('.close-five-yuan-dialog').css('filter',"alpha(opacity=10)");
+            three_yuan.find('.close-five-yuan-dialog').css('background-color',"#D53A04");
+        }
+        three_yuan.css('top',top+"px");
+        three_yuan.css('left',left+"px");
+        three_yuan.find('.close-three-yuan-dialog').click(function(){
+            three_yuan.remove();
+            $('body').unmask();
+        });
+        three_yuan.appendTo($('body'));
+        $('body').mask();
+//        TM.loadMeal();
+    });
+    TM.sync = function(){
+        $.get('/items/sync',function(){
+            TM.Alert.load('<p style="font-size:14px">亲，同步成功,点击确定刷新页面</p>',300,230,function(){
+                window.location.reload();
+            });
+        });
+    }
+    //     TM.gcs('/js/tm.js',function(){
+    TM.gcs('/js/tm.js',function(){
+        $('#syncBtn').click(function(){
+            TM.sync();
+        });
+        $('#sync_data').click(function(){
+            TM.sync();
+        });
+    });
+
+    TM.gcs('/status/js',function(){
+        var nick=TM.name;
+        $('#js_N_navUsername').text(nick);
+        if(nick === undefined || nick == null){
+            nick = "";
+        }
+        if(nick.indexOf("测试") >= 0 || nick.indexOf("淘宝")>=0 || nick.indexOf("开放平台")>=0 || nick.indexOf("support")>=0|| nick.indexOf("包u吧 ")>=0|| nick.indexOf("包邮吧")>=0|| nick.indexOf("楚之小南")>=0){
+            $('.haoping').hide();
+            $('.taobaoceshi').show();
+            $('#js_N_navUsername').text(nick.substring(0,4));
+        }
+        if(parseInt(TM.timeLeft) <= 25) {
+            $('#js_N_navUsername').append($('<span style="font-size: 14px;margin-left: 8px;">(剩余'+TM.timeLeft+'天)</span>'));
+        }
+//        $('.taobaoceshi').hide();
+    });
+
+    $('.login_out').click(function(){
+        $.ajax({
+            url : '/in/logout',
+            dataType : 'text',
+            success : function(text){
+                $.cookie('tm_SESSION',null);
+                $.cookie('_s',null);
+                window.location.href = text;
+            }
+        })
+    })
+</script>
+
+*{<script type="text/javascript">}*
+*{var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");}*
+*{document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5fd55c9b25772c0a87b7d8d425493d8c' type='text/javascript'%3E%3C/script%3E"));}*
+*{</script>}*
+
+
+<div  style="height:5px;clear:both;" class="blank0" ></div>
+
+<div id="main" style="width:1000px;float:none;margin: 0 auto;">
+#{doLayout /}
+</div>
+
+*{<div class="bottom" id="mainfoot" style="background-color: #EF6400;">}*
+    *{<div id="footer-content" style="margin: 0 auto;width:200px;text-align: center;">}*
+        *{<p style="font-size:14px;;color:white;">}*
+            *{在线客服：}*
+            *{<a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&siteid=cntaobao&status=1&charset=utf-8">}*
+            *{<img border="0" src="http://amos.alicdn.com/realonline.aw?v=2&uid=%E4%B8%8A%E5%AE%98_%E5%B0%8F%E9%9B%AA&site=cntaobao&s=1&charset=utf-8" alt="点击这里给我发消息" />}*
+            *{</a>}*
+        *{</p>}*
+        *{<!--  <a href="/home/buyVersion">版本控制</a> -->}*
+    *{</div>}*
+*{</div>}*
+
+<script>
+
+    var TM = TM || {};
+    TM.Pro = TM.Pro || {};
+    TM.Pro.bindListernes = function(){
+        $('.numberInput').keyup(function(){
+            var oThis = $(this);
+            oThis.val(oThis.val().replace(/[^0-9]/g,''));
+        })
+        $('.doubleInput').keyup(function(){
+            var oThis =$(this);
+            oThis.val(oThis.val().replace(/[^0-9\\.]/g,''));
+        });
+        $('.clicktoprev').click(function(){
+            var oThis =$(this);
+            oThis.prev().trigger('click');
+        })
+    }
+    setInterval(function(){
+        $('#xufei-now').toggleClass("toggle-color");
+    }, 500)
+
+</script>
+#{get 'moreScripts' /}
+</body>
+</html>

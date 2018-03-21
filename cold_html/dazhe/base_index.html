@@ -1,0 +1,180 @@
+#{extends 'dazhe/base.html' /}
+#{set title:'拍拍店长首页' /}
+
+
+<script src="/js/dazhe/firstlogin.js?_v=1" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css">
+    .kuang {
+        border: 1px solid #d2dfeb;
+        background: #ffffff;
+    }
+    .clear_height {
+        clear: both;
+        min-height: 6px;
+        height: 6px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        padding: 0px 0px 0px 0px;
+        overflow: hidden;
+        font-size: 0px;
+    }
+    .kuang .title_list {
+        background: #f7f7f7;
+        line-height: 35px;
+        height: 35px;
+    }
+    .kuang .title_list .title_left {
+        float: left;
+        font-size: 14px;
+        padding-left: 10px;
+        color: #387dc9;
+        font-weight: bold;
+    }
+    .kuang .title_list .title_right {
+        float: right;
+        padding-right: 10px;
+    }
+    .kuang .contents {
+        padding: 10px;
+        line-height: 25px;
+    }
+    .bd {
+        padding: 15px 0 15px;
+    }
+    .bd ul {
+        width: 100%;
+        overflow: hidden;
+        padding-left: 2px;
+    }
+    .bd li {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        float: left;
+    }
+</style>
+
+<div class="container">
+    <div class="clear_height"></div>
+
+    <div class="kuang">
+        <div class="title_list">
+            <div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">消息通知：</a></div>
+            <div> <a style="color:red;" href="#">拍拍店长大改版，增加3大管理模块！最新：《订单打印》已经上线！</a>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+    </div>
+
+    <div class="clear_height"></div>
+
+    <div class="kuang">
+        <div class="title_list">
+            <div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">小提示：</a></div>
+            <div> <a style="color:red;" href="#">在店铺修改宝贝信息（比如价格，库存），请点击右上角的《更新宝贝数据》按钮同步宝贝信息哦！拍拍店长每晚0点自动同步一次数据</a>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+    </div>
+
+    <div class="clear_height"></div>
+
+    <div class="kuang cuxiao-manage">
+        <div class="title_list">
+            <div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">促销管理</a></div>
+            <div class="title_right"> <a style="color:red" href="#">提示：使用拍拍店长打折之前，请先结束其他软件的打折活动</a>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+        <div class="contents">
+
+            <p style="color:#8c8c8c; line-height:18px; padding-top:5px;">店铺流量太小？ 流量转化太低？ 宝贝关联太差？活动图片手动做？太苦太累了吧！现在利用营销推广类的功能可以让你迅速解除苦恼，再也不用担心投入大而销量少，Hold用户不再是浮云！ </p>
+            <div class="bd">
+                <ul>
+                    <li><a href="/paipaidiscount/zhekou_1"><img src="/public/images/dazhe/xianshizhekou.png" style="width:70px;height:71px" data=""></a></li>
+                    <li><a href="/paipaidiscount/item_alladd"><img src="/public/images/dazhe/quandiandazhe.png" style="width:70px;height:71px" data=""></a></li>
+                    <li><a href="/paipaidiscount/creatmanjiansong"><img src="/public/images/dazhe/manjiusong.jpg" style="width:70px;height:71px" data=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear_height"></div>
+
+    <div class="kuang">
+        <div class="title_list">
+            <div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">商品管理</a></div>
+            <div class="title_right"> <a style="color:#8C8C8C" href="#">中小卖家如何在短时间内让流量翻倍</a>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+        <div class="contents">
+
+            <p style="color:#8c8c8c; line-height:18px; padding-top:5px;">帮助您管理宝贝，有效提高管理效率，节省成本！让你有更多时间去运营店铺、货品挑选、活动策划。从此拍拍开店轻松自如。同样的时间做更多的事，销量自然蒸蒸日上！ </p>
+            <div class="bd">
+                <ul>
+                    *{<li><a href="/paipaimanage/diagnose"><img src="/public/images/dazhe/biaotiyouhua.jpg" style="width:70px;height:71px" data=""></a></li>}*
+                    <li><a href="/paipaimanage/batch"><img src="/public/images/dazhe/piliangxiugai.png" style="width:70px;height:71px" data=""></a></li>
+                    <li><a href="/paipaimanage/stockcenter" class="kucun"><img src="/public/images/dazhe/kucunzhongxin.png" style="width:70px;height:71px" data=""></a></li>
+                    <li><a href="/paipaiskincomment/index"><img src="/public/images/dazhe/zidongpingjia.png" style="width:70px;height:71px" data=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear_height"></div>
+
+    <div class="kuang biaotiyouhua">
+        <div class="title_list">
+            <div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">标题优化</a></div>
+            <div class="title_right"> <a style="color:#8C8C8C" href="#">中小卖家如何在短时间内让流量翻倍</a>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+        <div class="contents">
+
+            <p style="color:#8c8c8c; line-height:18px; padding-top:5px;">帮助您优化宝贝标题，提升站内搜索流量。不花钱的流量，您值得拥有！ </p>
+            <div class="bd">
+                <ul>
+                    <li><a href="/paipaimanage/diagnose"><img src="/public/images/dazhe/biaotiyouhua.jpg" style="width:70px;height:71px" data=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear_height"></div>
+
+    <div class="kuang">
+        <div class="title_list">
+            <div class="title_left"><a href="#" style="color: #133f9a;text-decoration: none;">订单管理</a></div>
+            <div class="title_right"> <a style="color:#8C8C8C" href="#">中小卖家如何在短时间内让流量翻倍</a>
+            </div>
+            <p style="clear:both;"></p>
+        </div>
+        <div class="contents">
+
+            <p style="color:#8c8c8c; line-height:18px; padding-top:5px;">帮助您管理订单，有效提高管理效率，节省成本！让你有更多时间去运营店铺、货品挑选、活动策划。从此拍拍开店轻松自如。同样的时间做更多的事，销量自然蒸蒸日上！ </p>
+            <div class="bd">
+                <ul>
+                    <li><a class="dingdan1" href="/paipaiorderform/index"><img src="/public/images/dazhe/dingdandayin.png" style="width:70px;height:71px" data=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.FirstLogin.init.doInit($(".container"));
+        $.get('/PaiPaiManage/appInfo',function(data){
+            if(data == "700132314") {
+                $('.cuxiao-manage').show();
+                $('.biaotiyouhua').hide();
+            } else if(data == "700156441"){
+                $('.cuxiao-manage').hide();
+                $('.biaotiyouhua').show();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,120 @@
+#{extends 'dazhe/base.html' /}
+#{set title:'设置商品信息' /}
+
+<link type="text/css" rel="stylesheet" href="/css/dazhe/paipaidazhe.css" />
+<style type="text/css">
+    input.item-dis.error {
+        background: #FEEDF0;
+        border: 1px solid #F25E78;
+    }
+    .guanjianci{
+        text-align: center;
+        font-size: 20px;
+    }
+    .sky-blue-btn {
+        width: 82px;
+        height: 30px;
+        font-size: 14px;
+        line-height: 30px;
+        background-position: -16px -25px;
+    }
+    .tmbtn {
+        display: inline-block;
+        font-family: '微软雅黑';
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        color: #ffffff;
+        background-image: url("http://img03.taobaocdn.com/imgextra/i3/1039626382/T28vqiXntaXXXXXXXX_!!1039626382.png");
+    }
+</style>
+
+<div id="content">
+    <div class="breadcrumbs">
+        <span>创建限时打折活动</span>
+    </div>
+    <div id="stepBar">
+        <div class="text">
+            <div class="block">
+                <h3>设置活动信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block active">
+                <h3>设置商品信息</h3>
+                <span class="arrow"></span>
+            </div>
+            <div class="block lastPercent">
+                <h3>完成</h3>
+                <span class="arrow"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<h1>2. 设置商品信息</h1>
+
+<div class="item-container">
+    <div class="select-cat" >
+        <table>
+            <tbody>
+            <tr>
+                <td ><sapn style ="font-size: 15px;">分类搜索：</sapn></td>
+                <td style="padding-left: 20px;"><sapn style ="font-size: 15px;">按拍拍类目搜索：</sapn><select name="sellerCat" id="sellerCat" class="searchselect"  style="font-size: 15px;width: 100px;line-height: 200px;position: relative;"></select></td>
+                <td style="padding-left: 20px;"><sapn style ="font-size: 15px;">关键词搜索：</sapn><input class="guanjianci"style ="font-size: 15px;"></td>
+                <td style="padding-left: 20px;"><a class="guanjianci-select" href="#"  ><img src="/public/images/keywords/kwbtn1.png" ></a></td>
+                <td style="padding-left: 50px;"><a class="quanxuan choose sky-blue-btn tmbtn"  href="javascript:void(0);">本页全选</a><a class="quanxuan unchoose sky-blue-btn tmbtn" href="javascript:void(0);">取消全选</a></td>
+            </tr>
+            </tbody>
+        </table>
+        *{<sapn style ="font-size: 15px;">按店铺类目搜索：</sapn>}*
+        *{<select name="itemCat" id="itemCat" class="searchselect"  style="font-size: 15px;width: 150px;line-height: 200px;position: relative;">}*
+        *{</select>}*
+    </div>
+    <div style="margin-top: 20px;">
+        <table>
+            <tbody>
+            <tr>
+                <td ><span style=" color: #fe3433;">(对加入活动宝贝)</span><sapn style ="font-size: 15px;">批量修改：打</sapn></td>
+                <td><input class="piliang" type="text" style=" width: 80px; text-align: center;font-size: 15px"></td>
+                <td><sapn style ="font-size: 15px;">折</sapn></td>
+                <td style="padding-left: 50px;"> <input type="submit" value="完成并提交"  class="nextStepBtn StepBtn2" style="color: #ffffff;
+    background-color: #a700ff; "></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 10px;">
+        <div class="paging-div" style="text-align: center; margin-bottom: 5px;"></div>
+        <input type="hidden" class="activityId" value="${activityId}" />
+        <table class="item-table result-table">
+            <thead>
+            <tr>
+                <td style="width: 15%;text-align:center;">宝贝图片 </td>
+                <td style="width: 20%;text-align:center;">宝贝标题 </td>
+                <td style="width: 15%;text-align:center;">宝贝原价(元) </td>
+                <td style="width: 15%;text-align:center;">折扣 </td>
+                <td style="width: 15%;text-align:center;">宝贝折扣价（元）</td>
+                <td style="width: 20%;text-align:center;">操作 </td>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="paging-div" style="text-align: center;margin-top: 5px;"></div>
+    </div>
+</div>
+<div class="buttonLine">
+    <input type="submit" value="完成并提交"  class="nextStepBtn StepBtn2" style="color: #ffffff;
+    background-color: #a700ff;">
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/dazhe/activityadd.js', function () {
+                TM.DisItem.init.doInit($(".item-container"));
+            });
+        });
+    });
+</script>

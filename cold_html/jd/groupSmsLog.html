@@ -1,0 +1,134 @@
+#{extends 'jd/jdsubsms.html' /}
+#{set title:'短信群发记录' /}
+<style>
+    .PageTitleArea {
+        background: none repeat scroll 0 0 #F2F9FD;
+        border: 1px solid #CDE6FF;
+        color: #404040;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 17px;
+        margin: 5px;
+        padding: 8px;
+    }
+    .PageTitle {
+        color: #2E6CD2;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    DIV.searchzone {
+        BORDER-RIGHT: #cde6ff 1px solid;
+        PADDING-RIGHT: 10px;
+        BORDER-TOP: #cde6ff 1px solid;
+        PADDING-LEFT: 10px;
+        PADDING-BOTTOM: 5px;
+        MARGIN: 5px;
+        BORDER-LEFT: #cde6ff 1px solid;
+        PADDING-TOP: 5px;
+        BORDER-BOTTOM: #cde6ff 1px solid;
+        BACKGROUND-COLOR: #f2f9fd;
+    }
+    DIV.listzone {
+        BORDER-RIGHT: #cde6ff 1px solid;
+        BORDER-TOP: #cde6ff 1px solid;
+        MARGIN: 5px;
+        BORDER-LEFT: #cde6ff 1px solid;
+        BORDER-BOTTOM: #cde6ff 1px solid;
+    }
+    .Wdate {
+        border: #cde6ff 1px solid;
+        height: 20px;
+        background: #fff url(/img/jdserver/datePicker.gif) no-repeat right;
+    }
+    .list {
+        FONT-SIZE: 12px;
+        BACKGROUND-COLOR: expression((this.sectionRowIndex%2==0) ? "#fbfbfb":"ffffff");
+    }
+    TD.biaoti {
+        BORDER-BOTTOM: #cde6ff 1px solid;
+        BACKGROUND-COLOR: #f2f9fd;
+        TEXT-DECORATION: none;
+    }
+    .pagenavi span {
+        color: red;
+    }
+    .pagenavi a {
+        border: 1px solid #CDE6FF;
+        margin: 2px;
+        padding: 2px 6px;
+        background-color: #F2F9FD;
+    }
+    A {
+        FONT: 12px Verdana, Arial, Helvetica, sans-serif;
+        COLOR: #333333;
+    }
+    body{
+        font-family: '微软雅黑';
+    }
+</style>
+<div>
+    <div class="PageTitleArea">
+        <div class="PageTitle">
+            短信群发记录
+        </div>
+        <div style="width: 80%;">
+            可以查看关怀短信任务记录，可以查看发送的详细清单喔，支持一键补发！
+        </div>
+    </div>
+    <div class="searchzone">温馨提示：短信发送均是后台执行,有时很多卖家同时使用短信群发功能，所以您创建的短信群发任务需要排队等候软件发送，等候时间一般不会很长，如果一直等待，可以联系客服</div>
+    <div class="listzone">
+        <table cellspacing="0" cellpadding="3" width="100%" align="center" border="0">
+            <thead>
+            <tr style="height:40px;">
+                <td colspan="8">
+                    发送时间：<input name="txtLeftTime" type="text" id="txtLeftTime" class="Wdate">--<input name="txtRightTime" type="text" id="txtRightTime" class="Wdate">
+                    <input type="submit" name="btnSelect" value="查    询" id="btnSelect" class="button">
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="list">
+
+                <td width="100px" height="28" align="left" class="biaoti"><span class="searchzone">发送客户总数</span></td>
+                <td width="120px" align="center" class="biaoti"><span class="searchzone">发送成功客户数</span></td>
+                <td width="70" align="center" class="biaoti"><span class="searchzone">发送短信量</span></td>
+                <td width="103" align="center" class="biaoti"><span class="searchzone">发送时间</span></td>
+                <td width="182px" align="center" class="biaoti"><span class="searchzone">短信内容</span></td>
+                <td width="89px" align="center" class="biaoti"><span class="searchzone">备注</span></td>
+                <td width="89px" align="center" class="biaoti"><span class="searchzone">任务状态</span></td>
+                <td width="100px" align="center" class="biaoti"><span class="searchzone">操作</span></td>
+            </tr>
+
+            <tr bgcolor="#FFFFFF" class="pagenavi">
+                <td colspan="8" height="28" style="padding-left:20px;">
+
+                    <!-- AspNetPager V7.2 for VS2005 & VS2008  Copyright:2003-2008 Webdiyer (www.webdiyer.com) -->
+                    <div id="AspNetPager1" class="cpb" pageindeboxtype="DropDownList" dir="ltr" style="text-align:right;">
+                        <div class="cpb" align="left" style="width:30%;float:left;">
+                            共0条记录，共1页，当前为第1页
+                        </div><div align="right" class="cpb" style="width:70%;float:left;">
+                        <span><a disabled="disabled" style="margin-right:5px;">首页</a></span><span><a disabled="disabled" style="margin-right:5px;">上一页</a></span><span class="cpb" style="margin-right:5px;">1</span><span><a disabled="disabled" style="margin-right:5px;">下一页</a></span><span><a disabled="disabled" style="margin-right:5px;">尾页</a></span>
+                    </div>
+                    </div>
+                    <!-- AspNetPager V7.2 for VS2005 & VS2008 End -->
+
+
+                </td>
+            </tr>
+
+            </tbody></table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/ChineseDatePicker.js', function () {
+            TM.gcs('/js/jd/groupsmslog.js', function () {
+                $(document).ready(function() {
+                    TM.JDGroupSmsLog.Init.init();
+                });
+            });
+        });
+    });
+</script>

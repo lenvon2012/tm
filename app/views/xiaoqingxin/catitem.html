@@ -1,0 +1,47 @@
+#{extends 'xiaoqingxin/xiaoqingxin.html' /}
+#{set title:'小清新 - 宝贝类目' /}
+<style>
+    .item-container .item-link {
+        color: #333; cursor: pointer;
+    }
+    .item-container .item-link:hover {
+        color: #a10000;
+    }
+
+    .item-container .item-div {
+        border: 2px solid #63C6B2; margin:8px 5px; padding: 0px; font-family: "宋体";
+    }
+    .item-container .item-img {
+        cursor: pointer;
+    }
+    .item-container .item-img:hover {
+        filter:alpha(opacity=70);
+        opacity: 0.7;
+    }
+
+    .item-container .next-page-btn {
+        font-size: 18px; color: blue; cursor: pointer;
+    }
+    .item-container .next-page-btn:hover {
+        text-decoration: underline; font-weight: bold; color: #a10000;
+    }
+</style>
+<div class="item-container">
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.gcs('/js/jquery.masonry.js', function () {
+            TM.gcs('/js/jquery.url.js', function () {
+                TM.gcs('/js/xiaoqingxin/xiaoqx.js', function () {
+                    TM.Xiaoqingxin.Init.catShow($('.item-container'));
+                });
+            });
+        });
+
+
+
+    });
+</script>

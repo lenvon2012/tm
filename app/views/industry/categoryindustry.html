@@ -1,0 +1,151 @@
+#{extends 'main.html' /}
+#{set title:'行业类目分析' /}
+
+#{set 'moreStyles'}
+<link rel="stylesheet" media="screen" href="/css/commsTab/commsTab.css">
+<link rel="stylesheet" media="screen" href="/css/commChoose/commChoose.css">
+<link rel="stylesheet" media="screen" href="/css/cornerDiv.css">
+#{/set}
+
+<style>
+    #yangyangContent .nav-table-left-td {display: none;width: 0px;}
+    #yangyangContent .nav-table-right-td{width: 1000px;}
+    #yangyangContent div.main{width: 999px; margin: 0 auto;}
+
+    .category-industry-container {
+        font-size: 14px; font-family: "微软雅黑";
+    }
+
+    .search-table {
+        border-collapse: collapse;
+    }
+    .search-table td {
+        vertical-align: middle;
+    }
+
+
+    .baseblock {
+        zoom: 1; margin: 3px; font-size: 14px; padding: 3px;
+    }
+    .baseblock:hover {
+
+    }
+    .attr-select {
+        background-color: #1660b3;
+    }
+
+
+    .list-table {
+        border-collapse: collapse; width: 100%;
+        border: 1px solid #ccc; border-collapse: collapse; text-align: center;
+    }
+    .list-table thead tr {
+        vertical-align: middle; background: left -102px url('/img/frame/bg.png');
+    }
+
+    .list-table thead td {
+        height: 29px; vertical-align: middle; border-bottom: 1px solid #ccc; font-weight: bold;
+    }
+
+
+    .wordbase-table tbody td {
+        border-bottom: 1px solid #ccc; padding: 8px 3px;
+    }
+
+
+    .sort-td {
+        padding-right: 20px;color: #2EB1AA;cursor: pointer; display: inline-block; *display: inline; zoom: 1;
+    }
+    .sort-down{background: url("/img/sort-bg.png") right -25px no-repeat}
+    .sort-up{background: url("/img/sort-bg.png") right -47px no-repeat;}
+
+
+    .wordbase-rate-div {
+        height:6px; border-top: 6px solid #2D8ABE;
+    }
+
+</style>
+
+
+
+
+<div class="page-hierarchy">
+    <span>当前位置:&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="/home/index">淘掌柜&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;</a>行业类目分析
+</div>
+
+
+<div class="category-industry-container" style="padding: 10px;">
+
+    <table style="border-collapse: collapse;width: 100%;">
+        <tbody>
+        <tr>
+            <td style="width: 15%;text-align: center;font-weight: bold;">
+                类目选择：
+            </td>
+            <td style="width: 85%;">
+                <div style="text-align: center;">
+                    <table class="search-table" style="margin: 0 auto;">
+                        <tbody>
+                        <tr>
+                            <td>一级类目：</td>
+                            <td style="padding-left: 10px;">
+                                <select class="first-category-select" style="width: 200px;">
+                                </select>
+                            </td>
+                            <td style="padding-left: 50px;">二级类目：</td>
+                            <td style="padding-left: 10px;">
+                                <select class="second-category-select" style="width: 200px;">
+                                </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;text-align: center;font-weight: bold;">
+                属性集合：
+            </td>
+            <td style="width: 85%;">
+                <div style="padding: 10px 0px;color: red; text-align: center;">
+                    注：点击下方的一个属性，可以查看到该属性在整个行业中的搜索分布；从而可以发现怎样的属性更受买家欢迎！
+                </div>
+                <div class="cat-attr-div"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="wordbase-container" style="display: none;padding: 10px;">
+        *{<div style="padding-bottom: 10px;">
+            当前已选中属性：<span class="selected-attr-span"></span>，下表为该属性中所有可能值的搜索和成交分析。
+        </div>}*
+
+    </div>
+
+    <div style="height: 50px;"></div>
+
+</div>
+
+
+
+#{set 'moreScripts'}
+<script type="text/javascript">
+    TM.Loading.init.show();
+    TM.gcs('/js/jquery-ui-1.9.1.custom.min.js', function () {
+        TM.gcs('/js/tm.js', function () {
+            TM.gcs('/js/commstab/commstab.js', function () {
+                TM.gcs("/status/js", function () {
+                    TM.gcs("/js/industry/categoryindustry.js?_v=1", function () {
+                        $(document).ready(function () {
+                            TM.CategoryIndustry.init.doInit($(".category-industry-container"));
+
+                        });
+                    });
+                });
+            });
+        });
+    })
+</script>
+#{/set}

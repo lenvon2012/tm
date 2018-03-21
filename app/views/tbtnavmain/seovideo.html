@@ -1,0 +1,27 @@
+*{#{extends 'main.html' /}}*
+#{extends 'tbtnav/tbtnavseo.html' /}
+#{set title:'标题优化视频教程' /}
+<div class="" style="margin-top: 20px;margin-left:100px;text-align: left;">
+<h3>标题优化-理论教程</h3>
+<embed src="http://static.video.qq.com/TPout.swf?vid=x0125o658ez&auto=1" allowFullScreen="true" quality="high"
+       width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+
+<br/>
+<br/>
+
+<h3>标题优化-实战教程-新品优化</h3>
+<embed src="http://static.video.qq.com/TPout.swf?vid=k0125vvh2xj&auto=0" allowFullScreen="true" quality="high"
+width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+</div>
+
+#{set 'moreScripts'}
+<script src="/js/jquery.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+//TM.Loading.init.show();
+TM.gcs('/js/jquery.pagination.js',function(){
+    TM.gcs('/js/tm.js',function(){
+    });
+})
+
+</script>
+#{/set}

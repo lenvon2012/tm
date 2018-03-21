@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" media="screen" href='/css/KefuSweety/KefuSweety.css?_ts=2'>
+    <link href="/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" media="screen" href='/css/main.css?_ts=8'>
+
+    <script src="/js/jquery-1.6.4.min.js"></script>
+    <script src="/js/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/js/tm.js"></script>
+    <script src="/js/KefuSweety/KefuSweety.js?_v=1"></script>
+    <script type="text/javascript" src="/js/jquery.loadmask.min.js"></script>
+    <script type="text/javascript" src="/js/tips/jquery.qtip-1.0.0-rc3.js"></script>
+    <script type="text/javascript" src="/js/utils/jquery.cookie.js"></script>
+</head>
+<body>
+<div id="u">
+    <span id="user">
+        <a href="javascript:void(0)" class="un hidden">
+            欢迎你，<span class="sweety-name">clorest510</span><i class="c-icon c-icon-triangle-down-blue"></i>
+        </a>
+        <a href="javascript:void(0)" class="logout hidden">
+            <span>退出</span>
+        </a>
+        <a href="javascript:void(0)" class="relogin hidden">
+            <span>切换用户</span>
+        </a>
+        <a href="javascript:void(0)" class="login">
+            <span>登陆</span>
+        </a>
+        <a href="javascript:void(0)" class="register">
+            <span>注册</span>
+        </a>
+    </span>
+</div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        TM.KefuSweety.Init.doInit($('#user'));
+    });
+</script>

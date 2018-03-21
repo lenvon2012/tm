@@ -1,0 +1,40 @@
+
+
+.tabHead {height:40px;border-bottom: 1px solid #D6D5D4;font-family:Verdana,Arial,sans-serif;font-size:24px;line-height:40px;position: relative; padding: 1px; zoom: 1; }
+.tabHead ul {background-color: #fff;color:#222222;font-weight:bold;display:block;height:40px; padding:0; margin:0; padding-left:20px;}
+.tabHead ul li {text-align:center;-moz-border-radius-topleft:4px;-moz-border-radius-topright:4px;padding-bottom:1px;margin-bottom:0;border-left:1px solid #AAAAAA;border-right:1px solid #AAAAAA;border-top:1px solid #AAAAAA;float:left;list-style:none;margin:0 0.2em 1px 0;padding:0;position:relative;top:1px;white-space:nowrap;color:#555555;font-weight:bold;width: 100px;}
+.tabHead ul li.tabs_active {background-color:#fff;}
+.tabHead ul li.tabs_hover{background-color:#fff;}
+.tabHead ul li.tabs_inactive{background-color:#fff;}
+.tabHead ul li a {float:left;padding:0.5em 1em;text-decoration:none;cursor:pointer;color:#777;}
+.tabHead ul li.tabs_active a {color:#333;}
+.tabHead ul li.tabs_active a {color:#555555;}
+.ui-tabs .ui-tabs-panel {background:none repeat scroll 0 0 transparent;border-width:0;display:block;padding:1em 1.4em;}
+
+.paginationDiv{height: 10%;}
+.paginationItem {font-size: 12px;float:right;margin:0;padding-top: 2%;}
+
+.paginationItem a {text-decoration: none;border: solid 1px #AAE;color: #15B;}
+
+.paginationItem a, .paginationItem span {display: block;float: left;padding: 0.3em 0.5em;margin-right: 5px;margin-bottom: 5px;min-width:1em;text-align:center;}
+
+.paginationItem .current ,.paginationItem a:hover{text-decoration: none;border: #980101 solid 1px;background: #039CFD;color: white;display: inline-block!important;}
+
+.paginationItem .current.prev, .paginationItem .current.next{color:#999;border-color:#999;background:#fff;}
+
+.itemsByURL{height:100%;width: 100%;}
+.itemTableDiv{width:100%;height:90%;border-bottom: 1px solid #D6D5D4;overflow-y:scroll; }
+.td1{width:5%;border-bottom: 1px solid #D6D5D4;text-align: center;}
+.td2{width:8%;border-bottom: 1px solid #D6D5D4;}
+.itemImg{width:50px;height:50px;margin-left: 5px;}
+.td3{width:8%;text-align: center;border-bottom: 1px solid #D6D5D4;}
+.td4{width:71%;border-bottom: 1px solid #D6D5D4;}
+.td5{width:8%;border-bottom: 1px solid #D6D5D4;text-align: center;}
+.clear{float: none;clear: both;}
+
+#itemTable{font-size: 14px;width: 100%;}
+.evenRow{background-color:  #FCFCFC;}
+#itemTable tr:hover{background-color: #ECEAEA;}
+.tableHead{background-color:#ECEAEA; }
+
+.removeComm,.addComm{text-decoration: none;}

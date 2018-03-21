@@ -1,0 +1,410 @@
+
+#{extends 'skincomment/skincommentbase.html' /}
+#{set title:'好评助手' /}
+
+<link rel="stylesheet" media="screen" href="/css/Switch/switch.css?_v=1"/>
+<link rel="stylesheet" media="screen" href="/css/skincomment/defensewarn.css"/>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css">
+    .skincomment-table tbody tr td.dfconfigtd {        text-align: left;    }
+    .configintro{color:blue;}
+    
+    a{text-decoration: none;}
+    #userInfo{width:100%;border-bottom: 1px solid #BBBBBB;font-size:16px}
+    .funcitem{background: white; border: 1px solid #BBBBBB;;text-align: center;float:left;magin-left:-10px;}
+    .funcitem span{display: block;}
+    .funcitem span h2{color: #259;font-size: 20px;;}
+    .funclogo{width:75px;height:75px;margin:0 auto;}
+
+    .firstLineDiv{height:121px;margin-left: 3px;display:inline-block;*display:inline;width: 240px;}
+    .funcSwitch{height: 90px;width:120px;padding-top:25px;text-align: left;}
+    .funcSwitch ul{padding-left:10px;*margin-left:10px;}
+    .preGoDetail{margin-top:5px;padding-left:25px;}
+    .funcimgspan{width:80px;height:80px;;margin-left: 10px;}
+    #subscribe{width:200px;;background: white; border: 1px solid #BBBBBB;text-align: center;float:left;}
+    /*ul{margin:0 0 0 0;}*/
+    /*li{float:none;}*/
+    .before-xianjia p{font-size: 16px;font-family: '微软雅黑';}
+    .defenderindex-container {border: 1px solid #999; font-family: "微软雅黑";font-size: 14px;color: #333;min-height: 380px;_height: 380px;margin:5px 5px 15px 5px}
+    
+    .defense-info{width:100%; text-align:center;font-size:14px;border-top:1px solid #999;}
+    .defense-info th {background: #eee; height:30px;border: 1px solid #d9d9d9;height:35px;font-size: 16px;}
+    .defense-info td {border:1px solid #d9d9d9;height:30px;}
+    .defense-warn-table thead {background: #ffe; height:30px;}
+    
+    .indexGoDetail{width: 65px;}
+    #subscribe div {
+        padding-top: 0px;
+    }
+    .chaping-dealing-ranks {
+        width: 240px;
+
+    }
+    .chaping-dealing-ranks-table {
+        text-align: center;
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-collapse: collapse;
+    }
+    .chaping-dealing-ranks-table thead tr {
+        font-weight: bold;
+        background: -webkit-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -moz-linear-gradient(top,#FEFEFE,#F7F7F7);
+        background: -ms-linear-gradient(#FEFEFE,#F7F7F7);
+        background: -o-linear-gradient(#FEFEFE,#F7F7F7);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFEFEFE, endColorstr=#FFF7F7F7);
+        height: 36px;
+        line-height: 36px;
+        font-size: 16px;
+    }
+    .chaping-dealing-ranks-table thead tr td {
+        background: url(/img/th_line.gif) no-repeat right 50%;
+    }
+    .chaping-dealing-ranks-table tbody tr td img {
+        cursor: pointer;
+    }
+    .chaping-dealing-ranks-table tbody tr {
+        height: 46px;
+        cursor: pointer;
+    }
+    .chaping-dealing-ranks-table {
+        color: #666;
+    }
+    .chaping-dealing-ranks-tip {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .startNumSpan {
+        font-size: 12px;
+        float: right;
+        margin-right: 10px;
+    }
+    .chapingCompanyName {
+        float: left;
+        margin-left: 10px;
+    }
+    .alloccated-me-detail{
+        height: 400px;
+    }
+    .alloccated-me-detail tr{height: 60px;}
+    .alloccated-me-detail .key-td {width: 80px;text-align: right}
+    .alloccated-me-detail .val-td {padding-left: 15px;font-size: 16px;color: green;}
+</style>
+<div style="height:auto;min-height: 300px;_height:300px;width: 1000px;margin:0 auto;">
+
+<div class="defenderindex-container">
+	<!-- <blockquote>
+	        <p>若要使用自动评价，请确保自动评价按钮为<span style="color: red;font-size: 16px;">已开启</span>状态!</p>
+	        <p>若要使用自动差评防御，请确保自动差评防御按钮为<span style="color: red;font-size: 16px;">已开启</span>状态!</p>
+	        <p>若要使用防御短信通知，请确保短信通知按钮为<span style="color: red;font-size: 16px;">已开启</span>状态!并且<a href="/skincomment/warn" style="color: blue;font-size: 16px;">设置短信通知号码!</a></p>
+	</blockquote> -->
+
+
+
+    <table style="width: 100%;">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="width: 100%;text-align: center;margin: 10px;">
+                        <span style="font-size: 28px;font-weight: bold;color: red;text-align: center;">
+                            亲，还在低声下气自己改中差评？交给专业的吧！                     <span style="font-weight: bolder;" class="doFlash">==>></span>
+                        </span>
+
+                    </div>
+                    <div id="userInfo" style="border-bottom: none;">
+                        <table style="margin-left: 15px;">
+                            <tbody>
+                            <tr>
+                                <td rowspan="">
+                                    <div id='subscribe' class='firstLineDiv' style="">
+                                        <div id='username' style="font-size: 14px;font-weight: bold;">绵羊团队欢迎您</div>
+                                        <div>
+                                            <span>订购版本：<b id='verText' style="color: red;"></b></span>
+
+                                        </div>
+                                        <div>
+
+                                            <span>剩余天数：<b id='dayLeftText' style="color: red;"></b>天</span>
+                                        </div>
+                                        <div>剩余短信：<b id='smsLeftText' style="color: red;"></b>条 | <a href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8" target="_blank" style="font-size:18px;font-weight: bolder;color: red;">充值</a></div>
+                                        <div><a class="btn btn-warning" id="upgradeBtn" target="_blank" href="">点击升级</a></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="funcitem firstLineDiv">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                        <span class="funcimgspan">
+                                                            <img src='http://img04.taobaocdn.com/imgextra/i4/1132351118/T2ci3JXipaXXXXXXXX_!!1132351118.png' class='funclogo' style="margin-top:5px;">
+                                                        *{<div class='funclogo  commentlogo comm ' style="margin-top:18px;"></div>}*
+                                                        </span>
+                                                </td>
+                                                <td>
+                                                        <span class="funcSwitch">
+                                                            <p class='preComment' ></p>
+                                                            <p class="preGoDetail" ><a class='btn btn-info indexGoDetail' tag='comment' href="/SkinComment/index">详细设置</a></p>
+                                                        </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="funcitem firstLineDiv">
+                                        <table>
+                                            <tr>
+                                                <td>
+	            <span class="funcimgspan">
+	                <img src='http://img03.taobaocdn.com/imgextra/i3/1132351118/T23.3JXaRaXXXXXXXX_!!1132351118.png' class='funclogo' style="margin-top:5px;">
+
+	            </span>
+                                                </td>
+                                                <td>
+	            <span class="funcSwitch">
+	                <p class='preDelist'></p>
+	                <p class="preGoDetail" ><a class='btn btn-info indexGoDetail' tag='delist' href="/SkinDefender/config">详细设置</a></p>
+	            </span>
+                                                    <span></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </td>
+                <td rowspan="2">
+                    <div class="chaping-dealing-ranks">
+                    #{if isAllcoted == false || chiefStaffDetail == null}
+                        <div class="show-rank">
+                            <div class="chaping-dealing-ranks-tip">
+                            <span style="font-size: 18px;">
+                                中差评修改外包团队排行榜
+                            </span>
+                            </div>
+                            <div style="height: 400px;border: 1px solid #ccc;overflow-y: scroll;">
+                                <table class="chaping-dealing-ranks-table" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <td>
+                                            公司
+                                        </td>
+                                        <td style="border-right: 1px solid #ccc;">
+                                            联系方式
+                                        </td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    #{/if}
+                    #{else}
+                        <div class="alloccated-me-detail">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="" colspan="2" style="font-size: 22px;text-align: center;">${chiefStaffDetail.companyName}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="key-td">团队logo:</td>
+                                        <td class="val-td"><img title="${chiefStaffDetail.companyName}" src="${chiefStaffDetail.logo}" style="width: 60px;height: 60px;border: 1px solid #ccc;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="key-td">起接差评数:</td>
+                                        <td class="val-td">${chiefStaffDetail.startNum}</td>
+                                    </tr>
+                                    #{if chiefStaffDetail.showPrice == true}
+                                    <tr>
+                                        <td class="key-td">每条单价:</td>
+                                        <td class="val-td">${chiefStaffDetail.realPrice}</td>
+                                    </tr>
+                                    #{/if}
+                                    <tr>
+                                        <td class="key-td">公司备注:</td>
+                                        <td class="val-td">${chiefStaffDetail.remark}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="key-td">客服旺旺:</td>
+                                        <td class="val-td">
+                                            <a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&amp;touid=${chiefStaffDetail.wangwang}&amp;siteid=cntaobao&amp;status=1&amp;charset=utf-8">
+                                                <img src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="使用QQ联系我们">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    #{/else}
+
+                    </div>
+                </td>
+            </tr>
+           *{ <tr>
+                <td>
+                    <div class="intro" style="text-align: center;margin: 0 20px;">
+                        <!-- <a  style=" color:red;display:inline-block;" target="_blank" href="http://bangpai.taobao.com/group/thread/15247314-283090080.htm?spm=0.0.0.0.saLxLB">如何辨别差评师以及查询旺旺小号</a> -->
+                        <table style="width:100%;">
+                            <tr style="text-align: center;">
+                                <td><div style=";font-weight:bold;">承接人工修改中差评外包业务<span class="badcomment-img btn btn-primary" style="margin-left: 8px;">留下联系方式，委托处理</span><div style="color: red;margin:0 5px;font-size: 16px;">(当月中差评数<span style="font-size: 24px;margin: 0 8px;">8</span>个以上起处理)</div></div></td>
+                                <td><a class="btn btn-info" href="/SkinComment/commentNormal">中差评修改入口</a></td>
+                                <td>
+                                    在线客服：<a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E8%BD%A6%E9%81%93%E4%BC%98%E9%A9%BE&siteid=cntaobao&status=1&charset=utf-8">
+                                    <img border="0" src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="联系客服"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+
+            </tr>}*
+            <tr>
+                <td>
+                    <table class="defense-info" style="width: 95%;margin: 0 auto;">
+                        <tr><th>功能模块</th><th>详细信息</th><th>操作选项</th></tr>
+                        <tr>
+                            <td>差评防御</td><td>已成功拦截订单数：<span style="color: blue;font-size: 16px;" id="defense-count">0</span>&nbsp;单！</td><td><a href="/SkinDefender/log" class="add-warn-btn commbutton btntext4">立即查看</a></td>
+                        </tr>
+                        <tr class="even">
+                            <td>自动评价</td><td>已自动评价订单数量：<span style="color: blue;font-size: 16px;" id="comment-count">0</span>&nbsp;条！</td><td><a href="/SkinComment/index" class="add-warn-btn commbutton btntext4">立即查看</a></td>
+                        </tr>
+                        <tr>
+                            <td>短信通知</td><td>已经免费发送短信通知：<span style="color: blue;font-size: 16px;" id="sms-count">0</span>&nbsp;条！</td><td><a href="/SkinComment/noticeLog" class="add-warn-btn commbutton btntext4">立即查看</a></td>
+                        </tr>
+                        <tr class="even">
+                            <td>黑名单设置</td><td>已设置黑名单买家数：<span style="color: blue;font-size: 16px;" id="blacklist-count">0</span>&nbsp;个！</td><td><a href="/SkinBlackList/index" class="add-warn-btn commbutton btntext4">管理黑名单</a></td>
+                        </tr>
+                        <tr>
+                            <td>白名单设置</td><td>已设置白名单买家数：<span style="color: blue;font-size: 16px;" id="whitelist-count">0</span>&nbsp;个！</td><td><a href="/SkinWhiteList/index" class="add-warn-btn commbutton btntext4">管理白名单</a></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+	<div class="ShopDiagnoseArea" style='width:100%;margin: 5px auto;background-color: white;'>
+
+	    
+	    <div class="smswarn-container"></div>
+	    
+
+	    <div class="blank0" style="height:10px"></div>
+        <div style="text-align:center;">
+            <div class="headspan" style="width:940px;margin: 0 auto;">
+                【淘掌柜】 家族 良心服务推荐 -- <span class="red">中国好服务!</span>
+            </div>
+             <div class="blank0" style="height:15px"></div>
+                    <div>
+                    <a style="margin-right: 100px;" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.117.UmLIZs&service_code=ts-1820059&tracelog=chapingbottom" target="_blank"><img src="http://img01.taobaocdn.com/top/i1/T10jtLFathXXaCwpjX.png" /></a>
+                    <a style="margin-right: 100px;" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.115.hnP0wr&service_code=FW_GOODS-1835721&tracelog=chapingbottom" target="_blank"><img src="http://img01.taobaocdn.com/top/i1/T1u0B1FaBcXXaCwpjX.png" /></a>
+                    <a style="margin-right: 100px;" href="http://fuwu.taobao.com/ser/detail.htm?spm=0.0.0.0.9TQlpA&service_code=FW_GOODS-1841777&tracelog=chapingbottom" target="_blank"><img src="http://img01.taobaocdn.com/top/i1/T1xnilFoJXXXaCwpjX.png" /></a>
+                    <a href="http://fuwu.taobao.com/ser/detail.htm?spm=a1z13.1113643.1113643.12.zx3uhf&service_code=FW_GOODS-1850391&&tracelog=chapingbottom" target="_blank"><img src="http://img01.taobaocdn.com/top/i1/T129o3FmXbXXb1upjX.jpg" /></a>
+             </div>
+        </div>
+	</div>
+</div>
+
+<div class='clearfix'></div>
+</div>
+
+
+
+<script type="text/javascript">
+    
+    $('.badcomment-img').click(function(){
+        var html = '<div>';
+        html += '<p style="text-align: center;padding-top:20px;font-weight:16px;">亲，如果您需要处理中差评，请留下您的QQ号码!</p><div style="color: red;margin:0 5px;font-size: 16px;padding: 20px 0;text-align: center;">(当月中差评数<span style="font-size: 24px;margin: 0 8px;">8</span>个以上起处理)</div>' +
+                '<p style="text-align: center;padding-bottom: 15px;">2个工作日内，我们会有客服联系您哦，心急可以直接联系我们客服哦~</p>';
+//                '<p style="text-align: center;padding-bottom: 15px;color:red;">注意：从2014.1.26号~2.9号期间，提交的中差评处理需求；<br>我们将从2.10日开始联系亲们，抱歉！</p>';
+        html += '<table style="margin:0 auto;padding:10px;"><tr><td style="text-align: right;font-weight:bold;">您的QQ号码：</td>' +
+                '<td><input type="text" id="seller-qq" value="" /></td></tr>';
+        //html += '<tr><td>您的店铺地址：</td><td><input type="text" id="seller-shop-addr" value="" /></td></tr></table>';
+        html += '</table></div>';
+        var feedbakc_obj = $(html);
+        TM.Alert.loadDetail(feedbakc_obj, 500, 300, function(){
+            if(feedbakc_obj.find('#seller-qq').val().length < 5){
+                TM.Alert.load("亲，请核对填写的QQ号码！", 300, 200, null, false, "提示", 5000);
+                return false;
+            }
+            
+            $.post('/op/fillQQ',{qq:feedbakc_obj.find('#seller-qq').val()},function(data){
+                TM.Alert.load(data);
+            });
+        },"");
+    });
+
+    $.get('/SkinDefender/getChapingBannerLink', {interval:"quarter"}, function(data){
+        if(data == "链接时间段出错" || data == "找不到对应用户" || data == "获取营销链接出错") {
+
+        } else {
+            $('.defender-banner-quarter-link').attr("href", data);
+        }
+    });
+    $.get('/SkinDefender/getChapingBannerLink', {interval:"halfyear"}, function(data){
+        if(data == "链接时间段出错" || data == "找不到对应用户" || data == "获取营销链接出错") {
+
+        } else {
+            $('.defender-banner-halfyear-link').attr("href", data);
+        }
+    });
+</script>
+
+<script type="text/x-jquery-tmpl" id="ChiefStaffDetailTr">
+    <tr style="font-size: 14px;" class="chapingNameTr" index="{{= id}}">
+        <td colspan="2" title="{{= companyName}}"><span class="chapingCompanyName">{{= companyName}}</span><span class="startNumSpan">{{= startNum}}个起接</span></td>
+    </tr>
+    <tr class="chapingDetailTr hidden" index="{{= id}}">
+    <td title="{{= companyName}}"><img src="{{= logo}}" alt="{{= companyName}}" style="width: 64px; height: 64px;margin: 2px;border: 1px solid #ccc;"></td>
+    <td style="border-right: 1px solid #ccc;" title="{{= remark}}">
+        <a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid={{= wangwang}}&siteid=cntaobao&status=1&charset=utf-8">
+            <img src="http://img04.taobaocdn.com/tps/i4/T1uUG.XjtkXXcb2gzo-77-19.gif" alt="使用QQ联系我们">
+            </a>
+        <img style="margin-left:18px;" src="http://img03.taobaocdn.com/imgextra/i3/1039626382/TB2StgRaXXXXXamXXXXXXXXXXXX-1039626382.gif" alt="{{= remark}}">
+        </td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    TM.gcs('/js/jquery.tmpl.js', function(){
+        TM.gcs('/js/switch.js', function () {
+            TM.gcs('/js/ChineseDatePicker.js', function () {
+                TM.gcs('/js/highcharts.js',function(){
+                    TM.gcs('/js/skincomment/defenderindex.js?_v=20170720', function () {
+                        TM.gcs('/status/js', function () {
+                            $(document).ready(function () {
+                                TM.Loading.init.show();
+    //                            $('#right-award').show();
+                                TM.DefenderIndex.init.doInit($(".defenderindex-container"), ${isAllcoted});
+                                TM.DefenseWarn.init.doInit($(".smswarn-container"));
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+
+
+</script>

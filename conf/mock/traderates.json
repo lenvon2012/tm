@@ -1,0 +1,33 @@
+{
+    "traderates_get_response": {
+        "trade_rates": {
+            "trade_rate": [{
+                "content": "好评！",
+                "created": "2010-05-20 22:00:37",
+                "item_price": "1.2",
+                "item_title": "【24小时自动电脑充值】海南移动快充1元67.la#AAA",
+                "nick": "easesou",
+                "oid": 37750250222274,
+                "rated_nick": "匿名",
+                "result": "good",
+                "role": "seller",
+                "tid": 37750250222274,
+                "num_iid": 1234
+            },
+            {
+                "content": "好评！",
+                "created": "2010-05-20 22:00:37",
+                "item_price": "1.2",
+                "item_title": "【24小时自动电脑充值】湖北移动快充1元67.la#AAA",
+                "nick": "easesou",
+                "oid": 37749751692274,
+                "rated_nick": "匿名",
+                "result": "good",
+                "role": "seller",
+                "tid": 37749751692274,
+                "num_iid": 5678
+            }]
+        },
+        "total_results": 12
+    }
+}

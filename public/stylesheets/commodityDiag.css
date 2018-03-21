@@ -1,0 +1,112 @@
+
+#commodityDiag{width:780px;margin:0 auto; }
+.title{float:left;width:777px;background-color: #ffd;border: 1px solid #9e9e9e;margin-right:20px;}
+.title img{border: 1px solid #ccc;}
+.commImg{margin:10px;float:left;width:72px;height:72px;}
+.header{float:left;margin-top:6px;}
+/*#searchText{width: 230px;}*/
+.textinput{width:100px;}
+.searchselect{vertical-align:middle;height:24px;width:165px;}
+#lowBegin,#topEnd{width: 30px;}
+
+.itemsListHead{text-align: center;width:780px;background-color: #4A8F9F;height:40px;line-height: 40px;color: white;font-weight: bolder;}
+.commodityTitle{font:14px Verdana, Geneva, sans-serif;width:480px;float:left;color:blue;}
+.searchTitle{color:#585B66;font-weight:bold;}
+.scoreRange{color:#90C2E7;font-weight:bold;}
+.priceSpan{font:17px/24px Verdana, Geneva, sans-serif;display:-moz-inline-box;display:inline-block;width: 150px;}
+.lookup{font:bold 17px/24px Verdana, Geneva, sans-serif;display:-moz-inline-box;display:inline-block;width: 80px;}
+.scoreSpan{font:bold 17px/24px Verdana, Geneva, sans-serif;display:-moz-inline-box;display:inline-block;width: 150px;}
+ /*{font:bold 17px/24px Verdana, Geneva, sans-serif;}*/
+.singleComm{border-right: 1px solid #B0B0B0;border-top: 1px solid #B0B0B0;border-left: 1px solid #B0B0B0;}
+#itemsStatus{margin-right: 10px;}
+#searchBtn{ color:white;font-weight:bold; border:0px; float: left; text-align:center;margin-top:3px;margin-left: 10px;}
+.titleContent{float:left;width: 450px;padding-left:10px;padding-top:10px;}
+
+#baseInf{float:left; padding-top:5px; }
+#baseInf a{color:#000000;}
+#baseInf a:hover{color:#000099;}
+.detailTable{margin-left:230px;}
+
+.diagDetail{float:left;display: none;width: 100%;}
+
+.diagTable{padding-left:10px;border-collapse: collapse;border-spacing: 0;width: 100%;}
+
+.diagTable .td1{width:100px;text-align:center;border-bottom:1px solid #B0B0B0;*border-left: 1px solid #B0B0B0;}
+.diagTable .td2{width:100px;text-align:left;border-bottom:1px solid #B0B0B0;
+    font-family:sans-serif;font-weight: bolder;font-size: 12px;}
+.diagTable .td3{width:550px;;border-bottom:1px solid #B0B0B0;font-family:sans-serif;font-size: 12px;*border-right: 1px solid #B0B0B0;}                                                                             d
+.green{color:#33FF00;}
+.red{color:#FF0000;}
+.blue{color: #4c7bff;}
+.bold{font-weight: bold;}
+.score{font-size:30px;}
+.sortup{background: url(/img/tips/arrow_up.gif) no-repeat 40px 12px;}
+.sortdown{background: url(/img/tips/arrow_down.gif) no-repeat 40px 12px;}
+
+.youhuaBtn{float:left;width:120px;height:92px;}
+
+.youhuaBtn img{width:130px;margin-left:10px;margin-top:33px;border:0px;height:36px;}
+
+a{text-decoration: none;}
+
+.clear{float: none; clear: both;}
+
+
+.pagination {font-size: 80%;float:right;margin:0;margin-top:4px;margin-right:0px;}
+        
+.pagination a {text-decoration: none;border: solid 1px #AAE;color: #15B;}
+
+.pagination a, .pagination span {display: block;float: left;padding: 0.3em 0.5em;margin-right: 5px;margin-bottom: 5px;min-width:1em;text-align:center;}
+
+.pagination .current ,.pagination a:hover{text-decoration: none;border: #980101 solid 1px;background: #039CFD;color: white;display: inline-block!important;}
+
+.pagination .current.prev, .pagination .current.next{color:#999;border-color:#999;background:#fff;}
+
+/*tr{height:40px;}*/
+.intro1{}
+.intro2{}
+.commOdd{background-color: #E4ECF9;}
+.commEven{background-color: #ffffff;}
+.diag-odd{background-color:rgb(251,251,251);}
+.diag-last{background-color:#D7FFEE;}
+.tab{ border:1px solid #B1B1B0;}
+/*#bbzd{background-image: url("/public/images/frame/btn3.png");}*/
+#striging{
+		height:8px;
+	margin-top: -5px;
+}
+.mzc_button6{display: inline-block;    padding-left: 2px;padding-top: 5px;cursor: pointer;float: left;}
+/*a.mzc_button6 span {display: inline-block;*/
+    /*padding-right: 2px;}*/
+/*a.mzc_button6 span span {display: inline-block;;*/
+    /*padding: 0 10px;height: 20px;line-height: 20px;font-size: 12px;color: #333;}*/
+    
+ #user_status{
+ 	font-size: 14px;
+ 	font-weight: bold;
+ }
+ #user_version_status{
+ 	color: green;
+ }   
+ #version_buy{
+ 	margin-bottom: 0px;
+ 	text-align: center;
+ }
+.jumpTo{border:none;}
+
+.Desc {
+    background: url("/img/sort-bg.png") 0px -17px;
+}
+.Asc {
+    background: url("/img/sort-bg.png") 0px -40px;
+}
+.sort {
+    width: 20px;
+    height: 20px;
+}
+.orderTd {
+	cursor: pointer;
+}
+.sortTh {
+	cursor: pointer;
+}

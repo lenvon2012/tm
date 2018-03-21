@@ -1,0 +1,22 @@
+#{extends 'keymain.html' /}
+#{set title:'批量中心' /}
+
+<link rel="stylesheet" media="screen" href="/css/skinbatch/skinbatch.css"/>
+<style>
+    .kwcontainer{overflow-y: hidden;}
+</style>
+
+
+<script src="/js/tm.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/autoTitle/onekey.js" type="text/javascript" charset="utf-8"></script>
+
+<div class="batch-container"></div>
+<div class='clearfix'></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        TM.Loading.init.show();
+        TM.SkinBatch.init.doInit($(".batch-container"));
+    });
+
+</script>

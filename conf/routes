@@ -1,0 +1,60 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       In.home
+
+
+GET		/test									Test.test
+GET		/test1									Test1.test
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+GET     /local/?                                TMAdmin.index
+*       /local/                                 module:crud
+*       /                                       module:secure
+*       /tm/make                       TMAdmin.makeDev
+*       /tm/name                       TMAdmin.makeDevName
+*       /f/{uid}                             In.forward
+*       /autotitleinvite/{uid}                             In.forward
+*       /skindefenderinvite/{uid}                             In.forward
+GET     /o                                   In.img
+*       /tblminvite/{uname}                    In.tblmforward
+
+*      /share                                Application.ShowRandomPopularizedItems
+*      /tryshare                             Application.ShowRandomPopularizedItems
+*      /vgouShare                            Application.vgouShare
+
+*	   /jinnang								 JinNangZheKou.index 
+*      /home                              Home.tbtIndex
+
+GET     /taoweigou/index.html                  TaoWeiGou.index
+GET     /taoweigou/cat{catid}.html                  TaoWeiGou.index
+GET     /item/{numIid}.html                  TaoWeiGou.detail
+GET     /cat{catid}/s/{search}.html                  TaoWeiGou.index
+GET     /helpcenter/article/{id}.html         HelpCenter.index
+
+GET     /s/                                  staticDir:public
+GET     /js/                                 staticDir:public/javascripts
+GET     /img/                                staticDir:public/images
+GET     /css/                                staticDir:public/stylesheets
+
+GET     /m/{sellerId}.png                         Monitor.refresh
+GET     /bdsitemap.txt                            In.bdsitemap
+
+#GET     /robots.txt                               In.robot
+GET     /robots.txt                          staticFile:/public/robots.txt
+GET     /sitemap.xml                         staticFile:/public/sitemap.xml
+GET     /{SHA}.html                               SkinDefender.deSHA
+
+# Catch all
+*       /comment-{userId}.html                  CatSearchComment.userComment
+*       /authority-{userId}.html                  CatSearchAuthority.userAuthority
+*       /sales-{userId}.html                  CatSearchSaleCount.userSales
+*       /{controller}/{action}                  {controller}.{action}
